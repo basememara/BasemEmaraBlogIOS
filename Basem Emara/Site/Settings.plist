@@ -21,7 +21,7 @@
 	<key>titleColor</key>
 	<string>255,255,255</string>
 	<key>secondaryTintColor</key>
-	<string>49,169,234</string>
+	<string>137,167,167</string>
 	<key>tabTitleColor</key>
 	<string></string>
 	<key>styleSheet</key>
@@ -230,7 +230,7 @@
 			<key>title</key>
 			<string>Subscribe to newsletter</string>
 			<key>link</key>
-			<string>http://eepurl.com/bt5Y2L</string>
+			<string>http://basememara.com/newsletter-signup</string>
 			<key>icon</key>
 			<string>signup</string>
 		</dict>
@@ -238,7 +238,7 @@
 			<key>title</key>
 			<string>Work with me</string>
 			<key>link</key>
-			<string>http://basememara.com/portfolio/?mobileembed=1</string>
+			<string>http://basememara.com/resume/?mobileembed=1</string>
 			<key>icon</key>
 			<string>idea</string>
 		</dict>
@@ -260,7 +260,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Rate our app</string>
+			<string>Rate my app</string>
 			<key>link</key>
 			<string>{{rate}}</string>
 			<key>icon</key>
