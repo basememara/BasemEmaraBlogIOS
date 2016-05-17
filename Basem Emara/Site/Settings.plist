@@ -171,7 +171,7 @@
 			<key>desc</key>
 			<string>Thank you for downloading my mobile app! The launch of this app was inspired from uncovering the joys, pains, and realities of mobile, web, and software development. Many of my blog posts dissect this very open-source app and other real-world projects.</string>
 			<key>image</key>
-			<string>page1</string>
+			<string>profile-pic</string>
 			<key>bgImage</key>
 			<string></string>
 		</dict>
@@ -207,9 +207,9 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Newsletter</string>
+			<string>Stay in Touch!</string>
 			<key>desc</key>
-			<string>Thank you for coming along for the journey; I hope you find it as fun and exciting as I do! Be sure to sign up for my personal newsletter and get the latest happenings, tips, tricks, and tutorials right in your inbox!</string>
+			<string>Thank you for coming along for the journey; I hope you find it as fun and exciting as I do! Be sure to contact me to learn about how I can help your mobile initiatives or just to say hello!</string>
 			<key>image</key>
 			<string>page5</string>
 			<key>bgImage</key>
@@ -252,7 +252,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Send us feedback</string>
+			<string>Send me feedback</string>
 			<key>link</key>
 			<string>{{feedback}}</string>
 			<key>icon</key>
