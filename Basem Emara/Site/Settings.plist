@@ -252,7 +252,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Send me feedback</string>
+			<string>Send me email</string>
 			<key>link</key>
 			<string>{{feedback}}</string>
 			<key>icon</key>
