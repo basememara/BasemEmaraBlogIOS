@@ -22,6 +22,10 @@
 	<string>255,255,255</string>
 	<key>secondaryTintColor</key>
 	<string>137,167,167</string>
+	<key>collectionCellCornerRadius</key>
+	<integer>1</integer>
+	<key>collectionCellShadowRadius</key>
+	<integer>1</integer>
 	<key>tabTitleColor</key>
 	<string></string>
 	<key>styleSheet</key>
@@ -30,13 +34,6 @@
 	<string>UA-60131988-2</string>
 	<key>featuredCategoryID</key>
 	<integer>64</integer>
-	<key>designedBy</key>
-	<dict>
-		<key>title</key>
-		<string>Basem Emara</string>
-		<key>link</key>
-		<string>http://basememara.com</string>
-	</dict>
 	<key>categories</key>
 	<array>
 		<dict>
@@ -220,7 +217,7 @@
 	<array>
 		<dict>
 			<key>title</key>
-			<string>About this blog</string>
+			<string>About me</string>
 			<key>link</key>
 			<string>http://basememara.com/about/?mobileembed=1</string>
 			<key>icon</key>
@@ -228,11 +225,19 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Subscribe to newsletter</string>
+			<string>Subscribe</string>
 			<key>link</key>
 			<string>http://basememara.com/newsletter-signup</string>
 			<key>icon</key>
 			<string>signup</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Send me an email</string>
+			<key>link</key>
+			<string>{{feedback}}</string>
+			<key>icon</key>
+			<string>feedback</string>
 		</dict>
 		<dict>
 			<key>title</key>
@@ -244,22 +249,6 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Read tutorial</string>
-			<key>link</key>
-			<string>{{tutorial}}</string>
-			<key>icon</key>
-			<string>literature</string>
-		</dict>
-		<dict>
-			<key>title</key>
-			<string>Send me email</string>
-			<key>link</key>
-			<string>{{feedback}}</string>
-			<key>icon</key>
-			<string>feedback</string>
-		</dict>
-		<dict>
-			<key>title</key>
 			<string>Rate my app</string>
 			<key>link</key>
 			<string>{{rate}}</string>
@@ -268,7 +257,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Tell a friend</string>
+			<string>Share my app</string>
 			<key>link</key>
 			<string>{{share}}</string>
 			<key>icon</key>
@@ -276,11 +265,30 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>Disclaimer</string>
+			<string>Read tutorial</string>
+			<key>link</key>
+			<string>{{tutorial}}</string>
+			<key>icon</key>
+			<string>literature</string>
+		</dict>
+	</array>
+	<key>otherMenu</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Read my disclaimer</string>
 			<key>link</key>
 			<string>http://basememara.com/disclaimer/?mobileembed=1</string>
 			<key>icon</key>
 			<string>import</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Designed by Basem Emara</string>
+			<key>link</key>
+			<string>http://basememara.com</string>
+			<key>icon</key>
+			<string>design</string>
 		</dict>
 	</array>
 </dict>
