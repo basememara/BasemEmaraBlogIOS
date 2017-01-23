@@ -17,7 +17,6 @@
 		8BC42BB41E348D5700937B06 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB11E348D5700937B06 /* RealmSwift.framework */; };
 		8BC42BB51E348D5700937B06 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB11E348D5700937B06 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BC42BC21E348D8600937B06 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB71E348D8600937B06 /* Alamofire.framework */; };
-		8BC42BC31E348D8600937B06 /* Async.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB81E348D8600937B06 /* Async.framework */; };
 		8BC42BC41E348D8600937B06 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB91E348D8600937B06 /* JASON.framework */; };
 		8BC42BC51E348D8600937B06 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBA1E348D8600937B06 /* Kingfisher.framework */; };
 		8BC42BC61E348D8600937B06 /* PathKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBB1E348D8600937B06 /* PathKit.framework */; };
@@ -79,7 +78,6 @@
 			files = (
 				8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */,
 				8BC42BC21E348D8600937B06 /* Alamofire.framework in Frameworks */,
-				8BC42BC31E348D8600937B06 /* Async.framework in Frameworks */,
 				8BC42BC41E348D8600937B06 /* JASON.framework in Frameworks */,
 				8BC42BC51E348D8600937B06 /* Kingfisher.framework in Frameworks */,
 				8BC42BC61E348D8600937B06 /* PathKit.framework in Frameworks */,
@@ -248,7 +246,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Async.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JASON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PathKit.framework",
