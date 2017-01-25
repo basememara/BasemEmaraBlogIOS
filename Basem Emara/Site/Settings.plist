@@ -143,9 +143,9 @@
 			<key>title</key>
 			<string>LinkedIn</string>
 			<key>link</key>
-			<string>https://www.linkedin.com/profile/view?id=36761206</string>
+			<string>https://www.linkedin.com/in/basememara/</string>
 			<key>app</key>
-			<string>linkedin://profile?id=36761206</string>
+			<string>linkedin://profile/basememara</string>
 			<key>icon</key>
 			<string>linkedin</string>
 		</dict>
