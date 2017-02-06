@@ -29,6 +29,8 @@
 		8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCD1E34901300937B06 /* SwiftyPress.framework */; };
 		8BC42BD01E34910F00937B06 /* Spectre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCF1E34910F00937B06 /* Spectre.framework */; };
 		8BF2107F1E491BFA0026B802 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */; };
+		8BF210891E4924320026B802 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF210871E4924320026B802 /* Crashlytics.framework */; };
+		8BF2108A1E4924320026B802 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF210881E4924320026B802 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +73,8 @@
 		8BC42BCD1E34901300937B06 /* SwiftyPress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyPress.framework; path = Carthage/Build/iOS/SwiftyPress.framework; sourceTree = "<group>"; };
 		8BC42BCF1E34910F00937B06 /* Spectre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spectre.framework; path = Carthage/Build/iOS/Spectre.framework; sourceTree = "<group>"; };
 		8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		8BF210871E4924320026B802 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
+		8BF210881E4924320026B802 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF210891E4924320026B802 /* Crashlytics.framework in Frameworks */,
+				8BF2108A1E4924320026B802 /* Fabric.framework in Frameworks */,
 				8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */,
 				8BC42BC21E348D8600937B06 /* Alamofire.framework in Frameworks */,
 				8BC42BC41E348D8600937B06 /* JASON.framework in Frameworks */,
@@ -142,6 +148,8 @@
 		8B35EB351CE5E28000514856 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BF210871E4924320026B802 /* Crashlytics.framework */,
+				8BF210881E4924320026B802 /* Fabric.framework */,
 				8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */,
 				8BC42BCF1E34910F00937B06 /* Spectre.framework */,
 				8BC42BCD1E34901300937B06 /* SwiftyPress.framework */,
@@ -175,6 +183,7 @@
 				8BC42BB61E348D5700937B06 /* Embed Frameworks */,
 				8B35EB361CE5E2C900514856 /* Run Carthage Script */,
 				8B35EB371CE5E36F00514856 /* Run Realm Script */,
+				8BF210821E4923430026B802 /* Run Fabric Script */,
 			);
 			buildRules = (
 			);
@@ -286,6 +295,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+		8BF210821E4923430026B802 /* Run Fabric Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Fabric Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Frameworks/Fabric.framework/run 44a36f004b1764af2297d4fbb1ba331d077c8177 a75f3cea131c3442e46e901d1948b0f2ecb8e42a6a7842f7ea1881d265236cbf";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -424,6 +447,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios",
+					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
@@ -446,6 +470,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios",
+					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";

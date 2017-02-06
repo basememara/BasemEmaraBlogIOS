@@ -9,6 +9,8 @@
 import UIKit
 import UserNotifications
 import SwiftyPress
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AppPressable {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppPressable {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         return didFinishLaunchingSite(application, launchOptions: launchOptions)
     }
     
