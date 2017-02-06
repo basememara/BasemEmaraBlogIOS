@@ -28,6 +28,7 @@
 		8BC42BCC1E348D8600937B06 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BC11E348D8600937B06 /* ZamzamKit.framework */; };
 		8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCD1E34901300937B06 /* SwiftyPress.framework */; };
 		8BC42BD01E34910F00937B06 /* Spectre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCF1E34910F00937B06 /* Spectre.framework */; };
+		8BF2107F1E491BFA0026B802 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,7 @@
 		8BC42BC11E348D8600937B06 /* ZamzamKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZamzamKit.framework; path = Carthage/Build/iOS/ZamzamKit.framework; sourceTree = "<group>"; };
 		8BC42BCD1E34901300937B06 /* SwiftyPress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyPress.framework; path = Carthage/Build/iOS/SwiftyPress.framework; sourceTree = "<group>"; };
 		8BC42BCF1E34910F00937B06 /* Spectre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spectre.framework; path = Carthage/Build/iOS/Spectre.framework; sourceTree = "<group>"; };
+		8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				8BC42BCA1E348D8600937B06 /* SwiftyUserDefaults.framework in Frameworks */,
 				8BC42BCB1E348D8600937B06 /* Timepiece.framework in Frameworks */,
 				8BC42BCC1E348D8600937B06 /* ZamzamKit.framework in Frameworks */,
+				8BF2107F1E491BFA0026B802 /* SwiftyBeaver.framework in Frameworks */,
 				8BC42BB41E348D5700937B06 /* RealmSwift.framework in Frameworks */,
 				8BC42BB21E348D5700937B06 /* Realm.framework in Frameworks */,
 			);
@@ -139,6 +142,7 @@
 		8B35EB351CE5E28000514856 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */,
 				8BC42BCF1E34910F00937B06 /* Spectre.framework */,
 				8BC42BCD1E34901300937B06 /* SwiftyPress.framework */,
 				8BC42BB71E348D8600937B06 /* Alamofire.framework */,
@@ -257,6 +261,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ZamzamKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyPress.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Spectre.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 			);
 			name = "Run Carthage Script";
 			outputPaths = (
