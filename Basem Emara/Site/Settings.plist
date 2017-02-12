@@ -271,6 +271,14 @@
 			<key>icon</key>
 			<string>literature</string>
 		</dict>
+		<dict>
+			<key>title</key>
+			<string>iOS Settings</string>
+			<key>link</key>
+			<string>{{settings}}</string>
+			<key>icon</key>
+			<string>phone</string>
+		</dict>
 	</array>
 	<key>otherMenu</key>
 	<array>
