@@ -3,277 +3,406 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B35EB011CE5DDC000514856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35EB001CE5DDC000514856 /* AppDelegate.swift */; };
-		8B35EB081CE5DDC000514856 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EB061CE5DDC000514856 /* Main.storyboard */; };
-		8B35EB0A1CE5DDC000514856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EB091CE5DDC000514856 /* Assets.xcassets */; };
-		8B35EB0D1CE5DDC000514856 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EB0B1CE5DDC000514856 /* LaunchScreen.storyboard */; };
-		8B35EB401CE5E42F00514856 /* Site in Resources */ = {isa = PBXBuildFile; fileRef = 8B35EB3F1CE5E42F00514856 /* Site */; };
-		8BC42BB21E348D5700937B06 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB01E348D5700937B06 /* Realm.framework */; };
-		8BC42BB31E348D5700937B06 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB01E348D5700937B06 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BC42BB41E348D5700937B06 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB11E348D5700937B06 /* RealmSwift.framework */; };
-		8BC42BB51E348D5700937B06 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB11E348D5700937B06 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BC42BC21E348D8600937B06 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB71E348D8600937B06 /* Alamofire.framework */; };
-		8BC42BC41E348D8600937B06 /* JASON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BB91E348D8600937B06 /* JASON.framework */; };
-		8BC42BC51E348D8600937B06 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBA1E348D8600937B06 /* Kingfisher.framework */; };
-		8BC42BC61E348D8600937B06 /* PathKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBB1E348D8600937B06 /* PathKit.framework */; };
-		8BC42BC71E348D8600937B06 /* RateLimit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBC1E348D8600937B06 /* RateLimit.framework */; };
-		8BC42BC81E348D8600937B06 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBD1E348D8600937B06 /* Stencil.framework */; };
-		8BC42BC91E348D8600937B06 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBE1E348D8600937B06 /* SwiftyTimer.framework */; };
-		8BC42BCA1E348D8600937B06 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BBF1E348D8600937B06 /* SwiftyUserDefaults.framework */; };
-		8BC42BCB1E348D8600937B06 /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BC01E348D8600937B06 /* Timepiece.framework */; };
-		8BC42BCC1E348D8600937B06 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BC11E348D8600937B06 /* ZamzamKit.framework */; };
-		8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCD1E34901300937B06 /* SwiftyPress.framework */; };
-		8BC42BD01E34910F00937B06 /* Spectre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC42BCF1E34910F00937B06 /* Spectre.framework */; };
-		8BF2107F1E491BFA0026B802 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */; };
-		8BF210891E4924320026B802 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF210871E4924320026B802 /* Crashlytics.framework */; };
-		8BF2108A1E4924320026B802 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF210881E4924320026B802 /* Fabric.framework */; };
+		8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */; };
+		8B1DC0D120B1AE0E009FBBBD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D020B1AE0E009FBBBD /* FirstViewController.swift */; };
+		8B1DC0D320B1AE0E009FBBBD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D220B1AE0E009FBBBD /* SecondViewController.swift */; };
+		8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */; };
+		8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */; };
+		8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */; };
+		8B1DC0E920B1AFE1009FBBBD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */; };
+		8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */; };
+		8B1DC0EF20B1AFE1009FBBBD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0ED20B1AFE1009FBBBD /* MainInterface.storyboard */; };
+		8B1DC0F320B1AFE1009FBBBD /* Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B1DC0FE20B1B0BF009FBBBD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */; };
+		8B1DC10020B1B0BF009FBBBD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */; };
+		8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */; };
+		8B1DC10620B1B0BF009FBBBD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC10420B1B0BF009FBBBD /* MainInterface.storyboard */; };
+		8B1DC10A20B1B0BF009FBBBD /* Post Notification Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B68A12120B1C86A000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
+		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
+		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
+		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
+		8B68A38820B1CC79000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
+		8B68A38920B1CC7A000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8B1DC0F120B1AFE1009FBBBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B1DC0C320B1AE0E009FBBBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B1DC0E520B1AFE1009FBBBD;
+			remoteInfo = "Today Extension";
+		};
+		8B1DC10820B1B0BF009FBBBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B1DC0C320B1AE0E009FBBBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B1DC0FB20B1B0BF009FBBBD;
+			remoteInfo = "Post Notification Extension";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		8BC42BB61E348D5700937B06 /* Embed Frameworks */ = {
+		8B1DC0F720B1AFE1009FBBBD /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 13;
 			files = (
-				8BC42BB51E348D5700937B06 /* RealmSwift.framework in Embed Frameworks */,
-				8BC42BB31E348D5700937B06 /* Realm.framework in Embed Frameworks */,
+				8B1DC0F320B1AFE1009FBBBD /* Today Extension.appex in Embed App Extensions */,
+				8B1DC10A20B1B0BF009FBBBD /* Post Notification Extension.appex in Embed App Extensions */,
 			);
-			name = "Embed Frameworks";
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B35EAFD1CE5DDC000514856 /* Basem Emara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basem Emara.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B35EB001CE5DDC000514856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B35EB071CE5DDC000514856 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8B35EB091CE5DDC000514856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8B35EB0C1CE5DDC000514856 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8B35EB0E1CE5DDC000514856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Basem Emara/Info.plist"; sourceTree = "<group>"; };
-		8B35EB151CE5DF1500514856 /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "Basem Emara.entitlements"; path = "Basem Emara/Basem Emara.entitlements"; sourceTree = "<group>"; };
-		8B35EB3F1CE5E42F00514856 /* Site */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Site; sourceTree = "<group>"; };
-		8BC42BB01E348D5700937B06 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios/Realm.framework"; sourceTree = "<group>"; };
-		8BC42BB11E348D5700937B06 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios/RealmSwift.framework"; sourceTree = "<group>"; };
-		8BC42BB71E348D8600937B06 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8BC42BB81E348D8600937B06 /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = Carthage/Build/iOS/Async.framework; sourceTree = "<group>"; };
-		8BC42BB91E348D8600937B06 /* JASON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JASON.framework; path = Carthage/Build/iOS/JASON.framework; sourceTree = "<group>"; };
-		8BC42BBA1E348D8600937B06 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		8BC42BBB1E348D8600937B06 /* PathKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PathKit.framework; path = Carthage/Build/iOS/PathKit.framework; sourceTree = "<group>"; };
-		8BC42BBC1E348D8600937B06 /* RateLimit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RateLimit.framework; path = Carthage/Build/iOS/RateLimit.framework; sourceTree = "<group>"; };
-		8BC42BBD1E348D8600937B06 /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stencil.framework; path = Carthage/Build/iOS/Stencil.framework; sourceTree = "<group>"; };
-		8BC42BBE1E348D8600937B06 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
-		8BC42BBF1E348D8600937B06 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
-		8BC42BC01E348D8600937B06 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
-		8BC42BC11E348D8600937B06 /* ZamzamKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZamzamKit.framework; path = Carthage/Build/iOS/ZamzamKit.framework; sourceTree = "<group>"; };
-		8BC42BCD1E34901300937B06 /* SwiftyPress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyPress.framework; path = Carthage/Build/iOS/SwiftyPress.framework; sourceTree = "<group>"; };
-		8BC42BCF1E34910F00937B06 /* Spectre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spectre.framework; path = Carthage/Build/iOS/Spectre.framework; sourceTree = "<group>"; };
-		8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		8BF210871E4924320026B802 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Frameworks/Crashlytics.framework; sourceTree = "<group>"; };
-		8BF210881E4924320026B802 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Frameworks/Fabric.framework; sourceTree = "<group>"; };
+		8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basem Emara.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B1DC0D020B1AE0E009FBBBD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8B1DC0D220B1AE0E009FBBBD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8B1DC0D520B1AE0E009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B1DC0DA20B1AE10009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B1DC0DC20B1AE10009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		8B1DC0EE20B1AFE1009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8B1DC0F020B1AFE1009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Post Notification Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		8B1DC10520B1B0BF009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8B1DC10720B1B0BF009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara.entitlements"; sourceTree = "<group>"; };
+		8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
+		8B1DC11420B1BE45009FBBBD /* Post Notification Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Post Notification Extension.entitlements"; sourceTree = "<group>"; };
+		8B68A12020B1C86A000CEB50 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8B68A12420B1C999000CEB50 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		8B68A12520B1C99A000CEB50 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
+		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
+		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8B35EAFA1CE5DDC000514856 /* Frameworks */ = {
+		8B1DC0C820B1AE0E009FBBBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF210891E4924320026B802 /* Crashlytics.framework in Frameworks */,
-				8BF2108A1E4924320026B802 /* Fabric.framework in Frameworks */,
-				8BC42BCE1E34901300937B06 /* SwiftyPress.framework in Frameworks */,
-				8BC42BC21E348D8600937B06 /* Alamofire.framework in Frameworks */,
-				8BC42BC41E348D8600937B06 /* JASON.framework in Frameworks */,
-				8BC42BC51E348D8600937B06 /* Kingfisher.framework in Frameworks */,
-				8BC42BC61E348D8600937B06 /* PathKit.framework in Frameworks */,
-				8BC42BD01E34910F00937B06 /* Spectre.framework in Frameworks */,
-				8BC42BC71E348D8600937B06 /* RateLimit.framework in Frameworks */,
-				8BC42BC81E348D8600937B06 /* Stencil.framework in Frameworks */,
-				8BC42BC91E348D8600937B06 /* SwiftyTimer.framework in Frameworks */,
-				8BC42BCA1E348D8600937B06 /* SwiftyUserDefaults.framework in Frameworks */,
-				8BC42BCB1E348D8600937B06 /* Timepiece.framework in Frameworks */,
-				8BC42BCC1E348D8600937B06 /* ZamzamKit.framework in Frameworks */,
-				8BF2107F1E491BFA0026B802 /* SwiftyBeaver.framework in Frameworks */,
-				8BC42BB41E348D5700937B06 /* RealmSwift.framework in Frameworks */,
-				8BC42BB21E348D5700937B06 /* Realm.framework in Frameworks */,
+				8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */,
+				8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */,
+				8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0E320B1AFE1009FBBBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1DC0E920B1AFE1009FBBBD /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0F920B1B0BF009FBBBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1DC10020B1B0BF009FBBBD /* UserNotificationsUI.framework in Frameworks */,
+				8B1DC0FE20B1B0BF009FBBBD /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B35EAF41CE5DDC000514856 = {
+		8B1DC0C220B1AE0E009FBBBD = {
 			isa = PBXGroup;
 			children = (
-				8B35EAFF1CE5DDC000514856 /* Basem Emara */,
-				8B35EB351CE5E28000514856 /* Frameworks */,
-				8B35EAFE1CE5DDC000514856 /* Products */,
+				8B1DC0CD20B1AE0E009FBBBD /* Basem Emara */,
+				8B1DC0EA20B1AFE1009FBBBD /* Today Extension */,
+				8B1DC10120B1B0BF009FBBBD /* Post Notification Extension */,
+				8B1DC0E720B1AFE1009FBBBD /* Frameworks */,
+				8B1DC0CC20B1AE0E009FBBBD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8B35EAFE1CE5DDC000514856 /* Products */ = {
+		8B1DC0CC20B1AE0E009FBBBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B35EAFD1CE5DDC000514856 /* Basem Emara.app */,
+				8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */,
+				8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */,
+				8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B35EAFF1CE5DDC000514856 /* Basem Emara */ = {
+		8B1DC0CD20B1AE0E009FBBBD /* Basem Emara */ = {
 			isa = PBXGroup;
 			children = (
-				8B35EB3F1CE5E42F00514856 /* Site */,
-				8B35EB001CE5DDC000514856 /* AppDelegate.swift */,
-				8B35EB061CE5DDC000514856 /* Main.storyboard */,
-				8B35EB0B1CE5DDC000514856 /* LaunchScreen.storyboard */,
-				8B35EB091CE5DDC000514856 /* Assets.xcassets */,
-				8B35EB141CE5DE6B00514856 /* Supporting Files */,
+				8B1DC11620B1C176009FBBBD /* Meta */,
+				8B1DC11720B1C17D009FBBBD /* Common */,
+				8B1DC11820B1C185009FBBBD /* Scenes */,
+				8B1DC11920B1C18B009FBBBD /* Styles */,
+				8B1DC11520B1C172009FBBBD /* Supporting Files */,
+				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
+				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
+				8B68A12020B1C86A000CEB50 /* Media.xcassets */,
 			);
 			path = "Basem Emara";
 			sourceTree = "<group>";
 		};
-		8B35EB141CE5DE6B00514856 /* Supporting Files */ = {
+		8B1DC0E720B1AFE1009FBBBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B35EB0E1CE5DDC000514856 /* Info.plist */,
-				8B35EB151CE5DF1500514856 /* Basem Emara.entitlements */,
-			);
-			name = "Supporting Files";
-			path = ..;
-			sourceTree = "<group>";
-		};
-		8B35EB351CE5E28000514856 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8BF210871E4924320026B802 /* Crashlytics.framework */,
-				8BF210881E4924320026B802 /* Fabric.framework */,
-				8BF2107E1E491BFA0026B802 /* SwiftyBeaver.framework */,
-				8BC42BCF1E34910F00937B06 /* Spectre.framework */,
-				8BC42BCD1E34901300937B06 /* SwiftyPress.framework */,
-				8BC42BB71E348D8600937B06 /* Alamofire.framework */,
-				8BC42BB81E348D8600937B06 /* Async.framework */,
-				8BC42BB91E348D8600937B06 /* JASON.framework */,
-				8BC42BBA1E348D8600937B06 /* Kingfisher.framework */,
-				8BC42BBB1E348D8600937B06 /* PathKit.framework */,
-				8BC42BBC1E348D8600937B06 /* RateLimit.framework */,
-				8BC42BBD1E348D8600937B06 /* Stencil.framework */,
-				8BC42BBE1E348D8600937B06 /* SwiftyTimer.framework */,
-				8BC42BBF1E348D8600937B06 /* SwiftyUserDefaults.framework */,
-				8BC42BC01E348D8600937B06 /* Timepiece.framework */,
-				8BC42BC11E348D8600937B06 /* ZamzamKit.framework */,
-				8BC42BB01E348D5700937B06 /* Realm.framework */,
-				8BC42BB11E348D5700937B06 /* RealmSwift.framework */,
+				8B68A38420B1CB72000CEB50 /* Kingfisher.framework */,
+				8B68A38220B1CB71000CEB50 /* PKHUD.framework */,
+				8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */,
+				8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */,
+				8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */,
+				8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B1DC0EA20B1AFE1009FBBBD /* Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */,
+				8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */,
+				8B1DC0ED20B1AFE1009FBBBD /* MainInterface.storyboard */,
+				8B1DC0F020B1AFE1009FBBBD /* Info.plist */,
+			);
+			path = "Today Extension";
+			sourceTree = "<group>";
+		};
+		8B1DC10120B1B0BF009FBBBD /* Post Notification Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B1DC11420B1BE45009FBBBD /* Post Notification Extension.entitlements */,
+				8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */,
+				8B1DC10420B1B0BF009FBBBD /* MainInterface.storyboard */,
+				8B1DC10720B1B0BF009FBBBD /* Info.plist */,
+			);
+			path = "Post Notification Extension";
+			sourceTree = "<group>";
+		};
+		8B1DC11520B1C172009FBBBD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */,
+				8B1DC0DC20B1AE10009FBBBD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B1DC11620B1C176009FBBBD /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				8B68A12520B1C99A000CEB50 /* Cartfile */,
+				8B68A12420B1C999000CEB50 /* README.md */,
+			);
+			name = Meta;
+			sourceTree = "<group>";
+		};
+		8B1DC11720B1C17D009FBBBD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8B1DC11820B1C185009FBBBD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8B1DC0D020B1AE0E009FBBBD /* FirstViewController.swift */,
+				8B1DC0D220B1AE0E009FBBBD /* SecondViewController.swift */,
+				8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */,
+				8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8B1DC11920B1C18B009FBBBD /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8B35EAFC1CE5DDC000514856 /* Basem Emara */ = {
+		8B1DC0CA20B1AE0E009FBBBD /* Basem Emara */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B35EB111CE5DDC000514856 /* Build configuration list for PBXNativeTarget "Basem Emara" */;
+			buildConfigurationList = 8B1DC0DF20B1AE10009FBBBD /* Build configuration list for PBXNativeTarget "Basem Emara" */;
 			buildPhases = (
-				8B35EAF91CE5DDC000514856 /* Sources */,
-				8B35EAFA1CE5DDC000514856 /* Frameworks */,
-				8B35EAFB1CE5DDC000514856 /* Resources */,
-				8BC42BB61E348D5700937B06 /* Embed Frameworks */,
-				8B35EB361CE5E2C900514856 /* Run Carthage Script */,
-				8B35EB371CE5E36F00514856 /* Run Realm Script */,
-				8BF210821E4923430026B802 /* Run Fabric Script */,
+				8B1DC0C720B1AE0E009FBBBD /* Sources */,
+				8B1DC0C820B1AE0E009FBBBD /* Frameworks */,
+				8B1DC0C920B1AE0E009FBBBD /* Resources */,
+				8B68A12620B1CA8B000CEB50 /* Run Carthage Script */,
+				8B1DC0F720B1AFE1009FBBBD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B1DC0F220B1AFE1009FBBBD /* PBXTargetDependency */,
+				8B1DC10920B1B0BF009FBBBD /* PBXTargetDependency */,
+			);
+			name = "Basem Emara";
+			productName = "Basem Emara";
+			productReference = 8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B1DC0E520B1AFE1009FBBBD /* Today Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B1DC0F420B1AFE1009FBBBD /* Build configuration list for PBXNativeTarget "Today Extension" */;
+			buildPhases = (
+				8B1DC0E220B1AFE1009FBBBD /* Sources */,
+				8B1DC0E320B1AFE1009FBBBD /* Frameworks */,
+				8B1DC0E420B1AFE1009FBBBD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Basem Emara";
-			productName = "Basem Emara";
-			productReference = 8B35EAFD1CE5DDC000514856 /* Basem Emara.app */;
-			productType = "com.apple.product-type.application";
+			name = "Today Extension";
+			productName = "Today Extension";
+			productReference = 8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8B1DC0FB20B1B0BF009FBBBD /* Post Notification Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B1DC10B20B1B0BF009FBBBD /* Build configuration list for PBXNativeTarget "Post Notification Extension" */;
+			buildPhases = (
+				8B1DC0F820B1B0BF009FBBBD /* Sources */,
+				8B1DC0F920B1B0BF009FBBBD /* Frameworks */,
+				8B1DC0FA20B1B0BF009FBBBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Post Notification Extension";
+			productName = "Post Notification Extension";
+			productReference = 8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8B35EAF51CE5DDC000514856 /* Project object */ = {
+		8B1DC0C320B1AE0E009FBBBD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Zamzam Inc.";
 				TargetAttributes = {
-					8B35EAFC1CE5DDC000514856 = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZYJTUJP7C7;
-						LastSwiftMigration = 0820;
+					8B1DC0CA20B1AE0E009FBBBD = {
+						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
-							com.apple.BackgroundModes = {
+							com.apple.Keychain = {
 								enabled = 1;
 							};
-							com.apple.SafariKeychain = {
+						};
+					};
+					8B1DC0E520B1AFE1009FBBBD = {
+						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					8B1DC0FB20B1B0BF009FBBBD = {
+						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
 					};
 				};
 			};
-			buildConfigurationList = 8B35EAF81CE5DDC000514856 /* Build configuration list for PBXProject "Basem Emara" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 8B1DC0C620B1AE0E009FBBBD /* Build configuration list for PBXProject "Basem Emara" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 8B35EAF41CE5DDC000514856;
-			productRefGroup = 8B35EAFE1CE5DDC000514856 /* Products */;
+			mainGroup = 8B1DC0C220B1AE0E009FBBBD;
+			productRefGroup = 8B1DC0CC20B1AE0E009FBBBD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B35EAFC1CE5DDC000514856 /* Basem Emara */,
+				8B1DC0CA20B1AE0E009FBBBD /* Basem Emara */,
+				8B1DC0E520B1AFE1009FBBBD /* Today Extension */,
+				8B1DC0FB20B1B0BF009FBBBD /* Post Notification Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8B35EAFB1CE5DDC000514856 /* Resources */ = {
+		8B1DC0C920B1AE0E009FBBBD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B35EB0D1CE5DDC000514856 /* LaunchScreen.storyboard in Resources */,
-				8B35EB401CE5E42F00514856 /* Site in Resources */,
-				8B35EB0A1CE5DDC000514856 /* Assets.xcassets in Resources */,
-				8B35EB081CE5DDC000514856 /* Main.storyboard in Resources */,
+				8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */,
+				8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */,
+				8B68A12120B1C86A000CEB50 /* Media.xcassets in Resources */,
+				8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0E420B1AFE1009FBBBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B68A38820B1CC79000CEB50 /* Media.xcassets in Resources */,
+				8B1DC0EF20B1AFE1009FBBBD /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0FA20B1B0BF009FBBBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B68A38920B1CC7A000CEB50 /* Media.xcassets in Resources */,
+				8B1DC10620B1B0BF009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8B35EB361CE5E2C900514856 /* Run Carthage Script */ = {
+		8B68A12620B1CA8B000CEB50 /* Run Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JASON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PathKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RateLimit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Stencil.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyTimer.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Timepiece.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZamzamKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyPress.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Spectre.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 			);
 			name = "Run Carthage Script";
 			outputPaths = (
@@ -282,93 +411,124 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		8B35EB371CE5E36F00514856 /* Run Realm Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Realm Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
-		};
-		8BF210821E4923430026B802 /* Run Fabric Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Fabric Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Frameworks/Fabric.framework/run 44a36f004b1764af2297d4fbb1ba331d077c8177 a75f3cea131c3442e46e901d1948b0f2ecb8e42a6a7842f7ea1881d265236cbf";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8B35EAF91CE5DDC000514856 /* Sources */ = {
+		8B1DC0C720B1AE0E009FBBBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B35EB011CE5DDC000514856 /* AppDelegate.swift in Sources */,
+				8B1DC0D320B1AE0E009FBBBD /* SecondViewController.swift in Sources */,
+				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
+				8B1DC0D120B1AE0E009FBBBD /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0E220B1AFE1009FBBBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1DC0F820B1B0BF009FBBBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8B1DC0F220B1AFE1009FBBBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B1DC0E520B1AFE1009FBBBD /* Today Extension */;
+			targetProxy = 8B1DC0F120B1AFE1009FBBBD /* PBXContainerItemProxy */;
+		};
+		8B1DC10920B1B0BF009FBBBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B1DC0FB20B1B0BF009FBBBD /* Post Notification Extension */;
+			targetProxy = 8B1DC10820B1B0BF009FBBBD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		8B35EB061CE5DDC000514856 /* Main.storyboard */ = {
+		8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8B35EB071CE5DDC000514856 /* Base */,
+				8B1DC0D520B1AE0E009FBBBD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8B35EB0B1CE5DDC000514856 /* LaunchScreen.storyboard */ = {
+		8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8B35EB0C1CE5DDC000514856 /* Base */,
+				8B1DC0DA20B1AE10009FBBBD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8B1DC0ED20B1AFE1009FBBBD /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B1DC0EE20B1AFE1009FBBBD /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		8B1DC10420B1B0BF009FBBBD /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B1DC10520B1B0BF009FBBBD /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8B35EB0F1CE5DDC000514856 /* Debug */ = {
+		8B1DC0DD20B1AE10009FBBBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zamzam Inc. (ZYJTUJP7C7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -382,42 +542,53 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "56c8e4e4-46c5-4d97-9627-7d86563ecda0";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		8B35EB101CE5DDC000514856 /* Release */ = {
+		8B1DC0DE20B1AE10009FBBBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zamzam Inc. (ZYJTUJP7C7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -425,85 +596,314 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "56c8e4e4-46c5-4d97-9627-7d86563ecda0";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8B35EB121CE5DDC000514856 /* Debug */ = {
+		8B1DC0E020B1AE10009FBBBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APP_DISPLAY_NAME = "Basem Emara Debug";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		8B35EB131CE5DDC000514856 /* Release */ = {
+		8B1DC0E120B1AE10009FBBBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APP_DISPLAY_NAME = "Basem Emara";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyPress/Frameworks/realm-swift/ios",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		8B1DC0F520B1AFE1009FBBBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B1DC0F620B1AFE1009FBBBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B1DC10C20B1B0BF009FBBBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B1DC10D20B1B0BF009FBBBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B1DC10F20B1B7A0009FBBBD /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"STAGING=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = STAGING;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Staging;
+		};
+		8B1DC11020B1B7A0009FBBBD /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APP_DISPLAY_NAME = "Basem Emara Staging";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "Basem Emara/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
+		8B1DC11120B1B7A0009FBBBD /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Today-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
+		8B1DC11220B1B7A0009FBBBD /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZYJTUJP7C7;
+				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Post-Notification-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8B35EAF81CE5DDC000514856 /* Build configuration list for PBXProject "Basem Emara" */ = {
+		8B1DC0C620B1AE0E009FBBBD /* Build configuration list for PBXProject "Basem Emara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B35EB0F1CE5DDC000514856 /* Debug */,
-				8B35EB101CE5DDC000514856 /* Release */,
+				8B1DC0DD20B1AE10009FBBBD /* Debug */,
+				8B1DC10F20B1B7A0009FBBBD /* Staging */,
+				8B1DC0DE20B1AE10009FBBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B35EB111CE5DDC000514856 /* Build configuration list for PBXNativeTarget "Basem Emara" */ = {
+		8B1DC0DF20B1AE10009FBBBD /* Build configuration list for PBXNativeTarget "Basem Emara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B35EB121CE5DDC000514856 /* Debug */,
-				8B35EB131CE5DDC000514856 /* Release */,
+				8B1DC0E020B1AE10009FBBBD /* Debug */,
+				8B1DC11020B1B7A0009FBBBD /* Staging */,
+				8B1DC0E120B1AE10009FBBBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B1DC0F420B1AFE1009FBBBD /* Build configuration list for PBXNativeTarget "Today Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B1DC0F520B1AFE1009FBBBD /* Debug */,
+				8B1DC11120B1B7A0009FBBBD /* Staging */,
+				8B1DC0F620B1AFE1009FBBBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B1DC10B20B1B0BF009FBBBD /* Build configuration list for PBXNativeTarget "Post Notification Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B1DC10C20B1B0BF009FBBBD /* Debug */,
+				8B1DC11220B1B7A0009FBBBD /* Staging */,
+				8B1DC10D20B1B0BF009FBBBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8B35EAF51CE5DDC000514856 /* Project object */;
+	rootObject = 8B1DC0C320B1AE0E009FBBBD /* Project object */;
 }

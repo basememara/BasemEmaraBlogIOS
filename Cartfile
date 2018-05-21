@@ -1,1 +1,3 @@
-github "ZamzamInc/SwiftyPress" "master"
+github "basememara/TinyConstraints" "app_ext"
+github "onevcat/Kingfisher"
+github "pkluz/PKHUD"
