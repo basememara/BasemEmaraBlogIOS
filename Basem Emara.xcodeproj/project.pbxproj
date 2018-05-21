@@ -492,6 +492,7 @@
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework",
+				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework",
 			);
 			name = "Run Carthage Script";
 			outputPaths = (
