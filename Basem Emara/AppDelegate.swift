@@ -13,9 +13,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        
+        // Theme
+        window?.tintColor = .tint
+        UITabBar.appearance().barStyle = .black
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().tintColor = .tint
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.title
+        ]
+        if #available(iOS 11.0, *) {
+            UINavigationBar.appearance().largeTitleTextAttributes = [
+                NSAttributedStringKey.foregroundColor: UIColor.title
+            ]
+        }
+        UICollectionView.appearance().backgroundColor = .black
+        UITableView.appearance().backgroundColor = .black
+        UITableViewCell.appearance().backgroundColor = .clear
+        
         return true
     }
 
