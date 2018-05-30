@@ -5,6 +5,6 @@
       location = "container:Basem Emara.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Submodules/SwiftyPress/SwiftPress.xcodeproj">
+      location = "group:Submodules/SwiftyPress/SwiftyPress.xcodeproj">
    </FileRef>
 </Workspace>
