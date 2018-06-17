@@ -10,11 +10,12 @@ import UIKit
 import SwiftyPress
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, Loggable {
+class AppDelegate: UIResponder, UIApplicationDelegate, DependencyConfigurator, Loggable {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+        register(dependencies: AppDependency())
         setupLogger(for: application)
         
         window = UIWindow(frame: UIScreen.main.bounds)

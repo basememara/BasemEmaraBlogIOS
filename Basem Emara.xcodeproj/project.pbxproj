@@ -55,6 +55,9 @@
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
+		8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
+		8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
+		8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
 		8BF2CCBB20B6D6D200C9C161 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBA20B6D6D200C9C161 /* ExploreViewController.swift */; };
 		8BF2CCBD20B6D6E600C9C161 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBC20B6D6E600C9C161 /* PopularViewController.swift */; };
 		8BF2CCBF20B6D77100C9C161 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBE20B6D77100C9C161 /* FavoritesViewController.swift */; };
@@ -159,6 +162,7 @@
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8B8A2C9620D6C65E00E29992 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8BF2CCBA20B6D6D200C9C161 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		8BF2CCBC20B6D6E600C9C161 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		8BF2CCBE20B6D77100C9C161 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				8B1DC11820B1C185009FBBBD /* Scenes */,
 				8B1DC11920B1C18B009FBBBD /* Styles */,
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
+				8B8A2C9620D6C65E00E29992 /* AppDependency.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
 				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
 				8B1DC11520B1C172009FBBBD /* Supporting Files */,
@@ -615,6 +620,7 @@
 				8BF2CCBB20B6D6D200C9C161 /* ExploreViewController.swift in Sources */,
 				8BF2CCBD20B6D6E600C9C161 /* PopularViewController.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
+				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* FavoritesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +629,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B161C9020B815BE0069456E /* UIColor.swift in Sources */,
 			);
@@ -632,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
 				8B161C9120B815BE0069456E /* UIColor.swift in Sources */,
 			);
