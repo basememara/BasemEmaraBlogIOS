@@ -49,12 +49,12 @@
 		8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
 		8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
 		8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
-		8B68A12120B1C86A000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
-		8B68A38820B1CC79000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
-		8B68A38920B1CC7A000CEB50 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B68A12020B1C86A000CEB50 /* Media.xcassets */; };
+		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
+		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
+		8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8BF2CCBB20B6D6D200C9C161 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBA20B6D6D200C9C161 /* ExploreViewController.swift */; };
 		8BF2CCBD20B6D6E600C9C161 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBC20B6D6E600C9C161 /* PopularViewController.swift */; };
 		8BF2CCBF20B6D77100C9C161 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBE20B6D77100C9C161 /* FavoritesViewController.swift */; };
@@ -155,10 +155,10 @@
 		8B5B45A120B311F60088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B45A320B312060088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B45C920B312340088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B68A12020B1C86A000CEB50 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8BF2CCBA20B6D6D200C9C161 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		8BF2CCBC20B6D6E600C9C161 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		8BF2CCBE20B6D77100C9C161 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -278,12 +278,12 @@
 		8B1DC0CD20B1AE0E009FBBBD /* Basem Emara */ = {
 			isa = PBXGroup;
 			children = (
-				8B1DC11720B1C17D009FBBBD /* Common */,
+				8B8A2C9020D6BC0B00E29992 /* Common */,
 				8B1DC11820B1C185009FBBBD /* Scenes */,
 				8B1DC11920B1C18B009FBBBD /* Styles */,
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
-				8B68A12020B1C86A000CEB50 /* Media.xcassets */,
+				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
 				8B1DC11520B1C172009FBBBD /* Supporting Files */,
 			);
 			path = "Basem Emara";
@@ -344,13 +344,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8B1DC11720B1C17D009FBBBD /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		8B1DC11820B1C185009FBBBD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +369,13 @@
 				8B161C8E20B815BE0069456E /* UIColor.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		8B8A2C9020D6BC0B00E29992 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,7 +544,7 @@
 				8BF2CCCD20B6D85500C9C161 /* Search.storyboard in Resources */,
 				8BF2CCC520B6D81400C9C161 /* Explore.storyboard in Resources */,
 				8BF2CCC920B6D83F00C9C161 /* Favorites.storyboard in Resources */,
-				8B68A12120B1C86A000CEB50 /* Media.xcassets in Resources */,
+				8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +553,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B68A38820B1CC79000CEB50 /* Media.xcassets in Resources */,
+				8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B1DC0EF20B1AFE1009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,7 +562,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B68A38920B1CC7A000CEB50 /* Media.xcassets in Resources */,
+				8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B1DC10620B1B0BF009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,7 +819,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -873,7 +873,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1081,7 +1081,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
