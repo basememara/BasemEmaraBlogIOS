@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class ListPostsViewController: UIViewController {
     
 }

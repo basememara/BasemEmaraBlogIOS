@@ -1,5 +1,5 @@
 //
-//  MoreViewController.swift
+//  PopularViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-05-24.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class MoreViewController: UIViewController {
+class ListPopularViewController: UIViewController {
     
 }

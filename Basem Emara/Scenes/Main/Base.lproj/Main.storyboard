@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,50 +30,50 @@
             </objects>
             <point key="canvasLocation" x="-268" y="0.0"/>
         </scene>
-        <!--Favorites-->
+        <!--ListFavorites-->
         <scene sceneID="upc-6K-e40">
             <objects>
-                <viewControllerPlaceholder storyboardName="Favorites" id="KZm-Qh-hEH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ListFavorites" id="KZm-Qh-hEH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0cA-dq-pyE"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wV4-gn-05X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="555" y="-209"/>
         </scene>
-        <!--Popular-->
+        <!--ListPopular-->
         <scene sceneID="uQX-xq-qto">
             <objects>
-                <viewControllerPlaceholder storyboardName="Popular" id="WEv-Ru-JoS" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ListPopular" id="WEv-Ru-JoS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="a3y-yi-EjF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O40-ys-8vD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="548" y="-111"/>
         </scene>
-        <!--Explore-->
+        <!--ListPosts-->
         <scene sceneID="sIG-p0-OdS">
             <objects>
-                <viewControllerPlaceholder storyboardName="Explore" id="1rX-nF-29Y" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ListPosts" id="1rX-nF-29Y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uCH-Db-feO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9l-HC-VgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="547" y="-1"/>
         </scene>
-        <!--Search-->
+        <!--ShowSearch-->
         <scene sceneID="cn2-77-xe1">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="khC-G5-kdT" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ShowSearch" id="khC-G5-kdT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="524-As-aS2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WD-bX-Rsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="545" y="103"/>
         </scene>
-        <!--More-->
+        <!--ShowMore-->
         <scene sceneID="DGy-Ap-cUg">
             <objects>
-                <viewControllerPlaceholder storyboardName="More" id="38J-Tm-EWM" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ShowMore" id="38J-Tm-EWM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0ru-EG-3Vi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dza-Je-AhO" userLabel="First Responder" sceneMemberID="firstResponder"/>

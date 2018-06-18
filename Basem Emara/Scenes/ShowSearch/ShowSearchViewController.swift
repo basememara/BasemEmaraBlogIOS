@@ -1,5 +1,5 @@
 //
-//  FavoritesViewController.swift
+//  SearchViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-05-24.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class ShowSearchViewController: UIViewController {
     
 }
