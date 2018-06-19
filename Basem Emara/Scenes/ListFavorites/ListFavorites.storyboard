@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="1071.2" y="149.77511244377811"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="Yie-0a-Z5I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D7G-ja-x2Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="41J-84-nRU"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="tab-heart" id="41J-84-nRU"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="4vY-MF-0hC">
@@ -47,4 +47,7 @@
             <point key="canvasLocation" x="132" y="149.77511244377811"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-heart" width="25" height="25"/>
+    </resources>
 </document>

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Posts View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="m3g-fL-9a9">
             <objects>
-                <viewController id="YWc-qj-Gmd" customClass="ListPostsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YWc-qj-Gmd" customClass="HomeViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tur-K0-4XV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="984.79999999999995" y="164.16791604197903"/>
         </scene>
-        <!--Explore-->
+        <!--Home-->
         <scene sceneID="vMK-cj-1fL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Quv-Xo-3js" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="cpI-Os-Nhe"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="cpI-Os-Nhe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oeo-zX-6Zh">
@@ -47,4 +47,7 @@
             <point key="canvasLocation" x="45.600000000000001" y="164.16791604197903"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-home" width="24" height="24"/>
+    </resources>
 </document>

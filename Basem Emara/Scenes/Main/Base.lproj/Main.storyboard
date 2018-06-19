@@ -19,9 +19,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="KZm-Qh-hEH" kind="relationship" relationship="viewControllers" id="y8Y-Xd-P2Q"/>
-                        <segue destination="WEv-Ru-JoS" kind="relationship" relationship="viewControllers" id="aiM-xR-aCf"/>
                         <segue destination="1rX-nF-29Y" kind="relationship" relationship="viewControllers" id="4Lq-dB-meL"/>
+                        <segue destination="KZm-Qh-hEH" kind="relationship" relationship="viewControllers" id="y8Y-Xd-P2Q"/>
                         <segue destination="khC-G5-kdT" kind="relationship" relationship="viewControllers" id="e1H-qj-pNw"/>
                         <segue destination="38J-Tm-EWM" kind="relationship" relationship="viewControllers" id="62d-cD-pqX"/>
                     </connections>
@@ -34,47 +33,37 @@
         <scene sceneID="upc-6K-e40">
             <objects>
                 <viewControllerPlaceholder storyboardName="ListFavorites" id="KZm-Qh-hEH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0cA-dq-pyE"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="0cA-dq-pyE"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wV4-gn-05X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="555" y="-209"/>
+            <point key="canvasLocation" x="546" y="-71"/>
         </scene>
-        <!--ListPopular-->
-        <scene sceneID="uQX-xq-qto">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ListPopular" id="WEv-Ru-JoS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="a3y-yi-EjF"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O40-ys-8vD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="548" y="-111"/>
-        </scene>
-        <!--ListPosts-->
+        <!--Home-->
         <scene sceneID="sIG-p0-OdS">
             <objects>
-                <viewControllerPlaceholder storyboardName="ListPosts" id="1rX-nF-29Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uCH-Db-feO"/>
+                <viewControllerPlaceholder storyboardName="Home" id="1rX-nF-29Y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="uCH-Db-feO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9l-HC-VgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="-1"/>
+            <point key="canvasLocation" x="512" y="-218"/>
         </scene>
         <!--ShowSearch-->
         <scene sceneID="cn2-77-xe1">
             <objects>
                 <viewControllerPlaceholder storyboardName="ShowSearch" id="khC-G5-kdT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="524-As-aS2"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="524-As-aS2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WD-bX-Rsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="103"/>
+            <point key="canvasLocation" x="544" y="78"/>
         </scene>
         <!--ShowMore-->
         <scene sceneID="DGy-Ap-cUg">
             <objects>
                 <viewControllerPlaceholder storyboardName="ShowMore" id="38J-Tm-EWM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0ru-EG-3Vi"/>
+                    <tabBarItem key="tabBarItem" title="More" id="0ru-EG-3Vi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dza-Je-AhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

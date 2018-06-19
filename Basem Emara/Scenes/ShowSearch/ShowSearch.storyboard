@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="1120.8" y="98.50074962518741"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="S4g-Rw-7ph">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XRI-Ne-TT1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="4Fa-Wj-khg"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="tab-search" id="4Fa-Wj-khg"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Mje-Zd-OIQ">
@@ -47,4 +47,7 @@
             <point key="canvasLocation" x="181.59999999999999" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-search" width="25" height="25"/>
+    </resources>
 </document>

@@ -1,5 +1,5 @@
 //
-//  PopularViewController.swift
+//  ExploreViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-05-24.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ListPopularViewController: UIViewController {
+class HomeViewController: UIViewController {
     
 }
