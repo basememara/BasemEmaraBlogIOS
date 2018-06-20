@@ -58,6 +58,7 @@
 		8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
 		8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
 		8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
+		8B8B33CC20DA618500E80706 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CB20DA618500E80706 /* UIFont.swift */; };
 		8B9CE08C20D73CAA0077E4A0 /* CoreApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* CoreApplicationService.swift */; };
 		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationService.swift */; };
 		8B9CE09020D73CC60077E4A0 /* BootApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* BootApplicationService.swift */; };
@@ -165,6 +166,7 @@
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B8A2C9620D6C65E00E29992 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		8B8B33CB20DA618500E80706 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		8B9CE08B20D73CAA0077E4A0 /* CoreApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreApplicationService.swift; sourceTree = "<group>"; };
 		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationService.swift; sourceTree = "<group>"; };
 		8B9CE08F20D73CC60077E4A0 /* BootApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootApplicationService.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				8B161C8E20B815BE0069456E /* UIColor.swift */,
+				8B8B33CB20DA618500E80706 /* UIFont.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				8B161C8F20B815BE0069456E /* UIColor.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
+				8B8B33CC20DA618500E80706 /* UIFont.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
