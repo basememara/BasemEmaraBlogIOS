@@ -94,10 +94,10 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
             inset: 16
         )
         
-        postsWorker.fetch { [unowned self] in
+        postsWorker.fetch { [weak self] in
             guard let posts = $0.value, $0.isSuccess else { return }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else { return }
             
                 let models = posts.prefix(30).map { post in
@@ -106,19 +106,19 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
                         title: post.title,
                         summary: !post.excerpt.isEmpty ? post.excerpt
                             : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self.dateFormatter.string(from: post.createdAt),
+                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
                         imageURL: media.first { $0.id == post.mediaID }?.link
                     )
                 }
                 
-                self.latestPostsCollectionViewAdapter.reloadData(with: models)
+                self?.latestPostsCollectionViewAdapter.reloadData(with: models)
             }
         }
         
-        postsWorker.fetchPopular { [unowned self] in
+        postsWorker.fetchPopular { [weak self] in
             guard let posts = $0.value, $0.isSuccess else { return }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else { return }
                 
                 let models = posts.prefix(30).map { post in
@@ -127,19 +127,19 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
                         title: post.title,
                         summary: !post.excerpt.isEmpty ? post.excerpt
                             : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self.dateFormatter.string(from: post.createdAt),
+                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
                         imageURL: media.first { $0.id == post.mediaID }?.link
                     )
                 }
                 
-                self.popularPostsCollectionViewAdapter.reloadData(with: models)
+                self?.popularPostsCollectionViewAdapter.reloadData(with: models)
             }
         }
         
-        postsWorker.fetchTopPicks { [unowned self] in
+        postsWorker.fetchTopPicks { [weak self] in
             guard let posts = $0.value, $0.isSuccess else { return }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else { return }
                 
                 let models = posts.prefix(30).map { post in
@@ -148,16 +148,16 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
                         title: post.title,
                         summary: !post.excerpt.isEmpty ? post.excerpt
                             : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self.dateFormatter.string(from: post.createdAt),
+                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
                         imageURL: media.first { $0.id == post.mediaID }?.link
                     )
                 }
                 
-                self.pickedPostsCollectionViewAdapter.reloadData(with: models)
+                self?.pickedPostsCollectionViewAdapter.reloadData(with: models)
             }
         }
         
-        taxonomyWorker.fetch { [unowned self] in
+        taxonomyWorker.fetch { [weak self] in
             guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else { return }
             
             let models = terms.prefix(6).map {
@@ -169,7 +169,7 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
                 )
             }
             
-            self.topTermsTableViewAdapter.reloadData(with: models)
+            self?.topTermsTableViewAdapter.reloadData(with: models)
         }
     }
     

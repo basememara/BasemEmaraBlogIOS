@@ -51,10 +51,10 @@ class ListPostsViewController: UIViewController, HasDependencies {
         
         view.backgroundColor = UICollectionView.appearance().backgroundColor
         
-        let completion: ((Result<[PostType], DataError>) -> Void) = { [unowned self] in
+        let completion: ((Result<[PostType], DataError>) -> Void) = { [weak self] in
             guard let posts = $0.value, $0.isSuccess else { return }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else { return }
                 
                 let models = posts.prefix(30).map { post in
@@ -63,12 +63,12 @@ class ListPostsViewController: UIViewController, HasDependencies {
                         title: post.title,
                         summary: !post.excerpt.isEmpty ? post.excerpt
                             : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self.dateFormatter.string(from: post.createdAt),
+                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
                         imageURL: media.first { $0.id == post.mediaID }?.link
                     )
                 }
                 
-                self.tableViewAdapter.reloadData(with: models)
+                self?.tableViewAdapter.reloadData(with: models)
             }
         }
         
