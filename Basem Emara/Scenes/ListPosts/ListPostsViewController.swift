@@ -12,12 +12,6 @@ import ZamzamKit
 
 class ListPostsViewController: UIViewController, HasDependencies {
     
-    enum FetchType {
-        case latest
-        case popular
-        case picks
-    }
-    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self)
@@ -44,7 +38,7 @@ class ListPostsViewController: UIViewController, HasDependencies {
         $0.locale = .posix
     }
     
-    var fetchType = FetchType.latest
+    var fetchType: FetchType = .latest
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +74,15 @@ class ListPostsViewController: UIViewController, HasDependencies {
         case .picks:
             postsWorker.fetchTopPicks(completion: completion)
         }
+    }
+}
+
+extension ListPostsViewController {
+    
+    enum FetchType {
+        case latest
+        case popular
+        case picks
     }
 }
 

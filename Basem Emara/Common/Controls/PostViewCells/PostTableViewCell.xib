@@ -56,7 +56,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="UvM-30-CEH" firstAttribute="top" secondItem="7aW-PZ-96F" secondAttribute="top" id="Gog-6c-eLL"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UvM-30-CEH" secondAttribute="bottom" id="LOj-O7-UJk"/>
                                             <constraint firstAttribute="trailing" secondItem="UvM-30-CEH" secondAttribute="trailing" id="ZGk-vH-zaK"/>
                                             <constraint firstItem="UvM-30-CEH" firstAttribute="leading" secondItem="7aW-PZ-96F" secondAttribute="leading" id="gEu-g9-JZl"/>
                                         </constraints>
