@@ -39,6 +39,13 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
     
     @IBOutlet weak var topTermsTableView: UITableView!
     
+    private lazy var interactor: HomeBusinessLogic = HomeInteractor(
+        presenter: HomePresenter(viewController: self),
+        postsWorker: dependencies.resolveWorker(),
+        mediaWorker: dependencies.resolveWorker(),
+        taxonomyWorker: dependencies.resolveWorker()
+    )
+    
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         delegate: self,
         for: latestPostsCollectionView
@@ -58,16 +65,6 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
         delegate: self,
         for: topTermsTableView
     )
-    
-    private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()
-    private lazy var mediaWorker: MediaWorkerType = dependencies.resolveWorker()
-    private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolveWorker()
-    
-    private lazy var dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-        $0.locale = .posix
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,83 +91,21 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
             inset: 16
         )
         
-        postsWorker.fetch { [weak self] in
-            guard let posts = $0.value, $0.isSuccess else { return }
-            
-            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else { return }
-            
-                let models = posts.prefix(30).map { post in
-                    PostsDataViewModel(
-                        id: post.id,
-                        title: post.title,
-                        summary: !post.excerpt.isEmpty ? post.excerpt
-                            : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
-                        imageURL: media.first { $0.id == post.mediaID }?.link
-                    )
-                }
-                
-                self?.latestPostsCollectionViewAdapter.reloadData(with: models)
-            }
-        }
+        interactor.fetchLatestPosts(
+            with: HomeModels.FetchPostsRequest(count: 30)
+        )
         
-        postsWorker.fetchPopular { [weak self] in
-            guard let posts = $0.value, $0.isSuccess else { return }
-            
-            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else { return }
-                
-                let models = posts.prefix(30).map { post in
-                    PostsDataViewModel(
-                        id: post.id,
-                        title: post.title,
-                        summary: !post.excerpt.isEmpty ? post.excerpt
-                            : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
-                        imageURL: media.first { $0.id == post.mediaID }?.link
-                    )
-                }
-                
-                self?.popularPostsCollectionViewAdapter.reloadData(with: models)
-            }
-        }
+        interactor.fetchPopularPosts(
+            with: HomeModels.FetchPostsRequest(count: 30)
+        )
         
-        postsWorker.fetchTopPicks { [weak self] in
-            guard let posts = $0.value, $0.isSuccess else { return }
-            
-            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else { return }
-                
-                let models = posts.prefix(30).map { post in
-                    PostsDataViewModel(
-                        id: post.id,
-                        title: post.title,
-                        summary: !post.excerpt.isEmpty ? post.excerpt
-                            : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
-                        imageURL: media.first { $0.id == post.mediaID }?.link
-                    )
-                }
-                
-                self?.pickedPostsCollectionViewAdapter.reloadData(with: models)
-            }
-        }
+        interactor.fetchTopPickPosts(
+            with: HomeModels.FetchPostsRequest(count: 30)
+        )
         
-        taxonomyWorker.fetch { [weak self] in
-            guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else { return }
-            
-            let models = terms.prefix(6).map {
-                TermsDataViewModel(
-                    id: $0.id,
-                    name: $0.name,
-                    count: .localizedStringWithFormat("%d", $0.count),
-                    taxonomy: $0.taxonomy
-                )
-            }
-            
-            self?.topTermsTableViewAdapter.reloadData(with: models)
-        }
+        interactor.fetchTerms(
+            with: HomeModels.FetchTermsRequest(count: 6)
+        )
     }
     
     @IBAction func popularPostsSeeAllButtonTapped() {
@@ -195,6 +130,29 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
         controller.fetchType = .picks
         
         show(controller, sender: nil)
+    }
+}
+
+extension HomeViewController: HomeDisplayable {
+    
+    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
+        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
+        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
+        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTerms(with viewModels: [TermsDataViewModel]) {
+        topTermsTableViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func display(error: AppModels.Error) {
+        present(alert: error.title, message: error.message)
     }
 }
 
