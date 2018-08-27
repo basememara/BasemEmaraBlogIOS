@@ -33,7 +33,6 @@ class ListPostsViewController: UIViewController, HasDependencies {
     private lazy var dateFormatter = DateFormatter().with {
         $0.dateStyle = .medium
         $0.timeStyle = .none
-        $0.locale = .posix
     }
     
     var fetchType: FetchType = .latest
