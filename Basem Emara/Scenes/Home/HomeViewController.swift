@@ -13,6 +13,8 @@ import TinyConstraints
 
 class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass for theme
     
+    // MARK: - Controls
+    
     @IBOutlet weak var titleLabel: UILabel! { // TODO: Subclass for theme
         didSet { titleLabel.textColor = .white }
     }
@@ -39,12 +41,16 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
     
     @IBOutlet weak var topTermsTableView: UITableView!
     
+    // MARK: - Scene variables
+    
     private lazy var interactor: HomeBusinessLogic = HomeInteractor(
         presenter: HomePresenter(viewController: self),
         postsWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
         taxonomyWorker: dependencies.resolveWorker()
     )
+    
+    // MARK: - Internal variable
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: latestPostsCollectionView,
@@ -66,9 +72,20 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
         delegate: self
     )
     
+    // MARK: - Controller cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configure()
+        loadData()
+    }
+}
+
+// MARK: - Events
+
+private extension HomeViewController {
+    
+    func configure() {
         view.backgroundColor = UICollectionView.appearance().backgroundColor
         
         latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
@@ -90,7 +107,9 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
             spacing: 10,
             inset: 16
         )
-        
+    }
+    
+    func loadData() {
         interactor.fetchLatestPosts(
             with: HomeModels.FetchPostsRequest(count: 30)
         )
@@ -107,6 +126,32 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
             with: HomeModels.FetchTermsRequest(count: 6)
         )
     }
+}
+
+// MARK: - Scene cycle
+
+extension HomeViewController: HomeDisplayable {
+    
+    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
+        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
+        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
+        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTerms(with viewModels: [TermsDataViewModel]) {
+        topTermsTableViewAdapter.reloadData(with: viewModels)
+    }
+}
+
+// MARK: - Interactions
+
+private extension HomeViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
         let storyboard = UIStoryboard(name: "ListPosts")
@@ -133,24 +178,7 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
     }
 }
 
-extension HomeViewController: HomeDisplayable {
-    
-    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
-        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
-        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
-        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTerms(with viewModels: [TermsDataViewModel]) {
-        topTermsTableViewAdapter.reloadData(with: viewModels)
-    }
-}
+// MARK: - Delegates
 
 extension HomeViewController: PostsDataViewDelegate {
     
