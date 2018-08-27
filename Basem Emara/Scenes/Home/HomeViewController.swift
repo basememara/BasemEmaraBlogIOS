@@ -50,6 +50,10 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
         taxonomyWorker: dependencies.resolveWorker()
     )
     
+    private lazy var router: HomeRoutable = HomeRouter(
+        viewController: self
+    )
+    
     // MARK: - Internal variable
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
@@ -154,27 +158,11 @@ extension HomeViewController: HomeDisplayable {
 private extension HomeViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
-        let storyboard = UIStoryboard(name: "ListPosts")
-        
-        guard let controller = storyboard.instantiateInitialViewController() as? ListPostsViewController else {
-            return
-        }
-        
-        controller.fetchType = .popular
-        
-        show(controller, sender: nil)
+        router.listPosts(for: .popular)
     }
     
     @IBAction func topPickedPostsSeeAllButtonTapped() {
-        let storyboard = UIStoryboard(name: "ListPosts")
-        
-        guard let controller = storyboard.instantiateInitialViewController() as? ListPostsViewController else {
-            return
-        }
-        
-        controller.fetchType = .picks
-        
-        show(controller, sender: nil)
+        router.listPosts(for: .picks)
     }
 }
 

@@ -35,3 +35,7 @@ protocol HomeDisplayable: class, AppDisplayable {
     func displayTopPickPosts(with viewModels: [PostsDataViewModel])
     func displayTerms(with viewModels: [TermsDataViewModel])
 }
+
+protocol HomeRoutable {
+    func listPosts(for fetchType: ListPostsViewController.FetchType)
+}
