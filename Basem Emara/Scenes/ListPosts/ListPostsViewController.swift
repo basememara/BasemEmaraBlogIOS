@@ -17,15 +17,13 @@ class ListPostsViewController: UIViewController, HasDependencies {
             tableView.register(nib: PostTableViewCell.self)
             
             // Add space to bottom
-            var contentInset = tableView.contentInset
-            contentInset.bottom += 20
-            tableView.contentInset = contentInset
+            tableView.contentInset.bottom += 20
         }
     }
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
-        delegate: self,
-        for: tableView
+        for: tableView,
+        delegate: self
     )
     
     private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()

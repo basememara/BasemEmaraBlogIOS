@@ -10,13 +10,13 @@ import UIKit
 import ZamzamKit
 
 class PostsDataViewAdapter: NSObject {
-    private weak var delegate: PostsDataViewDelegate?
     private let dataView: DataViewable
+    private weak var delegate: PostsDataViewDelegate?
     private(set) var viewModels = [PostsDataViewModel]()
     
-    init(delegate: PostsDataViewDelegate? = nil, for dataView: DataViewable) {
-        self.delegate = delegate
+    init(for dataView: DataViewable, delegate: PostsDataViewDelegate? = nil) {
         self.dataView = dataView
+        self.delegate = delegate
         
         super.init()
         

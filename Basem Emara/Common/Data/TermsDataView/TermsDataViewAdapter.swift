@@ -11,13 +11,13 @@ import SwiftyPress
 import ZamzamKit
 
 class TermsDataViewAdapter: NSObject {
-    private weak var delegate: TermsDataViewDelegate?
     private let dataView: DataViewable
+    private weak var delegate: TermsDataViewDelegate?
     private(set) var viewModels = [TermsDataViewModel]()
     
-    init(delegate: TermsDataViewDelegate? = nil, for dataView: DataViewable) {
-        self.delegate = delegate
+    init(for dataView: DataViewable, delegate: TermsDataViewDelegate? = nil) {
         self.dataView = dataView
+        self.delegate = delegate
         
         super.init()
         

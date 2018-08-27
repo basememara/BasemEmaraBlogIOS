@@ -47,23 +47,23 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
     )
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
-        delegate: self,
-        for: latestPostsCollectionView
+        for: latestPostsCollectionView,
+        delegate: self
     )
     
     private lazy var popularPostsCollectionViewAdapter = PostsDataViewAdapter(
-        delegate: self,
-        for: popularPostsCollectionView
+        for: popularPostsCollectionView,
+        delegate: self
     )
     
     private lazy var pickedPostsCollectionViewAdapter = PostsDataViewAdapter(
-        delegate: self,
-        for: pickedPostsCollectionView
+        for: pickedPostsCollectionView,
+        delegate: self
     )
     
     private lazy var topTermsTableViewAdapter = TermsDataViewAdapter(
-        delegate: self,
-        for: topTermsTableView
+        for: topTermsTableView,
+        delegate: self
     )
     
     override func viewDidLoad() {
