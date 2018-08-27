@@ -150,10 +150,6 @@ extension HomeViewController: HomeDisplayable {
     func displayTerms(with viewModels: [TermsDataViewModel]) {
         topTermsTableViewAdapter.reloadData(with: viewModels)
     }
-    
-    func display(error: AppModels.Error) {
-        present(alert: error.title, message: error.message)
-    }
 }
 
 extension HomeViewController: PostsDataViewDelegate {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28922133CE8A0008135D /* AppDisplayable.swift */; };
 		8B0D645020BEB0FC0046056F /* Basem_Emara_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D644F20BEB0FC0046056F /* Basem_Emara_iOSTests.swift */; };
 		8B161C8F20B815BE0069456E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B161C8E20B815BE0069456E /* UIColor.swift */; };
 		8B161C9020B815BE0069456E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B161C8E20B815BE0069456E /* UIColor.swift */; };
@@ -153,6 +154,7 @@
 /* Begin PBXFileReference section */
 		8B00E41520B30F9300B20B2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B00E41620B30F9300B20B2C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		8B0A28922133CE8A0008135D /* AppDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDisplayable.swift; sourceTree = "<group>"; };
 		8B0D644D20BEB0FB0046056F /* Basem Emara iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Basem Emara iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0D644F20BEB0FC0046056F /* Basem_Emara_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basem_Emara_iOSTests.swift; sourceTree = "<group>"; };
 		8B0D645120BEB0FC0046056F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 				8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */,
 				8BEEEF392123506B00A6AF99 /* HomePresenter.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
+				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
 				8B47A5D220E0F82500681404 /* TermsDataViewAdapter.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
 				8B8B33CC20DA618500E80706 /* UIFont.swift in Sources */,

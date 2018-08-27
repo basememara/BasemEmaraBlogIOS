@@ -29,10 +29,9 @@ protocol HomePresentable {
     func presentTerms(error: DataError)
 }
 
-protocol HomeDisplayable: class {
+protocol HomeDisplayable: class, AppDisplayable {
     func displayLatestPosts(with viewModels: [PostsDataViewModel])
     func displayPopularPosts(with viewModels: [PostsDataViewModel])
     func displayTopPickPosts(with viewModels: [PostsDataViewModel])
     func displayTerms(with viewModels: [TermsDataViewModel])
-    func display(error: AppModels.Error)
 }
