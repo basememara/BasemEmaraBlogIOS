@@ -19,14 +19,8 @@ struct HomeRouter {
 extension HomeRouter: HomeRoutable {
     
     func listPosts(for fetchType: ListPostsViewController.FetchType) {
-        let storyboard = UIStoryboard(name: "ListPosts")
-        
-        guard let controller = storyboard.instantiateInitialViewController() as? ListPostsViewController else {
-            return
+        show(storyboard: .listPosts) { (controller: ListPostsViewController) in
+            controller.fetchType = .popular
         }
-        
-        controller.fetchType = .popular
-        
-        viewController?.show(controller, sender: nil)
     }
 }

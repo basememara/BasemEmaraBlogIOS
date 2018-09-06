@@ -36,6 +36,6 @@ protocol HomeDisplayable: class, AppDisplayable {
     func displayTerms(with viewModels: [TermsDataViewModel])
 }
 
-protocol HomeRoutable {
+protocol HomeRoutable: AppRoutable {
     func listPosts(for fetchType: ListPostsViewController.FetchType)
 }
