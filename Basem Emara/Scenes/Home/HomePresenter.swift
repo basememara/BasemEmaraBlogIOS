@@ -26,12 +26,9 @@ extension HomePresenter {
     func presentLatestPosts(for response: HomeModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
-                id: post.id,
-                title: post.title,
-                summary: !post.excerpt.isEmpty ? post.excerpt
-                    : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                date: self.dateFormatter.string(from: post.createdAt),
-                imageURL: response.media.first { $0.id == post.mediaID }?.link
+                from: post,
+                media: response.media.first { $0.id == post.mediaID },
+                dateFormatter: self.dateFormatter
             )
         }
         
@@ -53,12 +50,9 @@ extension HomePresenter {
     func presentPopularPosts(for response: HomeModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
-                id: post.id,
-                title: post.title,
-                summary: !post.excerpt.isEmpty ? post.excerpt
-                    : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                date: self.dateFormatter.string(from: post.createdAt),
-                imageURL: response.media.first { $0.id == post.mediaID }?.link
+                from: post,
+                media: response.media.first { $0.id == post.mediaID },
+                dateFormatter: self.dateFormatter
             )
         }
         
@@ -80,12 +74,9 @@ extension HomePresenter {
     func presentTopPickPosts(for response: HomeModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
-                id: post.id,
-                title: post.title,
-                summary: !post.excerpt.isEmpty ? post.excerpt
-                    : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                date: self.dateFormatter.string(from: post.createdAt),
-                imageURL: response.media.first { $0.id == post.mediaID }?.link
+                from: post,
+                media: response.media.first { $0.id == post.mediaID },
+                dateFormatter: self.dateFormatter
             )
         }
         
