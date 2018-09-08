@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Basem Emara
+
+  Created by Basem Emara on 2018-09-07.
+  Copyright © 2018 Zamzam Inc. All rights reserved.
+*/
+
+"latest.posts.error.title" = "Latest Posts Error";
+"popular.posts.error.title" = "Popular Posts Error";
+"top.pick.posts.error.title" = "Top Pick Posts Error";
+"terms.error.title" = "Terms Error";

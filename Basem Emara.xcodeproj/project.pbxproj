@@ -41,6 +41,12 @@
 		8B47A5DE20E107CB00681404 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5DD20E107CB00681404 /* AppLabel.swift */; };
 		8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */; };
 		8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5E220E10EA700681404 /* ListPosts.storyboard */; };
+		8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
+		8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
+		8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
+		8B5AA80B214366E000EA4E2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5AA80F214366E000EA4E2F /* Localizable.strings */; };
+		8B5AA80C214366E000EA4E2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5AA80F214366E000EA4E2F /* Localizable.strings */; };
+		8B5AA80D214366E000EA4E2F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5AA80F214366E000EA4E2F /* Localizable.strings */; };
 		8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; };
 		8B5B459220B3103A0088DF60 /* SwiftyPress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B5B459A20B310D40088DF60 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459320B310D40088DF60 /* KeychainSwift.framework */; };
@@ -198,6 +204,8 @@
 		8B47A5DD20E107CB00681404 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsViewController.swift; sourceTree = "<group>"; };
 		8B47A5E220E10EA700681404 /* ListPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListPosts.storyboard; sourceTree = "<group>"; };
+		8B5AA803214364C000EA4E2F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		8B5AA80E214366E000EA4E2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B5B458F20B310140088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B459320B310D40088DF60 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 		8B5B459420B310D40088DF60 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -429,6 +437,7 @@
 			children = (
 				8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */,
 				8B1DC0DC20B1AE10009FBBBD /* Info.plist */,
+				8B5AA80F214366E000EA4E2F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -552,6 +561,7 @@
 				8B8B33D320DA6CC200E80706 /* Data */,
 				8B27AB2720DFDA3C00D6036A /* Extensions */,
 				8B0A28962133EB170008135D /* Routers */,
+				8B5AA803214364C000EA4E2F /* Localizable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -791,6 +801,7 @@
 				8B47A5DA20E100A000681404 /* PickedPostCollectionViewCell.xib in Resources */,
 				8BF2CCCB20B6D84A00C9C161 /* ShowMore.storyboard in Resources */,
 				8B47A5CD20E0155900681404 /* PopularPostCollectionViewCell.xib in Resources */,
+				8B5AA80B214366E000EA4E2F /* Localizable.strings in Resources */,
 				8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */,
 				8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */,
 				8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */,
@@ -809,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */,
+				8B5AA80C214366E000EA4E2F /* Localizable.strings in Resources */,
 				8B1DC0EF20B1AFE1009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,6 +830,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */,
+				8B5AA80D214366E000EA4E2F /* Localizable.strings in Resources */,
 				8B1DC10620B1B0BF009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -901,6 +914,7 @@
 				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
+				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B80D76020DCA33200D6617B /* SnapPagingLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -911,6 +925,7 @@
 			files = (
 				8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
+				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B161C9020B815BE0069456E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +936,7 @@
 			files = (
 				8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
+				8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B161C9120B815BE0069456E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -976,6 +992,14 @@
 				8B1DC10520B1B0BF009FBBBD /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		8B5AA80F214366E000EA4E2F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B5AA80E214366E000EA4E2F /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

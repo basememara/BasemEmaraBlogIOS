@@ -37,7 +37,7 @@ extension HomePresenter {
     
     func presentLatestPosts(error: DataError) {
         let viewModel = AppModels.Error(
-            title: "Latest Posts Error",
+            title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
         
@@ -61,7 +61,7 @@ extension HomePresenter {
     
     func presentPopularPosts(error: DataError) {
         let viewModel = AppModels.Error(
-            title: "Popular Posts Error",
+            title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
         )
         
@@ -85,7 +85,7 @@ extension HomePresenter {
     
     func presentTopPickPosts(error: DataError) {
         let viewModel = AppModels.Error(
-            title: "Top Pick Posts Error",
+            title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
         )
         
@@ -110,7 +110,7 @@ extension HomePresenter {
     
     func presentTerms(error: DataError) {
         let viewModel = AppModels.Error(
-            title: "Terms Error",
+            title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )
         
