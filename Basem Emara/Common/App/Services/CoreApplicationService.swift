@@ -16,7 +16,7 @@ final class CoreApplicationService: ApplicationService, DependencyConfigurator {
 
 extension CoreApplicationService {
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         register(dependencies: AppDependency())
         return true
     }

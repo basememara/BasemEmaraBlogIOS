@@ -99,7 +99,7 @@ private extension HomeViewController {
             inset: 16
         )
         
-        popularPostsCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        popularPostsCollectionView.decelerationRate = .fast
         popularPostsCollectionView.collectionViewLayout = MultiRowLayout(
             rowsCount: 3,
             inset: 16

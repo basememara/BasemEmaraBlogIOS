@@ -16,7 +16,7 @@ final class ThemeApplicationService: ApplicationService {
 
 extension ThemeApplicationService {
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.keyWindow?.tintColor = .tint
         
         UITabBar.appearance().barStyle = .black
