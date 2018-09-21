@@ -16,7 +16,7 @@ extension UIImageView {
     /// - Parameters:
     ///   - url: The URL of the image.
     ///   - placeholder: The placeholder image when retrieving the image at the URL.
-    func setURL(_ url: String?, placeholder: String? = "placeholder", referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ContentMode? = nil) {
+    func setURL(_ url: String?, placeholder: String? = "placeholder", referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ResizingContentMode? = nil) {
         let placeholder = placeholder != nil ? UIImage(named: placeholder!) : nil
         setURL(url, placeholder: placeholder, referenceSize: referenceSize, tintColor: tintColor, contentMode: contentMode)
     }
@@ -26,7 +26,7 @@ extension UIImageView {
     /// - Parameters:
     ///   - url: The URL of the image.
     ///   - placeholder: The placeholder image when retrieving the image at the URL.
-    func setURL(_ url: String?, placeholder: UIImage?, referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ContentMode? = nil) {
+    func setURL(_ url: String?, placeholder: UIImage?, referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ResizingContentMode? = nil) {
         guard let url = url, !url.isEmpty, let urlResource = URL(string: url) else {
             image = placeholder
             return
@@ -37,7 +37,15 @@ extension UIImageView {
         var processor: ImageProcessor? = nil
         
         if let referenceSize = referenceSize {
-            let resizeProcessor = ResizingImageProcessor(referenceSize: referenceSize, mode: contentMode ?? .none)
+            let resizeProcessor = ResizingImageProcessor(referenceSize: referenceSize, mode: {
+                // Convert from Kingfisher enum to prevent leaking dependency through function signature
+                guard let contentMode = contentMode else { return .none }
+                switch contentMode {
+                case .none: return .none
+                case .aspectFit: return .aspectFit
+                case .aspectFill: return .aspectFill
+                }
+            }())
             processor = processor?.append(another: resizeProcessor) ?? resizeProcessor
         }
         
@@ -55,5 +63,16 @@ extension UIImageView {
                 self.image = self.image?.withRenderingMode(.alwaysTemplate)
             }
         )
+    }
+    
+    /// Specify how a size adjusts itself to fit a target size.
+    ///
+    /// - none: Not scale the content.
+    /// - aspectFit: Scale the content to fit the size of the view by maintaining the aspect ratio.
+    /// - aspectFill: Scale the content to fill the size of the view
+    enum ResizingContentMode {
+        case none
+        case aspectFit
+        case aspectFill
     }
 }
