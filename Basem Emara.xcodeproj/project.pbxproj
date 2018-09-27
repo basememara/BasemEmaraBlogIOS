@@ -15,7 +15,6 @@
 		8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180EC21586D730071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180ED21586D740071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
-		8B1180EF21586D970071315B /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180EE21586D970071315B /* AppViewController.swift */; };
 		8B1180F0215876060071315B /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5DB20E107C100681404 /* AppButton.swift */; };
 		8B1180F1215876070071315B /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5DB20E107C100681404 /* AppButton.swift */; };
 		8B1180F22158760A0071315B /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5DD20E107CB00681404 /* AppLabel.swift */; };
@@ -49,9 +48,6 @@
 		8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B1181292158921D0071315B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1181182158920C0071315B /* Kingfisher.framework */; };
 		8B11812B2158921D0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1181172158920C0071315B /* TinyConstraints.framework */; };
-		8B161C8F20B815BE0069456E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B161C8E20B815BE0069456E /* UIColor.swift */; };
-		8B161C9020B815BE0069456E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B161C8E20B815BE0069456E /* UIColor.swift */; };
-		8B161C9120B815BE0069456E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B161C8E20B815BE0069456E /* UIColor.swift */; };
 		8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */; };
 		8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */; };
 		8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */; };
@@ -71,6 +67,12 @@
 		8B21CF03215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
 		8B21CF04215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
 		8B21CF05215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
+		8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
+		8B21CF09215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
+		8B21CF0A215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
+		8B21CF0C215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
+		8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
+		8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
 		8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
 		8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
 		8B47A5CD20E0155900681404 /* PopularPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5CC20E0155900681404 /* PopularPostCollectionViewCell.xib */; };
@@ -127,7 +129,6 @@
 		8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
 		8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
 		8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9620D6C65E00E29992 /* AppDependency.swift */; };
-		8B8B33CC20DA618500E80706 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CB20DA618500E80706 /* UIFont.swift */; };
 		8B8B33D020DA661900E80706 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */; };
 		8B8B33D220DA666900E80706 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8B33D120DA666900E80706 /* PostTableViewCell.xib */; };
 		8B8B33D520DA6D0000E80706 /* PostsDataViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D420DA6D0000E80706 /* PostsDataViewAdapter.swift */; };
@@ -214,7 +215,6 @@
 		8B0D644F20BEB0FC0046056F /* Basem_Emara_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basem_Emara_iOSTests.swift; sourceTree = "<group>"; };
 		8B0D645120BEB0FC0046056F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1180DC21570AB50071315B /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
-		8B1180EE21586D970071315B /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		8B1180F4215877680071315B /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		8B1181132158920C0071315B /* .Kingfisher.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .Kingfisher.version; sourceTree = "<group>"; };
 		8B1181142158920C0071315B /* .TinyConstraints.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .TinyConstraints.version; sourceTree = "<group>"; };
@@ -237,7 +237,6 @@
 		8B1181262158920C0071315B /* E12C94F0-3CDC-3511-A342-4471267829C6.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E12C94F0-3CDC-3511-A342-4471267829C6.bcsymbolmap"; sourceTree = "<group>"; };
 		8B1181272158920C0071315B /* F738397F-B204-359E-A465-9FAEF0081D56.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "F738397F-B204-359E-A465-9FAEF0081D56.bcsymbolmap"; sourceTree = "<group>"; };
 		8B1181282158920C0071315B /* .PKHUD.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .PKHUD.version; sourceTree = "<group>"; };
-		8B161C8E20B815BE0069456E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basem Emara.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B1DC0D520B1AE0E009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -260,6 +259,8 @@
 		8B1DC11420B1BE45009FBBBD /* Post Notification Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Post Notification Extension.entitlements"; sourceTree = "<group>"; };
 		8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
 		8B21CF02215C21C400E2994C /* TermTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermTableViewCell.xib; sourceTree = "<group>"; };
+		8B21CF07215C6BDF00E2994C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8B21CF0B215C6C3D00E2994C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8B27AB2820DFDA4700D6036A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B47A5CC20E0155900681404 /* PopularPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularPostCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -294,7 +295,6 @@
 		8B80D75F20DCA33200D6617B /* SnapPagingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapPagingLayout.swift; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B8A2C9620D6C65E00E29992 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
-		8B8B33CB20DA618500E80706 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8B8B33D120DA666900E80706 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		8B8B33D420DA6D0000E80706 /* PostsDataViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataViewAdapter.swift; sourceTree = "<group>"; };
@@ -420,14 +420,6 @@
 				8B0D645120BEB0FC0046056F /* Info.plist */,
 			);
 			path = "Basem Emara iOSTests";
-			sourceTree = "<group>";
-		};
-		8B1180E52157B7330071315B /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				8B1180DC21570AB50071315B /* DarkTheme.swift */,
-			);
-			path = Themes;
 			sourceTree = "<group>";
 		};
 		8B1181122158920C0071315B /* Build */ = {
@@ -578,9 +570,8 @@
 		8B1DC11920B1C18B009FBBBD /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				8B1180E52157B7330071315B /* Themes */,
-				8B161C8E20B815BE0069456E /* UIColor.swift */,
-				8B8B33CB20DA618500E80706 /* UIFont.swift */,
+				8B21CF06215C691B00E2994C /* Themes */,
+				8B21CF07215C6BDF00E2994C /* Theme.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -592,6 +583,15 @@
 				8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */,
 			);
 			path = TermViewCells;
+			sourceTree = "<group>";
+		};
+		8B21CF06215C691B00E2994C /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				8B1180DC21570AB50071315B /* DarkTheme.swift */,
+				8B21CF0B215C6C3D00E2994C /* LightTheme.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		8B27AB2720DFDA3C00D6036A /* Extensions */ = {
@@ -703,7 +703,6 @@
 				8B47A5DB20E107C100681404 /* AppButton.swift */,
 				8B47A5DD20E107CB00681404 /* AppLabel.swift */,
 				8B1180F4215877680071315B /* AppView.swift */,
-				8B1180EE21586D970071315B /* AppViewController.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -1035,11 +1034,9 @@
 				8B8B33D920DA6E8200E80706 /* LatestPostCollectionViewCell.swift in Sources */,
 				8BEEEF3C2123821B00A6AF99 /* AppModels.swift in Sources */,
 				8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */,
-				8B1180EF21586D970071315B /* AppViewController.swift in Sources */,
 				8B80D75B20DC518100D6617B /* PostsDataViewModels.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* BootApplicationService.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationService.swift in Sources */,
-				8B161C8F20B815BE0069456E /* UIColor.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */,
 				8B0A28982133EB440008135D /* AppRoutable.swift in Sources */,
 				8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */,
@@ -1048,8 +1045,8 @@
 				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
 				8B0A28952133E3680008135D /* HomeRouter.swift in Sources */,
 				8B47A5D220E0F82500681404 /* TermsDataViewAdapter.swift in Sources */,
+				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
-				8B8B33CC20DA618500E80706 /* UIFont.swift in Sources */,
 				8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B47A5D620E0F84800681404 /* TermsDataViewModels.swift in Sources */,
@@ -1058,6 +1055,7 @@
 				8B1180F5215877680071315B /* AppView.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
 				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,
+				8B21CF0C215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B80D76020DCA33200D6617B /* SnapPagingLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1085,7 +1083,8 @@
 				8B21CF00215C21B000E2994C /* TermTableViewCell.swift in Sources */,
 				8B11810D215891A20071315B /* UIImage.swift in Sources */,
 				8B11810B2158918B0071315B /* TermsDataViewModels.swift in Sources */,
-				8B161C9020B815BE0069456E /* UIColor.swift in Sources */,
+				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
+				8B21CF09215C6BDF00E2994C /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,7 +1111,8 @@
 				8B21CF01215C21B000E2994C /* TermTableViewCell.swift in Sources */,
 				8B11810E215891A20071315B /* UIImage.swift in Sources */,
 				8B11810C2158918C0071315B /* TermsDataViewModels.swift in Sources */,
-				8B161C9120B815BE0069456E /* UIColor.swift in Sources */,
+				8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */,
+				8B21CF0A215C6BDF00E2994C /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

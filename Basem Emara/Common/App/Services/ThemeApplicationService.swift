@@ -11,13 +11,13 @@ import SwiftyPress
 import ZamzamKit
 
 final class ThemeApplicationService: ApplicationService, HasDependencies {
-    private lazy var themeWorker: ThemeWorkerType = dependencies.resolveWorker()
+    private let theme: Theme = DarkTheme()
 }
 
 extension ThemeApplicationService {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        themeWorker.apply(for: application)
+        theme.apply(for: application)
         return true
     }
 }
