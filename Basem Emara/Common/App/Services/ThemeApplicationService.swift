@@ -18,11 +18,6 @@ extension ThemeApplicationService {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         theme.apply(for: application)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
-            LightTheme().apply(for: application)
-        }
-        
         return true
     }
 }
