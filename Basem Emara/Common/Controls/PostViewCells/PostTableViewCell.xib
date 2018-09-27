@@ -107,6 +107,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Nil-ld-KEi" secondAttribute="bottom" constant="16" id="0Pu-Ff-WHH"/>
                             <constraint firstItem="Nil-ld-KEi" firstAttribute="top" secondItem="FgF-U5-sZj" secondAttribute="top" constant="16" id="VWT-ci-R04"/>
