@@ -10,52 +10,61 @@ import UIKit
 import SwiftyPress
 
 public struct DarkThemeStore: ThemeStore {
-    private let tint = UIColor(rgb: (49, 169, 234))
-    private let secondaryTint = UIColor(rgb: (137, 167, 167))
-    private let title: UIColor = .white
+    let tint: UIColor = .init(rgb: (49, 169, 234))
+    let secondaryTint: UIColor = .init(rgb: (137, 167, 167))
+    
+    let backgroundColor: UIColor = .black
+    let separatorColor: UIColor = .lightGray
+    let selectionColor: UIColor = .init(rgb: (38, 38, 40))
+    
+    let labelColor: UIColor = .white
+    let secondaryLabelColor: UIColor = .lightGray
+    let subtleLabelColor: UIColor = .darkGray
+    
+    let barStyle: UIBarStyle = .black
 }
 
 public extension DarkThemeStore {
     
     func apply(for application: UIApplication) {
-        application.keyWindow?.tintColor = .tint
+        application.keyWindow?.tintColor = tint
         
-        UITabBar.appearance().barStyle = .black
+        UITabBar.appearance().barStyle = barStyle
         
-        UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().tintColor = .tint
+        UINavigationBar.appearance().barStyle = barStyle
+        UINavigationBar.appearance().tintColor = tint
         UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor.title
+            .foregroundColor: labelColor
         ]
         
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().largeTitleTextAttributes = [
-                .foregroundColor: UIColor.title
+                .foregroundColor: labelColor
             ]
         }
         
-        UICollectionView.appearance().backgroundColor = .black
-        UITableView.appearance().backgroundColor = .black
-        UITableView.appearance().separatorColor = .lightGray
+        UICollectionView.appearance().backgroundColor = backgroundColor
+        UITableView.appearance().backgroundColor = backgroundColor
+        UITableView.appearance().separatorColor = separatorColor
         UITableViewCell.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().selectionColor = UIColor(rgb: (38, 38, 40))
+        UITableViewCell.appearance().selectionColor = selectionColor
         
-        AppButton.appearance().borderColor = .tint
+        AppButton.appearance().borderColor = tint
         AppButton.appearance().borderWidth = 1
         AppButton.appearance().cornerRadius = 3
         
-        AppImageButton.appearance().tintColor = .secondaryTint
+        AppImageButton.appearance().tintColor = secondaryTint
         
-        AppLabel.appearance().textColor = .white
-        AppSubhead.appearance().textColor = .lightGray
-        AppFootnote.appearance().textColor = .darkGray
+        AppLabel.appearance().textColor = labelColor
+        AppSubhead.appearance().textColor = secondaryLabelColor
+        AppFootnote.appearance().textColor = subtleLabelColor
         
-        AppView.appearance().backgroundColor = .black
-        AppSeparator.appearance().backgroundColor = .lightGray
+        AppView.appearance().backgroundColor = backgroundColor
+        AppSeparator.appearance().backgroundColor = separatorColor
         AppSeparator.appearance().alpha = 0.5
         
         AppView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
-            $0.backgroundColor = UIColor(rgb: (38, 38, 40))
+            $0.backgroundColor = selectionColor
             $0.cornerRadius = 10
         }
         
