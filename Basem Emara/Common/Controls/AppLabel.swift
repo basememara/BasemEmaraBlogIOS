@@ -10,7 +10,20 @@ import UIKit
 
 class AppLabel: UILabel {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+}
+
+class AppBody: AppLabel {
+    
+}
+
+class AppHeadline: AppLabel {
+    
+}
+
+class AppSubhead: AppLabel {
+    
+}
+
+class AppFootnote: AppLabel {
+    
 }

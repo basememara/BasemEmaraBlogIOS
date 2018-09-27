@@ -48,8 +48,11 @@ extension PostsDataViewAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) //Handle cell highlight
         
-        let model = viewModels[indexPath.row]
-        delegate?.postsDataView(didSelect: model, at: indexPath, from: tableView)
+        delegate?.postsDataView(
+            didSelect: viewModels[indexPath.row],
+            at: indexPath,
+            from: tableView
+        )
     }
 }
 
@@ -73,8 +76,11 @@ extension PostsDataViewAdapter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true) //Handle cell highlight
         
-        let model = viewModels[indexPath.row]
-        delegate?.postsDataView(didSelect: model, at: indexPath, from: collectionView)
+        delegate?.postsDataView(
+            didSelect: viewModels[indexPath.row],
+            at: indexPath,
+            from: collectionView
+        )
     }
 }
 

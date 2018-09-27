@@ -10,25 +10,12 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell, PostsDataViewCell {
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var featuredImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        containerView.backgroundColor = .black
-        titleLabel.textColor = .white
-        summaryLabel.textColor = .lightGray
-        dateLabel.textColor = .lightGray
-        selectionColor = UIColor(rgb: (38, 38, 40))
-        favoriteButton.tintColor = .white
-        moreButton.tintColor = .white
-    }
     
     @IBAction func favoriteButtonTapped() {
     }

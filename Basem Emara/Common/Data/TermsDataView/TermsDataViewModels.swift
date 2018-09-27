@@ -14,3 +14,8 @@ struct TermsDataViewModel {
     let count: String
     let taxonomy: Taxonomy
 }
+
+protocol TermsDataViewCell {
+    func bind(_ model: TermsDataViewModel)
+}
+

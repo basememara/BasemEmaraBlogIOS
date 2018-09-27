@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="558" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-WW-HbU" userLabel="Container View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-WW-HbU" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="558" height="194"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F04-6s-dst">
@@ -38,16 +37,16 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bwu-A9-c2t">
                                                 <rect key="frame" x="0.0" y="65.5" width="320" height="43.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzi-cn-plh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzi-cn-plh" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c78-kS-k7Z">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c78-kS-k7Z" customClass="AppSubhead" customModule="Basem_Emara" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="25.5" width="320" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -60,7 +59,7 @@
                                             <constraint firstItem="bwu-A9-c2t" firstAttribute="centerY" secondItem="Xfx-Lc-5Js" secondAttribute="centerY" id="XlP-yw-qWV"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-K7-uAI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-K7-uAI" customClass="AppImageButton" customModule="Basem_Emara" customModuleProvider="target">
                                         <rect key="frame" x="526" y="0.0" width="32" height="174"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="aDJ-SC-KyJ"/>
@@ -75,15 +74,13 @@
                                     <constraint firstItem="bwu-A9-c2t" firstAttribute="height" relation="lessThanOrEqual" secondItem="eVz-el-fGF" secondAttribute="height" priority="250" id="KP6-zB-dH2"/>
                                 </constraints>
                             </stackView>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voI-4n-X0d" userLabel="Separator View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voI-4n-X0d" userLabel="Separator View" customClass="AppSeparator" customModule="Basem_Emara" customModuleProvider="target">
                                 <rect key="frame" x="190" y="193" width="368" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kZB-hf-WIO"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="F04-6s-dst" secondAttribute="bottom" constant="10" id="2aX-fw-JjD"/>
                             <constraint firstAttribute="trailing" secondItem="voI-4n-X0d" secondAttribute="trailing" id="BYx-lr-AFM"/>
@@ -105,7 +102,6 @@
             <viewLayoutGuide key="safeArea" id="Ej6-Ys-I2T"/>
             <size key="customSize" width="558" height="194"/>
             <connections>
-                <outlet property="containerView" destination="JfV-WW-HbU" id="EPx-ZG-X0x"/>
                 <outlet property="favoriteButton" destination="OCb-K7-uAI" id="UrC-V0-u3k"/>
                 <outlet property="featuredImage" destination="eVz-el-fGF" id="oSc-HQ-zlg"/>
                 <outlet property="summaryLabel" destination="c78-kS-k7Z" id="Hpr-02-eOZ"/>

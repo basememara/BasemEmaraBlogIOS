@@ -19,3 +19,7 @@ class AppButton: UIButton {
         cornerRadius = 3
     }
 }
+
+class AppImageButton: UIButton {
+    
+}

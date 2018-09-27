@@ -11,12 +11,10 @@ import ZamzamKit
 
 protocol TermsDataViewDelegate: class {
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable)
-    func termsDataView(willDisplay model: TermsDataViewModel, in cell: UITableViewCell, at indexPath: IndexPath, from dataView: DataViewable)
     func termsDataViewDidReloadData()
 }
 
 // Optional conformance
 extension TermsDataViewDelegate {
-    func termsDataView(willDisplay model: TermsDataViewModel, in cell: UITableViewCell, at indexPath: IndexPath, from dataView: DataViewable) {}
     func termsDataViewDidReloadData() {}
 }

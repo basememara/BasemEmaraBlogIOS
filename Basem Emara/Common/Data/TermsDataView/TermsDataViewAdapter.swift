@@ -56,17 +56,7 @@ extension TermsDataViewAdapter: UITableViewDelegate {
         )
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        delegate?.termsDataView(
-            willDisplay: element(in: indexPath),
-            in: cell,
-            at: indexPath,
-            from: tableView
-        )
-    }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // TODO: Localize
         return numberOfSections > 1 ? taxonomy(for: section).rawValue : nil
     }
 }
@@ -83,9 +73,7 @@ extension TermsDataViewAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView[indexPath]
-        let model = element(in: indexPath)
-        cell.textLabel?.text = model.name
-        cell.detailTextLabel?.text = "(\(model.count))"
+        (cell as? TermsDataViewCell)?.bind(element(in: indexPath))
         return cell
     }
 }
@@ -117,7 +105,7 @@ extension TermsDataViewAdapter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView[indexPath]
-        assertionFailure("Not implemented")
+        (cell as? TermsDataViewCell)?.bind(element(in: indexPath))
         return cell
     }
 }

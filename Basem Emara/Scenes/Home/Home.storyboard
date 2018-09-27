@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Quv-Xo-3js">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Quv-Xo-3js">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +14,11 @@
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="HomeViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA">
+                    <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm0-16-rxd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm0-16-rxd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-Th-VOv" userLabel="Content View">
@@ -44,9 +43,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-hx-0XF">
                                                         <rect key="frame" x="0.0" y="230" width="375" height="128"/>
                                                         <subviews>
-                                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-4x-zz9" userLabel="Separator View">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-4x-zz9" userLabel="Separator View" customClass="AppSeparator" customModule="Basem_Emara" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="465-AK-5Gc"/>
                                                                 </constraints>
@@ -54,7 +52,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gw-Es-Zj7">
                                                                 <rect key="frame" x="16" y="33" width="343" height="87"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-fG-sg5">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-fG-sg5" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
@@ -97,9 +95,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Nk-DNN">
                                                         <rect key="frame" x="0.0" y="658" width="375" height="128"/>
                                                         <subviews>
-                                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4V-nj-xNH" userLabel="Separator View">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4V-nj-xNH" userLabel="Separator View" customClass="AppSeparator" customModule="Basem_Emara" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="RIB-NI-YbS"/>
                                                                 </constraints>
@@ -107,7 +104,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-OP-P35">
                                                                 <rect key="frame" x="16" y="33" width="343" height="87"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs9-PM-gdj">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs9-PM-gdj" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
@@ -134,54 +131,22 @@
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" scrollEnabled="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-zo-KOC" customClass="IntrinsicHeightTableView" customModule="ZamzamKit">
                                                         <rect key="frame" x="0.0" y="786" width="375" height="300"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="T2J-TF-OhC" detailTextLabel="HtW-bA-JMY" style="IBUITableViewCellStyleValue1" id="b4l-d5-5R6">
-                                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b4l-d5-5R6" id="bKX-l7-haM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T2J-TF-OhC">
-                                                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                                            <autoresizingMask key="autoresizingMask"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HtW-bA-JMY">
-                                                                            <rect key="frame" x="296" y="12" width="44" height="20.5"/>
-                                                                            <autoresizingMask key="autoresizingMask"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </tableViewCellContentView>
-                                                            </tableViewCell>
-                                                        </prototypes>
+                                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HQ-rW-OsP">
                                                         <rect key="frame" x="0.0" y="1086" width="375" height="128"/>
                                                         <subviews>
-                                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-Ll-auc" userLabel="Separator View">
-                                                                <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="atQ-Ty-6gf"/>
-                                                                </constraints>
-                                                            </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTW-s7-CbO">
-                                                                <rect key="frame" x="16" y="33" width="343" height="87"/>
+                                                                <rect key="frame" x="16" y="24" width="343" height="96"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-ob-DZz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-ob-DZz" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="96"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3U-Fh-apR">
-                                                                        <rect key="frame" x="296" y="0.0" width="47" height="87"/>
+                                                                        <rect key="frame" x="296" y="0.0" width="47" height="96"/>
                                                                         <state key="normal" title="See All"/>
                                                                         <connections>
                                                                             <action selector="topPickedPostsSeeAllButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="vLQ-Bq-Tpw"/>
@@ -192,13 +157,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="3IQ-Ll-auc" firstAttribute="width" secondItem="eTW-s7-CbO" secondAttribute="width" id="0xH-XT-CA7"/>
                                                             <constraint firstAttribute="trailingMargin" secondItem="eTW-s7-CbO" secondAttribute="trailing" constant="8" id="GoD-31-3To"/>
                                                             <constraint firstItem="eTW-s7-CbO" firstAttribute="leading" secondItem="0HQ-rW-OsP" secondAttribute="leadingMargin" constant="8" id="JUb-Bb-jSA"/>
-                                                            <constraint firstItem="3IQ-Ll-auc" firstAttribute="top" secondItem="0HQ-rW-OsP" secondAttribute="top" constant="24" id="UVY-Gy-KTI"/>
                                                             <constraint firstAttribute="bottom" secondItem="eTW-s7-CbO" secondAttribute="bottom" constant="8" id="eZV-HS-ikh"/>
-                                                            <constraint firstItem="eTW-s7-CbO" firstAttribute="top" secondItem="3IQ-Ll-auc" secondAttribute="bottom" constant="8" id="ijN-gZ-12T"/>
-                                                            <constraint firstItem="3IQ-Ll-auc" firstAttribute="centerX" secondItem="0HQ-rW-OsP" secondAttribute="centerX" id="lhf-0s-k6p"/>
+                                                            <constraint firstItem="eTW-s7-CbO" firstAttribute="top" secondItem="0HQ-rW-OsP" secondAttribute="top" constant="24" id="ijN-gZ-12T"/>
                                                         </constraints>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dJZ-zQ-qJt">
@@ -217,9 +179,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRd-ZI-FYO">
                                                         <rect key="frame" x="0.0" y="1364" width="375" height="211"/>
                                                         <subviews>
-                                                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-nF-3Sc" userLabel="Separator View">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-nF-3Sc" userLabel="Separator View" customClass="AppSeparator" customModule="Basem_Emara" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="Fya-3F-5HY"/>
                                                                 </constraints>
@@ -277,7 +238,6 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dm0-16-rxd" secondAttribute="bottom" id="5hj-Sf-DcF"/>
                             <constraint firstItem="Fnq-Th-VOv" firstAttribute="width" secondItem="ODO-xw-sEA" secondAttribute="width" id="8Tb-S6-wzD"/>
@@ -296,8 +256,8 @@
                         <outlet property="pickedPostsCollectionView" destination="dJZ-zQ-qJt" id="Js4-ZC-kef"/>
                         <outlet property="picksTitleLabel" destination="zaU-ob-DZz" id="UB1-sE-0dX"/>
                         <outlet property="popularPostsCollectionView" destination="cNQ-9u-tDh" id="Hxy-Z3-Ry2"/>
+                        <outlet property="popularTitleLabel" destination="xg6-fG-sg5" id="DWN-Us-ZvE"/>
                         <outlet property="tagTitleLabel" destination="Fs9-PM-gdj" id="mY8-mG-bHm"/>
-                        <outlet property="titleLabel" destination="xg6-fG-sg5" id="DWN-Us-ZvE"/>
                         <outlet property="topTermsTableView" destination="VT4-zo-KOC" id="PfX-DV-xYk"/>
                     </connections>
                 </viewController>

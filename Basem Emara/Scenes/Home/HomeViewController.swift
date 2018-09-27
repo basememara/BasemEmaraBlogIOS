@@ -15,17 +15,9 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
     
     // MARK: - Controls
     
-    @IBOutlet weak var titleLabel: UILabel! { // TODO: Subclass for theme
-        didSet { titleLabel.textColor = .white }
-    }
-    
-    @IBOutlet weak var tagTitleLabel: UILabel! { // TODO: Subclass for theme
-        didSet { tagTitleLabel.textColor = .white }
-    }
-    
-    @IBOutlet weak var picksTitleLabel: UILabel! { // TODO: Subclass for theme
-        didSet { picksTitleLabel.textColor = .white }
-    }
+    @IBOutlet weak var popularTitleLabel: UILabel!
+    @IBOutlet weak var tagTitleLabel: UILabel!
+    @IBOutlet weak var picksTitleLabel: UILabel!
     
     @IBOutlet weak var latestPostsCollectionView: UICollectionView! {
         didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self) }
@@ -39,7 +31,9 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
         didSet { pickedPostsCollectionView.register(nib: PickedPostCollectionViewCell.self) }
     }
     
-    @IBOutlet weak var topTermsTableView: UITableView!
+    @IBOutlet weak var topTermsTableView: UITableView! {
+        didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
+    }
     
     // MARK: - Scene variables
     
@@ -90,8 +84,6 @@ class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass 
 private extension HomeViewController {
     
     func configure() {
-        view.backgroundColor = UICollectionView.appearance().backgroundColor
-        
         latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
             centerPosition: true,
             peekWidth: 40,
@@ -216,10 +208,5 @@ extension HomeViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         
-    }
-    
-    func termsDataView(willDisplay model: TermsDataViewModel, in cell: UITableViewCell, at indexPath: IndexPath, from dataView: DataViewable) {
-        cell.textLabel?.textColor = .white
-        cell.detailTextLabel?.textColor = .white
     }
 }

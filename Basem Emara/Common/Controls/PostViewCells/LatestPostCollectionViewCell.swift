@@ -11,19 +11,9 @@ import ZamzamKit
 
 class LatestPostCollectionViewCell: UICollectionViewCell, PostsDataViewCell {
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var featuredImage: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        containerView.cornerRadius = 10
-        containerView.backgroundColor = UIColor(rgb: (38, 38, 40))
-        titleLabel.textColor = .white
-        summaryLabel.textColor = .lightGray
-    }
 }
 
 extension LatestPostCollectionViewCell {

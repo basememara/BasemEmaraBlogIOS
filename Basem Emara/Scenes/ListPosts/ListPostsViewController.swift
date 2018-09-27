@@ -40,8 +40,6 @@ class ListPostsViewController: UIViewController, HasDependencies {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UICollectionView.appearance().backgroundColor
-        
         let completion: ((Result<[PostType], DataError>) -> Void) = { [weak self] in
             guard let posts = $0.value, $0.isSuccess else { return }
             
