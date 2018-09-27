@@ -85,9 +85,28 @@ extension Theme {
         }
         
         extend()
+        
+        // Ensure existing views render with new theme
+        // https://developer.apple.com/documentation/uikit/uiappearance
+        guard application.windows.first?.subviews.isEmpty == false else { return }
+        reload(for: application)
     }
     
     func extend() {
         // Optionally extend theme
+    }
+}
+
+private extension Theme {
+    
+    /// Unload all views and add back for `UIAppearance`
+    /// to take effect for existing controls
+    func reload(for application: UIApplication) {
+        application.windows.forEach { window in
+            window.subviews.forEach { view in
+                view.removeFromSuperview()
+                window.addSubview(view)
+            }
+        }
     }
 }
