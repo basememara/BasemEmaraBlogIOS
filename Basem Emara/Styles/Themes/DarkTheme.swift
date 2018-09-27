@@ -39,5 +39,32 @@ public extension DarkThemeStore {
         UITableView.appearance().separatorColor = .lightGray
         UITableViewCell.appearance().backgroundColor = .clear
         UITableViewCell.appearance().selectionColor = UIColor(rgb: (38, 38, 40))
+        
+        AppButton.appearance().borderColor = .tint
+        AppButton.appearance().borderWidth = 1
+        AppButton.appearance().cornerRadius = 3
+        
+        AppImageButton.appearance().tintColor = .secondaryTint
+        
+        AppLabel.appearance().textColor = .white
+        AppSubhead.appearance().textColor = .lightGray
+        AppFootnote.appearance().textColor = .darkGray
+        
+        AppView.appearance().backgroundColor = .black
+        AppSeparator.appearance().backgroundColor = .lightGray
+        AppSeparator.appearance().alpha = 0.5
+        
+        AppView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
+            $0.backgroundColor = UIColor(rgb: (38, 38, 40))
+            $0.cornerRadius = 10
+        }
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
+            $0.cornerRadius = 10
+        }
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
+            $0.cornerRadius = 10
+        }
     }
 }
