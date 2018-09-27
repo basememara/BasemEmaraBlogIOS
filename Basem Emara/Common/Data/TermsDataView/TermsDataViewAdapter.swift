@@ -57,7 +57,7 @@ extension TermsDataViewAdapter: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return numberOfSections > 1 ? taxonomy(for: section).rawValue : nil
+        return numberOfSections > 1 ? taxonomy(for: section).localized : nil
     }
 }
 
