@@ -51,6 +51,12 @@ extension Theme {
         UITableViewCell.appearance().backgroundColor = .clear
         UITableViewCell.appearance().selectionColor = selectionColor
         
+        UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
+            .backgroundColor = selectionColor
+        
+        UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
+            .textColor = secondaryLabelColor
+        
         AppButton.appearance().borderColor = tint
         AppButton.appearance().borderWidth = 1
         AppButton.appearance().cornerRadius = 3
