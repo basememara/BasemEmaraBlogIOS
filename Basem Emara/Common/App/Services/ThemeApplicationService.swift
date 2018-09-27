@@ -10,33 +10,14 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class ThemeApplicationService: ApplicationService {
-    
+final class ThemeApplicationService: ApplicationService, HasDependencies {
+    private lazy var themeWorker: ThemeWorkerType = dependencies.resolveWorker()
 }
 
 extension ThemeApplicationService {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        application.keyWindow?.tintColor = .tint
-        
-        UITabBar.appearance().barStyle = .black
-        
-        UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().tintColor = .tint
-        UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor.title
-        ]
-        
-        if #available(iOS 11.0, *) {
-            UINavigationBar.appearance().largeTitleTextAttributes = [
-                .foregroundColor: UIColor.title
-            ]
-        }
-        
-        UICollectionView.appearance().backgroundColor = .black
-        UITableView.appearance().backgroundColor = .black
-        UITableViewCell.appearance().backgroundColor = .clear
-        
+        themeWorker.apply(for: application)
         return true
     }
 }

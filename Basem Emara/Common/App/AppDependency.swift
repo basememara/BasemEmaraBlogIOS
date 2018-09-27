@@ -10,4 +10,8 @@ import SwiftyPress
 
 class AppDependency: Dependency {
     
+    override func resolveStore() -> ThemeStore {
+        return DarkThemeStore()
+    }
+    
 }
