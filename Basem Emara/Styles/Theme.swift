@@ -89,7 +89,6 @@ extension Theme {
         
         // Ensure existing views render with new theme
         // https://developer.apple.com/documentation/uikit/uiappearance
-        guard application.windows.first?.subviews.isEmpty == false else { return }
         application.windows.reload()
     }
     
