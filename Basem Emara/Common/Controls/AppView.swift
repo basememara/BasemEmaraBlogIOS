@@ -12,6 +12,6 @@ class AppView: UIView {
     
 }
 
-class AppSeparator: AppView {
+class AppSeparator: UIView {
     
 }

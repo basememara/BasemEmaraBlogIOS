@@ -86,6 +86,12 @@
 		8B47A5DE20E107CB00681404 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5DD20E107CB00681404 /* AppLabel.swift */; };
 		8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */; };
 		8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5E220E10EA700681404 /* ListPosts.storyboard */; };
+		8B50462B2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
+		8B50462C2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
+		8B50462D2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
+		8B50462F2161784800BF771D /* AppSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462E2161784800BF771D /* AppSegmentedControl.swift */; };
+		8B5046302161784800BF771D /* AppSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462E2161784800BF771D /* AppSegmentedControl.swift */; };
+		8B5046312161784800BF771D /* AppSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462E2161784800BF771D /* AppSegmentedControl.swift */; };
 		8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
 		8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
 		8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
@@ -274,6 +280,8 @@
 		8B47A5DD20E107CB00681404 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsViewController.swift; sourceTree = "<group>"; };
 		8B47A5E220E10EA700681404 /* ListPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListPosts.storyboard; sourceTree = "<group>"; };
+		8B50462A2161782C00BF771D /* AppSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSwitch.swift; sourceTree = "<group>"; };
+		8B50462E2161784800BF771D /* AppSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSegmentedControl.swift; sourceTree = "<group>"; };
 		8B5AA803214364C000EA4E2F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		8B5AA80E214366E000EA4E2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B5B458F20B310140088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,6 +710,8 @@
 				8B21CEFD215C217000E2994C /* TermViewCells */,
 				8B47A5DB20E107C100681404 /* AppButton.swift */,
 				8B47A5DD20E107CB00681404 /* AppLabel.swift */,
+				8B50462E2161784800BF771D /* AppSegmentedControl.swift */,
+				8B50462A2161782C00BF771D /* AppSwitch.swift */,
 				8B1180F4215877680071315B /* AppView.swift */,
 			);
 			path = Controls;
@@ -1023,6 +1033,7 @@
 				8B8B33D020DA661900E80706 /* PostTableViewCell.swift in Sources */,
 				8B47A5D820E1009000681404 /* PickedPostCollectionViewCell.swift in Sources */,
 				8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */,
+				8B50462B2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIApplication.swift in Sources */,
 				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationService.swift in Sources */,
 				8B47A5CF20E0534D00681404 /* MultiRowLayout.swift in Sources */,
@@ -1052,6 +1063,7 @@
 				8B47A5D620E0F84800681404 /* TermsDataViewModels.swift in Sources */,
 				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */,
+				8B50462F2161784800BF771D /* AppSegmentedControl.swift in Sources */,
 				8B1180F5215877680071315B /* AppView.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
 				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,
@@ -1067,6 +1079,7 @@
 				8B118109215891870071315B /* TermsDataViewDelegate.swift in Sources */,
 				8B1180FC215891690071315B /* PostTableViewCell.swift in Sources */,
 				8B1180F82158913F0071315B /* LatestPostCollectionViewCell.swift in Sources */,
+				8B50462C2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8B118100215891750071315B /* PostsDataViewAdapter.swift in Sources */,
 				8B1181062158917F0071315B /* PostsDataViewModels.swift in Sources */,
 				8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */,
@@ -1074,6 +1087,7 @@
 				8B118107215891820071315B /* TermsDataViewAdapter.swift in Sources */,
 				8B1181032158917B0071315B /* PostsDataViewDelegate.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
+				8B5046302161784800BF771D /* AppSegmentedControl.swift in Sources */,
 				8B1180FA215891650071315B /* PopularPostCollectionViewCell.swift in Sources */,
 				8B1180FE2158916C0071315B /* PickedPostCollectionViewCell.swift in Sources */,
 				8B1180F22158760A0071315B /* AppLabel.swift in Sources */,
@@ -1095,6 +1109,7 @@
 				8B11810A215891880071315B /* TermsDataViewDelegate.swift in Sources */,
 				8B1180FD2158916A0071315B /* PostTableViewCell.swift in Sources */,
 				8B1180F9215891410071315B /* LatestPostCollectionViewCell.swift in Sources */,
+				8B50462D2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8B118101215891760071315B /* PostsDataViewAdapter.swift in Sources */,
 				8B1181052158917E0071315B /* PostsDataViewModels.swift in Sources */,
 				8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */,
@@ -1102,6 +1117,7 @@
 				8B118108215891830071315B /* TermsDataViewAdapter.swift in Sources */,
 				8B1181042158917B0071315B /* PostsDataViewDelegate.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
+				8B5046312161784800BF771D /* AppSegmentedControl.swift in Sources */,
 				8B1180FB215891660071315B /* PopularPostCollectionViewCell.swift in Sources */,
 				8B1180FF2158916D0071315B /* PickedPostCollectionViewCell.swift in Sources */,
 				8B1180F32158760B0071315B /* AppLabel.swift in Sources */,

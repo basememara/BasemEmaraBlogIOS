@@ -12,18 +12,14 @@ class AppLabel: UILabel {
     
 }
 
-class AppBody: AppLabel {
+class AppHeadline: UILabel {
     
 }
 
-class AppHeadline: AppLabel {
+class AppSubhead: UILabel {
     
 }
 
-class AppSubhead: AppLabel {
-    
-}
-
-class AppFootnote: AppLabel {
+class AppFootnote: UILabel {
     
 }
