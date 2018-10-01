@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ckx-Yv-cd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ckx-Yv-cd5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,10 +14,30 @@
         <scene sceneID="Nds-dn-BgP">
             <objects>
                 <viewController id="ckx-Yv-cd5" customClass="ShowMoreViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gp4-si-c06">
+                    <view key="view" contentMode="scaleToFill" id="gp4-si-c06" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNZ-UE-M2w" customClass="AppSwitch" customModule="Basem_Emara" customModuleProvider="target">
+                                <rect key="frame" x="163" y="318" width="51" height="31"/>
+                                <connections>
+                                    <action selector="themeSwitchChanged:" destination="ckx-Yv-cd5" eventType="valueChanged" id="Ijv-JS-kpU"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-8X-nrz" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                <rect key="frame" x="114.5" y="277" width="146.5" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BNZ-UE-M2w" firstAttribute="centerX" secondItem="gp4-si-c06" secondAttribute="centerX" id="2q0-yX-so3"/>
+                            <constraint firstItem="BNZ-UE-M2w" firstAttribute="top" secondItem="2sJ-8X-nrz" secondAttribute="bottom" constant="20" id="bMJ-oq-3Y3"/>
+                            <constraint firstItem="2sJ-8X-nrz" firstAttribute="centerX" secondItem="gp4-si-c06" secondAttribute="centerX" id="bok-Mw-vzJ"/>
+                            <constraint firstItem="BNZ-UE-M2w" firstAttribute="centerY" secondItem="gp4-si-c06" secondAttribute="centerY" id="puH-96-lhs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2rV-4g-aq9"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="H8S-d7-N3v"/>
