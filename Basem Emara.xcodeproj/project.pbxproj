@@ -46,8 +46,6 @@
 		8B11810E215891A20071315B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
 		8B11810F215891EB0071315B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
-		8B1181292158921D0071315B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1181182158920C0071315B /* Kingfisher.framework */; };
-		8B11812B2158921D0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1181172158920C0071315B /* TinyConstraints.framework */; };
 		8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */; };
 		8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */; };
 		8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */; };
@@ -123,6 +121,9 @@
 		8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
 		8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
 		8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
+		8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
+		8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
+		8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
@@ -222,27 +223,6 @@
 		8B0D645120BEB0FC0046056F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1180DC21570AB50071315B /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		8B1180F4215877680071315B /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		8B1181132158920C0071315B /* .Kingfisher.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .Kingfisher.version; sourceTree = "<group>"; };
-		8B1181142158920C0071315B /* .TinyConstraints.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .TinyConstraints.version; sourceTree = "<group>"; };
-		8B1181162158920C0071315B /* 3EA08E35-6C61-3FE6-B5BA-B766A12136D4.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "3EA08E35-6C61-3FE6-B5BA-B766A12136D4.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181172158920C0071315B /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = "<group>"; };
-		8B1181182158920C0071315B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
-		8B1181192158920C0071315B /* Kingfisher.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Kingfisher.framework.dSYM; sourceTree = "<group>"; };
-		8B11811A2158920C0071315B /* AD860042-A988-331F-9521-35C2B578E8F7.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AD860042-A988-331F-9521-35C2B578E8F7.bcsymbolmap"; sourceTree = "<group>"; };
-		8B11811B2158920C0071315B /* B7989F13-9F6E-3BEB-A96C-0D6630A844B9.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "B7989F13-9F6E-3BEB-A96C-0D6630A844B9.bcsymbolmap"; sourceTree = "<group>"; };
-		8B11811C2158920C0071315B /* A5F4ACF7-5E08-3B5B-8183-2AB53C3B0D3B.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "A5F4ACF7-5E08-3B5B-8183-2AB53C3B0D3B.bcsymbolmap"; sourceTree = "<group>"; };
-		8B11811D2158920C0071315B /* PKHUD.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = PKHUD.framework.dSYM; sourceTree = "<group>"; };
-		8B11811E2158920C0071315B /* F74AF30F-9F50-3C30-B667-6AAE5F508435.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "F74AF30F-9F50-3C30-B667-6AAE5F508435.bcsymbolmap"; sourceTree = "<group>"; };
-		8B11811F2158920C0071315B /* 635F145B-EFE1-3358-B15E-76BB708CD885.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "635F145B-EFE1-3358-B15E-76BB708CD885.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181202158920C0071315B /* C00609F2-73BE-3C72-A80C-3156805ED151.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "C00609F2-73BE-3C72-A80C-3156805ED151.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181212158920C0071315B /* 0A09B012-D4C6-3773-AE8D-6AA077E8BC00.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "0A09B012-D4C6-3773-AE8D-6AA077E8BC00.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181222158920C0071315B /* 8A2A8F55-8D43-31BB-8AB2-F24902C8BAD2.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "8A2A8F55-8D43-31BB-8AB2-F24902C8BAD2.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181232158920C0071315B /* TinyConstraints.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = TinyConstraints.framework.dSYM; sourceTree = "<group>"; };
-		8B1181242158920C0071315B /* 18B90EE6-D2FE-3CC2-A6EB-B54A57AFC518.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "18B90EE6-D2FE-3CC2-A6EB-B54A57AFC518.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181252158920C0071315B /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PKHUD.framework; sourceTree = "<group>"; };
-		8B1181262158920C0071315B /* E12C94F0-3CDC-3511-A342-4471267829C6.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "E12C94F0-3CDC-3511-A342-4471267829C6.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181272158920C0071315B /* F738397F-B204-359E-A465-9FAEF0081D56.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "F738397F-B204-359E-A465-9FAEF0081D56.bcsymbolmap"; sourceTree = "<group>"; };
-		8B1181282158920C0071315B /* .PKHUD.version */ = {isa = PBXFileReference; lastKnownFileType = text; path = .PKHUD.version; sourceTree = "<group>"; };
 		8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basem Emara.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B1DC0D520B1AE0E009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -295,6 +275,7 @@
 		8B5B45A120B311F60088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B45A320B312060088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B45C920B312340088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B63A2A6216291F2003868F7 /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stencil.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework; sourceTree = "<group>"; };
 		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -346,6 +327,7 @@
 				8B5B459B20B310D40088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B459C20B310D40088DF60 /* Realm.framework in Frameworks */,
 				8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */,
+				8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */,
 				8B5B459F20B310D40088DF60 /* ZamzamKit.framework in Frameworks */,
 				8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */,
 				8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */,
@@ -365,6 +347,7 @@
 				8B5B45C220B3122E0088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B45C520B3122E0088DF60 /* Realm.framework in Frameworks */,
 				8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */,
+				8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */,
 				8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */,
 				8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */,
 				8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */,
@@ -384,10 +367,9 @@
 				8B5B45CB20B312450088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B45CE20B312450088DF60 /* Realm.framework in Frameworks */,
 				8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */,
+				8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */,
 				8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */,
 				8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */,
-				8B11812B2158921D0071315B /* TinyConstraints.framework in Frameworks */,
-				8B1181292158921D0071315B /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +403,15 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
+		8B0B02F921625DE000FF9D9F /* ShowPost */ = {
+			isa = PBXGroup;
+			children = (
+				8B63A1F7216283DD003868F7 /* ShowPost.storyboard */,
+				8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */,
+			);
+			path = ShowPost;
+			sourceTree = "<group>";
+		};
 		8B0D644E20BEB0FC0046056F /* Basem Emara iOSTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,43 +419,6 @@
 				8B0D645120BEB0FC0046056F /* Info.plist */,
 			);
 			path = "Basem Emara iOSTests";
-			sourceTree = "<group>";
-		};
-		8B1181122158920C0071315B /* Build */ = {
-			isa = PBXGroup;
-			children = (
-				8B1181132158920C0071315B /* .Kingfisher.version */,
-				8B1181142158920C0071315B /* .TinyConstraints.version */,
-				8B1181152158920C0071315B /* iOS */,
-				8B1181282158920C0071315B /* .PKHUD.version */,
-			);
-			name = Build;
-			path = Carthage/Build;
-			sourceTree = "<group>";
-		};
-		8B1181152158920C0071315B /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				8B1181162158920C0071315B /* 3EA08E35-6C61-3FE6-B5BA-B766A12136D4.bcsymbolmap */,
-				8B1181172158920C0071315B /* TinyConstraints.framework */,
-				8B1181182158920C0071315B /* Kingfisher.framework */,
-				8B1181192158920C0071315B /* Kingfisher.framework.dSYM */,
-				8B11811A2158920C0071315B /* AD860042-A988-331F-9521-35C2B578E8F7.bcsymbolmap */,
-				8B11811B2158920C0071315B /* B7989F13-9F6E-3BEB-A96C-0D6630A844B9.bcsymbolmap */,
-				8B11811C2158920C0071315B /* A5F4ACF7-5E08-3B5B-8183-2AB53C3B0D3B.bcsymbolmap */,
-				8B11811D2158920C0071315B /* PKHUD.framework.dSYM */,
-				8B11811E2158920C0071315B /* F74AF30F-9F50-3C30-B667-6AAE5F508435.bcsymbolmap */,
-				8B11811F2158920C0071315B /* 635F145B-EFE1-3358-B15E-76BB708CD885.bcsymbolmap */,
-				8B1181202158920C0071315B /* C00609F2-73BE-3C72-A80C-3156805ED151.bcsymbolmap */,
-				8B1181212158920C0071315B /* 0A09B012-D4C6-3773-AE8D-6AA077E8BC00.bcsymbolmap */,
-				8B1181222158920C0071315B /* 8A2A8F55-8D43-31BB-8AB2-F24902C8BAD2.bcsymbolmap */,
-				8B1181232158920C0071315B /* TinyConstraints.framework.dSYM */,
-				8B1181242158920C0071315B /* 18B90EE6-D2FE-3CC2-A6EB-B54A57AFC518.bcsymbolmap */,
-				8B1181252158920C0071315B /* PKHUD.framework */,
-				8B1181262158920C0071315B /* E12C94F0-3CDC-3511-A342-4471267829C6.bcsymbolmap */,
-				8B1181272158920C0071315B /* F738397F-B204-359E-A465-9FAEF0081D56.bcsymbolmap */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		8B1DC0C220B1AE0E009FBBBD = {
@@ -507,7 +461,7 @@
 		8B1DC0E720B1AFE1009FBBBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B1181122158920C0071315B /* Build */,
+				8B63A2A6216291F2003868F7 /* Stencil.framework */,
 				8B5B45C920B312340088DF60 /* SwiftyPress.framework */,
 				8B5B45A320B312060088DF60 /* SwiftyPress.framework */,
 				8B5B45A120B311F60088DF60 /* SwiftyPress.framework */,
@@ -1002,13 +956,14 @@
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework",
 			);
 			name = "Run Carthage Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1325,7 +1280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1379,7 +1334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1591,7 +1546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
