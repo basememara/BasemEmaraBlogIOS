@@ -43,13 +43,12 @@ extension Theme {
             $0.titleTextAttributes = [
                 .foregroundColor: labelColor
             ]
-            
-            if #available(iOS 11.0, *) {
-                $0.largeTitleTextAttributes = [
-                    .foregroundColor: labelColor
-                ]
-            }
+            $0.largeTitleTextAttributes = [
+                .foregroundColor: labelColor
+            ]
         }
+        
+        UIToolbar.appearance().barStyle = barStyle
         
         UICollectionView.appearance().backgroundColor = backgroundColor
         
