@@ -12,6 +12,8 @@ import ZamzamKit
 
 class ListPostsViewController: UIViewController, HasDependencies {
     
+    // MARK: - Controls
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self)
@@ -21,58 +23,83 @@ class ListPostsViewController: UIViewController, HasDependencies {
         }
     }
     
+    // MARK: - Scene variables
+    
+    private lazy var interactor: ListPostsBusinessLogic = ListPostsInteractor(
+        presenter: ListPostsPresenter(viewController: self),
+        postsWorker: dependencies.resolveWorker(),
+        mediaWorker: dependencies.resolveWorker()
+    )
+    
+    private lazy var router: ListPostsRoutable = ListPostsRouter(
+        viewController: self
+    )
+    
+    // MARK: - Internal variable
+    
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
         delegate: self
     )
     
-    private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()
-    private lazy var mediaWorker: MediaWorkerType = dependencies.resolveWorker()
-    private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolveWorker()
-    
-    private lazy var dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
     var fetchType: FetchType = .latest
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let completion: ((Result<[PostType], DataError>) -> Void) = { [weak self] in
-            guard let posts = $0.value, $0.isSuccess else { return }
-            
-            self?.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else { return }
-                
-                let models = posts.prefix(30).map { post in
-                    PostsDataViewModel(
-                        id: post.id,
-                        title: post.title,
-                        summary: !post.excerpt.isEmpty ? post.excerpt
-                            : post.content.prefix(150).string.htmlStripped.htmlDecoded,
-                        date: self?.dateFormatter.string(from: post.createdAt) ?? "",
-                        imageURL: media.first { $0.id == post.mediaID }?.link
-                    )
-                }
-                
-                self?.tableViewAdapter.reloadData(with: models)
-            }
-        }
-        
+        configure()
+        loadData()
+    }
+}
+
+// MARK: - Events
+
+private extension ListPostsViewController {
+    
+    func configure() {
         switch fetchType {
         case .latest:
-            postsWorker.fetch(completion: completion)
+            title = .localized(.latestPostsTitle)
         case .popular:
-            postsWorker.fetchPopular(completion: completion)
+            title = .localized(.popularPostsTitle)
         case .picks:
-            postsWorker.fetchTopPicks(completion: completion)
+            title = .localized(.topPicksTitle)
+        case .terms:
+            title = .localized(.postsByTermsTitle)
+        }
+    }
+    
+    func loadData() {
+        switch fetchType {
+        case .latest:
+            interactor.fetchLatestPosts(
+                with: ListPostsModels.FetchPostsRequest()
+            )
+        case .popular:
+            interactor.fetchPopularPosts(
+                with: ListPostsModels.FetchPostsRequest()
+            )
+        case .picks:
+            interactor.fetchTopPickPosts(
+                with: ListPostsModels.FetchPostsRequest()
+            )
         case .terms(let ids):
-            postsWorker.fetch(byTermIDs: ids, completion: completion)
+            interactor.fetchPostsByTerms (
+                with: ListPostsModels.FetchPostsByTermsRequest(ids: ids)
+            )
         }
     }
 }
+
+// MARK: - Scene cycle
+
+extension ListPostsViewController: ListPostsDisplayable {
+    
+    func displayPosts(with viewModels: [PostsDataViewModel]) {
+        tableViewAdapter.reloadData(with: viewModels)
+    }
+}
+
+// MARK: - Internal types
 
 extension ListPostsViewController {
     
@@ -84,9 +111,11 @@ extension ListPostsViewController {
     }
 }
 
+// MARK: - Delegates
+
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        
+        router.showPost(for: model)
     }
 }

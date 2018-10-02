@@ -131,6 +131,11 @@
 		8B63A2BA2163B4F1003868F7 /* ListTermsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */; };
 		8B63A2BC2163B500003868F7 /* ListTermsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */; };
 		8B63A2BE2163B56D003868F7 /* ListTermsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */; };
+		8B63A2C12163C80A003868F7 /* ListPostsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2C02163C80A003868F7 /* ListPostsInterfaces.swift */; };
+		8B63A2C32163C818003868F7 /* ListPostsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2C22163C818003868F7 /* ListPostsModels.swift */; };
+		8B63A2C52163C822003868F7 /* ListPostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2C42163C822003868F7 /* ListPostsInteractor.swift */; };
+		8B63A2C72163C830003868F7 /* ListPostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2C62163C830003868F7 /* ListPostsPresenter.swift */; };
+		8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2C82163C838003868F7 /* ListPostsRouter.swift */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
@@ -290,6 +295,11 @@
 		8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsRouter.swift; sourceTree = "<group>"; };
 		8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsInterfaces.swift; sourceTree = "<group>"; };
 		8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsModels.swift; sourceTree = "<group>"; };
+		8B63A2C02163C80A003868F7 /* ListPostsInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsInterfaces.swift; sourceTree = "<group>"; };
+		8B63A2C22163C818003868F7 /* ListPostsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsModels.swift; sourceTree = "<group>"; };
+		8B63A2C42163C822003868F7 /* ListPostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsInteractor.swift; sourceTree = "<group>"; };
+		8B63A2C62163C830003868F7 /* ListPostsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsPresenter.swift; sourceTree = "<group>"; };
+		8B63A2C82163C838003868F7 /* ListPostsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsRouter.swift; sourceTree = "<group>"; };
 		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -586,8 +596,12 @@
 		8B47A5DF20E10E8700681404 /* ListPosts */ = {
 			isa = PBXGroup;
 			children = (
+				8B63A2BF2163C798003868F7 /* Common */,
 				8B47A5E220E10EA700681404 /* ListPosts.storyboard */,
 				8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */,
+				8B63A2C42163C822003868F7 /* ListPostsInteractor.swift */,
+				8B63A2C62163C830003868F7 /* ListPostsPresenter.swift */,
+				8B63A2C82163C838003868F7 /* ListPostsRouter.swift */,
 			);
 			path = ListPosts;
 			sourceTree = "<group>";
@@ -668,6 +682,15 @@
 			children = (
 				8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */,
 				8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8B63A2BF2163C798003868F7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8B63A2C02163C80A003868F7 /* ListPostsInterfaces.swift */,
+				8B63A2C22163C818003868F7 /* ListPostsModels.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1033,6 +1056,7 @@
 				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationService.swift in Sources */,
 				8B47A5CF20E0534D00681404 /* MultiRowLayout.swift in Sources */,
 				8B47A5D420E0F83500681404 /* TermsDataViewDelegate.swift in Sources */,
+				8B63A2C12163C80A003868F7 /* ListPostsInterfaces.swift in Sources */,
 				8B8B33D520DA6D0000E80706 /* PostsDataViewAdapter.swift in Sources */,
 				8B47A5DC20E107C100681404 /* AppButton.swift in Sources */,
 				8B47A5DE20E107CB00681404 /* AppLabel.swift in Sources */,
@@ -1042,11 +1066,13 @@
 				8B63A2B82163B4DE003868F7 /* ListTermsPresenter.swift in Sources */,
 				8B63A2B32163AEFD003868F7 /* ListTermsViewController.swift in Sources */,
 				8BEEEF3C2123821B00A6AF99 /* AppModels.swift in Sources */,
+				8B63A2C32163C818003868F7 /* ListPostsModels.swift in Sources */,
 				8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */,
 				8B80D75B20DC518100D6617B /* PostsDataViewModels.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* BootApplicationService.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationService.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */,
+				8B63A2C72163C830003868F7 /* ListPostsPresenter.swift in Sources */,
 				8B63A2BE2163B56D003868F7 /* ListTermsModels.swift in Sources */,
 				8B0A28982133EB440008135D /* AppRoutable.swift in Sources */,
 				8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */,
@@ -1056,11 +1082,13 @@
 				8B0A28952133E3680008135D /* HomeRouter.swift in Sources */,
 				8B47A5D220E0F82500681404 /* TermsDataViewAdapter.swift in Sources */,
 				8B63A2B62163B4C7003868F7 /* ListTermsInteractor.swift in Sources */,
+				8B63A2C52163C822003868F7 /* ListPostsInteractor.swift in Sources */,
 				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
 				8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B47A5D620E0F84800681404 /* TermsDataViewModels.swift in Sources */,
+				8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */,
 				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */,
 				8B50462F2161784800BF771D /* AppSegmentedControl.swift in Sources */,

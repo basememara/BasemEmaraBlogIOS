@@ -32,6 +32,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3r8-Ju-ZQh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5Qo-5e-u1c">
+                        <barButtonItem key="backBarButtonItem" title=" " id="jBX-cB-ROf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="u5A-Qh-F28" id="ona-ol-nVB"/>
                     </connections>

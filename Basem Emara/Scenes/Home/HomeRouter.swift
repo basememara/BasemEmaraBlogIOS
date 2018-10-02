@@ -20,7 +20,8 @@ extension HomeRouter: HomeRoutable {
     
     func listPosts(for fetchType: ListPostsViewController.FetchType) {
         show(storyboard: .listPosts) { (controller: ListPostsViewController) in
-            controller.fetchType = .popular
+            controller.fetchType = fetchType
+        }
         }
     }
     

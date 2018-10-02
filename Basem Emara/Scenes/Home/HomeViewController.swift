@@ -211,6 +211,6 @@ extension HomeViewController: PostsDataViewDelegate {
 extension HomeViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        
+        router.listPosts(for: .terms([model.id]))
     }
 }

@@ -9,4 +9,10 @@
 "latest.posts.error.title" = "Latest Posts Error";
 "popular.posts.error.title" = "Popular Posts Error";
 "top.pick.posts.error.title" = "Top Pick Posts Error";
+"posts.by.terms.error.title" = "Posts by Terms Error";
 "terms.error.title" = "Terms Error";
+
+"latest.posts.title" = "Latest Posts";
+"popular.posts.title" = "Popular Posts";
+"top.picks.title" = "Top Picks";
+"posts.by.terms.title" = "Posts by Terms";
