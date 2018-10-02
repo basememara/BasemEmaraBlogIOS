@@ -124,6 +124,13 @@
 		8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
 		8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
 		8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
+		8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */; };
+		8B63A2B32163AEFD003868F7 /* ListTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2B22163AEFD003868F7 /* ListTermsViewController.swift */; };
+		8B63A2B62163B4C7003868F7 /* ListTermsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2B52163B4C7003868F7 /* ListTermsInteractor.swift */; };
+		8B63A2B82163B4DE003868F7 /* ListTermsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2B72163B4DE003868F7 /* ListTermsPresenter.swift */; };
+		8B63A2BA2163B4F1003868F7 /* ListTermsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */; };
+		8B63A2BC2163B500003868F7 /* ListTermsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */; };
+		8B63A2BE2163B56D003868F7 /* ListTermsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
@@ -276,6 +283,13 @@
 		8B5B45A320B312060088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5B45C920B312340088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B63A2A6216291F2003868F7 /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stencil.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework; sourceTree = "<group>"; };
+		8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListTerms.storyboard; sourceTree = "<group>"; };
+		8B63A2B22163AEFD003868F7 /* ListTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsViewController.swift; sourceTree = "<group>"; };
+		8B63A2B52163B4C7003868F7 /* ListTermsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsInteractor.swift; sourceTree = "<group>"; };
+		8B63A2B72163B4DE003868F7 /* ListTermsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsPresenter.swift; sourceTree = "<group>"; };
+		8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsRouter.swift; sourceTree = "<group>"; };
+		8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsInterfaces.swift; sourceTree = "<group>"; };
+		8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTermsModels.swift; sourceTree = "<group>"; };
 		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -395,17 +409,10 @@
 			path = PostsDataView;
 			sourceTree = "<group>";
 		};
-		8B0A28962133EB170008135D /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				8B0A28972133EB440008135D /* AppRoutable.swift */,
-			);
-			path = Routers;
-			sourceTree = "<group>";
-		};
 		8B0B02F921625DE000FF9D9F /* ShowPost */ = {
 			isa = PBXGroup;
 			children = (
+				8B63A2AA2162D29C003868F7 /* Common */,
 				8B63A1F7216283DD003868F7 /* ShowPost.storyboard */,
 				8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */,
 			);
@@ -525,6 +532,7 @@
 				8B52641E20D7C96000170875 /* ShowSearch */,
 				8B52641F20D7C96700170875 /* ShowMore */,
 				8B47A5DF20E10E8700681404 /* ListPosts */,
+				8B63A2AF2163AEDA003868F7 /* ListTerms */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -633,6 +641,37 @@
 			path = ShowMore;
 			sourceTree = "<group>";
 		};
+		8B63A2AA2162D29C003868F7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8B63A2AB2162D2FA003868F7 /* post.html */,
+				8B63A2AC2162D2FA003868F7 /* style.css */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8B63A2AF2163AEDA003868F7 /* ListTerms */ = {
+			isa = PBXGroup;
+			children = (
+				8B63A2B42163B4A6003868F7 /* Common */,
+				8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */,
+				8B63A2B22163AEFD003868F7 /* ListTermsViewController.swift */,
+				8B63A2B52163B4C7003868F7 /* ListTermsInteractor.swift */,
+				8B63A2B72163B4DE003868F7 /* ListTermsPresenter.swift */,
+				8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */,
+			);
+			path = ListTerms;
+			sourceTree = "<group>";
+		};
+		8B63A2B42163B4A6003868F7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8B63A2BB2163B500003868F7 /* ListTermsInterfaces.swift */,
+				8B63A2BD2163B56D003868F7 /* ListTermsModels.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		8B80D75E20DCA32100D6617B /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +690,6 @@
 				8B8B33CD20DA65C300E80706 /* Controls */,
 				8B8B33D320DA6CC200E80706 /* Data */,
 				8B27AB2720DFDA3C00D6036A /* Extensions */,
-				8B0A28962133EB170008135D /* Routers */,
 				8B5AA803214364C000EA4E2F /* Localizable.swift */,
 			);
 			path = Common;
@@ -730,6 +768,7 @@
 			children = (
 				8B0A28922133CE8A0008135D /* AppDisplayable.swift */,
 				8BEEEF3B2123821B00A6AF99 /* AppModels.swift */,
+				8B0A28972133EB440008135D /* AppRoutable.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -911,6 +950,7 @@
 				8BF2CCC920B6D83F00C9C161 /* ListFavorites.storyboard in Resources */,
 				8B21CF03215C21C400E2994C /* TermTableViewCell.xib in Resources */,
 				8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */,
+				8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */,
 				8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -998,12 +1038,16 @@
 				8B47A5DE20E107CB00681404 /* AppLabel.swift in Sources */,
 				8B21CEFF215C21B000E2994C /* TermTableViewCell.swift in Sources */,
 				8B8B33D920DA6E8200E80706 /* LatestPostCollectionViewCell.swift in Sources */,
+				8B63A2BA2163B4F1003868F7 /* ListTermsRouter.swift in Sources */,
+				8B63A2B82163B4DE003868F7 /* ListTermsPresenter.swift in Sources */,
+				8B63A2B32163AEFD003868F7 /* ListTermsViewController.swift in Sources */,
 				8BEEEF3C2123821B00A6AF99 /* AppModels.swift in Sources */,
 				8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */,
 				8B80D75B20DC518100D6617B /* PostsDataViewModels.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* BootApplicationService.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationService.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */,
+				8B63A2BE2163B56D003868F7 /* ListTermsModels.swift in Sources */,
 				8B0A28982133EB440008135D /* AppRoutable.swift in Sources */,
 				8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */,
 				8BEEEF392123506B00A6AF99 /* HomePresenter.swift in Sources */,
@@ -1011,6 +1055,7 @@
 				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
 				8B0A28952133E3680008135D /* HomeRouter.swift in Sources */,
 				8B47A5D220E0F82500681404 /* TermsDataViewAdapter.swift in Sources */,
+				8B63A2B62163B4C7003868F7 /* ListTermsInteractor.swift in Sources */,
 				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
 				8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */,
@@ -1022,6 +1067,7 @@
 				8B1180F5215877680071315B /* AppView.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
 				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,
+				8B63A2BC2163B500003868F7 /* ListTermsInterfaces.swift in Sources */,
 				8B21CF0C215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B80D76020DCA33200D6617B /* SnapPagingLayout.swift in Sources */,
 			);

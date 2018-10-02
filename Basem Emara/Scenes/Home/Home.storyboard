@@ -115,6 +115,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-J3-LIa">
                                                                         <rect key="frame" x="296" y="0.0" width="47" height="87"/>
                                                                         <state key="normal" title="See All"/>
+                                                                        <connections>
+                                                                            <action selector="topTermsSeeAllButtonTapped:" destination="Sqp-Od-GZN" eventType="touchUpInside" id="sXQ-4s-ALq"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>

@@ -38,4 +38,5 @@ protocol HomeDisplayable: class, AppDisplayable {
 
 protocol HomeRoutable: AppRoutable {
     func listPosts(for fetchType: ListPostsViewController.FetchType)
+    func listTerms()
 }

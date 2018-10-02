@@ -98,6 +98,8 @@ extension AppRoutable {
 enum Storyboard: String {
     case home = "Home"
     case listPosts = "ListPosts"
+    case showPost = "ShowPost"
+    case listTerms = "ListTerms"
 }
 
 enum TabStoryboard: Int {

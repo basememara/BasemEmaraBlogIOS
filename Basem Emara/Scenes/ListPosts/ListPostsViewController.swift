@@ -68,6 +68,8 @@ class ListPostsViewController: UIViewController, HasDependencies {
             postsWorker.fetchPopular(completion: completion)
         case .picks:
             postsWorker.fetchTopPicks(completion: completion)
+        case .terms(let ids):
+            postsWorker.fetch(byTermIDs: ids, completion: completion)
         }
     }
 }
@@ -78,6 +80,7 @@ extension ListPostsViewController {
         case latest
         case popular
         case picks
+        case terms(Set<Int>)
     }
 }
 

@@ -156,6 +156,10 @@ private extension HomeViewController {
     @IBAction func topPickedPostsSeeAllButtonTapped() {
         router.listPosts(for: .picks)
     }
+    
+    @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
+        router.listTerms()
+    }
 }
 
 // MARK: - Delegates
