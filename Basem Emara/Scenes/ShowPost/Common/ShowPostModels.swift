@@ -35,7 +35,6 @@ enum ShowPostModels {
     }
     
     struct ViewModel {
-        let baseURL: String
         let title: String
         let content: String
     }

@@ -43,7 +43,10 @@ class ShowPostViewController: UIViewController, HasDependencies {
     // MARK: - Scene variables
     
     private lazy var interactor: ShowPostBusinessLogic = ShowPostInteractor(
-        presenter: ShowPostPresenter(viewController: self),
+        presenter: ShowPostPresenter(
+            viewController: self,
+            constants: dependencies.resolveWorker()
+        ),
         postsWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
         authorsWorker: dependencies.resolveWorker(),
@@ -56,7 +59,7 @@ class ShowPostViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private let baseURL = URL(string: "http://basememara.com") //TODO
+    private lazy var constants: ConstantsType = dependencies.resolveWorker()
     
     var postID: Int! //Must assign or die
     
@@ -117,7 +120,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         
         webView.loadHTMLString(
             viewModel.content,
-            baseURL: URL(string: viewModel.baseURL)
+            baseURL: constants.baseURL
         )
     }
     
@@ -183,7 +186,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         }
         
         // Open same domain links within app
-        guard requestURL.host == baseURL?.host else {
+        guard requestURL.host == constants.baseURL.host else {
             // Open external links in browser
             present(safari: requestURL.absoluteString)
             return decisionHandler(.cancel)

@@ -10,4 +10,19 @@ import SwiftyPress
 
 class AppDependency: Dependency {
     
+    override func resolveStore() -> ConstantsStore {
+        return ConstantsMemoryStore(
+            itunesName: "basememara",
+            itunesID: "1021806851",
+            baseURL: URL(string: "http://basememara.com")!,
+            baseREST: "wp-json/swiftypress/v2",
+            wpREST: "wp-json/wp/v2",
+            email: "contact@basememara.com",
+            styleSheet: "http://basememara.com/wp-content/themes/metro-pro/style.css",
+            googleAnalyticsID: "UA-60131988-2",
+            featuredCategoryID: 64,
+            logFileName: "basememara",
+            logDNAKey: nil
+        )
+    }
 }

@@ -14,19 +14,18 @@ import SystemConfiguration
 struct ShowPostPresenter: ShowPostPresentable {
     private weak var viewController: ShowPostDisplayable?
     
-    // TODO: Put into constants
-    private let baseURL = "http://basememara.com"
+    private let constants: ConstantsType
     private let templateFile = Bundle.main.string(file: "post.html")
     private let styleSheetFile = Bundle.main.string(file: "style.css")
-    private let styleSheetURL = "http://basememara.com/wp-content/themes/metro-pro/style.css"
     
     private let dateFormatter = DateFormatter().with {
         $0.dateStyle = .medium
         $0.timeStyle = .none
     }
     
-    init(viewController: ShowPostDisplayable?) {
+    init(viewController: ShowPostDisplayable?, constants: ConstantsType) {
         self.viewController = viewController
+        self.constants = constants
     }
 }
 
@@ -39,17 +38,17 @@ extension ShowPostPresenter {
         
         var context: [String: Any] = [
             "style": SCNetworkReachability.isOnline && !styleSheetFile.isNilOrEmpty
-                ? "<link rel='stylesheet' href='\(styleSheetURL)' type='text/css' media='all' />"
+                ? "<link rel='stylesheet' href='\(constants.styleSheet)' type='text/css' media='all' />"
                 : "<style>\(styleSheetFile!)</style>",
             "post": ShowPostModels.PageViewModel(
                 title: response.post.title,
                 content: response.post.content,
                 date: dateFormatter.string(from: response.post.createdAt),
                 categories: response.categories.map {
-                    "<a href='\(baseURL)/category/\($0.slug)'>\($0.name)</a>"
+                    "<a href='\(constants.baseURL.absoluteString)/category/\($0.slug)'>\($0.name)</a>"
                 },
                 tags: response.tags.map {
-                    "<a href='\(baseURL)/tag/\($0.slug)'>\($0.name)</a>"
+                    "<a href='\(constants.baseURL.absoluteString)/tag/\($0.slug)'>\($0.name)</a>"
                 }
             ),
             "isAffiliate": false
@@ -72,7 +71,6 @@ extension ShowPostPresenter {
             
             viewController?.displayPost(
                 with: ShowPostModels.ViewModel(
-                    baseURL: baseURL,
                     title: response.post.title,
                     content: try template.render(context)
                 )
