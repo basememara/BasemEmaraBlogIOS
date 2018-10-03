@@ -25,7 +25,7 @@ extension ListTermsInteractor {
         taxonomyWorker.fetch {
             guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else {
                 return self.presenter.presentTerms(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
@@ -37,4 +37,3 @@ extension ListTermsInteractor {
         }
     }
 }
-

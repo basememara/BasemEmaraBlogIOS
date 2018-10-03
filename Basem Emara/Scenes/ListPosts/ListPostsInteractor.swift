@@ -28,14 +28,14 @@ extension ListPostsInteractor {
         postsWorker.fetch {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentLatestPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -56,14 +56,14 @@ extension ListPostsInteractor {
         postsWorker.fetchPopular {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentPopularPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentPopularPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -84,14 +84,14 @@ extension ListPostsInteractor {
         postsWorker.fetchTopPicks {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentTopPickPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentTopPickPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -112,14 +112,14 @@ extension ListPostsInteractor {
         postsWorker.fetch(byTermIDs: request.ids) {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentPostsByTerms(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentPostsByTerms(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 

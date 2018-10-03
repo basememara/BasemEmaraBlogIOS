@@ -44,6 +44,8 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     var fetchType: FetchType = .latest
     
+    // MARK: - Controller cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

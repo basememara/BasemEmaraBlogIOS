@@ -31,14 +31,14 @@ extension HomeInteractor {
         postsWorker.fetch {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentLatestPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -56,14 +56,14 @@ extension HomeInteractor {
         postsWorker.fetchPopular {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentPopularPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentPopularPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -81,14 +81,14 @@ extension HomeInteractor {
         postsWorker.fetchTopPicks {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentTopPickPosts(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard let media = $0.value, $0.isSuccess else {
                     return self.presenter.presentTopPickPosts(
-                        error: $0.error ?? DataError.unknownReason(nil)
+                        error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
@@ -109,7 +109,7 @@ extension HomeInteractor {
         taxonomyWorker.fetch {
             guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else {
                 return self.presenter.presentTerms(
-                    error: $0.error ?? DataError.unknownReason(nil)
+                    error: $0.error ?? .unknownReason(nil)
                 )
             }
             
@@ -121,4 +121,3 @@ extension HomeInteractor {
         }
     }
 }
-

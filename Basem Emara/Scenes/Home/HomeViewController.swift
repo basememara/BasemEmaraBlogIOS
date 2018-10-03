@@ -11,7 +11,7 @@ import ZamzamKit
 import SwiftyPress
 import TinyConstraints
 
-class HomeViewController: UIViewController, HasDependencies { // TODO: Subclass for theme
+class HomeViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
