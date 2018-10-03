@@ -17,8 +17,6 @@ class ListTermsViewController: UIViewController, HasDependencies {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: TermTableViewCell.self)
-            
-            // Add space to bottom
             tableView.contentInset.bottom += 20
         }
     }

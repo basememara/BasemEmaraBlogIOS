@@ -275,16 +275,15 @@
                 <article
                         class="post type-post status-publish format-standard has-post-thumbnail entry"
                         itemscope itemtype="http://schema.org/CreativeWork">
-                    <header class="entry-header"><h1 class="entry-title" itemprop="headline">{{ post.title }}</h1>
-
-                        <p class="entry-meta">
-                            <time class="entry-time">{{ post.date }}</time>
-                        </p>
-                    </header>
-                    <div class="entry-content" itemprop="text">
+                    <header class="entry-header">
                         {% if media %}
                         <img src="{{ media }}" alt="{{ post.title }}" />
                         {% endif %}
+                        <p class="entry-meta">
+                            <time class="entry-time alignright">{{ post.date }}</time>
+                        </p>
+                    </header>
+                    <div class="entry-content" itemprop="text">
                         {{ post.content }}
                     </div>
                     <footer class="entry-footer">

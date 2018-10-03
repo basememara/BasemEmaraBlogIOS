@@ -18,10 +18,7 @@ class ShowPostViewController: UIViewController, HasDependencies {
     @IBOutlet private weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
-            //webView.uiDelegate = self
             webView.scrollView.delegate = self
-            
-            // Add space to bottom
             webView.scrollView.contentInset.bottom += 60
         }
     }

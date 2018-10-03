@@ -17,8 +17,6 @@ class ListPostsViewController: UIViewController, HasDependencies {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self)
-            
-            // Add space to bottom
             tableView.contentInset.bottom += 20
         }
     }
