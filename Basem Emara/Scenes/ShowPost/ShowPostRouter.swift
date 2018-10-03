@@ -1,5 +1,5 @@
 //
-//  ListPostsRouter.swift
+//  ShowPostRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ListPostsRouter {
+struct ShowPostRouter {
     weak var viewController: UIViewController?
     
     init(viewController: UIViewController?) {
@@ -16,11 +16,12 @@ struct ListPostsRouter {
     }
 }
 
-extension ListPostsRouter: ListPostsRoutable {
+extension ShowPostRouter: ShowPostRoutable {
     
-    func showPost(for model: PostsDataViewModel) {
-        show(storyboard: .showPost) { (controller: ShowPostViewController) in
-            controller.postID = model.id
+    func listPosts(for fetchType: ListPostsViewController.FetchType) {
+        show(storyboard: .listPosts) { (controller: ListPostsViewController) in
+            controller.fetchType = fetchType
         }
     }
+    
 }

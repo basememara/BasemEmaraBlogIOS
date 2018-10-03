@@ -167,7 +167,7 @@ private extension HomeViewController {
 extension HomeViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        
+        router.showPost(for: model)
     }
     
     func postsDataViewWillBeginDragging(_ scrollView: UIScrollView) {

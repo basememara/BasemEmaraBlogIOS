@@ -15,6 +15,7 @@ extension Localizable {
     static let topPickPostsErrorTitle = Localizable(NSLocalizedString("top.pick.posts.error.title", comment: "Top pick posts alert error title"))
     static let postsByTermsErrorTitle = Localizable(NSLocalizedString("posts.by.terms.error.title", comment: "Posts by terms alert error title"))
     static let termsErrorTitle = Localizable(NSLocalizedString("terms.error.title", comment: "Terms alert error title"))
+    static let blogPostErrorTitle = Localizable(NSLocalizedString("blog.post.error.title", comment: "Blog post alert error title"))
 }
 
 // Posts

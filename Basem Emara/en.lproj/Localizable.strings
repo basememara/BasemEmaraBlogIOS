@@ -11,6 +11,7 @@
 "top.pick.posts.error.title" = "Top Pick Posts Error";
 "posts.by.terms.error.title" = "Posts by Terms Error";
 "terms.error.title" = "Terms Error";
+"blog.post.error.title" = "Blog Post Error";
 
 "latest.posts.title" = "Latest Posts";
 "popular.posts.title" = "Popular Posts";

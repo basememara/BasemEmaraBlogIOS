@@ -22,6 +22,11 @@ extension HomeRouter: HomeRoutable {
         show(storyboard: .listPosts) { (controller: ListPostsViewController) in
             controller.fetchType = fetchType
         }
+    }
+    
+    func showPost(for model: PostsDataViewModel) {
+        show(storyboard: .showPost) { (controller: ShowPostViewController) in
+            controller.postID = model.id
         }
     }
     
