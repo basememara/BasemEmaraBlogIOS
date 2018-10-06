@@ -44,7 +44,7 @@ class ShowPostViewController: UIViewController, HasDependencies {
     private lazy var interactor: ShowPostBusinessLogic = ShowPostInteractor(
         presenter: ShowPostPresenter(
             viewController: self,
-            constants: dependencies.resolveWorker()
+            constants: dependencies.resolve()
         ),
         postsWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
@@ -59,7 +59,7 @@ class ShowPostViewController: UIViewController, HasDependencies {
     // MARK: - Internal variable
     
     private var viewModel: ShowPostModels.ViewModel?
-    private lazy var constants: ConstantsType = dependencies.resolveWorker()
+    private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var history = [Int]()
     
     var postID: Int! //Must assign or die
