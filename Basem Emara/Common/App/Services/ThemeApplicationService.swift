@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamKit
 
 final class ThemeApplicationService: ApplicationService, HasDependencies {
-    private let theme: Theme = DarkTheme()
+    private lazy var theme: Theme = dependencies.resolve()
 }
 
 extension ThemeApplicationService {

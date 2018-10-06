@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 struct DarkTheme: Theme {
     let tint: UIColor = .init(rgb: (49, 169, 234))
@@ -19,6 +20,8 @@ struct DarkTheme: Theme {
     let labelColor: UIColor = .white
     let secondaryLabelColor: UIColor = .lightGray
     let subtleLabelColor: UIColor = .darkGray
+    
+    let imageBorderWidthInCell: CGFloat = 0
     
     let barStyle: UIBarStyle = .black
 }

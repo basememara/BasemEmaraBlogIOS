@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 class ShowMoreViewController: UIViewController {
     

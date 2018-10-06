@@ -10,6 +10,10 @@ import SwiftyPress
 
 class AppDependency: Dependency {
     
+    override func resolve() -> Theme {
+        return DarkTheme()
+    }
+    
     override func resolveStore() -> ConstantsStore {
         return ConstantsMemoryStore(
             itunesName: "basememara",

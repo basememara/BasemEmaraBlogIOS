@@ -8,24 +8,7 @@
 
 import UIKit
 import ZamzamKit
-
-protocol Theme {
-    var tint: UIColor { get }
-    var secondaryTint: UIColor { get }
-    
-    var backgroundColor: UIColor { get }
-    var separatorColor: UIColor { get }
-    var selectionColor: UIColor { get }
-    
-    var labelColor: UIColor { get }
-    var secondaryLabelColor: UIColor { get }
-    var subtleLabelColor: UIColor { get }
-    
-    var barStyle: UIBarStyle { get }
-    
-    func apply(for application: UIApplication)
-    func extend()
-}
+import SwiftyPress
 
 extension Theme {
     
@@ -108,14 +91,26 @@ extension Theme {
             $0.cornerRadius = 10
         }
         
-        extend()
+        UIImageView.appearance(whenContainedInInstancesOf: [UICollectionViewCell.self]).with {
+            $0.borderColor = separatorColor
+            $0.borderWidth = imageBorderWidthInCell
+        }
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UICollectionViewCell.self]).with {
+            $0.borderWidth = 0
+        }
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
+            $0.borderColor = separatorColor
+            $0.borderWidth = imageBorderWidthInCell
+        }
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self]).with {
+            $0.borderWidth = 0
+        }
         
         // Ensure existing views render with new theme
         // https://developer.apple.com/documentation/uikit/uiappearance
         application.windows.reload()
-    }
-    
-    func extend() {
-        // Optionally extend theme
     }
 }

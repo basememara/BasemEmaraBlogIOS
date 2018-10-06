@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 struct LightTheme: Theme {
     let tint: UIColor = .blue
@@ -20,28 +21,7 @@ struct LightTheme: Theme {
     let secondaryLabelColor: UIColor = .darkGray
     let subtleLabelColor: UIColor = .lightGray
     
-    let barStyle: UIBarStyle = .default
-}
-
-extension LightTheme {
+    let imageBorderWidthInCell: CGFloat = 1
     
-    func extend() {
-        UIImageView.appearance(whenContainedInInstancesOf: [UICollectionViewCell.self]).with {
-            $0.borderColor = separatorColor
-            $0.borderWidth = 1
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UICollectionViewCell.self]).with {
-            $0.borderWidth = 0
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
-            $0.borderColor = separatorColor
-            $0.borderWidth = 1
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self]).with {
-            $0.borderWidth = 0
-        }
-    }
+    let barStyle: UIBarStyle = .default
 }
