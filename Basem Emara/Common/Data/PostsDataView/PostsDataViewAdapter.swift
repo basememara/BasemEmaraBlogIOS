@@ -58,6 +58,10 @@ extension PostsDataViewAdapter: UITableViewDelegate {
 
 extension PostsDataViewAdapter: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return delegate?.postsDataViewNumberOfSections(in: tableView) ?? 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -87,7 +91,7 @@ extension PostsDataViewAdapter: UICollectionViewDelegate {
 extension PostsDataViewAdapter: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return delegate?.postsDataViewNumberOfSections(in: collectionView) ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

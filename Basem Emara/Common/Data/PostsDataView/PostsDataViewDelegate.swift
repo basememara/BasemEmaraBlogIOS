@@ -11,6 +11,7 @@ import ZamzamKit
 
 protocol PostsDataViewDelegate: class {
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable)
+    func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int
     func postsDataViewDidReloadData()
     func postsDataViewWillBeginDragging(_ scrollView: UIScrollView)
     func postsDataViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
@@ -18,6 +19,7 @@ protocol PostsDataViewDelegate: class {
 
 // Optional conformance
 extension PostsDataViewDelegate {
+    func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int { return 1 }
     func postsDataViewDidReloadData() {}
     func postsDataViewWillBeginDragging(_ scrollView: UIScrollView) {}
     func postsDataViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {}
