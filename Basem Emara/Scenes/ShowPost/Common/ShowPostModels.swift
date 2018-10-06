@@ -20,12 +20,17 @@ enum ShowPostModels {
         let decisionHandler: ((WKNavigationActionPolicy) -> Void)
     }
     
+    struct FavoriteRequest {
+        let postID: Int
+    }
+    
     struct Response {
         let post: PostType
         let media: MediaType?
         let categories: [TermType]
         let tags: [TermType]
         let author: AuthorType?
+        let favorite: Bool
     }
     
     struct FetchWebResponse {
@@ -34,11 +39,16 @@ enum ShowPostModels {
         let decisionHandler: ((WKNavigationActionPolicy) -> Void)
     }
     
+    struct FavoriteResponse {
+        let favorite: Bool
+    }
+    
     struct ViewModel {
         let title: String
         let link: String
         let content: String
         let commentCount: Int
+        let favorite: Bool
     }
     
     struct PageViewModel {

@@ -74,7 +74,8 @@ extension ShowPostPresenter {
                     title: response.post.title,
                     link: response.post.link,
                     content: try template.render(context),
-                    commentCount: response.post.commentCount
+                    commentCount: response.post.commentCount,
+                    favorite: response.favorite
                 )
             )
         } catch {
@@ -102,5 +103,12 @@ extension ShowPostPresenter {
                 decisionHandler: response.decisionHandler
             )
         )
+    }
+}
+
+extension ShowPostPresenter {
+    
+    func presentToggleFavorite(for response: ShowPostModels.FavoriteResponse) {
+        viewController?.display(isFavorite: response.favorite)
     }
 }

@@ -27,7 +27,7 @@ class ShowPostViewController: UIViewController, HasDependencies {
     private lazy var activityIndicatorView = view.makeActivityIndicator()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
-        imageName: "star",
+        imageName: "favorite-empty",
         target: self,
         action: #selector(favoriteTapped)
     )
@@ -119,6 +119,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         
         title = viewModel.title
         commentBarButton.badgeText = "\(viewModel.commentCount)"
+        display(isFavorite: viewModel.favorite)
         
         webView.loadHTMLString(
             viewModel.content,
@@ -152,6 +153,12 @@ extension ShowPostViewController: ShowPostDisplayable {
         activityIndicatorView.startAnimating()
         viewModel.decisionHandler(.allow)
     }
+    
+    func display(isFavorite: Bool) {
+        favoriteBarButton.image = isFavorite
+            ? UIImage(named: "favorite-filled")
+            : UIImage(named: "favorite-empty")
+    }
 }
 
 // MARK: - Interactions
@@ -159,7 +166,11 @@ extension ShowPostViewController: ShowPostDisplayable {
 private extension ShowPostViewController {
     
     @objc func favoriteTapped() {
-        
+        interactor.toggleFavorite(
+            with: ShowPostModels.FavoriteRequest(
+                postID: postID
+            )
+        )
     }
     
     @objc func commentsTapped() {

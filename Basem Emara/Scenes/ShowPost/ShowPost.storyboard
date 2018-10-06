@@ -36,7 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nlp-u2-kdq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qRv-8l-sN9">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qRv-8l-sN9">
                         <barButtonItem key="backBarButtonItem" title=" " id="CaT-FL-GG5"/>
                     </navigationItem>
                     <connections>

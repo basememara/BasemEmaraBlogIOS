@@ -11,6 +11,7 @@ import SwiftyPress
 protocol ShowPostBusinessLogic {
     func fetchPost(with request: ShowPostModels.Request)
     func fetchByURL(with request: ShowPostModels.FetchWebRequest)
+    func toggleFavorite(with request: ShowPostModels.FavoriteRequest)
 }
 
 protocol ShowPostPresentable {
@@ -18,11 +19,14 @@ protocol ShowPostPresentable {
     func presentPost(error: DataError)
     
     func presentByURL(for response: ShowPostModels.FetchWebResponse)
+    
+    func presentToggleFavorite(for response: ShowPostModels.FavoriteResponse)
 }
 
 protocol ShowPostDisplayable: class, AppDisplayable {
     func displayPost(with viewModel: ShowPostModels.ViewModel)
     func displayByURL(with viewModel: ShowPostModels.WebViewModel)
+    func display(isFavorite: Bool)
 }
 
 protocol ShowPostRoutable: AppRoutable {

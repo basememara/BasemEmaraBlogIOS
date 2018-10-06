@@ -70,7 +70,8 @@ extension ShowPostInteractor {
                                 media: media,
                                 categories: terms.filter { $0.taxonomy == .category },
                                 tags: terms.filter { $0.taxonomy == .tag },
-                                author: author
+                                author: author,
+                                favorite: self.postsWorker.hasFavorite(id: post.id)
                             )
                         )
                     }
@@ -131,5 +132,18 @@ extension ShowPostInteractor {
                 )
             )
         }
+    }
+}
+
+extension ShowPostInteractor {
+    
+    func toggleFavorite(with request: ShowPostModels.FavoriteRequest) {
+        postsWorker.toggleFavorite(id: request.postID)
+        
+        presenter.presentToggleFavorite(
+            for: ShowPostModels.FavoriteResponse(
+                favorite: postsWorker.hasFavorite(id: request.postID)
+            )
+        )
     }
 }
