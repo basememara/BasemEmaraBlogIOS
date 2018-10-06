@@ -72,7 +72,9 @@ extension ShowPostPresenter {
             viewController?.displayPost(
                 with: ShowPostModels.ViewModel(
                     title: response.post.title,
-                    content: try template.render(context)
+                    link: response.post.link,
+                    content: try template.render(context),
+                    commentCount: response.post.commentCount
                 )
             )
         } catch {

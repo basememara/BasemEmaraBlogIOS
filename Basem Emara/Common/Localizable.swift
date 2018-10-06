@@ -16,6 +16,10 @@ extension Localizable {
     static let postsByTermsErrorTitle = Localizable(NSLocalizedString("posts.by.terms.error.title", comment: "Posts by terms alert error title"))
     static let termsErrorTitle = Localizable(NSLocalizedString("terms.error.title", comment: "Terms alert error title"))
     static let blogPostErrorTitle = Localizable(NSLocalizedString("blog.post.error.title", comment: "Blog post alert error title"))
+    static let browserNotAvailableErrorTitle = Localizable(NSLocalizedString("browser.not.available.error.title", comment: "Browser unavailable alert error title"))
+    static let commentsNotAvailableErrorTitle = Localizable(NSLocalizedString("comments.not.available.error.title", comment: "Comments unavailable alert error title"))
+    static let notConnectedToInternetErrorMessage = Localizable(NSLocalizedString("not.connected.to.internet.error.message", comment: "Internet unavailable alert error message"))
+    static let noPostInHistoryErrorMessage = Localizable(NSLocalizedString("no.post.in.history.error.message", comment: "No post in history alert error message"))
 }
 
 // Posts

@@ -84,9 +84,11 @@ extension ShowPostInteractor {
     
     func fetchByURL(with request: ShowPostModels.FetchWebRequest) {
         postsWorker.fetch(url: request.url) {
+            // Handle if URL is not for a post
             if case .nonExistent? = $0.error {
                 self.taxonomyWorker.fetch(url: request.url) {
                     guard let term = $0.value, $0.isSuccess else {
+                        // URL could not be found
                         return self.presenter.presentByURL(
                             for: ShowPostModels.FetchWebResponse(
                                 post: nil,
@@ -96,6 +98,7 @@ extension ShowPostInteractor {
                         )
                     }
                     
+                    // URL was a taxonomy term
                     self.presenter.presentByURL(
                         for: ShowPostModels.FetchWebResponse(
                             post: nil,
@@ -109,6 +112,7 @@ extension ShowPostInteractor {
             }
             
             guard let post = $0.value, $0.isSuccess else {
+                // URL could not be found
                 return self.presenter.presentByURL(
                     for: ShowPostModels.FetchWebResponse(
                         post: nil,
@@ -118,6 +122,7 @@ extension ShowPostInteractor {
                 )
             }
             
+            // URL was a post
             self.presenter.presentByURL(
                 for: ShowPostModels.FetchWebResponse(
                     post: post,

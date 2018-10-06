@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SystemConfiguration
 import SwiftyPress
 import ZamzamKit
 
@@ -31,8 +32,9 @@ class ShowPostViewController: UIViewController, HasDependencies {
         action: #selector(favoriteTapped)
     )
     
-    private lazy var commentBarButton = UIBarButtonItem(
-        imageName: "comments",
+    private lazy var commentBarButton = BadgeBarButtonItem(
+        image: UIImage(named: "comments")!,
+        badgeText: nil,
         target: self,
         action: #selector(commentsTapped)
     )
@@ -56,7 +58,9 @@ class ShowPostViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
+    private var viewModel: ShowPostModels.ViewModel?
     private lazy var constants: ConstantsType = dependencies.resolveWorker()
+    private lazy var history = [Int]()
     
     var postID: Int! //Must assign or die
     
@@ -89,13 +93,11 @@ private extension ShowPostViewController {
         toolbarItems = [
             UIBarButtonItem(imageName: "back", target: self, action: #selector(backTapped)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(imageName: "related", target: self, action: #selector(relatedTapped)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             commentBarButton,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             favoriteBarButton,
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+            UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
         ]
         
         activityIndicatorView.startAnimating()
@@ -113,7 +115,10 @@ private extension ShowPostViewController {
 extension ShowPostViewController: ShowPostDisplayable {
     
     func displayPost(with viewModel: ShowPostModels.ViewModel) {
+        self.viewModel = viewModel
+        
         title = viewModel.title
+        commentBarButton.badgeText = "\(viewModel.commentCount)"
         
         webView.loadHTMLString(
             viewModel.content,
@@ -128,6 +133,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         if let postID = viewModel.postID {
             activityIndicatorView.startAnimating()
             
+            history.append(self.postID)
             self.postID = postID
             
             interactor.fetchPost(
@@ -157,19 +163,62 @@ private extension ShowPostViewController {
     }
     
     @objc func commentsTapped() {
+        guard SCNetworkReachability.isOnline else {
+            return present(
+                alert: .localized(.commentsNotAvailableErrorTitle),
+                message: .localized(.notConnectedToInternetErrorMessage)
+            )
+        }
         
+        let url = constants.baseURL
+            .appendingPathComponent("mobile-comments")
+            .appendingQueryItem("postid", value: postID)
+            .absoluteString
+        
+        present(safari: url)
     }
     
-    @objc func relatedTapped() {
+    @objc func shareTapped(_ sender: UIBarButtonItem) {
+        guard let title = viewModel?.title,
+            let link = viewModel?.link,
+            let url = URL(string: link) else {
+                return
+        }
         
-    }
-    
-    @objc func shareTapped() {
+        let safariActivity = UIActivity.make(
+            title: .localized(.openInSafari),
+            imageName: "safari-share",
+            imageBundle: .zamzamKit,
+            handler: {
+                guard SCNetworkReachability.isOnline else {
+                    return self.present(
+                        alert: .localized(.browserNotAvailableErrorTitle),
+                        message: .localized(.notConnectedToInternetErrorMessage)
+                    )
+                }
+
+                UIApplication.shared.open(url)
+            }
+        )
         
+        present(
+            activities: [title.htmlDecoded, link],
+            barButtonItem: sender,
+            applicationActivities: [safariActivity]
+        )
     }
     
     @objc func backTapped() {
+        guard let lastPostID = history.popLast() else {
+            return present(alert: .localized(.noPostInHistoryErrorMessage))
+        }
         
+        activityIndicatorView.startAnimating()
+        postID = lastPostID
+        
+        interactor.fetchPost(
+            with: ShowPostModels.Request(postID: postID)
+        )
     }
 }
 
