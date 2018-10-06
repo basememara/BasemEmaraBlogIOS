@@ -25,4 +25,19 @@ class AppDependency: Dependency {
             logDNAKey: nil
         )
     }
+    
+    override func resolveStore() -> PreferencesStore {
+        return PreferencesDefaultsStore(
+            defaults: {
+                UserDefaults(
+                    suiteName: {
+                        switch Environment.mode {
+                        case .development, .staging: return "group.io.zamzam.Basem-Emara-staging"
+                        case .production: return "group.io.zamzam.Basem-Emara"
+                        }
+                    }()
+                ) ?? .standard
+            }()
+        )
+    }
 }
