@@ -54,6 +54,14 @@ extension PostsDataViewAdapter: UITableViewDelegate {
             from: tableView
         )
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return delegate?.postsDataView(leadingSwipeActionsForModel: viewModels[indexPath.row], at: indexPath, from: tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return delegate?.postsDataView(trailingSwipeActionsForModel: viewModels[indexPath.row], at: indexPath, from: tableView)
+    }
 }
 
 extension PostsDataViewAdapter: UITableViewDataSource {
