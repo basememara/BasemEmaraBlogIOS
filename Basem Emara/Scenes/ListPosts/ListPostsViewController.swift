@@ -145,7 +145,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     self.present(
                         UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet).with {
                             $0.addAction(
-                                UIAlertAction(title: .localized(.commentTitle)) {
+                                UIAlertAction(title: .localized(.commentsTitle)) {
                                     self.present(
                                         safari: self.constants.baseURL
                                             .appendingPathComponent("mobile-comments")
