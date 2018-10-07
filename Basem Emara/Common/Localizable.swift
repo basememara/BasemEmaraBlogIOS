@@ -38,3 +38,13 @@ extension Localizable {
     static let topPicksTitle = Localizable(NSLocalizedString("top.picks.title", comment: "Top pick posts title"))
     static let postsByTermsTitle = Localizable(NSLocalizedString("posts.by.terms.title", comment: "Posts by terms title"))
 }
+
+// Search
+extension Localizable {
+    static let searchPlaceholder = Localizable(NSLocalizedString("search.placeholder", comment: "Search placeholder for text field"))
+    static let searchAllScope = Localizable(NSLocalizedString("search.all.scope", comment: "All label for search scope"))
+    static let searchTitleScope = Localizable(NSLocalizedString("search.title.scope", comment: "Title label for search scope"))
+    static let searchContentScope = Localizable(NSLocalizedString("search.content.scope", comment: "Content label for search scope"))
+    static let searchKeywordsScope = Localizable(NSLocalizedString("search.keywords.scope", comment: "Keywords label for search scope"))
+    static let searchErrorTitle = Localizable(NSLocalizedString("search.error.title", comment: "Search alert error title"))
+}

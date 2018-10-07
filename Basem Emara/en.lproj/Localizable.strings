@@ -12,6 +12,7 @@
 "posts.by.terms.error.title" = "Posts by Terms Error";
 "terms.error.title" = "Terms Error";
 "blog.post.error.title" = "Blog Post Error";
+"search.error.title" = "Search Error";
 
 "latest.posts.title" = "Latest Posts";
 "popular.posts.title" = "Popular Posts";
@@ -28,3 +29,9 @@
 "more.title" = "More";
 "comments.title" = "Comments";
 "share.title" = "Share";
+
+"search.placeholder" = "Search Blog Posts";
+"search.all.scope" = "All";
+"search.title.scope" = "Title";
+"search.content.scope" = "Content";
+"search.keywords.scope" = "Keywords";
