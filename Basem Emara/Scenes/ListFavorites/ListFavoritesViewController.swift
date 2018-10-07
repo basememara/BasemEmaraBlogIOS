@@ -37,7 +37,6 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private var viewModels = [PostsDataViewModel]()
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
         delegate: self
@@ -67,16 +66,18 @@ private extension ListFavoritesViewController {
 extension ListFavoritesViewController: ListFavoritesDisplayable {
     
     func displayPosts(with viewModels: [PostsDataViewModel]) {
-        self.viewModels = viewModels
         tableViewAdapter.reloadData(with: viewModels)
     }
     
     func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
-        viewModels = viewModels.filter { $0.id != viewModel.postID }
+        let filtered = tableViewAdapter.viewModels.filter { $0.id != viewModel.postID }
         
         // Ensure empty screen to show if empty
-        guard viewModels.isEmpty else { return }
-        tableViewAdapter.reloadData(with: viewModels)
+        guard filtered.isEmpty else {
+            return tableViewAdapter.setData(with: filtered)
+        }
+        
+        tableViewAdapter.reloadData(with: filtered)
     }
 }
 
@@ -85,8 +86,9 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
 extension ListFavoritesViewController: PostsDataViewDelegate {
     
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int {
-        tableView.backgroundView = viewModels.isEmpty ? emptyPlaceholderView : nil
-        tableView.separatorStyle = viewModels.isEmpty ? .none : .singleLine
+        let isEmpty = tableViewAdapter.viewModels.isEmpty
+        tableView.backgroundView = isEmpty ? emptyPlaceholderView : nil
+        tableView.separatorStyle = isEmpty ? .none : .singleLine
         return 1
     }
     
