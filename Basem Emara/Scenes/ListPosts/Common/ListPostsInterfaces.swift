@@ -13,6 +13,8 @@ protocol ListPostsBusinessLogic {
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest)
     func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest)
+    func toggleFavorite(with request: ListPostsModels.FavoriteRequest)
+    func isFavorite(postID: Int) -> Bool
 }
 
 protocol ListPostsPresentable {
@@ -27,10 +29,13 @@ protocol ListPostsPresentable {
     
     func presentPostsByTerms(for response: ListPostsModels.PostsResponse)
     func presentPostsByTerms(error: DataError)
+    
+    func presentToggleFavorite(for response: ListPostsModels.FavoriteResponse)
 }
 
 protocol ListPostsDisplayable: class, AppDisplayable {
     func displayPosts(with viewModels: [PostsDataViewModel])
+    func displayToggleFavorite(with viewModel: ListPostsModels.FavoriteViewModel)
 }
 
 protocol ListPostsRoutable: AppRoutable {

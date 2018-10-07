@@ -10,15 +10,19 @@ import SwiftyPress
 
 protocol ListFavoritesBusinessLogic {
     func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest)
+    func toggleFavorite(with request: ListFavoritesModels.FavoriteRequest)
 }
 
 protocol ListFavoritesPresentable {
     func presentFavoritePosts(for response: ListFavoritesModels.FetchPostsResponse)
     func presentFavoritePosts(error: DataError)
+    
+    func presentToggleFavorite(for response: ListFavoritesModels.FavoriteResponse)
 }
 
 protocol ListFavoritesDisplayable: class, AppDisplayable {
     func displayPosts(with viewModels: [PostsDataViewModel])
+    func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel)
 }
 
 protocol ListFavoritesRoutable: AppRoutable {

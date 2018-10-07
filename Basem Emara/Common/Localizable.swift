@@ -22,6 +22,15 @@ extension Localizable {
     static let noPostInHistoryErrorMessage = Localizable(NSLocalizedString("no.post.in.history.error.message", comment: "No post in history alert error message"))
 }
 
+// Misc
+extension Localizable {
+    static let unfavorTitle = Localizable(NSLocalizedString("unfavor.title", comment: "Unfavor title for buttons and dialogs"))
+    static let favoriteTitle = Localizable(NSLocalizedString("favorite.title", comment: "Favorite title for buttons and dialogs"))
+    static let moreTitle = Localizable(NSLocalizedString("more.title", comment: "More title for buttons and dialogs"))
+    static let commentTitle = Localizable(NSLocalizedString("comment.title", comment: "Comment title for buttons and dialogs"))
+    static let shareTitle = Localizable(NSLocalizedString("share.title", comment: "Share title for buttons and dialogs"))
+}
+
 // Posts
 extension Localizable {
     static let latestPostsTitle = Localizable(NSLocalizedString("latest.posts.title", comment: "Latest posts title"))

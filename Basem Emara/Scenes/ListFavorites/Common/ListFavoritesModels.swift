@@ -14,8 +14,22 @@ enum ListFavoritesModels {
         
     }
     
+    struct FavoriteRequest {
+        let postID: Int
+    }
+    
     struct FetchPostsResponse {
         let posts: [PostType]
         let media: [MediaType]
+    }
+    
+    struct FavoriteResponse {
+        let postID: Int
+        let favorite: Bool
+    }
+    
+    struct FavoriteViewModel {
+        let postID: Int
+        let favorite: Bool
     }
 }

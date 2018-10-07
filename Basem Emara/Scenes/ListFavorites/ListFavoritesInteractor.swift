@@ -49,3 +49,17 @@ extension ListFavoritesInteractor {
         }
     }
 }
+
+extension ListFavoritesInteractor {
+    
+    func toggleFavorite(with request: ListFavoritesModels.FavoriteRequest) {
+        postsWorker.toggleFavorite(id: request.postID)
+        
+        presenter.presentToggleFavorite(
+            for: ListFavoritesModels.FavoriteResponse(
+                postID: request.postID,
+                favorite: postsWorker.hasFavorite(id: request.postID)
+            )
+        )
+    }
+}

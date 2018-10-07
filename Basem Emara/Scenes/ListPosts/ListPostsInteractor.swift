@@ -133,3 +133,21 @@ extension ListPostsInteractor {
         }
     }
 }
+
+extension ListPostsInteractor {
+    
+    func toggleFavorite(with request: ListPostsModels.FavoriteRequest) {
+        postsWorker.toggleFavorite(id: request.postID)
+        
+        presenter.presentToggleFavorite(
+            for: ListPostsModels.FavoriteResponse(
+                postID: request.postID,
+                favorite: postsWorker.hasFavorite(id: request.postID)
+            )
+        )
+    }
+    
+    func isFavorite(postID: Int) -> Bool {
+        return postsWorker.hasFavorite(id: postID)
+    }
+}

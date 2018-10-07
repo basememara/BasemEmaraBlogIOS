@@ -26,8 +26,8 @@ extension PostsDataViewDelegate {
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int { return 1 }
     func postsDataViewDidReloadData() {}
     
-    func postsDataView(leadingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? { return nil }
-    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? { return nil }
+    func postsDataView(leadingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? { return UISwipeActionsConfiguration() }
+    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? { return UISwipeActionsConfiguration() }
     
     func postsDataViewWillBeginDragging(_ scrollView: UIScrollView) {}
     func postsDataViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {}

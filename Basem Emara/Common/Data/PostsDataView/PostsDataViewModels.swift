@@ -13,6 +13,7 @@ struct PostsDataViewModel {
     let title: String
     let summary: String
     let content: String
+    let link: String
     let date: String
     let imageURL: String?
 }
@@ -25,6 +26,7 @@ extension PostsDataViewModel {
         self.summary = !object.excerpt.isEmpty ? object.excerpt
             : object.content.prefix(150).string.htmlStripped.htmlDecoded
         self.content = object.content
+        self.link = object.link
         self.date = dateFormatter.string(from: object.createdAt)
         self.imageURL = media?.link
     }

@@ -70,6 +70,14 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
         self.viewModels = viewModels
         tableViewAdapter.reloadData(with: viewModels)
     }
+    
+    func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
+        viewModels = viewModels.filter { $0.id != viewModel.postID }
+        
+        // Ensure empty screen to show if empty
+        guard viewModels.isEmpty else { return }
+        tableViewAdapter.reloadData(with: viewModels)
+    }
 }
 
 // MARK: - Delegates
@@ -84,5 +92,18 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.showPost(for: model)
+    }
+    
+    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(
+            actions: [
+                UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { action, view, completion in
+                    self.interactor.toggleFavorite(with: ListFavoritesModels.FavoriteRequest(postID: model.id))
+                    completion(true)
+                }.with {
+                    $0.image = UIImage(named: "favorite-empty")
+                }
+            ]
+        )
     }
 }

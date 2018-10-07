@@ -22,3 +22,9 @@
 "comments.not.available.error.title" = "Comments Not Available";
 "not.connected.to.internet.error.message" = "You are not connected to the Internet.";
 "no.post.in.history.error.message" = "No previous post in history";
+
+"unfavor.title" = "Unfavor";
+"favorite.title" = "Favorite";
+"more.title" = "More";
+"comment.title" = "Comment";
+"share.title" = "Share";

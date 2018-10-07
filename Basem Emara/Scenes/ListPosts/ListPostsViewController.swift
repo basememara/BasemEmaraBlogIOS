@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SystemConfiguration
 import SwiftyPress
 import ZamzamKit
 
@@ -39,6 +40,9 @@ class ListPostsViewController: UIViewController, HasDependencies {
         for: tableView,
         delegate: self
     )
+    
+    private lazy var constants: ConstantsType = dependencies.resolve()
+    private lazy var theme: Theme = dependencies.resolve()
     
     var fetchType: FetchType = .latest
     
@@ -97,6 +101,10 @@ extension ListPostsViewController: ListPostsDisplayable {
     func displayPosts(with viewModels: [PostsDataViewModel]) {
         tableViewAdapter.reloadData(with: viewModels)
     }
+    
+    func displayToggleFavorite(with viewModel: ListPostsModels.FavoriteViewModel) {
+        // Nothing to do
+    }
 }
 
 // MARK: - Internal types
@@ -117,5 +125,76 @@ extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.showPost(for: model)
+    }
+    
+    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
+        let isFavorite = interactor.isFavorite(postID: model.id)
+        let sender = tableView.cellForRow(at: indexPath) ?? tableView
+        
+        return UISwipeActionsConfiguration(
+            actions: [
+                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { action, view, completion in
+                    self.interactor.toggleFavorite(with: ListPostsModels.FavoriteRequest(postID: model.id))
+                    tableView.reloadRows(at: [indexPath], with: .none)
+                    completion(true)
+                }.with {
+                    $0.image = UIImage(named: isFavorite ? "favorite-empty" : "favorite-filled")
+                    $0.backgroundColor = theme.tint
+                },
+                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { action, view, completion in
+                    self.present(
+                        UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet).with {
+                            $0.addAction(
+                                UIAlertAction(title: .localized(.commentTitle)) {
+                                    self.present(
+                                        safari: self.constants.baseURL
+                                            .appendingPathComponent("mobile-comments")
+                                            .appendingQueryItem("postid", value: model.id)
+                                            .absoluteString
+                                    )
+                                }
+                            )
+                            
+                            $0.addAction(
+                                UIAlertAction(title: .localized(.shareTitle)) {
+                                    let safariActivity = UIActivity.make(
+                                        title: .localized(.openInSafari),
+                                        imageName: "safari-share",
+                                        imageBundle: .zamzamKit,
+                                        handler: {
+                                            guard let url = URL(string: model.link),
+                                                SCNetworkReachability.isOnline else {
+                                                    return self.present(
+                                                        alert: .localized(.browserNotAvailableErrorTitle),
+                                                        message: .localized(.notConnectedToInternetErrorMessage)
+                                                    )
+                                            }
+                                            
+                                            UIApplication.shared.open(url)
+                                        }
+                                    )
+                                    
+                                    self.present(
+                                        activities: [model.title.htmlDecoded, model.link],
+                                        popoverFrom: sender,
+                                        applicationActivities: [safariActivity]
+                                    )
+                                }
+                            )
+                            
+                            $0.addAction(
+                                UIAlertAction(title: .localized(.cancel), style: .cancel)
+                            )
+                        },
+                        popoverFrom: sender
+                    )
+                    
+                    completion(true)
+                }.with {
+                    $0.image = UIImage(named: "more-icon")
+                    $0.backgroundColor = theme.secondaryTint
+                }
+            ]
+        )
     }
 }

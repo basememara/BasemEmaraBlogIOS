@@ -116,3 +116,15 @@ extension ListPostsPresenter {
         viewController?.display(error: viewModel)
     }
 }
+
+extension ListPostsPresenter {
+    
+    func presentToggleFavorite(for response: ListPostsModels.FavoriteResponse) {
+        viewController?.displayToggleFavorite(
+            with: ListPostsModels.FavoriteViewModel(
+                postID: response.postID,
+                favorite: response.favorite
+            )
+        )
+    }
+}
