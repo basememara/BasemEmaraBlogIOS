@@ -16,7 +16,7 @@ class SearchPostsViewController: UIViewController, HasDependencies {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: PostTableViewCell.self)
+            tableView.register(nib: SimplePostTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }
