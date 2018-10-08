@@ -71,6 +71,10 @@ private extension ListPostsViewController {
         case .terms:
             title = .localized(.postsByTermsTitle)
         }
+        
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: tableView)
+        }
     }
     
     func loadData() {
@@ -204,5 +208,19 @@ extension ListPostsViewController: PostsDataViewDelegate {
                 }
             ]
         )
+    }
+}
+
+extension ListPostsViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
+        router.showPost(for: previewController.viewModel)
     }
 }

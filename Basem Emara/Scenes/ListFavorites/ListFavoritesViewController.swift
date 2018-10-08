@@ -44,6 +44,11 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     // MARK: - Controller cycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
@@ -53,6 +58,12 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
 // MARK: - Events
 
 private extension ListFavoritesViewController {
+    
+    func configure() {
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: tableView)
+        }
+    }
     
     func loadData() {
         interactor.fetchFavoritePosts(
@@ -109,3 +120,18 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
         )
     }
 }
+
+extension ListFavoritesViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
+        router.showPost(for: previewController.viewModel)
+    }
+}
+

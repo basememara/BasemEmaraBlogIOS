@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CD5-68-EUQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Preview Post View Controller-->
+        <scene sceneID="H9q-D6-MDR">
+            <objects>
+                <viewController id="CD5-68-EUQ" customClass="PreviewPostViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="roA-x9-6br" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="okH-VS-U5F">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="651"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1E8-Kz-wle">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzm-0w-PPe" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="596.5" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-wL-sOQ" customClass="AppSubhead" customModule="Basem_Emara" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="633" width="375" height="18"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ang-wI-bga" firstAttribute="trailing" secondItem="okH-VS-U5F" secondAttribute="trailing" id="1PC-jO-ciB"/>
+                            <constraint firstItem="okH-VS-U5F" firstAttribute="leading" secondItem="Ang-wI-bga" secondAttribute="leading" id="6zL-zE-l4m"/>
+                            <constraint firstItem="okH-VS-U5F" firstAttribute="top" secondItem="roA-x9-6br" secondAttribute="top" id="IEu-fb-6YH"/>
+                            <constraint firstItem="Ang-wI-bga" firstAttribute="bottom" secondItem="okH-VS-U5F" secondAttribute="bottom" constant="16" id="njR-zT-o30"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ang-wI-bga"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="ifm-wL-sOQ" id="whx-zR-lin"/>
+                        <outlet property="featuredImage" destination="1E8-Kz-wle" id="tCB-V8-HWN"/>
+                        <outlet property="titleLabel" destination="Nzm-0w-PPe" id="pou-bd-EPy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x16-CB-HoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="226" y="26"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="placeholder" width="1040" height="584"/>
+    </resources>
+</document>

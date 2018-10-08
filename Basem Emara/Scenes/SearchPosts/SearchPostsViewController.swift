@@ -71,6 +71,10 @@ private extension SearchPostsViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         tableViewAdapter.reloadData(with: [])
+        
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: tableView)
+        }
     }
     
     func loadData() {
@@ -145,5 +149,19 @@ extension SearchPostsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         searchData(for: searchController.searchBar.text!, with: selectedScope)
+    }
+}
+
+extension SearchPostsViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
+        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
+        router.showPost(for: previewController.viewModel)
     }
 }

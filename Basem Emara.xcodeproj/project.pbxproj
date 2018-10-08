@@ -177,6 +177,8 @@
 		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationService.swift */; };
 		8B9CE09020D73CC60077E4A0 /* BootApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* BootApplicationService.swift */; };
 		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
+		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
+		8BBF81CB216B7C1400158DDE /* PreviewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */; };
 		8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */; };
 		8BEEEF352123310A00A6AF99 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* HomeModels.swift */; };
 		8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */; };
@@ -355,6 +357,8 @@
 		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationService.swift; sourceTree = "<group>"; };
 		8B9CE08F20D73CC60077E4A0 /* BootApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootApplicationService.swift; sourceTree = "<group>"; };
 		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
+		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
+		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
 		8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaces.swift; sourceTree = "<group>"; };
 		8BEEEF342123310A00A6AF99 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -582,6 +586,7 @@
 				8B52641F20D7C96700170875 /* ShowMore */,
 				8B47A5DF20E10E8700681404 /* ListPosts */,
 				8B0B02F921625DE000FF9D9F /* ShowPost */,
+				8BBF81C7216B7BC400158DDE /* PreviewPost */,
 				8B4D719E216A4030002ACA81 /* SearchPosts */,
 				8B63A2AF2163AEDA003868F7 /* ListTerms */,
 			);
@@ -844,6 +849,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8BBF81C7216B7BC400158DDE /* PreviewPost */ = {
+			isa = PBXGroup;
+			children = (
+				8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */,
+				8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */,
+			);
+			path = PreviewPost;
+			sourceTree = "<group>";
+		};
 		8BEEEF312123300E00A6AF99 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1060,7 @@
 				8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */,
 				8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */,
 				8B4D71BA216AEC36002ACA81 /* SimplePostTableViewCell.xib in Resources */,
+				8BBF81CB216B7C1400158DDE /* PreviewPost.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,6 +1139,7 @@
 				8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */,
 				8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */,
 				8B50462B2161782C00BF771D /* AppSwitch.swift in Sources */,
+				8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIApplication.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostInterfaces.swift in Sources */,
 				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationService.swift in Sources */,

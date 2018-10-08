@@ -40,4 +40,5 @@ protocol ListPostsDisplayable: class, AppDisplayable {
 
 protocol ListPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
+    func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }

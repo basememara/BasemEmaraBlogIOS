@@ -112,6 +112,12 @@ private extension HomeViewController {
             spacing: 10,
             inset: 16
         )
+        
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: latestPostsCollectionView)
+            registerForPreviewing(with: self, sourceView: popularPostsCollectionView)
+            registerForPreviewing(with: self, sourceView: pickedPostsCollectionView)
+        }
     }
     
     func loadData() {
@@ -249,3 +255,36 @@ extension HomeViewController: TermsDataViewDelegate {
         router.listPosts(for: .terms([model.id]))
     }
 }
+
+extension HomeViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let collectionView = previewingContext.sourceView as? UICollectionView,
+            let indexPath = collectionView.indexPathForItem(at: location),
+            let cell = collectionView.cellForItem(at: indexPath) else {
+                return nil
+        }
+        
+        previewingContext.sourceRect = cell.frame
+        
+        let viewModel: PostsDataViewModel
+        switch collectionView {
+        case latestPostsCollectionView:
+            viewModel = latestPostsCollectionViewAdapter.viewModels[indexPath.row]
+        case popularPostsCollectionView:
+            viewModel = popularPostsCollectionViewAdapter.viewModels[indexPath.row]
+        case pickedPostsCollectionView:
+            viewModel = pickedPostsCollectionViewAdapter.viewModels[indexPath.row]
+        default:
+            return nil
+        }
+        
+        return router.previewPost(for: viewModel)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
+        router.showPost(for: previewController.viewModel)
+    }
+}
+

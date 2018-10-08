@@ -99,6 +99,7 @@ enum Storyboard: String {
     case home = "Home"
     case listPosts = "ListPosts"
     case showPost = "ShowPost"
+    case previewPost = "PreviewPost"
     case listTerms = "ListTerms"
 }
 

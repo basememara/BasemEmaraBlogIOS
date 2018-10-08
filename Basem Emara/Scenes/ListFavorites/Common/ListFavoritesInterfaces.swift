@@ -27,4 +27,5 @@ protocol ListFavoritesDisplayable: class, AppDisplayable {
 
 protocol ListFavoritesRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
+    func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }

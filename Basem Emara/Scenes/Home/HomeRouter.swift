@@ -30,6 +30,15 @@ extension HomeRouter: HomeRoutable {
         }
     }
     
+    func previewPost(for model: PostsDataViewModel) -> UIViewController? {
+        let storyboard = UIStoryboard(name: Storyboard.previewPost.rawValue)
+        
+        return (storyboard.instantiateInitialViewController() as? PreviewPostViewController)?.with {
+            $0.viewModel = model
+            $0.delegate = self.viewController
+        }
+    }
+    
     func listTerms() {
         show(storyboard: .listTerms)
     }

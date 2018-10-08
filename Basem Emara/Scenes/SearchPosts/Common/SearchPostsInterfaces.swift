@@ -24,4 +24,5 @@ protocol SearchPostsDisplayable: class, AppDisplayable {
 
 protocol SearchPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
+    func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }
