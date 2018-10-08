@@ -49,22 +49,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTI-vb-2xM">
                                                 <rect key="frame" x="0.0" y="48.5" width="331" height="109.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25D-1z-pY0" customClass="AppImageButton" customModule="Basem_Emara" customModuleProvider="target">
-                                                        <rect key="frame" x="149.5" y="39" width="32" height="32"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite-empty" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-3y-Q0w">
+                                                        <rect key="frame" x="153.5" y="43" width="24" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="25D-1z-pY0" secondAttribute="height" multiplier="1:1" id="bPc-mX-hsN"/>
-                                                            <constraint firstAttribute="width" constant="32" id="x4p-Ty-XcC"/>
+                                                            <constraint firstAttribute="width" secondItem="Zer-3y-Q0w" secondAttribute="height" multiplier="1:1" id="3ka-RC-cgj"/>
+                                                            <constraint firstAttribute="width" constant="24" id="Fxt-6d-zwa"/>
                                                         </constraints>
-                                                        <state key="normal" image="favorite-empty"/>
-                                                        <connections>
-                                                            <action selector="favoriteButtonTapped" destination="Uyn-cq-xYR" eventType="touchUpInside" id="dRZ-Mk-WFj"/>
-                                                        </connections>
-                                                    </button>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="25D-1z-pY0" firstAttribute="centerX" secondItem="sTI-vb-2xM" secondAttribute="centerX" id="O8P-qf-Sp5"/>
-                                                    <constraint firstItem="25D-1z-pY0" firstAttribute="centerY" secondItem="sTI-vb-2xM" secondAttribute="centerY" id="SZx-iH-4DD"/>
+                                                    <constraint firstItem="Zer-3y-Q0w" firstAttribute="centerY" secondItem="sTI-vb-2xM" secondAttribute="centerY" id="nrA-fW-yvE"/>
+                                                    <constraint firstItem="Zer-3y-Q0w" firstAttribute="centerX" secondItem="sTI-vb-2xM" secondAttribute="centerX" id="pDo-HL-fTP"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -91,7 +87,7 @@
             <viewLayoutGuide key="safeArea" id="Hve-oq-LgK"/>
             <size key="customSize" width="513" height="158"/>
             <connections>
-                <outlet property="favoriteButton" destination="25D-1z-pY0" id="54i-Fr-3ia"/>
+                <outlet property="favoriteImage" destination="Zer-3y-Q0w" id="C1W-v2-Bcl"/>
                 <outlet property="featuredImage" destination="nJl-TX-T2M" id="wUr-5S-V9d"/>
                 <outlet property="summaryLabel" destination="WtD-me-AeT" id="DkP-Zu-dGH"/>
                 <outlet property="titleLabel" destination="gme-4X-yU6" id="vVW-Pw-Ljo"/>
@@ -100,7 +96,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="favorite-empty" width="32" height="32"/>
+        <image name="favorite-empty" width="24" height="24"/>
         <image name="placeholder" width="1040" height="584"/>
     </resources>
 </document>

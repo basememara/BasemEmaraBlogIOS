@@ -41,7 +41,8 @@ class HomeViewController: UIViewController, HasDependencies {
         presenter: HomePresenter(viewController: self),
         postsWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
-        taxonomyWorker: dependencies.resolveWorker()
+        taxonomyWorker: dependencies.resolveWorker(),
+        preferences: dependencies.resolve()
     )
     
     private lazy var router: HomeRoutable = HomeRouter(
@@ -75,6 +76,10 @@ class HomeViewController: UIViewController, HasDependencies {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadData()
     }
 }

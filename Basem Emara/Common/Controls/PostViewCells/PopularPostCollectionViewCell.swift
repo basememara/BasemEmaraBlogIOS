@@ -14,11 +14,7 @@ class PopularPostCollectionViewCell: UICollectionViewCell, PostsDataViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var featuredImage: UIImageView!
-    @IBOutlet weak var favoriteButton: UIButton!
-    
-    @IBAction func favoriteButtonTapped() {
-        
-    }
+    @IBOutlet weak var favoriteImage: UIImageView!
 }
 
 extension PopularPostCollectionViewCell {
@@ -27,5 +23,7 @@ extension PopularPostCollectionViewCell {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
         featuredImage.setURL(model.imageURL)
+        favoriteImage.image = UIImage(named: model.favorite == true
+            ? "favorite-filled" : "favorite-empty")
     }
 }

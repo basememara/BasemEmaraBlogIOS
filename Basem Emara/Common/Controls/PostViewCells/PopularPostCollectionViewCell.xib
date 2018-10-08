@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="558" height="194"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F04-6s-dst">
-                                <rect key="frame" x="0.0" y="10" width="558" height="174"/>
+                                <rect key="frame" x="0.0" y="10" width="550" height="174"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-el-fGF">
                                         <rect key="frame" x="0.0" y="0.0" width="174" height="174"/>
@@ -59,16 +59,12 @@
                                             <constraint firstItem="bwu-A9-c2t" firstAttribute="centerY" secondItem="Xfx-Lc-5Js" secondAttribute="centerY" id="XlP-yw-qWV"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-K7-uAI" customClass="AppImageButton" customModule="Basem_Emara" customModuleProvider="target">
-                                        <rect key="frame" x="526" y="0.0" width="32" height="174"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite-empty" translatesAutoresizingMaskIntoConstraints="NO" id="6fc-2D-4uh">
+                                        <rect key="frame" x="526" y="0.0" width="24" height="174"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="aDJ-SC-KyJ"/>
+                                            <constraint firstAttribute="width" constant="24" id="qA3-E2-V6B"/>
                                         </constraints>
-                                        <state key="normal" image="favorite-empty"/>
-                                        <connections>
-                                            <action selector="favoriteButtonTapped" destination="1MZ-jo-4bz" eventType="touchUpInside" id="pwa-cQ-lFK"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bwu-A9-c2t" firstAttribute="height" relation="lessThanOrEqual" secondItem="eVz-el-fGF" secondAttribute="height" priority="250" id="KP6-zB-dH2"/>
@@ -87,7 +83,7 @@
                             <constraint firstAttribute="trailing" secondItem="voI-4n-X0d" secondAttribute="trailing" id="BYx-lr-AFM"/>
                             <constraint firstAttribute="bottom" secondItem="voI-4n-X0d" secondAttribute="bottom" id="EGs-9o-lw7"/>
                             <constraint firstItem="F04-6s-dst" firstAttribute="top" secondItem="JfV-WW-HbU" secondAttribute="top" constant="10" id="Pr5-Lg-GNU"/>
-                            <constraint firstAttribute="trailing" secondItem="F04-6s-dst" secondAttribute="trailing" id="erL-Je-4aZ"/>
+                            <constraint firstAttribute="trailing" secondItem="F04-6s-dst" secondAttribute="trailing" constant="8" id="erL-Je-4aZ"/>
                             <constraint firstItem="F04-6s-dst" firstAttribute="leading" secondItem="JfV-WW-HbU" secondAttribute="leading" id="mvN-7M-6aE"/>
                             <constraint firstItem="voI-4n-X0d" firstAttribute="leading" secondItem="Xfx-Lc-5Js" secondAttribute="leading" id="skT-Ah-ZCU"/>
                         </constraints>
@@ -103,7 +99,7 @@
             <viewLayoutGuide key="safeArea" id="Ej6-Ys-I2T"/>
             <size key="customSize" width="558" height="194"/>
             <connections>
-                <outlet property="favoriteButton" destination="OCb-K7-uAI" id="UrC-V0-u3k"/>
+                <outlet property="favoriteImage" destination="6fc-2D-4uh" id="xYf-RF-EMa"/>
                 <outlet property="featuredImage" destination="eVz-el-fGF" id="oSc-HQ-zlg"/>
                 <outlet property="summaryLabel" destination="c78-kS-k7Z" id="Hpr-02-eOZ"/>
                 <outlet property="titleLabel" destination="Xzi-cn-plh" id="Lfm-MK-2xP"/>
@@ -112,7 +108,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="favorite-empty" width="32" height="32"/>
+        <image name="favorite-empty" width="24" height="24"/>
         <image name="placeholder" width="1040" height="584"/>
     </resources>
 </document>

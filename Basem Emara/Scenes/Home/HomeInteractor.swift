@@ -13,15 +13,18 @@ struct HomeInteractor: HomeBusinessLogic {
     private let postsWorker: PostsWorkerType
     private let mediaWorker: MediaWorkerType
     private let taxonomyWorker: TaxonomyWorkerType
+    private let preferences: PreferencesType
 
     init(presenter: HomePresentable,
          postsWorker: PostsWorkerType,
          mediaWorker: MediaWorkerType,
-         taxonomyWorker: TaxonomyWorkerType) {
+         taxonomyWorker: TaxonomyWorkerType,
+         preferences: PreferencesType) {
         self.presenter = presenter
         self.postsWorker = postsWorker
         self.mediaWorker = mediaWorker
         self.taxonomyWorker = taxonomyWorker
+        self.preferences = preferences
     }
 }
 
@@ -45,7 +48,8 @@ extension HomeInteractor {
                 self.presenter.presentLatestPosts(
                     for: HomeModels.PostsResponse(
                         posts: posts.prefix(request.count).array,
-                        media: media
+                        media: media,
+                        favorites: self.preferences.get(.favorites) ?? []
                     )
                 )
             }
@@ -70,7 +74,8 @@ extension HomeInteractor {
                 self.presenter.presentPopularPosts(
                     for: HomeModels.PostsResponse(
                         posts: posts.prefix(request.count).array,
-                        media: media
+                        media: media,
+                        favorites: self.preferences.get(.favorites) ?? []
                     )
                 )
             }
@@ -95,7 +100,8 @@ extension HomeInteractor {
                 self.presenter.presentTopPickPosts(
                     for: HomeModels.PostsResponse(
                         posts: posts.prefix(request.count).array,
-                        media: media
+                        media: media,
+                        favorites: self.preferences.get(.favorites) ?? []
                     )
                 )
             }

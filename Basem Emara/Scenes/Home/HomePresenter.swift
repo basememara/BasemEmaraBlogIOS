@@ -28,6 +28,7 @@ extension HomePresenter {
             PostsDataViewModel(
                 from: post,
                 media: response.media.first { $0.id == post.mediaID },
+                favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
         }
@@ -52,6 +53,7 @@ extension HomePresenter {
             PostsDataViewModel(
                 from: post,
                 media: response.media.first { $0.id == post.mediaID },
+                favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
         }
@@ -76,6 +78,7 @@ extension HomePresenter {
             PostsDataViewModel(
                 from: post,
                 media: response.media.first { $0.id == post.mediaID },
+                favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
         }

@@ -21,6 +21,7 @@ enum HomeModels {
     struct PostsResponse {
         let posts: [PostType]
         let media: [MediaType]
+        let favorites: [Int]
     }
     
     struct TermsResponse {
