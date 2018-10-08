@@ -59,6 +59,7 @@ class SearchPostsViewController: UIViewController, HasDependencies {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        loadData()
     }
 }
 
@@ -70,6 +71,12 @@ private extension SearchPostsViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         tableViewAdapter.reloadData(with: [])
+    }
+    
+    func loadData() {
+        interactor.fetchPopularPosts(
+            with: SearchPostsModels.PopularRequest()
+        )
     }
     
     func searchData(for text: String, with scope: Int) {
@@ -105,7 +112,7 @@ extension SearchPostsViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text, !text.isEmpty else {
-            return tableViewAdapter.reloadData(with: [])
+            return loadData()
         }
         
         // Skip irrelevant search until some characters

@@ -10,6 +10,10 @@ import SwiftyPress
 
 enum SearchPostsModels {
     
+    struct PopularRequest {
+        
+    }
+    
     struct Response {
         let posts: [PostType]
         let media: [MediaType]

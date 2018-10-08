@@ -10,6 +10,7 @@ import SwiftyPress
 
 protocol SearchPostsBusinessLogic {
     func fetchSearchResults(with request: PostsModels.SearchRequest)
+    func fetchPopularPosts(with request: SearchPostsModels.PopularRequest)
 }
 
 protocol SearchPostsPresentable {

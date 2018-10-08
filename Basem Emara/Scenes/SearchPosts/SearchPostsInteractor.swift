@@ -49,3 +49,31 @@ extension SearchPostsInteractor {
         }
     }
 }
+
+extension SearchPostsInteractor {
+    
+    func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
+        postsWorker.fetchPopular {
+            guard let posts = $0.value, $0.isSuccess else {
+                return self.presenter.presentSearchResults(
+                    error: $0.error ?? .unknownReason(nil)
+                )
+            }
+            
+            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+                guard let media = $0.value, $0.isSuccess else {
+                    return self.presenter.presentSearchResults(
+                        error: $0.error ?? .unknownReason(nil)
+                    )
+                }
+                
+                self.presenter.presentSearchResults(
+                    for: SearchPostsModels.Response(
+                        posts: posts,
+                        media: media
+                    )
+                )
+            }
+        }
+    }
+}
