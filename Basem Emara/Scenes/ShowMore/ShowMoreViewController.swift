@@ -9,10 +9,6 @@
 import UIKit
 import SwiftyPress
 
-class ShowMoreViewController: UIViewController {
+class ShowMoreViewController: UITableViewController {
     
-    @IBAction func themeSwitchChanged(_ sender: UISwitch) {
-        let theme: Theme = sender.isOn ? DarkTheme() : LightTheme()
-        theme.apply(for: UIApplication.shared)
-    }
 }

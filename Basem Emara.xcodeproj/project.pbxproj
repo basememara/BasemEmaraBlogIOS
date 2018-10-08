@@ -587,12 +587,12 @@
 				8B52641A20D7C93B00170875 /* Main */,
 				8B52641B20D7C94200170875 /* Home */,
 				8B52641D20D7C95500170875 /* ListFavorites */,
-				8B52641F20D7C96700170875 /* ShowMore */,
 				8B47A5DF20E10E8700681404 /* ListPosts */,
 				8B0B02F921625DE000FF9D9F /* ShowPost */,
 				8BBF81C7216B7BC400158DDE /* PreviewPost */,
 				8B4D719E216A4030002ACA81 /* SearchPosts */,
 				8B63A2AF2163AEDA003868F7 /* ListTerms */,
+				8B52641F20D7C96700170875 /* ShowMore */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
