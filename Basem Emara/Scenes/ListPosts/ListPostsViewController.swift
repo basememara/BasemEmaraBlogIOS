@@ -162,7 +162,8 @@ extension ListPostsViewController: PostsDataViewDelegate {
                                         safari: self.constants.baseURL
                                             .appendingPathComponent("mobile-comments")
                                             .appendingQueryItem("postid", value: model.id)
-                                            .absoluteString
+                                            .absoluteString,
+                                        theme: self.dependencies.resolve()
                                     )
                                 }
                             )

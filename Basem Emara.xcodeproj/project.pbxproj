@@ -179,6 +179,9 @@
 		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
 		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
 		8BBF81CB216B7C1400158DDE /* PreviewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */; };
+		8BBF81D2216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
+		8BBF81D3216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
+		8BBF81D4216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
 		8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */; };
 		8BEEEF352123310A00A6AF99 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* HomeModels.swift */; };
 		8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */; };
@@ -359,6 +362,7 @@
 		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
 		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
+		8BBF81D1216BEF0A00158DDE /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaces.swift; sourceTree = "<group>"; };
 		8BEEEF342123310A00A6AF99 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -794,6 +798,7 @@
 				8B8B33CE20DA660900E80706 /* PostViewCells */,
 				8B21CEFD215C217000E2994C /* TermViewCells */,
 				8B47A5DB20E107C100681404 /* AppButton.swift */,
+				8BBF81D1216BEF0A00158DDE /* AppImage.swift */,
 				8B47A5DD20E107CB00681404 /* AppLabel.swift */,
 				8B50462E2161784800BF771D /* AppSegmentedControl.swift */,
 				8B50462A2161782C00BF771D /* AppSwitch.swift */,
@@ -1158,6 +1163,7 @@
 				8B63A2B32163AEFD003868F7 /* ListTermsViewController.swift in Sources */,
 				8BEEEF3C2123821B00A6AF99 /* AppModels.swift in Sources */,
 				8B63A2C32163C818003868F7 /* ListPostsModels.swift in Sources */,
+				8BBF81D2216BEF0A00158DDE /* AppImage.swift in Sources */,
 				8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */,
 				8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */,
 				8B4D71A6216A4043002ACA81 /* SearchPostsViewController.swift in Sources */,
@@ -1211,6 +1217,7 @@
 				8B1180F82158913F0071315B /* LatestPostCollectionViewCell.swift in Sources */,
 				8B50462C2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8B118100215891750071315B /* PostsDataViewAdapter.swift in Sources */,
+				8BBF81D3216BEF0A00158DDE /* AppImage.swift in Sources */,
 				8B1181062158917F0071315B /* PostsDataViewModels.swift in Sources */,
 				8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1180EC21586D730071315B /* DarkTheme.swift in Sources */,
@@ -1241,6 +1248,7 @@
 				8B1180F9215891410071315B /* LatestPostCollectionViewCell.swift in Sources */,
 				8B50462D2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8B118101215891760071315B /* PostsDataViewAdapter.swift in Sources */,
+				8BBF81D4216BEF0A00158DDE /* AppImage.swift in Sources */,
 				8B1181052158917E0071315B /* PostsDataViewModels.swift in Sources */,
 				8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1180ED21586D740071315B /* DarkTheme.swift in Sources */,

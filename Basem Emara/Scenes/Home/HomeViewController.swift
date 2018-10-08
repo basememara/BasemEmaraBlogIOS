@@ -10,6 +10,7 @@ import UIKit
 import ZamzamKit
 import SwiftyPress
 import TinyConstraints
+import SafariServices
 
 class HomeViewController: UIViewController, HasDependencies {
     
@@ -184,11 +185,11 @@ private extension HomeViewController {
             )
         }
         
-        present(safari: disclaimerURL)
+        present(safari: disclaimerURL, theme: dependencies.resolve())
     }
     
     @IBAction func privacyButtonTapped() {
-        present(safari: constants.privacyURL)
+        present(safari: constants.privacyURL, theme: dependencies.resolve())
     }
     
     @IBAction func contactButtonTapped() {

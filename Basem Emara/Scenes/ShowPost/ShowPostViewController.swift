@@ -186,7 +186,7 @@ private extension ShowPostViewController {
             .appendingQueryItem("postid", value: postID)
             .absoluteString
         
-        present(safari: url)
+        present(safari: url, theme: dependencies.resolve())
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -254,7 +254,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         // Open same domain links within app
         guard requestURL.host == constants.baseURL.host else {
             // Open external links in browser
-            present(safari: requestURL.absoluteString)
+            present(safari: requestURL.absoluteString, theme: dependencies.resolve())
             return decisionHandler(.cancel)
         }
         

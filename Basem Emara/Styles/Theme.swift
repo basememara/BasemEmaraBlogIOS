@@ -50,6 +50,9 @@ extension Theme {
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .backgroundColor = selectionColor
         
+        UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self, UITableViewController.self])
+            .backgroundColor = .clear
+        
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = secondaryLabelColor
         
@@ -64,7 +67,11 @@ extension Theme {
             $0.cornerRadius = 3
         }
         
-        AppImageButton.appearance().tintColor = secondaryTint
+        AppImageButton.appearance().with {
+            $0.contentHorizontalAlignment = .fill
+            $0.contentVerticalAlignment = .fill
+            $0.imageView?.contentMode = .scaleAspectFit
+        }
         
         AppSwitch.appearance().with {
             $0.tintColor = tint
@@ -82,33 +89,26 @@ extension Theme {
         
         AppView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
             $0.backgroundColor = selectionColor
-            $0.cornerRadius = 10
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
-            $0.cornerRadius = 10
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
-            $0.cornerRadius = 10
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UICollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
+            $0.cornerRadius = 10
         }
         
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UICollectionViewCell.self]).with {
-            $0.borderWidth = 0
-        }
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
+        AppImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
+            $0.cornerRadius = 10
         }
         
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self]).with {
-            $0.borderWidth = 0
+        AppImage.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
+            $0.borderColor = separatorColor
+            $0.borderWidth = imageBorderWidthInCell
+            $0.cornerRadius = 10
+        }
+        
+        RoundedImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
+            $0.borderColor = separatorColor
+            $0.borderWidth = imageBorderWidthInCell
         }
         
         // Ensure existing views render with new theme

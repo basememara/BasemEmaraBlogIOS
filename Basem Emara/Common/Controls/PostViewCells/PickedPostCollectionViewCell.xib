@@ -25,7 +25,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-B4-i1P">
                                 <rect key="frame" x="0.0" y="0.0" width="497" height="158"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nJl-TX-T2M">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nJl-TX-T2M" customClass="AppImage" customModule="Basem_Emara" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="158" height="158"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nJl-TX-T2M" secondAttribute="height" multiplier="1:1" id="HKU-Uf-Ez4"/>
