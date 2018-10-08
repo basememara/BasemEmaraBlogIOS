@@ -20,6 +20,10 @@ extension Localizable {
     static let commentsNotAvailableErrorTitle = Localizable(NSLocalizedString("comments.not.available.error.title", comment: "Comments unavailable alert error title"))
     static let notConnectedToInternetErrorMessage = Localizable(NSLocalizedString("not.connected.to.internet.error.message", comment: "Internet unavailable alert error message"))
     static let noPostInHistoryErrorMessage = Localizable(NSLocalizedString("no.post.in.history.error.message", comment: "No post in history alert error message"))
+    static let couldNotSendEmail = Localizable(NSLocalizedString("could.not.send.email", comment: "The title of the dialog alerting the user an email could not be composed"))
+    static let couldNotSendEmailMessage = Localizable(NSLocalizedString("could.not.send.email.message", comment: "The message of the dialog alerting the user an email could not be composed"))
+    static let disclaimerNotAvailableErrorTitle = Localizable(NSLocalizedString("disclaimer.not.available.error.title", comment: "The title of the dialog alerting the user no disclaimer info is available"))
+    static let disclaimerNotAvailableErrorMessage = Localizable(NSLocalizedString("disclaimer.not.available.error.message", comment: "The message of the dialog alerting the user no disclaimer info is available"))
 }
 
 // Misc

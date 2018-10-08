@@ -13,6 +13,8 @@
 "terms.error.title" = "Terms Error";
 "blog.post.error.title" = "Blog Post Error";
 "search.error.title" = "Search Error";
+"could.not.send.email" = "Could Not Send Email";
+"could.not.send.email.message" = "Your device could not send e-mail.";
 
 "latest.posts.title" = "Latest Posts";
 "popular.posts.title" = "Popular Posts";
@@ -23,6 +25,8 @@
 "comments.not.available.error.title" = "Comments Not Available";
 "not.connected.to.internet.error.message" = "You are not connected to the Internet.";
 "no.post.in.history.error.message" = "No previous post in history";
+"disclaimer.not.available.error.title" = "Disclaimer Not Available";
+"disclaimer.not.available.error.message" = "No disclaimer information is available.";
 
 "unfavor.title" = "Unfavor";
 "favorite.title" = "Favorite";

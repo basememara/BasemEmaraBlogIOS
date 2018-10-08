@@ -216,6 +216,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P47-TZ-0ee" customClass="AppButton" customModule="Basem_Emara" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="38" width="343" height="124"/>
                                                                         <state key="normal" title="Contact"/>
+                                                                        <connections>
+                                                                            <action selector="contactButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="nP3-V4-U5C"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>

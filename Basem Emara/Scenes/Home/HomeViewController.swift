@@ -71,7 +71,9 @@ class HomeViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
+    private lazy var mailComposer: MailComposerType = MailComposer(tintColor: theme.tint)
     private lazy var constants: ConstantsType = dependencies.resolve()
+    private lazy var theme: Theme = dependencies.resolve()
     
     // MARK: - Controller cycle
     
@@ -169,12 +171,29 @@ private extension HomeViewController {
     }
     
     @IBAction func disclaimerButtonTapped() {
-        guard let disclaimerURL = constants.disclaimerURL else { return }
+        guard let disclaimerURL = constants.disclaimerURL else {
+            return present(
+                alert: .localized(.disclaimerNotAvailableErrorTitle),
+                message: .localized(.disclaimerNotAvailableErrorMessage)
+            )
+        }
+        
         present(safari: disclaimerURL)
     }
     
     @IBAction func privacyButtonTapped() {
         present(safari: constants.privacyURL)
+    }
+    
+    @IBAction func contactButtonTapped() {
+        guard let controller = mailComposer.makeViewController(email: constants.email) else {
+            return present(
+                alert: .localized(.couldNotSendEmail),
+                message: .localized(.couldNotSendEmailMessage)
+            )
+        }
+        
+        present(controller, animated: true)
     }
 }
 
