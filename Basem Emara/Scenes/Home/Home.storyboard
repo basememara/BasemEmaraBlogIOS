@@ -200,10 +200,16 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-Q6-P75" customClass="AppButton" customModule="Basem_Emara" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
                                                                                 <state key="normal" title="Disclaimer"/>
+                                                                                <connections>
+                                                                                    <action selector="disclaimerButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="vAC-KD-2ec"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axa-K9-Tw5" customClass="AppButton" customModule="Basem_Emara" customModuleProvider="target">
                                                                                 <rect key="frame" x="175.5" y="0.0" width="167.5" height="30"/>
                                                                                 <state key="normal" title="Privacy"/>
+                                                                                <connections>
+                                                                                    <action selector="privacyButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="ygu-no-TNx"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>

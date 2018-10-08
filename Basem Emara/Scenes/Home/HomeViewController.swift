@@ -71,6 +71,8 @@ class HomeViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
+    private lazy var constants: ConstantsType = dependencies.resolve()
+    
     // MARK: - Controller cycle
     
     override func viewDidLoad() {
@@ -164,6 +166,15 @@ private extension HomeViewController {
     
     @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
         router.listTerms()
+    }
+    
+    @IBAction func disclaimerButtonTapped() {
+        guard let disclaimerURL = constants.disclaimerURL else { return }
+        present(safari: disclaimerURL)
+    }
+    
+    @IBAction func privacyButtonTapped() {
+        present(safari: constants.privacyURL)
     }
 }
 

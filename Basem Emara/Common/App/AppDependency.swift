@@ -22,6 +22,8 @@ class AppDependency: Dependency {
             baseREST: "wp-json/swiftypress/v2",
             wpREST: "wp-json/wp/v2",
             email: "contact@basememara.com",
+            privacyURL: "https://basememara.com/privacy/?mobileembed=1",
+            disclaimerURL: "https://basememara.com/disclaimer/?mobileembed=1",
             styleSheet: "http://basememara.com/wp-content/themes/metro-pro/style.css",
             googleAnalyticsID: "UA-60131988-2",
             featuredCategoryID: 64,
