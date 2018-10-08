@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct SearchPostsInteractor {
+struct SearchPostsInteractor: SearchPostsBusinessLogic {
     private let presenter: SearchPostsPresentable
     private let postsWorker: PostsWorkerType
     private let mediaWorker: MediaWorkerType
@@ -22,7 +22,7 @@ struct SearchPostsInteractor {
     }
 }
 
-extension SearchPostsInteractor: SearchPostsBusinessLogic {
+extension SearchPostsInteractor {
 
     func fetchSearchResults(with request: PostsModels.SearchRequest) {
         postsWorker.search(with: request) {

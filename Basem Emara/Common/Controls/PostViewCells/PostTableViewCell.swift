@@ -16,12 +16,6 @@ class PostTableViewCell: UITableViewCell, PostsDataViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
-    
-    @IBAction func favoriteButtonTapped() {
-    }
-    
-    @IBAction func moreButtonTapped() {
-    }
 }
 
 extension PostTableViewCell {

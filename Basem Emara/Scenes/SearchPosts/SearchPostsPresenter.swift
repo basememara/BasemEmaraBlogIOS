@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyPress
 
-struct SearchPostsPresenter {
+struct SearchPostsPresenter: SearchPostsPresentable {
     private weak var viewController: SearchPostsDisplayable?
     
     private let dateFormatter = DateFormatter().with {
@@ -22,7 +22,7 @@ struct SearchPostsPresenter {
     }
 }
 
-extension SearchPostsPresenter: SearchPostsPresentable {
+extension SearchPostsPresenter {
 
     func presentSearchResults(for response: SearchPostsModels.Response) {
         let viewModels = response.posts.map { post in
