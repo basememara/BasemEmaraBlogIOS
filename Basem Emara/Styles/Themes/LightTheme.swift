@@ -24,4 +24,5 @@ struct LightTheme: Theme {
     let imageBorderWidthInCell: CGFloat = 1
     
     let barStyle: UIBarStyle = .default
+    let keyboardAppearance: UIKeyboardAppearance = .default
 }

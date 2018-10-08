@@ -24,4 +24,5 @@ struct DarkTheme: Theme {
     let imageBorderWidthInCell: CGFloat = 0
     
     let barStyle: UIBarStyle = .black
+    let keyboardAppearance: UIKeyboardAppearance = .dark
 }

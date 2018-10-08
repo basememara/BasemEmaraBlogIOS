@@ -45,6 +45,8 @@ extension Theme {
             $0.selectionColor = selectionColor
         }
         
+        UITextField.appearance().keyboardAppearance = .dark
+        
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .backgroundColor = selectionColor
         
