@@ -95,6 +95,8 @@
 		8B4D71A8216A4043002ACA81 /* SearchPostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71A3216A4043002ACA81 /* SearchPostsInteractor.swift */; };
 		8B4D71AC216A4057002ACA81 /* SearchPostsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71AA216A4057002ACA81 /* SearchPostsInterfaces.swift */; };
 		8B4D71AD216A4057002ACA81 /* SearchPostsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71AB216A4057002ACA81 /* SearchPostsModels.swift */; };
+		8B4D71BA216AEC36002ACA81 /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B4D71B9216AEC36002ACA81 /* SimplePostTableViewCell.xib */; };
+		8B4D71BC216AEC44002ACA81 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71BB216AEC44002ACA81 /* SimplePostTableViewCell.swift */; };
 		8B50462B2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
 		8B50462C2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
 		8B50462D2161782C00BF771D /* AppSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50462A2161782C00BF771D /* AppSwitch.swift */; };
@@ -299,6 +301,8 @@
 		8B4D71A3216A4043002ACA81 /* SearchPostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostsInteractor.swift; sourceTree = "<group>"; };
 		8B4D71AA216A4057002ACA81 /* SearchPostsInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsInterfaces.swift; sourceTree = "<group>"; };
 		8B4D71AB216A4057002ACA81 /* SearchPostsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsModels.swift; sourceTree = "<group>"; };
+		8B4D71B9216AEC36002ACA81 /* SimplePostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePostTableViewCell.xib; sourceTree = "<group>"; };
+		8B4D71BB216AEC44002ACA81 /* SimplePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePostTableViewCell.swift; sourceTree = "<group>"; };
 		8B50462A2161782C00BF771D /* AppSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSwitch.swift; sourceTree = "<group>"; };
 		8B50462E2161784800BF771D /* AppSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSegmentedControl.swift; sourceTree = "<group>"; };
 		8B5AA803214364C000EA4E2F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
@@ -804,6 +808,8 @@
 				8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */,
 				8B47A5D920E100A000681404 /* PickedPostCollectionViewCell.xib */,
 				8B47A5D720E1009000681404 /* PickedPostCollectionViewCell.swift */,
+				8B4D71B9216AEC36002ACA81 /* SimplePostTableViewCell.xib */,
+				8B4D71BB216AEC44002ACA81 /* SimplePostTableViewCell.swift */,
 			);
 			path = PostViewCells;
 			sourceTree = "<group>";
@@ -1039,6 +1045,7 @@
 				8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */,
 				8B1DC0D620B1AE0E009FBBBD /* Main.storyboard in Resources */,
+				8B4D71BA216AEC36002ACA81 /* SimplePostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,6 +1135,7 @@
 				8B47A5DE20E107CB00681404 /* AppLabel.swift in Sources */,
 				8B33C4DF21694BE000658700 /* ListFavoritesInterfaces.swift in Sources */,
 				8B21CEFF215C21B000E2994C /* TermTableViewCell.swift in Sources */,
+				8B4D71BC216AEC44002ACA81 /* SimplePostTableViewCell.swift in Sources */,
 				8B8B33D920DA6E8200E80706 /* LatestPostCollectionViewCell.swift in Sources */,
 				8B63A2BA2163B4F1003868F7 /* ListTermsRouter.swift in Sources */,
 				8B63A2B82163B4DE003868F7 /* ListTermsPresenter.swift in Sources */,
