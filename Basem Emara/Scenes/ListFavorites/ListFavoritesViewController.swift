@@ -42,6 +42,8 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
+    private var removedIDs = [Int]()
+    
     // MARK: - Controller cycle
     
     override func viewDidLoad() {
@@ -77,18 +79,20 @@ private extension ListFavoritesViewController {
 extension ListFavoritesViewController: ListFavoritesDisplayable {
     
     func displayPosts(with viewModels: [PostsDataViewModel]) {
+        removedIDs.removeAll()
         tableViewAdapter.reloadData(with: viewModels)
     }
     
     func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
-        let filtered = tableViewAdapter.viewModels.filter { $0.id != viewModel.postID }
+        removedIDs.append(viewModel.postID)
+        
+        let isEmpty = tableViewAdapter.viewModels
+            .filter { !removedIDs.contains($0.id) }
+            .isEmpty
         
         // Ensure empty screen to show if empty
-        guard filtered.isEmpty else {
-            return tableViewAdapter.setData(with: filtered)
-        }
-        
-        tableViewAdapter.reloadData(with: filtered)
+        guard isEmpty else { return }
+        loadData()
     }
 }
 

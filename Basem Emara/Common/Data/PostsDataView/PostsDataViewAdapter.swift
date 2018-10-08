@@ -34,13 +34,9 @@ class PostsDataViewAdapter: NSObject {
 extension PostsDataViewAdapter {
     
     func reloadData(with viewModels: [PostsDataViewModel]) {
-        setData(with: viewModels)
+        self.viewModels = viewModels
         dataView.reloadData()
         delegate?.postsDataViewDidReloadData()
-    }
-    
-    func setData(with viewModels: [PostsDataViewModel]) {
-        self.viewModels = viewModels
     }
 }
 
