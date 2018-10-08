@@ -21,6 +21,7 @@ extension ShowPostRouter: ShowPostRoutable {
     func listPosts(for fetchType: ListPostsViewController.FetchType) {
         show(storyboard: .listPosts) { (controller: ListPostsViewController) in
             controller.fetchType = fetchType
+            controller.delegate = self.viewController as? ShowPostViewControllerDelegate
         }
     }
     

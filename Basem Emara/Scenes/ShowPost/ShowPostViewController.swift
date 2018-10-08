@@ -99,11 +99,11 @@ private extension ShowPostViewController {
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
         ]
-        
-        activityIndicatorView.startAnimating()
     }
     
     func loadData() {
+        activityIndicatorView.startAnimating()
+        
         interactor.fetchPost(
             with: ShowPostModels.Request(postID: postID)
         )
@@ -234,6 +234,15 @@ private extension ShowPostViewController {
 }
 
 // MARK: - Delegates
+
+extension ShowPostViewController: ShowPostViewControllerDelegate {
+    
+    func update(postID: Int) {
+        history.append(self.postID)
+        self.postID = postID
+        loadData()
+    }
+}
 
 extension ShowPostViewController: WKNavigationDelegate {
     
