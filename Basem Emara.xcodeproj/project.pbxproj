@@ -182,6 +182,10 @@
 		8BBF81D2216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
 		8BBF81D3216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
 		8BBF81D4216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
+		8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */; };
+		8BBF81DB216BFE7D00158DDE /* ShowMoreInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81DA216BFE7D00158DDE /* ShowMoreInterfaces.swift */; };
+		8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */; };
+		8BBF81E5216C0DC500158DDE /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */; };
 		8BBF81EB216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
 		8BBF81EC216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
 		8BBF81ED216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
@@ -369,6 +373,10 @@
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
 		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
 		8BBF81D1216BEF0A00158DDE /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
+		8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreRouter.swift; sourceTree = "<group>"; };
+		8BBF81DA216BFE7D00158DDE /* ShowMoreInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreInterfaces.swift; sourceTree = "<group>"; };
+		8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
+		8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
 		8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		8BBF81EE216C340800158DDE /* ThemePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreset.swift; sourceTree = "<group>"; };
 		8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaces.swift; sourceTree = "<group>"; };
@@ -601,6 +609,7 @@
 				8B4D719E216A4030002ACA81 /* SearchPosts */,
 				8B63A2AF2163AEDA003868F7 /* ListTerms */,
 				8B52641F20D7C96700170875 /* ShowMore */,
+				8BBF81E1216C0D5900158DDE /* ShowSettings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -734,8 +743,10 @@
 		8B52641F20D7C96700170875 /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
+				8BBF81D9216BFE7000158DDE /* Common */,
 				8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */,
 				8BF2CCC020B6D78300C9C161 /* ShowMoreViewController.swift */,
+				8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -793,10 +804,10 @@
 			isa = PBXGroup;
 			children = (
 				8B9CE08920D73ABA0077E4A0 /* App */,
-				8BEEEF3A2123820400A6AF99 /* Scene */,
 				8B8B33CD20DA65C300E80706 /* Controls */,
 				8B8B33D320DA6CC200E80706 /* Data */,
 				8B27AB2720DFDA3C00D6036A /* Extensions */,
+				8BEEEF3A2123820400A6AF99 /* Scene */,
 				8B5AA803214364C000EA4E2F /* Localizable.swift */,
 			);
 			path = Common;
@@ -871,6 +882,23 @@
 				8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */,
 			);
 			path = PreviewPost;
+			sourceTree = "<group>";
+		};
+		8BBF81D9216BFE7000158DDE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8BBF81DA216BFE7D00158DDE /* ShowMoreInterfaces.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8BBF81E1216C0D5900158DDE /* ShowSettings */ = {
+			isa = PBXGroup;
+			children = (
+				8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */,
+				8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */,
+			);
+			path = ShowSettings;
 			sourceTree = "<group>";
 		};
 		8BEEEF312123300E00A6AF99 /* Common */ = {
@@ -1061,6 +1089,7 @@
 				8BF2CCCB20B6D84A00C9C161 /* ShowMore.storyboard in Resources */,
 				8B47A5CD20E0155900681404 /* PopularPostCollectionViewCell.xib in Resources */,
 				8B5AA80B214366E000EA4E2F /* Localizable.strings in Resources */,
+				8BBF81E5216C0DC500158DDE /* ShowSettings.storyboard in Resources */,
 				8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */,
 				8B63A2AD2162D2FA003868F7 /* post.html in Resources */,
 				8B1DC0D820B1AE10009FBBBD /* Assets.xcassets in Resources */,
@@ -1148,11 +1177,13 @@
 				8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */,
 				8B4D71A5216A4043002ACA81 /* SearchPostsRouter.swift in Sources */,
 				8B80D75D20DC518F00D6617B /* PostsDataViewDelegate.swift in Sources */,
+				8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */,
 				8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */,
 				8B8B33D020DA661900E80706 /* PostTableViewCell.swift in Sources */,
 				8B47A5D820E1009000681404 /* PickedPostCollectionViewCell.swift in Sources */,
 				8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */,
 				8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */,
+				8BBF81EB216C33EF00158DDE /* DefaultsKeys.swift in Sources */,
 				8B50462B2161782C00BF771D /* AppSwitch.swift in Sources */,
 				8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIApplication.swift in Sources */,
@@ -1189,6 +1220,7 @@
 				8B63A2BE2163B56D003868F7 /* ListTermsModels.swift in Sources */,
 				8B0A28982133EB440008135D /* AppRoutable.swift in Sources */,
 				8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */,
+				8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */,
 				8BEEEF392123506B00A6AF99 /* HomePresenter.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
 				8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */,
@@ -1208,6 +1240,7 @@
 				8B8A2C9720D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */,
 				8B50462F2161784800BF771D /* AppSegmentedControl.swift in Sources */,
+				8BBF81DB216BFE7D00158DDE /* ShowMoreInterfaces.swift in Sources */,
 				8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */,
 				8B4D71AC216A4057002ACA81 /* SearchPostsInterfaces.swift in Sources */,
 				8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */,

@@ -101,6 +101,7 @@ enum Storyboard: String {
     case showPost = "ShowPost"
     case previewPost = "PreviewPost"
     case listTerms = "ListTerms"
+    case showSettings = "ShowSettings"
 }
 
 enum TabStoryboard: Int {
