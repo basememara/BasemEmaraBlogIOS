@@ -24,18 +24,42 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1E8-Kz-wle">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="580.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzm-0w-PPe" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-kH-JpG">
                                         <rect key="frame" x="0.0" y="596.5" width="375" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-wL-sOQ" customClass="AppSubhead" customModule="Basem_Emara" customModuleProvider="target">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzm-0w-PPe" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Nzm-0w-PPe" secondAttribute="trailing" constant="16" id="DFN-S3-GFg"/>
+                                            <constraint firstItem="Nzm-0w-PPe" firstAttribute="leading" secondItem="Nho-kH-JpG" secondAttribute="leading" constant="16" id="MZJ-Ul-P0M"/>
+                                            <constraint firstItem="Nzm-0w-PPe" firstAttribute="top" secondItem="Nho-kH-JpG" secondAttribute="top" id="Qjb-Pt-R9f"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nzm-0w-PPe" secondAttribute="bottom" id="TRc-2Y-Xk6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38J-Vt-s81">
                                         <rect key="frame" x="0.0" y="633" width="375" height="18"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-wL-sOQ" customClass="AppSubhead" customModule="Basem_Emara" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ifm-wL-sOQ" secondAttribute="trailing" constant="16" id="96H-2r-ViT"/>
+                                            <constraint firstAttribute="bottom" secondItem="ifm-wL-sOQ" secondAttribute="bottom" id="Cp5-RA-CJ3"/>
+                                            <constraint firstItem="ifm-wL-sOQ" firstAttribute="leading" secondItem="38J-Vt-s81" secondAttribute="leading" constant="16" id="VZ8-bk-OAe"/>
+                                            <constraint firstItem="ifm-wL-sOQ" firstAttribute="top" secondItem="38J-Vt-s81" secondAttribute="top" id="ZNm-z7-AGJ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
