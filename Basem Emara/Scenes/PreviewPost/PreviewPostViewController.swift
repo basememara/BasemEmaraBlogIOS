@@ -55,7 +55,7 @@ private extension PreviewPostViewController {
     
     func makePreviewActionItems() -> [UIPreviewActionItem] {
         let isFavorite = postsWorker.hasFavorite(id: viewModel.id)
-        let title: String = isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)
+        let title: String = isFavorite ? .localized(.unfavoriteTitle) : .localized(.favoriteTitle)
         let style: UIPreviewAction.Style = isFavorite ? .destructive : .default
         
         return [

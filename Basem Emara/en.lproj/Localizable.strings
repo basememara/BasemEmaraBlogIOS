@@ -29,6 +29,7 @@
 "disclaimer.not.available.error.message" = "No disclaimer information is available.";
 
 "unfavor.title" = "Unfavor";
+"unfavorite.title" = "Unfavorite";
 "favorite.title" = "Favorite";
 "more.title" = "More";
 "comments.title" = "Comments";
@@ -39,3 +40,6 @@
 "search.title.scope" = "Title";
 "search.content.scope" = "Content";
 "search.keywords.scope" = "Keywords";
+
+"email.feedback.subject" = "Feedback: %@";
+"share.app.message" = "%@ is awesome! Check out the app!";

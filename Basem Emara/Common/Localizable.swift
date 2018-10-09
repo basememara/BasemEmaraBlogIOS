@@ -29,10 +29,13 @@ extension Localizable {
 // Misc
 extension Localizable {
     static let unfavorTitle = Localizable(NSLocalizedString("unfavor.title", comment: "Unfavor title for buttons and dialogs"))
+    static let unfavoriteTitle = Localizable(NSLocalizedString("unfavorite.title", comment: "Unfavorite title for buttons and dialogs"))
     static let favoriteTitle = Localizable(NSLocalizedString("favorite.title", comment: "Favorite title for buttons and dialogs"))
     static let moreTitle = Localizable(NSLocalizedString("more.title", comment: "More title for buttons and dialogs"))
     static let commentsTitle = Localizable(NSLocalizedString("comments.title", comment: "Comments title for buttons and dialogs"))
     static let shareTitle = Localizable(NSLocalizedString("share.title", comment: "Share title for buttons and dialogs"))
+    static let emailFeedbackSubject = Localizable(NSLocalizedString("email.feedback.subject", comment: "Email subject for sending feedback"))
+    static let shareAppMessage = Localizable(NSLocalizedString("share.app.message", comment: "Message for sharing the app"))
 }
 
 // Posts
