@@ -182,6 +182,12 @@
 		8BBF81D2216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
 		8BBF81D3216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
 		8BBF81D4216BEF0A00158DDE /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D1216BEF0A00158DDE /* AppImage.swift */; };
+		8BBF81EB216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
+		8BBF81EC216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
+		8BBF81ED216C33EF00158DDE /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */; };
+		8BBF81EF216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
+		8BBF81F0216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
+		8BBF81F1216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
 		8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */; };
 		8BEEEF352123310A00A6AF99 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* HomeModels.swift */; };
 		8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */; };
@@ -363,6 +369,8 @@
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
 		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
 		8BBF81D1216BEF0A00158DDE /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
+		8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		8BBF81EE216C340800158DDE /* ThemePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreset.swift; sourceTree = "<group>"; };
 		8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInterfaces.swift; sourceTree = "<group>"; };
 		8BEEEF342123310A00A6AF99 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -620,6 +628,7 @@
 			children = (
 				8B1180DC21570AB50071315B /* DarkTheme.swift */,
 				8B21CF0B215C6C3D00E2994C /* LightTheme.swift */,
+				8BBF81EE216C340800158DDE /* ThemePreset.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -627,6 +636,7 @@
 		8B27AB2720DFDA3C00D6036A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */,
 				8B0A28992133EBBB0008135D /* UIApplication.swift */,
 				8B27AB2820DFDA4700D6036A /* UIImage.swift */,
 			);
@@ -1150,6 +1160,7 @@
 				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationService.swift in Sources */,
 				8B47A5D420E0F83500681404 /* TermsDataViewDelegate.swift in Sources */,
 				8B63A2CE216426AD003868F7 /* ShowPostModels.swift in Sources */,
+				8BBF81EF216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B63A2C12163C80A003868F7 /* ListPostsInterfaces.swift in Sources */,
 				8B8B33D520DA6D0000E80706 /* PostsDataViewAdapter.swift in Sources */,
 				8B47A5DC20E107C100681404 /* AppButton.swift in Sources */,
@@ -1222,7 +1233,9 @@
 				8B8A2C9820D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1180EC21586D730071315B /* DarkTheme.swift in Sources */,
 				8B118107215891820071315B /* TermsDataViewAdapter.swift in Sources */,
+				8BBF81EC216C33EF00158DDE /* DefaultsKeys.swift in Sources */,
 				8B1181032158917B0071315B /* PostsDataViewDelegate.swift in Sources */,
+				8BBF81F0216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B5046302161784800BF771D /* AppSegmentedControl.swift in Sources */,
 				8B1180FA215891650071315B /* PopularPostCollectionViewCell.swift in Sources */,
@@ -1253,7 +1266,9 @@
 				8B8A2C9920D6C65E00E29992 /* AppDependency.swift in Sources */,
 				8B1180ED21586D740071315B /* DarkTheme.swift in Sources */,
 				8B118108215891830071315B /* TermsDataViewAdapter.swift in Sources */,
+				8BBF81ED216C33EF00158DDE /* DefaultsKeys.swift in Sources */,
 				8B1181042158917B0071315B /* PostsDataViewDelegate.swift in Sources */,
+				8BBF81F1216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
 				8B5046312161784800BF771D /* AppSegmentedControl.swift in Sources */,
 				8B1180FB215891660071315B /* PopularPostCollectionViewCell.swift in Sources */,

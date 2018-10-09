@@ -11,7 +11,14 @@ import SwiftyPress
 class AppDependency: Dependency {
     
     override func resolve() -> Theme {
-        return DarkTheme()
+        let preferences: PreferencesType = resolve()
+        
+        guard let value: String = preferences.get(.currentTheme),
+            let currentTheme = ThemePreset(rawValue: value) else {
+                return ThemePreset.default.type
+            }
+        
+        return currentTheme.type
     }
     
     override func resolveStore() -> ConstantsStore {
