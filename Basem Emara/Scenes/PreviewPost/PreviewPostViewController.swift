@@ -21,6 +21,7 @@ class PreviewPostViewController: UIViewController, HasDependencies {
     // MARK: - Internal variable
     
     private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()
+    private lazy var constants: ConstantsType = dependencies.resolve()
     
     var viewModel: PostsDataViewModel!
     weak var delegate: UIViewController?
@@ -61,6 +62,16 @@ private extension PreviewPostViewController {
             UIPreviewAction(title: title, style: style) { [weak self] _, _ in
                 guard let self = self else { return }
                 self.postsWorker.toggleFavorite(id: self.viewModel.id)
+            },
+            UIPreviewAction(title: .localized(.commentsTitle), style: .default) { [weak self] _, _ in
+                guard let self = self else { return }
+                self.delegate?.present(
+                    safari: self.constants.baseURL
+                        .appendingPathComponent("mobile-comments")
+                        .appendingQueryItem("postid", value: self.viewModel.id)
+                        .absoluteString,
+                    theme: self.dependencies.resolve()
+                )
             },
             UIPreviewAction(title: .localized(.shareTitle), style: .default) { [weak self] _, _ in
                 guard let self = self,
