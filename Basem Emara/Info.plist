@@ -42,6 +42,15 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb</string>
+		<string>instagram</string>
+		<string>linkedin</string>
+		<string>pinterest</string>
+		<string>twitter</string>
+		<string>youtube</string>
+	</array>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Optionally sync invites with the calendar.</string>
 	<key>UILaunchStoryboardName</key>
