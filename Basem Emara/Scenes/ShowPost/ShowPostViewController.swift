@@ -12,7 +12,7 @@ import SystemConfiguration
 import SwiftyPress
 import ZamzamKit
 
-class ShowPostViewController: UIViewController, HasDependencies {
+class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     
     // MARK: - Controls
     
@@ -60,9 +60,12 @@ class ShowPostViewController: UIViewController, HasDependencies {
     
     private var viewModel: ShowPostModels.ViewModel?
     private lazy var constants: ConstantsType = dependencies.resolve()
+    private lazy var notificationCenter: NotificationCenter = dependencies.resolve()
     private lazy var history = [Int]()
     
     var postID: Int! //Must assign or die
+    let sharedApplication = UIApplication.shared
+    var statusBar: UIView?
     
     // MARK: - Controller cycle
     
@@ -99,6 +102,14 @@ private extension ShowPostViewController {
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
         ]
+        
+        // Status bar background transparent so fill in on scroll
+        showStatusBar()
+        notificationCenter.addObserver(
+            for: UIDevice.orientationDidChangeNotification,
+            selector: #selector(deviceOrientationDidChange),
+            from: self
+        )
     }
     
     func loadData() {
@@ -230,6 +241,11 @@ private extension ShowPostViewController {
         interactor.fetchPost(
             with: ShowPostModels.Request(postID: postID)
         )
+    }
+    
+    @objc func deviceOrientationDidChange() {
+        removeStatusBar()
+        showStatusBar()
     }
 }
 
