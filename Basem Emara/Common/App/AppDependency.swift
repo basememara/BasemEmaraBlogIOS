@@ -26,7 +26,7 @@ class AppDependency: Dependency {
             itunesName: "basememara",
             itunesID: "1021806851",
             baseURL: URL(string: "http://basememara.com")!,
-            baseREST: "wp-json/swiftypress/v2",
+            baseREST: "wp-json/swiftypress/v3",
             wpREST: "wp-json/wp/v2",
             email: "contact@basememara.com",
             privacyURL: "https://basememara.com/privacy/?mobileembed=1",
