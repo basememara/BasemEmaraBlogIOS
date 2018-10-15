@@ -32,51 +32,22 @@ extension ShowPostInteractor {
     
     func fetchPost(with request: ShowPostModels.Request) {
         postsWorker.fetch(id: request.postID) {
-            guard let post = $0.value, $0.isSuccess else {
+            guard let value = $0.value, $0.isSuccess else {
                 return self.presenter.presentPost(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaWorker.fetch(id: post.mediaID ?? 0) {
-                guard $0.isSuccess else {
-                    return self.presenter.presentPost(
-                        error: $0.error ?? .unknownReason(nil)
-                    )
-                }
-            
-                let media = $0.value
-                let termIDs: Set = Set(post.categories + post.tags)
-                
-                self.taxonomyWorker.fetch(ids: termIDs) {
-                    guard let terms = $0.value, $0.isSuccess else {
-                        return self.presenter.presentPost(
-                            error: $0.error ?? .unknownReason(nil)
-                        )
-                    }
-                
-                    self.authorsWorker.fetch(id: post.authorID) {
-                        guard $0.isSuccess else {
-                            return self.presenter.presentPost(
-                                error: $0.error ?? .unknownReason(nil)
-                            )
-                        }
-                        
-                        let author = $0.value
-                        
-                        self.presenter.presentPost(
-                            for: ShowPostModels.Response(
-                                post: post,
-                                media: media,
-                                categories: terms.filter { $0.taxonomy == .category },
-                                tags: terms.filter { $0.taxonomy == .tag },
-                                author: author,
-                                favorite: self.postsWorker.hasFavorite(id: post.id)
-                            )
-                        )
-                    }
-                }
-            }
+            self.presenter.presentPost(
+                for: ShowPostModels.Response(
+                    post: value.post,
+                    media: value.media,
+                    categories: value.categories,
+                    tags: value.tags,
+                    author: value.author,
+                    favorite: self.postsWorker.hasFavorite(id: value.post.id)
+                )
+            )
         }
     }
 }

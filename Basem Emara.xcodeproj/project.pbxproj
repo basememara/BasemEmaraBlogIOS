@@ -78,6 +78,9 @@
 		8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */; };
 		8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */; };
 		8B33C4E721694C1600658700 /* ListFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */; };
+		8B4291112173A43800BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
+		8B4291152173B0A500BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
+		8B4291162173B0AB00BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
 		8B47A5CD20E0155900681404 /* PopularPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5CC20E0155900681404 /* PopularPostCollectionViewCell.xib */; };
 		8B47A5D220E0F82500681404 /* TermsDataViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5D120E0F82500681404 /* TermsDataViewAdapter.swift */; };
@@ -299,6 +302,7 @@
 		8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
 		8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesPresenter.swift; sourceTree = "<group>"; };
 		8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesRouter.swift; sourceTree = "<group>"; };
+		8B4291102173A43800BCB422 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B47A5CC20E0155900681404 /* PopularPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		8B47A5D120E0F82500681404 /* TermsDataViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDataViewAdapter.swift; sourceTree = "<group>"; };
@@ -850,6 +854,7 @@
 			children = (
 				8B07420620DFA2CB00204C2F /* PostsDataView */,
 				8B47A5D020E0F7FE00681404 /* TermsDataView */,
+				8B4291102173A43800BCB422 /* seed.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1084,6 +1089,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B47A5DA20E100A000681404 /* PickedPostCollectionViewCell.xib in Resources */,
+				8B4291112173A43800BCB422 /* seed.json in Resources */,
 				8B63A2AE2162D2FA003868F7 /* style.css in Resources */,
 				8B63A1F8216283DD003868F7 /* ShowPost.storyboard in Resources */,
 				8BF2CCCB20B6D84A00C9C161 /* ShowMore.storyboard in Resources */,
@@ -1115,6 +1121,7 @@
 				8B21CF04215C21C400E2994C /* TermTableViewCell.xib in Resources */,
 				8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B5AA80C214366E000EA4E2F /* Localizable.strings in Resources */,
+				8B4291152173B0A500BCB422 /* seed.json in Resources */,
 				8B1DC0EF20B1AFE1009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1126,6 +1133,7 @@
 				8B21CF05215C21C400E2994C /* TermTableViewCell.xib in Resources */,
 				8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B5AA80D214366E000EA4E2F /* Localizable.strings in Resources */,
+				8B4291162173B0AB00BCB422 /* seed.json in Resources */,
 				8B1DC10620B1B0BF009FBBBD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,7 +16,7 @@ class AppDependency: Dependency {
         guard let value: String = preferences.get(.currentTheme),
             let currentTheme = ThemePreset(rawValue: value) else {
                 return ThemePreset.default.type
-            }
+        }
         
         return currentTheme.type
     }
@@ -51,6 +51,13 @@ class AppDependency: Dependency {
                     }()
                 ) ?? .standard
             }()
+        )
+    }
+    
+    override func resolveStore() -> SeedStore {
+        return SeedFileStore(
+            forResource: "seed.json",
+            inBundle: .main
         )
     }
 }
