@@ -56,51 +56,51 @@ extension Theme {
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = secondaryLabelColor
         
-        AppLabel.appearance().textColor = labelColor
-        AppHeadline.appearance().textColor = labelColor
-        AppSubhead.appearance().textColor = secondaryLabelColor
-        AppFootnote.appearance().textColor = subtleLabelColor
+        ThemedLabel.appearance().textColor = labelColor
+        ThemedHeadline.appearance().textColor = labelColor
+        ThemedSubhead.appearance().textColor = secondaryLabelColor
+        ThemedFootnote.appearance().textColor = subtleLabelColor
         
-        AppButton.appearance().with {
+        ThemedButton.appearance().with {
             $0.borderColor = tint
             $0.borderWidth = 1
             $0.cornerRadius = 3
         }
         
-        AppImageButton.appearance().with {
+        ThemedImageButton.appearance().with {
             $0.contentHorizontalAlignment = .fill
             $0.contentVerticalAlignment = .fill
             $0.imageView?.contentMode = .scaleAspectFit
         }
         
-        AppSwitch.appearance().with {
+        ThemedSwitch.appearance().with {
             $0.tintColor = tint
             $0.onTintColor = tint
         }
         
-        AppSegmentedControl.appearance().tintColor = tint
+        ThemedSegmentedControl.appearance().tintColor = tint
         
-        AppView.appearance().backgroundColor = backgroundColor
+        ThemedView.appearance().backgroundColor = backgroundColor
         
-        AppSeparator.appearance().with {
+        ThemedSeparator.appearance().with {
             $0.backgroundColor = separatorColor
             $0.alpha = 0.5
         }
         
-        AppView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
+        ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
             $0.backgroundColor = selectionColor
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        AppImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
+        ThemedImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        AppImage.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
+        ThemedImage.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10

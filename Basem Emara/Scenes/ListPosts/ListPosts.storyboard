@@ -14,7 +14,7 @@
         <scene sceneID="hXi-Je-div">
             <objects>
                 <viewController id="Rq3-AU-FDB" customClass="ListPostsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EZY-AW-0XW" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="EZY-AW-0XW" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

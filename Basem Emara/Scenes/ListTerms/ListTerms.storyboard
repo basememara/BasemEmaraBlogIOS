@@ -14,7 +14,7 @@
         <scene sceneID="m0Q-dU-Bha">
             <objects>
                 <viewController id="Vav-FI-yhe" customClass="ListTermsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CIk-Ow-gbE" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="CIk-Ow-gbE" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

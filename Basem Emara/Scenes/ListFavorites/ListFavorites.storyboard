@@ -14,7 +14,7 @@
         <scene sceneID="4jV-di-wXt">
             <objects>
                 <viewController id="4UJ-TS-09d" customClass="ListFavoritesViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aPm-Aj-5Nq" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="aPm-Aj-5Nq" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -41,7 +41,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tph-pU-WbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MZS-zU-bkz" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MZS-zU-bkz" customClass="ThemedView" customModule="SwiftyPress">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -66,7 +66,7 @@
                                         <constraint firstItem="6bw-U2-mAp" firstAttribute="top" secondItem="xtj-Rw-lA1" secondAttribute="top" id="w4t-5T-YtF"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you don't have any favorites yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-la-awY" customClass="AppHeadline" customModule="Basem_Emara" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you don't have any favorites yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-la-awY" customClass="ThemedHeadline" customModule="SwiftyPress">
                                     <rect key="frame" x="0.0" y="110" width="168" height="64.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <nil key="textColor"/>

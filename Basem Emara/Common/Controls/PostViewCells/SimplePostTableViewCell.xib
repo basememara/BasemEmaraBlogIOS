@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="460" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyA-cv-AoR" customClass="AppView" customModule="Basem_Emara" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyA-cv-AoR" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="460" height="99.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cDw-7u-cPP">
@@ -30,7 +30,7 @@
                                             <constraint firstAttribute="width" secondItem="u9h-xZ-leH" secondAttribute="height" multiplier="1:1" id="BwQ-Hr-ie7"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-7W-qrP" customClass="AppSubhead" customModule="Basem_Emara" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-7W-qrP" customClass="ThemedSubhead" customModule="SwiftyPress">
                                         <rect key="frame" x="87.5" y="0.0" width="348.5" height="75.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <nil key="textColor"/>
