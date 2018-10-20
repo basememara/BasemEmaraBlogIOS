@@ -793,7 +793,7 @@
 		8B8A2C9020D6BC0B00E29992 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8B9CE08A20D73C890077E4A0 /* AppModules */,
+				8B9CE08A20D73C890077E4A0 /* Application */,
 				8BEEEF3A2123820400A6AF99 /* CleanScene */,
 				8B8B33CD20DA65C300E80706 /* Controls */,
 				8B8B33D320DA6CC200E80706 /* Data */,
@@ -840,7 +840,7 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		8B9CE08A20D73C890077E4A0 /* AppModules */ = {
+		8B9CE08A20D73C890077E4A0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */,
@@ -849,7 +849,7 @@
 				8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */,
 				8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */,
 			);
-			path = AppModules;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		8BBF81C7216B7BC400158DDE /* PreviewPost */ = {

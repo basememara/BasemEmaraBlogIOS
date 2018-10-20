@@ -13,7 +13,7 @@ import ZamzamKit
 final class LoggerApplicationModule: ApplicationModule, Loggable {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupLogger(for: application)
+        configureLogger(for: application)
         return true
     }
     

@@ -17,7 +17,7 @@ final class DataApplicationModule: ApplicationModule, HasDependencies {
 extension DataApplicationModule {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        dataWorker.setup()
+        dataWorker.configure()
         return true
     }
 }
