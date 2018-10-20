@@ -18,6 +18,6 @@ extension SimplePostTableViewCell {
     
     func bind(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
-        featuredImage.setURL(model.imageURL)
+        featuredImage.setImage(from: model.imageURL)
     }
 }

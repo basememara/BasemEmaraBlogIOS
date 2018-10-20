@@ -10,11 +10,11 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class DataApplicationService: ApplicationService, HasDependencies {
+final class DataApplicationModule: ApplicationModule, HasDependencies {
     private lazy var dataWorker: DataWorkerType = dependencies.resolveWorker()
 }
 
-extension DataApplicationService {
+extension DataApplicationModule {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         dataWorker.setup()

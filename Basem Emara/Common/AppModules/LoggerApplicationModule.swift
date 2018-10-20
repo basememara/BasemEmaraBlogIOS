@@ -10,11 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class LoggerApplicationService: ApplicationService, Loggable {
-    
-}
-
-extension LoggerApplicationService {
+final class LoggerApplicationModule: ApplicationModule, Loggable {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupLogger(for: application)

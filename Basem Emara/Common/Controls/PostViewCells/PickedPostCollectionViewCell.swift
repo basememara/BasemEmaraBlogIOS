@@ -22,7 +22,7 @@ extension PickedPostCollectionViewCell {
     func bind(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
-        featuredImage.setURL(model.imageURL)
+        featuredImage.setImage(from: model.imageURL)
         favoriteImage.image = UIImage(named: model.favorite == true
             ? "favorite-filled" : "favorite-empty")
     }

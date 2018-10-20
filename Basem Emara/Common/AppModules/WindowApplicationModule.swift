@@ -10,15 +10,15 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class BootApplicationService: ApplicationService {
+final class WindowApplicationModule: ApplicationModule {
     private var window: UIWindow?
     
-    init(with window: UIWindow?) {
+    init(for window: UIWindow?) {
         self.window = window
     }
 }
 
-extension BootApplicationService {
+extension WindowApplicationModule {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)

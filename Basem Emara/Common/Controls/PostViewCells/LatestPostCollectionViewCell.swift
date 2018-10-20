@@ -21,6 +21,6 @@ extension LatestPostCollectionViewCell {
     func bind(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
-        featuredImage.setURL(model.imageURL)
+        featuredImage.setImage(from: model.imageURL)
     }
 }

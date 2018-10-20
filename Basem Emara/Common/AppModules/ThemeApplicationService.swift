@@ -1,5 +1,5 @@
 //
-//  CoreApplicationService.swift
+//  ThemeApplicationService.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-06-17.
@@ -10,14 +10,14 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class CoreApplicationService: ApplicationService, DependencyConfigurator {
-    
+final class ThemeApplicationModule: ApplicationModule, HasDependencies {
+    private lazy var theme: Theme = dependencies.resolve()
 }
 
-extension CoreApplicationService {
+extension ThemeApplicationModule {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        register(dependencies: AppDependency())
+        theme.apply(for: application)
         return true
     }
 }

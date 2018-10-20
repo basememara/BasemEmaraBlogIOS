@@ -45,7 +45,7 @@ private extension PreviewPostViewController {
     func configure() {
         titleLabel.text = viewModel.title
         detailLabel.text = viewModel.summary
-        featuredImage.setURL(viewModel.imageURL)
+        featuredImage.setImage(from: viewModel.imageURL)
     }
 }
 

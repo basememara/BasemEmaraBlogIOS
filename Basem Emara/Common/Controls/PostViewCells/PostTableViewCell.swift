@@ -24,6 +24,6 @@ extension PostTableViewCell {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
         dateLabel.text = model.date
-        featuredImage.setURL(model.imageURL)
+        featuredImage.setImage(from: model.imageURL)
     }
 }

@@ -11,22 +11,34 @@ import Kingfisher
 
 extension UIImageView {
     
-    /// Set an image with a URL and placeholder using caching.
+    /// Set an image asynchrously with a URL and placeholder using caching.
     ///
     /// - Parameters:
     ///   - url: The URL of the image.
     ///   - placeholder: The placeholder image when retrieving the image at the URL.
-    func setURL(_ url: String?, placeholder: String? = "placeholder", referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ResizingContentMode? = nil) {
+    func setImage(
+        from url: String?,
+        placeholder: String? = "placeholder",
+        referenceSize: CGSize? = nil,
+        tintColor: UIColor? = nil,
+        contentMode: ResizingContentMode? = nil)
+    {
         let placeholder = placeholder != nil ? UIImage(named: placeholder!) : nil
-        setURL(url, placeholder: placeholder, referenceSize: referenceSize, tintColor: tintColor, contentMode: contentMode)
+        setImage(from: url, placeholder: placeholder, referenceSize: referenceSize, tintColor: tintColor, contentMode: contentMode)
     }
     
-    /// Set an image with a URL and placeholder using caching.
+    /// Set an image asynchrously with a URL and placeholder using caching.
     ///
     /// - Parameters:
     ///   - url: The URL of the image.
     ///   - placeholder: The placeholder image when retrieving the image at the URL.
-    func setURL(_ url: String?, placeholder: UIImage?, referenceSize: CGSize? = nil, tintColor: UIColor? = nil, contentMode: ResizingContentMode? = nil) {
+    func setImage(
+        from url: String?,
+        placeholder: UIImage?,
+        referenceSize: CGSize? = nil,
+        tintColor: UIColor? = nil,
+        contentMode: ResizingContentMode? = nil)
+    {
         guard let url = url, !url.isEmpty, let urlResource = URL(string: url) else {
             image = placeholder
             return
