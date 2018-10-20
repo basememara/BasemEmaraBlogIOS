@@ -819,9 +819,6 @@
 			children = (
 				8B9CE08A20D73C890077E4A0 /* AppModules */,
 				8BEEEF3A2123820400A6AF99 /* CleanScene */,
-				8B0A28922133CE8A0008135D /* AppDisplayable.swift */,
-				8BEEEF3B2123821B00A6AF99 /* AppModels.swift */,
-				8B0A28972133EB440008135D /* AppRoutable.swift */,
 				8B8B33CD20DA65C300E80706 /* Controls */,
 				8B8B33D320DA6CC200E80706 /* Data */,
 				8B27AB2720DFDA3C00D6036A /* Extensions */,
@@ -923,6 +920,9 @@
 		8BEEEF3A2123820400A6AF99 /* CleanScene */ = {
 			isa = PBXGroup;
 			children = (
+				8B0A28922133CE8A0008135D /* AppDisplayable.swift */,
+				8BEEEF3B2123821B00A6AF99 /* AppModels.swift */,
+				8B0A28972133EB440008135D /* AppRoutable.swift */,
 			);
 			path = CleanScene;
 			sourceTree = "<group>";
