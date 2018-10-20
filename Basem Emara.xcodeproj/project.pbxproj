@@ -165,6 +165,7 @@
 		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B80D75B20DC518100D6617B /* PostsDataViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80D75A20DC518100D6617B /* PostsDataViewModels.swift */; };
 		8B80D75D20DC518F00D6617B /* PostsDataViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80D75C20DC518F00D6617B /* PostsDataViewDelegate.swift */; };
+		8B856E73217A716300B64E6C /* DataApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationService.swift */; };
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
@@ -363,6 +364,7 @@
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		8B80D75A20DC518100D6617B /* PostsDataViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataViewModels.swift; sourceTree = "<group>"; };
 		8B80D75C20DC518F00D6617B /* PostsDataViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataViewDelegate.swift; sourceTree = "<group>"; };
+		8B856E72217A716300B64E6C /* DataApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationService.swift; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B8A2C9620D6C65E00E29992 /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -874,6 +876,7 @@
 			children = (
 				8B9CE08B20D73CAA0077E4A0 /* CoreApplicationService.swift */,
 				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationService.swift */,
+				8B856E72217A716300B64E6C /* DataApplicationService.swift */,
 				8B9CE08F20D73CC60077E4A0 /* BootApplicationService.swift */,
 				8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */,
 			);
@@ -1240,6 +1243,7 @@
 				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
+				8B856E73217A716300B64E6C /* DataApplicationService.swift in Sources */,
 				8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */,
 				8B47A5CB20E0154A00681404 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,

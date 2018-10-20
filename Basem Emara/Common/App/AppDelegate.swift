@@ -17,6 +17,7 @@ class AppDelegate: PluggableApplicationDelegate {
         return [
             CoreApplicationService(),
             LoggerApplicationService(),
+            DataApplicationService(),
             BootApplicationService(with: window),
             ThemeApplicationService()
         ]
