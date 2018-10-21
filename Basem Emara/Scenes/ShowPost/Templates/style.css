@@ -416,6 +416,10 @@ Structure and Layout
 	max-width: 1140px;
 }
 
+.entry-header .entry-time {
+    clear: both;
+}
+
 /* Column Widths and Positions
 --------------------------------------------- */
 

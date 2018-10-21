@@ -65,12 +65,8 @@ private extension DependencyApplicationModule {
         override func resolve() -> Theme {
             let preferences: PreferencesType = resolve()
             
-            guard let value: String = preferences.get(.currentTheme),
-                let currentTheme = ThemePreset(rawValue: value) else {
-                    return ThemePreset.default.type
-            }
-            
-            return currentTheme.type
+            return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
+                ?? ThemePreset.default.type
         }
     }
 }
