@@ -11,13 +11,13 @@ import UIKit
 class SimplePostTableViewCell: UITableViewCell, PostsDataViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var featuredImage: UIImageView!
+    @IBOutlet weak var detailLabel: UILabel!
 }
 
 extension SimplePostTableViewCell {
     
     func bind(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
-        featuredImage.setImage(from: model.imageURL)
+        detailLabel.text = model.date
     }
 }

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="0lE-oU-ac4" customClass="SimplePostTableViewCell" customModule="Basem_Emara" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="0lE-oU-ac4" customClass="SimplePostTableViewCell" customModule="Basem_Emara" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="498" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0lE-oU-ac4" id="M6a-eV-GLh">
@@ -21,18 +21,18 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyA-cv-AoR" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="460" height="99.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cDw-7u-cPP">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cDw-7u-cPP">
                                 <rect key="frame" x="16" y="12" width="436" height="75.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="u9h-xZ-leH" customClass="RoundedImageView" customModule="ZamzamKit">
-                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="75.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="u9h-xZ-leH" secondAttribute="height" multiplier="1:1" id="BwQ-Hr-ie7"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-7W-qrP" customClass="ThemedSubhead" customModule="SwiftyPress">
-                                        <rect key="frame" x="87.5" y="0.0" width="348.5" height="75.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-7W-qrP" customClass="ThemedHeadline" customModule="SwiftyPress">
+                                        <rect key="frame" x="0.0" y="0.0" width="436" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nb-dD-Upd" customClass="ThemedFootnote" customModule="SwiftyPress">
+                                        <rect key="frame" x="0.0" y="26.5" width="436" height="49"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -56,13 +56,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="featuredImage" destination="u9h-xZ-leH" id="HGo-Kv-HEx"/>
+                <outlet property="detailLabel" destination="2nb-dD-Upd" id="535-6i-M8w"/>
                 <outlet property="titleLabel" destination="cY4-7W-qrP" id="qTS-Gh-dEp"/>
             </connections>
             <point key="canvasLocation" x="257.60000000000002" y="-245.57721139430288"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="placeholder" width="1040" height="584"/>
-    </resources>
 </document>
