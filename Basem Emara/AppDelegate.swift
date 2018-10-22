@@ -20,6 +20,7 @@ class AppDelegate: ApplicationModuleDelegate {
             DataApplicationModule(),
             BackgroundApplicationModule(),
             WindowApplicationModule(for: window),
+            ShortcutApplicationModule(),
             NotificationApplicationModule(),
             ThemeApplicationModule()
         ]
