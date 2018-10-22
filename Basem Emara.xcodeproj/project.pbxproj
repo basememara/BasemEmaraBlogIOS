@@ -16,14 +16,6 @@
 		8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180EC21586D730071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180ED21586D740071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
-		8B1180F82158913F0071315B /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */; };
-		8B1180F9215891410071315B /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */; };
-		8B1180FA215891650071315B /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
-		8B1180FB215891660071315B /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
-		8B1180FC215891690071315B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */; };
-		8B1180FD2158916A0071315B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */; };
-		8B1180FE2158916C0071315B /* PickedPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5D720E1009000681404 /* PickedPostCollectionViewCell.swift */; };
-		8B1180FF2158916D0071315B /* PickedPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5D720E1009000681404 /* PickedPostCollectionViewCell.swift */; };
 		8B11810D215891A20071315B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
 		8B11810E215891A20071315B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
 		8B11810F215891EB0071315B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
@@ -65,14 +57,10 @@
 		8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */; };
 		8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */; };
 		8B21CEFF215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
-		8B21CF00215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
-		8B21CF01215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
 		8B21CF03215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
 		8B21CF04215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
 		8B21CF05215C21C400E2994C /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B21CF02215C21C400E2994C /* TermTableViewCell.xib */; };
 		8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
-		8B21CF09215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
-		8B21CF0A215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8B21CF0C215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
 		8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
 		8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
@@ -177,6 +165,20 @@
 		8BBF81EF216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
 		8BBF81F0216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
 		8BBF81F1216C340800158DDE /* ThemePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81EE216C340800158DDE /* ThemePreset.swift */; };
+		8BC96EAF217E5FC60037D747 /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */; };
+		8BC96EB0217E5FC60037D747 /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
+		8BC96EB1217E5FC60037D747 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */; };
+		8BC96EB2217E5FC60037D747 /* PickedPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5D720E1009000681404 /* PickedPostCollectionViewCell.swift */; };
+		8BC96EB3217E5FC60037D747 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71BB216AEC44002ACA81 /* SimplePostTableViewCell.swift */; };
+		8BC96EB4217E5FC60037D747 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
+		8BC96EB5217E5FC70037D747 /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */; };
+		8BC96EB6217E5FC70037D747 /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5CA20E0154A00681404 /* PopularPostCollectionViewCell.swift */; };
+		8BC96EB7217E5FC70037D747 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33CF20DA661900E80706 /* PostTableViewCell.swift */; };
+		8BC96EB8217E5FC70037D747 /* PickedPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5D720E1009000681404 /* PickedPostCollectionViewCell.swift */; };
+		8BC96EB9217E5FC70037D747 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D71BB216AEC44002ACA81 /* SimplePostTableViewCell.swift */; };
+		8BC96EBA217E5FC70037D747 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
+		8BC96ED7217E76620037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
+		8BC96ED8217E76630037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* HomeInterfaces.swift */; };
 		8BEEEF352123310A00A6AF99 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* HomeModels.swift */; };
 		8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */; };
@@ -1261,26 +1263,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1180FC215891690071315B /* PostTableViewCell.swift in Sources */,
-				8B1180F82158913F0071315B /* LatestPostCollectionViewCell.swift in Sources */,
 				8B1CC4FC217AEE1800F00A70 /* AppModels.swift in Sources */,
 				8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */,
+				8BC96EB0217E5FC60037D747 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B21359F217CDAA200E63F21 /* TodayInteractor.swift in Sources */,
+				8BC96EAF217E5FC60037D747 /* LatestPostCollectionViewCell.swift in Sources */,
 				8B1180EC21586D730071315B /* DarkTheme.swift in Sources */,
+				8BC96ED7217E76620037D747 /* Theme.swift in Sources */,
+				8BC96EB4217E5FC60037D747 /* TermTableViewCell.swift in Sources */,
 				8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */,
 				8BBF81EC216C33EF00158DDE /* DefaultsKeys.swift in Sources */,
 				8BBF81F0216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
-				8B1180FA215891650071315B /* PopularPostCollectionViewCell.swift in Sources */,
-				8B1180FE2158916C0071315B /* PickedPostCollectionViewCell.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
-				8B21CF00215C21B000E2994C /* TermTableViewCell.swift in Sources */,
 				8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
 				8B11810D215891A20071315B /* UIImage.swift in Sources */,
 				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
-				8B21CF09215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
+				8BC96EB1217E5FC60037D747 /* PostTableViewCell.swift in Sources */,
+				8BC96EB2217E5FC60037D747 /* PickedPostCollectionViewCell.swift in Sources */,
+				8BC96EB3217E5FC60037D747 /* SimplePostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,22 +1291,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1180FD2158916A0071315B /* PostTableViewCell.swift in Sources */,
-				8B1180F9215891410071315B /* LatestPostCollectionViewCell.swift in Sources */,
+				8BC96EBA217E5FC70037D747 /* TermTableViewCell.swift in Sources */,
 				8B1CC4FD217AEE1800F00A70 /* AppModels.swift in Sources */,
 				8B1180ED21586D740071315B /* DarkTheme.swift in Sources */,
 				8BBF81ED216C33EF00158DDE /* DefaultsKeys.swift in Sources */,
+				8BC96EB5217E5FC70037D747 /* LatestPostCollectionViewCell.swift in Sources */,
 				8BBF81F1216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,
-				8B1180FB215891660071315B /* PopularPostCollectionViewCell.swift in Sources */,
-				8B1180FF2158916D0071315B /* PickedPostCollectionViewCell.swift in Sources */,
 				8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */,
-				8B21CF01215C21B000E2994C /* TermTableViewCell.swift in Sources */,
+				8BC96EB7217E5FC70037D747 /* PostTableViewCell.swift in Sources */,
+				8BC96EB6217E5FC70037D747 /* PopularPostCollectionViewCell.swift in Sources */,
+				8BC96EB8217E5FC70037D747 /* PickedPostCollectionViewCell.swift in Sources */,
 				8B11810E215891A20071315B /* UIImage.swift in Sources */,
+				8BC96EB9217E5FC70037D747 /* SimplePostTableViewCell.swift in Sources */,
 				8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */,
-				8B21CF0A215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
 				8B2135AA217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
+				8BC96ED8217E76630037D747 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
