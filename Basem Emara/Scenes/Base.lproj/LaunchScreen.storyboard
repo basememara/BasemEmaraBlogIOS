@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +17,57 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-bg" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-RY-sL0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hb7-Bj-tA7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BASEM EMARA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-4w-TxL">
+                                        <rect key="frame" x="24" y="32" width="327" height="68"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t5h-4w-TxL" firstAttribute="top" secondItem="Hb7-Bj-tA7" secondAttribute="topMargin" constant="4" id="WP3-XE-uhh"/>
+                                    <constraint firstItem="t5h-4w-TxL" firstAttribute="leading" secondItem="Hb7-Bj-tA7" secondAttribute="leading" constant="24" id="afm-92-97V"/>
+                                    <constraint firstAttribute="bottom" secondItem="t5h-4w-TxL" secondAttribute="bottom" constant="16" id="fdB-4f-mss"/>
+                                    <constraint firstAttribute="trailing" secondItem="t5h-4w-TxL" secondAttribute="trailing" constant="24" id="rR7-0l-Ogy"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2018 Basem Emara. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-3x-RfG">
+                                <rect key="frame" x="24" y="635.5" width="327" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nobg" translatesAutoresizingMaskIntoConstraints="NO" id="LLZ-CF-7pI">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LLZ-CF-7pI" secondAttribute="height" multiplier="1:1" id="cdg-w8-ISN"/>
+                                    <constraint firstAttribute="width" constant="150" id="xRz-Gc-ir5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nGu-RY-sL0" secondAttribute="bottom" id="4sZ-po-gxI"/>
+                            <constraint firstItem="nGu-RY-sL0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="6A2-vT-NF8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XS2-3x-RfG" secondAttribute="trailing" constant="8" id="9Yh-3D-q6B"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="XS2-3x-RfG" secondAttribute="bottom" constant="8" id="AxF-9H-wSW"/>
+                            <constraint firstItem="Hb7-Bj-tA7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="BgG-f1-y93"/>
+                            <constraint firstAttribute="trailing" secondItem="nGu-RY-sL0" secondAttribute="trailing" id="C44-1F-kv7"/>
+                            <constraint firstItem="XS2-3x-RfG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="8" id="Fkt-YJ-Q4W"/>
+                            <constraint firstItem="Hb7-Bj-tA7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="V7L-IB-Bnw"/>
+                            <constraint firstItem="nGu-RY-sL0" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="pCr-9L-TU9"/>
+                            <constraint firstItem="LLZ-CF-7pI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qbR-X8-TGR"/>
+                            <constraint firstItem="LLZ-CF-7pI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qfX-bR-5EA"/>
+                            <constraint firstAttribute="trailing" secondItem="Hb7-Bj-tA7" secondAttribute="trailing" id="r78-We-Aje"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +76,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-nobg" width="300" height="341"/>
+        <image name="splash-bg" width="1440" height="1280"/>
+    </resources>
 </document>
