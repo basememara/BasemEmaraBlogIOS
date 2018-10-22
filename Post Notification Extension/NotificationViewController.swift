@@ -12,15 +12,20 @@ import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
 
-    @IBOutlet var label: UILabel?
+    // MARK: - Controls
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any required interface initialization here.
-    }
+    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var detailLabel: UILabel?
+    @IBOutlet var featuredImage: UIImageView?
+    
+    // MARK: - Controller cycle
     
     func didReceive(_ notification: UNNotification) {
-        self.label?.text = notification.request.content.body
+        titleLabel?.text = notification.request.content.title
+        detailLabel?.text = notification.request.content.body
+        featuredImage?.setImage(
+            from: notification.request.content.userInfo["mediaURL"] as? String
+        )
     }
 
 }
