@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Basem Emara-->
+        <!--Home View Controller-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="HomeViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,7 +263,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Basem Emara" id="LcI-eV-Fqo">
+                    <navigationItem key="navigationItem" id="LcI-eV-Fqo">
                         <barButtonItem key="backBarButtonItem" title=" " id="8K6-aO-gul"/>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1667"/>
@@ -273,11 +273,43 @@
                         <outlet property="picksTitleLabel" destination="zaU-ob-DZz" id="UB1-sE-0dX"/>
                         <outlet property="popularPostsCollectionView" destination="cNQ-9u-tDh" id="Hxy-Z3-Ry2"/>
                         <outlet property="popularTitleLabel" destination="xg6-fG-sg5" id="DWN-Us-ZvE"/>
+                        <outlet property="scrollView" destination="dm0-16-rxd" id="bMn-XY-S2P"/>
                         <outlet property="tagTitleLabel" destination="Fs9-PM-gdj" id="mY8-mG-bHm"/>
+                        <outlet property="titleView" destination="Jn2-8c-elI" id="DwF-Cv-tKv"/>
                         <outlet property="topTermsTableView" destination="VT4-zo-KOC" id="PfX-DV-xYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWD-QC-MY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jn2-8c-elI">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ymV-B2-HUF">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ht7-YV-uIT">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="128"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="XWM-ap-fUm"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basem Emara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-F2-3hN" customClass="ThemedLabel" customModule="SwiftyPress">
+                                    <rect key="frame" x="45" y="0.0" width="195" height="128"/>
+                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ymV-B2-HUF" secondAttribute="trailing" id="1mS-j6-Boh"/>
+                        <constraint firstAttribute="bottom" secondItem="ymV-B2-HUF" secondAttribute="bottom" id="BMg-MP-L10"/>
+                        <constraint firstItem="ymV-B2-HUF" firstAttribute="top" secondItem="Jn2-8c-elI" secondAttribute="top" id="ddN-ZT-kgK"/>
+                        <constraint firstItem="ymV-B2-HUF" firstAttribute="leading" secondItem="Jn2-8c-elI" secondAttribute="leading" id="nod-Hr-qXh"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="1105" y="614"/>
         </scene>
@@ -303,6 +335,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon" width="1024" height="1024"/>
         <image name="tab-home" width="25" height="25"/>
     </resources>
 </document>

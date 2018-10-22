@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, HasDependencies {
     @IBOutlet weak var popularTitleLabel: UILabel!
     @IBOutlet weak var tagTitleLabel: UILabel!
     @IBOutlet weak var picksTitleLabel: UILabel!
+    @IBOutlet private var titleView: UIView!
     
     @IBOutlet weak var latestPostsCollectionView: UICollectionView! {
         didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self) }
@@ -94,6 +95,8 @@ class HomeViewController: UIViewController, HasDependencies {
 private extension HomeViewController {
     
     func configure() {
+        navigationItem.titleView = titleView
+        
         latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
             centerPosition: true,
             peekWidth: 40,
