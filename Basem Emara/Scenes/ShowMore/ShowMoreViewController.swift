@@ -14,7 +14,7 @@ class ShowMoreViewController: UITableViewController, HasDependencies {
     
     // MARK: - Scene variables
     
-    private lazy var router: ShowMoreRoutable = ShowMoreRouter(
+    lazy var router: ShowMoreRoutable = ShowMoreRouter(
         viewController: self,
         constants: dependencies.resolve(),
         theme: dependencies.resolve()

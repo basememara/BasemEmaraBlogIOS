@@ -70,7 +70,8 @@ private extension SearchPostsViewController {
     
     func configure() {
         navigationItem.searchController = searchController
-        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         tableViewAdapter.reloadData(with: [])
         
         if traitCollection.forceTouchCapability == .available {

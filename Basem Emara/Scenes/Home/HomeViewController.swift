@@ -16,10 +16,11 @@ class HomeViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var popularTitleLabel: UILabel!
-    @IBOutlet weak var tagTitleLabel: UILabel!
-    @IBOutlet weak var picksTitleLabel: UILabel!
+    @IBOutlet private weak var popularTitleLabel: UILabel!
+    @IBOutlet private weak var tagTitleLabel: UILabel!
+    @IBOutlet private weak var picksTitleLabel: UILabel!
     @IBOutlet private var titleView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var latestPostsCollectionView: UICollectionView! {
         didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self) }

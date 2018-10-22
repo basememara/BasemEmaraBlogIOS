@@ -32,7 +32,7 @@ extension HomeInteractor {
     
     func fetchLatestPosts(with request: HomeModels.FetchPostsRequest) {
         postsWorker.fetch {
-            guard let posts = $0.value, $0.isSuccess else {
+            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
@@ -47,7 +47,7 @@ extension HomeInteractor {
                 
                 self.presenter.presentLatestPosts(
                     for: HomeModels.PostsResponse(
-                        posts: posts.prefix(request.count).array,
+                        posts: posts,
                         media: media,
                         favorites: self.preferences.get(.favorites) ?? []
                     )
@@ -58,7 +58,7 @@ extension HomeInteractor {
     
     func fetchPopularPosts(with request: HomeModels.FetchPostsRequest) {
         postsWorker.fetchPopular {
-            guard let posts = $0.value, $0.isSuccess else {
+            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
@@ -73,7 +73,7 @@ extension HomeInteractor {
                 
                 self.presenter.presentPopularPosts(
                     for: HomeModels.PostsResponse(
-                        posts: posts.prefix(request.count).array,
+                        posts: posts,
                         media: media,
                         favorites: self.preferences.get(.favorites) ?? []
                     )
@@ -84,7 +84,7 @@ extension HomeInteractor {
     
     func fetchTopPickPosts(with request: HomeModels.FetchPostsRequest) {
         postsWorker.fetchTopPicks {
-            guard let posts = $0.value, $0.isSuccess else {
+            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
@@ -99,7 +99,7 @@ extension HomeInteractor {
                 
                 self.presenter.presentTopPickPosts(
                     for: HomeModels.PostsResponse(
-                        posts: posts.prefix(request.count).array,
+                        posts: posts,
                         media: media,
                         favorites: self.preferences.get(.favorites) ?? []
                     )
@@ -113,15 +113,17 @@ extension HomeInteractor {
     
     func fetchTerms(with request: HomeModels.FetchTermsRequest) {
         taxonomyWorker.fetch {
-            guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else {
-                return self.presenter.presentTerms(
-                    error: $0.error ?? .unknownReason(nil)
-                )
+            guard let terms = $0.value?
+                .sorted(by: { $0.count > $1.count })
+                .prefix(request.count).array, $0.isSuccess else {
+                    return self.presenter.presentTerms(
+                        error: $0.error ?? .unknownReason(nil)
+                    )
             }
             
             self.presenter.presentTerms(
                 for: HomeModels.TermsResponse(
-                    terms: terms.prefix(request.count).array
+                    terms: terms
                 )
             )
         }
