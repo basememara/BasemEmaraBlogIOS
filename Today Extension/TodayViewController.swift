@@ -8,27 +8,94 @@
 
 import UIKit
 import NotificationCenter
+import SwiftyPress
+import ZamzamKit
 
-class TodayViewController: UIViewController, NCWidgetProviding {
-        
+class TodayViewController: ControllerModuleDelegate, HasDependencies, DependencyConfigurator, NCWidgetProviding {
+    
+    // MARK: - Controls
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var featuredImage: UIImageView!
+    
+    // MARK: - VIP variables
+    
+    private lazy var interactor: TodayBusinessLogic = TodayInteractor(
+        presenter: TodayPresenter(viewController: self),
+        postsWorker: dependencies.resolveWorker(),
+        mediaWorker: dependencies.resolveWorker()
+    )
+    
+    // MARK: - Internal variable
+    
+    private lazy var dataWorker: DataWorkerType = dependencies.resolveWorker()
+    
+    // MARK: - Controller cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        configure()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+        completionHandler(.newData)
+    }
+}
+
+// MARK: - Events
+
+private extension TodayViewController {
+    
+    func configure() {
+        register(dependencies: AppDependencyFactory())
+        dataWorker.configure()
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
+        )
     }
     
+    func loadData() {
+        interactor.fetchLatestPosts(
+            with: TodayModels.Request(count: 1)
+        )
+    }
+}
+
+// MARK: - VIP cycle
+
+extension TodayViewController: TodayDisplayable {
+    
+    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
+        guard let item = viewModels.first else { return }
+        
+        titleLabel.text = item.title
+        detailLabel.text = item.summary
+        captionLabel.text = item.date
+        
+        if let url = item.imageURL {
+            featuredImage.setImage(
+                from: url,
+                referenceSize: featuredImage.frame.size,
+                contentMode: .aspectFill
+            )
+        }
+            
+    }
+}
+
+// MARK: - Interactions
+
+private extension TodayViewController {
+    
+    @objc func widgetTapped() {
+        guard let url = URL(string: "basememara:") else { return }
+        extensionContext?.open(url)
+    }
 }
