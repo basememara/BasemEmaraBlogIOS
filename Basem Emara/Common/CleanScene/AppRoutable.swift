@@ -107,7 +107,7 @@ enum Storyboard: String {
 enum TabStoryboard: Int {
     case home = 0
     case favorites = 1
-    case search = 3
-    case more = 4
+    case search = 2
+    case more = 3
 }
 

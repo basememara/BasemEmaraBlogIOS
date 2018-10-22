@@ -23,3 +23,10 @@ class AppDelegate: ApplicationModuleDelegate {
         ]
     }
 }
+
+extension AppDelegate {
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        ShortcutApplicationModule()
+            .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
+    }
