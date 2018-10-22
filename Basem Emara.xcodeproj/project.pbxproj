@@ -75,6 +75,7 @@
 		8B2135CF217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
 		8B2135D0217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
 		8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */; };
+		8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */; };
 		8B21CEFF215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
 		8B21CF00215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
 		8B21CF01215C21B000E2994C /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */; };
@@ -302,6 +303,7 @@
 		8B2135C8217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
 		8B2135CA217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkApplicationModule.swift; sourceTree = "<group>"; };
+		8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundApplicationModule.swift; sourceTree = "<group>"; };
 		8B21CEFE215C21B000E2994C /* TermTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
 		8B21CF02215C21C400E2994C /* TermTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermTableViewCell.xib; sourceTree = "<group>"; };
 		8B21CF07215C6BDF00E2994C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -904,6 +906,7 @@
 				8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */,
 				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */,
 				8B856E72217A716300B64E6C /* DataApplicationModule.swift */,
+				8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */,
 				8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */,
 				8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */,
 				8B2135B3217D49F800E63F21 /* NotificationApplicationModule.swift */,
@@ -1235,6 +1238,7 @@
 				8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */,
 				8B8B33D020DA661900E80706 /* PostTableViewCell.swift in Sources */,
 				8B47A5D820E1009000681404 /* PickedPostCollectionViewCell.swift in Sources */,
+				8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */,
 				8BEEEF33212330F900A6AF99 /* HomeInterfaces.swift in Sources */,
 				8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */,
 				8BBF81EB216C33EF00158DDE /* DefaultsKeys.swift in Sources */,

@@ -14,7 +14,7 @@ class MainViewController: UITabBarController, HasDependencies {
     
     // MARK: - VIP variables
     
-    lazy var router: MainRoutable = MainRouter(
+    private(set) lazy var router: MainRoutable = MainRouter(
         viewController: self,
         constants: dependencies.resolve()
     )

@@ -39,6 +39,7 @@ protocol HomeDisplayable: class, AppDisplayable {
 protocol HomeRoutable: AppRoutable {
     func listPosts(for fetchType: ListPostsViewController.FetchType)
     func showPost(for model: PostsDataViewModel)
+    func showPost(for id: Int)
     func previewPost(for model: PostsDataViewModel) -> UIViewController?
     func listTerms()
 }

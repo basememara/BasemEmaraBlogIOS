@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, HasDependencies {
         preferences: dependencies.resolve()
     )
     
-    private lazy var router: HomeRoutable = HomeRouter(
+    private(set) lazy var router: HomeRoutable = HomeRouter(
         viewController: self
     )
     

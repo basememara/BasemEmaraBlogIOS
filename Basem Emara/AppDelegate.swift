@@ -18,13 +18,20 @@ class AppDelegate: ApplicationModuleDelegate {
             CoreApplicationModule(),
             LoggerApplicationModule(),
             DataApplicationModule(),
+            BackgroundApplicationModule(),
             WindowApplicationModule(for: window),
+            NotificationApplicationModule(),
             ThemeApplicationModule()
         ]
     }
 }
 
 extension AppDelegate {
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        BackgroundApplicationModule()
+            .application(application, performFetchWithCompletionHandler: completionHandler)
+    }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         ShortcutApplicationModule()
