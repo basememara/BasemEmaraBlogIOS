@@ -1695,8 +1695,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1720,8 +1720,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1745,8 +1745,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1770,8 +1770,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1881,8 +1881,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1906,8 +1906,8 @@
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
