@@ -1,5 +1,5 @@
 //
-//  AppDependencyFactory.swift
+//  AppConfiguration.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-21.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-class AppDependencyFactory: DependencyFactory {
+class AppConfiguration: DependencyFactory {
     
     override func resolveStore() -> ConstantsStore {
         return ConstantsMemoryStore(

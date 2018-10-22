@@ -61,9 +61,9 @@
 		8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */; };
 		8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */; };
 		8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A5217CDAF300E63F21 /* TodayModels.swift */; };
-		8B2135A8217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppDependencyFactory.swift */; };
-		8B2135A9217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppDependencyFactory.swift */; };
-		8B2135AA217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppDependencyFactory.swift */; };
+		8B2135A8217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
+		8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
+		8B2135AA217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
 		8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */; };
 		8B2135B0217CEC3800E63F21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AF217CEC3800E63F21 /* MainViewController.swift */; };
 		8B2135B2217CEC8D00E63F21 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B1217CEC8D00E63F21 /* MainRouter.swift */; };
@@ -178,7 +178,7 @@
 		8B8B33D520DA6D0000E80706 /* PostsDataViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D420DA6D0000E80706 /* PostsDataViewAdapter.swift */; };
 		8B8B33D720DA6E7600E80706 /* LatestPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8B33D620DA6E7600E80706 /* LatestPostCollectionViewCell.xib */; };
 		8B8B33D920DA6E8200E80706 /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */; };
-		8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */; };
+		8B9CE08C20D73CAA0077E4A0 /* CoreApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */; };
 		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */; };
 		8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */; };
 		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
@@ -294,7 +294,7 @@
 		8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
 		8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInterfaces.swift; sourceTree = "<group>"; };
 		8B2135A5217CDAF300E63F21 /* TodayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModels.swift; sourceTree = "<group>"; };
-		8B2135A7217CE18A00E63F21 /* AppDependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyFactory.swift; sourceTree = "<group>"; };
+		8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationModule.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B2135B1217CEC8D00E63F21 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -375,7 +375,7 @@
 		8B8B33D420DA6D0000E80706 /* PostsDataViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataViewAdapter.swift; sourceTree = "<group>"; };
 		8B8B33D620DA6E7600E80706 /* LatestPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		8B8B33D820DA6E8200E80706 /* LatestPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestPostCollectionViewCell.swift; sourceTree = "<group>"; };
-		8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyApplicationModule.swift; sourceTree = "<group>"; };
+		8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
@@ -549,6 +549,7 @@
 			children = (
 				8B8A2C9020D6BC0B00E29992 /* Common */,
 				8B1DC11820B1C185009FBBBD /* Scenes */,
+				8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */,
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
 				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
@@ -598,7 +599,6 @@
 		8B1DC10120B1B0BF009FBBBD /* Post Notification Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8B2135D4217D605800E63F21 /* Common */,
 				8B1DC10420B1B0BF009FBBBD /* NotificationInterface.storyboard */,
 				8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */,
 				8B2135D3217D5F2200E63F21 /* Supporting Files */,
@@ -667,13 +667,6 @@
 				8B1DC10720B1B0BF009FBBBD /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8B2135D4217D605800E63F21 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		8B21CEFD215C217000E2994C /* TermViewCells */ = {
@@ -908,8 +901,7 @@
 		8B9CE08A20D73C890077E4A0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8B2135A7217CE18A00E63F21 /* AppDependencyFactory.swift */,
-				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */,
+				8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */,
 				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */,
 				8B856E72217A716300B64E6C /* DataApplicationModule.swift */,
 				8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */,
@@ -1249,7 +1241,7 @@
 				8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIApplication.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostInterfaces.swift in Sources */,
-				8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */,
+				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationModule.swift in Sources */,
 				8B47A5D420E0F83500681404 /* TermsDataViewDelegate.swift in Sources */,
 				8B63A2CE216426AD003868F7 /* ShowPostModels.swift in Sources */,
 				8BBF81EF216C340800158DDE /* ThemePreset.swift in Sources */,
@@ -1269,7 +1261,7 @@
 				8B4D71A6216A4043002ACA81 /* SearchPostsViewController.swift in Sources */,
 				8B80D75B20DC518100D6617B /* PostsDataViewModels.swift in Sources */,
 				8B4D71AD216A4057002ACA81 /* SearchPostsModels.swift in Sources */,
-				8B2135A8217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */,
+				8B2135A8217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */,
@@ -1336,7 +1328,7 @@
 				8B1180FE2158916C0071315B /* PickedPostCollectionViewCell.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B21CF00215C21B000E2994C /* TermTableViewCell.swift in Sources */,
-				8B2135A9217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */,
+				8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
 				8B11810D215891A20071315B /* UIImage.swift in Sources */,
 				8B11810B2158918B0071315B /* TermsDataViewModels.swift in Sources */,
 				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
@@ -1371,7 +1363,7 @@
 				8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B21CF0A215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
-				8B2135AA217CE18A00E63F21 /* AppDependencyFactory.swift in Sources */,
+				8B2135AA217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

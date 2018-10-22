@@ -15,7 +15,7 @@ class AppDelegate: ApplicationModuleDelegate {
 
     override func modules() -> [ApplicationModule] {
         return [
-            DependencyApplicationModule(),
+            CoreApplicationModule(),
             LoggerApplicationModule(),
             DataApplicationModule(),
             WindowApplicationModule(for: window),

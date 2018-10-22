@@ -10,10 +10,10 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class DependencyApplicationModule: ApplicationModule, DependencyConfigurator {
+final class CoreApplicationModule: ApplicationModule, DependencyConfigurator {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        register(dependencies: AppDependencyFactory())
+        register(dependencies: AppConfiguration())
         return true
     }
 }

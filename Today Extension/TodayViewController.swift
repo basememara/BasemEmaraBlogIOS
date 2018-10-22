@@ -54,7 +54,7 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
 private extension TodayViewController {
     
     func configure() {
-        register(dependencies: AppDependencyFactory())
+        register(dependencies: AppConfiguration())
         dataWorker.configure()
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
