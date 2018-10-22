@@ -55,6 +55,8 @@ class SearchPostsViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
+    var searchText: String?
+    
     // MARK: - Controller cycle
 
     override func viewDidLoad() {
@@ -80,9 +82,16 @@ private extension SearchPostsViewController {
     }
     
     func loadData() {
-        interactor.fetchPopularPosts(
-            with: SearchPostsModels.PopularRequest()
-        )
+        guard let searchText = searchText else {
+            return interactor.fetchPopularPosts(
+                with: SearchPostsModels.PopularRequest()
+            )
+        }
+        
+        self.searchText = nil
+        searchController.isActive = true
+        searchController.searchBar.text = searchText
+        searchData(for: searchText, with: 0)
     }
     
     func searchData(for text: String, with scope: Int) {
