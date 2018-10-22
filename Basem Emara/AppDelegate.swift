@@ -38,3 +38,10 @@ extension AppDelegate {
         ShortcutApplicationModule()
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        return DeepLinkApplicationModule()
+            .application(application, continue: userActivity, restorationHandler: restorationHandler)
+    }
+}
+
