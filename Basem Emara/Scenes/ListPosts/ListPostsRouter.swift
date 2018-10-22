@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 struct ListPostsRouter {
     weak var viewController: UIViewController?

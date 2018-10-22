@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 class TermTableViewCell: UITableViewCell, TermsDataViewCell {
     

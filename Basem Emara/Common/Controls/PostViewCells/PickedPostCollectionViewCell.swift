@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 import ZamzamKit
 
 class PickedPostCollectionViewCell: UICollectionViewCell, PostsDataViewCell {

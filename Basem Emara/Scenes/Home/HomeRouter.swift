@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 struct HomeRouter {
     weak var viewController: UIViewController?

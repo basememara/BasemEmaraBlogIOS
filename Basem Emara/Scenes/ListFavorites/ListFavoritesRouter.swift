@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 struct ListFavoritesRouter {
     weak var viewController: UIViewController?
