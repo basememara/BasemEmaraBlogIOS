@@ -23,19 +23,19 @@ class HomeViewController: UIViewController, HasDependencies {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var latestPostsCollectionView: UICollectionView! {
-        didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self) }
+        didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet weak var popularPostsCollectionView: UICollectionView! {
-        didSet { popularPostsCollectionView.register(nib: PopularPostCollectionViewCell.self) }
+        didSet { popularPostsCollectionView.register(nib: PopularPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet weak var pickedPostsCollectionView: UICollectionView! {
-        didSet { pickedPostsCollectionView.register(nib: PickedPostCollectionViewCell.self) }
+        didSet { pickedPostsCollectionView.register(nib: PickedPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet weak var topTermsTableView: UITableView! {
-        didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
+        didSet { topTermsTableView.register(nib: TermTableViewCell.self, inBundle: .swiftyPress) }
     }
     
     // MARK: - Scene variables
@@ -163,6 +163,10 @@ extension HomeViewController: HomeDisplayable {
     func displayTerms(with viewModels: [TermsDataViewModel]) {
         topTermsTableViewAdapter.reloadData(with: viewModels)
     }
+    
+    func displayToggleFavorite(with viewModel: HomeModels.FavoriteViewModel) {
+        // Nothing to do
+    }
 }
 
 // MARK: - Interactions
@@ -214,6 +218,14 @@ extension HomeViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.showPost(for: model)
+    }
+    
+    func postsDataView(toggleFavorite model: PostsDataViewModel) {
+        interactor.toggleFavorite(
+            with: HomeModels.FavoriteRequest(
+                postID: model.id
+            )
+        )
     }
     
     func postsDataViewWillBeginDragging(_ scrollView: UIScrollView) {

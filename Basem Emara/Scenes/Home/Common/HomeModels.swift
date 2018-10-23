@@ -18,6 +18,10 @@ enum HomeModels {
         let count: Int
     }
     
+    struct FavoriteRequest {
+        let postID: Int
+    }
+    
     struct PostsResponse {
         let posts: [PostType]
         let media: [MediaType]
@@ -26,5 +30,15 @@ enum HomeModels {
     
     struct TermsResponse {
         let terms: [TermType]
+    }
+    
+    struct FavoriteResponse {
+        let postID: Int
+        let favorite: Bool
+    }
+    
+    struct FavoriteViewModel {
+        let postID: Int
+        let favorite: Bool
     }
 }

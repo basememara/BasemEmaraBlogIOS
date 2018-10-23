@@ -129,3 +129,17 @@ extension HomeInteractor {
         }
     }
 }
+
+extension HomeInteractor {
+    
+    func toggleFavorite(with request: HomeModels.FavoriteRequest) {
+        postsWorker.toggleFavorite(id: request.postID)
+        
+        presenter.presentToggleFavorite(
+            for: HomeModels.FavoriteResponse(
+                postID: request.postID,
+                favorite: postsWorker.hasFavorite(id: request.postID)
+            )
+        )
+    }
+}

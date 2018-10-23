@@ -120,3 +120,15 @@ extension HomePresenter {
         viewController?.display(error: viewModel)
     }
 }
+
+extension HomePresenter {
+    
+    func presentToggleFavorite(for response: HomeModels.FavoriteResponse) {
+        viewController?.displayToggleFavorite(
+            with: HomeModels.FavoriteViewModel(
+                postID: response.postID,
+                favorite: response.favorite
+            )
+        )
+    }
+}

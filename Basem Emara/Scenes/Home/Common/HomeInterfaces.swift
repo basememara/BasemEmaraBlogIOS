@@ -13,6 +13,7 @@ protocol HomeBusinessLogic {
     func fetchPopularPosts(with request: HomeModels.FetchPostsRequest)
     func fetchTopPickPosts(with request: HomeModels.FetchPostsRequest)
     func fetchTerms(with request: HomeModels.FetchTermsRequest)
+    func toggleFavorite(with request: HomeModels.FavoriteRequest)
 }
 
 protocol HomePresentable {
@@ -27,6 +28,8 @@ protocol HomePresentable {
     
     func presentTerms(for response: HomeModels.TermsResponse)
     func presentTerms(error: DataError)
+    
+    func presentToggleFavorite(for response: HomeModels.FavoriteResponse)
 }
 
 protocol HomeDisplayable: class, AppDisplayable {
@@ -34,6 +37,7 @@ protocol HomeDisplayable: class, AppDisplayable {
     func displayPopularPosts(with viewModels: [PostsDataViewModel])
     func displayTopPickPosts(with viewModels: [PostsDataViewModel])
     func displayTerms(with viewModels: [TermsDataViewModel])
+    func displayToggleFavorite(with viewModel: HomeModels.FavoriteViewModel)
 }
 
 protocol HomeRoutable: AppRoutable {
