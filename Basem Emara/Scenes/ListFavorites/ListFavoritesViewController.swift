@@ -16,7 +16,7 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: PostTableViewCell.self)
+            tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
         }
     }
