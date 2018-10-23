@@ -71,6 +71,9 @@ class SearchPostsViewController: UIViewController, HasDependencies {
 private extension SearchPostsViewController {
     
     func configure() {
+        // Handles switching tabs while focused
+        definesPresentationContext = true
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
