@@ -16,9 +16,6 @@
 		8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180EC21586D730071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180ED21586D740071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
-		8B11810D215891A20071315B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
-		8B11810E215891A20071315B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
-		8B11810F215891EB0071315B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B1CC4FC217AEE1800F00A70 /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF3B2123821B00A6AF99 /* AppModels.swift */; };
 		8B1CC4FD217AEE1800F00A70 /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF3B2123821B00A6AF99 /* AppModels.swift */; };
@@ -64,7 +61,6 @@
 		8B21CF0C215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
 		8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
 		8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF0B215C6C3D00E2994C /* LightTheme.swift */; };
-		8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27AB2820DFDA4700D6036A /* UIImage.swift */; };
 		8B33C4DF21694BE000658700 /* ListFavoritesInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */; };
 		8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */; };
 		8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */; };
@@ -138,9 +134,11 @@
 		8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */; };
 		8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */; };
 		8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */; };
+		8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
+		8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
+		8B6673A7217EB4110057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
-		8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationModule.swift */; };
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
@@ -292,7 +290,6 @@
 		8B21CF02215C21C400E2994C /* TermTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermTableViewCell.xib; sourceTree = "<group>"; };
 		8B21CF07215C6BDF00E2994C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B21CF0B215C6C3D00E2994C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
-		8B27AB2820DFDA4700D6036A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInterfaces.swift; sourceTree = "<group>"; };
 		8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesModels.swift; sourceTree = "<group>"; };
 		8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -346,6 +343,7 @@
 		8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostInteractor.swift; sourceTree = "<group>"; };
 		8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostPresenter.swift; sourceTree = "<group>"; };
 		8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostRouter.swift; sourceTree = "<group>"; };
+		8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
 		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -401,10 +399,10 @@
 				8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */,
 				8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */,
 				8B5B459F20B310D40088DF60 /* ZamzamKit.framework in Frameworks */,
+				8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */,
 				8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */,
 				8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */,
 				8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */,
-				8B68A38720B1CB72000CEB50 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,9 +419,9 @@
 				8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */,
 				8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */,
 				8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */,
+				8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */,
 				8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */,
 				8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */,
-				8B11810F215891EB0071315B /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +439,7 @@
 				8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */,
 				8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */,
 				8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */,
+				8B6673A7217EB4110057E0F6 /* Kingfisher.framework in Frameworks */,
 				8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +530,7 @@
 		8B1DC0E720B1AFE1009FBBBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */,
 				8B63A2A6216291F2003868F7 /* Stencil.framework */,
 				8B5B45C920B312340088DF60 /* SwiftyPress.framework */,
 				8B5B45A320B312060088DF60 /* SwiftyPress.framework */,
@@ -663,7 +663,6 @@
 			children = (
 				8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */,
 				8B0A28992133EBBB0008135D /* UIApplication.swift */,
-				8B27AB2820DFDA4700D6036A /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -813,7 +812,6 @@
 			children = (
 				8B9CE08A20D73C890077E4A0 /* Application */,
 				8BEEEF3A2123820400A6AF99 /* CleanScene */,
-				8B8B33CD20DA65C300E80706 /* Controls */,
 				8B8B33D320DA6CC200E80706 /* Data */,
 				8B27AB2720DFDA3C00D6036A /* Extensions */,
 				8B1CC4FB217AEDE000F00A70 /* Localization */,
@@ -1152,7 +1150,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Arcane.framework",
@@ -1162,6 +1159,7 @@
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework",
+				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = "Run Carthage Script";
 			outputPaths = (
@@ -1246,7 +1244,6 @@
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */,
 				8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */,
-				8B27AB2920DFDA4700D6036A /* UIImage.swift in Sources */,
 				8B2135B2217CEC8D00E63F21 /* MainRouter.swift in Sources */,
 				8BBF81DB216BFE7D00158DDE /* ShowMoreInterfaces.swift in Sources */,
 				8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */,
@@ -1277,7 +1274,6 @@
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
-				8B11810D215891A20071315B /* UIImage.swift in Sources */,
 				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
 				8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
@@ -1302,7 +1298,6 @@
 				8BC96EB7217E5FC70037D747 /* PostTableViewCell.swift in Sources */,
 				8BC96EB6217E5FC70037D747 /* PopularPostCollectionViewCell.swift in Sources */,
 				8BC96EB8217E5FC70037D747 /* PickedPostCollectionViewCell.swift in Sources */,
-				8B11810E215891A20071315B /* UIImage.swift in Sources */,
 				8BC96EB9217E5FC70037D747 /* SimplePostTableViewCell.swift in Sources */,
 				8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
