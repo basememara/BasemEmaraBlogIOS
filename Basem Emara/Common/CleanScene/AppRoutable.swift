@@ -22,12 +22,12 @@ extension AppRoutable {
         return UIApplication.getWindow()?.rootViewController as? UITabBarController
     }
     
-    func present<T: UIViewController>(storyboard: Storyboard, identifier: String? = nil, animated: Bool = true, modalPresentationStyle: UIModalPresentationStyle? = nil, modalTransitionStyle: UIModalTransitionStyle? = nil, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) {
-        present(storyboard: storyboard.rawValue, identifier: identifier, animated: animated, modalPresentationStyle: modalPresentationStyle, modalTransitionStyle: modalTransitionStyle, configure: configure, completion: completion)
+    func present<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, animated: Bool = true, modalPresentationStyle: UIModalPresentationStyle? = nil, modalTransitionStyle: UIModalTransitionStyle? = nil, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) {
+        present(storyboard: storyboard.rawValue, inBundle: bundle, identifier: identifier, animated: animated, modalPresentationStyle: modalPresentationStyle, modalTransitionStyle: modalTransitionStyle, configure: configure, completion: completion)
     }
     
-    func show<T: UIViewController>(storyboard: Storyboard, identifier: String? = nil, configure: ((T) -> Void)? = nil) {
-        show(storyboard: storyboard.rawValue, identifier: identifier, configure: configure)
+    func show<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, configure: ((T) -> Void)? = nil) {
+        show(storyboard: storyboard.rawValue, inBundle: bundle, identifier: identifier, configure: configure)
     }
 }
 
