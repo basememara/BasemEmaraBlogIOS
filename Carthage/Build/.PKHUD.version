@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "5.2.0",
+  "iOS" : [
+    {
+      "name" : "PKHUD",
+      "hash" : "da1d69680747fa4ccabe2e10a8aafdaa367220d3e99c2f3a29e3cb6ebcc6021c"
+    }
+  ]
+}
