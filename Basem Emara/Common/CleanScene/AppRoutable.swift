@@ -73,27 +73,6 @@ extension AppRoutable {
     }
 }
 
-extension AppRoutable {
-    
-    /// Dismisses or pops the view controller that was presented.
-    ///
-    /// - Parameters:
-    ///   - animated: ass true to animate the transition.
-    ///   - completion: The block to execute after the view controller is dismissed.
-    func dismiss(animated: Bool = true, completion: (() -> Void)? = nil) {
-        guard let navController = viewController?.navigationController else {
-            viewController?.dismiss(animated: true, completion: completion)
-            return
-        }
-        
-        guard navController.viewControllers.count > 1 else {
-            return navController.dismiss(animated: true, completion: completion)
-        }
-        
-        navController.popViewController(animated: true, completion: completion)
-    }
-}
-
 /// Storyboard identifiers for routing
 enum Storyboard: String {
     case home = "Home"

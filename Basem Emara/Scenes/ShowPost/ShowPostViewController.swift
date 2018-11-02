@@ -64,7 +64,7 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     private lazy var history = [Int]()
     
     var postID: Int! //Must assign or die
-    let sharedApplication = UIApplication.shared
+    let application = UIApplication.shared
     var statusBar: UIView?
     
     // MARK: - Controller cycle
