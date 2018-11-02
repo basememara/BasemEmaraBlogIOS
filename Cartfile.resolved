@@ -1,3 +1,2 @@
-github "onevcat/Kingfisher" "4.10.0"
 github "pkluz/PKHUD" "5.2.0"
-github "roberthein/TinyConstraints" "3.3.0"
+github "roberthein/TinyConstraints" "3.3.1"
