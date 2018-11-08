@@ -155,51 +155,44 @@ extension ListPostsViewController: PostsDataViewDelegate {
                 },
                 UIContextualAction(style: .normal, title: .localized(.moreTitle)) { action, view, completion in
                     self.present(
-                        UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet).with {
-                            $0.addAction(
-                                UIAlertAction(title: .localized(.commentsTitle)) {
-                                    self.present(
-                                        safari: self.constants.baseURL
-                                            .appendingPathComponent("mobile-comments")
-                                            .appendingQueryItem("postid", value: model.id)
-                                            .absoluteString,
-                                        theme: self.dependencies.resolve()
-                                    )
-                                }
-                            )
-                            
-                            $0.addAction(
-                                UIAlertAction(title: .localized(.shareTitle)) {
-                                    let safariActivity = UIActivity.make(
-                                        title: .localized(.openInSafari),
-                                        imageName: "safari-share",
-                                        imageBundle: .zamzamKit,
-                                        handler: {
-                                            guard let url = URL(string: model.link),
-                                                SCNetworkReachability.isOnline else {
-                                                    return self.present(
-                                                        alert: .localized(.browserNotAvailableErrorTitle),
-                                                        message: .localized(.notConnectedToInternetErrorMessage)
-                                                    )
-                                            }
-                                            
-                                            UIApplication.shared.open(url)
+                        actionSheet: nil,
+                        popoverFrom: sender,
+                        additionalActions: [
+                            UIAlertAction(title: .localized(.commentsTitle)) {
+                                self.present(
+                                    safari: self.constants.baseURL
+                                        .appendingPathComponent("mobile-comments")
+                                        .appendingQueryItem("postid", value: model.id)
+                                        .absoluteString,
+                                    theme: self.dependencies.resolve()
+                                )
+                            },
+                            UIAlertAction(title: .localized(.shareTitle)) {
+                                let safariActivity = UIActivity.make(
+                                    title: .localized(.openInSafari),
+                                    imageName: "safari-share",
+                                    imageBundle: .zamzamKit,
+                                    handler: {
+                                        guard let url = URL(string: model.link),
+                                            SCNetworkReachability.isOnline else {
+                                                return self.present(
+                                                    alert: .localized(.browserNotAvailableErrorTitle),
+                                                    message: .localized(.notConnectedToInternetErrorMessage)
+                                                )
                                         }
-                                    )
-                                    
-                                    self.present(
-                                        activities: [model.title.htmlDecoded, model.link],
-                                        popoverFrom: sender,
-                                        applicationActivities: [safariActivity]
-                                    )
-                                }
-                            )
-                            
-                            $0.addAction(
-                                UIAlertAction(title: .localized(.cancel), style: .cancel)
-                            )
-                        },
-                        popoverFrom: sender
+                                        
+                                        UIApplication.shared.open(url)
+                                    }
+                                )
+                                
+                                self.present(
+                                    activities: [model.title.htmlDecoded, model.link],
+                                    popoverFrom: sender,
+                                    applicationActivities: [safariActivity]
+                                )
+                            }
+                        ],
+                        includeCancelAction: true
                     )
                     
                     completion(true)

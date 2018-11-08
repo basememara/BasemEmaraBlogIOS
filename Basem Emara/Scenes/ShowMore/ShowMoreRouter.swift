@@ -28,7 +28,7 @@ struct ShowMoreRouter: ShowMoreRoutable {
 extension ShowMoreRouter {
     
     func showAbout() {
-        viewController?.present(
+        viewController?.show(
             safari: constants.baseURL
                 .appendingPathComponent("about")
                 .appendingQueryItem("mobileembed", value: 1)
@@ -38,7 +38,7 @@ extension ShowMoreRouter {
     }
     
     func showSubscribe() {
-        viewController?.present(
+        viewController?.show(
             safari: constants.baseURL
                 .appendingPathComponent("subscribe")
                 .appendingQueryItem("mobileembed", value: 1)
@@ -68,7 +68,7 @@ extension ShowMoreRouter {
     }
     
     func showWorkWithMe() {
-        viewController?.present(
+        viewController?.show(
             safari: constants.baseURL
                 .appendingPathComponent("resume")
                 .appendingQueryItem("mobileembed", value: 1)

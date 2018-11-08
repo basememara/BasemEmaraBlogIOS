@@ -193,11 +193,11 @@ private extension HomeViewController {
             )
         }
         
-        present(safari: disclaimerURL, theme: dependencies.resolve())
+        show(safari: disclaimerURL, theme: dependencies.resolve())
     }
     
     @IBAction func privacyButtonTapped() {
-        present(safari: constants.privacyURL, theme: dependencies.resolve())
+        show(safari: constants.privacyURL, theme: dependencies.resolve())
     }
     
     @IBAction func contactButtonTapped() {
