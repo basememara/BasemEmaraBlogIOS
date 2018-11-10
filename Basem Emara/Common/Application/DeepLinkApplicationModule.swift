@@ -20,11 +20,8 @@ final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Logga
 extension DeepLinkApplicationModule {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        // Handle HTTP links only
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let webpageURL = userActivity.webpageURL else { return false }
-        
         Log(debug: "Link passed to app: \(webpageURL.absoluteString)")
-        
         return navigate(from: webpageURL)
     }
 }
@@ -58,10 +55,18 @@ private extension DeepLinkApplicationModule {
             }
             
             return true
-        /*} else if let term = TermService().get(url) {
-            return toTerm(term.id)
-        } else if toPost(url) {
-            return true*/
+        } else if let id = postsWorker.getID(byURL: url.absoluteString) {
+            appViewController.router.show(tab: .home) { (controller: HomeViewController) in
+                controller.router.showPost(for: id)
+            }
+            
+            return true
+        } else if let id = taxonomyWorker.getID(byURL: url.absoluteString) {
+            appViewController.router.show(tab: .home) { (controller: HomeViewController) in
+                controller.router.listPosts(for: .terms([id]))
+            }
+            
+            return true
         }
         
         // Failed so open in Safari as fallback
