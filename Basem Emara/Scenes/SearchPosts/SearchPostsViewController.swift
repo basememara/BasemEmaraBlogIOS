@@ -68,9 +68,9 @@ class SearchPostsViewController: UIViewController, HasDependencies {
 
 // MARK: - Events
 
-private extension SearchPostsViewController {
+extension SearchPostsViewController {
     
-    func configure() {
+    private func configure() {
         // Handles switching tabs while focused
         definesPresentationContext = true
         
@@ -84,7 +84,7 @@ private extension SearchPostsViewController {
         }
     }
     
-    func loadData() {
+    public func loadData() {
         guard let searchText = searchText else {
             return interactor.fetchPopularPosts(
                 with: SearchPostsModels.PopularRequest()
@@ -97,7 +97,7 @@ private extension SearchPostsViewController {
         searchData(for: searchText, with: 0)
     }
     
-    func searchData(for text: String, with scope: Int) {
+    private func searchData(for text: String, with scope: Int) {
         interactor.fetchSearchResults(
             with: PostsModels.SearchRequest(
                 query: text,
