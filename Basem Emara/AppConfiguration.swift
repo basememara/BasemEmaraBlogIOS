@@ -14,7 +14,14 @@ class AppConfiguration: DependencyFactory {
         return ConstantsMemoryStore(
             itunesName: "basememara",
             itunesID: "1021806851",
-            baseURL: URL(string: "https://basememara.com")!,
+            baseURL: {
+                switch Environment.mode {
+                case .production:
+                    return URL(string: "https://basememara.com")!
+                case .development, .staging:
+                    return URL(string: "https://staging3.basememara.com")!
+                }
+            }(),
             baseREST: "wp-json/swiftypress/v3",
             wpREST: "wp-json/wp/v2",
             email: "contact@basememara.com",
