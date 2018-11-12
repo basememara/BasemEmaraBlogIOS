@@ -86,7 +86,6 @@ extension TodayViewController: TodayDisplayable {
                 contentMode: .aspectFill
             )
         }
-            
     }
 }
 

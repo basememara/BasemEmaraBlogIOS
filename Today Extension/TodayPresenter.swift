@@ -27,7 +27,7 @@ extension TodayPresenter {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
-                media: response.media.first { $0.id == post.mediaID },
+                mediaURL: response.media.first { $0.id == post.mediaID }?.thumbnailLink,
                 favorite: nil,
                 dateFormatter: self.dateFormatter
             )

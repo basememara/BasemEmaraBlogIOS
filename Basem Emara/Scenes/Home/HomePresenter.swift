@@ -27,7 +27,7 @@ extension HomePresenter {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
-                media: response.media.first { $0.id == post.mediaID },
+                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
@@ -52,7 +52,7 @@ extension HomePresenter {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
-                media: response.media.first { $0.id == post.mediaID },
+                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
@@ -77,7 +77,7 @@ extension HomePresenter {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
-                media: response.media.first { $0.id == post.mediaID },
+                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
                 dateFormatter: self.dateFormatter
             )

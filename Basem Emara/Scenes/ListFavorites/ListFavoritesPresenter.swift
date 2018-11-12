@@ -27,7 +27,7 @@ extension ListFavoritesPresenter {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
-                media: response.media.first { $0.id == post.mediaID },
+                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 dateFormatter: self.dateFormatter
             )
         }
