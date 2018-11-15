@@ -17,7 +17,7 @@ final class LoggerApplicationModule: ApplicationModule, Loggable {
         return true
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Log(info: "App did finish launching.")
         return true
     }

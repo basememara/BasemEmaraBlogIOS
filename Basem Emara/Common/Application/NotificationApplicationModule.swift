@@ -13,13 +13,13 @@ import UserNotifications
 
 final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable {
 
-    private let userNotification = UNUserNotificationCenter.current()
+    private let userNotification: UNUserNotificationCenter = .current()
     
 }
 
 extension NotificationApplicationModule {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         userNotification.register(
             delegate: self,
             categories: [

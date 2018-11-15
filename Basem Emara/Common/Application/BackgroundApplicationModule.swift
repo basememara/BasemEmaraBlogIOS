@@ -20,7 +20,7 @@ final class BackgroundApplicationModule: ApplicationModule, HasDependencies, Log
 
 extension BackgroundApplicationModule {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Enable background fetch for creating local notifications for new content
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
