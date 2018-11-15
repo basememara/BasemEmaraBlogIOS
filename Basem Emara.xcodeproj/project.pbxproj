@@ -1544,6 +1544,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1569,6 +1570,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1594,6 +1596,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1619,6 +1622,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1730,6 +1734,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1755,6 +1760,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DWIDGET_EXT";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
