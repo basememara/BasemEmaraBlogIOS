@@ -11,15 +11,29 @@ import SwiftyPress
 class AppConfiguration: DependencyFactory {
     
     override func resolveStore() -> ConstantsStore {
+        // Declare environment mode
+        let environment: Environment = {
+            #if DEBUG
+            return .development
+            #elseif STAGING
+            return .staging
+            #else
+            return .production
+            #endif
+        }()
+        
         return ConstantsMemoryStore(
+            environment: environment,
             itunesName: "basememara",
             itunesID: "1021806851",
             baseURL: {
-                switch Environment.mode {
+                switch environment {
+                case .development:
+                    return URL(string: "https://staging2.basememara.com")!
+                case .staging:
+                    return URL(string: "https://staging3.basememara.com")!
                 case .production:
                     return URL(string: "https://basememara.com")!
-                case .development, .staging:
-                    return URL(string: "https://staging3.basememara.com")!
                 }
             }(),
             baseREST: "wp-json/swiftypress/v3",
@@ -36,11 +50,13 @@ class AppConfiguration: DependencyFactory {
     }
     
     override func resolveStore() -> PreferencesStore {
+        let constants: ConstantsType = resolve()
+        
         return PreferencesDefaultsStore(
             defaults: {
                 UserDefaults(
                     suiteName: {
-                        switch Environment.mode {
+                        switch constants.environment {
                         case .development, .staging: return "group.io.zamzam.Basem-Emara-staging"
                         case .production: return "group.io.zamzam.Basem-Emara"
                         }
