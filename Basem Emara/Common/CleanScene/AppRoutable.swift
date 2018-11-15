@@ -18,10 +18,28 @@ protocol AppRoutable: Router {
 
 extension AppRoutable {
     
+    /**
+     Presents the intial view controller of the specified storyboard modally.
+     
+     - parameter storyboard: Storyboard name.
+     - parameter bundle: Bundle of the storyboard.
+     - parameter identifier: Storyboard identifier.
+     - parameter configure: Configure the view controller before it is loaded.
+     - parameter completion: Completion the view controller after it is loaded.
+     */
     func present<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, animated: Bool = true, modalPresentationStyle: UIModalPresentationStyle? = nil, modalTransitionStyle: UIModalTransitionStyle? = nil, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) {
         present(storyboard: storyboard.rawValue, inBundle: bundle, identifier: identifier, animated: animated, modalPresentationStyle: modalPresentationStyle, modalTransitionStyle: modalTransitionStyle, configure: configure, completion: completion)
     }
     
+    /**
+     Present the intial view controller of the specified storyboard in the primary context.
+     Set the initial view controller in the target storyboard or specify the identifier.
+     
+     - parameter storyboard: Storyboard name.
+     - parameter bundle: Bundle of the storyboard.
+     - parameter identifier: Storyboard identifier.
+     - parameter configure: Configure the view controller before it is loaded.
+     */
     func show<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, configure: ((T) -> Void)? = nil) {
         show(storyboard: storyboard.rawValue, inBundle: bundle, identifier: identifier, configure: configure)
     }
