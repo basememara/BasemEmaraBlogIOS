@@ -1,1 +1,2 @@
-github "ZamzamInc/SwiftyPress" "master"
+github "roberthein/TinyConstraints"
+github "pkluz/PKHUD"

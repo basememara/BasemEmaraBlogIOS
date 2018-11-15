@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qXg-So-QBn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="ZB8-SG-Bhq">
+            <objects>
+                <tableViewController id="qXg-So-QBn" customClass="ShowSettingsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Ac-Qe-fVf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="82M-FZ-N2H">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="pcg-8q-kmY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pcg-8q-kmY" id="dkF-Y1-egm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="5MC-gG-UBR">
+                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPD-jk-VQm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="27.5"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="theme" translatesAutoresizingMaskIntoConstraints="NO" id="Bfu-z5-wyZ">
+                                                                    <rect key="frame" x="0.0" y="2" width="24" height="24"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="24" id="OtC-rX-9pQ"/>
+                                                                        <constraint firstAttribute="width" secondItem="Bfu-z5-wyZ" secondAttribute="height" multiplier="1:1" id="uKw-ji-DIx"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="Bfu-z5-wyZ" secondAttribute="trailing" id="5gP-hS-hda"/>
+                                                                <constraint firstItem="Bfu-z5-wyZ" firstAttribute="leading" secondItem="qPD-jk-VQm" secondAttribute="leading" id="CJm-Ty-4DR"/>
+                                                                <constraint firstItem="Bfu-z5-wyZ" firstAttribute="centerY" secondItem="qPD-jk-VQm" secondAttribute="centerY" id="eyZ-O9-Sik"/>
+                                                                <constraint firstItem="Bfu-z5-wyZ" firstAttribute="centerX" secondItem="qPD-jk-VQm" secondAttribute="centerX" id="rNg-N2-aQs"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iji-Bl-5eB" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                            <rect key="frame" x="38" y="0.0" width="242" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYw-Bt-g8O" customClass="ThemedSwitch" customModule="SwiftyPress">
+                                                            <rect key="frame" x="294" y="0.0" width="51" height="27.5"/>
+                                                            <connections>
+                                                                <action selector="themeSwitchChanged:" destination="qXg-So-QBn" eventType="valueChanged" id="hpD-Yw-Cj6"/>
+                                                            </connections>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5MC-gG-UBR" firstAttribute="leading" secondItem="dkF-Y1-egm" secondAttribute="leading" constant="16" id="EFZ-mH-fNR"/>
+                                                <constraint firstAttribute="trailing" secondItem="5MC-gG-UBR" secondAttribute="trailing" constant="16" id="PL7-UR-b12"/>
+                                                <constraint firstItem="5MC-gG-UBR" firstAttribute="top" secondItem="dkF-Y1-egm" secondAttribute="top" constant="8" id="mm1-bx-yfZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="5MC-gG-UBR" secondAttribute="bottom" constant="8" id="yvb-VL-Aje"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="55" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ios" textLabel="jSi-Sk-PWR" imageView="4U9-hG-Ebm" style="IBUITableViewCellStyleDefault" id="GXW-nh-lkB">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GXW-nh-lkB" id="SHy-Wm-DsB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jSi-Sk-PWR" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="55" y="0.0" width="304" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="phone" id="4U9-hG-Ebm">
+                                                    <rect key="frame" x="16" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="qXg-So-QBn" id="1cx-FF-EuG"/>
+                            <outlet property="delegate" destination="qXg-So-QBn" id="17P-Tm-cTF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="scG-R2-uqv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="J68-mu-P24"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="themeSwitch" destination="fYw-Bt-g8O" id="1cM-8r-PGS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6SP-qi-ieU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="-32"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="phone" width="24" height="24"/>
+        <image name="theme" width="24" height="24"/>
+    </resources>
+</document>

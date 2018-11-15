@@ -5,11 +5,16 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:basememara.com</string>
-		<string>applinks:www.basememara.com</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.io.zamzam.Basem-Emara</string>
+		<string>group.io.zamzam.Basem-Emara-staging</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)io.zamzam.Basem-Emara</string>
+		<string>$(AppIdentifierPrefix)io.zamzam.Basem-Emara-staging</string>
 	</array>
 </dict>
 </plist>
