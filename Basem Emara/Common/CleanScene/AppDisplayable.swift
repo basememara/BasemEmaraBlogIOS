@@ -10,18 +10,19 @@ import UIKit
 
 protocol AppDisplayable {
     func display(error: AppModels.Error)
-}
-
-extension AppDisplayable {
-    
-    func display(error: AppModels.Error) {
-        // Overridden by view controller for presenting alerts
-    }
+    func endRefreshing()
 }
 
 extension AppDisplayable where Self: UIViewController {
     
     func display(error: AppModels.Error) {
+        endRefreshing()
         present(alert: error.title, message: error.message)
+    }
+    
+    func endRefreshing() {
+        #if !(WIDGET_EXT)
+        hideSpinner()
+        #endif
     }
 }
