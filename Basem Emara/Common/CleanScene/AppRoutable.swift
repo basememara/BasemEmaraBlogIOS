@@ -18,10 +18,6 @@ protocol AppRoutable: Router {
 
 extension AppRoutable {
     
-    private var rootController: UITabBarController? {
-        return UIApplication.getWindow()?.rootViewController as? UITabBarController
-    }
-    
     func present<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, animated: Bool = true, modalPresentationStyle: UIModalPresentationStyle? = nil, modalTransitionStyle: UIModalTransitionStyle? = nil, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) {
         present(storyboard: storyboard.rawValue, inBundle: bundle, identifier: identifier, animated: animated, modalPresentationStyle: modalPresentationStyle, modalTransitionStyle: modalTransitionStyle, configure: configure, completion: completion)
     }
@@ -32,6 +28,34 @@ extension AppRoutable {
 }
 
 extension AppRoutable {
+    
+    /// Swaps the root controller of the main window.
+    ///
+    /// - Parameters:
+    ///   - storyboard: Storyboard name.
+    ///   - bundle: Bundle of the storyboard.
+    ///   - identifier: Storyboard identifier.
+    ///   - configure: Configure the view controller before it is loaded.
+    func root<T: UIViewController>(storyboard: Storyboard, inBundle bundle: Bundle? = nil, identifier: String? = nil, configure: ((T) -> Void)? = nil) {
+        let storyboard = UIStoryboard(name: storyboard.rawValue, bundle: bundle)
+        
+        guard let controller = (identifier != nil
+            ? storyboard.instantiateViewController(withIdentifier: identifier!)
+            : storyboard.instantiateInitialViewController()) as? T else {
+                return assertionFailure("Invalid controller for storyboard \(storyboard).")
+        }
+        
+        configure?(controller)
+        
+        UIApplication.getWindow()?.rootViewController = controller
+    }
+}
+
+extension AppRoutable {
+    
+    private var rootController: UITabBarController? {
+        return UIApplication.getWindow()?.rootViewController as? UITabBarController
+    }
     
     /// Shows the main screen of the specified tab.
     ///
