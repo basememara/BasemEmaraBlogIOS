@@ -75,6 +75,7 @@ extension AppRoutable {
 
 /// Storyboard identifiers for routing
 enum Storyboard: String {
+    case main = "Main"
     case home = "Home"
     case listPosts = "ListPosts"
     case showPost = "ShowPost"

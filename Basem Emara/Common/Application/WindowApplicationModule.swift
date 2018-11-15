@@ -26,8 +26,8 @@ extension WindowApplicationModule {
         return true
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window?.rootViewController = UIStoryboard(for: .main).instantiateInitialViewController()
         return true
     }
 }

@@ -62,6 +62,7 @@
 		8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */; };
 		8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */; };
 		8B33C4E721694C1600658700 /* ListFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */; };
+		8B35E0AB219B6A2500EF5FE7 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35E0AA219B6A2500EF5FE7 /* UIStoryboard.swift */; };
 		8B4291112173A43800BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291152173B0A500BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291162173B0AB00BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
@@ -267,6 +268,7 @@
 		8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
 		8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesPresenter.swift; sourceTree = "<group>"; };
 		8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesRouter.swift; sourceTree = "<group>"; };
+		8B35E0AA219B6A2500EF5FE7 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		8B4291102173A43800BCB422 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsViewController.swift; sourceTree = "<group>"; };
 		8B47A5E220E10EA700681404 /* ListPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListPosts.storyboard; sourceTree = "<group>"; };
@@ -550,7 +552,6 @@
 		8B1DC11820B1C185009FBBBD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */,
 				8B52641A20D7C93B00170875 /* Main */,
 				8B52641B20D7C94200170875 /* Home */,
 				8B52641D20D7C95500170875 /* ListFavorites */,
@@ -561,6 +562,7 @@
 				8B63A2AF2163AEDA003868F7 /* ListTerms */,
 				8B52641F20D7C96700170875 /* ShowMore */,
 				8BBF81E1216C0D5900158DDE /* ShowSettings */,
+				8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -616,6 +618,7 @@
 			children = (
 				8BBF81EA216C33EF00158DDE /* DefaultsKeys.swift */,
 				8B0A28992133EBBB0008135D /* UIApplication.swift */,
+				8B35E0AA219B6A2500EF5FE7 /* UIStoryboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1153,6 +1156,7 @@
 				8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* HomeViewController.swift in Sources */,
 				8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */,
+				8B35E0AB219B6A2500EF5FE7 /* UIStoryboard.swift in Sources */,
 				8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */,
