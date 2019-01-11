@@ -20,7 +20,7 @@ class PreviewPostViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()
+    private lazy var postWorker: PostWorkerType = dependencies.resolveWorker()
     private lazy var constants: ConstantsType = dependencies.resolve()
     
     var viewModel: PostsDataViewModel!
@@ -54,14 +54,14 @@ private extension PreviewPostViewController {
 private extension PreviewPostViewController {
     
     func makePreviewActionItems() -> [UIPreviewActionItem] {
-        let isFavorite = postsWorker.hasFavorite(id: viewModel.id)
+        let isFavorite = postWorker.hasFavorite(id: viewModel.id)
         let title: String = isFavorite ? .localized(.unfavoriteTitle) : .localized(.favoriteTitle)
         let style: UIPreviewAction.Style = isFavorite ? .destructive : .default
         
         return [
             UIPreviewAction(title: title, style: style) { [weak self] _, _ in
                 guard let self = self else { return }
-                self.postsWorker.toggleFavorite(id: self.viewModel.id)
+                self.postWorker.toggleFavorite(id: self.viewModel.id)
             },
             UIPreviewAction(title: .localized(.commentsTitle), style: .default) { [weak self] _, _ in
                 guard let self = self else { return }

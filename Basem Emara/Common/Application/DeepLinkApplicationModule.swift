@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamKit
 
 final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Loggable {
-    private lazy var postsWorker: PostsWorkerType = dependencies.resolveWorker()
+    private lazy var postWorker: PostWorkerType = dependencies.resolveWorker()
     private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolveWorker()
     private lazy var theme: Theme = dependencies.resolve()
     
@@ -59,7 +59,7 @@ private extension DeepLinkApplicationModule {
             }
             
             return true
-        } else if let id = postsWorker.getID(byURL: url.absoluteString) {
+        } else if let id = postWorker.getID(byURL: url.absoluteString) {
             appViewController.router.show(tab: .home) { (controller: HomeViewController) in
                 controller.router.showPost(for: id)
             }

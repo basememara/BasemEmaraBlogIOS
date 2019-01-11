@@ -10,14 +10,14 @@ import SwiftyPress
 
 struct ListPostsInteractor: ListPostsBusinessLogic {
     private let presenter: ListPostsPresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
     init(presenter: ListPostsPresentable,
-         postsWorker: PostsWorkerType,
+         postWorker: PostWorkerType,
          mediaWorker: MediaWorkerType) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
     }
 }
@@ -25,7 +25,7 @@ struct ListPostsInteractor: ListPostsBusinessLogic {
 extension ListPostsInteractor {
     
     func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postsWorker.fetch {
+        postWorker.fetch {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -53,7 +53,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postsWorker.fetchPopular {
+        postWorker.fetchPopular {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -81,7 +81,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postsWorker.fetchTopPicks {
+        postWorker.fetchTopPicks {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -109,7 +109,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest) {
-        postsWorker.fetch(byTermIDs: request.ids) {
+        postWorker.fetch(byTermIDs: request.ids) {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)
@@ -137,17 +137,17 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func toggleFavorite(with request: ListPostsModels.FavoriteRequest) {
-        postsWorker.toggleFavorite(id: request.postID)
+        postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ListPostsModels.FavoriteResponse(
                 postID: request.postID,
-                favorite: postsWorker.hasFavorite(id: request.postID)
+                favorite: postWorker.hasFavorite(id: request.postID)
             )
         )
     }
     
     func isFavorite(postID: Int) -> Bool {
-        return postsWorker.hasFavorite(id: postID)
+        return postWorker.hasFavorite(id: postID)
     }
 }

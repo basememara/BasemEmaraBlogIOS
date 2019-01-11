@@ -16,12 +16,16 @@ struct LightTheme: Theme {
     let backgroundColor: UIColor = .white
     let separatorColor: UIColor = .lightGray
     let selectionColor: UIColor = .init(rgb: (236, 236, 236))
+    let headerColor: UIColor = .lightGray
     
     let labelColor: UIColor = .black
     let secondaryLabelColor: UIColor = .darkGray
     let subtleLabelColor: UIColor = .lightGray
     
-    let imageBorderWidthInCell: CGFloat = 1
+    let buttonCornerRadius: CGFloat = 3
+    
+    let positiveColor: UIColor = .green
+    let negativeColor: UIColor = .red
     
     let barStyle: UIBarStyle = .default
     let keyboardAppearance: UIKeyboardAppearance = .default

@@ -91,8 +91,8 @@ extension AppRoutable {
         guard let controller: T = {
                 // Get root navigation controller of tab if applicable
                 guard let navigationController = tabBarController
-                    .viewControllers?.get(tab.rawValue) as? UINavigationController else {
-                        return tabBarController.viewControllers?.get(tab.rawValue) as? T
+                    .viewControllers?[safe: tab.rawValue] as? UINavigationController else {
+                        return tabBarController.viewControllers?[safe: tab.rawValue] as? T
                 }
             
                 return navigationController.viewControllers.first as? T

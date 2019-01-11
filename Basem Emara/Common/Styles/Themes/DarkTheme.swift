@@ -16,12 +16,16 @@ struct DarkTheme: Theme {
     let backgroundColor: UIColor = .black
     let separatorColor: UIColor = .darkGray
     let selectionColor: UIColor = .init(rgb: (38, 38, 40))
+    let headerColor: UIColor = .darkGray
     
     let labelColor: UIColor = .white
     let secondaryLabelColor: UIColor = .lightGray
     let subtleLabelColor: UIColor = .darkGray
     
-    let imageBorderWidthInCell: CGFloat = 0
+    let buttonCornerRadius: CGFloat = 3
+    
+    let positiveColor: UIColor = .green
+    let negativeColor: UIColor = .red
     
     let barStyle: UIBarStyle = .black
     let keyboardAppearance: UIKeyboardAppearance = .dark

@@ -10,14 +10,14 @@ import SwiftyPress
 
 struct SearchPostsInteractor: SearchPostsBusinessLogic {
     private let presenter: SearchPostsPresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
     init(presenter: SearchPostsPresentable,
-         postsWorker: PostsWorkerType,
+         postWorker: PostWorkerType,
          mediaWorker: MediaWorkerType) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
     }
 }
@@ -25,7 +25,7 @@ struct SearchPostsInteractor: SearchPostsBusinessLogic {
 extension SearchPostsInteractor {
 
     func fetchSearchResults(with request: PostsModels.SearchRequest) {
-        postsWorker.search(with: request) {
+        postWorker.search(with: request) {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)
@@ -53,7 +53,7 @@ extension SearchPostsInteractor {
 extension SearchPostsInteractor {
     
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
-        postsWorker.fetchPopular {
+        postWorker.fetchPopular {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)

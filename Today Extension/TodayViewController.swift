@@ -24,7 +24,7 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
     
     private lazy var interactor: TodayBusinessLogic = TodayInteractor(
         presenter: TodayPresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
+        postWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker()
     )
     

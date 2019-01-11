@@ -10,14 +10,14 @@ import SwiftyPress
 
 struct TodayInteractor: TodayBusinessLogic, HasDependencies {
     private let presenter: TodayPresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
     init(presenter: TodayPresentable,
-         postsWorker: PostsWorkerType,
+         postWorker: PostWorkerType,
          mediaWorker: MediaWorkerType) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
     }
 }
@@ -25,7 +25,7 @@ struct TodayInteractor: TodayBusinessLogic, HasDependencies {
 extension TodayInteractor {
     
     func fetchLatestPosts(with request: TodayModels.Request) {
-        postsWorker.fetch {
+        postWorker.fetch {
             guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)

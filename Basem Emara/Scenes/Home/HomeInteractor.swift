@@ -10,18 +10,18 @@ import SwiftyPress
 
 struct HomeInteractor: HomeBusinessLogic {
     private let presenter: HomePresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     private let taxonomyWorker: TaxonomyWorkerType
     private let preferences: PreferencesType
 
     init(presenter: HomePresentable,
-         postsWorker: PostsWorkerType,
+         postWorker: PostWorkerType,
          mediaWorker: MediaWorkerType,
          taxonomyWorker: TaxonomyWorkerType,
          preferences: PreferencesType) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
         self.taxonomyWorker = taxonomyWorker
         self.preferences = preferences
@@ -31,7 +31,7 @@ struct HomeInteractor: HomeBusinessLogic {
 extension HomeInteractor {
     
     func fetchLatestPosts(with request: HomeModels.FetchPostsRequest) {
-        postsWorker.fetch {
+        postWorker.fetch {
             guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -49,7 +49,7 @@ extension HomeInteractor {
                     for: HomeModels.PostsResponse(
                         posts: posts,
                         media: media,
-                        favorites: self.preferences.get(.favorites) ?? []
+                        favorites: self.preferences.favorites
                     )
                 )
             }
@@ -57,7 +57,7 @@ extension HomeInteractor {
     }
     
     func fetchPopularPosts(with request: HomeModels.FetchPostsRequest) {
-        postsWorker.fetchPopular {
+        postWorker.fetchPopular {
             guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -75,7 +75,7 @@ extension HomeInteractor {
                     for: HomeModels.PostsResponse(
                         posts: posts,
                         media: media,
-                        favorites: self.preferences.get(.favorites) ?? []
+                        favorites: self.preferences.favorites
                     )
                 )
             }
@@ -83,7 +83,7 @@ extension HomeInteractor {
     }
     
     func fetchTopPickPosts(with request: HomeModels.FetchPostsRequest) {
-        postsWorker.fetchTopPicks {
+        postWorker.fetchTopPicks {
             guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -101,7 +101,7 @@ extension HomeInteractor {
                     for: HomeModels.PostsResponse(
                         posts: posts,
                         media: media,
-                        favorites: self.preferences.get(.favorites) ?? []
+                        favorites: self.preferences.favorites
                     )
                 )
             }
@@ -133,12 +133,12 @@ extension HomeInteractor {
 extension HomeInteractor {
     
     func toggleFavorite(with request: HomeModels.FavoriteRequest) {
-        postsWorker.toggleFavorite(id: request.postID)
+        postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: HomeModels.FavoriteResponse(
                 postID: request.postID,
-                favorite: postsWorker.hasFavorite(id: request.postID)
+                favorite: postWorker.hasFavorite(id: request.postID)
             )
         )
     }

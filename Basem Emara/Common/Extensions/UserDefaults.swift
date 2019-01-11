@@ -1,5 +1,5 @@
 //
-//  DefaultsKeys.swift
+//  UserDefaults.Keys.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-08.
@@ -8,6 +8,6 @@
 
 import ZamzamKit
 
-extension DefaultsKeys {
-    static let currentTheme = DefaultsKey<String?>("currentTheme")
+extension UserDefaults.Keys {
+    static let currentTheme = UserDefaults.Key<String?>("currentTheme")
 }

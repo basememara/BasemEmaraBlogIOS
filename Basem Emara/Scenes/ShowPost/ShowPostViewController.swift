@@ -46,9 +46,9 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
             viewController: self,
             constants: dependencies.resolve()
         ),
-        postsWorker: dependencies.resolveWorker(),
+        postWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
-        authorsWorker: dependencies.resolveWorker(),
+        authorWorker: dependencies.resolveWorker(),
         taxonomyWorker: dependencies.resolveWorker()
     )
     

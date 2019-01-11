@@ -10,14 +10,14 @@ import SwiftyPress
 
 struct ListFavoritesInteractor: ListFavoritesBusinessLogic {
     private let presenter: ListFavoritesPresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
     init(presenter: ListFavoritesPresentable,
-         postsWorker: PostsWorkerType,
+         postWorker: PostWorkerType,
          mediaWorker: MediaWorkerType) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
     }
 }
@@ -25,7 +25,7 @@ struct ListFavoritesInteractor: ListFavoritesBusinessLogic {
 extension ListFavoritesInteractor {
     
     func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest) {
-        postsWorker.fetchFavorites {
+        postWorker.fetchFavorites {
             guard let posts = $0.value, $0.isSuccess else {
                 return self.presenter.presentFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -53,12 +53,12 @@ extension ListFavoritesInteractor {
 extension ListFavoritesInteractor {
     
     func toggleFavorite(with request: ListFavoritesModels.FavoriteRequest) {
-        postsWorker.toggleFavorite(id: request.postID)
+        postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ListFavoritesModels.FavoriteResponse(
                 postID: request.postID,
-                favorite: postsWorker.hasFavorite(id: request.postID)
+                favorite: postWorker.hasFavorite(id: request.postID)
             )
         )
     }

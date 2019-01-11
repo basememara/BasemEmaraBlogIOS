@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: HomeBusinessLogic = HomeInteractor(
         presenter: HomePresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
+        postWorker: dependencies.resolveWorker(),
         mediaWorker: dependencies.resolveWorker(),
         taxonomyWorker: dependencies.resolveWorker(),
         preferences: dependencies.resolve()

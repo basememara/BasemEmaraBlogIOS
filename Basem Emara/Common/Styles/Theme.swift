@@ -13,6 +13,20 @@ import SwiftyPress
 extension Theme {
     
     func apply(for application: UIApplication) {
+        applyPlatform(for: application)
+        applyThemed(for: application)
+        applyCustom(for: application)
+        applyScenes(for: application)
+        
+        // Ensure existing views render with new theme
+        // https://developer.apple.com/documentation/uikit/uiappearance
+        application.windows.reload()
+    }
+}
+
+extension Theme {
+    
+    func applyPlatform(for application: UIApplication) {
         application.keyWindow?.tintColor = tint
         
         UITabBar.appearance().with {
@@ -31,7 +45,9 @@ extension Theme {
             ]
         }
         
-        UIToolbar.appearance().barStyle = barStyle
+        UIToolbar.appearance().with {
+            $0.barStyle = keyboardAppearance == .dark ? .black : .default
+        }
         
         UICollectionView.appearance().backgroundColor = backgroundColor
         
@@ -55,31 +71,19 @@ extension Theme {
         
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = secondaryLabelColor
-        
-        ThemedLabel.appearance().textColor = labelColor
-        ThemedHeadline.appearance().textColor = labelColor
-        ThemedSubhead.appearance().textColor = secondaryLabelColor
-        ThemedFootnote.appearance().textColor = subtleLabelColor
-        
-        ThemedButton.appearance().with {
-            $0.borderColor = tint
-            $0.borderWidth = 1
-            $0.cornerRadius = 3
-        }
-        
-        ThemedImageButton.appearance().with {
-            $0.contentHorizontalAlignment = .fill
-            $0.contentVerticalAlignment = .fill
-            $0.imageView?.contentMode = .scaleAspectFit
-        }
-        
-        ThemedSwitch.appearance().with {
-            $0.tintColor = tint
-            $0.onTintColor = tint
-        }
-        
-        ThemedSegmentedControl.appearance().tintColor = tint
-        
+    }
+}
+
+extension Theme {
+    
+    func applyThemed(for application: UIApplication) {
+        applyThemedViews()
+        applyThemedLabels()
+        applyThemedButtons()
+        applyThemedMisc()
+    }
+    
+    private func applyThemedViews() {
         ThemedView.appearance().backgroundColor = backgroundColor
         
         ThemedSeparator.appearance().with {
@@ -93,7 +97,76 @@ extension Theme {
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
+    }
+    
+    private func applyThemedLabels() {
+        ThemedLabel.appearance().textColor = labelColor
+        ThemedHeadline.appearance().textColor = labelColor
+        ThemedSubhead.appearance().textColor = secondaryLabelColor
+        ThemedFootnote.appearance().textColor = subtleLabelColor
+        ThemedDangerLabel.appearance().textColor = negativeColor
+        ThemedLightLabel.appearance().textColor = backgroundColor
+    }
+    
+    private func applyThemedButtons() {
+        ThemedButton.appearance().with {
+            $0.borderColor = tint
+            $0.borderWidth = 1
+            $0.cornerRadius = buttonCornerRadius
+        }
         
+        ThemedPrimaryButton.appearance().with {
+            $0.setTitleColor(backgroundColor, for: .normal)
+            $0.setBackgroundImage(UIImage(from: tint), for: .normal)
+            
+            $0.setTitleColor(tint, for: .selected)
+            $0.setBackgroundImage(UIImage(from: backgroundColor), for: .selected)
+            
+            $0.setTitleColor(backgroundColor, for: .disabled)
+            $0.setBackgroundImage(UIImage(from: subtleLabelColor), for: .disabled)
+            
+            $0.cornerRadius = buttonCornerRadius
+        }
+        
+        ThemedSecondaryButton.appearance().with {
+            $0.setTitleColor(secondaryLabelColor, for: .normal)
+            $0.setBackgroundImage(UIImage(from: backgroundColor), for: .normal)
+            $0.borderColor = secondaryLabelColor
+            $0.borderWidth = 1
+            $0.cornerRadius = buttonCornerRadius
+        }
+        
+        UILabel.appearance(whenContainedInInstancesOf: [ThemedPrimaryButton.self])
+            .font = .systemFont(ofSize: 15, weight: .bold)
+        
+        UILabel.appearance(whenContainedInInstancesOf: [ThemedSecondaryButton.self])
+            .font = .systemFont(ofSize: 15, weight: .bold)
+        
+        ThemedImageButton.appearance().with {
+            $0.contentHorizontalAlignment = .fill
+            $0.contentVerticalAlignment = .fill
+            $0.imageView?.contentMode = .scaleAspectFit
+        }
+    }
+    
+    private func applyThemedMisc() {
+        ThemedSwitch.appearance().with {
+            $0.tintColor = tint
+            $0.onTintColor = tint
+        }
+        
+        ThemedSegmentedControl.appearance().tintColor = tint
+        
+        ThemedPageControl.appearance().with {
+            $0.pageIndicatorTintColor = separatorColor
+            $0.currentPageIndicatorTintColor = tint
+        }
+    }
+}
+    
+extension Theme {
+        
+    func applyCustom(for application: UIApplication) {
         ThemedImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
@@ -110,9 +183,21 @@ extension Theme {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
         }
+    }
+}
+
+extension Theme {
+    
+    func applyScenes(for application: UIApplication) {
         
-        // Ensure existing views render with new theme
-        // https://developer.apple.com/documentation/uikit/uiappearance
-        application.windows.reload()
+    }
+}
+
+// MARK: - Helpers
+
+private extension Theme {
+    
+    var imageBorderWidthInCell: CGFloat {
+        return barStyle == .black ? 0 : 1
     }
 }
