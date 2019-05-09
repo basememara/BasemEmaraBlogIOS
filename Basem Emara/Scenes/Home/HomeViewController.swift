@@ -19,22 +19,22 @@ class HomeViewController: UIViewController, HasDependencies {
     @IBOutlet private weak var popularTitleLabel: UILabel!
     @IBOutlet private weak var tagTitleLabel: UILabel!
     @IBOutlet private weak var picksTitleLabel: UILabel!
-    @IBOutlet private var titleView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView?
+    @IBOutlet private var titleView: UIView! // Needs strong reference, see storyboard
     
-    @IBOutlet weak var latestPostsCollectionView: UICollectionView! {
+    @IBOutlet private weak var latestPostsCollectionView: UICollectionView! {
         didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
-    @IBOutlet weak var popularPostsCollectionView: UICollectionView! {
+    @IBOutlet private weak var popularPostsCollectionView: UICollectionView! {
         didSet { popularPostsCollectionView.register(nib: PopularPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
-    @IBOutlet weak var pickedPostsCollectionView: UICollectionView! {
+    @IBOutlet private weak var pickedPostsCollectionView: UICollectionView! {
         didSet { pickedPostsCollectionView.register(nib: PickedPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
-    @IBOutlet weak var topTermsTableView: UITableView! {
+    @IBOutlet private weak var topTermsTableView: UITableView! {
         didSet { topTermsTableView.register(nib: TermTableViewCell.self, inBundle: .swiftyPress) }
     }
     
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
-    private lazy var mailComposer: MailComposerType = MailComposer(tintColor: theme.tint)
+    private lazy var mailComposer: MailComposerType = dependencies.resolve()
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
@@ -302,6 +302,19 @@ extension HomeViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
         router.showPost(for: previewController.viewModel)
+    }
+}
+
+extension HomeViewController: Scrollable {
+    
+    func scrollToTop(animated: Bool) {
+        guard isViewLoaded else { return }
+        scrollView?.scrollToTop(animated: animated)
+    }
+    
+    func scrollToBottom(animated: Bool) {
+        guard isViewLoaded else { return }
+        scrollView?.scrollToBottom(animated: animated)
     }
 }
 

@@ -32,10 +32,11 @@ class MainViewController: UITabBarController, HasDependencies {
 extension MainViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        // Reset scroll to top when tab selected
+        // Special handling per tab if needed
         switch (viewController as? UINavigationController)?.topViewController {
-        case let controller where controller is HomeViewController && controller?.isViewLoaded == true:
-            (controller as? HomeViewController)?.scrollView.scrollToTop()
+        case let controller as HomeViewController:
+            // Reset scroll to top when tab selected
+            controller.scrollToTop(animated: true)
         default: break
         }
     }

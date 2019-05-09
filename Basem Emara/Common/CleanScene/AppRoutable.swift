@@ -115,6 +115,14 @@ extension AppRoutable {
     }
 }
 
+/// Tab identifiers for routing
+enum TabStoryboard: Int {
+    case home = 0
+    case favorites = 1
+    case search = 2
+    case more = 3
+}
+
 /// Storyboard identifiers for routing
 enum Storyboard: String {
     case main = "Main"
@@ -125,11 +133,3 @@ enum Storyboard: String {
     case listTerms = "ListTerms"
     case showSettings = "ShowSettings"
 }
-
-enum TabStoryboard: Int {
-    case home = 0
-    case favorites = 1
-    case search = 2
-    case more = 3
-}
-

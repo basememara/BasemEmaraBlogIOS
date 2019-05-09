@@ -36,6 +36,7 @@ extension Localizable {
     static let shareTitle = Localizable(NSLocalizedString("share.title", comment: "Share title for buttons and dialogs"))
     static let emailFeedbackSubject = Localizable(NSLocalizedString("email.feedback.subject", comment: "Email subject for sending feedback"))
     static let shareAppMessage = Localizable(NSLocalizedString("share.app.message", comment: "Message for sharing the app"))
+    static let settingsTitle = Localizable(NSLocalizedString("settings.title", comment: "Settings text for a button or title"))
 }
 
 // Posts

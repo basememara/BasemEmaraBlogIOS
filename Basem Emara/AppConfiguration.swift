@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 class AppConfiguration: DependencyFactory {
     
@@ -49,6 +50,13 @@ class AppConfiguration: DependencyFactory {
         )
     }
     
+    override func resolve() -> Theme {
+        let preferences: PreferencesType = resolve()
+        
+        return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
+            ?? ThemePreset.default.type
+    }
+    
     override func resolveStore() -> PreferencesStore {
         let constants: ConstantsType = resolve()
         
@@ -72,11 +80,12 @@ class AppConfiguration: DependencyFactory {
             inBundle: .main
         )
     }
+}
+
+extension DependencyFactoryType {
     
-    override func resolve() -> Theme {
-        let preferences: PreferencesType = resolve()
-        
-        return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
-            ?? ThemePreset.default.type
+    func resolve() -> MailComposerType {
+        let theme: Theme = resolve()
+        return MailComposer(tintColor: theme.tint)
     }
 }

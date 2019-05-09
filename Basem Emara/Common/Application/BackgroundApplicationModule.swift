@@ -12,10 +12,8 @@ import ZamzamKit
 import UserNotifications
 
 final class BackgroundApplicationModule: ApplicationModule, HasDependencies, Loggable {
-    
     private lazy var dataWorker: DataWorkerType = dependencies.resolveWorker()
-    private let userNotification = UNUserNotificationCenter.current()
-    
+    private let userNotification: UNUserNotificationCenter = .current()
 }
 
 extension BackgroundApplicationModule {

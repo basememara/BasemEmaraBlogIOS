@@ -17,6 +17,7 @@ class ShowMoreViewController: UITableViewController, HasDependencies {
     private(set) lazy var router: ShowMoreRoutable = ShowMoreRouter(
         viewController: self,
         constants: dependencies.resolve(),
+        mailComposer: dependencies.resolve(),
         theme: dependencies.resolve()
     )
     

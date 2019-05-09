@@ -90,13 +90,6 @@ extension Theme {
             $0.backgroundColor = separatorColor
             $0.alpha = 0.5
         }
-        
-        ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
-            $0.backgroundColor = selectionColor
-            $0.borderColor = separatorColor
-            $0.borderWidth = imageBorderWidthInCell
-            $0.cornerRadius = 10
-        }
     }
     
     private func applyThemedLabels() {
@@ -167,6 +160,13 @@ extension Theme {
 extension Theme {
         
     func applyCustom(for application: UIApplication) {
+        ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
+            $0.backgroundColor = selectionColor
+            $0.borderColor = separatorColor
+            $0.borderWidth = imageBorderWidthInCell
+            $0.cornerRadius = 10
+        }
+        
         ThemedImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
