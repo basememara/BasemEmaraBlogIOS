@@ -79,25 +79,19 @@
 		8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
 		8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; };
 		8B5B459220B3103A0088DF60 /* SwiftyPress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B5B459A20B310D40088DF60 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459320B310D40088DF60 /* KeychainSwift.framework */; };
 		8B5B459B20B310D40088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
 		8B5B459C20B310D40088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
-		8B5B459D20B310D40088DF60 /* Arcane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459620B310D40088DF60 /* Arcane.framework */; };
 		8B5B459E20B310D40088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
 		8B5B459F20B310D40088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
 		8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
 		8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B45A320B312060088DF60 /* SwiftyPress.framework */; };
 		8B5B45C220B3122E0088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
-		8B5B45C320B3122E0088DF60 /* Arcane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459620B310D40088DF60 /* Arcane.framework */; };
-		8B5B45C420B3122E0088DF60 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459320B310D40088DF60 /* KeychainSwift.framework */; };
 		8B5B45C520B3122E0088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
 		8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
 		8B5B45C720B3122E0088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
 		8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
 		8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B45C920B312340088DF60 /* SwiftyPress.framework */; };
 		8B5B45CB20B312450088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
-		8B5B45CC20B312450088DF60 /* Arcane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459620B310D40088DF60 /* Arcane.framework */; };
-		8B5B45CD20B312450088DF60 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459320B310D40088DF60 /* KeychainSwift.framework */; };
 		8B5B45CE20B312450088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
 		8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
 		8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
@@ -360,8 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5B459E20B310D40088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B459D20B310D40088DF60 /* Arcane.framework in Frameworks */,
-				8B5B459A20B310D40088DF60 /* KeychainSwift.framework in Frameworks */,
 				8B5B459B20B310D40088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B459C20B310D40088DF60 /* Realm.framework in Frameworks */,
 				8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */,
@@ -380,8 +372,6 @@
 			files = (
 				8B1DC0E920B1AFE1009FBBBD /* NotificationCenter.framework in Frameworks */,
 				8B5B45C720B3122E0088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B45C320B3122E0088DF60 /* Arcane.framework in Frameworks */,
-				8B5B45C420B3122E0088DF60 /* KeychainSwift.framework in Frameworks */,
 				8B5B45C220B3122E0088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B45C520B3122E0088DF60 /* Realm.framework in Frameworks */,
 				8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */,
@@ -400,8 +390,6 @@
 				8B1DC0FE20B1B0BF009FBBBD /* UserNotifications.framework in Frameworks */,
 				8B1DC10020B1B0BF009FBBBD /* UserNotificationsUI.framework in Frameworks */,
 				8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B45CC20B312450088DF60 /* Arcane.framework in Frameworks */,
-				8B5B45CD20B312450088DF60 /* KeychainSwift.framework in Frameworks */,
 				8B5B45CB20B312450088DF60 /* Alamofire.framework in Frameworks */,
 				8B5B45CE20B312450088DF60 /* Realm.framework in Frameworks */,
 				8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */,
@@ -940,12 +928,12 @@
 				TargetAttributes = {
 					8B0D644C20BEB0FB0046056F = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 8B1DC0CA20B1AE0E009FBBBD;
 					};
 					8B1DC0CA20B1AE0E009FBBBD = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -963,7 +951,7 @@
 					};
 					8B1DC0E520B1AFE1009FBBBD = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -975,7 +963,7 @@
 					};
 					8B1DC0FB20B1B0BF009FBBBD = {
 						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1080,8 +1068,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/SwiftyBeaver.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Arcane.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/KeychainSwift.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework",
@@ -1311,7 +1297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basem Emara.app/Basem Emara";
 			};
@@ -1337,7 +1323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basem Emara.app/Basem Emara";
 			};
@@ -1363,7 +1349,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Basem Emara.app/Basem Emara";
 			};
@@ -1504,7 +1490,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1530,7 +1516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1556,7 +1542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1582,7 +1568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1608,7 +1594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1634,7 +1620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1720,7 +1706,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
@@ -1746,7 +1732,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
@@ -1772,7 +1758,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Post-Notification-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
