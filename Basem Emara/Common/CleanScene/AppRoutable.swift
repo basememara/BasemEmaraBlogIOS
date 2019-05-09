@@ -9,14 +9,9 @@
 import UIKit
 import ZamzamKit
 
-protocol AppRoutable: Router {
-    var viewController: UIViewController? { get set }
-    func dismiss(animated: Bool, completion: (() -> Void)?)
-}
-
 // MARK: - Helper functions
 
-extension AppRoutable {
+extension UIViewController {
     
     /**
      Presents the intial view controller of the specified storyboard modally.

@@ -32,10 +32,11 @@ extension BackgroundApplicationModule {
         // Create local notifications when new content retrieved via background fetch
         dataWorker.sync {
             // Validate if any updates that needs to be notified
-            guard $0.isSuccess else { return completionHandler(.failed) }
+            guard case .success = $0 else { return completionHandler(.failed) }
             
-            guard let post = $0.value?.posts.sorted(by: { $0.createdAt > $1.createdAt }).first else {
-                return completionHandler(.noData)
+            guard case .success(let value) = $0,
+                let post = value.posts.sorted(by: { $0.createdAt > $1.createdAt }).first else {
+                    return completionHandler(.noData)
             }
             
             var attachments = [UNNotificationAttachment]()
@@ -64,7 +65,7 @@ extension BackgroundApplicationModule {
             }
             
             // Get remote media to attach to notification
-            guard let mediaID = post.mediaID, let media = $0.value?.media
+            guard let mediaID = post.mediaID, let media = value.media
                 .first(where: { $0.id == mediaID }) else {
                     return deferred()
             }
@@ -76,8 +77,8 @@ extension BackgroundApplicationModule {
             UNNotificationAttachment.download(from: media.thumbnailLink) {
                 defer { thread.async { deferred() } }
                 
-                guard $0.isSuccess, let attachment = $0.value else {
-                    return self.Log(error: "Could not download the post thumbnail (\(link)): \($0.error.debugDescription).")
+                guard case .success(let attachment) = $0 else {
+                    return self.Log(error: "Could not download the post thumbnail (\(String(describing: link))): \($0.error.debugDescription).")
                 }
                 
                 // Store attachment to schedule notification later

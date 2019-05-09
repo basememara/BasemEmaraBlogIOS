@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyPress
+import ZamzamKit
 
 protocol MainRoutable: AppRoutable {
     func showFavorites()

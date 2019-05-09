@@ -175,10 +175,12 @@ extension ListPostsViewController: PostsDataViewDelegate {
                                     handler: {
                                         guard let url = URL(string: model.link),
                                             SCNetworkReachability.isOnline else {
-                                                return self.present(
+                                                self.present(
                                                     alert: .localized(.browserNotAvailableErrorTitle),
                                                     message: .localized(.notConnectedToInternetErrorMessage)
                                                 )
+                                                
+                                                return
                                         }
                                         
                                         UIApplication.shared.open(url)

@@ -26,14 +26,14 @@ extension ListFavoritesInteractor {
     
     func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest) {
         postWorker.fetchFavorites {
-            guard let posts = $0.value, $0.isSuccess else {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentFavoritePosts(
                         error: $0.error ?? .unknownReason(nil)
                     )

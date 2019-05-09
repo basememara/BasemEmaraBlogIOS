@@ -23,11 +23,13 @@ extension ListTermsInteractor {
     
     func fetchTerms(with request: ListTermsModels.FetchTermsRequest) {
         taxonomyWorker.fetch {
-            guard let terms = $0.value?.sorted(by: { $0.count > $1.count }), $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
+            
+            let terms = value.sorted { $0.count > $1.count }
             
             self.presenter.presentTerms(
                 for: ListTermsModels.TermsResponse(

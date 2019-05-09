@@ -186,10 +186,12 @@ private extension ShowPostViewController {
     
     @objc func commentsTapped() {
         guard SCNetworkReachability.isOnline else {
-            return present(
+            present(
                 alert: .localized(.commentsNotAvailableErrorTitle),
                 message: .localized(.notConnectedToInternetErrorMessage)
             )
+            
+            return
         }
         
         let url = constants.baseURL
@@ -213,10 +215,12 @@ private extension ShowPostViewController {
             imageBundle: .zamzamKit,
             handler: {
                 guard SCNetworkReachability.isOnline else {
-                    return self.present(
+                    self.present(
                         alert: .localized(.browserNotAvailableErrorTitle),
                         message: .localized(.notConnectedToInternetErrorMessage)
                     )
+                    
+                    return
                 }
 
                 UIApplication.shared.open(url)
@@ -232,7 +236,8 @@ private extension ShowPostViewController {
     
     @objc func backTapped() {
         guard let lastPostID = history.popLast() else {
-            return present(alert: .localized(.noPostInHistoryErrorMessage))
+            present(alert: .localized(.noPostInHistoryErrorMessage))
+            return
         }
         
         activityIndicatorView.startAnimating()

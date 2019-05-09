@@ -32,7 +32,7 @@ extension ShowPostInteractor {
     
     func fetchPost(with request: ShowPostModels.Request) {
         postWorker.fetch(id: request.postID) {
-            guard let value = $0.value, $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentPost(
                     error: $0.error ?? .unknownReason(nil)
                 )
@@ -59,7 +59,7 @@ extension ShowPostInteractor {
             // Handle if URL is not for a post
             if case .nonExistent? = $0.error {
                 self.taxonomyWorker.fetch(url: request.url) {
-                    guard let term = $0.value, $0.isSuccess else {
+                    guard case .success(let term) = $0 else {
                         // URL could not be found
                         return self.presenter.presentByURL(
                             for: ShowPostModels.FetchWebResponse(
@@ -83,7 +83,7 @@ extension ShowPostInteractor {
                 return
             }
             
-            guard let post = $0.value, $0.isSuccess else {
+            guard case .success(let post) = $0 else {
                 // URL could not be found
                 return self.presenter.presentByURL(
                     for: ShowPostModels.FetchWebResponse(

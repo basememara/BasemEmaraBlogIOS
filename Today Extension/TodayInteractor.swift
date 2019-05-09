@@ -26,14 +26,16 @@ extension TodayInteractor {
     
     func fetchLatestPosts(with request: TodayModels.Request) {
         postWorker.fetch {
-            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
+            let posts = value.prefix(request.count).array
+            
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )

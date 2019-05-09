@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 protocol HomeBusinessLogic {
     func fetchLatestPosts(with request: HomeModels.FetchPostsRequest)

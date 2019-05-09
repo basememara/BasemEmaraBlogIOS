@@ -23,15 +23,15 @@ class HomeViewController: UIViewController, HasDependencies {
     @IBOutlet private var titleView: UIView! // Needs strong reference, see storyboard
     
     @IBOutlet private weak var latestPostsCollectionView: UICollectionView! {
-        didSet { latestPostsCollectionView.register(nib: LatestPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { latestPostsCollectionView.register(cell: LatestPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet private weak var popularPostsCollectionView: UICollectionView! {
-        didSet { popularPostsCollectionView.register(nib: PopularPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { popularPostsCollectionView.register(cell: PopularPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet private weak var pickedPostsCollectionView: UICollectionView! {
-        didSet { pickedPostsCollectionView.register(nib: PickedPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { pickedPostsCollectionView.register(cell: PickedPostCollectionViewCell.self, inBundle: .swiftyPress) }
     }
     
     @IBOutlet private weak var topTermsTableView: UITableView! {
@@ -187,10 +187,12 @@ private extension HomeViewController {
     
     @IBAction func disclaimerButtonTapped() {
         guard let disclaimerURL = constants.disclaimerURL else {
-            return present(
+            present(
                 alert: .localized(.disclaimerNotAvailableErrorTitle),
                 message: .localized(.disclaimerNotAvailableErrorMessage)
             )
+            
+            return
         }
         
         show(safari: disclaimerURL, theme: dependencies.resolve())
@@ -202,10 +204,12 @@ private extension HomeViewController {
     
     @IBAction func contactButtonTapped() {
         guard let controller = mailComposer.makeViewController(email: constants.email) else {
-            return present(
+            present(
                 alert: .localized(.couldNotSendEmail),
                 message: .localized(.couldNotSendEmailMessage)
             )
+            
+            return
         }
         
         present(controller, animated: true)

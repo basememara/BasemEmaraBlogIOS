@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 struct HomeInteractor: HomeBusinessLogic {
     private let presenter: HomePresentable
@@ -32,14 +33,16 @@ extension HomeInteractor {
     
     func fetchLatestPosts(with request: HomeModels.FetchPostsRequest) {
         postWorker.fetch {
-            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
+            let posts = value.prefix(request.count).array
+            
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
@@ -58,14 +61,16 @@ extension HomeInteractor {
     
     func fetchPopularPosts(with request: HomeModels.FetchPostsRequest) {
         postWorker.fetchPopular {
-            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
+            let posts = value.prefix(request.count).array
+            
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
@@ -84,14 +89,16 @@ extension HomeInteractor {
     
     func fetchTopPickPosts(with request: HomeModels.FetchPostsRequest) {
         postWorker.fetchTopPicks {
-            guard let posts = $0.value?.prefix(request.count).array, $0.isSuccess else {
+            guard case .success(let value) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
+            let posts = value.prefix(request.count).array
+            
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
@@ -113,13 +120,16 @@ extension HomeInteractor {
     
     func fetchTerms(with request: HomeModels.FetchTermsRequest) {
         taxonomyWorker.fetch {
-            guard let terms = $0.value?
-                .sorted(by: { $0.count > $1.count })
-                .prefix(request.count).array, $0.isSuccess else {
-                    return self.presenter.presentTerms(
-                        error: $0.error ?? .unknownReason(nil)
-                    )
+            guard case .success(let value) = $0 else {
+                return self.presenter.presentTerms(
+                    error: $0.error ?? .unknownReason(nil)
+                )
             }
+            
+            let terms = value
+                .sorted { $0.count > $1.count }
+                .prefix(request.count)
+                .array
             
             self.presenter.presentTerms(
                 for: HomeModels.TermsResponse(

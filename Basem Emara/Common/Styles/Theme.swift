@@ -167,13 +167,13 @@ extension Theme {
             $0.cornerRadius = 10
         }
         
-        ThemedImage.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
+        ThemedImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        ThemedImage.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
+        ThemedImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
