@@ -419,11 +419,11 @@
 			children = (
 				8B63A2AA2162D29C003868F7 /* Common */,
 				8B63A2CA2164267B003868F7 /* Templates */,
-				8B63A1F7216283DD003868F7 /* ShowPost.storyboard */,
 				8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */,
 				8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */,
 				8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */,
 				8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */,
+				8B63A1F7216283DD003868F7 /* ShowPost.storyboard */,
 			);
 			path = ShowPost;
 			sourceTree = "<group>";
@@ -631,11 +631,11 @@
 			isa = PBXGroup;
 			children = (
 				8B63A2BF2163C798003868F7 /* Common */,
-				8B47A5E220E10EA700681404 /* ListPosts.storyboard */,
 				8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */,
 				8B63A2C42163C822003868F7 /* ListPostsInteractor.swift */,
 				8B63A2C62163C830003868F7 /* ListPostsPresenter.swift */,
 				8B63A2C82163C838003868F7 /* ListPostsRouter.swift */,
+				8B47A5E220E10EA700681404 /* ListPosts.storyboard */,
 			);
 			path = ListPosts;
 			sourceTree = "<group>";
@@ -644,11 +644,11 @@
 			isa = PBXGroup;
 			children = (
 				8B4D71A9216A4057002ACA81 /* Common */,
-				8BF2CCCC20B6D85500C9C161 /* SearchPosts.storyboard */,
 				8B4D71A1216A4043002ACA81 /* SearchPostsViewController.swift */,
 				8B4D71A3216A4043002ACA81 /* SearchPostsInteractor.swift */,
 				8B4D719F216A4043002ACA81 /* SearchPostsPresenter.swift */,
 				8B4D71A0216A4043002ACA81 /* SearchPostsRouter.swift */,
+				8BF2CCCC20B6D85500C9C161 /* SearchPosts.storyboard */,
 			);
 			path = SearchPosts;
 			sourceTree = "<group>";
@@ -665,9 +665,9 @@
 		8B52641A20D7C93B00170875 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */,
 				8B2135AF217CEC3800E63F21 /* MainViewController.swift */,
 				8B2135B1217CEC8D00E63F21 /* MainRouter.swift */,
+				8B1DC0D420B1AE0E009FBBBD /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -676,11 +676,11 @@
 			isa = PBXGroup;
 			children = (
 				8BEEEF312123300E00A6AF99 /* Common */,
-				8BF2CCC420B6D81400C9C161 /* Home.storyboard */,
 				8BF2CCBA20B6D6D200C9C161 /* HomeViewController.swift */,
 				8BEEEF362123505B00A6AF99 /* HomeInteractor.swift */,
 				8BEEEF382123506B00A6AF99 /* HomePresenter.swift */,
 				8B0A28942133E3680008135D /* HomeRouter.swift */,
+				8BF2CCC420B6D81400C9C161 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -689,11 +689,11 @@
 			isa = PBXGroup;
 			children = (
 				8B33C4DD21694BB400658700 /* Common */,
-				8BF2CCC820B6D83F00C9C161 /* ListFavorites.storyboard */,
 				8BF2CCBE20B6D77100C9C161 /* ListFavoritesViewController.swift */,
 				8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */,
 				8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */,
 				8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */,
+				8BF2CCC820B6D83F00C9C161 /* ListFavorites.storyboard */,
 			);
 			path = ListFavorites;
 			sourceTree = "<group>";
@@ -702,9 +702,9 @@
 			isa = PBXGroup;
 			children = (
 				8BBF81D9216BFE7000158DDE /* Common */,
-				8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */,
 				8BF2CCC020B6D78300C9C161 /* ShowMoreViewController.swift */,
 				8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */,
+				8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -722,11 +722,11 @@
 			isa = PBXGroup;
 			children = (
 				8B63A2B42163B4A6003868F7 /* Common */,
-				8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */,
 				8B63A2B22163AEFD003868F7 /* ListTermsViewController.swift */,
 				8B63A2B52163B4C7003868F7 /* ListTermsInteractor.swift */,
 				8B63A2B72163B4DE003868F7 /* ListTermsPresenter.swift */,
 				8B63A2B92163B4F1003868F7 /* ListTermsRouter.swift */,
+				8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */,
 			);
 			path = ListTerms;
 			sourceTree = "<group>";
@@ -798,8 +798,8 @@
 		8BBF81C7216B7BC400158DDE /* PreviewPost */ = {
 			isa = PBXGroup;
 			children = (
-				8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */,
 				8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */,
+				8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */,
 			);
 			path = PreviewPost;
 			sourceTree = "<group>";
@@ -815,8 +815,8 @@
 		8BBF81E1216C0D5900158DDE /* ShowSettings */ = {
 			isa = PBXGroup;
 			children = (
-				8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */,
 				8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */,
+				8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */,
 			);
 			path = ShowSettings;
 			sourceTree = "<group>";
