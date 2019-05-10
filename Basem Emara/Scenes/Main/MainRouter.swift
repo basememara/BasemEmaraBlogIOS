@@ -36,7 +36,7 @@ extension MainRouter: MainRoutable {
             controller.router.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
-                    self.constants.appDisplayName!
+                    self.constants.appDisplayName ?? ""
                 )
             )
         }

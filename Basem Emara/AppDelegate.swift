@@ -44,4 +44,3 @@ extension AppDelegate {
             .application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }
-

@@ -12,8 +12,10 @@ struct ListTermsInteractor: ListTermsBusinessLogic {
     private let presenter: ListTermsPresentable
     private let taxonomyWorker: TaxonomyWorkerType
     
-    init(presenter: ListTermsPresentable,
-         taxonomyWorker: TaxonomyWorkerType) {
+    init(
+        presenter: ListTermsPresentable,
+        taxonomyWorker: TaxonomyWorkerType
+    ) {
         self.presenter = presenter
         self.taxonomyWorker = taxonomyWorker
     }

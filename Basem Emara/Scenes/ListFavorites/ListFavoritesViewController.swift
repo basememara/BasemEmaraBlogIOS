@@ -14,14 +14,14 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
         }
     }
     
-    @IBOutlet var emptyPlaceholderView: UIView!
+    @IBOutlet private var emptyPlaceholderView: UIView!
     
     // MARK: - Scene variables
     
@@ -114,7 +114,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { action, view, completion in
+                UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
                     self.interactor.toggleFavorite(with: ListFavoritesModels.FavoriteRequest(postID: model.id))
                     completion(true)
                 }.with {
@@ -134,8 +134,7 @@ extension ListFavoritesViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }
-

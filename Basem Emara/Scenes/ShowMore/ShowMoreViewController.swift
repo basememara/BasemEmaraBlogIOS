@@ -80,14 +80,14 @@ extension ShowMoreViewController {
             router.showSubscribe()
         case .feedback:
             router.sendFeedback(
-                subject: .localizedFormat(.emailFeedbackSubject, constants.appDisplayName!)
+                subject: .localizedFormat(.emailFeedbackSubject, constants.appDisplayName ?? "")
             )
         case .work:
             router.showWorkWithMe()
         case .rate:
             router.showRateApp()
         case .share:
-            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName!)
+            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName ?? "")
             let share = [message, constants.itunesURL]
             present(activities: share, popoverFrom: cell)
         case .tutorial:

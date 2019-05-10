@@ -15,10 +15,10 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
     
     // MARK: - Controls
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var featuredImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet private weak var captionLabel: UILabel!
+    @IBOutlet private weak var featuredImage: UIImageView!
     
     // MARK: - VIP variables
     

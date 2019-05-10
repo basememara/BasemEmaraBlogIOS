@@ -304,8 +304,8 @@ extension HomeViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }
 
@@ -321,4 +321,3 @@ extension HomeViewController: Scrollable {
         scrollView?.scrollToBottom(animated: animated)
     }
 }
-

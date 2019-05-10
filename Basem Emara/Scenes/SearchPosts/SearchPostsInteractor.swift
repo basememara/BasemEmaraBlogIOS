@@ -13,9 +13,11 @@ struct SearchPostsInteractor: SearchPostsBusinessLogic {
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
-    init(presenter: SearchPostsPresentable,
-         postWorker: PostWorkerType,
-         mediaWorker: MediaWorkerType) {
+    init(
+        presenter: SearchPostsPresentable,
+        postWorker: PostWorkerType,
+        mediaWorker: MediaWorkerType
+    ) {
         self.presenter = presenter
         self.postWorker = postWorker
         self.mediaWorker = mediaWorker

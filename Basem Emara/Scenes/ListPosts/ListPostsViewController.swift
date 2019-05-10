@@ -15,7 +15,7 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
@@ -145,7 +145,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
         
         return UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { action, view, completion in
+                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
                     self.interactor.toggleFavorite(with: ListPostsModels.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
@@ -153,7 +153,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     $0.image = UIImage(named: isFavorite ? "favorite-empty" : "favorite-filled")
                     $0.backgroundColor = theme.tint
                 },
-                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { action, view, completion in
+                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { _, _, completion in
                     self.present(
                         actionSheet: nil,
                         popoverFrom: sender,
@@ -216,7 +216,7 @@ extension ListPostsViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }

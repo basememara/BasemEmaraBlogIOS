@@ -16,11 +16,13 @@ struct HomeInteractor: HomeBusinessLogic {
     private let taxonomyWorker: TaxonomyWorkerType
     private let preferences: PreferencesType
 
-    init(presenter: HomePresentable,
-         postWorker: PostWorkerType,
-         mediaWorker: MediaWorkerType,
-         taxonomyWorker: TaxonomyWorkerType,
-         preferences: PreferencesType) {
+    init(
+        presenter: HomePresentable,
+        postWorker: PostWorkerType,
+        mediaWorker: MediaWorkerType,
+        taxonomyWorker: TaxonomyWorkerType,
+        preferences: PreferencesType
+    ) {
         self.presenter = presenter
         self.postWorker = postWorker
         self.mediaWorker = mediaWorker

@@ -15,11 +15,13 @@ struct ShowPostInteractor: ShowPostBusinessLogic {
     private let authorWorker: AuthorWorkerType
     private let taxonomyWorker: TaxonomyWorkerType
     
-    init(presenter: ShowPostPresentable,
-         postWorker: PostWorkerType,
-         mediaWorker: MediaWorkerType,
-         authorWorker: AuthorWorkerType,
-         taxonomyWorker: TaxonomyWorkerType) {
+    init(
+        presenter: ShowPostPresentable,
+        postWorker: PostWorkerType,
+        mediaWorker: MediaWorkerType,
+        authorWorker: AuthorWorkerType,
+        taxonomyWorker: TaxonomyWorkerType
+    ) {
         self.presenter = presenter
         self.postWorker = postWorker
         self.mediaWorker = mediaWorker

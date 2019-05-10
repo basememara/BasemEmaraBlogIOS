@@ -13,9 +13,11 @@ struct TodayInteractor: TodayBusinessLogic, HasDependencies {
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
-    init(presenter: TodayPresentable,
-         postWorker: PostWorkerType,
-         mediaWorker: MediaWorkerType) {
+    init(
+        presenter: TodayPresentable,
+        postWorker: PostWorkerType,
+        mediaWorker: MediaWorkerType
+    ) {
         self.presenter = presenter
         self.postWorker = postWorker
         self.mediaWorker = mediaWorker
@@ -51,4 +53,3 @@ extension TodayInteractor {
         }
     }
 }
-

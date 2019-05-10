@@ -53,7 +53,7 @@ extension AppRoutable {
         let storyboard = UIStoryboard(name: storyboard.rawValue, bundle: bundle)
         
         guard let controller = (identifier != nil
-            ? storyboard.instantiateViewController(withIdentifier: identifier!)
+            ? storyboard.instantiateViewController(withIdentifier: identifier ?? "")
             : storyboard.instantiateInitialViewController()) as? T else {
                 return assertionFailure("Invalid controller for storyboard \(storyboard).")
         }

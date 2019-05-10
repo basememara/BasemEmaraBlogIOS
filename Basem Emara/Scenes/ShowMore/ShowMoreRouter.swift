@@ -78,7 +78,8 @@ extension ShowMoreRouter {
     }
     
     func showRateApp() {
-        UIApplication.shared.open(URL(string: constants.itunesURL)!)
+        guard let url = URL(string: constants.itunesURL) else { return }
+        UIApplication.shared.open(url)
     }
     
     func showSettings() {

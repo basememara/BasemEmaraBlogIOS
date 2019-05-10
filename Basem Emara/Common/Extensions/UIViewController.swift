@@ -23,7 +23,8 @@ extension UIViewController {
             message: message,
             additionalActions: [
                 UIAlertAction(title: .localized(.settingsTitle)) {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                    UIApplication.shared.open(url)
                 }
             ],
             handler: handler

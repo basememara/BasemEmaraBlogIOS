@@ -33,7 +33,7 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     )
     
     private lazy var commentBarButton = BadgeBarButtonItem(
-        image: UIImage(named: "comments")!,
+        image: UIImage(named: "comments"),
         badgeText: nil,
         target: self,
         action: #selector(commentsTapped)
@@ -63,7 +63,7 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     private lazy var notificationCenter: NotificationCenter = dependencies.resolve()
     private lazy var history = [Int]()
     
-    var postID: Int! //Must assign or die
+    var postID: Int?
     let application = UIApplication.shared
     var statusBar: UIView?
     
@@ -113,6 +113,7 @@ private extension ShowPostViewController {
     }
     
     func loadData() {
+        guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
         interactor.fetchPost(
@@ -145,7 +146,10 @@ extension ShowPostViewController: ShowPostDisplayable {
         if let postID = viewModel.postID {
             activityIndicatorView.startAnimating()
             
-            history.append(self.postID)
+            if let lastPostID = self.postID {
+                history.append(lastPostID)
+            }
+            
             self.postID = postID
             
             interactor.fetchPost(
@@ -177,6 +181,8 @@ extension ShowPostViewController: ShowPostDisplayable {
 private extension ShowPostViewController {
     
     @objc func favoriteTapped() {
+        guard let postID = postID else { return }
+        
         interactor.toggleFavorite(
             with: ShowPostModels.FavoriteRequest(
                 postID: postID
@@ -244,7 +250,7 @@ private extension ShowPostViewController {
         postID = lastPostID
         
         interactor.fetchPost(
-            with: ShowPostModels.Request(postID: postID)
+            with: ShowPostModels.Request(postID: lastPostID)
         )
     }
     
@@ -259,13 +265,17 @@ private extension ShowPostViewController {
 extension ShowPostViewController: ShowPostViewControllerDelegate {
     
     func update(postID: Int) {
-        history.append(self.postID)
+        if let lastPostID = self.postID {
+            history.append(lastPostID)
+        }
+        
         self.postID = postID
         loadData()
     }
 }
 
 extension ShowPostViewController: WKNavigationDelegate {
+    //swiftlint:disable implicitly_unwrapped_optional
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let requestURL = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {

@@ -37,7 +37,8 @@ extension MainViewController: UITabBarControllerDelegate {
         case let controller as HomeViewController:
             // Reset scroll to top when tab selected
             controller.scrollToTop(animated: true)
-        default: break
+        default:
+            break
         }
     }
 }

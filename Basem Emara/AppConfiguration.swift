@@ -28,14 +28,21 @@ class AppConfiguration: DependencyFactory {
             itunesName: "basememara",
             itunesID: "1021806851",
             baseURL: {
+                let string: String
                 switch environment {
                 case .development:
-                    return URL(string: "https://staging2.basememara.com")!
+                    string = "https://staging2.basememara.com"
                 case .staging:
-                    return URL(string: "https://staging3.basememara.com")!
+                    string = "https://staging3.basememara.com"
                 case .production:
-                    return URL(string: "https://basememara.com")!
+                    string = "https://basememara.com"
                 }
+                
+                guard let url = URL(string: string) else {
+                    fatalError("Could not determine base URL of server.")
+                }
+                
+                return url
             }(),
             baseREST: "wp-json/swiftypress/v3",
             wpREST: "wp-json/wp/v2",
@@ -65,8 +72,10 @@ class AppConfiguration: DependencyFactory {
                 UserDefaults(
                     suiteName: {
                         switch constants.environment {
-                        case .development, .staging: return "group.io.zamzam.Basem-Emara-staging"
-                        case .production: return "group.io.zamzam.Basem-Emara"
+                        case .development, .staging:
+                            return "group.io.zamzam.Basem-Emara-staging"
+                        case .production:
+                            return "group.io.zamzam.Basem-Emara"
                         }
                     }()
                 ) ?? .standard

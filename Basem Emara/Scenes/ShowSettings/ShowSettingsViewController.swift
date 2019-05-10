@@ -14,7 +14,7 @@ class ShowSettingsViewController: UITableViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var themeSwitch: UISwitch!
+    @IBOutlet private weak var themeSwitch: UISwitch!
     
     // MARK: - Internal variable
     
