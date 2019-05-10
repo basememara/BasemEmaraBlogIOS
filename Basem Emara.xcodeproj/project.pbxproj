@@ -229,7 +229,7 @@
 		8B1DC0D520B1AE0E009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B1DC0DA20B1AE10009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8B1DC0DC20B1AE10009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B1DC0DC20B1AE10009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Basem Emara/Info.plist"; sourceTree = "<group>"; };
 		8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		8B1DC10520B1B0BF009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NotificationInterface.storyboard; sourceTree = "<group>"; };
 		8B1DC10720B1B0BF009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara.entitlements"; sourceTree = "<group>"; };
+		8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Basem Emara.entitlements"; path = "Basem Emara/Basem Emara.entitlements"; sourceTree = "<group>"; };
 		8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
 		8B1DC11420B1BE45009FBBBD /* Post Notification Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Post Notification Extension.entitlements"; sourceTree = "<group>"; };
 		8B21359E217CDAA200E63F21 /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
@@ -410,6 +410,8 @@
 				8B87FC6B22859061004AC246 /* .swiftlint.yml */,
 				8B00E41620B30F9300B20B2C /* Cartfile */,
 				8B00E41520B30F9300B20B2C /* README.md */,
+				8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */,
+				8B1DC0DC20B1AE10009FBBBD /* Info.plist */,
 			);
 			name = Meta;
 			sourceTree = "<group>";
@@ -480,7 +482,6 @@
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
 				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
-				8B1DC11520B1C172009FBBBD /* Supporting Files */,
 			);
 			path = "Basem Emara";
 			sourceTree = "<group>";
@@ -532,15 +533,6 @@
 				8B2135D3217D5F2200E63F21 /* Supporting Files */,
 			);
 			path = "Post Notification Extension";
-			sourceTree = "<group>";
-		};
-		8B1DC11520B1C172009FBBBD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */,
-				8B1DC0DC20B1AE10009FBBBD /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8B1DC11820B1C185009FBBBD /* Scenes */ = {
