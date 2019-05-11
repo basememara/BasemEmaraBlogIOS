@@ -11,7 +11,7 @@ import NotificationCenter
 import SwiftyPress
 import ZamzamKit
 
-class TodayViewController: ControllerModuleDelegate, HasDependencies, DependencyConfigurator, NCWidgetProviding {
+class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInjection, NCWidgetProviding {
     
     // MARK: - Controls
     
@@ -24,13 +24,13 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
     
     private lazy var interactor: TodayBusinessLogic = TodayInteractor(
         presenter: TodayPresenter(viewController: self),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     // MARK: - Internal variable
     
-    private lazy var dataWorker: DataWorkerType = dependencies.resolveWorker()
+    private lazy var dataWorker: DataWorkerType = dependencies.resolve()
     
     // MARK: - Controller cycle
     
@@ -54,7 +54,7 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
 private extension TodayViewController {
     
     func configure() {
-        register(dependencies: AppConfiguration())
+        inject(dependencies: AppConfigurator())
         dataWorker.configure()
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))

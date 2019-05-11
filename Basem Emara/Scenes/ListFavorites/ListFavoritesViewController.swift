@@ -27,8 +27,8 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListFavoritesBusinessLogic = ListFavoritesInteractor(
         presenter: ListFavoritesPresenter(viewController: self),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: ListFavoritesRoutable = ListFavoritesRouter(

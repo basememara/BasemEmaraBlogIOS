@@ -26,8 +26,8 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListPostsBusinessLogic = ListPostsInteractor(
         presenter: ListPostsPresenter(viewController: self),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: ListPostsRoutable = ListPostsRouter(

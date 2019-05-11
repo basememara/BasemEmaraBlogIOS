@@ -42,9 +42,9 @@ class HomeViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: HomeBusinessLogic = HomeInteractor(
         presenter: HomePresenter(viewController: self),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker(),
-        taxonomyWorker: dependencies.resolveWorker(),
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve(),
+        taxonomyWorker: dependencies.resolve(),
         preferences: dependencies.resolve()
     )
     
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
-    private lazy var mailComposer: MailComposerType = dependencies.resolve()
+    private lazy var mailComposer: MailComposerType = dependencies.resolve(delegate: nil)
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     

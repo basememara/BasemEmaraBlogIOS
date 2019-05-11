@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamKit
 
-class AppConfiguration: DependencyFactory {
+class AppConfigurator: CoreConfigurator {
     
     override func resolveStore() -> ConstantsStore {
         // Declare environment mode
@@ -52,16 +52,8 @@ class AppConfiguration: DependencyFactory {
             styleSheet: "https://basememara.com/wp-content/themes/metro-pro/style.css",
             googleAnalyticsID: "UA-60131988-2",
             featuredCategoryID: 64,
-            logFileName: "basememara",
-            logDNAKey: nil
+            logFileName: "basememara"
         )
-    }
-    
-    override func resolve() -> Theme {
-        let preferences: PreferencesType = resolve()
-        
-        return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
-            ?? ThemePreset.default.type
     }
     
     override func resolveStore() -> PreferencesStore {
@@ -89,12 +81,11 @@ class AppConfiguration: DependencyFactory {
             inBundle: .main
         )
     }
-}
-
-extension DependencyFactoryType {
     
-    func resolve() -> MailComposerType {
-        let theme: Theme = resolve()
-        return MailComposer(tintColor: theme.tint)
+    override func resolve() -> Theme {
+        let preferences: PreferencesType = resolve()
+        
+        return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
+            ?? ThemePreset.default.type
     }
 }

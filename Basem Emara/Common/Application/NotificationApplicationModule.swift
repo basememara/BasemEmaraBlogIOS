@@ -12,9 +12,7 @@ import ZamzamKit
 import UserNotifications
 
 final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable {
-
     private let userNotification: UNUserNotificationCenter = .current()
-    
 }
 
 extension NotificationApplicationModule {

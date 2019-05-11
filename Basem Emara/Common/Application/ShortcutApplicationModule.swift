@@ -10,7 +10,6 @@ import UIKit
 import ZamzamKit
 
 final class ShortcutApplicationModule: ApplicationModule {
-    
     private var launchedShortcutItem: UIApplicationShortcutItem?
 }
 

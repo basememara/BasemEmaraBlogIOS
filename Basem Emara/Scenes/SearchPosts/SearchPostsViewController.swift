@@ -40,8 +40,8 @@ class SearchPostsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: SearchPostsBusinessLogic = SearchPostsInteractor(
         presenter: SearchPostsPresenter(viewController: self),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: SearchPostsRoutable = SearchPostsRouter(

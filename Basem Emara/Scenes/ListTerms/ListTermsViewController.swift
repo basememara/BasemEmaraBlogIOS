@@ -25,7 +25,7 @@ class ListTermsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListTermsBusinessLogic = ListTermsInteractor(
         presenter: ListTermsPresenter(viewController: self),
-        taxonomyWorker: dependencies.resolveWorker()
+        taxonomyWorker: dependencies.resolve()
     )
     
     private lazy var router: ListTermsRoutable = ListTermsRouter(

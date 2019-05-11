@@ -11,10 +11,9 @@ import SwiftyPress
 import ZamzamKit
 
 final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Loggable {
-    private lazy var postWorker: PostWorkerType = dependencies.resolveWorker()
-    private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolveWorker()
+    private lazy var postWorker: PostWorkerType = dependencies.resolve()
+    private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
-    
 }
 
 extension DeepLinkApplicationModule {

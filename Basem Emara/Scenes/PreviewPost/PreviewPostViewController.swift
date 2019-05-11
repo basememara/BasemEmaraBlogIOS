@@ -20,7 +20,7 @@ class PreviewPostViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private lazy var postWorker: PostWorkerType = dependencies.resolveWorker()
+    private lazy var postWorker: PostWorkerType = dependencies.resolve()
     private lazy var constants: ConstantsType = dependencies.resolve()
     
     var viewModel: PostsDataViewModel?

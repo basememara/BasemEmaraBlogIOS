@@ -46,10 +46,10 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
             viewController: self,
             constants: dependencies.resolve()
         ),
-        postWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker(),
-        authorWorker: dependencies.resolveWorker(),
-        taxonomyWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve(),
+        authorWorker: dependencies.resolve(),
+        taxonomyWorker: dependencies.resolve()
     )
     
     private lazy var router: ShowPostRoutable = ShowPostRouter(

@@ -38,9 +38,9 @@
 		8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */; };
 		8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */; };
 		8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A5217CDAF300E63F21 /* TodayModels.swift */; };
-		8B2135A8217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
-		8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
-		8B2135AA217CE18A00E63F21 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */; };
+		8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
+		8B2135A9217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
+		8B2135AA217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
 		8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */; };
 		8B2135B0217CEC3800E63F21 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AF217CEC3800E63F21 /* MainViewController.swift */; };
 		8B2135B2217CEC8D00E63F21 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B1217CEC8D00E63F21 /* MainRouter.swift */; };
@@ -248,7 +248,7 @@
 		8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
 		8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInterfaces.swift; sourceTree = "<group>"; };
 		8B2135A5217CDAF300E63F21 /* TodayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModels.swift; sourceTree = "<group>"; };
-		8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationModule.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B2135B1217CEC8D00E63F21 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -478,7 +478,7 @@
 			children = (
 				8B8A2C9020D6BC0B00E29992 /* Common */,
 				8B1DC11820B1C185009FBBBD /* Scenes */,
-				8B2135A7217CE18A00E63F21 /* AppConfiguration.swift */,
+				8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */,
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
 				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
@@ -1138,7 +1138,7 @@
 				8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */,
 				8B4D71A6216A4043002ACA81 /* SearchPostsViewController.swift in Sources */,
 				8B4D71AD216A4057002ACA81 /* SearchPostsModels.swift in Sources */,
-				8B2135A8217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
+				8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* HomeInteractor.swift in Sources */,
@@ -1194,7 +1194,7 @@
 				8BBF81F0216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
-				8B2135A9217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
+				8B2135A9217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
 				8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
@@ -1213,7 +1213,7 @@
 				8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B21CF0E215C6C3D00E2994C /* LightTheme.swift in Sources */,
 				8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
-				8B2135AA217CE18A00E63F21 /* AppConfiguration.swift in Sources */,
+				8B2135AA217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8BC96ED8217E76630037D747 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
