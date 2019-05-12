@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, HasDependencies {
         delegate: self
     )
     
-    private lazy var mailComposer: MailComposerType = dependencies.resolve(delegate: nil)
+    private lazy var mailComposer: MailComposerType = dependencies.resolve()
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
