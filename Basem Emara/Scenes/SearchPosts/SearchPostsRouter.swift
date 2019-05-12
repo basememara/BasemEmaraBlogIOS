@@ -12,7 +12,7 @@ import SwiftyPress
 struct SearchPostsRouter {
     weak var viewController: UIViewController?
     
-    init(viewController: UIViewController?) {
+    init(viewController: UIViewController) {
         self.viewController = viewController
     }
 }

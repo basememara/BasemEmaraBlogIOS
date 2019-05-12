@@ -17,7 +17,7 @@ struct ShowMoreRouter: ShowMoreRoutable {
     private let mailComposer: MailComposerType
     private let theme: Theme
     
-    init(viewController: UIViewController?, constants: ConstantsType, mailComposer: MailComposerType, theme: Theme) {
+    init(viewController: UIViewController, constants: ConstantsType, mailComposer: MailComposerType, theme: Theme) {
         self.viewController = viewController
         self.constants = constants
         self.mailComposer = mailComposer

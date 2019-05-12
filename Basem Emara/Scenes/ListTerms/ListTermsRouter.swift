@@ -11,7 +11,7 @@ import UIKit
 struct ListTermsRouter {
     weak var viewController: UIViewController?
     
-    init(viewController: UIViewController?) {
+    init(viewController: UIViewController) {
         self.viewController = viewController
     }
 }

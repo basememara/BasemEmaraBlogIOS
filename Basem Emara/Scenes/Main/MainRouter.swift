@@ -19,7 +19,7 @@ struct MainRouter {
     weak var viewController: UIViewController?
     private let constants: ConstantsType
     
-    init(viewController: UIViewController?, constants: ConstantsType) {
+    init(viewController: UIViewController, constants: ConstantsType) {
         self.viewController = viewController
         self.constants = constants
     }
