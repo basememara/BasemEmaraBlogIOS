@@ -44,7 +44,7 @@ class AppConfigurator: CoreConfigurator {
                 
                 return url
             }(),
-            baseREST: "wp-json/swiftypress/v3",
+            baseREST: "wp-json/swiftypress/v4",
             wpREST: "wp-json/wp/v2",
             email: "contact@basememara.com",
             privacyURL: "https://basememara.com/privacy/?mobileembed=1",
