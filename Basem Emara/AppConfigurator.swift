@@ -52,6 +52,7 @@ class AppConfigurator: CoreConfigurator {
             styleSheet: "https://basememara.com/wp-content/themes/metro-pro/style.css",
             googleAnalyticsID: "UA-60131988-2",
             featuredCategoryID: 64,
+            defaultFetchModifiedLimit: 25,
             logFileName: "basememara"
         )
     }

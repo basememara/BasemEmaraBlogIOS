@@ -30,7 +30,7 @@ extension BackgroundApplicationModule {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Create local notifications when new content retrieved via background fetch
-        dataWorker.sync {
+        dataWorker.pull {
             // Validate if any updates that needs to be notified
             guard case .success = $0 else { return completionHandler(.failed) }
             
