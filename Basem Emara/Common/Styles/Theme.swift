@@ -189,7 +189,7 @@ extension Theme {
 extension Theme {
     
     func applyScenes(for application: UIApplication) {
-        
+        ShowDashboardStyles.apply(self)
     }
 }
 

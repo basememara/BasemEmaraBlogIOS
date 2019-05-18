@@ -7,18 +7,9 @@
 //
 
 import UIKit
-
-protocol AppDisplayable {
-    func display(error: AppModels.Error)
-    func endRefreshing()
-}
+import ZamzamKit
 
 extension AppDisplayable where Self: UIViewController {
-    
-    func display(error: AppModels.Error) {
-        endRefreshing()
-        present(alert: error.title, message: error.message)
-    }
     
     func endRefreshing() {
         #if !(WIDGET_EXT)

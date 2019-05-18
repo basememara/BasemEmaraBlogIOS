@@ -9,13 +9,13 @@
 import SwiftyPress
 import ZamzamKit
 
-protocol ShowPostBusinessLogic {
+protocol ShowPostBusinessLogic: AppBusinessLogic {
     func fetchPost(with request: ShowPostModels.Request)
     func fetchByURL(with request: ShowPostModels.FetchWebRequest)
     func toggleFavorite(with request: ShowPostModels.FavoriteRequest)
 }
 
-protocol ShowPostPresentable {
+protocol ShowPostPresentable: AppPresentable {
     func presentPost(for response: ShowPostModels.Response)
     func presentPost(error: DataError)
     

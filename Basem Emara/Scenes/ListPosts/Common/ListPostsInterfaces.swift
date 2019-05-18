@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamKit
 
-protocol ListPostsBusinessLogic {
+protocol ListPostsBusinessLogic: AppBusinessLogic {
     func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest)
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest)
@@ -18,7 +18,7 @@ protocol ListPostsBusinessLogic {
     func isFavorite(postID: Int) -> Bool
 }
 
-protocol ListPostsPresentable {
+protocol ListPostsPresentable: AppPresentable {
     func presentLatestPosts(for response: ListPostsModels.PostsResponse)
     func presentLatestPosts(error: DataError)
     

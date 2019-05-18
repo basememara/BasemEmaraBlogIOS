@@ -1,5 +1,5 @@
 //
-//  HomePresenter.swift
+//  ShowDashboardPresenter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -7,23 +7,25 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
-struct HomePresenter: HomePresentable {
-    private weak var viewController: HomeDisplayable?
+struct ShowDashboardPresenter: ShowDashboardPresentable {
+    private weak var viewController: ShowDashboardDisplayable?
+    private let dateFormatter: DateFormatter
     
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: HomeDisplayable?) {
+    init(viewController: ShowDashboardDisplayable?) {
         self.viewController = viewController
+        
+        self.dateFormatter = DateFormatter().with {
+            $0.dateStyle = .medium
+            $0.timeStyle = .none
+        }
     }
 }
 
-extension HomePresenter {
+extension ShowDashboardPresenter {
     
-    func presentLatestPosts(for response: HomeModels.PostsResponse) {
+    func presentLatestPosts(for response: ShowDashboardModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -46,9 +48,9 @@ extension HomePresenter {
     }
 }
 
-extension HomePresenter {
+extension ShowDashboardPresenter {
     
-    func presentPopularPosts(for response: HomeModels.PostsResponse) {
+    func presentPopularPosts(for response: ShowDashboardModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -71,9 +73,9 @@ extension HomePresenter {
     }
 }
 
-extension HomePresenter {
+extension ShowDashboardPresenter {
     
-    func presentTopPickPosts(for response: HomeModels.PostsResponse) {
+    func presentTopPickPosts(for response: ShowDashboardModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -96,9 +98,9 @@ extension HomePresenter {
     }
 }
 
-extension HomePresenter {
+extension ShowDashboardPresenter {
     
-    func presentTerms(for response: HomeModels.TermsResponse) {
+    func presentTerms(for response: ShowDashboardModels.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,
@@ -121,11 +123,11 @@ extension HomePresenter {
     }
 }
 
-extension HomePresenter {
+extension ShowDashboardPresenter {
     
-    func presentToggleFavorite(for response: HomeModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ShowDashboardModels.FavoriteResponse) {
         viewController?.displayToggleFavorite(
-            with: HomeModels.FavoriteViewModel(
+            with: ShowDashboardModels.FavoriteViewModel(
                 postID: response.postID,
                 favorite: response.favorite
             )

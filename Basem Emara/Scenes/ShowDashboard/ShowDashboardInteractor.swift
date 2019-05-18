@@ -1,5 +1,5 @@
 //
-//  HomeInteractor.swift
+//  ShowDashboardInteractor.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -9,15 +9,15 @@
 import SwiftyPress
 import ZamzamKit
 
-struct HomeInteractor: HomeBusinessLogic {
-    private let presenter: HomePresentable
+struct ShowDashboardInteractor: ShowDashboardBusinessLogic {
+    private let presenter: ShowDashboardPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     private let taxonomyWorker: TaxonomyWorkerType
     private let preferences: PreferencesType
 
     init(
-        presenter: HomePresentable,
+        presenter: ShowDashboardPresentable,
         postWorker: PostWorkerType,
         mediaWorker: MediaWorkerType,
         taxonomyWorker: TaxonomyWorkerType,
@@ -31,9 +31,9 @@ struct HomeInteractor: HomeBusinessLogic {
     }
 }
 
-extension HomeInteractor {
+extension ShowDashboardInteractor {
     
-    func fetchLatestPosts(with request: HomeModels.FetchPostsRequest) {
+    func fetchLatestPosts(with request: ShowDashboardModels.FetchPostsRequest) {
         postWorker.fetch {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentLatestPosts(
@@ -51,7 +51,7 @@ extension HomeInteractor {
                 }
                 
                 self.presenter.presentLatestPosts(
-                    for: HomeModels.PostsResponse(
+                    for: ShowDashboardModels.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -61,7 +61,7 @@ extension HomeInteractor {
         }
     }
     
-    func fetchPopularPosts(with request: HomeModels.FetchPostsRequest) {
+    func fetchPopularPosts(with request: ShowDashboardModels.FetchPostsRequest) {
         postWorker.fetchPopular {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentPopularPosts(
@@ -79,7 +79,7 @@ extension HomeInteractor {
                 }
                 
                 self.presenter.presentPopularPosts(
-                    for: HomeModels.PostsResponse(
+                    for: ShowDashboardModels.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -89,7 +89,7 @@ extension HomeInteractor {
         }
     }
     
-    func fetchTopPickPosts(with request: HomeModels.FetchPostsRequest) {
+    func fetchTopPickPosts(with request: ShowDashboardModels.FetchPostsRequest) {
         postWorker.fetchTopPicks {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTopPickPosts(
@@ -107,7 +107,7 @@ extension HomeInteractor {
                 }
                 
                 self.presenter.presentTopPickPosts(
-                    for: HomeModels.PostsResponse(
+                    for: ShowDashboardModels.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -118,9 +118,9 @@ extension HomeInteractor {
     }
 }
 
-extension HomeInteractor {
+extension ShowDashboardInteractor {
     
-    func fetchTerms(with request: HomeModels.FetchTermsRequest) {
+    func fetchTerms(with request: ShowDashboardModels.FetchTermsRequest) {
         taxonomyWorker.fetch {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
@@ -134,7 +134,7 @@ extension HomeInteractor {
                 .array
             
             self.presenter.presentTerms(
-                for: HomeModels.TermsResponse(
+                for: ShowDashboardModels.TermsResponse(
                     terms: terms
                 )
             )
@@ -142,13 +142,13 @@ extension HomeInteractor {
     }
 }
 
-extension HomeInteractor {
+extension ShowDashboardInteractor {
     
-    func toggleFavorite(with request: HomeModels.FavoriteRequest) {
+    func toggleFavorite(with request: ShowDashboardModels.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
-            for: HomeModels.FavoriteResponse(
+            for: ShowDashboardModels.FavoriteResponse(
                 postID: request.postID,
                 favorite: postWorker.hasFavorite(id: request.postID)
             )

@@ -34,7 +34,7 @@ extension MainViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         // Special handling per tab if needed
         switch (viewController as? UINavigationController)?.topViewController {
-        case let controller as HomeViewController:
+        case let controller as ShowDashboardViewController:
             // Reset scroll to top when tab selected
             controller.scrollToTop(animated: true)
         default:

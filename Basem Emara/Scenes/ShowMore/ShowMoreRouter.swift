@@ -83,7 +83,7 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        show(storyboard: .showSettings)
+        //show(storyboard: .showSettings)
     }
     
     func showDevelopedBy() {

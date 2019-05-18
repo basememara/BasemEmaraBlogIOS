@@ -9,11 +9,11 @@
 import SwiftyPress
 import ZamzamKit
 
-protocol ListTermsBusinessLogic {
+protocol ListTermsBusinessLogic: AppBusinessLogic {
     func fetchTerms(with request: ListTermsModels.FetchTermsRequest)
 }
 
-protocol ListTermsPresentable {
+protocol ListTermsPresentable: AppPresentable {
     func presentTerms(for response: ListTermsModels.TermsResponse)
     func presentTerms(error: DataError)
 }

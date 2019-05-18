@@ -31,9 +31,9 @@ class AppConfigurator: CoreConfigurator {
                 let string: String
                 switch environment {
                 case .development:
-                    string = "https://staging2.basememara.com"
+                    string = "https://basememara.com" //"https://staging1.basememara.com"
                 case .staging:
-                    string = "https://staging3.basememara.com"
+                    string = "https://basememara.com" //"https://staging1.basememara.com"
                 case .production:
                     string = "https://basememara.com"
                 }

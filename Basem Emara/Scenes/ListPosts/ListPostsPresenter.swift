@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 struct ListPostsPresenter: ListPostsPresentable {
     private weak var viewController: ListPostsDisplayable?

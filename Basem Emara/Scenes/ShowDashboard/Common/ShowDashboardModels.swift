@@ -1,5 +1,5 @@
 //
-//  HomeModels.swift
+//  ShowDashboardModels.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-enum HomeModels {
+enum ShowDashboardModels {
     
     struct FetchPostsRequest {
         let count: Int

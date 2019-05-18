@@ -8,12 +8,10 @@
 
 import UIKit
 
-extension UIApplication {
+extension UIWindow {
     
-    /**
-     Get application window regardless of position in app lifecycle.
-     */
-    static func getWindow() -> UIWindow? {
+    /// Returns the window object for your app.
+    static var current: UIWindow? {
         return UIApplication.shared.keyWindow
             ?? (UIApplication.shared.delegate as? AppDelegate)?.window
     }

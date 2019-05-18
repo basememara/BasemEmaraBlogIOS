@@ -39,7 +39,7 @@ private extension ShortcutApplicationModule {
     @discardableResult
     func performShortcutAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
         guard let shortcutItemType = ShortcutItemType(for: shortcutItem),
-            let appViewController = (UIApplication.getWindow()?.rootViewController as? MainViewController) else {
+            let appViewController = (UIWindow.current?.rootViewController as? MainViewController) else {
                 return false
         }
         

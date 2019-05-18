@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyPress
+import ZamzamKit
 
 struct SearchPostsPresenter: SearchPostsPresentable {
     private weak var viewController: SearchPostsDisplayable?

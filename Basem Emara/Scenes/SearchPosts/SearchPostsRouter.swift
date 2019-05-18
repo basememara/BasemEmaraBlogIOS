@@ -20,17 +20,18 @@ struct SearchPostsRouter {
 extension SearchPostsRouter: SearchPostsRoutable {
 
     func showPost(for model: PostsDataViewModel) {
-        show(storyboard: .showPost) { (controller: ShowPostViewController) in
-            controller.postID = model.id
-        }
+//        show(storyboard: .showPost) { (controller: ShowPostViewController) in
+//            controller.postID = model.id
+//        }
     }
     
     func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        let storyboard = UIStoryboard(name: Storyboard.previewPost.rawValue)
-        
-        return (storyboard.instantiateInitialViewController() as? PreviewPostViewController)?.with {
-            $0.viewModel = model
-            $0.delegate = self.viewController
-        }
+//        let storyboard = UIStoryboard(name: Storyboard.previewPost.rawValue)
+//
+//        return (storyboard.instantiateInitialViewController() as? PreviewPostViewController)?.with {
+//            $0.viewModel = model
+//            $0.delegate = self.viewController
+//        }
+        return nil
     }
 }

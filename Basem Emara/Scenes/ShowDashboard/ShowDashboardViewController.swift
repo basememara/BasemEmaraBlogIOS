@@ -12,7 +12,7 @@ import SwiftyPress
 import TinyConstraints
 import SafariServices
 
-class HomeViewController: UIViewController, HasDependencies {
+class ShowDashboardViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
@@ -40,15 +40,15 @@ class HomeViewController: UIViewController, HasDependencies {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: HomeBusinessLogic = HomeInteractor(
-        presenter: HomePresenter(viewController: self),
+    private lazy var interactor: ShowDashboardBusinessLogic = ShowDashboardInteractor(
+        presenter: ShowDashboardPresenter(viewController: self),
         postWorker: dependencies.resolve(),
         mediaWorker: dependencies.resolve(),
         taxonomyWorker: dependencies.resolve(),
         preferences: dependencies.resolve()
     )
     
-    private(set) lazy var router: HomeRoutable = HomeRouter(
+    private(set) lazy var router: ShowDashboardRoutable = ShowDashboardRouter(
         viewController: self
     )
     
@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, HasDependencies {
 
 // MARK: - Events
 
-private extension HomeViewController {
+private extension ShowDashboardViewController {
     
     func configure() {
         navigationItem.titleView = titleView
@@ -127,26 +127,26 @@ private extension HomeViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: HomeModels.FetchPostsRequest(count: 30)
+            with: ShowDashboardModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchPopularPosts(
-            with: HomeModels.FetchPostsRequest(count: 30)
+            with: ShowDashboardModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchTopPickPosts(
-            with: HomeModels.FetchPostsRequest(count: 30)
+            with: ShowDashboardModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchTerms(
-            with: HomeModels.FetchTermsRequest(count: 6)
+            with: ShowDashboardModels.FetchTermsRequest(count: 6)
         )
     }
 }
 
 // MARK: - Scene cycle
 
-extension HomeViewController: HomeDisplayable {
+extension ShowDashboardViewController: ShowDashboardDisplayable {
     
     func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
         latestPostsCollectionViewAdapter.reloadData(with: viewModels)
@@ -164,14 +164,14 @@ extension HomeViewController: HomeDisplayable {
         topTermsTableViewAdapter.reloadData(with: viewModels)
     }
     
-    func displayToggleFavorite(with viewModel: HomeModels.FavoriteViewModel) {
+    func displayToggleFavorite(with viewModel: ShowDashboardModels.FavoriteViewModel) {
         // Nothing to do
     }
 }
 
 // MARK: - Interactions
 
-private extension HomeViewController {
+private extension ShowDashboardViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
         router.listPosts(for: .popular)
@@ -218,7 +218,7 @@ private extension HomeViewController {
 
 // MARK: - Delegates
 
-extension HomeViewController: PostsDataViewDelegate {
+extension ShowDashboardViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.showPost(for: model)
@@ -226,7 +226,7 @@ extension HomeViewController: PostsDataViewDelegate {
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
         interactor.toggleFavorite(
-            with: HomeModels.FavoriteRequest(
+            with: ShowDashboardModels.FavoriteRequest(
                 postID: model.id
             )
         )
@@ -270,14 +270,14 @@ extension HomeViewController: PostsDataViewDelegate {
     }
 }
 
-extension HomeViewController: TermsDataViewDelegate {
+extension ShowDashboardViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.listPosts(for: .terms([model.id]))
     }
 }
 
-extension HomeViewController: UIViewControllerPreviewingDelegate {
+extension ShowDashboardViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let collectionView = previewingContext.sourceView as? UICollectionView,
@@ -309,7 +309,7 @@ extension HomeViewController: UIViewControllerPreviewingDelegate {
     }
 }
 
-extension HomeViewController: Scrollable {
+extension ShowDashboardViewController: Scrollable {
     
     func scrollToTop(animated: Bool) {
         guard isViewLoaded else { return }
