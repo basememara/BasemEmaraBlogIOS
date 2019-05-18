@@ -117,7 +117,6 @@
 		8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */; };
 		8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
-		8B6673A7217EB4110057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38420B1CB72000CEB50 /* Kingfisher.framework */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */; };
@@ -137,6 +136,7 @@
 		8BB5755D22901E260079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
 		8BB5755E22901E270079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
 		8BB5756622902C080079BE42 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5756522902C080079BE42 /* AppRoutable.swift */; };
+		8BB5756722903F020079BE42 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
 		8BBF81CB216B7C1400158DDE /* PreviewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */; };
 		8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */; };
@@ -400,7 +400,7 @@
 				8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */,
 				8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */,
 				8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */,
-				8B6673A7217EB4110057E0F6 /* Kingfisher.framework in Frameworks */,
+				8BB5756722903F020079BE42 /* Kingfisher.framework in Frameworks */,
 				8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
