@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyPress
 
 /// Dependency injector for overriding concrete scene factories.
 /// Inject delegates, parameters, interactors, presenters, routers,
@@ -14,4 +15,16 @@ import UIKit
 protocol SceneDependable {
     func startMain() -> UIViewController
     func showDashboard() -> UIViewController
+    func listPosts(for fetchType: ListPostsViewController.FetchType, delegate: ShowPostViewControllerDelegate?) -> UIViewController
+    func showPost(for id: Int) -> UIViewController
+    func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController
+    func listTerms() -> UIViewController
+    func showSettings() -> UIViewController
+}
+
+extension SceneDependable {
+    
+    func listPosts(for fetchType: ListPostsViewController.FetchType) -> UIViewController {
+        return listPosts(for: fetchType, delegate: nil)
+    }
 }

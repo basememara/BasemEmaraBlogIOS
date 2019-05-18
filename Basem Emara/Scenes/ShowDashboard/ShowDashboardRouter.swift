@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyPress
 
-struct ShowDashboardRouter {
+struct ShowDashboardRouter: HasScenes {
     weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
@@ -20,9 +20,8 @@ struct ShowDashboardRouter {
 extension ShowDashboardRouter: ShowDashboardRoutable {
     
     func listPosts(for fetchType: ListPostsViewController.FetchType) {
-//        show(storyboard: .listPosts) { (controller: ListPostsViewController) in
-//            controller.fetchType = fetchType
-//        }
+        let controller = scenes.listPosts(for: fetchType)
+        viewController?.show(controller)
     }
     
     func showPost(for model: PostsDataViewModel) {
@@ -30,22 +29,16 @@ extension ShowDashboardRouter: ShowDashboardRoutable {
     }
     
     func showPost(for id: Int) {
-//        show(storyboard: .showPost) { (controller: ShowPostViewController) in
-//            controller.postID = id
-//        }
+        let controller = scenes.showPost(for: id)
+        viewController?.show(controller)
     }
     
     func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-//        let storyboard = UIStoryboard(name: Storyboard.previewPost.rawValue)
-//        
-//        return (storyboard.instantiateInitialViewController() as? PreviewPostViewController)?.with {
-//            $0.viewModel = model
-//            $0.delegate = self.viewController
-//        }
-        return nil
+        return scenes.previewPost(for: model, delegate: viewController)
     }
     
     func listTerms() {
-        //show(storyboard: .listTerms)
+        let controller = scenes.listTerms()
+        viewController?.show(controller)
     }
 }

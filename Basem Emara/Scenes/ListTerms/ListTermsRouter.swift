@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ListTermsRouter {
+struct ListTermsRouter: HasScenes {
     weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
@@ -19,8 +19,7 @@ struct ListTermsRouter {
 extension ListTermsRouter: ListTermsRoutable {
     
     func listPosts(for fetchType: ListPostsViewController.FetchType) {
-//        show(storyboard: .listPosts) { (controller: ListPostsViewController) in
-//            controller.fetchType = fetchType
-//        }
+        let controller = scenes.listPosts(for: fetchType)
+        viewController?.show(controller)
     }
 }

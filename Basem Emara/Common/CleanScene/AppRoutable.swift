@@ -6,8 +6,9 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-import ZamzamKit
 import UIKit
+import SwiftyPress
+import ZamzamKit
 
 extension AppRoutable {
     
@@ -25,5 +26,24 @@ extension AppRoutable {
         }
         
         return tabBarController.setSelected(index: tab.rawValue)
+    }
+}
+
+extension AppRoutable {
+
+    /// Open Safari view controller overlay.
+    ///
+    /// - Parameters:
+    ///   - url: URL to display in the browser.
+    ///   - constants: The app constants.
+    ///   - theme: The style of the Safari view controller.
+    func show(safari url: String, constants: ConstantsType, theme: Theme) {
+        viewController?.show(
+            safari: constants.baseURL
+                .appendingPathComponent(url)
+                .appendingQueryItem("mobileembed", value: 1)
+                .absoluteString,
+            theme: theme
+        )
     }
 }

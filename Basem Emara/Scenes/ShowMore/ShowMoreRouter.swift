@@ -10,14 +10,19 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-struct ShowMoreRouter: ShowMoreRoutable {
+struct ShowMoreRouter: HasScenes {
     weak var viewController: UIViewController?
     
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
-    init(viewController: UIViewController, constants: ConstantsType, mailComposer: MailComposerType, theme: Theme) {
+    init(
+        viewController: UIViewController,
+        constants: ConstantsType,
+        mailComposer: MailComposerType,
+        theme: Theme
+    ) {
         self.viewController = viewController
         self.constants = constants
         self.mailComposer = mailComposer
@@ -25,26 +30,14 @@ struct ShowMoreRouter: ShowMoreRoutable {
     }
 }
 
-extension ShowMoreRouter {
+extension ShowMoreRouter: ShowMoreRoutable {
     
     func showAbout() {
-        viewController?.show(
-            safari: constants.baseURL
-                .appendingPathComponent("about")
-                .appendingQueryItem("mobileembed", value: 1)
-                .absoluteString,
-            theme: theme
-        )
+        show(safari: "about", constants: constants, theme: theme)
     }
     
     func showSubscribe() {
-        viewController?.show(
-            safari: constants.baseURL
-                .appendingPathComponent("subscribe")
-                .appendingQueryItem("mobileembed", value: 1)
-                .absoluteString,
-            theme: theme
-        )
+        show(safari: "subscribe", constants: constants, theme: theme)
     }
     
     func sendFeedback(subject: String) {
@@ -64,17 +57,11 @@ extension ShowMoreRouter {
             return
         }
         
-        viewController?.present(controller, animated: true)
+        viewController?.present(controller)
     }
     
     func showWorkWithMe() {
-        viewController?.show(
-            safari: constants.baseURL
-                .appendingPathComponent("resume")
-                .appendingQueryItem("mobileembed", value: 1)
-                .absoluteString,
-            theme: theme
-        )
+        show(safari: "resume", constants: constants, theme: theme)
     }
     
     func showRateApp() {
@@ -83,7 +70,8 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        //show(storyboard: .showSettings)
+        let controller = scenes.showSettings()
+        viewController?.show(controller)
     }
     
     func showDevelopedBy() {

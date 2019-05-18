@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyPress
 
-struct ListFavoritesRouter {
+struct ListFavoritesRouter: HasScenes {
     weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
@@ -20,18 +20,11 @@ struct ListFavoritesRouter {
 extension ListFavoritesRouter: ListFavoritesRoutable {
     
     func showPost(for model: PostsDataViewModel) {
-//        show(storyboard: .showPost) { (controller: ShowPostViewController) in
-//            controller.postID = model.id
-//        }
+        let controller = scenes.showPost(for: model.id)
+        viewController?.show(controller)
     }
     
     func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-//        let storyboard = UIStoryboard(name: Storyboard.previewPost.rawValue)
-//
-//        return (storyboard.instantiateInitialViewController() as? PreviewPostViewController)?.with {
-//            $0.viewModel = model
-//            $0.delegate = self.viewController
-//        }
-        return nil
+        return scenes.previewPost(for: model, delegate: viewController)
     }
 }
