@@ -10,10 +10,11 @@ import SwiftyPress
 import ZamzamKit
 
 class AppConfigurator: CoreConfigurator {
+    private let environment: Environment
     
-    override func resolveStore() -> ConstantsStore {
+    override init() {
         // Declare environment mode
-        let environment: Environment = {
+        self.environment = {
             #if DEBUG
             return .development
             #elseif STAGING
@@ -23,6 +24,10 @@ class AppConfigurator: CoreConfigurator {
             #endif
         }()
         
+        super.init()
+    }
+    
+    override func resolveStore() -> ConstantsStore {
         return ConstantsMemoryStore(
             environment: environment,
             itunesName: "basememara",
