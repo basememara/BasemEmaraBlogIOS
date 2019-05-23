@@ -44,8 +44,8 @@ extension ShowPostInteractor {
                 for: ShowPostModels.Response(
                     post: value.post,
                     media: value.media,
-                    categories: value.categories,
-                    tags: value.tags,
+                    categories: value.terms.filter { $0.taxonomy == .category },
+                    tags: value.terms.filter { $0.taxonomy == .tag },
                     author: value.author,
                     favorite: self.postWorker.hasFavorite(id: value.post.id)
                 )
