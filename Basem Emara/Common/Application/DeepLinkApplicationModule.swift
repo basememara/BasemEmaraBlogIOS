@@ -19,7 +19,10 @@ final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Logga
 extension DeepLinkApplicationModule {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let webpageURL = userActivity.webpageURL else { return false }
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let webpageURL = userActivity.webpageURL else {
+            return false
+        }
+        
         Log(debug: "Link passed to app: \(webpageURL.absoluteString)")
         return navigate(from: webpageURL)
     }

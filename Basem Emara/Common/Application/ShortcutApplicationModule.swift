@@ -16,7 +16,10 @@ final class ShortcutApplicationModule: ApplicationModule {
 extension ShortcutApplicationModule {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else { return true }
+        guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else {
+            return true
+        }
+        
         launchedShortcutItem = shortcutItem
         return false //Prevent "performActionForShortcutItem" from being called
     }
@@ -39,7 +42,7 @@ private extension ShortcutApplicationModule {
     @discardableResult
     func performShortcutAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
         guard let shortcutItemType = ShortcutItemType(for: shortcutItem),
-            let appViewController = (UIWindow.current?.rootViewController as? MainViewController) else {
+            let appViewController = UIWindow.current?.rootViewController as? MainViewController else {
                 return false
         }
         
