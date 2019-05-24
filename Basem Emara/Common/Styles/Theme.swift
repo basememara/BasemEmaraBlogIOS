@@ -46,7 +46,7 @@ extension Theme {
         }
         
         UIToolbar.appearance().with {
-            $0.barStyle = keyboardAppearance == .dark ? .black : .default
+            $0.barStyle = barStyle
         }
         
         UICollectionView.appearance().backgroundColor = backgroundColor

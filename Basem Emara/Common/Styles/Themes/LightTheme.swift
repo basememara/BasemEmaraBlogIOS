@@ -27,6 +27,5 @@ struct LightTheme: Theme {
     let positiveColor: UIColor = .green
     let negativeColor: UIColor = .red
     
-    let barStyle: UIBarStyle = .default
-    let keyboardAppearance: UIKeyboardAppearance = .default
+    let isDarkStyle: Bool = false
 }
