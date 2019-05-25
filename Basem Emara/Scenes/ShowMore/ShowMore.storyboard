@@ -192,7 +192,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Social" id="0Z3-uM-ufO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="vn1-R3-EoB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="vn1-R3-EoB">
                                         <rect key="frame" x="0.0" y="463.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vn1-R3-EoB" id="pip-b9-TJ9">
@@ -202,14 +202,14 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zIx-TO-may">
                                                     <rect key="frame" x="12" y="12" width="130.5" height="35.5"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZd-tN-GRb" customClass="ThemedImageButton" customModule="ZamzamKit">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F27-TT-RJW" customClass="ThemedImageButton" customModule="ZamzamKit">
                                                             <rect key="frame" x="0.0" y="0.0" width="35.5" height="35.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="jZd-tN-GRb" secondAttribute="height" multiplier="1:1" id="crJ-oO-XEl"/>
+                                                                <constraint firstAttribute="width" secondItem="F27-TT-RJW" secondAttribute="height" multiplier="1:1" id="g8l-Xn-kfr"/>
                                                             </constraints>
-                                                            <state key="normal" image="twitter"/>
+                                                            <state key="normal" image="github"/>
                                                             <connections>
-                                                                <action selector="twitterButtonTapped" destination="MSX-n8-dQu" eventType="touchUpInside" id="8Gi-Zp-Tjz"/>
+                                                                <action selector="githubButtonTapped" destination="MSX-n8-dQu" eventType="touchUpInside" id="rcs-PY-4bb"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-Fu-pe0" customClass="ThemedImageButton" customModule="ZamzamKit">
@@ -219,11 +219,11 @@
                                                                 <action selector="linkedInButtonTapped" destination="MSX-n8-dQu" eventType="touchUpInside" id="3zj-e7-5i5"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F27-TT-RJW" customClass="ThemedImageButton" customModule="ZamzamKit">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZd-tN-GRb" customClass="ThemedImageButton" customModule="ZamzamKit">
                                                             <rect key="frame" x="95" y="0.0" width="35.5" height="35.5"/>
-                                                            <state key="normal" image="github"/>
+                                                            <state key="normal" image="twitter"/>
                                                             <connections>
-                                                                <action selector="githubButtonTapped" destination="MSX-n8-dQu" eventType="touchUpInside" id="rcs-PY-4bb"/>
+                                                                <action selector="twitterButtonTapped" destination="MSX-n8-dQu" eventType="touchUpInside" id="8Gi-Zp-Tjz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
