@@ -98,9 +98,12 @@ private extension ListPostsViewController {
             interactor.fetchTopPickPosts(
                 with: ListPostsModels.FetchPostsRequest()
             )
-        case .terms(let ids):
+        case .terms(let ids, let sort):
             interactor.fetchPostsByTerms (
-                with: ListPostsModels.FetchPostsByTermsRequest(ids: ids)
+                with: ListPostsModels.FetchPostsByTermsRequest(
+                    ids: ids,
+                    sort: sort
+                )
             )
         }
     }

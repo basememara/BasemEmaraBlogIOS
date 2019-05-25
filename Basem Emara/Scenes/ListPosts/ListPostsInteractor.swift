@@ -112,10 +112,14 @@ extension ListPostsInteractor {
     
     func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest) {
         postWorker.fetch(byTermIDs: request.ids) {
-            guard case .success(let posts) = $0 else {
+            guard case .success(var posts) = $0 else {
                 return self.presenter.presentPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
+            }
+            
+            if let sort = request.sort {
+                posts = posts.sorted(by: sort)
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {

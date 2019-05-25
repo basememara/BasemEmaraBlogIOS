@@ -43,7 +43,7 @@ extension MasterRouter {
         show(tab: .dashboard) {
             let controller = self.scenes.listPosts(
                 params: .init(
-                    fetchType: .terms([80]),
+                    fetchType: .terms([80], sort: self.seriesSort),
                     title: title
                 )
             )
@@ -56,13 +56,22 @@ extension MasterRouter {
         show(tab: .dashboard) {
             let controller = self.scenes.listPosts(
                 params: .init(
-                    fetchType: .terms([71]),
+                    fetchType: .terms([71], sort: self.seriesSort),
                     title: title
                 )
             )
             
             $0.show(controller)
         }
+    }
+    
+    private func seriesSort(_ post1: PostType, _ post2: PostType) -> Bool {
+        guard let lhs = Int(post1.meta["_series_part"] ?? ""),
+            let rhs = Int(post2.meta["_series_part"] ?? "") else {
+                return false
+        }
+
+        return lhs < rhs
     }
 }
 

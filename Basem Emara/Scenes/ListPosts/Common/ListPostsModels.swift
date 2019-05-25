@@ -14,7 +14,7 @@ enum ListPostsModels {
         case latest
         case popular
         case picks
-        case terms(Set<Int>)
+        case terms(Set<Int>, sort: ((PostType, PostType) -> Bool)?)
     }
     
     struct Params {
@@ -36,6 +36,7 @@ extension ListPostsModels {
     
     struct FetchPostsByTermsRequest {
         let ids: Set<Int>
+        let sort: ((PostType, PostType) -> Bool)?
     }
     
     struct PostsResponse {
