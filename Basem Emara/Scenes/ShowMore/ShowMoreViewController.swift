@@ -25,6 +25,21 @@ class ShowMoreViewController: UITableViewController, HasDependencies {
     
     private lazy var constants: ConstantsType = dependencies.resolve()
     
+    // MARK: - Controller cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+    }
+}
+
+// MARK: - Events
+
+private extension ShowMoreViewController {
+    
+    func configure() {
+        
+    }
 }
 
 // MARK: - Interactions

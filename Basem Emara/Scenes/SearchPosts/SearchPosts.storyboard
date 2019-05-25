@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XRI-Ne-TT1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEF-n8-evx">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,7 +32,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K8U-Vm-nhz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="Y0C-Hn-1cI"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="tab-search" id="4Fa-Wj-khg"/>
+                    <navigationItem key="navigationItem" title="Search" leftItemsSupplementBackButton="YES" id="Y0C-Hn-1cI"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emptyPlaceholderView" destination="C64-bz-DNi" id="ekg-Rh-YVR"/>
                         <outlet property="tableView" destination="K1g-Xg-S4q" id="Arb-vR-MGQ"/>
@@ -83,26 +85,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KF-uF-u3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1120.8" y="98.50074962518741"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="S4g-Rw-7ph">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XRI-Ne-TT1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="tab-search" id="4Fa-Wj-khg"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Mje-Zd-OIQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wEF-n8-evx" kind="relationship" relationship="rootViewController" id="U5d-KO-0oP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ndW-eF-lOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="181.59999999999999" y="98.50074962518741"/>
         </scene>
     </scenes>
     <resources>

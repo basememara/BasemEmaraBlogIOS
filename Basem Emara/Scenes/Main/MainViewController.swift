@@ -8,37 +8,24 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
 
-class MainViewController: UITabBarController, HasDependencies {
+class MainViewController: UISplitViewController, HasDependencies {
     
-    // MARK: - VIP variables
+    // MARK: - Scene variables
     
+    // TODO: Fix routing for deep linking etc
     private(set) lazy var router: MainRoutable = MainRouter(
         viewController: self,
         constants: dependencies.resolve()
     )
     
+    // MARK: - Internal variable
+    
+    private lazy var theme: Theme = dependencies.resolve()
+    
     // MARK: - Controller cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        delegate = self
-    }
-}
-
-// MARK: - Delegates
-
-extension MainViewController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        // Special handling per tab if needed
-        switch (viewController as? UINavigationController)?.topViewController {
-        case let controller as ShowDashboardViewController:
-            // Reset scroll to top when tab selected
-            controller.scrollToTop(animated: true)
-        default:
-            break
-        }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return theme.statusBarStyle
     }
 }

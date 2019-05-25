@@ -21,11 +21,16 @@ extension AppRoutable {
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
     func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
-        guard let tabBarController = UIWindow.current?.rootViewController as? UITabBarController else {
-            return nil
+        guard let tabBarController = (viewController as? UISplitViewController ?? viewController?.splitViewController)?
+            .viewControllers[safe: 1] as? UITabBarController else {
+                return nil
         }
         
-        return tabBarController.setSelected(index: tab.rawValue)
+        return tabBarController.setSelected(
+            index: tab.rawValue,
+            configure: configure,
+            completion: completion
+        )
     }
 }
 

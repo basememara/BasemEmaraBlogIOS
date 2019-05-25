@@ -1,5 +1,5 @@
 //
-//  MainRouter.swift
+//  DetailRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-21.

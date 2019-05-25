@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Quv-Xo-3js">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sqp-Od-GZN">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show Dashboard View Controller-->
+        <!--Home-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="ShowDashboardViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,9 +263,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LcI-eV-Fqo">
+                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="cpI-Os-Nhe"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="LcI-eV-Fqo">
                         <barButtonItem key="backBarButtonItem" title=" " id="8K6-aO-gul"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
                         <outlet property="latestPostsCollectionView" destination="dKu-FD-kTy" id="z6b-vR-EzW"/>
@@ -312,26 +314,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1105" y="614"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="vMK-cj-1fL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Quv-Xo-3js" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="cpI-Os-Nhe"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oeo-zX-6Zh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Sqp-Od-GZN" kind="relationship" relationship="rootViewController" id="3ak-7i-kdU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fID-Tn-hED" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45.600000000000001" y="164.16791604197903"/>
         </scene>
     </scenes>
     <resources>

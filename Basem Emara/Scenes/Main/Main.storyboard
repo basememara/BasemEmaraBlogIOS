@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lNJ-tF-BvN">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Kf-Mf-Dl4">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="lKp-L0-X4x" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vxW-WQ-68g">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mXZ-KN-8WF" kind="relationship" relationship="rootViewController" id="U5s-jx-5o1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWc-81-YKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-651"/>
+        </scene>
+        <!--Master-->
+        <scene sceneID="AHl-bv-gDz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Master" id="mXZ-KN-8WF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cf8-Tc-diT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P1O-bb-FwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="-652"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="Qcv-MI-hw6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="Fab-Il-yRS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1R1-jP-I1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="58"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="LI1-Gm-MJo">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="13b-ge-viH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <splitViewController id="lNJ-tF-BvN" customClass="MainViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="lKp-L0-X4x" kind="relationship" relationship="masterViewController" id="6gD-uc-zsq"/>
+                        <segue destination="Fab-Il-yRS" kind="relationship" relationship="detailViewController" id="Knw-aw-ssV"/>
+                    </connections>
+                </splitViewController>
+            </objects>
+            <point key="canvasLocation" x="-716" y="-145"/>
+        </scene>
+    </scenes>
+</document>
