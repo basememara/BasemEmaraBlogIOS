@@ -42,7 +42,7 @@ protocol ShowDashboardDisplayable: class, AppDisplayable {
 }
 
 protocol ShowDashboardRoutable: AppRoutable {
-    func listPosts(for fetchType: ListPostsViewController.FetchType)
+    func listPosts(params: ListPostsModels.Params)
     func showPost(for model: PostsDataViewModel)
     func showPost(for id: Int)
     func previewPost(for model: PostsDataViewModel) -> UIViewController?

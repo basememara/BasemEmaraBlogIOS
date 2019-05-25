@@ -23,5 +23,5 @@ protocol ListTermsDisplayable: class, AppDisplayable {
 }
 
 protocol ListTermsRoutable: AppRoutable {
-    func listPosts(for fetchType: ListPostsViewController.FetchType)
+    func listPosts(params: ListPostsModels.Params)
 }

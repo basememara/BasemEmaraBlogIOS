@@ -15,7 +15,7 @@ import SwiftyPress
 protocol SceneDependable {
     func startMain() -> UIViewController
     func showDashboard() -> UIViewController
-    func listPosts(for fetchType: ListPostsViewController.FetchType, delegate: ShowPostViewControllerDelegate?) -> UIViewController
+    func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
     func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController
     func listTerms() -> UIViewController
@@ -24,7 +24,7 @@ protocol SceneDependable {
 
 extension SceneDependable {
     
-    func listPosts(for fetchType: ListPostsViewController.FetchType) -> UIViewController {
-        return listPosts(for: fetchType, delegate: nil)
+    func listPosts(params: ListPostsModels.Params) -> UIViewController {
+        return listPosts(params: params, delegate: nil)
     }
 }

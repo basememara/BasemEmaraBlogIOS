@@ -22,9 +22,9 @@ extension SceneConfigurator {
         return .make(fromStoryboard: Storyboard.showDashboard.rawValue)
     }
     
-    func listPosts(for fetchType: ListPostsViewController.FetchType, delegate: ShowPostViewControllerDelegate?) -> UIViewController {
+    func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController {
         let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)
-        controller.fetchType = fetchType
+        controller.params = params
         controller.delegate = delegate
         return controller
     }

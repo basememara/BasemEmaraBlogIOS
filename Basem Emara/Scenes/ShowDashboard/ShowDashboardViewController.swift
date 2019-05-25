@@ -174,11 +174,11 @@ extension ShowDashboardViewController: ShowDashboardDisplayable {
 private extension ShowDashboardViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
-        router.listPosts(for: .popular)
+        router.listPosts(params: .init(fetchType: .popular))
     }
     
     @IBAction func topPickedPostsSeeAllButtonTapped() {
-        router.listPosts(for: .picks)
+        router.listPosts(params: .init(fetchType: .picks))
     }
     
     @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
@@ -273,7 +273,12 @@ extension ShowDashboardViewController: PostsDataViewDelegate {
 extension ShowDashboardViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.listPosts(for: .terms([model.id]))
+        router.listPosts(
+            params: .init(
+                fetchType: .terms([model.id]),
+                title: model.name
+            )
+        )
     }
 }
 

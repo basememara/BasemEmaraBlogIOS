@@ -44,8 +44,11 @@ class ListPostsViewController: UIViewController, HasDependencies {
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
-    var fetchType: FetchType = .latest
     weak var delegate: ShowPostViewControllerDelegate?
+    var params = ListPostsModels.Params(
+        fetchType: .latest,
+        title: nil
+    )
     
     // MARK: - Controller cycle
     
@@ -61,15 +64,19 @@ class ListPostsViewController: UIViewController, HasDependencies {
 private extension ListPostsViewController {
     
     func configure() {
-        switch fetchType {
-        case .latest:
-            title = .localized(.latestPostsTitle)
-        case .popular:
-            title = .localized(.popularPostsTitle)
-        case .picks:
-            title = .localized(.topPicksTitle)
-        case .terms:
-            title = .localized(.postsByTermsTitle)
+        if let title = params.title {
+            self.title = title
+        } else {
+            switch params.fetchType {
+            case .latest:
+                title = .localized(.latestPostsTitle)
+            case .popular:
+                title = .localized(.popularPostsTitle)
+            case .picks:
+                title = .localized(.topPicksTitle)
+            case .terms:
+                title = .localized(.postsByTermsTitle)
+            }
         }
         
         if traitCollection.forceTouchCapability == .available {
@@ -78,7 +85,7 @@ private extension ListPostsViewController {
     }
     
     func loadData() {
-        switch fetchType {
+        switch params.fetchType {
         case .latest:
             interactor.fetchLatestPosts(
                 with: ListPostsModels.FetchPostsRequest()
@@ -109,18 +116,6 @@ extension ListPostsViewController: ListPostsDisplayable {
     
     func displayToggleFavorite(with viewModel: ListPostsModels.FavoriteViewModel) {
         // Nothing to do
-    }
-}
-
-// MARK: - Internal types
-
-extension ListPostsViewController {
-    
-    enum FetchType {
-        case latest
-        case popular
-        case picks
-        case terms(Set<Int>)
     }
 }
 

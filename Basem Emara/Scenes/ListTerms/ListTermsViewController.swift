@@ -72,6 +72,11 @@ extension ListTermsViewController: ListTermsDisplayable {
 extension ListTermsViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.listPosts(for: .terms([model.id]))
+        router.listPosts(
+            params: .init(
+                fetchType: .terms([model.id]),
+                title: model.name
+            )
+        )
     }
 }

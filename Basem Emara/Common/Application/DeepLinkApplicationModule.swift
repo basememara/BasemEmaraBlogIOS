@@ -69,7 +69,9 @@ private extension DeepLinkApplicationModule {
             return true
         } else if let id = taxonomyWorker.getID(byURL: url.absoluteString) {
             appViewController.router.show(tab: .dashboard) { (controller: ShowDashboardViewController) in
-                controller.router.listPosts(for: .terms([id]))
+                controller.router.listPosts(
+                    params: .init(fetchType: .terms([id]))
+                )
             }
             
             return true

@@ -18,9 +18,9 @@ struct ShowPostRouter: HasScenes {
 
 extension ShowPostRouter: ShowPostRoutable {
     
-    func listPosts(for fetchType: ListPostsViewController.FetchType) {
+    func listPosts(params: ListPostsModels.Params) {
         let controller = scenes.listPosts(
-            for: fetchType,
+            params: params,
             delegate: viewController as? ShowPostViewControllerDelegate
         )
         

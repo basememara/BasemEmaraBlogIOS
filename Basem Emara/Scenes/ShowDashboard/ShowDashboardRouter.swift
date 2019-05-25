@@ -19,8 +19,8 @@ struct ShowDashboardRouter: HasScenes {
 
 extension ShowDashboardRouter: ShowDashboardRoutable {
     
-    func listPosts(for fetchType: ListPostsViewController.FetchType) {
-        let controller = scenes.listPosts(for: fetchType)
+    func listPosts(params: ListPostsModels.Params) {
+        let controller = scenes.listPosts(params: params)
         viewController?.show(controller)
     }
     
