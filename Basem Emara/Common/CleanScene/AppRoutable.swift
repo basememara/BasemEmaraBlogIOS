@@ -47,3 +47,16 @@ extension AppRoutable {
         )
     }
 }
+
+extension AppRoutable {
+    
+    func showSocial(for type: Social, theme: Theme) {
+        // Open social app or url
+        guard let shortcut = type.shortcut(for: "basememara"), UIApplication.shared.canOpenURL(shortcut) else {
+            viewController?.present(safari: type.link(for: "basememara"), theme: theme)
+            return
+        }
+        
+        UIApplication.shared.open(shortcut)
+    }
+}

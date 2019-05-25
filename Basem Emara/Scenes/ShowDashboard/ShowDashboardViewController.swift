@@ -293,15 +293,18 @@ extension ShowDashboardViewController: UIViewControllerPreviewingDelegate {
         
         previewingContext.sourceRect = cell.frame
         
-        let viewModel: PostsDataViewModel
-        switch collectionView {
-        case latestPostsCollectionView:
-            viewModel = latestPostsCollectionViewAdapter.viewModels[indexPath.row]
-        case popularPostsCollectionView:
-            viewModel = popularPostsCollectionViewAdapter.viewModels[indexPath.row]
-        case pickedPostsCollectionView:
-            viewModel = pickedPostsCollectionViewAdapter.viewModels[indexPath.row]
-        default:
+        guard let viewModel: PostsDataViewModel = {
+            switch collectionView {
+            case latestPostsCollectionView:
+                return latestPostsCollectionViewAdapter.viewModels?[indexPath.row]
+            case popularPostsCollectionView:
+                return popularPostsCollectionViewAdapter.viewModels?[indexPath.row]
+            case pickedPostsCollectionView:
+                return pickedPostsCollectionViewAdapter.viewModels?[indexPath.row]
+            default:
+                return nil
+            }
+        }() else {
             return nil
         }
         

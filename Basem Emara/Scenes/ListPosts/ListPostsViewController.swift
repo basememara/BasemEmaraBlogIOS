@@ -207,7 +207,9 @@ extension ListPostsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

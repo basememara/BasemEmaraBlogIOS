@@ -121,7 +121,7 @@ extension ShowDashboardInteractor {
 extension ShowDashboardInteractor {
     
     func fetchTerms(with request: ShowDashboardModels.FetchTermsRequest) {
-        taxonomyWorker.fetch {
+        taxonomyWorker.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
                     error: $0.error ?? .unknownReason(nil)

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-struct ShowMoreRouter: HasScenes {
+struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
     weak var viewController: UIViewController?
     
     private let constants: ConstantsType
@@ -30,7 +30,7 @@ struct ShowMoreRouter: HasScenes {
     }
 }
 
-extension ShowMoreRouter: ShowMoreRoutable {
+extension ShowMoreRouter {
     
     func showAbout() {
         show(safari: "about", constants: constants, theme: theme)
@@ -39,6 +39,34 @@ extension ShowMoreRouter: ShowMoreRoutable {
     func showSubscribe() {
         show(safari: "subscribe", constants: constants, theme: theme)
     }
+    
+    func showWorkWithMe() {
+        show(safari: "resume", constants: constants, theme: theme)
+    }
+    
+    func showSocial(for type: Social) {
+        showSocial(for: type, theme: theme)
+    }
+    
+    func showDevelopedBy() {
+        UIApplication.shared.open(constants.baseURL)
+    }
+}
+
+extension ShowMoreRouter {
+    
+    func showRateApp() {
+        guard let url = URL(string: constants.itunesURL) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func showSettings() {
+        let controller = scenes.showSettings()
+        viewController?.show(controller)
+    }
+}
+
+extension ShowMoreRouter {
     
     func sendFeedback(subject: String) {
         let mailComposerController = mailComposer.makeViewController(
@@ -58,36 +86,5 @@ extension ShowMoreRouter: ShowMoreRoutable {
         }
         
         viewController?.present(controller)
-    }
-    
-    func showWorkWithMe() {
-        show(safari: "resume", constants: constants, theme: theme)
-    }
-    
-    func showRateApp() {
-        guard let url = URL(string: constants.itunesURL) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    func showSettings() {
-        let controller = scenes.showSettings()
-        viewController?.show(controller)
-    }
-    
-    func showDevelopedBy() {
-        UIApplication.shared.open(constants.baseURL)
-    }
-}
-
-extension ShowMoreRouter {
-    
-    func showSocial(for type: Social) {
-        // Open social app or url
-        guard let shortcut = type.shortcut(for: "basememara"), UIApplication.shared.canOpenURL(shortcut) else {
-            viewController?.present(safari: type.link(for: "basememara"), theme: theme)
-            return
-        }
-        
-        UIApplication.shared.open(shortcut)
     }
 }

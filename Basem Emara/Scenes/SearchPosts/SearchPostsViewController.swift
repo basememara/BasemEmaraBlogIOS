@@ -77,8 +77,6 @@ extension SearchPostsViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        tableViewAdapter.reloadData(with: [])
-        
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: tableView)
         }
@@ -152,7 +150,7 @@ extension SearchPostsViewController: UISearchResultsUpdating {
 extension SearchPostsViewController: PostsDataViewDelegate {
     
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int {
-        let isEmpty = tableViewAdapter.viewModels.isEmpty
+        let isEmpty = tableViewAdapter.viewModels?.isEmpty == true
         tableView.backgroundView = isEmpty ? emptyPlaceholderView : nil
         tableView.separatorStyle = isEmpty ? .none : .singleLine
         return 1
@@ -176,7 +174,9 @@ extension SearchPostsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

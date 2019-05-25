@@ -12,10 +12,7 @@ struct ListTermsInteractor: ListTermsBusinessLogic {
     private let presenter: ListTermsPresentable
     private let taxonomyWorker: TaxonomyWorkerType
     
-    init(
-        presenter: ListTermsPresentable,
-        taxonomyWorker: TaxonomyWorkerType
-    ) {
+    init(presenter: ListTermsPresentable, taxonomyWorker: TaxonomyWorkerType) {
         self.presenter = presenter
         self.taxonomyWorker = taxonomyWorker
     }
@@ -24,7 +21,7 @@ struct ListTermsInteractor: ListTermsBusinessLogic {
 extension ListTermsInteractor {
     
     func fetchTerms(with request: ListTermsModels.FetchTermsRequest) {
-        taxonomyWorker.fetch {
+        taxonomyWorker.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
                     error: $0.error ?? .unknownReason(nil)

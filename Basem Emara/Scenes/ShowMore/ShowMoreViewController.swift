@@ -80,7 +80,10 @@ extension ShowMoreViewController {
             router.showSubscribe()
         case .feedback:
             router.sendFeedback(
-                subject: .localizedFormat(.emailFeedbackSubject, constants.appDisplayName ?? "")
+                subject: .localizedFormat(
+                    .emailFeedbackSubject,
+                    constants.appDisplayName ?? ""
+                )
             )
         case .work:
             router.showWorkWithMe()

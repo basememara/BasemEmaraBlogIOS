@@ -86,9 +86,9 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
     func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
         removedIDs.append(viewModel.postID)
         
-        let isEmpty = tableViewAdapter.viewModels
+        let isEmpty = tableViewAdapter.viewModels?
             .filter { !removedIDs.contains($0.id) }
-            .isEmpty
+            .isEmpty ?? true
         
         // Ensure empty screen to show if empty
         guard isEmpty else { return }
@@ -101,7 +101,7 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
 extension ListFavoritesViewController: PostsDataViewDelegate {
     
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int {
-        let isEmpty = tableViewAdapter.viewModels.isEmpty
+        let isEmpty = tableViewAdapter.viewModels?.isEmpty == true
         tableView.backgroundView = isEmpty ? emptyPlaceholderView : nil
         tableView.separatorStyle = isEmpty ? .none : .singleLine
         return 1
@@ -130,7 +130,9 @@ extension ListFavoritesViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
