@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  MasterViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-20.

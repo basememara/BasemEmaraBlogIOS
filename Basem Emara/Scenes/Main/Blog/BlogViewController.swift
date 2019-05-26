@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  BlogViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-20.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-class DetailViewController: UITabBarController, HasDependencies {
+class BlogViewController: UITabBarController, HasDependencies {
     
     // MARK: - Controller cycle
     
@@ -22,7 +22,7 @@ class DetailViewController: UITabBarController, HasDependencies {
 
 // MARK: - Delegates
 
-extension DetailViewController: UITabBarControllerDelegate {
+extension BlogViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         // Special handling per tab if needed

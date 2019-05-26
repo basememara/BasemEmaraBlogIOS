@@ -66,7 +66,7 @@
 		8B4439EC2298886200EC5575 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4439EB2298886200EC5575 /* Taxonomy.swift */; };
 		8B4439EE22988A2700EC5575 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4439ED22988A2700EC5575 /* UIImage.swift */; };
 		8B4439F022988D4900EC5575 /* Master.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4439EF22988D4900EC5575 /* Master.storyboard */; };
-		8B443A1E2299578B00EC5575 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B443A1D2299578B00EC5575 /* Detail.storyboard */; };
+		8B443A1E2299578B00EC5575 /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B443A1D2299578B00EC5575 /* Blog.storyboard */; };
 		8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */; };
 		8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5E220E10EA700681404 /* ListPosts.storyboard */; };
 		8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D719F216A4043002ACA81 /* SearchPostsPresenter.swift */; };
@@ -135,10 +135,9 @@
 		8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */; };
 		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
 		8BABEE3B2292C0360014F7B4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3A2292C0360014F7B4 /* MasterViewController.swift */; };
-		8BABEE3D2292CA9D0014F7B4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3C2292CA9D0014F7B4 /* DetailViewController.swift */; };
+		8BABEE3D2292CA9D0014F7B4 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3C2292CA9D0014F7B4 /* BlogViewController.swift */; };
 		8BB575552290197D0079BE42 /* HasScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB575542290197D0079BE42 /* HasScenes.swift */; };
 		8BB5755822901A540079BE42 /* SceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755722901A540079BE42 /* SceneConfigurator.swift */; };
-		8BB5755A22901A6B0079BE42 /* SceneDependable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755922901A6B0079BE42 /* SceneDependable.swift */; };
 		8BB5755C22901CBB0079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
 		8BB5755D22901E260079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
 		8BB5755E22901E270079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
@@ -278,7 +277,7 @@
 		8B4439EB2298886200EC5575 /* Taxonomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
 		8B4439ED22988A2700EC5575 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8B4439EF22988D4900EC5575 /* Master.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Master.storyboard; sourceTree = "<group>"; };
-		8B443A1D2299578B00EC5575 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		8B443A1D2299578B00EC5575 /* Blog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
 		8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsViewController.swift; sourceTree = "<group>"; };
 		8B47A5E220E10EA700681404 /* ListPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListPosts.storyboard; sourceTree = "<group>"; };
 		8B4D719F216A4043002ACA81 /* SearchPostsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostsPresenter.swift; sourceTree = "<group>"; };
@@ -334,10 +333,9 @@
 		8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
 		8BABEE3A2292C0360014F7B4 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		8BABEE3C2292CA9D0014F7B4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8BABEE3C2292CA9D0014F7B4 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		8BB575542290197D0079BE42 /* HasScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasScenes.swift; sourceTree = "<group>"; };
 		8BB5755722901A540079BE42 /* SceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigurator.swift; sourceTree = "<group>"; };
-		8BB5755922901A6B0079BE42 /* SceneDependable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDependable.swift; sourceTree = "<group>"; };
 		8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardStyles.swift; sourceTree = "<group>"; };
 		8BB5756522902C080079BE42 /* AppRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
@@ -660,13 +658,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		8B443A1C2299577600EC5575 /* Detail */ = {
+		8B443A1C2299577600EC5575 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
-				8BABEE3C2292CA9D0014F7B4 /* DetailViewController.swift */,
-				8B443A1D2299578B00EC5575 /* Detail.storyboard */,
+				8BABEE3C2292CA9D0014F7B4 /* BlogViewController.swift */,
+				8B443A1D2299578B00EC5575 /* Blog.storyboard */,
 			);
-			path = Detail;
+			path = Blog;
 			sourceTree = "<group>";
 		};
 		8B47A5DF20E10E8700681404 /* ListPosts */ = {
@@ -708,7 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				8B4439DB229881CA00EC5575 /* Master */,
-				8B443A1C2299577600EC5575 /* Detail */,
+				8B443A1C2299577600EC5575 /* Blog */,
 				8B2135AF217CEC3800E63F21 /* MainViewController.swift */,
 				8B2135B1217CEC8D00E63F21 /* MainRouter.swift */,
 				8BD7BA3E22916EA3000AB0AE /* Main.storyboard */,
@@ -882,7 +880,6 @@
 				8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */,
 				8BB5756522902C080079BE42 /* AppRoutable.swift */,
 				8BB575542290197D0079BE42 /* HasScenes.swift */,
-				8BB5755922901A6B0079BE42 /* SceneDependable.swift */,
 			);
 			path = CleanScene;
 			sourceTree = "<group>";
@@ -1063,7 +1060,7 @@
 				8B2135CE217D541200E63F21 /* InfoPlist.strings in Resources */,
 				8B4291112173A43800BCB422 /* seed.json in Resources */,
 				8B2135CB217D541200E63F21 /* Localizable.strings in Resources */,
-				8B443A1E2299578B00EC5575 /* Detail.storyboard in Resources */,
+				8B443A1E2299578B00EC5575 /* Blog.storyboard in Resources */,
 				8B63A2AE2162D2FA003868F7 /* style.css in Resources */,
 				8B63A1F8216283DD003868F7 /* ShowPost.storyboard in Resources */,
 				8BD7BA3F22916EA3000AB0AE /* Main.storyboard in Resources */,
@@ -1184,7 +1181,7 @@
 				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationModule.swift in Sources */,
 				8B63A2CE216426AD003868F7 /* ShowPostModels.swift in Sources */,
 				8BBF81EF216C340800158DDE /* ThemePreset.swift in Sources */,
-				8BABEE3D2292CA9D0014F7B4 /* DetailViewController.swift in Sources */,
+				8BABEE3D2292CA9D0014F7B4 /* BlogViewController.swift in Sources */,
 				8B63A2C12163C80A003868F7 /* ListPostsInterfaces.swift in Sources */,
 				8B33C4DF21694BE000658700 /* ListFavoritesInterfaces.swift in Sources */,
 				8B63A2BA2163B4F1003868F7 /* ListTermsRouter.swift in Sources */,
@@ -1226,7 +1223,6 @@
 				8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */,
 				8BABEE3B2292C0360014F7B4 /* MasterViewController.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
-				8BB5755A22901A6B0079BE42 /* SceneDependable.swift in Sources */,
 				8B4439EE22988A2700EC5575 /* UIImage.swift in Sources */,
 				8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */,
 				8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */,
