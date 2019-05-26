@@ -88,21 +88,27 @@ private extension ListPostsViewController {
         switch params.fetchType {
         case .latest:
             interactor.fetchLatestPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
         case .popular:
             interactor.fetchPopularPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
         case .picks:
             interactor.fetchTopPickPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
-        case .terms(let ids, let sort):
+        case .terms(let ids):
             interactor.fetchPostsByTerms (
                 with: ListPostsModels.FetchPostsByTermsRequest(
                     ids: ids,
-                    sort: sort
+                    sort: params.sort
                 )
             )
         }

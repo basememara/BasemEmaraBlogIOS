@@ -14,16 +14,18 @@ enum ListPostsModels {
         case latest
         case popular
         case picks
-        case terms(Set<Int>, sort: ((PostType, PostType) -> Bool)?)
+        case terms(Set<Int>)
     }
     
     struct Params {
         let fetchType: FetchType
         let title: String?
+        let sort: ((PostType, PostType) -> Bool)?
         
-        init(fetchType: FetchType, title: String? = nil) {
+        init(fetchType: FetchType, title: String? = nil, sort: ((PostType, PostType) -> Bool)? = nil) {
             self.fetchType = fetchType
             self.title = title
+            self.sort = sort
         }
     }
 }
@@ -31,7 +33,7 @@ enum ListPostsModels {
 extension ListPostsModels {
     
     struct FetchPostsRequest {
-        
+        let sort: ((PostType, PostType) -> Bool)?
     }
     
     struct FetchPostsByTermsRequest {

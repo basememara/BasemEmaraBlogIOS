@@ -160,7 +160,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         }
         
         if let termID = viewModel.termID {
-            router.listPosts(params: .init(fetchType: .terms([termID], sort: nil)))
+            router.listPosts(params: .init(fetchType: .terms([termID])))
             return viewModel.decisionHandler(.cancel)
         }
         

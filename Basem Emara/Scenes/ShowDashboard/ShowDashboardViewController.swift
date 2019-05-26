@@ -275,7 +275,7 @@ extension ShowDashboardViewController: TermsDataViewDelegate {
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.listPosts(
             params: .init(
-                fetchType: .terms([model.id], sort: nil),
+                fetchType: .terms([model.id]),
                 title: model.name
             )
         )

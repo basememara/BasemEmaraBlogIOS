@@ -43,8 +43,9 @@ extension MasterRouter {
         show(tab: .dashboard) {
             let controller = self.scenes.listPosts(
                 params: .init(
-                    fetchType: .terms([80], sort: self.seriesSort),
-                    title: title
+                    fetchType: .terms([80]),
+                    title: title,
+                    sort: self.seriesSort
                 )
             )
             
@@ -56,8 +57,9 @@ extension MasterRouter {
         show(tab: .dashboard) {
             let controller = self.scenes.listPosts(
                 params: .init(
-                    fetchType: .terms([71], sort: self.seriesSort),
-                    title: title
+                    fetchType: .terms([71]),
+                    title: title,
+                    sort: self.seriesSort
                 )
             )
             

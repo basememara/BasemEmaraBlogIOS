@@ -28,10 +28,14 @@ extension ListPostsInteractor {
     
     func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest) {
         postWorker.fetch {
-            guard case .success(let posts) = $0 else {
+            guard case .success(var posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+            }
+            
+            if let sort = request.sort {
+                posts = posts.sorted(by: sort)
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
@@ -56,10 +60,14 @@ extension ListPostsInteractor {
     
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest) {
         postWorker.fetchPopular {
-            guard case .success(let posts) = $0 else {
+            guard case .success(var posts) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+            }
+            
+            if let sort = request.sort {
+                posts = posts.sorted(by: sort)
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
@@ -84,10 +92,14 @@ extension ListPostsInteractor {
     
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest) {
         postWorker.fetchTopPicks {
-            guard case .success(let posts) = $0 else {
+            guard case .success(var posts) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+            }
+            
+            if let sort = request.sort {
+                posts = posts.sorted(by: sort)
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
