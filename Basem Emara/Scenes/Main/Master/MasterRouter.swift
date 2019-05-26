@@ -32,7 +32,12 @@ struct MasterRouter: MasterRoutable, HasScenes {
 
 extension MasterRouter {
     
-    func showBlog() {
+    func startBlog() {
+        guard viewController?.splitViewController?.isCollapsed == false else {
+            viewController?.present(scenes.startBlog())
+            return
+        }
+        
         show(tab: .dashboard)
     }
 }
@@ -40,31 +45,27 @@ extension MasterRouter {
 extension MasterRouter {
     
     func showSeriesScalableApp(title: String?) {
-        show(tab: .dashboard) {
-            let controller = self.scenes.listPosts(
-                params: .init(
-                    fetchType: .terms([80]),
-                    title: title,
-                    sort: self.seriesSort
-                )
+        let controller = scenes.listPosts(
+            params: .init(
+                fetchType: .terms([80]),
+                title: title,
+                sort: seriesSort
             )
-            
-            $0.show(controller)
-        }
+        )
+        
+        viewController?.showDetailViewController(controller)
     }
     
     func showSeriesSwiftUtilities(title: String?) {
-        show(tab: .dashboard) {
-            let controller = self.scenes.listPosts(
-                params: .init(
-                    fetchType: .terms([71]),
-                    title: title,
-                    sort: self.seriesSort
-                )
+        let controller = scenes.listPosts(
+            params: .init(
+                fetchType: .terms([71]),
+                title: title,
+                sort: seriesSort
             )
-            
-            $0.show(controller)
-        }
+        )
+        
+        viewController?.showDetailViewController(controller)
     }
     
     private func seriesSort(_ post1: PostType, _ post2: PostType) -> Bool {
@@ -80,31 +81,19 @@ extension MasterRouter {
 extension MasterRouter {
     
     func showCoursesArchitecture() {
-        viewController?.present(
-            safari: "https://iosmentor.io",
-            theme: theme
-        )
+        show(safari: "https://iosmentor.io", theme: theme)
     }
     
     func showCoursesFramework() {
-        viewController?.present(
-            safari: "https://iosmentor.io/webinars/swift-frameworks/",
-            theme: theme
-        )
+        show(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
     }
     
     func showConsultingDevelopment() {
-        viewController?.present(
-            safari: "https://zamzam.io",
-            theme: theme
-        )
+        show(safari: "https://zamzam.io", theme: theme)
     }
     
     func showConsultingMentorship() {
-        viewController?.present(
-            safari: "https://iosmentor.io/express/",
-            theme: theme
-        )
+        show(safari: "https://iosmentor.io/express/", theme: theme)
     }
 }
 
@@ -123,7 +112,7 @@ extension MasterRouter {
         )
         
         guard let controller = mailComposerController else {
-            viewController?.present(
+            UIWindow.current?.visibleViewController?.present(
                 alert: .localized(.couldNotSendEmail),
                 message: .localized(.couldNotSendEmailMessage)
             )
@@ -131,6 +120,6 @@ extension MasterRouter {
             return
         }
         
-        viewController?.present(controller)
+        UIWindow.current?.visibleViewController?.present(controller)
     }
 }

@@ -14,7 +14,7 @@ protocol MasterDisplayable: class, AppDisplayable { // Controller
 }
 
 protocol MasterRoutable: AppRoutable { // Router
-    func showBlog()
+    func startBlog()
     
     func showSeriesScalableApp(title: String?)
     func showSeriesSwiftUtilities(title: String?)

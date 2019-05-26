@@ -36,6 +36,11 @@ class MasterViewController: UITableViewController, HasDependencies {
         super.viewDidLoad()
         configure()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 }
 
 // MARK: - Events
@@ -103,7 +108,7 @@ extension MasterViewController {
         
         switch identifier {
         case .blog:
-            router.showBlog()
+            router.startBlog()
         case .seriesScalableApp:
             router.showSeriesScalableApp(
                 title: cell.textLabel?.text
@@ -121,6 +126,14 @@ extension MasterViewController {
         case .consultingMentorship:
             router.showConsultingMentorship()
         }
+        
+        // Dismiss master view controller
+        // https://stackoverflow.com/a/27399688
+        if splitViewController?.displayMode == .primaryOverlay,
+            let barButtonItem = splitViewController?.displayModeButtonItem,
+            let action = barButtonItem.action {
+                UIApplication.shared.sendAction(action, to: barButtonItem.target, from: nil, for: nil)
+        }
     }
 }
 
@@ -130,5 +143,28 @@ extension MasterViewController: UISplitViewControllerDelegate {
         // Default to master view in compact mode
         // https://useyourloaf.com/blog/split-view-controller-display-modes/
         return collapseDetailViewController
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
+        guard splitViewController.isCollapsed else {
+            // Display within detail tab bar view controller
+            router.show(tab: .dashboard) {
+                $0.show(vc)
+            }
+            
+            return true
+        }
+        
+        vc.viewWillAppear {
+            $0?.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+        
+        // Push to master view controller
+        show(vc)
+        return true
+    }
+    
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
+        dismiss()
     }
 }

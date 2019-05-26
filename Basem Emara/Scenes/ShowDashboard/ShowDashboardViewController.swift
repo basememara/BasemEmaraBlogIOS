@@ -212,7 +212,7 @@ private extension ShowDashboardViewController {
             return
         }
         
-        present(controller, animated: true)
+        present(controller)
     }
 }
 

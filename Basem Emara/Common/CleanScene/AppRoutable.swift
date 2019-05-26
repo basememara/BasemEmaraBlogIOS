@@ -21,8 +21,8 @@ extension AppRoutable {
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
     func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
-        guard let tabBarController = (viewController as? UISplitViewController ?? viewController?.splitViewController)?
-            .viewControllers[safe: 1] as? UITabBarController else {
+        guard let tabBarController = ((viewController as? UISplitViewController ?? viewController?.splitViewController)?.viewControllers[safe: 1]
+            ?? UIWindow.current?.rootViewController) as? UITabBarController else {
                 return nil
         }
         
@@ -35,6 +35,22 @@ extension AppRoutable {
 }
 
 extension AppRoutable {
+    
+    /// Open Safari view controller overlay.
+    ///
+    /// - Parameters:
+    ///   - url: URL to display in the browser.
+    ///   - constants: The app constants.
+    ///   - theme: The style of the Safari view controller.
+    func show(safari url: String, theme: Theme) {
+        guard viewController?.splitViewController?.isCollapsed == false else {
+            viewController?.show(safari: url, theme: theme)
+            return
+        }
+        
+        UIWindow.current?.rootViewController?
+            .present(safari: url, theme: theme)
+    }
 
     /// Open Safari view controller overlay.
     ///
@@ -43,13 +59,12 @@ extension AppRoutable {
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
     func show(safari url: String, constants: ConstantsType, theme: Theme) {
-        viewController?.show(
-            safari: constants.baseURL
-                .appendingPathComponent(url)
-                .appendingQueryItem("mobileembed", value: 1)
-                .absoluteString,
-            theme: theme
-        )
+        let url = constants.baseURL
+            .appendingPathComponent(url)
+            .appendingQueryItem("mobileembed", value: 1)
+            .absoluteString
+        
+        show(safari: url, theme: theme)
     }
 }
 

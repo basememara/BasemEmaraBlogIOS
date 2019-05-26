@@ -16,7 +16,36 @@ class BlogViewController: UITabBarController, HasDependencies {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+}
+
+// MARK: - Events
+
+private extension BlogViewController {
+    
+    func configure() {
         delegate = self
+        
+        if splitViewController?.isCollapsed == false {
+            contentViewController.navigationItem.leftBarButtonItem =
+                splitViewController?.displayModeButtonItem
+        } else if isModal {
+            contentViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                imageName: "menu-vertical",
+                target: self,
+                action: #selector(exit)
+            )
+        }
+    }
+}
+
+// MARK: - Interaction
+
+private extension BlogViewController {
+    
+    @objc func exit(_ sender: UIBarButtonItem) {
+        dismiss()
     }
 }
 
@@ -33,5 +62,11 @@ extension BlogViewController: UITabBarControllerDelegate {
         default:
             break
         }
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        viewControllers?.forEach { $0.navigationItem.leftBarButtonItem = nil }
+        viewController.contentViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        return true
     }
 }
