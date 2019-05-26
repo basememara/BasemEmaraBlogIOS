@@ -65,8 +65,11 @@ extension BlogViewController: UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        viewControllers?.forEach { $0.navigationItem.leftBarButtonItem = nil }
-        viewController.contentViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        if splitViewController?.isCollapsed == false {
+            viewControllers?.forEach { $0.navigationItem.leftBarButtonItem = nil }
+            viewController.contentViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        }
+        
         return true
     }
 }

@@ -165,6 +165,6 @@ extension MasterViewController: UISplitViewControllerDelegate {
     }
     
     func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
-        dismiss()
+        dismiss(animated: false)
     }
 }
