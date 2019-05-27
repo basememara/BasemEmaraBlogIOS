@@ -15,7 +15,7 @@ import SwiftyPress
 protocol SceneDependable {
     func startMain() -> UIViewController
     func startBlog() -> UIViewController
-    func showDashboard() -> UIViewController
+    func showBlog() -> UIViewController
     func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
     func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController
@@ -43,8 +43,8 @@ struct SceneConfigurator: SceneDependable {
 
 extension SceneConfigurator {
     
-    func showDashboard() -> UIViewController {
-        return .make(fromStoryboard: Storyboard.showDashboard.rawValue)
+    func showBlog() -> UIViewController {
+        return .make(fromStoryboard: Storyboard.showBlog.rawValue)
     }
     
     func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController {
@@ -90,7 +90,7 @@ extension SceneConfigurator {
     enum Storyboard: String {
         case main = "Main"
         case blog = "Blog"
-        case showDashboard = "ShowDashboard"
+        case showBlog = "ShowBlog"
         case listPosts = "ListPosts"
         case showPost = "ShowPost"
         case previewPost = "PreviewPost"

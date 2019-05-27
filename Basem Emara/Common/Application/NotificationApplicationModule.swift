@@ -60,7 +60,7 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
         
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            appViewController.router.show(tab: .dashboard) { (controller: ShowDashboardViewController) in
+            appViewController.router.show(tab: .dashboard) { (controller: ShowBlogViewController) in
                 controller.router.showPost(for: id)
             }
         case Action.share.rawValue:

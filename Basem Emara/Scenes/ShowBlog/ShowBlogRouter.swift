@@ -1,5 +1,5 @@
 //
-//  ShowDashboardRouter.swift
+//  ShowBlogRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-27.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyPress
 
-struct ShowDashboardRouter: HasScenes {
+struct ShowBlogRouter: HasScenes {
     weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
@@ -17,7 +17,7 @@ struct ShowDashboardRouter: HasScenes {
     }
 }
 
-extension ShowDashboardRouter: ShowDashboardRoutable {
+extension ShowBlogRouter: ShowBlogRoutable {
     
     func listPosts(params: ListPostsModels.Params) {
         let controller = scenes.listPosts(params: params)

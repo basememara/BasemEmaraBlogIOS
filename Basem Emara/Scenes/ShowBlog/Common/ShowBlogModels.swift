@@ -1,5 +1,5 @@
 //
-//  ShowDashboardModels.swift
+//  ShowBlogModels.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-enum ShowDashboardModels {
+enum ShowBlogModels {
     
     struct FetchPostsRequest {
         let count: Int

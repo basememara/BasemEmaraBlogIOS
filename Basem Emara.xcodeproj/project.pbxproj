@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28922133CE8A0008135D /* AppDisplayable.swift */; };
-		8B0A28952133E3680008135D /* ShowDashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28942133E3680008135D /* ShowDashboardRouter.swift */; };
+		8B0A28952133E3680008135D /* ShowBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28942133E3680008135D /* ShowBlogRouter.swift */; };
 		8B0A289A2133EBBB0008135D /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28992133EBBB0008135D /* UIWindow.swift */; };
 		8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */; };
 		8B0D645020BEB0FC0046056F /* Basem_Emara_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D644F20BEB0FC0046056F /* Basem_Emara_iOSTests.swift */; };
@@ -138,9 +138,9 @@
 		8BABEE3D2292CA9D0014F7B4 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3C2292CA9D0014F7B4 /* BlogViewController.swift */; };
 		8BB575552290197D0079BE42 /* HasScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB575542290197D0079BE42 /* HasScenes.swift */; };
 		8BB5755822901A540079BE42 /* SceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755722901A540079BE42 /* SceneConfigurator.swift */; };
-		8BB5755C22901CBB0079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
-		8BB5755D22901E260079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
-		8BB5755E22901E270079BE42 /* ShowDashboardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */; };
+		8BB5755C22901CBB0079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
+		8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
+		8BB5755E22901E270079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5756622902C080079BE42 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5756522902C080079BE42 /* AppRoutable.swift */; };
 		8BB5756722903F020079BE42 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
@@ -158,14 +158,14 @@
 		8BC96ED7217E76620037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8BC96ED8217E76630037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8BD7BA3F22916EA3000AB0AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BA3E22916EA3000AB0AE /* Main.storyboard */; };
-		8BEEEF33212330F900A6AF99 /* ShowDashboardInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* ShowDashboardInterfaces.swift */; };
-		8BEEEF352123310A00A6AF99 /* ShowDashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* ShowDashboardModels.swift */; };
-		8BEEEF372123505B00A6AF99 /* ShowDashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* ShowDashboardInteractor.swift */; };
-		8BEEEF392123506B00A6AF99 /* ShowDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF382123506B00A6AF99 /* ShowDashboardPresenter.swift */; };
-		8BF2CCBB20B6D6D200C9C161 /* ShowDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBA20B6D6D200C9C161 /* ShowDashboardViewController.swift */; };
+		8BEEEF33212330F900A6AF99 /* ShowBlogInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* ShowBlogInterfaces.swift */; };
+		8BEEEF352123310A00A6AF99 /* ShowBlogModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* ShowBlogModels.swift */; };
+		8BEEEF372123505B00A6AF99 /* ShowBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF362123505B00A6AF99 /* ShowBlogInteractor.swift */; };
+		8BEEEF392123506B00A6AF99 /* ShowBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF382123506B00A6AF99 /* ShowBlogPresenter.swift */; };
+		8BF2CCBB20B6D6D200C9C161 /* ShowBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBA20B6D6D200C9C161 /* ShowBlogViewController.swift */; };
 		8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCBE20B6D77100C9C161 /* ListFavoritesViewController.swift */; };
 		8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF2CCC020B6D78300C9C161 /* ShowMoreViewController.swift */; };
-		8BF2CCC520B6D81400C9C161 /* ShowDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF2CCC420B6D81400C9C161 /* ShowDashboard.storyboard */; };
+		8BF2CCC520B6D81400C9C161 /* ShowBlog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF2CCC420B6D81400C9C161 /* ShowBlog.storyboard */; };
 		8BF2CCC920B6D83F00C9C161 /* ListFavorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF2CCC820B6D83F00C9C161 /* ListFavorites.storyboard */; };
 		8BF2CCCB20B6D84A00C9C161 /* ShowMore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */; };
 		8BF2CCCD20B6D85500C9C161 /* SearchPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF2CCCC20B6D85500C9C161 /* SearchPosts.storyboard */; };
@@ -225,7 +225,7 @@
 		8B00E41520B30F9300B20B2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B00E41620B30F9300B20B2C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		8B0A28922133CE8A0008135D /* AppDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDisplayable.swift; sourceTree = "<group>"; };
-		8B0A28942133E3680008135D /* ShowDashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardRouter.swift; sourceTree = "<group>"; };
+		8B0A28942133E3680008135D /* ShowBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogRouter.swift; sourceTree = "<group>"; };
 		8B0A28992133EBBB0008135D /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
 		8B0D644D20BEB0FB0046056F /* Basem Emara iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Basem Emara iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,7 +336,7 @@
 		8BABEE3C2292CA9D0014F7B4 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		8BB575542290197D0079BE42 /* HasScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasScenes.swift; sourceTree = "<group>"; };
 		8BB5755722901A540079BE42 /* SceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigurator.swift; sourceTree = "<group>"; };
-		8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardStyles.swift; sourceTree = "<group>"; };
+		8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogStyles.swift; sourceTree = "<group>"; };
 		8BB5756522902C080079BE42 /* AppRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
 		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
@@ -347,14 +347,14 @@
 		8BBF81EA216C33EF00158DDE /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		8BBF81EE216C340800158DDE /* ThemePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePreset.swift; sourceTree = "<group>"; };
 		8BD7BA3E22916EA3000AB0AE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8BEEEF32212330F900A6AF99 /* ShowDashboardInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardInterfaces.swift; sourceTree = "<group>"; };
-		8BEEEF342123310A00A6AF99 /* ShowDashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardModels.swift; sourceTree = "<group>"; };
-		8BEEEF362123505B00A6AF99 /* ShowDashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardInteractor.swift; sourceTree = "<group>"; };
-		8BEEEF382123506B00A6AF99 /* ShowDashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardPresenter.swift; sourceTree = "<group>"; };
-		8BF2CCBA20B6D6D200C9C161 /* ShowDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDashboardViewController.swift; sourceTree = "<group>"; };
+		8BEEEF32212330F900A6AF99 /* ShowBlogInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogInterfaces.swift; sourceTree = "<group>"; };
+		8BEEEF342123310A00A6AF99 /* ShowBlogModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogModels.swift; sourceTree = "<group>"; };
+		8BEEEF362123505B00A6AF99 /* ShowBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogInteractor.swift; sourceTree = "<group>"; };
+		8BEEEF382123506B00A6AF99 /* ShowBlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogPresenter.swift; sourceTree = "<group>"; };
+		8BF2CCBA20B6D6D200C9C161 /* ShowBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogViewController.swift; sourceTree = "<group>"; };
 		8BF2CCBE20B6D77100C9C161 /* ListFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesViewController.swift; sourceTree = "<group>"; };
 		8BF2CCC020B6D78300C9C161 /* ShowMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreViewController.swift; sourceTree = "<group>"; };
-		8BF2CCC420B6D81400C9C161 /* ShowDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowDashboard.storyboard; sourceTree = "<group>"; };
+		8BF2CCC420B6D81400C9C161 /* ShowBlog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowBlog.storyboard; sourceTree = "<group>"; };
 		8BF2CCC820B6D83F00C9C161 /* ListFavorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListFavorites.storyboard; sourceTree = "<group>"; };
 		8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowMore.storyboard; sourceTree = "<group>"; };
 		8BF2CCCC20B6D85500C9C161 /* SearchPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPosts.storyboard; sourceTree = "<group>"; };
@@ -557,7 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				8B52641A20D7C93B00170875 /* Main */,
-				8B52641B20D7C94200170875 /* ShowDashboard */,
+				8B52641B20D7C94200170875 /* ShowBlog */,
 				8B52641D20D7C95500170875 /* ListFavorites */,
 				8B47A5DF20E10E8700681404 /* ListPosts */,
 				8B0B02F921625DE000FF9D9F /* ShowPost */,
@@ -714,17 +714,17 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		8B52641B20D7C94200170875 /* ShowDashboard */ = {
+		8B52641B20D7C94200170875 /* ShowBlog */ = {
 			isa = PBXGroup;
 			children = (
 				8BEEEF312123300E00A6AF99 /* Common */,
-				8BF2CCBA20B6D6D200C9C161 /* ShowDashboardViewController.swift */,
-				8BEEEF362123505B00A6AF99 /* ShowDashboardInteractor.swift */,
-				8BEEEF382123506B00A6AF99 /* ShowDashboardPresenter.swift */,
-				8B0A28942133E3680008135D /* ShowDashboardRouter.swift */,
-				8BF2CCC420B6D81400C9C161 /* ShowDashboard.storyboard */,
+				8BF2CCBA20B6D6D200C9C161 /* ShowBlogViewController.swift */,
+				8BEEEF362123505B00A6AF99 /* ShowBlogInteractor.swift */,
+				8BEEEF382123506B00A6AF99 /* ShowBlogPresenter.swift */,
+				8B0A28942133E3680008135D /* ShowBlogRouter.swift */,
+				8BF2CCC420B6D81400C9C161 /* ShowBlog.storyboard */,
 			);
-			path = ShowDashboard;
+			path = ShowBlog;
 			sourceTree = "<group>";
 		};
 		8B52641D20D7C95500170875 /* ListFavorites */ = {
@@ -866,9 +866,9 @@
 		8BEEEF312123300E00A6AF99 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8BEEEF32212330F900A6AF99 /* ShowDashboardInterfaces.swift */,
-				8BEEEF342123310A00A6AF99 /* ShowDashboardModels.swift */,
-				8BB5755B22901CBB0079BE42 /* ShowDashboardStyles.swift */,
+				8BEEEF32212330F900A6AF99 /* ShowBlogInterfaces.swift */,
+				8BEEEF342123310A00A6AF99 /* ShowBlogModels.swift */,
+				8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1072,7 +1072,7 @@
 				8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */,
 				8B4439F022988D4900EC5575 /* Master.storyboard in Resources */,
 				8BF2CCCD20B6D85500C9C161 /* SearchPosts.storyboard in Resources */,
-				8BF2CCC520B6D81400C9C161 /* ShowDashboard.storyboard in Resources */,
+				8BF2CCC520B6D81400C9C161 /* ShowBlog.storyboard in Resources */,
 				8BF2CCC920B6D83F00C9C161 /* ListFavorites.storyboard in Resources */,
 				8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */,
@@ -1164,17 +1164,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2135B4217D49F800E63F21 /* NotificationApplicationModule.swift in Sources */,
-				8BEEEF352123310A00A6AF99 /* ShowDashboardModels.swift in Sources */,
+				8BEEEF352123310A00A6AF99 /* ShowBlogModels.swift in Sources */,
 				8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */,
 				8B4D71A5216A4043002ACA81 /* SearchPostsRouter.swift in Sources */,
 				8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */,
 				8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */,
 				8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */,
 				8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */,
-				8BEEEF33212330F900A6AF99 /* ShowDashboardInterfaces.swift in Sources */,
+				8BEEEF33212330F900A6AF99 /* ShowBlogInterfaces.swift in Sources */,
 				8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */,
 				8BBF81EB216C33EF00158DDE /* UserDefaults.swift in Sources */,
-				8BB5755C22901CBB0079BE42 /* ShowDashboardStyles.swift in Sources */,
+				8BB5755C22901CBB0079BE42 /* ShowBlogStyles.swift in Sources */,
 				8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIWindow.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostInterfaces.swift in Sources */,
@@ -1197,7 +1197,7 @@
 				8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
-				8BEEEF372123505B00A6AF99 /* ShowDashboardInteractor.swift in Sources */,
+				8BEEEF372123505B00A6AF99 /* ShowBlogInteractor.swift in Sources */,
 				8B4D71A8216A4043002ACA81 /* SearchPostsInteractor.swift in Sources */,
 				8B63A2C72163C830003868F7 /* ListPostsPresenter.swift in Sources */,
 				8B33C4E721694C1600658700 /* ListFavoritesRouter.swift in Sources */,
@@ -1208,17 +1208,17 @@
 				8B2135B0217CEC3800E63F21 /* MainViewController.swift in Sources */,
 				8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */,
 				8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */,
-				8BEEEF392123506B00A6AF99 /* ShowDashboardPresenter.swift in Sources */,
+				8BEEEF392123506B00A6AF99 /* ShowBlogPresenter.swift in Sources */,
 				8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
 				8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */,
 				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
-				8B0A28952133E3680008135D /* ShowDashboardRouter.swift in Sources */,
+				8B0A28952133E3680008135D /* ShowBlogRouter.swift in Sources */,
 				8B63A2B62163B4C7003868F7 /* ListTermsInteractor.swift in Sources */,
 				8B63A2C52163C822003868F7 /* ListPostsInteractor.swift in Sources */,
 				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */,
-				8BF2CCBB20B6D6D200C9C161 /* ShowDashboardViewController.swift in Sources */,
+				8BF2CCBB20B6D6D200C9C161 /* ShowBlogViewController.swift in Sources */,
 				8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */,
 				8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */,
 				8BABEE3B2292C0360014F7B4 /* MasterViewController.swift in Sources */,
@@ -1255,7 +1255,7 @@
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B2135A9217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8B21CF0D215C6C3D00E2994C /* LightTheme.swift in Sources */,
-				8BB5755D22901E260079BE42 /* ShowDashboardStyles.swift in Sources */,
+				8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */,
 				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
 				8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
 			);
@@ -1266,7 +1266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1180ED21586D740071315B /* DarkTheme.swift in Sources */,
-				8BB5755E22901E270079BE42 /* ShowDashboardStyles.swift in Sources */,
+				8BB5755E22901E270079BE42 /* ShowBlogStyles.swift in Sources */,
 				8BBF81ED216C33EF00158DDE /* UserDefaults.swift in Sources */,
 				8BBF81F1216C340800158DDE /* ThemePreset.swift in Sources */,
 				8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */,

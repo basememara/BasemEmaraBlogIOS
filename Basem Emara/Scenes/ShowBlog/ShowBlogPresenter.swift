@@ -1,5 +1,5 @@
 //
-//  ShowDashboardPresenter.swift
+//  ShowBlogPresenter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -9,11 +9,11 @@
 import SwiftyPress
 import ZamzamKit
 
-struct ShowDashboardPresenter: ShowDashboardPresentable {
-    private weak var viewController: ShowDashboardDisplayable?
+struct ShowBlogPresenter: ShowBlogPresentable {
+    private weak var viewController: ShowBlogDisplayable?
     private let dateFormatter: DateFormatter
     
-    init(viewController: ShowDashboardDisplayable?) {
+    init(viewController: ShowBlogDisplayable?) {
         self.viewController = viewController
         
         self.dateFormatter = DateFormatter().with {
@@ -23,9 +23,9 @@ struct ShowDashboardPresenter: ShowDashboardPresentable {
     }
 }
 
-extension ShowDashboardPresenter {
+extension ShowBlogPresenter {
     
-    func presentLatestPosts(for response: ShowDashboardModels.PostsResponse) {
+    func presentLatestPosts(for response: ShowBlogModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -48,9 +48,9 @@ extension ShowDashboardPresenter {
     }
 }
 
-extension ShowDashboardPresenter {
+extension ShowBlogPresenter {
     
-    func presentPopularPosts(for response: ShowDashboardModels.PostsResponse) {
+    func presentPopularPosts(for response: ShowBlogModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -73,9 +73,9 @@ extension ShowDashboardPresenter {
     }
 }
 
-extension ShowDashboardPresenter {
+extension ShowBlogPresenter {
     
-    func presentTopPickPosts(for response: ShowDashboardModels.PostsResponse) {
+    func presentTopPickPosts(for response: ShowBlogModels.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -98,9 +98,9 @@ extension ShowDashboardPresenter {
     }
 }
 
-extension ShowDashboardPresenter {
+extension ShowBlogPresenter {
     
-    func presentTerms(for response: ShowDashboardModels.TermsResponse) {
+    func presentTerms(for response: ShowBlogModels.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,
@@ -123,11 +123,11 @@ extension ShowDashboardPresenter {
     }
 }
 
-extension ShowDashboardPresenter {
+extension ShowBlogPresenter {
     
-    func presentToggleFavorite(for response: ShowDashboardModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ShowBlogModels.FavoriteResponse) {
         viewController?.displayToggleFavorite(
-            with: ShowDashboardModels.FavoriteViewModel(
+            with: ShowBlogModels.FavoriteViewModel(
                 postID: response.postID,
                 favorite: response.favorite
             )

@@ -9,10 +9,8 @@
 import UIKit
 import ZamzamKit
 import SwiftyPress
-import TinyConstraints
-import SafariServices
 
-class ShowDashboardViewController: UIViewController, HasDependencies {
+class ShowBlogViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
@@ -40,15 +38,15 @@ class ShowDashboardViewController: UIViewController, HasDependencies {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: ShowDashboardBusinessLogic = ShowDashboardInteractor(
-        presenter: ShowDashboardPresenter(viewController: self),
+    private lazy var interactor: ShowBlogBusinessLogic = ShowBlogInteractor(
+        presenter: ShowBlogPresenter(viewController: self),
         postWorker: dependencies.resolve(),
         mediaWorker: dependencies.resolve(),
         taxonomyWorker: dependencies.resolve(),
         preferences: dependencies.resolve()
     )
     
-    private(set) lazy var router: ShowDashboardRoutable = ShowDashboardRouter(
+    private(set) lazy var router: ShowBlogRoutable = ShowBlogRouter(
         viewController: self
     )
     
@@ -93,7 +91,7 @@ class ShowDashboardViewController: UIViewController, HasDependencies {
 
 // MARK: - Events
 
-private extension ShowDashboardViewController {
+private extension ShowBlogViewController {
     
     func configure() {
         navigationItem.titleView = titleView
@@ -127,26 +125,26 @@ private extension ShowDashboardViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: ShowDashboardModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchPopularPosts(
-            with: ShowDashboardModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchTopPickPosts(
-            with: ShowDashboardModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(count: 30)
         )
         
         interactor.fetchTerms(
-            with: ShowDashboardModels.FetchTermsRequest(count: 6)
+            with: ShowBlogModels.FetchTermsRequest(count: 6)
         )
     }
 }
 
 // MARK: - Scene cycle
 
-extension ShowDashboardViewController: ShowDashboardDisplayable {
+extension ShowBlogViewController: ShowBlogDisplayable {
     
     func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
         latestPostsCollectionViewAdapter.reloadData(with: viewModels)
@@ -164,14 +162,14 @@ extension ShowDashboardViewController: ShowDashboardDisplayable {
         topTermsTableViewAdapter.reloadData(with: viewModels)
     }
     
-    func displayToggleFavorite(with viewModel: ShowDashboardModels.FavoriteViewModel) {
+    func displayToggleFavorite(with viewModel: ShowBlogModels.FavoriteViewModel) {
         // Nothing to do
     }
 }
 
 // MARK: - Interactions
 
-private extension ShowDashboardViewController {
+private extension ShowBlogViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
         router.listPosts(params: .init(fetchType: .popular))
@@ -218,7 +216,7 @@ private extension ShowDashboardViewController {
 
 // MARK: - Delegates
 
-extension ShowDashboardViewController: PostsDataViewDelegate {
+extension ShowBlogViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.showPost(for: model)
@@ -226,7 +224,7 @@ extension ShowDashboardViewController: PostsDataViewDelegate {
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
         interactor.toggleFavorite(
-            with: ShowDashboardModels.FavoriteRequest(
+            with: ShowBlogModels.FavoriteRequest(
                 postID: model.id
             )
         )
@@ -270,7 +268,7 @@ extension ShowDashboardViewController: PostsDataViewDelegate {
     }
 }
 
-extension ShowDashboardViewController: TermsDataViewDelegate {
+extension ShowBlogViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
         router.listPosts(
@@ -282,7 +280,7 @@ extension ShowDashboardViewController: TermsDataViewDelegate {
     }
 }
 
-extension ShowDashboardViewController: UIViewControllerPreviewingDelegate {
+extension ShowBlogViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let collectionView = previewingContext.sourceView as? UICollectionView,
@@ -317,7 +315,7 @@ extension ShowDashboardViewController: UIViewControllerPreviewingDelegate {
     }
 }
 
-extension ShowDashboardViewController: Scrollable {
+extension ShowBlogViewController: Scrollable {
     
     func scrollToTop(animated: Bool) {
         guard isViewLoaded else { return }

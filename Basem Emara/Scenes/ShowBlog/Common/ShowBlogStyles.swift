@@ -1,5 +1,5 @@
 //
-//  ShowDashboardStyles.swift
+//  ShowBlogStyles.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-18.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-enum ShowDashboardStyles {
+enum ShowBlogStyles {
     
     static func apply(_ theme: Theme) {
         

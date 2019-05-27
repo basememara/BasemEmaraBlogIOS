@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
-                <viewController id="Sqp-Od-GZN" customClass="ShowDashboardViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="ThemedView" customModule="ZamzamKit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
