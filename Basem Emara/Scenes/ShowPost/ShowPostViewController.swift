@@ -25,6 +25,7 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     }
     
     private lazy var activityIndicatorView = view.makeActivityIndicator()
+    private lazy var theme: Theme = dependencies.resolve()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
         imageName: UIImage.ImageName.favoriteEmpty.rawValue,
@@ -205,7 +206,7 @@ private extension ShowPostViewController {
             .appendingQueryItem("postid", value: postID)
             .absoluteString
         
-        present(safari: url, theme: dependencies.resolve())
+        router.show(safari: url, theme: theme)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -285,7 +286,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         // Open same domain links within app
         guard requestURL.host == constants.baseURL.host else {
             // Open external links in browser
-            present(safari: requestURL.absoluteString, theme: dependencies.resolve())
+            present(safari: requestURL.absoluteString, theme: theme)
             return decisionHandler(.cancel)
         }
         
