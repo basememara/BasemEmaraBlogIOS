@@ -34,14 +34,14 @@ struct ShowBlogInteractor: ShowBlogBusinessLogic {
 extension ShowBlogInteractor {
     
     func fetchLatestPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        postWorker.fetch {
-            guard case .success(let value) = $0 else {
+        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        
+        postWorker.fetch(with: request) {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
-            
-            let posts = value.prefix(request.count).array
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
@@ -62,14 +62,14 @@ extension ShowBlogInteractor {
     }
     
     func fetchPopularPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        postWorker.fetchPopular {
-            guard case .success(let value) = $0 else {
+        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        
+        postWorker.fetchPopular(with: request) {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
-            
-            let posts = value.prefix(request.count).array
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
@@ -90,14 +90,14 @@ extension ShowBlogInteractor {
     }
     
     func fetchTopPickPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        postWorker.fetchTopPicks {
-            guard case .success(let value) = $0 else {
+        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        
+        postWorker.fetchTopPicks(with: request) {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
-            
-            let posts = value.prefix(request.count).array
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
@@ -130,7 +130,7 @@ extension ShowBlogInteractor {
             
             let terms = value
                 .sorted { $0.count > $1.count }
-                .prefix(request.count)
+                .prefix(request.maxLength)
                 .array
             
             self.presenter.presentTerms(

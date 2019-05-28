@@ -11,11 +11,11 @@ import SwiftyPress
 enum ShowBlogModels {
     
     struct FetchPostsRequest {
-        let count: Int
+        let maxLength: Int
     }
     
     struct FetchTermsRequest {
-        let count: Int
+        let maxLength: Int
     }
     
     struct FavoriteRequest {

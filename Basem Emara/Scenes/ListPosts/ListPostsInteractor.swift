@@ -27,7 +27,9 @@ struct ListPostsInteractor: ListPostsBusinessLogic {
 extension ListPostsInteractor {
     
     func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postWorker.fetch {
+        let fetchRequest = PostsModels.FetchRequest()
+        
+        postWorker.fetch(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -59,7 +61,9 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postWorker.fetchPopular {
+        let fetchRequest = PostsModels.FetchRequest()
+        
+        postWorker.fetchPopular(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -91,7 +95,9 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest) {
-        postWorker.fetchTopPicks {
+        let fetchRequest = PostsModels.FetchRequest()
+        
+        postWorker.fetchTopPicks(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -123,7 +129,9 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest) {
-        postWorker.fetch(byTermIDs: request.ids) {
+        let fetchRequest = PostsModels.FetchRequest()
+        
+        postWorker.fetch(byTermIDs: request.ids, with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)

@@ -63,7 +63,7 @@ private extension TodayViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: TodayModels.Request(count: 1)
+            with: TodayModels.Request(maxLength: 1)
         )
     }
 }

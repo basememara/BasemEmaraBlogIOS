@@ -55,7 +55,9 @@ extension SearchPostsInteractor {
 extension SearchPostsInteractor {
     
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
-        postWorker.fetchPopular {
+        let request = PostsModels.FetchRequest()
+        
+        postWorker.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)

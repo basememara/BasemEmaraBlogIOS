@@ -125,19 +125,19 @@ private extension ShowBlogViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: ShowBlogModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchPopularPosts(
-            with: ShowBlogModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchTopPickPosts(
-            with: ShowBlogModels.FetchPostsRequest(count: 30)
+            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchTerms(
-            with: ShowBlogModels.FetchTermsRequest(count: 6)
+            with: ShowBlogModels.FetchTermsRequest(maxLength: 6)
         )
     }
 }
