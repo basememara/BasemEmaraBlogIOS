@@ -154,7 +154,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: isFavorite ? "favorite-empty" : "favorite-filled")
+                    $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
                     $0.backgroundColor = theme.tint
                 },
                 UIContextualAction(style: .normal, title: .localized(.moreTitle)) { _, _, completion in
@@ -203,7 +203,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: "more-icon")
+                    $0.image = UIImage(named: .more)
                     $0.backgroundColor = theme.secondaryTint
                 }
             ]

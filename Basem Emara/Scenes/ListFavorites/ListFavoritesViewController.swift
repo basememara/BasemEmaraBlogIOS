@@ -118,7 +118,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
                     self.interactor.toggleFavorite(with: ListFavoritesModels.FavoriteRequest(postID: model.id))
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: "favorite-empty")
+                    $0.image = UIImage(named: .favoriteEmpty)
                 }
             ]
         )

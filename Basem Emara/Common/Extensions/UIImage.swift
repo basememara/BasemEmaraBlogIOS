@@ -19,5 +19,9 @@ extension UIImage {
     
     enum ImageName: String {
         case placeholder
+        case favoriteEmpty = "favorite-empty"
+        case favoriteFilled = "favorite-filled"
+        case more = "more-icon"
+        case comments = "comments"
     }
 }

@@ -27,13 +27,13 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     private lazy var activityIndicatorView = view.makeActivityIndicator()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
-        imageName: "favorite-empty",
+        imageName: UIImage.ImageName.favoriteEmpty.rawValue,
         target: self,
         action: #selector(favoriteTapped)
     )
     
     private lazy var commentBarButton = BadgeBarButtonItem(
-        image: UIImage(named: "comments"),
+        image: UIImage(named: .comments),
         badgeText: nil,
         target: self,
         action: #selector(commentsTapped)
@@ -171,8 +171,8 @@ extension ShowPostViewController: ShowPostDisplayable {
     
     func display(isFavorite: Bool) {
         favoriteBarButton.image = isFavorite
-            ? UIImage(named: "favorite-filled")
-            : UIImage(named: "favorite-empty")
+            ? UIImage(named: .favoriteFilled)
+            : UIImage(named: .favoriteEmpty)
     }
 }
 
