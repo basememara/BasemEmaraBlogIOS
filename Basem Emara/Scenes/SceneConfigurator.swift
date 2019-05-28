@@ -14,7 +14,6 @@ import SwiftyPress
 /// and so forth to override behavior in the next scene.
 protocol SceneDependable {
     func startMain() -> UIViewController
-    func startBlog() -> UIViewController
     func showBlog() -> UIViewController
     func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
@@ -33,11 +32,12 @@ extension SceneDependable {
 struct SceneConfigurator: SceneDependable {
     
     func startMain() -> UIViewController {
-        return .make(fromStoryboard: Storyboard.main.rawValue)
-    }
-    
-    func startBlog() -> UIViewController {
-        return .make(fromStoryboard: Storyboard.blog.rawValue)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            return .make(fromStoryboard: Storyboard.mainSplit.rawValue)
+        default:
+            return .make(fromStoryboard: Storyboard.main.rawValue)
+        }
     }
 }
 
@@ -80,16 +80,17 @@ extension SceneConfigurator {
     
     /// Tab identifiers for routing
     enum Tab: Int {
-        case dashboard = 0
-        case favorites = 1
-        case search = 2
-        case more = 3
+        case home = 0
+        case blog = 1
+        case favorites = 2
+        case search = 3
+        case more = 4
     }
     
     /// Storyboard identifiers for routing
     enum Storyboard: String {
         case main = "Main"
-        case blog = "Blog"
+        case mainSplit = "MainSplit"
         case showBlog = "ShowBlog"
         case listPosts = "ListPosts"
         case showPost = "ShowPost"

@@ -1,20 +1,21 @@
 //
-//  MasterInterfaces.swift
+//  HomeInterfaces.swift
 //  Basem Emara
 //
-//  Created by Basem Emara on 2019-05-24.
+//  Created by Basem Emara on 2019-05-27.
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
 import SwiftyPress
 import ZamzamKit
 
-protocol MasterDisplayable: class, AppDisplayable { // Controller
+protocol HomeDisplayable: class, AppDisplayable { // Controller
     
 }
 
-protocol MasterRoutable: AppRoutable { // Router
-    func startBlog()
+protocol HomeRoutable: AppRoutable { // Router
+    func showAbout()
+    func showPortfolio()
     
     func showSeriesScalableApp(title: String?)
     func showSeriesSwiftUtilities(title: String?)

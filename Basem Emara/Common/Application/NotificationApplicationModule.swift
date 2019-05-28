@@ -52,7 +52,7 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         defer { completionHandler() }
         
-        guard let appViewController = (UIWindow.current?.rootViewController as? MainViewController),
+        guard let appViewController = (UIWindow.current?.rootViewController as? MainSplitViewController),
             let id = response.notification.request.content.userInfo["id"] as? Int,
             let link = response.notification.request.content.userInfo["link"] as? String else {
                 return
@@ -60,7 +60,7 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
         
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            appViewController.router.show(tab: .dashboard) { (controller: ShowBlogViewController) in
+            appViewController.router.show(tab: .blog) { (controller: ShowBlogViewController) in
                 controller.router.showPost(for: id)
             }
         case Action.share.rawValue:

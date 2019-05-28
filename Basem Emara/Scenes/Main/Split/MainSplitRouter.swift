@@ -1,5 +1,5 @@
 //
-//  DetailRouter.swift
+//  MainSplitRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-21.
@@ -10,12 +10,12 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-protocol MainRoutable: AppRoutable {
+protocol MainSplitRoutable: AppRoutable {
     func showFavorites()
     func sendFeedback()
 }
 
-struct MainRouter {
+struct MainSplitRouter {
     weak var viewController: UIViewController?
     private let constants: ConstantsType
     
@@ -25,7 +25,7 @@ struct MainRouter {
     }
 }
 
-extension MainRouter: MainRoutable {
+extension MainSplitRouter: MainSplitRoutable {
     
     func showFavorites() {
         show(tab: .favorites)

@@ -1,5 +1,5 @@
 //
-//  MasterRouter.swift
+//  HomeRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-24.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-struct MasterRouter: MasterRoutable, HasScenes {
+struct HomeRouter: HomeRoutable, HasScenes {
     weak var viewController: UIViewController?
     
     private let mailComposer: MailComposerType
@@ -30,19 +30,18 @@ struct MasterRouter: MasterRoutable, HasScenes {
     }
 }
 
-extension MasterRouter {
+extension HomeRouter {
     
-    func startBlog() {
-        guard viewController?.splitViewController?.isCollapsed == false else {
-            viewController?.present(scenes.startBlog())
-            return
-        }
-        
-        show(tab: .dashboard)
+    func showAbout() {
+        show(safari: "about", constants: constants, theme: theme)
+    }
+    
+    func showPortfolio() {
+        show(safari: "portfolio", constants: constants, theme: theme)
     }
 }
 
-extension MasterRouter {
+extension HomeRouter {
     
     func showSeriesScalableApp(title: String?) {
         let controller = scenes.listPosts(
@@ -53,7 +52,7 @@ extension MasterRouter {
             )
         )
         
-        viewController?.showDetailViewController(controller)
+        viewController?.show(controller)
     }
     
     func showSeriesSwiftUtilities(title: String?) {
@@ -65,7 +64,7 @@ extension MasterRouter {
             )
         )
         
-        viewController?.showDetailViewController(controller)
+        viewController?.show(controller)
     }
     
     private func seriesSort(_ post1: PostType, _ post2: PostType) -> Bool {
@@ -78,7 +77,7 @@ extension MasterRouter {
     }
 }
 
-extension MasterRouter {
+extension HomeRouter {
     
     func showCoursesArchitecture() {
         show(safari: "https://iosmentor.io", theme: theme)
@@ -97,7 +96,7 @@ extension MasterRouter {
     }
 }
 
-extension MasterRouter {
+extension HomeRouter {
     
     func showSocial(for type: Social) {
         showSocial(for: type, theme: theme)

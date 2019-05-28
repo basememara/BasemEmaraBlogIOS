@@ -24,22 +24,6 @@ class ShowMoreViewController: UITableViewController, HasDependencies {
     // MARK: - Internal variable
     
     private lazy var constants: ConstantsType = dependencies.resolve()
-    
-    // MARK: - Controller cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-}
-
-// MARK: - Events
-
-private extension ShowMoreViewController {
-    
-    func configure() {
-        
-    }
 }
 
 // MARK: - Interactions
@@ -64,7 +48,6 @@ private extension ShowMoreViewController {
 extension ShowMoreViewController: CellIdentifiable {
     
     enum CellIdentifier: String {
-        case about
         case subscribe
         case feedback
         case work
@@ -89,8 +72,6 @@ extension ShowMoreViewController {
         }
         
         switch identifier {
-        case .about:
-            router.showAbout()
         case .subscribe:
             router.showSubscribe()
         case .feedback:

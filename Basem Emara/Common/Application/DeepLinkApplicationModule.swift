@@ -39,7 +39,7 @@ private extension DeepLinkApplicationModule {
      */
     func navigate(from url: URL) -> Bool {
         // Get root container and extract path from URL if applicable
-        guard let appViewController = (UIWindow.current?.rootViewController as? MainViewController),
+        guard let appViewController = (UIWindow.current?.rootViewController as? MainSplitViewController),
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
                 return false
         }
@@ -48,7 +48,7 @@ private extension DeepLinkApplicationModule {
         if url.path.isEmpty || url.path == "/" {
             // Handle search if applicable
             guard let query = urlComponents.queryItems?.first(where: { $0.name == "s" })?.value else {
-                appViewController.router.show(tab: .dashboard)
+                appViewController.router.show(tab: .blog)
                 return true
             }
             
@@ -62,13 +62,13 @@ private extension DeepLinkApplicationModule {
             
             return true
         } else if let id = postWorker.getID(byURL: url.absoluteString) {
-            appViewController.router.show(tab: .dashboard) { (controller: ShowBlogViewController) in
+            appViewController.router.show(tab: .blog) { (controller: ShowBlogViewController) in
                 controller.router.showPost(for: id)
             }
             
             return true
         } else if let id = taxonomyWorker.getID(byURL: url.absoluteString) {
-            appViewController.router.show(tab: .dashboard) { (controller: ShowBlogViewController) in
+            appViewController.router.show(tab: .blog) { (controller: ShowBlogViewController) in
                 controller.router.listPosts(
                     params: .init(fetchType: .terms([id]))
                 )

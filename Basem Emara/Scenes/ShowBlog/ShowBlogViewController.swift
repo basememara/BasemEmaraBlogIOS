@@ -315,15 +315,10 @@ extension ShowBlogViewController: UIViewControllerPreviewingDelegate {
     }
 }
 
-extension ShowBlogViewController: Scrollable {
+extension ShowBlogViewController: TabSelectable {
     
-    func scrollToTop(animated: Bool) {
+    func tabDidSelect() {
         guard isViewLoaded else { return }
-        scrollView?.scrollToTop(animated: animated)
-    }
-    
-    func scrollToBottom(animated: Bool) {
-        guard isViewLoaded else { return }
-        scrollView?.scrollToBottom(animated: animated)
+        scrollView?.scrollToTop()
     }
 }

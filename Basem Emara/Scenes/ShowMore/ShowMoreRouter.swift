@@ -32,10 +32,6 @@ struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
 
 extension ShowMoreRouter {
     
-    func showAbout() {
-        show(safari: "about", constants: constants, theme: theme)
-    }
-    
     func showSubscribe() {
         show(safari: "subscribe", constants: constants, theme: theme)
     }

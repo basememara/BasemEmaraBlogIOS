@@ -21,13 +21,27 @@ extension AppRoutable {
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
     func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
-        guard let tabBarController = ((viewController as? UISplitViewController ?? viewController?.splitViewController)?.viewControllers[safe: 1]
-            ?? UIWindow.current?.rootViewController) as? UITabBarController else {
+        // Handle tab bar controller in split view differently
+        guard let splitViewController = viewController?.splitViewController else {
+            guard let tabBarController = UIWindow.current?
+                .rootViewController as? UITabBarController else {
+                    return nil
+            }
+            
+            return tabBarController.setSelected(
+                index: tab.rawValue,
+                configure: configure,
+                completion: completion
+            )
+        }
+        
+        guard let tabBarController = splitViewController
+            .viewControllers[safe: 1] as? UITabBarController else {
                 return nil
         }
         
         return tabBarController.setSelected(
-            index: tab.rawValue,
+            index: tab.rawValue - 1, // Home is master not tab
             configure: configure,
             completion: completion
         )
@@ -43,13 +57,9 @@ extension AppRoutable {
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
     func show(safari url: String, theme: Theme) {
-        guard viewController?.splitViewController?.isCollapsed == false else {
-            viewController?.show(safari: url, theme: theme)
-            return
-        }
-        
-        UIWindow.current?.rootViewController?
-            .present(safari: url, theme: theme)
+        // Handle Safari display in split view differently
+        viewController?.splitViewController?.present(safari: url, theme: theme)
+            ?? viewController?.show(safari: url, theme: theme)
     }
 
     /// Open Safari view controller overlay.

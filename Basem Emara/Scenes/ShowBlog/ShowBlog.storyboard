@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Blog-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,7 +263,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="cpI-Os-Nhe"/>
+                    <tabBarItem key="tabBarItem" title="Blog" image="tab-megaphone" id="cpI-Os-Nhe"/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="LcI-eV-Fqo">
                         <barButtonItem key="backBarButtonItem" title=" " id="8K6-aO-gul"/>
                     </navigationItem>
@@ -318,6 +318,6 @@
     </scenes>
     <resources>
         <image name="icon-nobg" width="300" height="341"/>
-        <image name="tab-home" width="25" height="25"/>
+        <image name="tab-megaphone" width="25" height="25"/>
     </resources>
 </document>

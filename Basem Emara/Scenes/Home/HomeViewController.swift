@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  HomeViewController.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-20.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-class MasterViewController: UITableViewController, HasDependencies {
+class HomeViewController: UITableViewController, HasDependencies {
     
     // MARK: - Controls
     
@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController, HasDependencies {
     
     // MARK: - Scene variables
     
-    private lazy var router: MasterRoutable = MasterRouter(
+    private lazy var router: HomeRoutable = HomeRouter(
         viewController: self,
         mailComposer: dependencies.resolve(),
         constants: dependencies.resolve(),
@@ -27,8 +27,8 @@ class MasterViewController: UITableViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private var collapseDetailViewController = true
     private lazy var constants: ConstantsType = dependencies.resolve()
+    private lazy var theme: Theme = dependencies.resolve()
     
     // MARK: - Controller cycle
     
@@ -41,21 +41,29 @@ class MasterViewController: UITableViewController, HasDependencies {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return theme.statusBarStyle
+    }
 }
 
 // MARK: - Events
 
-private extension MasterViewController {
+private extension HomeViewController {
     
     func configure() {
-        splitViewController?.delegate = self
         tableView.tableHeaderView = headerView
     }
 }
 
 // MARK: - Interactions
 
-private extension MasterViewController {
+private extension HomeViewController {
     
     @IBAction func socialButtonTapped(_ sender: UIButton) {
         switch sender.tag {
@@ -78,12 +86,19 @@ private extension MasterViewController {
     }
 }
 
+// MARK: - Scene cycle
+
+extension HomeViewController: HomeDisplayable {
+    
+}
+
 // MARK: - Nested types
 
-extension MasterViewController: CellIdentifiable {
+extension HomeViewController: CellIdentifiable {
     
     enum CellIdentifier: String {
-        case blog
+        case about
+        case portfolio
         case seriesScalableApp
         case seriesSwiftUtilities
         case coursesArchitecture
@@ -95,11 +110,10 @@ extension MasterViewController: CellIdentifiable {
 
 // MARK: - Delegates
 
-extension MasterViewController {
+extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        collapseDetailViewController = false
         
         guard let cell = tableView.cellForRow(at: indexPath),
             let identifier = CellIdentifier(from: cell) else {
@@ -107,8 +121,10 @@ extension MasterViewController {
         }
         
         switch identifier {
-        case .blog:
-            router.startBlog()
+        case .about:
+            router.showAbout()
+        case .portfolio:
+            router.showPortfolio()
         case .seriesScalableApp:
             router.showSeriesScalableApp(
                 title: cell.textLabel?.text
@@ -126,45 +142,5 @@ extension MasterViewController {
         case .consultingMentorship:
             router.showConsultingMentorship()
         }
-        
-        // Dismiss master view controller
-        // https://stackoverflow.com/a/27399688
-        if splitViewController?.displayMode == .primaryOverlay,
-            let barButtonItem = splitViewController?.displayModeButtonItem,
-            let action = barButtonItem.action {
-                UIApplication.shared.sendAction(action, to: barButtonItem.target, from: nil, for: nil)
-        }
-    }
-}
-
-extension MasterViewController: UISplitViewControllerDelegate {
-    
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        // Default to master view in compact mode
-        // https://useyourloaf.com/blog/split-view-controller-display-modes/
-        return collapseDetailViewController
-    }
-    
-    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
-        guard splitViewController.isCollapsed else {
-            // Display within detail tab bar view controller
-            router.show(tab: .dashboard) {
-                $0.show(vc)
-            }
-            
-            return true
-        }
-        
-        vc.viewWillAppear {
-            $0?.navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-        
-        // Push to master view controller
-        show(vc)
-        return true
-    }
-    
-    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewController.DisplayMode) {
-        dismiss(animated: false)
     }
 }
