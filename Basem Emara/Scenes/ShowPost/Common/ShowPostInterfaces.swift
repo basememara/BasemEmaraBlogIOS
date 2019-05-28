@@ -33,8 +33,3 @@ protocol ShowPostDisplayable: class, AppDisplayable {
 protocol ShowPostRoutable: AppRoutable {
     func listPosts(params: ListPostsModels.Params)
 }
-
-/// Delegate for target controller to pass data back
-protocol ShowPostViewControllerDelegate: class {
-    func update(postID: Int)
-}

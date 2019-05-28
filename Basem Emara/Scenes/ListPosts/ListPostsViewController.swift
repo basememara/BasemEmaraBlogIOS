@@ -44,7 +44,7 @@ class ListPostsViewController: UIViewController, HasDependencies {
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
-    weak var delegate: ShowPostViewControllerDelegate?
+    weak var delegate: ListPostsDelegate?
     var params = ListPostsModels.Params(
         fetchType: .latest,
         title: nil
@@ -133,14 +133,8 @@ extension ListPostsViewController: ListPostsDisplayable {
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        guard let delegate = delegate else {
-            // Pass data forward
-            return router.showPost(for: model)
-        }
-        
-        // Pass data back
-        delegate.update(postID: model.id)
-        router.dismiss()
+        delegate?.listPosts(self, didSelect: model) // Pass data back
+            ?? router.showPost(for: model) // Pass data forward
     }
     
     func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {

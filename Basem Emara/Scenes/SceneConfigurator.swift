@@ -15,7 +15,7 @@ import SwiftyPress
 protocol SceneDependable {
     func startMain() -> UIViewController
     func showBlog() -> UIViewController
-    func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController
+    func listPosts(params: ListPostsModels.Params, delegate: ListPostsDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
     func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController
     func listTerms() -> UIViewController
@@ -47,7 +47,7 @@ extension SceneConfigurator {
         return .make(fromStoryboard: Storyboard.showBlog.rawValue)
     }
     
-    func listPosts(params: ListPostsModels.Params, delegate: ShowPostViewControllerDelegate?) -> UIViewController {
+    func listPosts(params: ListPostsModels.Params, delegate: ListPostsDelegate?) -> UIViewController {
         let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)
         controller.params = params
         controller.delegate = delegate

@@ -43,3 +43,7 @@ protocol ListPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
     func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }
+
+protocol ListPostsDelegate: class {
+    func listPosts(_ viewController: UIViewController, didSelect model: PostsDataViewModel)
+}

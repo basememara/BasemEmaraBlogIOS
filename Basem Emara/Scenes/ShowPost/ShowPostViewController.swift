@@ -54,7 +54,8 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     )
     
     private lazy var router: ShowPostRoutable = ShowPostRouter(
-        viewController: self
+        viewController: self,
+        listPostsDelegate: self
     )
     
     // MARK: - Internal variable
@@ -263,15 +264,17 @@ private extension ShowPostViewController {
 
 // MARK: - Delegates
 
-extension ShowPostViewController: ShowPostViewControllerDelegate {
+extension ShowPostViewController: ListPostsDelegate {
     
-    func update(postID: Int) {
+    func listPosts(_ viewController: UIViewController, didSelect model: PostsDataViewModel) {
         if let lastPostID = self.postID {
             history.append(lastPostID)
         }
         
-        self.postID = postID
+        self.postID = model.id
         loadData()
+        
+        viewController.dismissOrPop()
     }
 }
 
