@@ -12,6 +12,7 @@ import ZamzamKit
 
 struct HomeRouter: HomeRoutable, HasScenes {
     weak var viewController: UIViewController?
+    weak var listPostsDelegate: ListPostsDelegate?
     
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
@@ -19,11 +20,13 @@ struct HomeRouter: HomeRoutable, HasScenes {
     
     init(
         viewController: UIViewController,
+        listPostsDelegate: ListPostsDelegate?,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme
     ) {
         self.viewController = viewController
+        self.listPostsDelegate = listPostsDelegate
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme
@@ -33,11 +36,11 @@ struct HomeRouter: HomeRoutable, HasScenes {
 extension HomeRouter {
     
     func showAbout() {
-        show(safari: "about", constants: constants, theme: theme)
+        show(pageSlug: "about", constants: constants, theme: theme)
     }
     
     func showPortfolio() {
-        show(safari: "portfolio", constants: constants, theme: theme)
+        show(pageSlug: "portfolio", constants: constants, theme: theme)
     }
 }
 
@@ -49,7 +52,8 @@ extension HomeRouter {
                 fetchType: .terms([80]),
                 title: title,
                 sort: seriesSort
-            )
+            ),
+            delegate: listPostsDelegate
         )
         
         viewController?.show(controller)
@@ -61,7 +65,8 @@ extension HomeRouter {
                 fetchType: .terms([71]),
                 title: title,
                 sort: seriesSort
-            )
+            ),
+            delegate: listPostsDelegate
         )
         
         viewController?.show(controller)

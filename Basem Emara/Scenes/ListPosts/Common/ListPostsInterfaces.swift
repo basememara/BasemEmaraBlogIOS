@@ -45,5 +45,5 @@ protocol ListPostsRoutable: AppRoutable {
 }
 
 protocol ListPostsDelegate: class {
-    func listPosts(_ viewController: UIViewController, didSelect model: PostsDataViewModel)
+    func listPosts(_ viewController: UIViewController, didSelect postID: Int)
 }

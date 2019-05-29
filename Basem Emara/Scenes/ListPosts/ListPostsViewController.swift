@@ -44,11 +44,12 @@ class ListPostsViewController: UIViewController, HasDependencies {
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
-    weak var delegate: ListPostsDelegate?
     var params = ListPostsModels.Params(
         fetchType: .latest,
         title: nil
     )
+    
+    weak var delegate: ListPostsDelegate?
     
     // MARK: - Controller cycle
     
@@ -133,7 +134,7 @@ extension ListPostsViewController: ListPostsDisplayable {
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        delegate?.listPosts(self, didSelect: model) // Pass data back
+        delegate?.listPosts(self, didSelect: model.id) // Pass data back
             ?? router.showPost(for: model) // Pass data forward
     }
     

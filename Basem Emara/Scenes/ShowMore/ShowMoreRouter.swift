@@ -33,11 +33,11 @@ struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
 extension ShowMoreRouter {
     
     func showSubscribe() {
-        show(safari: "subscribe", constants: constants, theme: theme)
+        show(pageSlug: "subscribe", constants: constants, theme: theme)
     }
     
     func showWorkWithMe() {
-        show(safari: "resume", constants: constants, theme: theme)
+        show(pageSlug: "resume", constants: constants, theme: theme)
     }
     
     func showSocial(for type: Social) {

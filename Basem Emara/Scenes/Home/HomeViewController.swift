@@ -20,6 +20,7 @@ class HomeViewController: UITableViewController, HasDependencies {
     
     private lazy var router: HomeRoutable = HomeRouter(
         viewController: self,
+        listPostsDelegate: splitViewController as? MainSplitViewController,
         mailComposer: dependencies.resolve(),
         constants: dependencies.resolve(),
         theme: dependencies.resolve()

@@ -33,3 +33,7 @@ protocol ShowPostDisplayable: class, AppDisplayable {
 protocol ShowPostRoutable: AppRoutable {
     func listPosts(params: ListPostsModels.Params)
 }
+
+protocol ShowPostLoadable {
+    func loadData(for id: Int)
+}

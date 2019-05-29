@@ -146,18 +146,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         navigationController?.setToolbarHidden(false, animated: true)
         
         if let postID = viewModel.postID {
-            activityIndicatorView.startAnimating()
-            
-            if let lastPostID = self.postID {
-                history.append(lastPostID)
-            }
-            
-            self.postID = postID
-            
-            interactor.fetchPost(
-                with: ShowPostModels.Request(postID: postID)
-            )
-            
+            loadData(for: postID)
             return viewModel.decisionHandler(.cancel)
         }
         
@@ -264,16 +253,22 @@ private extension ShowPostViewController {
 
 // MARK: - Delegates
 
-extension ShowPostViewController: ListPostsDelegate {
+extension ShowPostViewController: ShowPostLoadable {
     
-    func listPosts(_ viewController: UIViewController, didSelect model: PostsDataViewModel) {
-        if let lastPostID = self.postID {
+    func loadData(for id: Int) {
+        if let lastPostID = postID {
             history.append(lastPostID)
         }
         
-        self.postID = model.id
+        postID = id
         loadData()
-        
+    }
+}
+
+extension ShowPostViewController: ListPostsDelegate {
+    
+    func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
+        loadData(for: postID)
         viewController.dismissOrPop()
     }
 }

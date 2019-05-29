@@ -22,26 +22,29 @@ extension AppRoutable {
     @discardableResult
     func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
         // Handle tab bar controller in split view differently
-        guard let splitViewController = viewController?.splitViewController else {
-            guard let tabBarController = UIWindow.current?
-                .rootViewController as? UITabBarController else {
-                    return nil
-            }
-            
-            return tabBarController.setSelected(
-                index: tab.rawValue,
-                configure: configure,
-                completion: completion
-            )
+        guard let splitViewController: UISplitViewController =
+            viewController as? UISplitViewController
+                ?? viewController?.splitViewController else {
+                    // No split view
+                    guard let tabBarController = UIWindow.current?
+                        .rootViewController as? UITabBarController else {
+                            return nil
+                    }
+                    
+                    return tabBarController.setSelected(
+                        index: tab.rawValue,
+                        configure: configure,
+                        completion: completion
+                    )
         }
         
         guard let tabBarController = splitViewController
-            .viewControllers[safe: 1] as? UITabBarController else {
+            .viewControllers.last as? UITabBarController else {
                 return nil
         }
         
         return tabBarController.setSelected(
-            index: tab.rawValue - 1, // Home is master not tab
+            index: max(tab.rawValue - 1, 0),
             configure: configure,
             completion: completion
         )
@@ -65,12 +68,12 @@ extension AppRoutable {
     /// Open Safari view controller overlay.
     ///
     /// - Parameters:
-    ///   - url: URL to display in the browser.
+    ///   - slug: The slug of the page.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func show(safari url: String, constants: ConstantsType, theme: Theme) {
+    func show(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
         let url = constants.baseURL
-            .appendingPathComponent(url)
+            .appendingPathComponent(slug)
             .appendingQueryItem("mobileembed", value: 1)
             .absoluteString
         

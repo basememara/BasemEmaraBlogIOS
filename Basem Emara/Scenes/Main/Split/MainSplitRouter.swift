@@ -11,11 +11,12 @@ import SwiftyPress
 import ZamzamKit
 
 protocol MainSplitRoutable: AppRoutable {
+    func showPost(for id: Int)
     func showFavorites()
     func sendFeedback()
 }
 
-struct MainSplitRouter {
+struct MainSplitRouter: MainSplitRoutable, HasScenes {
     weak var viewController: UIViewController?
     private let constants: ConstantsType
     
@@ -25,7 +26,20 @@ struct MainSplitRouter {
     }
 }
 
-extension MainSplitRouter: MainSplitRoutable {
+extension MainSplitRouter {
+    
+    func showPost(for id: Int) {
+        guard let topViewController = UIWindow.current?.topViewController else {
+            return
+        }
+        
+        // Load post in place or show in new controller
+        (topViewController as? ShowPostLoadable)?.loadData(for: id)
+            ?? topViewController.show(scenes.showPost(for: id), dismiss: true)
+    }
+}
+
+extension MainSplitRouter {
     
     func showFavorites() {
         show(tab: .favorites)

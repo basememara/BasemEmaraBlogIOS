@@ -29,3 +29,12 @@ class MainSplitViewController: UISplitViewController, HasDependencies {
         return theme.statusBarStyle
     }
 }
+
+// MARK: - Delegates
+
+extension MainSplitViewController: ListPostsDelegate {
+    
+    func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
+        router.showPost(for: postID)
+    }
+}
