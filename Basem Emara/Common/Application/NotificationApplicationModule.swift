@@ -11,8 +11,13 @@ import SwiftyPress
 import ZamzamKit
 import UserNotifications
 
-final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable {
+final class NotificationApplicationModule: NSObject, ApplicationModule, HasDependencies, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
+    
+    private lazy var router: DeepLinkRoutable = DeepLinkRouter(
+        viewController: UIWindow.current?.rootViewController,
+        constants: dependencies.resolve()
+    )
 }
 
 extension NotificationApplicationModule {
@@ -52,21 +57,20 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         defer { completionHandler() }
         
-        guard let appViewController = (UIWindow.current?.rootViewController as? MainSplitViewController),
-            let id = response.notification.request.content.userInfo["id"] as? Int,
+        guard let id = response.notification.request.content.userInfo["id"] as? Int,
             let link = response.notification.request.content.userInfo["link"] as? String else {
                 return
         }
         
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            appViewController.router.show(tab: .blog) { (controller: ShowBlogViewController) in
+            router.show(tab: .blog) { (controller: ShowBlogViewController) in
                 controller.router.showPost(for: id)
             }
         case Action.share.rawValue:
-            appViewController.present(
+            router.viewController?.present(
                 activities: [response.notification.request.content.title.htmlDecoded, link],
-                popoverFrom: appViewController.view
+                popoverFrom: (router.viewController?.view!)!
             )
         default:
             break

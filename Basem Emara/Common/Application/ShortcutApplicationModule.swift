@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import SwiftyPress
 import ZamzamKit
 
-final class ShortcutApplicationModule: ApplicationModule {
+final class ShortcutApplicationModule: ApplicationModule, HasDependencies {
     private var launchedShortcutItem: UIApplicationShortcutItem?
+    
+    private lazy var router: DeepLinkRoutable = DeepLinkRouter(
+        viewController: UIWindow.current?.rootViewController,
+        constants: dependencies.resolve()
+    )
 }
 
 extension ShortcutApplicationModule {
@@ -41,16 +47,15 @@ private extension ShortcutApplicationModule {
     /// - Returns: A Boolean value indicating whether or not the shortcut action succeeded.
     @discardableResult
     func performShortcutAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
-        guard let shortcutItemType = ShortcutItemType(for: shortcutItem),
-            let appViewController = UIWindow.current?.rootViewController as? MainSplitViewController else {
-                return false
+        guard let shortcutItemType = ShortcutItemType(for: shortcutItem) else {
+            return false
         }
         
         switch shortcutItemType {
         case .favorites:
-            appViewController.router.showFavorites()
+            router.showFavorites()
         case .contact:
-            appViewController.router.sendFeedback()
+            router.sendFeedback()
         }
         
         return true

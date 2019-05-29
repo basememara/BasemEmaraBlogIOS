@@ -13,8 +13,7 @@ class MainSplitViewController: UISplitViewController, HasDependencies {
     
     // MARK: - Scene variables
     
-    // TODO: Fix routing for deep linking etc
-    private(set) lazy var router: MainSplitRoutable = MainSplitRouter(
+    private lazy var router: MainSplitRoutable = MainSplitRouter(
         viewController: self,
         constants: dependencies.resolve()
     )
