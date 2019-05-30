@@ -64,6 +64,18 @@ extension AppRoutable {
         viewController?.splitViewController?.present(safari: url, theme: theme)
             ?? viewController?.show(safari: url, theme: theme)
     }
+    
+    /// Open Safari view controller overlay.
+    ///
+    /// - Parameters:
+    ///   - url: URL to display in the browser.
+    ///   - constants: The app constants.
+    ///   - theme: The style of the Safari view controller.
+    func present(safari url: String, theme: Theme) {
+        // Handle Safari display in split view differently
+        viewController?.splitViewController?.present(safari: url, theme: theme)
+            ?? viewController?.present(safari: url, theme: theme)
+    }
 
     /// Open Safari view controller overlay.
     ///

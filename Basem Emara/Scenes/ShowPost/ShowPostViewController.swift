@@ -60,10 +60,11 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     
     // MARK: - Internal variable
     
-    private var viewModel: ShowPostModels.ViewModel?
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var notificationCenter: NotificationCenter = dependencies.resolve()
-    private lazy var history = [Int]()
+    
+    private var viewModel: ShowPostModels.ViewModel?
+    private var history = [Int]()
     
     var postID: Int?
     let application = UIApplication.shared
@@ -121,6 +122,18 @@ private extension ShowPostViewController {
         interactor.fetchPost(
             with: ShowPostModels.Request(postID: postID)
         )
+    }
+}
+
+extension ShowPostViewController: ShowPostLoadable {
+    
+    func loadData(for id: Int) {
+        if let lastPostID = postID {
+            history.append(lastPostID)
+        }
+        
+        postID = id
+        loadData()
     }
 }
 
@@ -196,7 +209,7 @@ private extension ShowPostViewController {
             .appendingQueryItem("postid", value: postID)
             .absoluteString
         
-        router.show(safari: url, theme: theme)
+        router.present(safari: url, theme: theme)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -252,18 +265,6 @@ private extension ShowPostViewController {
 }
 
 // MARK: - Delegates
-
-extension ShowPostViewController: ShowPostLoadable {
-    
-    func loadData(for id: Int) {
-        if let lastPostID = postID {
-            history.append(lastPostID)
-        }
-        
-        postID = id
-        loadData()
-    }
-}
 
 extension ShowPostViewController: ListPostsDelegate {
     

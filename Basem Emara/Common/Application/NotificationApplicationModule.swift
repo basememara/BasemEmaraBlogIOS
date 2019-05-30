@@ -68,9 +68,10 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
                 controller.router.showPost(for: id)
             }
         case Action.share.rawValue:
+            guard let popoverView = router.viewController?.view else { return }
             router.viewController?.present(
                 activities: [response.notification.request.content.title.htmlDecoded, link],
-                popoverFrom: (router.viewController?.view!)!
+                popoverFrom: popoverView
             )
         default:
             break
