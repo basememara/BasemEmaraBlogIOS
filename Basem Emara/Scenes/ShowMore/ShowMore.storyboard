@@ -125,21 +125,21 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tutorial" textLabel="R12-k0-Cv1" imageView="fZv-ZV-UIU" style="IBUITableViewCellStyleDefault" id="jSi-Tj-0Df">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifications" textLabel="R12-k0-Cv1" imageView="fZv-ZV-UIU" style="IBUITableViewCellStyleDefault" id="jSi-Tj-0Df">
                                         <rect key="frame" x="0.0" y="275.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jSi-Tj-0Df" id="sWH-e9-Fsh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Read tutorial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R12-k0-Cv1" customClass="ThemedLabel" customModule="ZamzamKit">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Get notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R12-k0-Cv1" customClass="ThemedLabel" customModule="ZamzamKit">
                                                     <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="literature" id="fZv-ZV-UIU">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="notifications" id="fZv-ZV-UIU">
                                                     <rect key="frame" x="20" y="9" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -265,8 +265,8 @@
         <image name="github" width="64" height="64"/>
         <image name="idea" width="24" height="24"/>
         <image name="linkedin" width="64" height="64"/>
-        <image name="literature" width="24" height="24"/>
         <image name="megaphone" width="24" height="24"/>
+        <image name="notifications" width="24" height="24"/>
         <image name="rating" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
         <image name="signup" width="24" height="24"/>

@@ -22,31 +22,6 @@ final class NotificationApplicationModule: NSObject, ApplicationModule, HasDepen
 
 extension NotificationApplicationModule {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        userNotification.register(
-            delegate: self,
-            categories: [
-                Category.post.rawValue: [
-                    UNNotificationAction(
-                        identifier: Action.share.rawValue,
-                        title: .localized(.shareTitle),
-                        options: [.foreground]
-                    )
-                ]
-            ],
-            completion: { granted in
-                granted
-                    ? self.Log(debug: "Authorization for notification succeeded.")
-                    : self.Log(warn: "Authorization for notification not given.")
-            }
-        )
-        
-        return true
-    }
-}
-
-extension NotificationApplicationModule {
-    
     func applicationDidBecomeActive(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
     }
@@ -87,5 +62,24 @@ extension NotificationApplicationModule {
     
     enum Action: String {
         case share = "shareAction"
+    }
+}
+
+extension NotificationApplicationModule {
+    
+    func register(completion: @escaping (Bool) -> Void) {
+        userNotification.register(
+            delegate: self,
+            categories: [
+                Category.post.rawValue: [
+                    UNNotificationAction(
+                        identifier: Action.share.rawValue,
+                        title: .localized(.shareTitle),
+                        options: [.foreground]
+                    )
+                ]
+            ],
+            completion: completion
+        )
     }
 }
