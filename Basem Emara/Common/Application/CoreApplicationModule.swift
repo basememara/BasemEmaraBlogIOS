@@ -6,7 +6,6 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
 import SwiftyPress
 import ZamzamKit
 

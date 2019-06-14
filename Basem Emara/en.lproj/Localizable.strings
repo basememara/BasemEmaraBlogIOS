@@ -33,6 +33,7 @@
 "favorite.title" = "Favorite";
 "more.title" = "More";
 "comments.title" = "Comments";
+"settings.title" = "Settings";
 "share.title" = "Share";
 
 "search.placeholder" = "Search Blog Posts";
