@@ -58,13 +58,13 @@ extension Theme {
         
         UITableViewCell.appearance().with {
             $0.backgroundColor = .clear
-            $0.selectionColor = selectionColor
+            $0.selectionColor = secondaryBackgroundColor
         }
         
         UITextField.appearance().keyboardAppearance = keyboardAppearance
         
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
-            .backgroundColor = selectionColor
+            .backgroundColor = secondaryBackgroundColor
         
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self, UITableViewController.self])
             .backgroundColor = .clear
@@ -96,9 +96,14 @@ extension Theme {
         ThemedLabel.appearance().textColor = labelColor
         ThemedHeadline.appearance().textColor = labelColor
         ThemedSubhead.appearance().textColor = secondaryLabelColor
-        ThemedFootnote.appearance().textColor = subtleLabelColor
+        ThemedCaption.appearance().textColor = tertiaryLabelColor
+        ThemedFootnote.appearance().textColor = quaternaryLabelColor
+        ThemedTintLabel.appearance().textColor = tint
         ThemedDangerLabel.appearance().textColor = negativeColor
-        ThemedLightLabel.appearance().textColor = backgroundColor
+        ThemedSuccessLabel.appearance().textColor = positiveColor
+        ThemedWarningLabel.appearance().textColor = secondaryTint
+        ThemedLightLabel.appearance().textColor = tertiaryBackgroundColor
+        ThemedDarkLabel.appearance().textColor = backgroundColor
     }
     
     private func applyThemedButtons() {
@@ -111,12 +116,13 @@ extension Theme {
         ThemedPrimaryButton.appearance().with {
             $0.setTitleColor(backgroundColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: tint), for: .normal)
+            $0.titleFont = .systemFont(ofSize: 15, weight: .bold)
             
             $0.setTitleColor(tint, for: .selected)
             $0.setBackgroundImage(UIImage(from: backgroundColor), for: .selected)
             
             $0.setTitleColor(backgroundColor, for: .disabled)
-            $0.setBackgroundImage(UIImage(from: subtleLabelColor), for: .disabled)
+            $0.setBackgroundImage(UIImage(from: quaternaryLabelColor), for: .disabled)
             
             $0.cornerRadius = buttonCornerRadius
         }
@@ -124,16 +130,11 @@ extension Theme {
         ThemedSecondaryButton.appearance().with {
             $0.setTitleColor(secondaryLabelColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: backgroundColor), for: .normal)
+            $0.titleFont = .systemFont(ofSize: 15, weight: .bold)
             $0.borderColor = secondaryLabelColor
             $0.borderWidth = 1
             $0.cornerRadius = buttonCornerRadius
         }
-        
-        UILabel.appearance(whenContainedInInstancesOf: [ThemedPrimaryButton.self])
-            .font = .systemFont(ofSize: 15, weight: .bold)
-        
-        UILabel.appearance(whenContainedInInstancesOf: [ThemedSecondaryButton.self])
-            .font = .systemFont(ofSize: 15, weight: .bold)
         
         ThemedImageButton.appearance().with {
             $0.contentHorizontalAlignment = .fill
@@ -161,26 +162,26 @@ extension Theme {
         
     func applyCustom(for application: UIApplication) {
         ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
-            $0.backgroundColor = selectionColor
+            $0.backgroundColor = secondaryBackgroundColor
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
         ThemedImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
-            $0.borderColor = separatorColor
+            $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
         ThemedImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
-            $0.borderColor = separatorColor
+            $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
         RoundedImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
-            $0.borderColor = separatorColor
+            $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
         }
     }
