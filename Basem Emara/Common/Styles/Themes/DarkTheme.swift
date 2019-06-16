@@ -14,16 +14,17 @@ struct DarkTheme: Theme {
     let secondaryTint: UIColor = .init(rgb: (137, 167, 167))
     
     let backgroundColor: UIColor = .black
-    let secondaryBackgroundColor: UIColor = .init(rgb: (38, 38, 40))
-    let tertiaryBackgroundColor: UIColor = .darkGray
+    let secondaryBackgroundColor: UIColor = .init(rgb: (28, 28, 30))
+    let tertiaryBackgroundColor: UIColor = .init(rgb: (44, 44, 46))
+    let quaternaryBackgroundColor: UIColor = .init(rgb: (58, 58, 60))
     
     let separatorColor: UIColor = .darkGray
     let opaqueColor: UIColor = .lightGray
     
     let labelColor: UIColor = .white
-    let secondaryLabelColor: UIColor = .lightGray
-    let tertiaryLabelColor: UIColor = .lightGray
-    let quaternaryLabelColor: UIColor = .darkGray
+    let secondaryLabelColor: UIColor = .init(rgb: (242, 242, 247))
+    let tertiaryLabelColor: UIColor = .init(rgb: (229, 229, 234))
+    let quaternaryLabelColor: UIColor = .init(rgb: (209, 209, 214))
     let placeholderLabelColor: UIColor = .darkGray
     
     let buttonCornerRadius: CGFloat = 3

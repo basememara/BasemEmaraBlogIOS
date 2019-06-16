@@ -14,16 +14,17 @@ struct LightTheme: Theme {
     let secondaryTint: UIColor = .orange
     
     let backgroundColor: UIColor = .white
-    let secondaryBackgroundColor: UIColor = .init(rgb: (236, 236, 236))
-    let tertiaryBackgroundColor: UIColor = .lightGray
+    let secondaryBackgroundColor: UIColor = .init(rgb: (242, 242, 247))
+    let tertiaryBackgroundColor: UIColor = .init(rgb: (229, 229, 234))
+    let quaternaryBackgroundColor: UIColor = .init(rgb: (209, 209, 214))
     
     let separatorColor: UIColor = .lightGray
     let opaqueColor: UIColor = .darkGray
     
     let labelColor: UIColor = .black
-    let secondaryLabelColor: UIColor = .darkGray
-    let tertiaryLabelColor: UIColor = .darkGray
-    let quaternaryLabelColor: UIColor = .lightGray
+    let secondaryLabelColor: UIColor = .init(rgb: (28, 28, 30))
+    let tertiaryLabelColor: UIColor = .init(rgb: (44, 44, 46))
+    let quaternaryLabelColor: UIColor = .init(rgb: (58, 58, 60))
     let placeholderLabelColor: UIColor = .lightGray
     
     let buttonCornerRadius: CGFloat = 3

@@ -64,13 +64,13 @@ extension Theme {
         UITextField.appearance().keyboardAppearance = keyboardAppearance
         
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
-            .backgroundColor = secondaryBackgroundColor
+            .backgroundColor = tertiaryBackgroundColor
         
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self, UITableViewController.self])
             .backgroundColor = .clear
         
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
-            .textColor = secondaryLabelColor
+            .textColor = tertiaryLabelColor
     }
 }
 
