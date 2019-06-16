@@ -209,6 +209,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zIx-TO-may" secondAttribute="trailing" id="7PF-w2-ADr"/>
                                                 <constraint firstItem="zIx-TO-may" firstAttribute="top" secondItem="pip-b9-TJ9" secondAttribute="top" constant="12" id="Mmm-Qw-KFN"/>
                                                 <constraint firstItem="zIx-TO-may" firstAttribute="leading" secondItem="pip-b9-TJ9" secondAttribute="leading" constant="12" id="PbL-Ub-Ipp"/>
                                                 <constraint firstAttribute="bottom" secondItem="zIx-TO-may" secondAttribute="bottom" constant="12" id="vCg-3N-Xpf"/>
