@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import SwiftyPress
 import ZamzamKit
 
-final class ShortcutApplicationModule: ApplicationModule {
-    
+final class ShortcutApplicationModule: ApplicationModule, HasDependencies {
     private var launchedShortcutItem: UIApplicationShortcutItem?
+    
+    private lazy var router: DeepLinkRoutable = DeepLinkRouter(
+        viewController: UIWindow.current?.rootViewController,
+        constants: dependencies.resolve()
+    )
 }
 
 extension ShortcutApplicationModule {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else { return true }
+        guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else {
+            return true
+        }
+        
         launchedShortcutItem = shortcutItem
         return false //Prevent "performActionForShortcutItem" from being called
     }
@@ -39,16 +47,15 @@ private extension ShortcutApplicationModule {
     /// - Returns: A Boolean value indicating whether or not the shortcut action succeeded.
     @discardableResult
     func performShortcutAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
-        guard let shortcutItemType = ShortcutItemType(for: shortcutItem),
-            let appViewController = (UIApplication.getWindow()?.rootViewController as? MainViewController) else {
-                return false
+        guard let shortcutItemType = ShortcutItemType(for: shortcutItem) else {
+            return false
         }
         
         switch shortcutItemType {
         case .favorites:
-            appViewController.router.showFavorites()
+            router.showFavorites()
         case .contact:
-            appViewController.router.sendFeedback()
+            router.sendFeedback()
         }
         
         return true

@@ -11,26 +11,26 @@ import NotificationCenter
 import SwiftyPress
 import ZamzamKit
 
-class TodayViewController: ControllerModuleDelegate, HasDependencies, DependencyConfigurator, NCWidgetProviding {
+class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInjection, NCWidgetProviding {
     
     // MARK: - Controls
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var featuredImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet private weak var captionLabel: UILabel!
+    @IBOutlet private weak var featuredImage: UIImageView!
     
     // MARK: - VIP variables
     
     private lazy var interactor: TodayBusinessLogic = TodayInteractor(
         presenter: TodayPresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     // MARK: - Internal variable
     
-    private lazy var dataWorker: DataWorkerType = dependencies.resolveWorker()
+    private lazy var dataWorker: DataWorkerType = dependencies.resolve()
     
     // MARK: - Controller cycle
     
@@ -54,7 +54,7 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, Dependency
 private extension TodayViewController {
     
     func configure() {
-        register(dependencies: AppConfiguration())
+        inject(dependencies: AppConfigurator())
         dataWorker.configure()
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
@@ -63,7 +63,7 @@ private extension TodayViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: TodayModels.Request(count: 1)
+            with: TodayModels.Request(maxLength: 1)
         )
     }
 }

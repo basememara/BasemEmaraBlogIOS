@@ -14,15 +14,23 @@ struct LightTheme: Theme {
     let secondaryTint: UIColor = .orange
     
     let backgroundColor: UIColor = .white
+    let secondaryBackgroundColor: UIColor = .init(rgb: (242, 242, 247))
+    let tertiaryBackgroundColor: UIColor = .init(rgb: (229, 229, 234))
+    let quaternaryBackgroundColor: UIColor = .init(rgb: (209, 209, 214))
+    
     let separatorColor: UIColor = .lightGray
-    let selectionColor: UIColor = .init(rgb: (236, 236, 236))
+    let opaqueColor: UIColor = .darkGray
     
     let labelColor: UIColor = .black
-    let secondaryLabelColor: UIColor = .darkGray
-    let subtleLabelColor: UIColor = .lightGray
+    let secondaryLabelColor: UIColor = .init(rgb: (28, 28, 30))
+    let tertiaryLabelColor: UIColor = .init(rgb: (44, 44, 46))
+    let quaternaryLabelColor: UIColor = .init(rgb: (58, 58, 60))
+    let placeholderLabelColor: UIColor = .lightGray
     
-    let imageBorderWidthInCell: CGFloat = 1
+    let buttonCornerRadius: CGFloat = 3
     
-    let barStyle: UIBarStyle = .default
-    let keyboardAppearance: UIKeyboardAppearance = .default
+    let positiveColor: UIColor = .green
+    let negativeColor: UIColor = .red
+    
+    let isDarkStyle: Bool = false
 }

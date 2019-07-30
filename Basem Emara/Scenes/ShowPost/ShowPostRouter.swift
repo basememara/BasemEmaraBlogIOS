@@ -8,21 +8,24 @@
 
 import UIKit
 
-struct ShowPostRouter {
+struct ShowPostRouter: HasScenes {
     weak var viewController: UIViewController?
+    weak var listPostsDelegate: ListPostsDelegate?
     
-    init(viewController: UIViewController?) {
+    init(viewController: UIViewController, listPostsDelegate: ListPostsDelegate) {
         self.viewController = viewController
+        self.listPostsDelegate = listPostsDelegate
     }
 }
 
 extension ShowPostRouter: ShowPostRoutable {
     
-    func listPosts(for fetchType: ListPostsViewController.FetchType) {
-        show(storyboard: .listPosts) { (controller: ListPostsViewController) in
-            controller.fetchType = fetchType
-            controller.delegate = self.viewController as? ShowPostViewControllerDelegate
-        }
+    func listPosts(params: ListPostsModels.Params) {
+        let controller = scenes.listPosts(
+            params: params,
+            delegate: listPostsDelegate
+        )
+        
+        viewController?.show(controller)
     }
-    
 }

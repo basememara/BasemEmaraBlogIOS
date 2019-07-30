@@ -10,14 +10,16 @@ import SwiftyPress
 
 struct SearchPostsInteractor: SearchPostsBusinessLogic {
     private let presenter: SearchPostsPresentable
-    private let postsWorker: PostsWorkerType
+    private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
     
-    init(presenter: SearchPostsPresentable,
-         postsWorker: PostsWorkerType,
-         mediaWorker: MediaWorkerType) {
+    init(
+        presenter: SearchPostsPresentable,
+        postWorker: PostWorkerType,
+        mediaWorker: MediaWorkerType
+    ) {
         self.presenter = presenter
-        self.postsWorker = postsWorker
+        self.postWorker = postWorker
         self.mediaWorker = mediaWorker
     }
 }
@@ -25,15 +27,15 @@ struct SearchPostsInteractor: SearchPostsBusinessLogic {
 extension SearchPostsInteractor {
 
     func fetchSearchResults(with request: PostsModels.SearchRequest) {
-        postsWorker.search(with: request) {
-            guard let posts = $0.value, $0.isSuccess else {
+        postWorker.search(with: request) {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentSearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )
@@ -53,15 +55,17 @@ extension SearchPostsInteractor {
 extension SearchPostsInteractor {
     
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
-        postsWorker.fetchPopular {
-            guard let posts = $0.value, $0.isSuccess else {
+        let request = PostsModels.FetchRequest()
+        
+        postWorker.fetchPopular(with: request) {
+            guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard let media = $0.value, $0.isSuccess else {
+                guard case .success(let media) = $0 else {
                     return self.presenter.presentSearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )

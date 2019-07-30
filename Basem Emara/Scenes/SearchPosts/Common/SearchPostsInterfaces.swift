@@ -7,13 +7,14 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
-protocol SearchPostsBusinessLogic {
+protocol SearchPostsBusinessLogic: AppBusinessLogic {
     func fetchSearchResults(with request: PostsModels.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest)
 }
 
-protocol SearchPostsPresentable {
+protocol SearchPostsPresentable: AppPresentable {
     func presentSearchResults(for response: SearchPostsModels.Response)
     func presentSearchResults(error: DataError)
 }

@@ -14,21 +14,21 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
         }
     }
     
-    @IBOutlet var emptyPlaceholderView: UIView!
+    @IBOutlet private var emptyPlaceholderView: UIView!
     
     // MARK: - Scene variables
     
     private lazy var interactor: ListFavoritesBusinessLogic = ListFavoritesInteractor(
         presenter: ListFavoritesPresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: ListFavoritesRoutable = ListFavoritesRouter(
@@ -86,9 +86,9 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
     func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
         removedIDs.append(viewModel.postID)
         
-        let isEmpty = tableViewAdapter.viewModels
+        let isEmpty = tableViewAdapter.viewModels?
             .filter { !removedIDs.contains($0.id) }
-            .isEmpty
+            .isEmpty ?? true
         
         // Ensure empty screen to show if empty
         guard isEmpty else { return }
@@ -101,7 +101,7 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
 extension ListFavoritesViewController: PostsDataViewDelegate {
     
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int {
-        let isEmpty = tableViewAdapter.viewModels.isEmpty
+        let isEmpty = tableViewAdapter.viewModels?.isEmpty == true
         tableView.backgroundView = isEmpty ? emptyPlaceholderView : nil
         tableView.separatorStyle = isEmpty ? .none : .singleLine
         return 1
@@ -114,11 +114,11 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { action, view, completion in
+                UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
                     self.interactor.toggleFavorite(with: ListFavoritesModels.FavoriteRequest(postID: model.id))
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: "favorite-empty")
+                    $0.image = UIImage(named: .favoriteEmpty)
                 }
             ]
         )
@@ -130,12 +130,13 @@ extension ListFavoritesViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }
-

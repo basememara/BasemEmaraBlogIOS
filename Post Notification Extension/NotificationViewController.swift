@@ -14,9 +14,9 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
 
     // MARK: - Controls
     
-    @IBOutlet var titleLabel: UILabel?
-    @IBOutlet var detailLabel: UILabel?
-    @IBOutlet var featuredImage: UIImageView?
+    @IBOutlet private var titleLabel: UILabel?
+    @IBOutlet private var detailLabel: UILabel?
+    @IBOutlet private var featuredImage: UIImageView?
     
     // MARK: - Controller cycle
     

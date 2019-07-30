@@ -1,341 +1,318 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Quv-Xo-3js">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nhN-XU-uEl">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
-        <scene sceneID="bOy-m0-EDT">
+        <!--Home-->
+        <scene sceneID="q9d-7N-fom">
             <objects>
-                <viewController id="Sqp-Od-GZN" customClass="HomeViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="ThemedView" customModule="SwiftyPress">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
+                <tableViewController id="nhN-XU-uEl" customClass="HomeViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9mg-kQ-9G4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dm0-16-rxd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-Th-VOv" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1615"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lXo-B9-gTO">
-                                                <rect key="frame" x="0.0" y="20" width="375" height="1575"/>
-                                                <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dKu-FD-kTy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="230" id="rhn-Tt-jDd"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iHH-9S-MC9">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-hx-0XF">
-                                                        <rect key="frame" x="0.0" y="230" width="375" height="128"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-4x-zz9" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
-                                                                <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="465-AK-5Gc"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gw-Es-Zj7">
-                                                                <rect key="frame" x="16" y="33" width="343" height="87"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-fG-sg5" customClass="ThemedHeadline" customModule="SwiftyPress">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgh-3H-OCf">
-                                                                        <rect key="frame" x="296" y="0.0" width="47" height="87"/>
-                                                                        <state key="normal" title="See All"/>
-                                                                        <connections>
-                                                                            <action selector="popularPostsSeeAllButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="bb4-TL-BMX"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="6Gw-Es-Zj7" secondAttribute="bottom" constant="8" id="BY5-0O-U8r"/>
-                                                            <constraint firstItem="E6s-4x-zz9" firstAttribute="centerX" secondItem="ueg-hx-0XF" secondAttribute="centerX" id="Mrr-Ze-3Dr"/>
-                                                            <constraint firstItem="6Gw-Es-Zj7" firstAttribute="leading" secondItem="ueg-hx-0XF" secondAttribute="leadingMargin" constant="8" id="iZU-Kh-k5X"/>
-                                                            <constraint firstItem="E6s-4x-zz9" firstAttribute="width" secondItem="6Gw-Es-Zj7" secondAttribute="width" id="plr-Jt-XeQ"/>
-                                                            <constraint firstItem="6Gw-Es-Zj7" firstAttribute="top" secondItem="E6s-4x-zz9" secondAttribute="bottom" constant="8" id="uv6-kq-Fbg"/>
-                                                            <constraint firstItem="E6s-4x-zz9" firstAttribute="top" secondItem="ueg-hx-0XF" secondAttribute="top" constant="24" id="wCr-RN-dAb"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="6Gw-Es-Zj7" secondAttribute="trailing" constant="8" id="yzy-b7-KFZ"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cNQ-9u-tDh">
-                                                        <rect key="frame" x="0.0" y="358" width="375" height="300"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="300" id="qMz-eZ-ebb"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7cV-1K-DzR">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Nk-DNN">
-                                                        <rect key="frame" x="0.0" y="658" width="375" height="128"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4V-nj-xNH" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
-                                                                <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="RIB-NI-YbS"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-OP-P35">
-                                                                <rect key="frame" x="16" y="33" width="343" height="87"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs9-PM-gdj" customClass="ThemedHeadline" customModule="SwiftyPress">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-J3-LIa">
-                                                                        <rect key="frame" x="296" y="0.0" width="47" height="87"/>
-                                                                        <state key="normal" title="See All"/>
-                                                                        <connections>
-                                                                            <action selector="topTermsSeeAllButtonTapped:" destination="Sqp-Od-GZN" eventType="touchUpInside" id="sXQ-4s-ALq"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="U4V-nj-xNH" firstAttribute="top" secondItem="hbz-Nk-DNN" secondAttribute="top" constant="24" id="T1y-7S-YRt"/>
-                                                            <constraint firstItem="U4V-nj-xNH" firstAttribute="width" secondItem="5hw-OP-P35" secondAttribute="width" id="USI-k9-RkO"/>
-                                                            <constraint firstAttribute="bottom" secondItem="5hw-OP-P35" secondAttribute="bottom" constant="8" id="a0p-IY-tfz"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="5hw-OP-P35" secondAttribute="trailing" constant="8" id="l9n-rY-fLW"/>
-                                                            <constraint firstItem="5hw-OP-P35" firstAttribute="leading" secondItem="hbz-Nk-DNN" secondAttribute="leadingMargin" constant="8" id="r63-HU-1zG"/>
-                                                            <constraint firstItem="U4V-nj-xNH" firstAttribute="centerX" secondItem="hbz-Nk-DNN" secondAttribute="centerX" id="tjj-X3-T1t"/>
-                                                            <constraint firstItem="5hw-OP-P35" firstAttribute="top" secondItem="U4V-nj-xNH" secondAttribute="bottom" constant="8" id="v8i-8z-pe5"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" scrollEnabled="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-zo-KOC" customClass="IntrinsicHeightTableView" customModule="ZamzamKit">
-                                                        <rect key="frame" x="0.0" y="786" width="375" height="300"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                                    </tableView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HQ-rW-OsP">
-                                                        <rect key="frame" x="0.0" y="1086" width="375" height="128"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTW-s7-CbO">
-                                                                <rect key="frame" x="16" y="24" width="343" height="96"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-ob-DZz" customClass="ThemedHeadline" customModule="SwiftyPress">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="296" height="96"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3U-Fh-apR">
-                                                                        <rect key="frame" x="296" y="0.0" width="47" height="96"/>
-                                                                        <state key="normal" title="See All"/>
-                                                                        <connections>
-                                                                            <action selector="topPickedPostsSeeAllButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="vLQ-Bq-Tpw"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="eTW-s7-CbO" secondAttribute="trailing" constant="8" id="GoD-31-3To"/>
-                                                            <constraint firstItem="eTW-s7-CbO" firstAttribute="leading" secondItem="0HQ-rW-OsP" secondAttribute="leadingMargin" constant="8" id="JUb-Bb-jSA"/>
-                                                            <constraint firstAttribute="bottom" secondItem="eTW-s7-CbO" secondAttribute="bottom" constant="8" id="eZV-HS-ikh"/>
-                                                            <constraint firstItem="eTW-s7-CbO" firstAttribute="top" secondItem="0HQ-rW-OsP" secondAttribute="top" constant="24" id="ijN-gZ-12T"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dJZ-zQ-qJt">
-                                                        <rect key="frame" x="0.0" y="1214" width="375" height="150"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="PTS-xr-qec"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQh-4T-phk">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRd-ZI-FYO">
-                                                        <rect key="frame" x="0.0" y="1364" width="375" height="211"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-nF-3Sc" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
-                                                                <rect key="frame" x="16" y="24" width="343" height="1"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1" id="Fya-3F-5HY"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Vi-1e-SyW">
-                                                                <rect key="frame" x="16" y="41" width="343" height="162"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q2p-h4-cM3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                                                        <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-Q6-P75" customClass="ThemedButton" customModule="SwiftyPress">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
-                                                                                <state key="normal" title="Disclaimer"/>
-                                                                                <connections>
-                                                                                    <action selector="disclaimerButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="vAC-KD-2ec"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axa-K9-Tw5" customClass="ThemedButton" customModule="SwiftyPress">
-                                                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="30"/>
-                                                                                <state key="normal" title="Privacy"/>
-                                                                                <connections>
-                                                                                    <action selector="privacyButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="ygu-no-TNx"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P47-TZ-0ee" customClass="ThemedButton" customModule="SwiftyPress">
-                                                                        <rect key="frame" x="0.0" y="38" width="343" height="124"/>
-                                                                        <state key="normal" title="Contact"/>
-                                                                        <connections>
-                                                                            <action selector="contactButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="nP3-V4-U5C"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="7Vi-1e-SyW" secondAttribute="bottom" constant="8" id="3bU-ot-8KG"/>
-                                                            <constraint firstItem="xR6-nF-3Sc" firstAttribute="top" secondItem="eRd-ZI-FYO" secondAttribute="top" constant="24" id="Q7P-L4-Sv0"/>
-                                                            <constraint firstItem="7Vi-1e-SyW" firstAttribute="top" secondItem="xR6-nF-3Sc" secondAttribute="bottom" constant="16" id="U3S-kZ-Xew"/>
-                                                            <constraint firstItem="7Vi-1e-SyW" firstAttribute="leading" secondItem="eRd-ZI-FYO" secondAttribute="leadingMargin" constant="8" id="U8h-fl-vAR"/>
-                                                            <constraint firstItem="xR6-nF-3Sc" firstAttribute="width" secondItem="7Vi-1e-SyW" secondAttribute="width" id="Zzq-LD-rZU"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="7Vi-1e-SyW" secondAttribute="trailing" constant="8" id="ptL-Hf-xQD"/>
-                                                            <constraint firstItem="xR6-nF-3Sc" firstAttribute="centerX" secondItem="eRd-ZI-FYO" secondAttribute="centerX" id="ri1-V0-yi1"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lXo-B9-gTO" firstAttribute="leading" secondItem="Fnq-Th-VOv" secondAttribute="leading" id="50K-PP-dhA"/>
-                                            <constraint firstAttribute="trailing" secondItem="lXo-B9-gTO" secondAttribute="trailing" id="J4R-Ah-PzJ"/>
-                                            <constraint firstItem="lXo-B9-gTO" firstAttribute="top" secondItem="Fnq-Th-VOv" secondAttribute="top" constant="20" id="UHf-sl-N0k"/>
-                                            <constraint firstAttribute="bottom" secondItem="lXo-B9-gTO" secondAttribute="bottom" priority="250" constant="20" id="yKz-sc-7ZL"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Fnq-Th-VOv" secondAttribute="bottom" id="JN9-3B-ZZS"/>
-                                    <constraint firstItem="Fnq-Th-VOv" firstAttribute="leading" secondItem="dm0-16-rxd" secondAttribute="leading" id="Oik-gg-yOa"/>
-                                    <constraint firstItem="Fnq-Th-VOv" firstAttribute="top" secondItem="dm0-16-rxd" secondAttribute="top" id="gZy-Mb-ZBv"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fnq-Th-VOv" secondAttribute="trailing" id="iW6-4L-FsF"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dm0-16-rxd" secondAttribute="bottom" id="5hj-Sf-DcF"/>
-                            <constraint firstItem="Fnq-Th-VOv" firstAttribute="width" secondItem="ODO-xw-sEA" secondAttribute="width" id="8Tb-S6-wzD"/>
-                            <constraint firstItem="dm0-16-rxd" firstAttribute="top" secondItem="ODO-xw-sEA" secondAttribute="top" id="8nu-UF-Pkf"/>
-                            <constraint firstAttribute="trailing" secondItem="dm0-16-rxd" secondAttribute="trailing" id="ej7-XY-hxp"/>
-                            <constraint firstItem="dm0-16-rxd" firstAttribute="leading" secondItem="ODO-xw-sEA" secondAttribute="leading" id="qpe-QN-goR"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="LcI-eV-Fqo">
-                        <barButtonItem key="backBarButtonItem" title=" " id="8K6-aO-gul"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Qrc-rZ-azj">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="about" textLabel="W8o-lg-pg2" imageView="gSo-p5-DAe" style="IBUITableViewCellStyleDefault" id="fJh-iM-QPD">
+                                        <rect key="frame" x="0.0" y="35" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJh-iM-QPD" id="BS0-wL-BTP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="About me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W8o-lg-pg2" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="about" id="gSo-p5-DAe">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="portfolio" textLabel="e70-80-vuG" imageView="0gh-fB-L9w" style="IBUITableViewCellStyleDefault" id="vg1-sW-bPh">
+                                        <rect key="frame" x="0.0" y="79" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vg1-sW-bPh" id="zeh-6y-px6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Portfolio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e70-80-vuG" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="portfolio" id="0gh-fB-L9w">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Series" id="iVt-Qc-kxR">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="seriesScalableApp" textLabel="jgf-Ik-37Y" imageView="fgJ-Nd-qqn" style="IBUITableViewCellStyleDefault" id="KAe-i2-VGZ">
+                                        <rect key="frame" x="0.0" y="179" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAe-i2-VGZ" id="VnK-C4-FlN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Building Scalable iOS App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jgf-Ik-37Y" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="ios-development" id="fgJ-Nd-qqn">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="seriesSwiftUtilities" textLabel="F2c-LB-0X7" imageView="Bf2-cs-L6j" style="IBUITableViewCellStyleDefault" id="InT-ow-nQy">
+                                        <rect key="frame" x="0.0" y="223" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="InT-ow-nQy" id="WcI-bt-frw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Swift Utility Belt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F2c-LB-0X7" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="swift-icon" id="Bf2-cs-L6j">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Courses" id="W0y-bq-Yq4">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coursesArchitecture" textLabel="iN0-2P-DSA" imageView="Rm6-Sg-iPA" style="IBUITableViewCellStyleDefault" id="qKj-rN-8he">
+                                        <rect key="frame" x="0.0" y="323" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qKj-rN-8he" id="LWl-aw-KvF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS Architecture Masterclass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iN0-2P-DSA" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="design" id="Rm6-Sg-iPA">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coursesFramework" textLabel="2go-GS-ZxM" imageView="c9g-3Z-ucY" style="IBUITableViewCellStyleDefault" id="d3z-Bn-AJz">
+                                        <rect key="frame" x="0.0" y="367" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d3z-Bn-AJz" id="3Ke-Cf-cSG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Building Swift Frameworks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2go-GS-ZxM" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="settings-checkmarks" id="c9g-3Z-ucY">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Consulting" id="Rv4-gp-pj1">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="consultingDevelopment" textLabel="PWa-DL-gDB" imageView="N0D-cb-qta" style="IBUITableViewCellStyleDefault" id="COJ-6c-Pib">
+                                        <rect key="frame" x="0.0" y="467" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="COJ-6c-Pib" id="OiP-KQ-d4w">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PWa-DL-gDB" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="dev-service" id="N0D-cb-qta">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="consultingMentorship" textLabel="6mE-hg-am3" imageView="7pb-ya-pyU" style="IBUITableViewCellStyleDefault" id="rpR-Al-ag9">
+                                        <rect key="frame" x="0.0" y="511" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rpR-Al-ag9" id="4M9-3v-BCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Mentorship Express" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6mE-hg-am3" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="training-icon" id="7pb-ya-pyU">
+                                                    <rect key="frame" x="20" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="nhN-XU-uEl" id="88D-wM-Koh"/>
+                            <outlet property="delegate" destination="nhN-XU-uEl" id="Nfp-oh-O6J"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="s8y-er-h30"/>
+                    <navigationItem key="navigationItem" id="bYw-p5-tZo">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Xky-V3-Ebh"/>
                     </navigationItem>
-                    <size key="freeformSize" width="375" height="1667"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="latestPostsCollectionView" destination="dKu-FD-kTy" id="z6b-vR-EzW"/>
-                        <outlet property="pickedPostsCollectionView" destination="dJZ-zQ-qJt" id="Js4-ZC-kef"/>
-                        <outlet property="picksTitleLabel" destination="zaU-ob-DZz" id="UB1-sE-0dX"/>
-                        <outlet property="popularPostsCollectionView" destination="cNQ-9u-tDh" id="Hxy-Z3-Ry2"/>
-                        <outlet property="popularTitleLabel" destination="xg6-fG-sg5" id="DWN-Us-ZvE"/>
-                        <outlet property="scrollView" destination="dm0-16-rxd" id="bMn-XY-S2P"/>
-                        <outlet property="tagTitleLabel" destination="Fs9-PM-gdj" id="mY8-mG-bHm"/>
-                        <outlet property="titleView" destination="Jn2-8c-elI" id="DwF-Cv-tKv"/>
-                        <outlet property="topTermsTableView" destination="VT4-zo-KOC" id="PfX-DV-xYk"/>
+                        <outlet property="headerView" destination="AL1-In-6pP" id="pne-dV-Bjz"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tWD-QC-MY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jn2-8c-elI">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hjn-8I-gaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AL1-In-6pP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ymV-B2-HUF">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MiI-zy-Xqo">
+                            <rect key="frame" x="24" y="8" width="272" height="176"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nobg" translatesAutoresizingMaskIntoConstraints="NO" id="Ht7-YV-uIT">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="128"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BasemProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-Ev-402" customClass="RoundedImageView" customModule="ZamzamKit">
+                                    <rect key="frame" x="94.5" y="0.0" width="83.5" height="83.5"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="XWM-ap-fUm"/>
+                                        <constraint firstAttribute="width" secondItem="gk2-Ev-402" secondAttribute="height" multiplier="1:1" id="Ffx-P4-E0A"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basem Emara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-F2-3hN" customClass="ThemedLabel" customModule="SwiftyPress">
-                                    <rect key="frame" x="38" y="0.0" width="202" height="128"/>
-                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" text="Basem Emara" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKP-0I-J1Z" customClass="ThemedHeadline" customModule="SwiftyPress">
+                                    <rect key="frame" x="81.5" y="91.5" width="109" height="20.5"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Mobile Architect / iOS Jedi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naP-5h-cDn" customClass="ThemedSubhead" customModule="SwiftyPress">
+                                    <rect key="frame" x="55.5" y="120" width="161" height="16"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5Zx-3p-6jT">
+                                    <rect key="frame" x="54" y="144" width="164" height="32"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXq-Th-lEZ" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="IXq-Th-lEZ" secondAttribute="height" multiplier="1:1" id="s7m-Sf-MzY"/>
+                                            </constraints>
+                                            <state key="normal" image="github"/>
+                                            <connections>
+                                                <action selector="socialButtonTapped:" destination="nhN-XU-uEl" eventType="touchUpInside" id="oRD-GF-sLd"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss7-ZZ-aBA" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                            <rect key="frame" x="44" y="0.0" width="32" height="32"/>
+                                            <state key="normal" image="linkedin"/>
+                                            <connections>
+                                                <action selector="socialButtonTapped:" destination="nhN-XU-uEl" eventType="touchUpInside" id="a6t-Ce-CJh"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0O-Fq-rtk" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                            <rect key="frame" x="88" y="0.0" width="32" height="32"/>
+                                            <state key="normal" image="twitter"/>
+                                            <connections>
+                                                <action selector="socialButtonTapped:" destination="nhN-XU-uEl" eventType="touchUpInside" id="ptV-Sk-gUz"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tl0-q9-kPz" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                            <rect key="frame" x="132" y="0.0" width="32" height="32"/>
+                                            <state key="normal" image="email"/>
+                                            <connections>
+                                                <action selector="socialButtonTapped:" destination="nhN-XU-uEl" eventType="touchUpInside" id="Ag3-mf-sW4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="tNi-sk-v5W"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="ymV-B2-HUF" secondAttribute="trailing" id="1mS-j6-Boh"/>
-                        <constraint firstAttribute="bottom" secondItem="ymV-B2-HUF" secondAttribute="bottom" id="BMg-MP-L10"/>
-                        <constraint firstItem="ymV-B2-HUF" firstAttribute="top" secondItem="Jn2-8c-elI" secondAttribute="top" id="ddN-ZT-kgK"/>
-                        <constraint firstItem="ymV-B2-HUF" firstAttribute="leading" secondItem="Jn2-8c-elI" secondAttribute="leading" id="nod-Hr-qXh"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="MiI-zy-Xqo" secondAttribute="trailing" constant="8" id="69w-EI-RHh"/>
+                        <constraint firstItem="MiI-zy-Xqo" firstAttribute="top" secondItem="AL1-In-6pP" secondAttribute="topMargin" constant="8" id="6C7-mc-Ay8"/>
+                        <constraint firstItem="MiI-zy-Xqo" firstAttribute="leading" secondItem="AL1-In-6pP" secondAttribute="leadingMargin" constant="8" id="EfI-CH-O7N"/>
+                        <constraint firstAttribute="bottom" secondItem="MiI-zy-Xqo" secondAttribute="bottom" constant="16" id="YP6-Ce-08Q"/>
                     </constraints>
+                    <viewLayoutGuide key="safeArea" id="KJh-ZL-omx"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1105" y="614"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="vMK-cj-1fL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Quv-Xo-3js" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="cpI-Os-Nhe"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oeo-zX-6Zh">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Sqp-Od-GZN" kind="relationship" relationship="rootViewController" id="3ak-7i-kdU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fID-Tn-hED" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45.600000000000001" y="164.16791604197903"/>
+            <point key="canvasLocation" x="1722" y="-651"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icon-nobg" width="300" height="341"/>
+        <image name="BasemProfilePic" width="150" height="150"/>
+        <image name="about" width="24" height="24"/>
+        <image name="design" width="24" height="24"/>
+        <image name="dev-service" width="24" height="24"/>
+        <image name="email" width="72" height="72"/>
+        <image name="github" width="64" height="64"/>
+        <image name="ios-development" width="24" height="24"/>
+        <image name="linkedin" width="64" height="64"/>
+        <image name="portfolio" width="24" height="24"/>
+        <image name="settings-checkmarks" width="24" height="24"/>
+        <image name="swift-icon" width="24" height="24"/>
         <image name="tab-home" width="25" height="25"/>
+        <image name="training-icon" width="24" height="24"/>
+        <image name="twitter" width="64" height="64"/>
     </resources>
 </document>

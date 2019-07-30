@@ -10,11 +10,12 @@ import UIKit
 import SwiftyPress
 import ZamzamKit
 
-final class WindowApplicationModule: ApplicationModule {
+final class WindowApplicationModule: ApplicationModule, SceneInjection, HasScenes {
     private var window: UIWindow?
     
     init(for window: UIWindow?) {
         self.window = window
+        self.inject(scenes: SceneConfigurator())
     }
 }
 
@@ -27,7 +28,7 @@ extension WindowApplicationModule {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window?.rootViewController = UIStoryboard(for: .main).instantiateInitialViewController()
+        window?.rootViewController = scenes.startMain()
         return true
     }
 }

@@ -14,7 +14,7 @@ class SearchPostsViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
 
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: SimplePostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
@@ -34,14 +34,14 @@ class SearchPostsViewController: UIViewController, HasDependencies {
         ]
     }
     
-    @IBOutlet var emptyPlaceholderView: UIView!
+    @IBOutlet private var emptyPlaceholderView: UIView!
     
     // MARK: - Scene variables
     
     private lazy var interactor: SearchPostsBusinessLogic = SearchPostsInteractor(
         presenter: SearchPostsPresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: SearchPostsRoutable = SearchPostsRouter(
@@ -77,8 +77,6 @@ extension SearchPostsViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        tableViewAdapter.reloadData(with: [])
-        
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: tableView)
         }
@@ -103,10 +101,14 @@ extension SearchPostsViewController {
                 query: text,
                 scope: {
                     switch scope {
-                    case 1: return .title
-                    case 2: return .content
-                    case 3: return .terms
-                    default: return .all
+                    case 1:
+                        return .title
+                    case 2:
+                        return .content
+                    case 3:
+                        return .terms
+                    default:
+                        return .all
                     }
                 }()
             )
@@ -148,7 +150,7 @@ extension SearchPostsViewController: UISearchResultsUpdating {
 extension SearchPostsViewController: PostsDataViewDelegate {
     
     func postsDataViewNumberOfSections(in dataView: DataViewable) -> Int {
-        let isEmpty = tableViewAdapter.viewModels.isEmpty
+        let isEmpty = tableViewAdapter.viewModels?.isEmpty == true
         tableView.backgroundView = isEmpty ? emptyPlaceholderView : nil
         tableView.separatorStyle = isEmpty ? .none : .singleLine
         return 1
@@ -162,7 +164,8 @@ extension SearchPostsViewController: PostsDataViewDelegate {
 extension SearchPostsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        searchData(for: searchController.searchBar.text!, with: selectedScope)
+        guard let text = searchController.searchBar.text else { return }
+        searchData(for: text, with: selectedScope)
     }
 }
 
@@ -171,11 +174,13 @@ extension SearchPostsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }

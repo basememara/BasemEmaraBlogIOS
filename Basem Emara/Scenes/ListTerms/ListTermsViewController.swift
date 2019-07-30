@@ -14,7 +14,7 @@ class ListTermsViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: TermTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
@@ -25,7 +25,7 @@ class ListTermsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListTermsBusinessLogic = ListTermsInteractor(
         presenter: ListTermsPresenter(viewController: self),
-        taxonomyWorker: dependencies.resolveWorker()
+        taxonomyWorker: dependencies.resolve()
     )
     
     private lazy var router: ListTermsRoutable = ListTermsRouter(
@@ -72,6 +72,11 @@ extension ListTermsViewController: ListTermsDisplayable {
 extension ListTermsViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.listPosts(for: .terms([model.id]))
+        router.listPosts(
+            params: .init(
+                fetchType: .terms([model.id]),
+                title: model.name
+            )
+        )
     }
 }

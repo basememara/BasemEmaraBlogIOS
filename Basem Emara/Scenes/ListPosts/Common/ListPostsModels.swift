@@ -10,21 +10,47 @@ import SwiftyPress
 
 enum ListPostsModels {
     
-    struct FetchPostsRequest {
-        
+    enum FetchType {
+        case latest
+        case popular
+        case picks
+        case terms(Set<Int>)
     }
     
-    struct FavoriteRequest {
-        let postID: Int
+    struct Params {
+        let fetchType: FetchType
+        let title: String?
+        let sort: ((PostType, PostType) -> Bool)?
+        
+        init(fetchType: FetchType, title: String? = nil, sort: ((PostType, PostType) -> Bool)? = nil) {
+            self.fetchType = fetchType
+            self.title = title
+            self.sort = sort
+        }
+    }
+}
+
+extension ListPostsModels {
+    
+    struct FetchPostsRequest {
+        let sort: ((PostType, PostType) -> Bool)?
     }
     
     struct FetchPostsByTermsRequest {
         let ids: Set<Int>
+        let sort: ((PostType, PostType) -> Bool)?
     }
     
     struct PostsResponse {
         let posts: [PostType]
         let media: [MediaType]
+    }
+}
+
+extension ListPostsModels {
+    
+    struct FavoriteRequest {
+        let postID: Int
     }
     
     struct FavoriteResponse {

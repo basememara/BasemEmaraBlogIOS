@@ -15,7 +15,7 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     // MARK: - Controls
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
             tableView.contentInset.bottom += 20
@@ -26,8 +26,8 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListPostsBusinessLogic = ListPostsInteractor(
         presenter: ListPostsPresenter(viewController: self),
-        postsWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve()
     )
     
     private lazy var router: ListPostsRoutable = ListPostsRouter(
@@ -44,8 +44,12 @@ class ListPostsViewController: UIViewController, HasDependencies {
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var theme: Theme = dependencies.resolve()
     
-    var fetchType: FetchType = .latest
-    weak var delegate: ShowPostViewControllerDelegate?
+    var params = ListPostsModels.Params(
+        fetchType: .latest,
+        title: nil
+    )
+    
+    weak var delegate: ListPostsDelegate?
     
     // MARK: - Controller cycle
     
@@ -61,15 +65,19 @@ class ListPostsViewController: UIViewController, HasDependencies {
 private extension ListPostsViewController {
     
     func configure() {
-        switch fetchType {
-        case .latest:
-            title = .localized(.latestPostsTitle)
-        case .popular:
-            title = .localized(.popularPostsTitle)
-        case .picks:
-            title = .localized(.topPicksTitle)
-        case .terms:
-            title = .localized(.postsByTermsTitle)
+        if let title = params.title {
+            self.title = title
+        } else {
+            switch params.fetchType {
+            case .latest:
+                title = .localized(.latestPostsTitle)
+            case .popular:
+                title = .localized(.popularPostsTitle)
+            case .picks:
+                title = .localized(.topPicksTitle)
+            case .terms:
+                title = .localized(.postsByTermsTitle)
+            }
         }
         
         if traitCollection.forceTouchCapability == .available {
@@ -78,22 +86,31 @@ private extension ListPostsViewController {
     }
     
     func loadData() {
-        switch fetchType {
+        switch params.fetchType {
         case .latest:
             interactor.fetchLatestPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
         case .popular:
             interactor.fetchPopularPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
         case .picks:
             interactor.fetchTopPickPosts(
-                with: ListPostsModels.FetchPostsRequest()
+                with: ListPostsModels.FetchPostsRequest(
+                    sort: params.sort
+                )
             )
         case .terms(let ids):
             interactor.fetchPostsByTerms (
-                with: ListPostsModels.FetchPostsByTermsRequest(ids: ids)
+                with: ListPostsModels.FetchPostsByTermsRequest(
+                    ids: ids,
+                    sort: params.sort
+                )
             )
         }
     }
@@ -112,31 +129,13 @@ extension ListPostsViewController: ListPostsDisplayable {
     }
 }
 
-// MARK: - Internal types
-
-extension ListPostsViewController {
-    
-    enum FetchType {
-        case latest
-        case popular
-        case picks
-        case terms(Set<Int>)
-    }
-}
-
 // MARK: - Delegates
 
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        guard let delegate = delegate else {
-            // Pass data forward
-            return router.showPost(for: model)
-        }
-        
-        // Pass data back
-        delegate.update(postID: model.id)
-        router.dismiss()
+        delegate?.listPosts(self, didSelect: model.id) // Pass data back
+            ?? router.showPost(for: model) // Pass data forward
     }
     
     func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
@@ -145,15 +144,15 @@ extension ListPostsViewController: PostsDataViewDelegate {
         
         return UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { action, view, completion in
+                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
                     self.interactor.toggleFavorite(with: ListPostsModels.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: isFavorite ? "favorite-empty" : "favorite-filled")
+                    $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
                     $0.backgroundColor = theme.tint
                 },
-                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { action, view, completion in
+                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { _, _, completion in
                     self.present(
                         actionSheet: nil,
                         popoverFrom: sender,
@@ -175,10 +174,12 @@ extension ListPostsViewController: PostsDataViewDelegate {
                                     handler: {
                                         guard let url = URL(string: model.link),
                                             SCNetworkReachability.isOnline else {
-                                                return self.present(
+                                                self.present(
                                                     alert: .localized(.browserNotAvailableErrorTitle),
                                                     message: .localized(.notConnectedToInternetErrorMessage)
                                                 )
+                                                
+                                                return
                                         }
                                         
                                         UIApplication.shared.open(url)
@@ -197,7 +198,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     
                     completion(true)
                 }.with {
-                    $0.image = UIImage(named: "more-icon")
+                    $0.image = UIImage(named: .more)
                     $0.backgroundColor = theme.secondaryTint
                 }
             ]
@@ -210,11 +211,13 @@ extension ListPostsViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
         previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        return router.previewPost(for: tableViewAdapter.viewModels[indexPath.row])
+        
+        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
+        return router.previewPost(for: models)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let previewController = viewControllerToCommit as? PreviewPostViewController else { return }
-        router.showPost(for: previewController.viewModel)
+        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
+        router.showPost(for: viewModel)
     }
 }

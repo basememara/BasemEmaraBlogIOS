@@ -25,15 +25,16 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     }
     
     private lazy var activityIndicatorView = view.makeActivityIndicator()
+    private lazy var theme: Theme = dependencies.resolve()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
-        imageName: "favorite-empty",
+        imageName: UIImage.ImageName.favoriteEmpty.rawValue,
         target: self,
         action: #selector(favoriteTapped)
     )
     
     private lazy var commentBarButton = BadgeBarButtonItem(
-        image: UIImage(named: "comments")!,
+        image: UIImage(named: .comments),
         badgeText: nil,
         target: self,
         action: #selector(commentsTapped)
@@ -46,24 +47,26 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
             viewController: self,
             constants: dependencies.resolve()
         ),
-        postsWorker: dependencies.resolveWorker(),
-        mediaWorker: dependencies.resolveWorker(),
-        authorsWorker: dependencies.resolveWorker(),
-        taxonomyWorker: dependencies.resolveWorker()
+        postWorker: dependencies.resolve(),
+        mediaWorker: dependencies.resolve(),
+        authorWorker: dependencies.resolve(),
+        taxonomyWorker: dependencies.resolve()
     )
     
     private lazy var router: ShowPostRoutable = ShowPostRouter(
-        viewController: self
+        viewController: self,
+        listPostsDelegate: self
     )
     
     // MARK: - Internal variable
     
-    private var viewModel: ShowPostModels.ViewModel?
     private lazy var constants: ConstantsType = dependencies.resolve()
     private lazy var notificationCenter: NotificationCenter = dependencies.resolve()
-    private lazy var history = [Int]()
     
-    var postID: Int! //Must assign or die
+    private var viewModel: ShowPostModels.ViewModel?
+    private var history = [Int]()
+    
+    var postID: Int?
     let application = UIApplication.shared
     var statusBar: UIView?
     
@@ -113,11 +116,24 @@ private extension ShowPostViewController {
     }
     
     func loadData() {
+        guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
         interactor.fetchPost(
             with: ShowPostModels.Request(postID: postID)
         )
+    }
+}
+
+extension ShowPostViewController: ShowPostLoadable {
+    
+    func loadData(for id: Int) {
+        if let lastPostID = postID {
+            history.append(lastPostID)
+        }
+        
+        postID = id
+        loadData()
     }
 }
 
@@ -143,20 +159,12 @@ extension ShowPostViewController: ShowPostDisplayable {
         navigationController?.setToolbarHidden(false, animated: true)
         
         if let postID = viewModel.postID {
-            activityIndicatorView.startAnimating()
-            
-            history.append(self.postID)
-            self.postID = postID
-            
-            interactor.fetchPost(
-                with: ShowPostModels.Request(postID: postID)
-            )
-            
+            loadData(for: postID)
             return viewModel.decisionHandler(.cancel)
         }
         
         if let termID = viewModel.termID {
-            router.listPosts(for: .terms([termID]))
+            router.listPosts(params: .init(fetchType: .terms([termID])))
             return viewModel.decisionHandler(.cancel)
         }
         
@@ -167,8 +175,8 @@ extension ShowPostViewController: ShowPostDisplayable {
     
     func display(isFavorite: Bool) {
         favoriteBarButton.image = isFavorite
-            ? UIImage(named: "favorite-filled")
-            : UIImage(named: "favorite-empty")
+            ? UIImage(named: .favoriteFilled)
+            : UIImage(named: .favoriteEmpty)
     }
 }
 
@@ -177,6 +185,8 @@ extension ShowPostViewController: ShowPostDisplayable {
 private extension ShowPostViewController {
     
     @objc func favoriteTapped() {
+        guard let postID = postID else { return }
+        
         interactor.toggleFavorite(
             with: ShowPostModels.FavoriteRequest(
                 postID: postID
@@ -186,10 +196,12 @@ private extension ShowPostViewController {
     
     @objc func commentsTapped() {
         guard SCNetworkReachability.isOnline else {
-            return present(
+            present(
                 alert: .localized(.commentsNotAvailableErrorTitle),
                 message: .localized(.notConnectedToInternetErrorMessage)
             )
+            
+            return
         }
         
         let url = constants.baseURL
@@ -197,7 +209,7 @@ private extension ShowPostViewController {
             .appendingQueryItem("postid", value: postID)
             .absoluteString
         
-        present(safari: url, theme: dependencies.resolve())
+        router.present(safari: url, theme: theme)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -213,10 +225,12 @@ private extension ShowPostViewController {
             imageBundle: .zamzamKit,
             handler: {
                 guard SCNetworkReachability.isOnline else {
-                    return self.present(
+                    self.present(
                         alert: .localized(.browserNotAvailableErrorTitle),
                         message: .localized(.notConnectedToInternetErrorMessage)
                     )
+                    
+                    return
                 }
 
                 UIApplication.shared.open(url)
@@ -232,14 +246,15 @@ private extension ShowPostViewController {
     
     @objc func backTapped() {
         guard let lastPostID = history.popLast() else {
-            return present(alert: .localized(.noPostInHistoryErrorMessage))
+            present(alert: .localized(.noPostInHistoryErrorMessage))
+            return
         }
         
         activityIndicatorView.startAnimating()
         postID = lastPostID
         
         interactor.fetchPost(
-            with: ShowPostModels.Request(postID: postID)
+            with: ShowPostModels.Request(postID: lastPostID)
         )
     }
     
@@ -251,16 +266,16 @@ private extension ShowPostViewController {
 
 // MARK: - Delegates
 
-extension ShowPostViewController: ShowPostViewControllerDelegate {
+extension ShowPostViewController: ListPostsDelegate {
     
-    func update(postID: Int) {
-        history.append(self.postID)
-        self.postID = postID
-        loadData()
+    func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
+        loadData(for: postID)
+        viewController.dismissOrPop()
     }
 }
 
 extension ShowPostViewController: WKNavigationDelegate {
+    //swiftlint:disable implicitly_unwrapped_optional
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let requestURL = navigationAction.request.url, navigationAction.navigationType == .linkActivated else {
@@ -270,7 +285,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         // Open same domain links within app
         guard requestURL.host == constants.baseURL.host else {
             // Open external links in browser
-            present(safari: requestURL.absoluteString, theme: dependencies.resolve())
+            present(safari: requestURL.absoluteString, theme: theme)
             return decisionHandler(.cancel)
         }
         

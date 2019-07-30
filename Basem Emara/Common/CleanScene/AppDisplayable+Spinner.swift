@@ -50,7 +50,10 @@ extension AppDisplayable where Self: UIViewController {
     func display(progress title: Localizable, subtitle: Localizable? = nil, delay: TimeInterval = 10) {
         let type: HUDContentType = .labeledProgress(
             title: .localized(title),
-            subtitle: subtitle != nil ? .localized(subtitle!) : nil
+            subtitle: {
+                guard let subtitle = subtitle else { return nil }
+                return .localized(subtitle)
+            }()
         )
         
         showSpinner(for: type, delay: delay)
@@ -65,7 +68,10 @@ extension AppDisplayable where Self: UIViewController {
     func display(success: Localizable, subtitle: Localizable? = nil, delay: TimeInterval = 1.5) {
         let type: HUDContentType = .labeledSuccess(
             title: .localized(success),
-            subtitle: subtitle != nil ? .localized(subtitle!) : nil
+            subtitle: {
+                guard let subtitle = subtitle else { return nil }
+                return .localized(subtitle)
+            }()
         )
         
         showSpinner(for: type, delay: delay)
@@ -80,7 +86,10 @@ extension AppDisplayable where Self: UIViewController {
     func display(error: Localizable, subtitle: Localizable? = nil, delay: TimeInterval = 3) {
         let type: HUDContentType = .labeledError(
             title: .localized(error),
-            subtitle: subtitle != nil ? .localized(subtitle!) : nil
+            subtitle: {
+                guard let subtitle = subtitle else { return nil }
+                return .localized(subtitle)
+            }()
         )
         
         showSpinner(for: type, delay: delay)

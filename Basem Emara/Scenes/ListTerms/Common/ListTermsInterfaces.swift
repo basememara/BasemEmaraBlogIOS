@@ -7,12 +7,13 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
-protocol ListTermsBusinessLogic {
+protocol ListTermsBusinessLogic: AppBusinessLogic {
     func fetchTerms(with request: ListTermsModels.FetchTermsRequest)
 }
 
-protocol ListTermsPresentable {
+protocol ListTermsPresentable: AppPresentable {
     func presentTerms(for response: ListTermsModels.TermsResponse)
     func presentTerms(error: DataError)
 }
@@ -22,5 +23,5 @@ protocol ListTermsDisplayable: class, AppDisplayable {
 }
 
 protocol ListTermsRoutable: AppRoutable {
-    func listPosts(for fetchType: ListPostsViewController.FetchType)
+    func listPosts(params: ListPostsModels.Params)
 }

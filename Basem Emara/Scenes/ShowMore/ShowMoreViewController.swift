@@ -17,13 +17,13 @@ class ShowMoreViewController: UITableViewController, HasDependencies {
     private(set) lazy var router: ShowMoreRoutable = ShowMoreRouter(
         viewController: self,
         constants: dependencies.resolve(),
+        mailComposer: dependencies.resolve(),
         theme: dependencies.resolve()
     )
     
     // MARK: - Internal variable
     
     private lazy var constants: ConstantsType = dependencies.resolve()
-    
 }
 
 // MARK: - Interactions
@@ -48,13 +48,12 @@ private extension ShowMoreViewController {
 extension ShowMoreViewController: CellIdentifiable {
     
     enum CellIdentifier: String {
-        case about
         case subscribe
         case feedback
         case work
         case rate
         case share
-        case tutorial
+        case notifications
         case settings
         case developedBy
     }
@@ -73,24 +72,36 @@ extension ShowMoreViewController {
         }
         
         switch identifier {
-        case .about:
-            router.showAbout()
         case .subscribe:
             router.showSubscribe()
         case .feedback:
             router.sendFeedback(
-                subject: .localizedFormat(.emailFeedbackSubject, constants.appDisplayName!)
+                subject: .localizedFormat(
+                    .emailFeedbackSubject,
+                    constants.appDisplayName ?? ""
+                )
             )
         case .work:
             router.showWorkWithMe()
         case .rate:
             router.showRateApp()
         case .share:
-            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName!)
+            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName ?? "")
             let share = [message, constants.itunesURL]
             present(activities: share, popoverFrom: cell)
-        case .tutorial:
-            break
+        case .notifications:
+            (UIApplication.shared.delegate as? AppDelegate)?.lazyModules
+                .compactMap { $0 as? NotificationApplicationModule }
+                .first?
+                .register { [weak self] granted in
+                    // TODO: Move to tutorial and localize
+                    guard granted else {
+                        self?.present(alert: "Please enable any time from iOS settings.")
+                        return
+                    }
+                    
+                    self?.present(alert: "You have registered to receive notifications.")
+                }
         case .settings:
             router.showSettings()
         case .developedBy:

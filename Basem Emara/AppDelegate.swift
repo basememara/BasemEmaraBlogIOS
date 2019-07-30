@@ -15,7 +15,7 @@ class AppDelegate: ApplicationModuleDelegate {
 
     override func modules() -> [ApplicationModule] {
         return [
-            CoreApplicationModule(),
+            CoreApplicationModule(with: AppConfigurator()),
             LoggerApplicationModule(),
             DataApplicationModule(),
             BackgroundApplicationModule(),
@@ -30,12 +30,12 @@ class AppDelegate: ApplicationModuleDelegate {
 extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        BackgroundApplicationModule()
+        lazyModules.compactMap { $0 as? BackgroundApplicationModule }.first?
             .application(application, performFetchWithCompletionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        ShortcutApplicationModule()
+        lazyModules.compactMap { $0 as? ShortcutApplicationModule }.first?
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
@@ -44,4 +44,3 @@ extension AppDelegate {
             .application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }
-

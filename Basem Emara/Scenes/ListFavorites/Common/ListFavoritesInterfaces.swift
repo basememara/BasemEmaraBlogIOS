@@ -7,13 +7,14 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
-protocol ListFavoritesBusinessLogic {
+protocol ListFavoritesBusinessLogic: AppBusinessLogic {
     func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesModels.FavoriteRequest)
 }
 
-protocol ListFavoritesPresentable {
+protocol ListFavoritesPresentable: AppPresentable {
     func presentFavoritePosts(for response: ListFavoritesModels.FetchPostsResponse)
     func presentFavoritePosts(error: DataError)
     

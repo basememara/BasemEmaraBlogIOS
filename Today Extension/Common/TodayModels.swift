@@ -11,7 +11,7 @@ import SwiftyPress
 enum TodayModels {
     
     struct Request {
-        let count: Int
+        let maxLength: Int
     }
     
     struct Response {

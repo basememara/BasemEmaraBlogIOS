@@ -39,7 +39,7 @@ extension ShowPostPresenter {
         var context: [String: Any] = [
             "style": SCNetworkReachability.isOnline && !styleSheetFile.isNilOrEmpty
                 ? "<link rel='stylesheet' href='\(constants.styleSheet)' type='text/css' media='all' />"
-                : "<style>\(styleSheetFile!)</style>",
+                : "<style>\(styleSheetFile ?? "")</style>",
             "post": ShowPostModels.PageViewModel(
                 title: response.post.title,
                 content: response.post.content,

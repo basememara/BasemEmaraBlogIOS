@@ -7,14 +7,15 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
-protocol ShowPostBusinessLogic {
+protocol ShowPostBusinessLogic: AppBusinessLogic {
     func fetchPost(with request: ShowPostModels.Request)
     func fetchByURL(with request: ShowPostModels.FetchWebRequest)
     func toggleFavorite(with request: ShowPostModels.FavoriteRequest)
 }
 
-protocol ShowPostPresentable {
+protocol ShowPostPresentable: AppPresentable {
     func presentPost(for response: ShowPostModels.Response)
     func presentPost(error: DataError)
     
@@ -30,10 +31,9 @@ protocol ShowPostDisplayable: class, AppDisplayable {
 }
 
 protocol ShowPostRoutable: AppRoutable {
-    func listPosts(for fetchType: ListPostsViewController.FetchType)
+    func listPosts(params: ListPostsModels.Params)
 }
 
-/// Delegate for target controller to pass data back
-protocol ShowPostViewControllerDelegate: class {
-    func update(postID: Int)
+protocol ShowPostLoadable {
+    func loadData(for id: Int)
 }

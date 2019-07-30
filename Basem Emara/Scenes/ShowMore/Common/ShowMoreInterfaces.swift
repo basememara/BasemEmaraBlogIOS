@@ -7,9 +7,9 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 protocol ShowMoreRoutable: AppRoutable {
-    func showAbout()
     func showSubscribe()
     func sendFeedback(subject: String)
     func showWorkWithMe()

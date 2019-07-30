@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamKit
 
 struct ListFavoritesPresenter: ListFavoritesPresentable {
     private weak var viewController: ListFavoritesDisplayable?
