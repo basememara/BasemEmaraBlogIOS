@@ -69,6 +69,7 @@ extension ShowMoreRouter {
             email: constants.email,
             subject: subject,
             body: nil,
+            isHTML: true,
             attachment: nil
         )
         

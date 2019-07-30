@@ -45,7 +45,7 @@
 			<real>0.75</real>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
-		<string>NotificationInterface</string>
+		<string>Notification</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.usernotifications.content-extension</string>
 	</dict>

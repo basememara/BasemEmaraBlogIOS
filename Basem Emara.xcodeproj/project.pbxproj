@@ -23,12 +23,12 @@
 		8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */; };
 		8B1DC0E920B1AFE1009FBBBD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */; };
 		8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */; };
-		8B1DC0EF20B1AFE1009FBBBD /* TodayInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0ED20B1AFE1009FBBBD /* TodayInterface.storyboard */; };
+		8B1DC0EF20B1AFE1009FBBBD /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC0ED20B1AFE1009FBBBD /* Today.storyboard */; };
 		8B1DC0F320B1AFE1009FBBBD /* Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8B1DC0FE20B1B0BF009FBBBD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */; };
 		8B1DC10020B1B0BF009FBBBD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */; };
 		8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */; };
-		8B1DC10620B1B0BF009FBBBD /* NotificationInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC10420B1B0BF009FBBBD /* NotificationInterface.storyboard */; };
+		8B1DC10620B1B0BF009FBBBD /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC10420B1B0BF009FBBBD /* Notification.storyboard */; };
 		8B1DC10A20B1B0BF009FBBBD /* Post Notification Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8B21359F217CDAA200E63F21 /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21359E217CDAA200E63F21 /* TodayInteractor.swift */; };
 		8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */; };
@@ -241,13 +241,13 @@
 		8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		8B1DC0EE20B1AFE1009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TodayInterface.storyboard; sourceTree = "<group>"; };
+		8B1DC0EE20B1AFE1009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Today.storyboard; sourceTree = "<group>"; };
 		8B1DC0F020B1AFE1009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Post Notification Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		8B1DC10520B1B0BF009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NotificationInterface.storyboard; sourceTree = "<group>"; };
+		8B1DC10520B1B0BF009FBBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notification.storyboard; sourceTree = "<group>"; };
 		8B1DC10720B1B0BF009FBBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara.entitlements"; sourceTree = "<group>"; };
 		8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
@@ -535,10 +535,10 @@
 			isa = PBXGroup;
 			children = (
 				8B2135A2217CDADF00E63F21 /* Common */,
-				8B1DC0ED20B1AFE1009FBBBD /* TodayInterface.storyboard */,
 				8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */,
 				8B21359E217CDAA200E63F21 /* TodayInteractor.swift */,
 				8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */,
+				8B1DC0ED20B1AFE1009FBBBD /* Today.storyboard */,
 				8B21359D217CD8A500E63F21 /* Supporting Files */,
 			);
 			path = "Today Extension";
@@ -547,8 +547,8 @@
 		8B1DC10120B1B0BF009FBBBD /* Post Notification Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8B1DC10420B1B0BF009FBBBD /* NotificationInterface.storyboard */,
 				8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */,
+				8B1DC10420B1B0BF009FBBBD /* Notification.storyboard */,
 				8B2135D3217D5F2200E63F21 /* Supporting Files */,
 			);
 			path = "Post Notification Extension";
@@ -1099,7 +1099,7 @@
 				8B2135CF217D541200E63F21 /* InfoPlist.strings in Resources */,
 				8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B4291152173B0A500BCB422 /* seed.json in Resources */,
-				8B1DC0EF20B1AFE1009FBBBD /* TodayInterface.storyboard in Resources */,
+				8B1DC0EF20B1AFE1009FBBBD /* Today.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,7 +1111,7 @@
 				8B2135D0217D541200E63F21 /* InfoPlist.strings in Resources */,
 				8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */,
 				8B4291162173B0AB00BCB422 /* seed.json in Resources */,
-				8B1DC10620B1B0BF009FBBBD /* NotificationInterface.storyboard in Resources */,
+				8B1DC10620B1B0BF009FBBBD /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1319,20 +1319,20 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		8B1DC0ED20B1AFE1009FBBBD /* TodayInterface.storyboard */ = {
+		8B1DC0ED20B1AFE1009FBBBD /* Today.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8B1DC0EE20B1AFE1009FBBBD /* Base */,
 			);
-			name = TodayInterface.storyboard;
+			name = Today.storyboard;
 			sourceTree = "<group>";
 		};
-		8B1DC10420B1B0BF009FBBBD /* NotificationInterface.storyboard */ = {
+		8B1DC10420B1B0BF009FBBBD /* Notification.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8B1DC10520B1B0BF009FBBBD /* Base */,
 			);
-			name = NotificationInterface.storyboard;
+			name = Notification.storyboard;
 			sourceTree = "<group>";
 		};
 		8B2135C7217D541100E63F21 /* Localizable.strings */ = {
