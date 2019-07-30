@@ -14,7 +14,7 @@
         <scene sceneID="i7h-LI-exm">
             <objects>
                 <viewController id="wEF-n8-evx" customClass="SearchPostsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DdT-WV-OqV" customClass="ThemedView" customModule="ZamzamKit">
+                    <view key="view" contentMode="scaleToFill" id="DdT-WV-OqV" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -40,7 +40,7 @@
                         <outlet property="tableView" destination="K1g-Xg-S4q" id="Arb-vR-MGQ"/>
                     </connections>
                 </viewController>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C64-bz-DNi" customClass="ThemedView" customModule="ZamzamKit">
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C64-bz-DNi" customClass="ThemedView" customModule="SwiftyPress">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -65,7 +65,7 @@
                                         <constraint firstItem="kGO-Jt-zZZ" firstAttribute="centerX" secondItem="ouq-ay-Jqq" secondAttribute="centerX" id="gZR-25-Sqe"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you don't have any search results." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujd-Wh-FTc" customClass="ThemedHeadline" customModule="ZamzamKit">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you don't have any search results." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujd-Wh-FTc" customClass="ThemedHeadline" customModule="SwiftyPress">
                                     <rect key="frame" x="0.0" y="110" width="168" height="64.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <nil key="textColor"/>

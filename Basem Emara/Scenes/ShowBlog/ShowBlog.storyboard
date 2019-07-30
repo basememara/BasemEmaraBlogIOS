@@ -14,7 +14,7 @@
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="ThemedView" customModule="ZamzamKit">
+                    <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -44,7 +44,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-hx-0XF">
                                                         <rect key="frame" x="0.0" y="230" width="375" height="128"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-4x-zz9" userLabel="Separator View" customClass="ThemedSeparator" customModule="ZamzamKit">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-4x-zz9" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="465-AK-5Gc"/>
@@ -53,7 +53,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gw-Es-Zj7">
                                                                 <rect key="frame" x="16" y="33" width="343" height="87"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-fG-sg5" customClass="ThemedHeadline" customModule="ZamzamKit">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-fG-sg5" customClass="ThemedHeadline" customModule="SwiftyPress">
                                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
@@ -97,7 +97,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-Nk-DNN">
                                                         <rect key="frame" x="0.0" y="658" width="375" height="128"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4V-nj-xNH" userLabel="Separator View" customClass="ThemedSeparator" customModule="ZamzamKit">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4V-nj-xNH" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="RIB-NI-YbS"/>
@@ -106,7 +106,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-OP-P35">
                                                                 <rect key="frame" x="16" y="33" width="343" height="87"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs9-PM-gdj" customClass="ThemedHeadline" customModule="ZamzamKit">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs9-PM-gdj" customClass="ThemedHeadline" customModule="SwiftyPress">
                                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="87"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
@@ -144,7 +144,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTW-s7-CbO">
                                                                 <rect key="frame" x="16" y="24" width="343" height="96"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-ob-DZz" customClass="ThemedHeadline" customModule="ZamzamKit">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaU-ob-DZz" customClass="ThemedHeadline" customModule="SwiftyPress">
                                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="96"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
@@ -185,7 +185,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRd-ZI-FYO">
                                                         <rect key="frame" x="0.0" y="1364" width="375" height="211"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-nF-3Sc" userLabel="Separator View" customClass="ThemedSeparator" customModule="ZamzamKit">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-nF-3Sc" userLabel="Separator View" customClass="ThemedSeparator" customModule="SwiftyPress">
                                                                 <rect key="frame" x="16" y="24" width="343" height="1"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="Fya-3F-5HY"/>
@@ -197,14 +197,14 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q2p-h4-cM3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-Q6-P75" customClass="ThemedButton" customModule="ZamzamKit">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-Q6-P75" customClass="ThemedButton" customModule="SwiftyPress">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
                                                                                 <state key="normal" title="Disclaimer"/>
                                                                                 <connections>
                                                                                     <action selector="disclaimerButtonTapped" destination="Sqp-Od-GZN" eventType="touchUpInside" id="vAC-KD-2ec"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axa-K9-Tw5" customClass="ThemedButton" customModule="ZamzamKit">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axa-K9-Tw5" customClass="ThemedButton" customModule="SwiftyPress">
                                                                                 <rect key="frame" x="175.5" y="0.0" width="167.5" height="30"/>
                                                                                 <state key="normal" title="Privacy"/>
                                                                                 <connections>
@@ -213,7 +213,7 @@
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P47-TZ-0ee" customClass="ThemedButton" customModule="ZamzamKit">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P47-TZ-0ee" customClass="ThemedButton" customModule="SwiftyPress">
                                                                         <rect key="frame" x="0.0" y="38" width="343" height="124"/>
                                                                         <state key="normal" title="Contact"/>
                                                                         <connections>
@@ -295,7 +295,7 @@
                                         <constraint firstAttribute="width" constant="30" id="XWM-ap-fUm"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basem Emara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-F2-3hN" customClass="ThemedLabel" customModule="ZamzamKit">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basem Emara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-F2-3hN" customClass="ThemedLabel" customModule="SwiftyPress">
                                     <rect key="frame" x="38" y="0.0" width="202" height="128"/>
                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
                                     <nil key="textColor"/>
