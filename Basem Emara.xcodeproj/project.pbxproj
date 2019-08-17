@@ -15,7 +15,6 @@
 		8B1180DD21570AB50071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180EC21586D730071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
 		8B1180ED21586D740071315B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1180DC21570AB50071315B /* DarkTheme.swift */; };
-		8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28922133CE8A0008135D /* AppDisplayable.swift */; };
 		8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A28922133CE8A0008135D /* AppDisplayable.swift */; };
 		8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */; };
@@ -122,7 +121,6 @@
 		8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
-		8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */; };
 		8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */; };
 		8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B7DD721EB92FC003FB20D /* UIViewController.swift */; };
 		8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationModule.swift */; };
@@ -383,7 +381,6 @@
 				8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */,
 				8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */,
 				8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */,
-				8B68A38620B1CB72000CEB50 /* TinyConstraints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +397,6 @@
 				8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */,
 				8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */,
 				8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */,
-				8B118111215891EB0071315B /* TinyConstraints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,7 +1120,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/TinyConstraints.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Realm.framework",
