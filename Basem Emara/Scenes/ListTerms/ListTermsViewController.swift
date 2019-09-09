@@ -16,7 +16,7 @@ class ListTermsViewController: UIViewController, HasDependencies {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: TermTableViewCell.self, inBundle: .swiftyPress)
+            tableView.register(nib: TermTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }

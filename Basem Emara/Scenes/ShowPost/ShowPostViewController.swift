@@ -221,8 +221,7 @@ private extension ShowPostViewController {
         
         let safariActivity = UIActivity.make(
             title: .localized(.openInSafari),
-            imageName: "safari-share",
-            imageBundle: .zamzamUI,
+            imageName: UIImage.ImageName.safariShare.rawValue,
             handler: {
                 guard SCNetworkReachability.isOnline else {
                     self.present(

@@ -21,19 +21,19 @@ class ShowBlogViewController: UIViewController, HasDependencies {
     @IBOutlet private var titleView: UIView! // Needs strong reference, see storyboard
     
     @IBOutlet private weak var latestPostsCollectionView: UICollectionView! {
-        didSet { latestPostsCollectionView.register(cell: LatestPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { latestPostsCollectionView.register(cell: LatestPostCollectionViewCell.self) }
     }
     
     @IBOutlet private weak var popularPostsCollectionView: UICollectionView! {
-        didSet { popularPostsCollectionView.register(cell: PopularPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { popularPostsCollectionView.register(cell: PopularPostCollectionViewCell.self) }
     }
     
     @IBOutlet private weak var pickedPostsCollectionView: UICollectionView! {
-        didSet { pickedPostsCollectionView.register(cell: PickedPostCollectionViewCell.self, inBundle: .swiftyPress) }
+        didSet { pickedPostsCollectionView.register(cell: PickedPostCollectionViewCell.self) }
     }
     
     @IBOutlet private weak var topTermsTableView: UITableView! {
-        didSet { topTermsTableView.register(nib: TermTableViewCell.self, inBundle: .swiftyPress) }
+        didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
     }
     
     // MARK: - Scene variables

@@ -17,7 +17,7 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: PostTableViewCell.self, inBundle: .swiftyPress)
+            tableView.register(nib: PostTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }
@@ -169,8 +169,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                             UIAlertAction(title: .localized(.shareTitle)) {
                                 let safariActivity = UIActivity.make(
                                     title: .localized(.openInSafari),
-                                    imageName: "safari-share",
-                                    imageBundle: .zamzamUI,
+                                    imageName: UIImage.ImageName.safariShare.rawValue,
                                     handler: {
                                         guard let url = URL(string: model.link),
                                             SCNetworkReachability.isOnline else {

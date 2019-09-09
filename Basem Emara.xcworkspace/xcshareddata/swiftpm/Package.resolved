@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "82cc60d703dbced153baa04e26c6296ba9690a2d",
-          "version": "5.0.0-rc.1"
+          "revision": "c1d14588e5558a3669fd03510d135d88c5109069",
+          "version": "5.0.0-rc.2"
         }
       },
       {
@@ -78,7 +78,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamCore.git",
         "state": {
           "branch": "develop",
-          "revision": "d6e1374242aca176a5d761e292677c71c4b8dc0a",
+          "revision": "dfae145ae01b527349f757432b6167ba6789abb9",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamNotification.git",
         "state": {
           "branch": "master",
-          "revision": "19ebe9cb9d2638cf0a36b445b6e022f6aba7cfd5",
+          "revision": "897ded968ae229d08dcf9c8b63d26ea16242c2f5",
           "version": null
         }
       },
@@ -96,7 +96,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamUI.git",
         "state": {
           "branch": "develop",
-          "revision": "7191bebc5a0b05bd2ef1c1e8c21804217fa10ac0",
+          "revision": "62ed018affe93a92e61bc3c9e403bd71483e1848",
           "version": null
         }
       }
