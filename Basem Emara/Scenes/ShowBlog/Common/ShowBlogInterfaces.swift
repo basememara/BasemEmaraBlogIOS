@@ -7,7 +7,8 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import UIKit
+import ZamzamUI
 
 protocol ShowBlogBusinessLogic: AppBusinessLogic {
     func fetchLatestPosts(with request: ShowBlogModels.FetchPostsRequest)

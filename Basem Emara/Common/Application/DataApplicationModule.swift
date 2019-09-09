@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 final class DataApplicationModule: ApplicationModule, HasDependencies {
     private lazy var dataWorker: DataWorkerType = dependencies.resolve()

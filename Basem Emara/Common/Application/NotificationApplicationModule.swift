@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 import UserNotifications
 
 final class NotificationApplicationModule: NSObject, ApplicationModule, HasDependencies, Loggable {

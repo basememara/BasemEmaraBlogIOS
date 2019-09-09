@@ -6,8 +6,9 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Foundation
 import SwiftyPress
-import ZamzamKit
+import ZamzamCore
 
 class AppConfigurator: CoreConfigurator {
     private let environment: Environment
@@ -36,7 +37,7 @@ class AppConfigurator: CoreConfigurator {
                 let string: String
                 switch environment {
                 case .development:
-                    string = "https://staging1.basememara.com"
+                    string = "https://basememara.com"
                 case .staging:
                     string = "https://staging1.basememara.com"
                 case .production:

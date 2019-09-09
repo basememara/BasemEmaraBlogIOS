@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 final class CoreApplicationModule: ApplicationModule, CoreInjection {
     

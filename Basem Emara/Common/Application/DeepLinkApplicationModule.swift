@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Loggable {
     private lazy var postWorker: PostWorkerType = dependencies.resolve()

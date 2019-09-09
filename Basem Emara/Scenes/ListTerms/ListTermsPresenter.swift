@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 struct ListTermsPresenter: ListTermsPresentable {
     private weak var viewController: ListTermsDisplayable?

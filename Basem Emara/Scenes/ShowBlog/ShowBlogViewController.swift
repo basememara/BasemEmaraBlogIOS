@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ZamzamKit
+import ZamzamUI
 import SwiftyPress
 
 class ShowBlogViewController: UIViewController, HasDependencies {

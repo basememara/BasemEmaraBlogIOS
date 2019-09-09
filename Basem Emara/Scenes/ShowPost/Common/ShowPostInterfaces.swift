@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol ShowPostBusinessLogic: AppBusinessLogic {
     func fetchPost(with request: ShowPostModels.Request)

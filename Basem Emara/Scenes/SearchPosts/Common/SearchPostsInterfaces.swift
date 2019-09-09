@@ -7,7 +7,8 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import UIKit
+import ZamzamUI
 
 protocol SearchPostsBusinessLogic: AppBusinessLogic {
     func fetchSearchResults(with request: PostsModels.SearchRequest)

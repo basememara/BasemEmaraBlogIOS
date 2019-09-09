@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 final class WindowApplicationModule: ApplicationModule, SceneInjection, HasScenes {
     private var window: UIWindow?

@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol MainSplitRoutable: AppRoutable & DeepLinkRoutable {
     

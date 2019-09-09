@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol TodayBusinessLogic {
     func fetchLatestPosts(with request: TodayModels.Request)

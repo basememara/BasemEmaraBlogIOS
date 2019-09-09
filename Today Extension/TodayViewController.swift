@@ -9,7 +9,7 @@
 import UIKit
 import NotificationCenter
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInjection, NCWidgetProviding {
     

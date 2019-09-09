@@ -6,10 +6,13 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SwiftyPress
-import ZamzamKit
+import UIKit
 import UserNotifications
+import ZamzamCore
+import ZamzamNotification
+import ZamzamUI
 
 final class BackgroundApplicationModule: ApplicationModule, HasDependencies, Loggable {
     private lazy var dataWorker: DataWorkerType = dependencies.resolve()

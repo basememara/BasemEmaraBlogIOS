@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import SystemConfiguration
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     
@@ -222,7 +222,7 @@ private extension ShowPostViewController {
         let safariActivity = UIActivity.make(
             title: .localized(.openInSafari),
             imageName: "safari-share",
-            imageBundle: .zamzamKit,
+            imageBundle: .zamzamUI,
             handler: {
                 guard SCNetworkReachability.isOnline else {
                     self.present(

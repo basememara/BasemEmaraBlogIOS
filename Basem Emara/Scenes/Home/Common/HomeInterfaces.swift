@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol HomeDisplayable: class, AppDisplayable { // Controller
     

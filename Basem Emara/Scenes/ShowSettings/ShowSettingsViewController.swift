@@ -8,7 +8,8 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamCore
+import ZamzamUI
 
 class ShowSettingsViewController: UITableViewController, HasDependencies {
     

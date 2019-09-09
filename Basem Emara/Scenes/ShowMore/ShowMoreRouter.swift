@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
     weak var viewController: UIViewController?

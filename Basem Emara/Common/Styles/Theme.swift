@@ -6,8 +6,9 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ZamzamKit
+import ZamzamUI
 import SwiftyPress
 
 extension Theme {

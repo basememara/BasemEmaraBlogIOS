@@ -9,7 +9,7 @@
 import UIKit
 import SystemConfiguration
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 class ListPostsViewController: UIViewController, HasDependencies {
     
@@ -106,7 +106,7 @@ private extension ListPostsViewController {
                 )
             )
         case .terms(let ids):
-            interactor.fetchPostsByTerms (
+            interactor.fetchPostsByTerms(
                 with: ListPostsModels.FetchPostsByTermsRequest(
                     ids: ids,
                     sort: params.sort
@@ -170,7 +170,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                                 let safariActivity = UIActivity.make(
                                     title: .localized(.openInSafari),
                                     imageName: "safari-share",
-                                    imageBundle: .zamzamKit,
+                                    imageBundle: .zamzamUI,
                                     handler: {
                                         guard let url = URL(string: model.link),
                                             SCNetworkReachability.isOnline else {

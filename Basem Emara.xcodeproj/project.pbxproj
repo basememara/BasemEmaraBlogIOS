@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,7 @@
 		8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */; };
 		8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */; };
 		8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
+		8B22684B230F86F200291D1F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22684A230F86F200291D1F /* Preferences.swift */; };
 		8B33C4DF21694BE000658700 /* ListFavoritesInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */; };
 		8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */; };
 		8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */; };
@@ -62,6 +63,9 @@
 		8B4439EE22988A2700EC5575 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4439ED22988A2700EC5575 /* UIImage.swift */; };
 		8B4439F022988D4900EC5575 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4439EF22988D4900EC5575 /* Home.storyboard */; };
 		8B443A1E2299578B00EC5575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B443A1D2299578B00EC5575 /* Main.storyboard */; };
+		8B455C672323006D00400A73 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B455C662323006D00400A73 /* SwiftyPress */; };
+		8B455C692323009300400A73 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B455C682323009300400A73 /* SwiftyPress */; };
+		8B455C6B2323009700400A73 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B455C6A2323009700400A73 /* SwiftyPress */; };
 		8B47A5E120E10E9F00681404 /* ListPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */; };
 		8B47A5E320E10EA700681404 /* ListPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B47A5E220E10EA700681404 /* ListPosts.storyboard */; };
 		8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D719F216A4043002ACA81 /* SearchPostsPresenter.swift */; };
@@ -73,29 +77,7 @@
 		8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
 		8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
 		8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AA803214364C000EA4E2F /* Localizable.swift */; };
-		8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; };
-		8B5B459220B3103A0088DF60 /* SwiftyPress.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B458F20B310140088DF60 /* SwiftyPress.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B5B459B20B310D40088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
-		8B5B459C20B310D40088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
-		8B5B459E20B310D40088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
-		8B5B459F20B310D40088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
-		8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
-		8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B45A320B312060088DF60 /* SwiftyPress.framework */; };
-		8B5B45C220B3122E0088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
-		8B5B45C520B3122E0088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
-		8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
-		8B5B45C720B3122E0088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
-		8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
-		8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B45C920B312340088DF60 /* SwiftyPress.framework */; };
-		8B5B45CB20B312450088DF60 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459420B310D40088DF60 /* Alamofire.framework */; };
-		8B5B45CE20B312450088DF60 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459520B310D40088DF60 /* Realm.framework */; };
-		8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459920B310D40088DF60 /* RealmSwift.framework */; };
-		8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */; };
-		8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5B459820B310D40088DF60 /* ZamzamKit.framework */; };
 		8B63A1F8216283DD003868F7 /* ShowPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B63A1F7216283DD003868F7 /* ShowPost.storyboard */; };
-		8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
-		8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
-		8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B63A2A6216291F2003868F7 /* Stencil.framework */; };
 		8B63A2AD2162D2FA003868F7 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B63A2AB2162D2FA003868F7 /* post.html */; };
 		8B63A2AE2162D2FA003868F7 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 8B63A2AC2162D2FA003868F7 /* style.css */; };
 		8B63A2B12163AEF0003868F7 /* ListTerms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */; };
@@ -115,9 +97,6 @@
 		8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */; };
 		8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */; };
 		8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */; };
-		8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
-		8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
-		8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B68A38220B1CB71000CEB50 /* PKHUD.framework */; };
 		8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */; };
 		8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B7DD721EB92FC003FB20D /* UIViewController.swift */; };
 		8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationModule.swift */; };
@@ -136,7 +115,6 @@
 		8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5755E22901E270079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5756622902C080079BE42 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5756522902C080079BE42 /* AppRoutable.swift */; };
-		8BB5756722903F020079BE42 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */; };
 		8BBD4CB4229C0AC80067144E /* HomeInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD4CB3229C0AC80067144E /* HomeInterfaces.swift */; };
 		8BBD4CB6229C11680067144E /* MainSplitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD4CB5229C11680067144E /* MainSplitDetailViewController.swift */; };
 		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
@@ -199,17 +177,6 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B5B458E20B30FE40088DF60 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8B5B459220B3103A0088DF60 /* SwiftyPress.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +223,7 @@
 		8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkApplicationModule.swift; sourceTree = "<group>"; };
 		8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundApplicationModule.swift; sourceTree = "<group>"; };
 		8B21CF07215C6BDF00E2994C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8B22684A230F86F200291D1F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInterfaces.swift; sourceTree = "<group>"; };
 		8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesModels.swift; sourceTree = "<group>"; };
 		8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -276,19 +244,7 @@
 		8B4D71AA216A4057002ACA81 /* SearchPostsInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsInterfaces.swift; sourceTree = "<group>"; };
 		8B4D71AB216A4057002ACA81 /* SearchPostsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsModels.swift; sourceTree = "<group>"; };
 		8B5AA803214364C000EA4E2F /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Extensions/Localizable.swift; sourceTree = "<group>"; };
-		8B5B458F20B310140088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B5B459320B310D40088DF60 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
-		8B5B459420B310D40088DF60 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8B5B459520B310D40088DF60 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		8B5B459620B310D40088DF60 /* Arcane.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Arcane.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Arcane.framework; sourceTree = "<group>"; };
-		8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		8B5B459820B310D40088DF60 /* ZamzamKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZamzamKit.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework; sourceTree = "<group>"; };
-		8B5B459920B310D40088DF60 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		8B5B45A120B311F60088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B5B45A320B312060088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B5B45C920B312340088DF60 /* SwiftyPress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyPress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B63A1F7216283DD003868F7 /* ShowPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowPost.storyboard; sourceTree = "<group>"; };
-		8B63A2A6216291F2003868F7 /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stencil.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework; sourceTree = "<group>"; };
 		8B63A2AB2162D2FA003868F7 /* post.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = post.html; sourceTree = "<group>"; };
 		8B63A2AC2162D2FA003868F7 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		8B63A2B02163AEF0003868F7 /* ListTerms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListTerms.storyboard; sourceTree = "<group>"; };
@@ -308,10 +264,6 @@
 		8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostInteractor.swift; sourceTree = "<group>"; };
 		8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostPresenter.swift; sourceTree = "<group>"; };
 		8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostRouter.swift; sourceTree = "<group>"; };
-		8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Submodules/SwiftyPress/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		8B68A38220B1CB71000CEB50 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
-		8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyConstraints.framework; path = Carthage/Build/iOS/TinyConstraints.framework; sourceTree = "<group>"; };
-		8B68A38420B1CB72000CEB50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDisplayable+Spinner.swift"; sourceTree = "<group>"; };
 		8B6B7DD721EB92FC003FB20D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8B856E72217A716300B64E6C /* DataApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationModule.swift; sourceTree = "<group>"; };
@@ -362,15 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5B459E20B310D40088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B459B20B310D40088DF60 /* Alamofire.framework in Frameworks */,
-				8B5B459C20B310D40088DF60 /* Realm.framework in Frameworks */,
-				8B5B45A020B310D40088DF60 /* RealmSwift.framework in Frameworks */,
-				8B63A2A7216291F2003868F7 /* Stencil.framework in Frameworks */,
-				8B5B459F20B310D40088DF60 /* ZamzamKit.framework in Frameworks */,
-				8B6673A5217EB3E80057E0F6 /* Kingfisher.framework in Frameworks */,
-				8B5B459120B3103A0088DF60 /* SwiftyPress.framework in Frameworks */,
-				8B68A38520B1CB72000CEB50 /* PKHUD.framework in Frameworks */,
+				8B455C672323006D00400A73 /* SwiftyPress in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,15 +322,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B455C692323009300400A73 /* SwiftyPress in Frameworks */,
 				8B1DC0E920B1AFE1009FBBBD /* NotificationCenter.framework in Frameworks */,
-				8B5B45C720B3122E0088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B45C220B3122E0088DF60 /* Alamofire.framework in Frameworks */,
-				8B5B45C520B3122E0088DF60 /* Realm.framework in Frameworks */,
-				8B5B45C620B3122E0088DF60 /* RealmSwift.framework in Frameworks */,
-				8B63A2A821629215003868F7 /* Stencil.framework in Frameworks */,
-				8B5B45C820B3122E0088DF60 /* ZamzamKit.framework in Frameworks */,
-				8B6673A6217EB3FE0057E0F6 /* Kingfisher.framework in Frameworks */,
-				8B5B45A420B312060088DF60 /* SwiftyPress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,15 +332,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1DC0FE20B1B0BF009FBBBD /* UserNotifications.framework in Frameworks */,
+				8B455C6B2323009700400A73 /* SwiftyPress in Frameworks */,
 				8B1DC10020B1B0BF009FBBBD /* UserNotificationsUI.framework in Frameworks */,
-				8B5B45D020B312450088DF60 /* SwiftyBeaver.framework in Frameworks */,
-				8B5B45CB20B312450088DF60 /* Alamofire.framework in Frameworks */,
-				8B5B45CE20B312450088DF60 /* Realm.framework in Frameworks */,
-				8B5B45CF20B312450088DF60 /* RealmSwift.framework in Frameworks */,
-				8B63A2A921629229003868F7 /* Stencil.framework in Frameworks */,
-				8B5B45D120B312450088DF60 /* ZamzamKit.framework in Frameworks */,
-				8BB5756722903F020079BE42 /* Kingfisher.framework in Frameworks */,
-				8B5B45CA20B312340088DF60 /* SwiftyPress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,22 +424,6 @@
 		8B1DC0E720B1AFE1009FBBBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B6673A4217EB3E80057E0F6 /* Kingfisher.framework */,
-				8B63A2A6216291F2003868F7 /* Stencil.framework */,
-				8B5B45C920B312340088DF60 /* SwiftyPress.framework */,
-				8B5B45A320B312060088DF60 /* SwiftyPress.framework */,
-				8B5B45A120B311F60088DF60 /* SwiftyPress.framework */,
-				8B5B459420B310D40088DF60 /* Alamofire.framework */,
-				8B5B459620B310D40088DF60 /* Arcane.framework */,
-				8B5B459320B310D40088DF60 /* KeychainSwift.framework */,
-				8B5B459520B310D40088DF60 /* Realm.framework */,
-				8B5B459920B310D40088DF60 /* RealmSwift.framework */,
-				8B5B459720B310D40088DF60 /* SwiftyBeaver.framework */,
-				8B5B459820B310D40088DF60 /* ZamzamKit.framework */,
-				8B5B458F20B310140088DF60 /* SwiftyPress.framework */,
-				8B68A38420B1CB72000CEB50 /* Kingfisher.framework */,
-				8B68A38220B1CB71000CEB50 /* PKHUD.framework */,
-				8B68A38320B1CB72000CEB50 /* TinyConstraints.framework */,
 				8B1DC0E820B1AFE1009FBBBD /* NotificationCenter.framework */,
 				8B1DC0FD20B1B0BF009FBBBD /* UserNotifications.framework */,
 				8B1DC0FF20B1B0BF009FBBBD /* UserNotificationsUI.framework */,
@@ -600,6 +514,7 @@
 		8B27AB2720DFDA3C00D6036A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8B22684A230F86F200291D1F /* Preferences.swift */,
 				8B4439EB2298886200EC5575 /* Taxonomy.swift */,
 				8B4439ED22988A2700EC5575 /* UIImage.swift */,
 				8B6B7DD721EB92FC003FB20D /* UIViewController.swift */,
@@ -900,9 +815,7 @@
 				8B1DC0C820B1AE0E009FBBBD /* Frameworks */,
 				8B1DC0C920B1AE0E009FBBBD /* Resources */,
 				8B87FC6D228590A1004AC246 /* Run Lint Script */,
-				8B68A12620B1CA8B000CEB50 /* Run Carthage Script */,
 				8B1DC0F720B1AFE1009FBBBD /* Embed App Extensions */,
-				8B5B458E20B30FE40088DF60 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -911,6 +824,9 @@
 				8B1DC10920B1B0BF009FBBBD /* PBXTargetDependency */,
 			);
 			name = "Basem Emara";
+			packageProductDependencies = (
+				8B455C662323006D00400A73 /* SwiftyPress */,
+			);
 			productName = "Basem Emara";
 			productReference = 8B1DC0CB20B1AE0E009FBBBD /* Basem Emara.app */;
 			productType = "com.apple.product-type.application";
@@ -928,6 +844,9 @@
 			dependencies = (
 			);
 			name = "Today Extension";
+			packageProductDependencies = (
+				8B455C682323009300400A73 /* SwiftyPress */,
+			);
 			productName = "Today Extension";
 			productReference = 8B1DC0E620B1AFE1009FBBBD /* Today Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -945,6 +864,9 @@
 			dependencies = (
 			);
 			name = "Post Notification Extension";
+			packageProductDependencies = (
+				8B455C6A2323009700400A73 /* SwiftyPress */,
+			);
 			productName = "Post Notification Extension";
 			productReference = 8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1020,6 +942,9 @@
 				Base,
 			);
 			mainGroup = 8B1DC0C220B1AE0E009FBBBD;
+			packageReferences = (
+				8B455C652323006D00400A73 /* XCRemoteSwiftPackageReference "SwiftyPress" */,
+			);
 			productRefGroup = 8B1DC0CC20B1AE0E009FBBBD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1095,28 +1020,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8B68A12620B1CA8B000CEB50 /* Run Carthage Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/SwiftyBeaver.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/ZamzamKit.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Stencil.framework",
-				"$(SRCROOT)/Submodules/SwiftyPress/Carthage/Build/iOS/Kingfisher.framework",
-			);
-			name = "Run Carthage Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		8B87FC6D228590A1004AC246 /* Run Lint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1183,6 +1086,7 @@
 				8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
+				8B22684B230F86F200291D1F /* Preferences.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* ShowBlogInteractor.swift in Sources */,
 				8B4D71A8216A4043002ACA81 /* SearchPostsInteractor.swift in Sources */,
 				8B63A2C72163C830003868F7 /* ListPostsPresenter.swift in Sources */,
@@ -1327,11 +1231,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1353,11 +1252,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1379,11 +1273,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1522,11 +1411,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1548,11 +1432,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1571,11 +1450,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1597,11 +1471,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1623,11 +1492,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1649,11 +1513,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1738,11 +1597,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1761,11 +1615,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1787,11 +1636,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Submodules/SwiftyPress/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1861,6 +1705,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B455C652323006D00400A73 /* XCRemoteSwiftPackageReference "SwiftyPress" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ZamzamInc/SwiftyPress.git";
+			requirement = {
+				branch = feature/ios13;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B455C662323006D00400A73 /* SwiftyPress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B455C652323006D00400A73 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			productName = SwiftyPress;
+		};
+		8B455C682323009300400A73 /* SwiftyPress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B455C652323006D00400A73 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			productName = SwiftyPress;
+		};
+		8B455C6A2323009700400A73 /* SwiftyPress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B455C652323006D00400A73 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			productName = SwiftyPress;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8B1DC0C320B1AE0E009FBBBD /* Project object */;
 }

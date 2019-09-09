@@ -7,7 +7,8 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import UIKit
+import ZamzamUI
 
 protocol ListFavoritesBusinessLogic: AppBusinessLogic {
     func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest)

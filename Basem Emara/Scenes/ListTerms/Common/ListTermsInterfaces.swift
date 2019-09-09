@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol ListTermsBusinessLogic: AppBusinessLogic {
     func fetchTerms(with request: ListTermsModels.FetchTermsRequest)

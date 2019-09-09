@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 protocol ShowMoreRoutable: AppRoutable {
     func showSubscribe()

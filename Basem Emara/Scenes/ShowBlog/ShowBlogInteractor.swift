@@ -7,7 +7,7 @@
 //
 
 import SwiftyPress
-import ZamzamKit
+import ZamzamCore
 
 struct ShowBlogInteractor: ShowBlogBusinessLogic {
     private let presenter: ShowBlogPresentable

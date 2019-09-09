@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 final class ThemeApplicationModule: ApplicationModule, HasDependencies {
     private lazy var theme: Theme = dependencies.resolve()

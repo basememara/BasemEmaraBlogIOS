@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 struct HomeRouter: HomeRoutable, HasScenes {
     weak var viewController: UIViewController?
@@ -36,7 +36,8 @@ struct HomeRouter: HomeRoutable, HasScenes {
 extension HomeRouter {
     
     func showAbout() {
-        show(pageSlug: "about", constants: constants, theme: theme)
+        //show(pageSlug: "about", constants: constants, theme: theme)
+        show(safari: "https://iosmentor.io", theme: theme)
     }
     
     func showPortfolio() {

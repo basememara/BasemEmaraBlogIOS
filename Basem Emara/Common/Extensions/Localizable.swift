@@ -6,7 +6,8 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import ZamzamKit
+import Foundation
+import ZamzamCore
 
 // Errors
 extension Localizable {
