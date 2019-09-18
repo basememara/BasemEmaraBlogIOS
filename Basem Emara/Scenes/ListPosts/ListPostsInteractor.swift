@@ -27,7 +27,7 @@ struct ListPostsInteractor: ListPostsBusinessLogic {
 extension ListPostsInteractor {
     
     func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest) {
-        let fetchRequest = PostsModels.FetchRequest()
+        let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetch(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
@@ -61,7 +61,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest) {
-        let fetchRequest = PostsModels.FetchRequest()
+        let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetchPopular(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
@@ -95,7 +95,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest) {
-        let fetchRequest = PostsModels.FetchRequest()
+        let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetchTopPicks(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
@@ -129,7 +129,7 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest) {
-        let fetchRequest = PostsModels.FetchRequest()
+        let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetch(byTermIDs: request.ids, with: fetchRequest) {
             guard case .success(var posts) = $0 else {

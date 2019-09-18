@@ -26,7 +26,7 @@ struct SearchPostsInteractor: SearchPostsBusinessLogic {
 
 extension SearchPostsInteractor {
 
-    func fetchSearchResults(with request: PostsModels.SearchRequest) {
+    func fetchSearchResults(with request: PostsAPI.SearchRequest) {
         postWorker.search(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
@@ -55,7 +55,7 @@ extension SearchPostsInteractor {
 extension SearchPostsInteractor {
     
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
-        let request = PostsModels.FetchRequest()
+        let request = PostsAPI.FetchRequest()
         
         postWorker.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {

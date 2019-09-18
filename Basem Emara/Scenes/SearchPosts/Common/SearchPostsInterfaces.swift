@@ -11,7 +11,7 @@ import UIKit
 import ZamzamUI
 
 protocol SearchPostsBusinessLogic: AppBusinessLogic {
-    func fetchSearchResults(with request: PostsModels.SearchRequest)
+    func fetchSearchResults(with request: PostsAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsModels.PopularRequest)
 }
 

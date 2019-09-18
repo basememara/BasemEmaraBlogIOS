@@ -34,7 +34,7 @@ struct ShowBlogInteractor: ShowBlogBusinessLogic {
 extension ShowBlogInteractor {
     
     func fetchLatestPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetch(with: request) {
             guard case .success(let posts) = $0 else {
@@ -62,7 +62,7 @@ extension ShowBlogInteractor {
     }
     
     func fetchPopularPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
@@ -90,7 +90,7 @@ extension ShowBlogInteractor {
     }
     
     func fetchTopPickPosts(with request: ShowBlogModels.FetchPostsRequest) {
-        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetchTopPicks(with: request) {
             guard case .success(let posts) = $0 else {

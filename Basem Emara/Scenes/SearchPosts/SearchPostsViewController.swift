@@ -101,7 +101,7 @@ extension SearchPostsViewController {
     
     private func searchData(for text: String, with scope: Int) {
         interactor.fetchSearchResults(
-            with: PostsModels.SearchRequest(
+            with: PostsAPI.SearchRequest(
                 query: text,
                 scope: {
                     switch scope {
