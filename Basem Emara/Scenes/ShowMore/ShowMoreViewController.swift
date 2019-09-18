@@ -10,20 +10,22 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-class ShowMoreViewController: UITableViewController, HasDependencies {
+class ShowMoreViewController: UITableViewController {
     
     // MARK: - Scene variables
     
     private(set) lazy var router: ShowMoreRoutable = ShowMoreRouter(
         viewController: self,
-        constants: dependencies.resolve(),
-        mailComposer: dependencies.resolve(),
-        theme: dependencies.resolve()
+        constants: constants,
+        mailComposer: mailComposer,
+        theme: theme
     )
     
     // MARK: - Internal variable
     
-    private lazy var constants: ConstantsType = dependencies.resolve()
+    @Inject private var mailComposer: MailComposerType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
 }
 
 // MARK: - Interactions

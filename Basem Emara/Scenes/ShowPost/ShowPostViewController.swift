@@ -12,7 +12,7 @@ import SystemConfiguration
 import SwiftyPress
 import ZamzamUI
 
-class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
+class ShowPostViewController: UIViewController, StatusBarable {
     
     // MARK: - Controls
     
@@ -25,7 +25,6 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     }
     
     private lazy var activityIndicatorView = view.makeActivityIndicator()
-    private lazy var theme: Theme = dependencies.resolve()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
         imageName: UIImage.ImageName.favoriteEmpty.rawValue,
@@ -45,12 +44,12 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     private lazy var interactor: ShowPostBusinessLogic = ShowPostInteractor(
         presenter: ShowPostPresenter(
             viewController: self,
-            constants: dependencies.resolve()
+            constants: constants
         ),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve(),
-        authorWorker: dependencies.resolve(),
-        taxonomyWorker: dependencies.resolve()
+        postWorker: postWorker,
+        mediaWorker: mediaWorker,
+        authorWorker: authorWorker,
+        taxonomyWorker: taxonomyWorker
     )
     
     private lazy var router: ShowPostRoutable = ShowPostRouter(
@@ -60,8 +59,13 @@ class ShowPostViewController: UIViewController, StatusBarable, HasDependencies {
     
     // MARK: - Internal variable
     
-    private lazy var constants: ConstantsType = dependencies.resolve()
-    private lazy var notificationCenter: NotificationCenter = dependencies.resolve()
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var authorWorker: AuthorWorkerType
+    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var notificationCenter: NotificationCenter
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     private var viewModel: ShowPostModels.ViewModel?
     private var history = [Int]()

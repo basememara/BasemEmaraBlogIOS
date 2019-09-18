@@ -10,12 +10,14 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class ShortcutApplicationModule: ApplicationModule, HasDependencies {
+final class ShortcutApplicationModule: ApplicationModule {
     private var launchedShortcutItem: UIApplicationShortcutItem?
+    
+    @Inject private var constants: ConstantsType
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
-        constants: dependencies.resolve()
+        constants: constants
     )
 }
 

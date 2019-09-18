@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct TodayInteractor: TodayBusinessLogic, HasDependencies {
+struct TodayInteractor: TodayBusinessLogic {
     private let presenter: TodayPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -27,7 +27,7 @@ struct TodayInteractor: TodayBusinessLogic, HasDependencies {
 extension TodayInteractor {
     
     func fetchLatestPosts(with request: TodayModels.Request) {
-        let request = PostsModels.FetchRequest(maxLength: request.maxLength)
+        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetch(with: request) {
             guard case .success(let posts) = $0 else {

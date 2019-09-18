@@ -11,12 +11,14 @@ import SwiftyPress
 import ZamzamUI
 import UserNotifications
 
-final class NotificationApplicationModule: NSObject, ApplicationModule, HasDependencies, Loggable {
+final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
+    
+    @Inject var constants: ConstantsType
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
-        constants: dependencies.resolve()
+        constants: constants
     )
 }
 

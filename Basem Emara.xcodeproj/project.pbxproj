@@ -33,9 +33,9 @@
 		8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */; };
 		8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */; };
 		8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A5217CDAF300E63F21 /* TodayModels.swift */; };
-		8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
-		8B2135A9217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
-		8B2135AA217CE18A00E63F21 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */; };
+		8B2135A8217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
+		8B2135A9217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
+		8B2135AA217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */; };
 		8B2135B0217CEC3800E63F21 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */; };
 		8B2135B2217CEC8D00E63F21 /* MainSplitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */; };
@@ -48,7 +48,6 @@
 		8B2135D0217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
 		8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */; };
 		8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */; };
-		8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8B22684B230F86F200291D1F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22684A230F86F200291D1F /* Preferences.swift */; };
 		8B33C4DF21694BE000658700 /* ListFavoritesInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */; };
 		8B33C4E121694BEB00658700 /* ListFavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */; };
@@ -103,7 +102,7 @@
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
-		8B9CE08C20D73CAA0077E4A0 /* CoreApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */; };
+		8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */; };
 		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */; };
 		8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */; };
 		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
@@ -124,8 +123,6 @@
 		8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */; };
 		8BBF81E5216C0DC500158DDE /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */; };
 		8BC685E32308F95C00B43139 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC685E22308F95C00B43139 /* Theme.xcassets */; };
-		8BC96ED7217E76620037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
-		8BC96ED8217E76630037D747 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21CF07215C6BDF00E2994C /* Theme.swift */; };
 		8BD7BA3F22916EA3000AB0AE /* MainSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BA3E22916EA3000AB0AE /* MainSplit.storyboard */; };
 		8BEEEF33212330F900A6AF99 /* ShowBlogInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* ShowBlogInterfaces.swift */; };
 		8BEEEF352123310A00A6AF99 /* ShowBlogModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF342123310A00A6AF99 /* ShowBlogModels.swift */; };
@@ -254,7 +251,7 @@
 		8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
 		8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInterfaces.swift; sourceTree = "<group>"; };
 		8B2135A5217CDAF300E63F21 /* TodayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModels.swift; sourceTree = "<group>"; };
-		8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
+		8B2135A7217CE18A00E63F21 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationModule.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitRouter.swift; sourceTree = "<group>"; };
@@ -263,7 +260,6 @@
 		8B2135CA217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkApplicationModule.swift; sourceTree = "<group>"; };
 		8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundApplicationModule.swift; sourceTree = "<group>"; };
-		8B21CF07215C6BDF00E2994C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B22684A230F86F200291D1F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8B33C4DE21694BE000658700 /* ListFavoritesInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInterfaces.swift; sourceTree = "<group>"; };
 		8B33C4E021694BEB00658700 /* ListFavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesModels.swift; sourceTree = "<group>"; };
@@ -310,7 +306,7 @@
 		8B856E72217A716300B64E6C /* DataApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationModule.swift; sourceTree = "<group>"; };
 		8B87FC6B22859061004AC246 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreApplicationModule.swift; sourceTree = "<group>"; };
+		8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowApplicationModule.swift; sourceTree = "<group>"; };
 		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
@@ -470,10 +466,11 @@
 			children = (
 				8B8A2C9020D6BC0B00E29992 /* Common */,
 				8B1DC11820B1C185009FBBBD /* Scenes */,
-				8B2135A7217CE18A00E63F21 /* AppConfigurator.swift */,
 				8B1DC0CE20B1AE0E009FBBBD /* AppDelegate.swift */,
+				8B2135A7217CE18A00E63F21 /* AppModule.swift */,
 				8B1DC0D720B1AE10009FBBBD /* Assets.xcassets */,
 				8B8A2C9120D6BC1F00E29992 /* Media.xcassets */,
+				8BC685E22308F95C00B43139 /* Theme.xcassets */,
 				8B9606C422B3191D00B4A2DC /* Supporting Files */,
 			);
 			path = "Basem Emara";
@@ -536,8 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				8B1180DC21570AB50071315B /* AppTheme.swift */,
-				8B21CF07215C6BDF00E2994C /* Theme.swift */,
-				8BC685E22308F95C00B43139 /* Theme.xcassets */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -766,7 +761,7 @@
 		8B9CE08A20D73C890077E4A0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8B9CE08B20D73CAA0077E4A0 /* CoreApplicationModule.swift */,
+				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */,
 				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */,
 				8B856E72217A716300B64E6C /* DataApplicationModule.swift */,
 				8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */,
@@ -1187,7 +1182,7 @@
 				8B0A289A2133EBBB0008135D /* UIWindow.swift in Sources */,
 				8BBD4CB4229C0AC80067144E /* HomeInterfaces.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostInterfaces.swift in Sources */,
-				8B9CE08C20D73CAA0077E4A0 /* CoreApplicationModule.swift in Sources */,
+				8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */,
 				8B63A2CE216426AD003868F7 /* ShowPostModels.swift in Sources */,
 				8BABEE3D2292CA9D0014F7B4 /* MainViewController.swift in Sources */,
 				8BF301692326AD740058153D /* PickedPostCollectionViewCell.swift in Sources */,
@@ -1203,7 +1198,7 @@
 				8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */,
 				8B4D71A6216A4043002ACA81 /* SearchPostsViewController.swift in Sources */,
 				8B4D71AD216A4057002ACA81 /* SearchPostsModels.swift in Sources */,
-				8B2135A8217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
+				8B2135A8217CE18A00E63F21 /* AppModule.swift in Sources */,
 				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
 				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
 				8B22684B230F86F200291D1F /* Preferences.swift in Sources */,
@@ -1229,7 +1224,6 @@
 				8B0A28952133E3680008135D /* ShowBlogRouter.swift in Sources */,
 				8B63A2B62163B4C7003868F7 /* ListTermsInteractor.swift in Sources */,
 				8B63A2C52163C822003868F7 /* ListPostsInteractor.swift in Sources */,
-				8B21CF08215C6BDF00E2994C /* Theme.swift in Sources */,
 				8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* ShowBlogViewController.swift in Sources */,
 				8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */,
@@ -1264,11 +1258,10 @@
 				8B1180EC21586D730071315B /* AppTheme.swift in Sources */,
 				8BF301792326AEA70058153D /* LatestPostCollectionViewCell.swift in Sources */,
 				8BF3017D2326AEA70058153D /* PopularPostCollectionViewCell.swift in Sources */,
-				8BC96ED7217E76620037D747 /* Theme.swift in Sources */,
 				8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
-				8B2135A9217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
+				8B2135A9217CE18A00E63F21 /* AppModule.swift in Sources */,
 				8BF301812326AEA70058153D /* SimplePostTableViewCell.swift in Sources */,
 				8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */,
 				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
@@ -1292,8 +1285,7 @@
 				8BF301852326AEA70058153D /* LatestPostCollectionViewCell.swift in Sources */,
 				8B5AA806214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B1CC501217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
-				8B2135AA217CE18A00E63F21 /* AppConfigurator.swift in Sources */,
-				8BC96ED8217E76630037D747 /* Theme.swift in Sources */,
+				8B2135AA217CE18A00E63F21 /* AppModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

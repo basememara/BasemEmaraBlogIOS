@@ -9,18 +9,19 @@
 import UIKit
 import SwiftyPress
 
-class MainSplitViewController: UISplitViewController, HasDependencies {
+class MainSplitViewController: UISplitViewController {
     
     // MARK: - Scene variables
     
     private lazy var router: MainSplitRoutable = MainSplitRouter(
         viewController: self,
-        constants: dependencies.resolve()
+        constants: constants
     )
     
     // MARK: - Internal variable
     
-    private lazy var theme: Theme = dependencies.resolve()
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     // MARK: - Controller cycle
     

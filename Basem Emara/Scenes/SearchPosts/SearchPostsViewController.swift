@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class SearchPostsViewController: UIViewController, HasDependencies {
+class SearchPostsViewController: UIViewController {
     
     // MARK: - Controls
 
@@ -41,8 +41,8 @@ class SearchPostsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: SearchPostsBusinessLogic = SearchPostsInteractor(
         presenter: SearchPostsPresenter(viewController: self),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve()
+        postWorker: postWorker,
+        mediaWorker: mediaWorker
     )
     
     private lazy var router: SearchPostsRoutable = SearchPostsRouter(
@@ -50,6 +50,9 @@ class SearchPostsViewController: UIViewController, HasDependencies {
     )
 
     // MARK: - Internal variables
+    
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var mediaWorker: MediaWorkerType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,

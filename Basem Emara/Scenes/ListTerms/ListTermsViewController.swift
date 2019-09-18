@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-class ListTermsViewController: UIViewController, HasDependencies {
+class ListTermsViewController: UIViewController {
     
     // MARK: - Controls
     
@@ -25,7 +25,7 @@ class ListTermsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListTermsBusinessLogic = ListTermsInteractor(
         presenter: ListTermsPresenter(viewController: self),
-        taxonomyWorker: dependencies.resolve()
+        taxonomyWorker: taxonomyWorker
     )
     
     private lazy var router: ListTermsRoutable = ListTermsRouter(
@@ -33,6 +33,8 @@ class ListTermsViewController: UIViewController, HasDependencies {
     )
     
     // MARK: - Internal variable
+    
+    @Inject private var taxonomyWorker: TaxonomyWorkerType
     
     private lazy var tableViewAdapter = TermsDataViewAdapter(
         for: tableView,

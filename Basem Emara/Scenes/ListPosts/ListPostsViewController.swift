@@ -11,7 +11,7 @@ import SystemConfiguration
 import SwiftyPress
 import ZamzamUI
 
-class ListPostsViewController: UIViewController, HasDependencies {
+class ListPostsViewController: UIViewController {
     
     // MARK: - Controls
     
@@ -26,8 +26,8 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListPostsBusinessLogic = ListPostsInteractor(
         presenter: ListPostsPresenter(viewController: self),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve()
+        postWorker: postWorker,
+        mediaWorker: mediaWorker
     )
     
     private lazy var router: ListPostsRoutable = ListPostsRouter(
@@ -36,13 +36,15 @@ class ListPostsViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
+    
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
         delegate: self
     )
-    
-    private lazy var constants: ConstantsType = dependencies.resolve()
-    private lazy var theme: Theme = dependencies.resolve()
     
     var params = ListPostsModels.Params(
         fetchType: .latest,
@@ -163,7 +165,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                                         .appendingPathComponent("mobile-comments")
                                         .appendingQueryItem("postid", value: model.id)
                                         .absoluteString,
-                                    theme: self.dependencies.resolve()
+                                    theme: self.theme
                                 )
                             },
                             UIAlertAction(title: .localized(.shareTitle)) {

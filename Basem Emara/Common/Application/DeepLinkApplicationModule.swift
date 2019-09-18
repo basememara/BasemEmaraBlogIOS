@@ -10,14 +10,15 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class DeepLinkApplicationModule: ApplicationModule, HasDependencies, Loggable {
-    private lazy var postWorker: PostWorkerType = dependencies.resolve()
-    private lazy var taxonomyWorker: TaxonomyWorkerType = dependencies.resolve()
-    private lazy var theme: Theme = dependencies.resolve()
+final class DeepLinkApplicationModule: ApplicationModule, Loggable {
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
-        constants: dependencies.resolve()
+        constants: constants
     )
 }
 

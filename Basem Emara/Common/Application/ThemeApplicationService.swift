@@ -10,8 +10,8 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class ThemeApplicationModule: ApplicationModule, HasDependencies {
-    private lazy var theme: Theme = dependencies.resolve()
+final class ThemeApplicationModule: ApplicationModule {
+    @Inject private var theme: Theme
 }
 
 extension ThemeApplicationModule {

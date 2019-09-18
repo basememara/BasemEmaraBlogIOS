@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-class PreviewPostViewController: UIViewController, HasDependencies {
+class PreviewPostViewController: UIViewController {
     
     // MARK: - Controls
     
@@ -20,8 +20,9 @@ class PreviewPostViewController: UIViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private lazy var postWorker: PostWorkerType = dependencies.resolve()
-    private lazy var constants: ConstantsType = dependencies.resolve()
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     var viewModel: PostsDataViewModel?
     weak var delegate: UIViewController?
@@ -73,7 +74,7 @@ private extension PreviewPostViewController {
                         .appendingPathComponent("mobile-comments")
                         .appendingQueryItem("postid", value: viewModel.id)
                         .absoluteString,
-                    theme: self.dependencies.resolve()
+                    theme: self.theme
                 )
             },
             UIPreviewAction(title: .localized(.shareTitle), style: .default) { [weak self] _, _ in

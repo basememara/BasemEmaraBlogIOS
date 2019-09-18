@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import ZamzamCore
 import ZamzamUI
 import SwiftyPress
 
-class ShowBlogViewController: UIViewController, HasDependencies {
+class ShowBlogViewController: UIViewController {
     
     // MARK: - Controls
     
@@ -40,10 +41,10 @@ class ShowBlogViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ShowBlogBusinessLogic = ShowBlogInteractor(
         presenter: ShowBlogPresenter(viewController: self),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve(),
-        taxonomyWorker: dependencies.resolve(),
-        preferences: dependencies.resolve()
+        postWorker: postWorker,
+        mediaWorker: mediaWorker,
+        taxonomyWorker: taxonomyWorker,
+        preferences: preferences
     )
     
     private(set) lazy var router: ShowBlogRoutable = ShowBlogRouter(
@@ -51,6 +52,14 @@ class ShowBlogViewController: UIViewController, HasDependencies {
     )
     
     // MARK: - Internal variable
+    
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var mailComposer: MailComposerType
+    @Inject private var preferences: PreferencesType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: latestPostsCollectionView,
@@ -71,10 +80,6 @@ class ShowBlogViewController: UIViewController, HasDependencies {
         for: topTermsTableView,
         delegate: self
     )
-    
-    private lazy var mailComposer: MailComposerType = dependencies.resolve()
-    private lazy var constants: ConstantsType = dependencies.resolve()
-    private lazy var theme: Theme = dependencies.resolve()
     
     // MARK: - Controller cycle
     
@@ -193,11 +198,11 @@ private extension ShowBlogViewController {
             return
         }
         
-        show(safari: disclaimerURL, theme: dependencies.resolve())
+        show(safari: disclaimerURL, theme: theme)
     }
     
     @IBAction func privacyButtonTapped() {
-        show(safari: constants.privacyURL, theme: dependencies.resolve())
+        show(safari: constants.privacyURL, theme: theme)
     }
     
     @IBAction func contactButtonTapped() {

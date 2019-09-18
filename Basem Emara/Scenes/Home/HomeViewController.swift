@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-class HomeViewController: UITableViewController, HasDependencies {
+class HomeViewController: UITableViewController {
     
     // MARK: - Controls
     
@@ -21,15 +21,16 @@ class HomeViewController: UITableViewController, HasDependencies {
     private lazy var router: HomeRoutable = HomeRouter(
         viewController: self,
         listPostsDelegate: splitViewController as? MainSplitViewController,
-        mailComposer: dependencies.resolve(),
-        constants: dependencies.resolve(),
-        theme: dependencies.resolve()
+        mailComposer: mailComposer,
+        constants: constants,
+        theme: theme
     )
     
     // MARK: - Internal variable
     
-    private lazy var constants: ConstantsType = dependencies.resolve()
-    private lazy var theme: Theme = dependencies.resolve()
+    @Inject private var mailComposer: MailComposerType
+    @Inject private var constants: ConstantsType
+    @Inject private var theme: Theme
     
     // MARK: - Controller cycle
     

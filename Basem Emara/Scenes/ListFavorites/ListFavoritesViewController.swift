@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-class ListFavoritesViewController: UIViewController, HasDependencies {
+class ListFavoritesViewController: UIViewController {
     
     // MARK: - Controls
     
@@ -27,8 +27,8 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     
     private lazy var interactor: ListFavoritesBusinessLogic = ListFavoritesInteractor(
         presenter: ListFavoritesPresenter(viewController: self),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve()
+        postWorker: postWorker,
+        mediaWorker: mediaWorker
     )
     
     private lazy var router: ListFavoritesRoutable = ListFavoritesRouter(
@@ -36,6 +36,9 @@ class ListFavoritesViewController: UIViewController, HasDependencies {
     )
     
     // MARK: - Internal variable
+    
+    @Inject private var postWorker: PostWorkerType
+    @Inject private var mediaWorker: MediaWorkerType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,

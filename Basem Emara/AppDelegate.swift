@@ -15,7 +15,7 @@ class AppDelegate: ApplicationModuleDelegate {
 
     override func modules() -> [ApplicationModule] {
         return [
-            CoreApplicationModule(with: AppConfigurator()),
+            DependencyApplicationModule(),
             LoggerApplicationModule(),
             DataApplicationModule(),
             BackgroundApplicationModule(),

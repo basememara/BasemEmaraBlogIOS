@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowSettingsViewController: UITableViewController, HasDependencies {
+class ShowSettingsViewController: UITableViewController {
     
     // MARK: - Controls
     
@@ -19,7 +19,7 @@ class ShowSettingsViewController: UITableViewController, HasDependencies {
     
     // MARK: - Internal variable
     
-    private lazy var preferences: PreferencesType = dependencies.resolve()
+    @Inject private var preferences: PreferencesType
     
     // MARK: - Controller cycle
     
