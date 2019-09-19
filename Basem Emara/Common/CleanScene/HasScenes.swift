@@ -28,5 +28,5 @@ extension SceneInjection {
 
 // Statically store the scene factory in memory.
 private struct InjectionStorage {
-    static var scenes: SceneDependable = SceneConfigurator()
+    static var scenes: SceneDependable = SceneModule()
 }

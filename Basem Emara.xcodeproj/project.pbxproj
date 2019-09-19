@@ -104,7 +104,7 @@
 		8BABEE3B2292C0360014F7B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3A2292C0360014F7B4 /* HomeViewController.swift */; };
 		8BABEE3D2292CA9D0014F7B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3C2292CA9D0014F7B4 /* MainViewController.swift */; };
 		8BB575552290197D0079BE42 /* HasScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB575542290197D0079BE42 /* HasScenes.swift */; };
-		8BB5755822901A540079BE42 /* SceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755722901A540079BE42 /* SceneConfigurator.swift */; };
+		8BB5755822901A540079BE42 /* SceneModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755722901A540079BE42 /* SceneModule.swift */; };
 		8BB5755C22901CBB0079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5755E22901E270079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
@@ -302,7 +302,7 @@
 		8BABEE3A2292C0360014F7B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BABEE3C2292CA9D0014F7B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BB575542290197D0079BE42 /* HasScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasScenes.swift; sourceTree = "<group>"; };
-		8BB5755722901A540079BE42 /* SceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigurator.swift; sourceTree = "<group>"; };
+		8BB5755722901A540079BE42 /* SceneModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneModule.swift; sourceTree = "<group>"; };
 		8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogStyles.swift; sourceTree = "<group>"; };
 		8BB5756522902C080079BE42 /* AppRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
 		8BBD4CB3229C0AC80067144E /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
@@ -512,7 +512,7 @@
 				8B52641F20D7C96700170875 /* ShowMore */,
 				8BBF81E1216C0D5900158DDE /* ShowSettings */,
 				8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */,
-				8BB5755722901A540079BE42 /* SceneConfigurator.swift */,
+				8BB5755722901A540079BE42 /* SceneModule.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1216,7 +1216,7 @@
 				8B4D71AC216A4057002ACA81 /* SearchPostsAPI.swift in Sources */,
 				8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */,
 				8BF3016C2326AD740058153D /* PostTableViewCell.swift in Sources */,
-				8BB5755822901A540079BE42 /* SceneConfigurator.swift in Sources */,
+				8BB5755822901A540079BE42 /* SceneModule.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
 				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B63A2BC2163B500003868F7 /* ListTermsAPI.swift in Sources */,

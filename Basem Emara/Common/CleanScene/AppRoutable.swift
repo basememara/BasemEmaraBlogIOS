@@ -20,7 +20,7 @@ extension AppRoutable {
     ///   - completion: Completion the view controller after it is loaded.
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
-    func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
+    func show<T: UIViewController>(tab: SceneModule.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
         // Handle tab bar controller in split view differently
         guard let splitViewController: UISplitViewController =
             viewController as? UISplitViewController

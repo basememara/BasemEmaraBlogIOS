@@ -15,7 +15,7 @@ final class WindowApplicationPlugin: ApplicationPlugin, SceneInjection, HasScene
     
     init(for window: UIWindow?) {
         self.window = window
-        self.inject(scenes: SceneConfigurator())
+        self.inject(scenes: SceneModule())
     }
 }
 

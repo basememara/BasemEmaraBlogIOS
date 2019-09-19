@@ -1,5 +1,5 @@
 //
-//  SceneConfigurator.swift
+//  SceneModule.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-18.
@@ -29,7 +29,7 @@ extension SceneDependable {
     }
 }
 
-struct SceneConfigurator: SceneDependable {
+struct SceneModule: SceneDependable {
     
     func startMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
@@ -41,7 +41,7 @@ struct SceneConfigurator: SceneDependable {
     }
 }
 
-extension SceneConfigurator {
+extension SceneModule {
     
     func showBlog() -> UIViewController {
         return .make(fromStoryboard: Storyboard.showBlog.rawValue)
@@ -76,7 +76,7 @@ extension SceneConfigurator {
     }
 }
 
-extension SceneConfigurator {
+extension SceneModule {
     
     /// Tab identifiers for routing
     enum Tab: Int {
