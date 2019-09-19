@@ -11,18 +11,18 @@ import SwiftyPress
 import ZamzamUI
 
 @UIApplicationMain
-class AppDelegate: ApplicationModuleDelegate {
+class AppDelegate: ApplicationPluggableDelegate {
 
-    override func modules() -> [ApplicationModule] {
+    override func plugins() -> [ApplicationPlugin] {
         return [
-            DependencyApplicationModule(),
-            LoggerApplicationModule(),
-            DataApplicationModule(),
-            BackgroundApplicationModule(),
-            WindowApplicationModule(for: window),
-            ShortcutApplicationModule(),
-            NotificationApplicationModule(),
-            ThemeApplicationModule()
+            DependencyApplicationPlugin(),
+            LoggerApplicationPlugin(),
+            DataApplicationPlugin(),
+            BackgroundApplicationPlugin(),
+            WindowApplicationPlugin(for: window),
+            ShortcutApplicationPlugin(),
+            NotificationApplicationPlugin(),
+            ThemeApplicationPlugin()
         ]
     }
 }
@@ -30,17 +30,17 @@ class AppDelegate: ApplicationModuleDelegate {
 extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        lazyModules.compactMap { $0 as? BackgroundApplicationModule }.first?
+        lazyPlugins.compactMap { $0 as? BackgroundApplicationPlugin }.first?
             .application(application, performFetchWithCompletionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        lazyModules.compactMap { $0 as? ShortcutApplicationModule }.first?
+        lazyPlugins.compactMap { $0 as? ShortcutApplicationPlugin }.first?
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        return DeepLinkApplicationModule()
+        return DeepLinkApplicationPlugin()
             .application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  BackgroundApplicationModule.swift
+//  BackgroundApplicationPlugin.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-21.
@@ -14,13 +14,13 @@ import ZamzamCore
 import ZamzamNotification
 import ZamzamUI
 
-final class BackgroundApplicationModule: ApplicationModule, Loggable {
+final class BackgroundApplicationPlugin: ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject private var dataWorker: DataWorkerType
 }
 
-extension BackgroundApplicationModule {
+extension BackgroundApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Enable background fetch for creating local notifications for new content
@@ -30,7 +30,7 @@ extension BackgroundApplicationModule {
     }
 }
 
-extension BackgroundApplicationModule {
+extension BackgroundApplicationPlugin {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // Create local notifications when new content retrieved via background fetch
@@ -53,7 +53,7 @@ extension BackgroundApplicationModule {
                     title: post.title,
                     attachments: attachments,
                     timeInterval: 60,
-                    category: NotificationApplicationModule.Category.post.rawValue,
+                    category: NotificationApplicationPlugin.Category.post.rawValue,
                     userInfo: [
                         "id": post.id,
                         "link": post.link,

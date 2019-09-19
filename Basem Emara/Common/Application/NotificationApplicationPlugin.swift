@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 import UserNotifications
 
-final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable {
+final class NotificationApplicationPlugin: NSObject, ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject var constants: ConstantsType
@@ -22,14 +22,14 @@ final class NotificationApplicationModule: NSObject, ApplicationModule, Loggable
     )
 }
 
-extension NotificationApplicationModule {
+extension NotificationApplicationPlugin {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
     }
 }
 
-extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
+extension NotificationApplicationPlugin: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         defer { completionHandler() }
@@ -56,7 +56,7 @@ extension NotificationApplicationModule: UNUserNotificationCenterDelegate {
     }
 }
 
-extension NotificationApplicationModule {
+extension NotificationApplicationPlugin {
     
     enum Category: String {
         case post = "postCategory"
@@ -67,7 +67,7 @@ extension NotificationApplicationModule {
     }
 }
 
-extension NotificationApplicationModule {
+extension NotificationApplicationPlugin {
     
     func register(completion: @escaping (Bool) -> Void) {
         userNotification.register(

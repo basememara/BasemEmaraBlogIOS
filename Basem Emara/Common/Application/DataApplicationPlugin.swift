@@ -1,8 +1,8 @@
 //
-//  ThemeApplicationService.swift
+//  DataApplicationService.swift
 //  Basem Emara
 //
-//  Created by Basem Emara on 2018-06-17.
+//  Created by Basem Emara on 2018-10-19.
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
@@ -10,14 +10,14 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class ThemeApplicationModule: ApplicationModule {
-    @Inject private var theme: Theme
+final class DataApplicationPlugin: ApplicationPlugin {
+    @Inject private var dataWorker: DataWorkerType
 }
 
-extension ThemeApplicationModule {
+extension DataApplicationPlugin {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        theme.apply(for: application)
+        dataWorker.configure()
         return true
     }
 }

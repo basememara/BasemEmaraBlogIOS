@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class DeepLinkApplicationModule: ApplicationModule, Loggable {
+final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {
     @Inject private var postWorker: PostWorkerType
     @Inject private var taxonomyWorker: TaxonomyWorkerType
     @Inject private var constants: ConstantsType
@@ -22,7 +22,7 @@ final class DeepLinkApplicationModule: ApplicationModule, Loggable {
     )
 }
 
-extension DeepLinkApplicationModule {
+extension DeepLinkApplicationPlugin {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let webpageURL = userActivity.webpageURL else {
@@ -34,7 +34,7 @@ extension DeepLinkApplicationModule {
     }
 }
 
-private extension DeepLinkApplicationModule {
+private extension DeepLinkApplicationPlugin {
     
     /**
      Navigates to the view by URL

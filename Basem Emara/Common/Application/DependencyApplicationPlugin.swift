@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-final class DependencyApplicationModule: ApplicationModule {
+final class DependencyApplicationPlugin: ApplicationPlugin {
     
     private let modules: [Module] = [
         CoreModule(),

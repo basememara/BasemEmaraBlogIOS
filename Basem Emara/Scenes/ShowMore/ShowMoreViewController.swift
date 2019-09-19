@@ -92,8 +92,8 @@ extension ShowMoreViewController {
             let share = [message, constants.itunesURL]
             present(activities: share, popoverFrom: cell)
         case .notifications:
-            (UIApplication.shared.delegate as? AppDelegate)?.lazyModules
-                .compactMap { $0 as? NotificationApplicationModule }
+            (UIApplication.shared.delegate as? AppDelegate)?.lazyPlugins
+                .compactMap { $0 as? NotificationApplicationPlugin }
                 .first?
                 .register { [weak self] granted in
                     // TODO: Move to tutorial and localize

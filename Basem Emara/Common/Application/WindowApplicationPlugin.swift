@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-final class WindowApplicationModule: ApplicationModule, SceneInjection, HasScenes {
+final class WindowApplicationPlugin: ApplicationPlugin, SceneInjection, HasScenes {
     private var window: UIWindow?
     
     init(for window: UIWindow?) {
@@ -19,7 +19,7 @@ final class WindowApplicationModule: ApplicationModule, SceneInjection, HasScene
     }
 }
 
-extension WindowApplicationModule {
+extension WindowApplicationPlugin {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)

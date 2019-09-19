@@ -36,18 +36,18 @@
 		8B2135A8217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135A9217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135AA217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
-		8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */; };
+		8B2135AC217CE96900E63F21 /* ShortcutApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */; };
 		8B2135B0217CEC3800E63F21 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */; };
 		8B2135B2217CEC8D00E63F21 /* MainSplitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */; };
-		8B2135B4217D49F800E63F21 /* NotificationApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B3217D49F800E63F21 /* NotificationApplicationModule.swift */; };
+		8B2135B4217D49F800E63F21 /* NotificationApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */; };
 		8B2135CB217D541200E63F21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C7217D541100E63F21 /* Localizable.strings */; };
 		8B2135CC217D541200E63F21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C7217D541100E63F21 /* Localizable.strings */; };
 		8B2135CD217D541200E63F21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C7217D541100E63F21 /* Localizable.strings */; };
 		8B2135CE217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
 		8B2135CF217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
 		8B2135D0217D541200E63F21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C9217D541100E63F21 /* InfoPlist.strings */; };
-		8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */; };
-		8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */; };
+		8B2135D2217D565200E63F21 /* DeepLinkApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D1217D565200E63F21 /* DeepLinkApplicationPlugin.swift */; };
+		8B2135D6217D7CA800E63F21 /* BackgroundApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135D5217D7CA800E63F21 /* BackgroundApplicationPlugin.swift */; };
 		8B22684B230F86F200291D1F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22684A230F86F200291D1F /* Preferences.swift */; };
 		8B33C4DF21694BE000658700 /* ListFavoritesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4DE21694BE000658700 /* ListFavoritesAPI.swift */; };
 		8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */; };
@@ -93,14 +93,14 @@
 		8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */; };
 		8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */; };
 		8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B7DD721EB92FC003FB20D /* UIViewController.swift */; };
-		8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationModule.swift */; };
+		8B856E73217A716300B64E6C /* DataApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */; };
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9420D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
-		8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */; };
-		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */; };
-		8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */; };
-		8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */; };
+		8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift */; };
+		8B9CE08E20D73CB90077E4A0 /* LoggerApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08D20D73CB90077E4A0 /* LoggerApplicationPlugin.swift */; };
+		8B9CE09020D73CC60077E4A0 /* WindowApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE08F20D73CC60077E4A0 /* WindowApplicationPlugin.swift */; };
+		8B9CE09220D73CD40077E4A0 /* ThemeApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CE09120D73CD40077E4A0 /* ThemeApplicationPlugin.swift */; };
 		8BABEE3B2292C0360014F7B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3A2292C0360014F7B4 /* HomeViewController.swift */; };
 		8BABEE3D2292CA9D0014F7B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BABEE3C2292CA9D0014F7B4 /* MainViewController.swift */; };
 		8BB575552290197D0079BE42 /* HasScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB575542290197D0079BE42 /* HasScenes.swift */; };
@@ -246,14 +246,14 @@
 		8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInterfaces.swift; sourceTree = "<group>"; };
 		8B2135A5217CDAF300E63F21 /* TodayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModels.swift; sourceTree = "<group>"; };
 		8B2135A7217CE18A00E63F21 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
-		8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationModule.swift; sourceTree = "<group>"; };
+		8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitRouter.swift; sourceTree = "<group>"; };
-		8B2135B3217D49F800E63F21 /* NotificationApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApplicationModule.swift; sourceTree = "<group>"; };
+		8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B2135C8217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
 		8B2135CA217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
-		8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkApplicationModule.swift; sourceTree = "<group>"; };
-		8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundApplicationModule.swift; sourceTree = "<group>"; };
+		8B2135D1217D565200E63F21 /* DeepLinkApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkApplicationPlugin.swift; sourceTree = "<group>"; };
+		8B2135D5217D7CA800E63F21 /* BackgroundApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B22684A230F86F200291D1F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8B33C4DE21694BE000658700 /* ListFavoritesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesAPI.swift; sourceTree = "<group>"; };
 		8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
@@ -292,13 +292,13 @@
 		8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostRouter.swift; sourceTree = "<group>"; };
 		8B6B0CB7219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDisplayable+Spinner.swift"; sourceTree = "<group>"; };
 		8B6B7DD721EB92FC003FB20D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		8B856E72217A716300B64E6C /* DataApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationModule.swift; sourceTree = "<group>"; };
+		8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B87FC6B22859061004AC246 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyApplicationModule.swift; sourceTree = "<group>"; };
-		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationModule.swift; sourceTree = "<group>"; };
-		8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowApplicationModule.swift; sourceTree = "<group>"; };
-		8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationService.swift; sourceTree = "<group>"; };
+		8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyApplicationPlugin.swift; sourceTree = "<group>"; };
+		8B9CE08D20D73CB90077E4A0 /* LoggerApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApplicationPlugin.swift; sourceTree = "<group>"; };
+		8B9CE08F20D73CC60077E4A0 /* WindowApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowApplicationPlugin.swift; sourceTree = "<group>"; };
+		8B9CE09120D73CD40077E4A0 /* ThemeApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeApplicationPlugin.swift; sourceTree = "<group>"; };
 		8BABEE3A2292C0360014F7B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BABEE3C2292CA9D0014F7B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BB575542290197D0079BE42 /* HasScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasScenes.swift; sourceTree = "<group>"; };
@@ -744,15 +744,15 @@
 		8B9CE08A20D73C890077E4A0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationModule.swift */,
-				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationModule.swift */,
-				8B856E72217A716300B64E6C /* DataApplicationModule.swift */,
-				8B2135D5217D7CA800E63F21 /* BackgroundApplicationModule.swift */,
-				8B9CE08F20D73CC60077E4A0 /* WindowApplicationModule.swift */,
-				8B2135AB217CE96900E63F21 /* ShortcutApplicationModule.swift */,
-				8B2135B3217D49F800E63F21 /* NotificationApplicationModule.swift */,
-				8B9CE09120D73CD40077E4A0 /* ThemeApplicationService.swift */,
-				8B2135D1217D565200E63F21 /* DeepLinkApplicationModule.swift */,
+				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift */,
+				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationPlugin.swift */,
+				8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */,
+				8B2135D5217D7CA800E63F21 /* BackgroundApplicationPlugin.swift */,
+				8B9CE08F20D73CC60077E4A0 /* WindowApplicationPlugin.swift */,
+				8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */,
+				8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */,
+				8B9CE09120D73CD40077E4A0 /* ThemeApplicationPlugin.swift */,
+				8B2135D1217D565200E63F21 /* DeepLinkApplicationPlugin.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1148,12 +1148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B2135B4217D49F800E63F21 /* NotificationApplicationModule.swift in Sources */,
-				8B9CE09220D73CD40077E4A0 /* ThemeApplicationService.swift in Sources */,
+				8B2135B4217D49F800E63F21 /* NotificationApplicationPlugin.swift in Sources */,
+				8B9CE09220D73CD40077E4A0 /* ThemeApplicationPlugin.swift in Sources */,
 				8BF3016B2326AD740058153D /* LatestPostCollectionViewCell.swift in Sources */,
 				8B4D71A5216A4043002ACA81 /* SearchPostsRouter.swift in Sources */,
 				8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */,
-				8B2135D6217D7CA800E63F21 /* BackgroundApplicationModule.swift in Sources */,
+				8B2135D6217D7CA800E63F21 /* BackgroundApplicationPlugin.swift in Sources */,
 				8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */,
 				8BEEEF33212330F900A6AF99 /* ShowBlogAPI.swift in Sources */,
 				8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */,
@@ -1162,7 +1162,7 @@
 				8B0A289A2133EBBB0008135D /* UIWindow.swift in Sources */,
 				8BBD4CB4229C0AC80067144E /* HomeAPI.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostAPI.swift in Sources */,
-				8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationModule.swift in Sources */,
+				8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift in Sources */,
 				8BABEE3D2292CA9D0014F7B4 /* MainViewController.swift in Sources */,
 				8BF301692326AD740058153D /* PickedPostCollectionViewCell.swift in Sources */,
 				8B63A2C12163C80A003868F7 /* ListPostsAPI.swift in Sources */,
@@ -1176,8 +1176,8 @@
 				8B4D71A4216A4043002ACA81 /* SearchPostsPresenter.swift in Sources */,
 				8B4D71A6216A4043002ACA81 /* SearchPostsViewController.swift in Sources */,
 				8B2135A8217CE18A00E63F21 /* AppModule.swift in Sources */,
-				8B9CE09020D73CC60077E4A0 /* WindowApplicationModule.swift in Sources */,
-				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationModule.swift in Sources */,
+				8B9CE09020D73CC60077E4A0 /* WindowApplicationPlugin.swift in Sources */,
+				8B9CE08E20D73CB90077E4A0 /* LoggerApplicationPlugin.swift in Sources */,
 				8B22684B230F86F200291D1F /* Preferences.swift in Sources */,
 				8BEEEF372123505B00A6AF99 /* ShowBlogInteractor.swift in Sources */,
 				8B4D71A8216A4043002ACA81 /* SearchPostsInteractor.swift in Sources */,
@@ -1193,7 +1193,7 @@
 				8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */,
 				8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */,
 				8BEEEF392123506B00A6AF99 /* ShowBlogPresenter.swift in Sources */,
-				8B2135D2217D565200E63F21 /* DeepLinkApplicationModule.swift in Sources */,
+				8B2135D2217D565200E63F21 /* DeepLinkApplicationPlugin.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
 				8B33C4E321694BFA00658700 /* ListFavoritesInteractor.swift in Sources */,
 				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
@@ -1202,12 +1202,12 @@
 				8B63A2C52163C822003868F7 /* ListPostsInteractor.swift in Sources */,
 				8B63A2D0216426BB003868F7 /* ShowPostInteractor.swift in Sources */,
 				8BF2CCBB20B6D6D200C9C161 /* ShowBlogViewController.swift in Sources */,
-				8B856E73217A716300B64E6C /* DataApplicationModule.swift in Sources */,
+				8B856E73217A716300B64E6C /* DataApplicationPlugin.swift in Sources */,
 				8B0B02FB21625DFF00FF9D9F /* ShowPostViewController.swift in Sources */,
 				8BABEE3B2292C0360014F7B4 /* HomeViewController.swift in Sources */,
 				8B1DC0CF20B1AE0E009FBBBD /* AppDelegate.swift in Sources */,
 				8B4439EE22988A2700EC5575 /* UIImage.swift in Sources */,
-				8B2135AC217CE96900E63F21 /* ShortcutApplicationModule.swift in Sources */,
+				8B2135AC217CE96900E63F21 /* ShortcutApplicationPlugin.swift in Sources */,
 				8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */,
 				8BF3016A2326AD740058153D /* SimplePostTableViewCell.swift in Sources */,
 				8B2135B2217CEC8D00E63F21 /* MainSplitRouter.swift in Sources */,
