@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": "xcode11",
-          "revision": "58d878f85ad223a469ce1474e1c73e29a4012577",
+          "revision": "e129d8f44e7fe7d14089f2386aaae388bf16cf4d",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": "master",
-          "revision": "5a4595b94e68095c0f84e139f851ba4929602a05",
+          "revision": "656028b8fa4f340f22d3c3babfedb1fd0ec4f69e",
           "version": null
         }
       },
@@ -42,8 +42,17 @@
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "341ccfccbd9758171a3f2aaa78604ce60553b7ca",
-          "version": "5.23.1"
+          "revision": "3aa55b372577751f30a9aba8534b08e4229b556e",
+          "version": "5.23.3"
+        }
+      },
+      {
+        "package": "Shank",
+        "repositoryURL": "git@github.com:ZamzamInc/Shank.git",
+        "state": {
+          "branch": "develop",
+          "revision": "ff86b3cbcdd8bf0ef1cfb02ef5c439d99b65271a",
+          "version": null
         }
       },
       {
@@ -96,7 +105,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamUI.git",
         "state": {
           "branch": "develop",
-          "revision": "62ed018affe93a92e61bc3c9e403bd71483e1848",
+          "revision": "cb43eb96b0e7f528501f6bd126dbf438508b45d9",
           "version": null
         }
       }
