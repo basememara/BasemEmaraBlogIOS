@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Shank
 import SystemConfiguration
 import SwiftyPress
 import ZamzamUI

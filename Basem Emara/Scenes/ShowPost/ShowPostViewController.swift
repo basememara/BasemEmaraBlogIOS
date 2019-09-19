@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import SystemConfiguration
+import Shank
 import SwiftyPress
 import ZamzamUI
 

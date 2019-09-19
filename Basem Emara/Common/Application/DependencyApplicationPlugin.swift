@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Shank
 import SwiftyPress
 import ZamzamUI
 

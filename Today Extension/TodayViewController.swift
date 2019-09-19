@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import Shank
 import SwiftyPress
 import ZamzamUI
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Shank
 import SwiftyPress
 import UIKit
 import UserNotifications
