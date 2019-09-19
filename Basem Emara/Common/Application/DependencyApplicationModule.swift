@@ -10,12 +10,13 @@ import SwiftyPress
 import ZamzamUI
 
 final class DependencyApplicationModule: ApplicationModule {
-    private let container = Container() // Dependency injection
+    
+    private let modules: [Module] = [
+        CoreModule(),
+        AppModule()
+    ]
     
     init() {
-        container.import {
-            CoreModule.self
-            AppModule.self
-        }
+        modules.register()
     }
 }

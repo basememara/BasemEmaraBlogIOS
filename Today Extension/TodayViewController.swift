@@ -30,7 +30,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Internal variable
     
-    private let container = Container() // Dependency injection
+    private let modules: [Module] = [
+        CoreModule(),
+        AppModule()
+    ]
     
     @Inject private var dataWorker: DataWorkerType
     @Inject private var postWorker: PostWorkerType
@@ -58,11 +61,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 private extension TodayViewController {
     
     func configure() {
-        container.import {
-            CoreModule.self
-            AppModule.self
-        }
-        
+        modules.register()
         dataWorker.configure()
         
         view.addGestureRecognizer(

@@ -12,7 +12,7 @@ import ZamzamCore
 
 struct AppModule: Module {
     
-    func export() {
+    func register() {
         // Declare environment mode
         let environment: Environment = {
             #if DEBUG
