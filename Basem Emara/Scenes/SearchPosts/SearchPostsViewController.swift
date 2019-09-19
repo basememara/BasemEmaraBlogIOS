@@ -89,7 +89,7 @@ extension SearchPostsViewController {
     public func loadData() {
         guard let searchText = searchText else {
             return interactor.fetchPopularPosts(
-                with: SearchPostsModels.PopularRequest()
+                with: SearchPostsAPI.PopularRequest()
             )
         }
         

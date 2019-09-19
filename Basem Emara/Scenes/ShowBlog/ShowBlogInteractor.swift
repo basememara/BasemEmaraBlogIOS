@@ -33,7 +33,7 @@ struct ShowBlogInteractor: ShowBlogBusinessLogic {
 
 extension ShowBlogInteractor {
     
-    func fetchLatestPosts(with request: ShowBlogModels.FetchPostsRequest) {
+    func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetch(with: request) {
@@ -51,7 +51,7 @@ extension ShowBlogInteractor {
                 }
                 
                 self.presenter.presentLatestPosts(
-                    for: ShowBlogModels.PostsResponse(
+                    for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -61,7 +61,7 @@ extension ShowBlogInteractor {
         }
     }
     
-    func fetchPopularPosts(with request: ShowBlogModels.FetchPostsRequest) {
+    func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetchPopular(with: request) {
@@ -79,7 +79,7 @@ extension ShowBlogInteractor {
                 }
                 
                 self.presenter.presentPopularPosts(
-                    for: ShowBlogModels.PostsResponse(
+                    for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -89,7 +89,7 @@ extension ShowBlogInteractor {
         }
     }
     
-    func fetchTopPickPosts(with request: ShowBlogModels.FetchPostsRequest) {
+    func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetchTopPicks(with: request) {
@@ -107,7 +107,7 @@ extension ShowBlogInteractor {
                 }
                 
                 self.presenter.presentTopPickPosts(
-                    for: ShowBlogModels.PostsResponse(
+                    for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
                         favorites: self.preferences.favorites
@@ -120,7 +120,7 @@ extension ShowBlogInteractor {
 
 extension ShowBlogInteractor {
     
-    func fetchTerms(with request: ShowBlogModels.FetchTermsRequest) {
+    func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyWorker.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
@@ -134,7 +134,7 @@ extension ShowBlogInteractor {
                 .array
             
             self.presenter.presentTerms(
-                for: ShowBlogModels.TermsResponse(
+                for: ShowBlogAPI.TermsResponse(
                     terms: terms
                 )
             )
@@ -144,11 +144,11 @@ extension ShowBlogInteractor {
 
 extension ShowBlogInteractor {
     
-    func toggleFavorite(with request: ShowBlogModels.FavoriteRequest) {
+    func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
-            for: ShowBlogModels.FavoriteResponse(
+            for: ShowBlogAPI.FavoriteResponse(
                 postID: request.postID,
                 favorite: postWorker.hasFavorite(id: request.postID)
             )

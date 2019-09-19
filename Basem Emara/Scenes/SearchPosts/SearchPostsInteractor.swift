@@ -42,7 +42,7 @@ extension SearchPostsInteractor {
                 }
                 
                 self.presenter.presentSearchResults(
-                    for: SearchPostsModels.Response(
+                    for: SearchPostsAPI.Response(
                         posts: posts,
                         media: media
                     )
@@ -54,7 +54,7 @@ extension SearchPostsInteractor {
 
 extension SearchPostsInteractor {
     
-    func fetchPopularPosts(with request: SearchPostsModels.PopularRequest) {
+    func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest) {
         let request = PostsAPI.FetchRequest()
         
         postWorker.fetchPopular(with: request) {
@@ -72,7 +72,7 @@ extension SearchPostsInteractor {
                 }
                 
                 self.presenter.presentSearchResults(
-                    for: SearchPostsModels.Response(
+                    for: SearchPostsAPI.Response(
                         posts: posts,
                         media: media
                     )

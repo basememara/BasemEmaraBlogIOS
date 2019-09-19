@@ -19,7 +19,7 @@ struct HomeRouter: HomeRoutable, HasScenes {
     private let theme: Theme
     
     init(
-        viewController: UIViewController,
+        viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
         mailComposer: MailComposerType,
         constants: ConstantsType,

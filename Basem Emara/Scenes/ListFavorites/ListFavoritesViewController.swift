@@ -72,7 +72,7 @@ private extension ListFavoritesViewController {
     
     func loadData() {
         interactor.fetchFavoritePosts(
-            with: ListFavoritesModels.FetchPostsRequest()
+            with: ListFavoritesAPI.FetchPostsRequest()
         )
     }
 }
@@ -86,7 +86,7 @@ extension ListFavoritesViewController: ListFavoritesDisplayable {
         tableViewAdapter.reloadData(with: viewModels)
     }
     
-    func displayToggleFavorite(with viewModel: ListFavoritesModels.FavoriteViewModel) {
+    func displayToggleFavorite(with viewModel: ListFavoritesAPI.FavoriteViewModel) {
         removedIDs.append(viewModel.postID)
         
         let isEmpty = tableViewAdapter.viewModels?
@@ -118,7 +118,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
-                    self.interactor.toggleFavorite(with: ListFavoritesModels.FavoriteRequest(postID: model.id))
+                    self.interactor.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
                 }.with {
                     $0.image = UIImage(named: .favoriteEmpty)

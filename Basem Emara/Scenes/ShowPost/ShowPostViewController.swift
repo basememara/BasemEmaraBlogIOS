@@ -67,7 +67,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
     
-    private var viewModel: ShowPostModels.ViewModel?
+    private var viewModel: ShowPostAPI.ViewModel?
     private var history = [Int]()
     
     var postID: Int?
@@ -124,7 +124,7 @@ private extension ShowPostViewController {
         activityIndicatorView.startAnimating()
         
         interactor.fetchPost(
-            with: ShowPostModels.Request(postID: postID)
+            with: ShowPostAPI.Request(postID: postID)
         )
     }
 }
@@ -145,7 +145,7 @@ extension ShowPostViewController: ShowPostLoadable {
 
 extension ShowPostViewController: ShowPostDisplayable {
     
-    func displayPost(with viewModel: ShowPostModels.ViewModel) {
+    func displayPost(with viewModel: ShowPostAPI.ViewModel) {
         self.viewModel = viewModel
         
         title = viewModel.title
@@ -158,7 +158,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         )
     }
     
-    func displayByURL(with viewModel: ShowPostModels.WebViewModel) {
+    func displayByURL(with viewModel: ShowPostAPI.WebViewModel) {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.setToolbarHidden(false, animated: true)
         
@@ -192,7 +192,7 @@ private extension ShowPostViewController {
         guard let postID = postID else { return }
         
         interactor.toggleFavorite(
-            with: ShowPostModels.FavoriteRequest(
+            with: ShowPostAPI.FavoriteRequest(
                 postID: postID
             )
         )
@@ -257,7 +257,7 @@ private extension ShowPostViewController {
         postID = lastPostID
         
         interactor.fetchPost(
-            with: ShowPostModels.Request(postID: lastPostID)
+            with: ShowPostAPI.Request(postID: lastPostID)
         )
     }
     
@@ -293,7 +293,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         }
         
         interactor.fetchByURL(
-            with: ShowPostModels.FetchWebRequest(
+            with: ShowPostAPI.FetchWebRequest(
                 url: requestURL.absoluteString,
                 decisionHandler: decisionHandler
             )

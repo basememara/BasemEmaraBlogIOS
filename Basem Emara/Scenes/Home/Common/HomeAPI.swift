@@ -9,6 +9,9 @@
 import SwiftyPress
 import ZamzamUI
 
+// Scene namespace
+enum HomeAPI {}
+
 protocol HomeDisplayable: class, AppDisplayable { // Controller
     
 }

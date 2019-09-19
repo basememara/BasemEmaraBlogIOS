@@ -9,12 +9,15 @@
 import SwiftyPress
 import ZamzamUI
 
+// Scene namespace
+enum ListTermsAPI {}
+
 protocol ListTermsBusinessLogic: AppBusinessLogic {
-    func fetchTerms(with request: ListTermsModels.FetchTermsRequest)
+    func fetchTerms(with request: ListTermsAPI.FetchTermsRequest)
 }
 
 protocol ListTermsPresentable: AppPresentable {
-    func presentTerms(for response: ListTermsModels.TermsResponse)
+    func presentTerms(for response: ListTermsAPI.TermsResponse)
     func presentTerms(error: DataError)
 }
 
@@ -23,5 +26,16 @@ protocol ListTermsDisplayable: class, AppDisplayable {
 }
 
 protocol ListTermsRoutable: AppRoutable {
-    func listPosts(params: ListPostsModels.Params)
+    func listPosts(params: ListPostsAPI.Params)
+}
+
+extension ListTermsAPI {
+    
+    struct FetchTermsRequest {
+        
+    }
+    
+    struct TermsResponse {
+        let terms: [TermType]
+    }
 }

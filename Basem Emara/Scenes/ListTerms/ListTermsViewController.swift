@@ -55,7 +55,7 @@ private extension ListTermsViewController {
     
     func loadData() {
         interactor.fetchTerms(
-            with: ListTermsModels.FetchTermsRequest()
+            with: ListTermsAPI.FetchTermsRequest()
         )
     }
 }

@@ -10,13 +10,16 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
+// Scene namespace
+enum SearchPostsAPI {}
+
 protocol SearchPostsBusinessLogic: AppBusinessLogic {
     func fetchSearchResults(with request: PostsAPI.SearchRequest)
-    func fetchPopularPosts(with request: SearchPostsModels.PopularRequest)
+    func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }
 
 protocol SearchPostsPresentable: AppPresentable {
-    func presentSearchResults(for response: SearchPostsModels.Response)
+    func presentSearchResults(for response: SearchPostsAPI.Response)
     func presentSearchResults(error: DataError)
 }
 
@@ -27,4 +30,16 @@ protocol SearchPostsDisplayable: class, AppDisplayable {
 protocol SearchPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
     func previewPost(for model: PostsDataViewModel) -> UIViewController?
+}
+
+extension SearchPostsAPI {
+    
+    struct PopularRequest {
+        
+    }
+    
+    struct Response {
+        let posts: [PostType]
+        let media: [MediaType]
+    }
 }

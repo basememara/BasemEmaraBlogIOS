@@ -26,7 +26,7 @@ struct ListPostsInteractor: ListPostsBusinessLogic {
 
 extension ListPostsInteractor {
     
-    func fetchLatestPosts(with request: ListPostsModels.FetchPostsRequest) {
+    func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetch(with: fetchRequest) {
@@ -48,7 +48,7 @@ extension ListPostsInteractor {
                 }
                 
                 self.presenter.presentLatestPosts(
-                    for: ListPostsModels.PostsResponse(
+                    for: ListPostsAPI.PostsResponse(
                         posts: posts,
                         media: media
                     )
@@ -60,7 +60,7 @@ extension ListPostsInteractor {
 
 extension ListPostsInteractor {
     
-    func fetchPopularPosts(with request: ListPostsModels.FetchPostsRequest) {
+    func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetchPopular(with: fetchRequest) {
@@ -82,7 +82,7 @@ extension ListPostsInteractor {
                 }
                 
                 self.presenter.presentPopularPosts(
-                    for: ListPostsModels.PostsResponse(
+                    for: ListPostsAPI.PostsResponse(
                         posts: posts,
                         media: media
                     )
@@ -94,7 +94,7 @@ extension ListPostsInteractor {
 
 extension ListPostsInteractor {
     
-    func fetchTopPickPosts(with request: ListPostsModels.FetchPostsRequest) {
+    func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetchTopPicks(with: fetchRequest) {
@@ -116,7 +116,7 @@ extension ListPostsInteractor {
                 }
                 
                 self.presenter.presentTopPickPosts(
-                    for: ListPostsModels.PostsResponse(
+                    for: ListPostsAPI.PostsResponse(
                         posts: posts,
                         media: media
                     )
@@ -128,7 +128,7 @@ extension ListPostsInteractor {
 
 extension ListPostsInteractor {
     
-    func fetchPostsByTerms(with request: ListPostsModels.FetchPostsByTermsRequest) {
+    func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
         
         postWorker.fetch(byTermIDs: request.ids, with: fetchRequest) {
@@ -150,7 +150,7 @@ extension ListPostsInteractor {
                 }
                 
                 self.presenter.presentPostsByTerms(
-                    for: ListPostsModels.PostsResponse(
+                    for: ListPostsAPI.PostsResponse(
                         posts: posts,
                         media: media
                     )
@@ -162,11 +162,11 @@ extension ListPostsInteractor {
 
 extension ListPostsInteractor {
     
-    func toggleFavorite(with request: ListPostsModels.FavoriteRequest) {
+    func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
-            for: ListPostsModels.FavoriteResponse(
+            for: ListPostsAPI.FavoriteResponse(
                 postID: request.postID,
                 favorite: postWorker.hasFavorite(id: request.postID)
             )

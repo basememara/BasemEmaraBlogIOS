@@ -25,7 +25,7 @@ struct ListFavoritesPresenter: ListFavoritesPresentable {
 
 extension ListFavoritesPresenter {
     
-    func presentFavoritePosts(for response: ListFavoritesModels.FetchPostsResponse) {
+    func presentFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -49,9 +49,9 @@ extension ListFavoritesPresenter {
 
 extension ListFavoritesPresenter {
     
-    func presentToggleFavorite(for response: ListFavoritesModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse) {
         viewController?.displayToggleFavorite(
-            with: ListFavoritesModels.FavoriteViewModel(
+            with: ListFavoritesAPI.FavoriteViewModel(
                 postID: response.postID,
                 favorite: response.favorite
             )

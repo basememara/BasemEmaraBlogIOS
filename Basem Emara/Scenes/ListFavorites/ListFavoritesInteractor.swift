@@ -26,7 +26,7 @@ struct ListFavoritesInteractor: ListFavoritesBusinessLogic {
 
 extension ListFavoritesInteractor {
     
-    func fetchFavoritePosts(with request: ListFavoritesModels.FetchPostsRequest) {
+    func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
         postWorker.fetchFavorites {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentFavoritePosts(
@@ -42,7 +42,7 @@ extension ListFavoritesInteractor {
                 }
                 
                 self.presenter.presentFavoritePosts(
-                    for: ListFavoritesModels.FetchPostsResponse(
+                    for: ListFavoritesAPI.FetchPostsResponse(
                         posts: posts,
                         media: media
                     )
@@ -54,11 +54,11 @@ extension ListFavoritesInteractor {
 
 extension ListFavoritesInteractor {
     
-    func toggleFavorite(with request: ListFavoritesModels.FavoriteRequest) {
+    func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
-            for: ListFavoritesModels.FavoriteResponse(
+            for: ListFavoritesAPI.FavoriteResponse(
                 postID: request.postID,
                 favorite: postWorker.hasFavorite(id: request.postID)
             )

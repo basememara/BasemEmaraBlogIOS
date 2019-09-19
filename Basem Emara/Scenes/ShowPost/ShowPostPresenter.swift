@@ -32,7 +32,7 @@ struct ShowPostPresenter: ShowPostPresentable {
 
 extension ShowPostPresenter {
     
-    func presentPost(for response: ShowPostModels.Response) {
+    func presentPost(for response: ShowPostAPI.Response) {
         guard let templateString = templateFile else {
             return presentPost(error: .parseFailure(nil))
         }
@@ -41,7 +41,7 @@ extension ShowPostPresenter {
             "style": SCNetworkReachability.isOnline && !styleSheetFile.isNilOrEmpty
                 ? "<link rel='stylesheet' href='\(constants.styleSheet)' type='text/css' media='all' />"
                 : "<style>\(styleSheetFile ?? "")</style>",
-            "post": ShowPostModels.PageViewModel(
+            "post": ShowPostAPI.PageViewModel(
                 title: response.post.title,
                 content: response.post.content,
                 date: dateFormatter.string(from: response.post.createdAt),
@@ -60,7 +60,7 @@ extension ShowPostPresenter {
         }
         
         if let author = response.author {
-            context["author"] = ShowPostModels.AuthorViewModel(
+            context["author"] = ShowPostAPI.AuthorViewModel(
                 name: author.name,
                 content: author.content,
                 avatar: author.avatar
@@ -71,7 +71,7 @@ extension ShowPostPresenter {
             let template = Template(templateString: templateString)
             
             viewController?.displayPost(
-                with: ShowPostModels.ViewModel(
+                with: ShowPostAPI.ViewModel(
                     title: response.post.title,
                     link: response.post.link,
                     content: try template.render(context),
@@ -96,9 +96,9 @@ extension ShowPostPresenter {
 
 extension ShowPostPresenter {
     
-    func presentByURL(for response: ShowPostModels.FetchWebResponse) {
+    func presentByURL(for response: ShowPostAPI.FetchWebResponse) {
         viewController?.displayByURL(
-            with: ShowPostModels.WebViewModel(
+            with: ShowPostAPI.WebViewModel(
                 postID: response.post?.id,
                 termID: response.term?.id,
                 decisionHandler: response.decisionHandler
@@ -109,7 +109,7 @@ extension ShowPostPresenter {
 
 extension ShowPostPresenter {
     
-    func presentToggleFavorite(for response: ShowPostModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
         viewController?.display(isFavorite: response.favorite)
     }
 }

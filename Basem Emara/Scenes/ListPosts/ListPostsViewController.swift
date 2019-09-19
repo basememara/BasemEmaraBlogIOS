@@ -46,7 +46,7 @@ class ListPostsViewController: UIViewController {
         delegate: self
     )
     
-    var params = ListPostsModels.Params(
+    var params = ListPostsAPI.Params(
         fetchType: .latest,
         title: nil
     )
@@ -91,25 +91,25 @@ private extension ListPostsViewController {
         switch params.fetchType {
         case .latest:
             interactor.fetchLatestPosts(
-                with: ListPostsModels.FetchPostsRequest(
+                with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .popular:
             interactor.fetchPopularPosts(
-                with: ListPostsModels.FetchPostsRequest(
+                with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .picks:
             interactor.fetchTopPickPosts(
-                with: ListPostsModels.FetchPostsRequest(
+                with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .terms(let ids):
             interactor.fetchPostsByTerms(
-                with: ListPostsModels.FetchPostsByTermsRequest(
+                with: ListPostsAPI.FetchPostsByTermsRequest(
                     ids: ids,
                     sort: params.sort
                 )
@@ -126,7 +126,7 @@ extension ListPostsViewController: ListPostsDisplayable {
         tableViewAdapter.reloadData(with: viewModels)
     }
     
-    func displayToggleFavorite(with viewModel: ListPostsModels.FavoriteViewModel) {
+    func displayToggleFavorite(with viewModel: ListPostsAPI.FavoriteViewModel) {
         // Nothing to do
     }
 }
@@ -147,7 +147,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
-                    self.interactor.toggleFavorite(with: ListPostsModels.FavoriteRequest(postID: model.id))
+                    self.interactor.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }.with {

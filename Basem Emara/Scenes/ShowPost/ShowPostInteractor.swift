@@ -32,7 +32,7 @@ struct ShowPostInteractor: ShowPostBusinessLogic {
 
 extension ShowPostInteractor {
     
-    func fetchPost(with request: ShowPostModels.Request) {
+    func fetchPost(with request: ShowPostAPI.Request) {
         postWorker.fetch(id: request.postID) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentPost(
@@ -41,7 +41,7 @@ extension ShowPostInteractor {
             }
             
             self.presenter.presentPost(
-                for: ShowPostModels.Response(
+                for: ShowPostAPI.Response(
                     post: value.post,
                     media: value.media,
                     categories: value.terms.filter { $0.taxonomy == .category },
@@ -56,7 +56,7 @@ extension ShowPostInteractor {
 
 extension ShowPostInteractor {
     
-    func fetchByURL(with request: ShowPostModels.FetchWebRequest) {
+    func fetchByURL(with request: ShowPostAPI.FetchWebRequest) {
         postWorker.fetch(url: request.url) {
             // Handle if URL is not for a post
             if case .nonExistent? = $0.error {
@@ -64,7 +64,7 @@ extension ShowPostInteractor {
                     guard case .success(let term) = $0 else {
                         // URL could not be found
                         return self.presenter.presentByURL(
-                            for: ShowPostModels.FetchWebResponse(
+                            for: ShowPostAPI.FetchWebResponse(
                                 post: nil,
                                 term: nil,
                                 decisionHandler: request.decisionHandler
@@ -74,7 +74,7 @@ extension ShowPostInteractor {
                     
                     // URL was a taxonomy term
                     self.presenter.presentByURL(
-                        for: ShowPostModels.FetchWebResponse(
+                        for: ShowPostAPI.FetchWebResponse(
                             post: nil,
                             term: term,
                             decisionHandler: request.decisionHandler
@@ -88,7 +88,7 @@ extension ShowPostInteractor {
             guard case .success(let post) = $0 else {
                 // URL could not be found
                 return self.presenter.presentByURL(
-                    for: ShowPostModels.FetchWebResponse(
+                    for: ShowPostAPI.FetchWebResponse(
                         post: nil,
                         term: nil,
                         decisionHandler: request.decisionHandler
@@ -98,7 +98,7 @@ extension ShowPostInteractor {
             
             // URL was a post
             self.presenter.presentByURL(
-                for: ShowPostModels.FetchWebResponse(
+                for: ShowPostAPI.FetchWebResponse(
                     post: post,
                     term: nil,
                     decisionHandler: request.decisionHandler
@@ -110,11 +110,11 @@ extension ShowPostInteractor {
 
 extension ShowPostInteractor {
     
-    func toggleFavorite(with request: ShowPostModels.FavoriteRequest) {
+    func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
-            for: ShowPostModels.FavoriteResponse(
+            for: ShowPostAPI.FavoriteResponse(
                 favorite: postWorker.hasFavorite(id: request.postID)
             )
         )

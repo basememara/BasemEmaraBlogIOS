@@ -20,7 +20,7 @@ struct ListTermsInteractor: ListTermsBusinessLogic {
 
 extension ListTermsInteractor {
     
-    func fetchTerms(with request: ListTermsModels.FetchTermsRequest) {
+    func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
         taxonomyWorker.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
@@ -31,7 +31,7 @@ extension ListTermsInteractor {
             let terms = value.sorted { $0.count > $1.count }
             
             self.presenter.presentTerms(
-                for: ListTermsModels.TermsResponse(
+                for: ListTermsAPI.TermsResponse(
                     terms: terms
                 )
             )

@@ -20,7 +20,7 @@ struct ShowPostRouter: HasScenes {
 
 extension ShowPostRouter: ShowPostRoutable {
     
-    func listPosts(params: ListPostsModels.Params) {
+    func listPosts(params: ListPostsAPI.Params) {
         let controller = scenes.listPosts(
             params: params,
             delegate: listPostsDelegate

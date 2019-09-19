@@ -1,15 +1,48 @@
 //
-//  ShowPostModels.swift
+//  ShowPostInterfaces.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import WebKit
 import SwiftyPress
+import WebKit
+import ZamzamUI
 
-enum ShowPostModels {
+// Scene namespace
+enum ShowPostAPI {}
+
+protocol ShowPostBusinessLogic: AppBusinessLogic {
+    func fetchPost(with request: ShowPostAPI.Request)
+    func fetchByURL(with request: ShowPostAPI.FetchWebRequest)
+    func toggleFavorite(with request: ShowPostAPI.FavoriteRequest)
+}
+
+protocol ShowPostPresentable: AppPresentable {
+    func presentPost(for response: ShowPostAPI.Response)
+    func presentPost(error: DataError)
+    
+    func presentByURL(for response: ShowPostAPI.FetchWebResponse)
+    
+    func presentToggleFavorite(for response: ShowPostAPI.FavoriteResponse)
+}
+
+protocol ShowPostDisplayable: class, AppDisplayable {
+    func displayPost(with viewModel: ShowPostAPI.ViewModel)
+    func displayByURL(with viewModel: ShowPostAPI.WebViewModel)
+    func display(isFavorite: Bool)
+}
+
+protocol ShowPostRoutable: AppRoutable {
+    func listPosts(params: ListPostsAPI.Params)
+}
+
+protocol ShowPostLoadable {
+    func loadData(for id: Int)
+}
+
+extension ShowPostAPI {
     
     struct Request {
         let postID: Int

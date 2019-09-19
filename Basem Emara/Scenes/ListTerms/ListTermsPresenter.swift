@@ -19,7 +19,7 @@ struct ListTermsPresenter: ListTermsPresentable {
 
 extension ListTermsPresenter {
     
-    func presentTerms(for response: ListTermsModels.TermsResponse) {
+    func presentTerms(for response: ListTermsAPI.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,

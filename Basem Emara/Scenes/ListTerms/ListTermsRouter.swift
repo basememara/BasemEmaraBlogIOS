@@ -18,7 +18,7 @@ struct ListTermsRouter: HasScenes {
 
 extension ListTermsRouter: ListTermsRoutable {
     
-    func listPosts(params: ListPostsModels.Params) {
+    func listPosts(params: ListPostsAPI.Params) {
         let controller = scenes.listPosts(params: params)
         viewController?.show(controller)
     }

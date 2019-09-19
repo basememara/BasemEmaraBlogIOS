@@ -25,7 +25,7 @@ struct ListPostsPresenter: ListPostsPresentable {
 
 extension ListPostsPresenter {
     
-    func presentLatestPosts(for response: ListPostsModels.PostsResponse) {
+    func presentLatestPosts(for response: ListPostsAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -49,7 +49,7 @@ extension ListPostsPresenter {
 
 extension ListPostsPresenter {
     
-    func presentPopularPosts(for response: ListPostsModels.PostsResponse) {
+    func presentPopularPosts(for response: ListPostsAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -73,7 +73,7 @@ extension ListPostsPresenter {
 
 extension ListPostsPresenter {
     
-    func presentTopPickPosts(for response: ListPostsModels.PostsResponse) {
+    func presentTopPickPosts(for response: ListPostsAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -97,7 +97,7 @@ extension ListPostsPresenter {
 
 extension ListPostsPresenter {
     
-    func presentPostsByTerms(for response: ListPostsModels.PostsResponse) {
+    func presentPostsByTerms(for response: ListPostsAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -121,9 +121,9 @@ extension ListPostsPresenter {
 
 extension ListPostsPresenter {
     
-    func presentToggleFavorite(for response: ListPostsModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ListPostsAPI.FavoriteResponse) {
         viewController?.displayToggleFavorite(
-            with: ListPostsModels.FavoriteViewModel(
+            with: ListPostsAPI.FavoriteViewModel(
                 postID: response.postID,
                 favorite: response.favorite
             )

@@ -51,8 +51,6 @@ class ShowBlogViewController: UIViewController {
         viewController: self
     )
     
-    // MARK: - Internal variable
-    
     @Inject private var postWorker: PostWorkerType
     @Inject private var mediaWorker: MediaWorkerType
     @Inject private var taxonomyWorker: TaxonomyWorkerType
@@ -60,6 +58,8 @@ class ShowBlogViewController: UIViewController {
     @Inject private var preferences: PreferencesType
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
+    
+    // MARK: - Internal variable
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: latestPostsCollectionView,
@@ -130,19 +130,19 @@ private extension ShowBlogViewController {
     
     func loadData() {
         interactor.fetchLatestPosts(
-            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
+            with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchPopularPosts(
-            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
+            with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchTopPickPosts(
-            with: ShowBlogModels.FetchPostsRequest(maxLength: 30)
+            with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
         interactor.fetchTerms(
-            with: ShowBlogModels.FetchTermsRequest(maxLength: 6)
+            with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
     }
 }
@@ -167,7 +167,7 @@ extension ShowBlogViewController: ShowBlogDisplayable {
         topTermsTableViewAdapter.reloadData(with: viewModels)
     }
     
-    func displayToggleFavorite(with viewModel: ShowBlogModels.FavoriteViewModel) {
+    func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
         // Nothing to do
     }
 }
@@ -229,7 +229,7 @@ extension ShowBlogViewController: PostsDataViewDelegate {
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
         interactor.toggleFavorite(
-            with: ShowBlogModels.FavoriteRequest(
+            with: ShowBlogAPI.FavoriteRequest(
                 postID: model.id
             )
         )
