@@ -17,10 +17,6 @@ extension Theme {
         applyThemed(for: application)
         applyCustom(for: application)
         applyScenes(for: application)
-        
-        // Ensure existing views render with new theme
-        // https://developer.apple.com/documentation/uikit/uiappearance
-        application.windows.reload()
     }
 }
 

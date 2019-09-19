@@ -22,30 +22,11 @@ class ShowSettingsViewController: UITableViewController, HasDependencies {
     
     // MARK: - Controller cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-}
-
-// MARK: - Events
-
-private extension ShowSettingsViewController {
-    
-    func configure() {
-        guard let currentTheme = preferences.get(.currentTheme) else { return }
-        themeSwitch.isOn = ThemePreset(rawValue: currentTheme) == .dark
-    }
-}
-
-// MARK: - Interactions
-
-private extension ShowSettingsViewController {
-    
-    @IBAction func themeSwitchChanged(_ sender: UISwitch) {
-        let preset: ThemePreset = sender.isOn ? .dark : .light
-        preferences.set(preset.rawValue, forKey: .currentTheme)
-        preset.type.apply(for: UIApplication.shared)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        guard #available(iOS 12.0, *) else { return }
+        themeSwitch.isOn = view.traitCollection.userInterfaceStyle == .dark
     }
 }
 

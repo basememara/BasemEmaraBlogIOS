@@ -91,9 +91,6 @@ class AppConfigurator: CoreConfigurator {
     }
     
     override func resolve() -> Theme {
-        let preferences: PreferencesType = resolve()
-        
-        return ThemePreset(rawValue: preferences.get(.currentTheme) ?? "")?.type
-            ?? ThemePreset.default.type
+        return AppTheme()
     }
 }
