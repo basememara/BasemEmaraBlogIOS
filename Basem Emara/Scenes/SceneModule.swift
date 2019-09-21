@@ -12,7 +12,7 @@ import SwiftyPress
 /// Dependency injector for overriding concrete scene factories.
 /// Inject delegates, parameters, interactors, presenters, routers,
 /// and so forth to override behavior in the next scene.
-protocol SceneDependable {
+protocol SceneModuleType {
     func startMain() -> UIViewController
     func showBlog() -> UIViewController
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
@@ -22,14 +22,14 @@ protocol SceneDependable {
     func showSettings() -> UIViewController
 }
 
-extension SceneDependable {
+extension SceneModuleType {
     
     func listPosts(params: ListPostsAPI.Params) -> UIViewController {
         return listPosts(params: params, delegate: nil)
     }
 }
 
-struct SceneModule: SceneDependable {
+struct SceneModule: SceneModuleType {
     
     func startMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {

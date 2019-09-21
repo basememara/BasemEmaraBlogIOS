@@ -11,7 +11,7 @@ protocol HasScenes {}
 extension HasScenes {
     
     /// Container for scene dependency instance factories
-    var scenes: SceneDependable {
+    var scenes: SceneModuleType {
         return InjectionStorage.scenes
     }
 }
@@ -21,12 +21,12 @@ protocol SceneInjection {}
 extension SceneInjection {
     
     /// Declare core dependency container to use
-    func inject(scenes: SceneDependable) {
+    func inject(scenes: SceneModuleType) {
         InjectionStorage.scenes = scenes
     }
 }
 
 // Statically store the scene factory in memory.
 private struct InjectionStorage {
-    static var scenes: SceneDependable = SceneModule()
+    static var scenes: SceneModuleType = SceneModule()
 }
