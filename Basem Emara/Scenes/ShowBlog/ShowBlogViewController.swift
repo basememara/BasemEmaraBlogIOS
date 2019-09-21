@@ -40,7 +40,7 @@ class ShowBlogViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    private lazy var interactor: ShowBlogBusinessLogic = module.resolve(with: self)
+    private lazy var action: ShowBlogActionable = module.resolve(with: self)
     private(set) lazy var router: ShowBlogRoutable = module.resolve(with: self)
     
     @Inject private var module: ShowBlogModuleType
@@ -118,19 +118,19 @@ private extension ShowBlogViewController {
     }
     
     func loadData() {
-        interactor.fetchLatestPosts(
+        action.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor.fetchPopularPosts(
+        action.fetchPopularPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor.fetchTopPickPosts(
+        action.fetchTopPickPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor.fetchTerms(
+        action.fetchTerms(
             with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
     }
@@ -217,7 +217,7 @@ extension ShowBlogViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
-        interactor.toggleFavorite(
+        action.toggleFavorite(
             with: ShowBlogAPI.FavoriteRequest(
                 postID: model.id
             )

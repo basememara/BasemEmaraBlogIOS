@@ -13,7 +13,7 @@ import ZamzamUI
 // Scene namespace
 enum ListPostsAPI {}
 
-protocol ListPostsBusinessLogic: AppBusinessLogic {
+protocol ListPostsBusinessLogic: AppActionable {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest)

@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamCore
 
-struct ShowBlogInteractor: ShowBlogBusinessLogic {
+struct ShowBlogAction: ShowBlogActionable {
     private let presenter: ShowBlogPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -31,7 +31,7 @@ struct ShowBlogInteractor: ShowBlogBusinessLogic {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
@@ -118,7 +118,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyWorker.fetch(by: [.category, .tag]) {
@@ -142,7 +142,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)

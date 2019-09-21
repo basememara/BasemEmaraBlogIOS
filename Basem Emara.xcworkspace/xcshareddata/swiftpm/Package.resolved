@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": "xcode11",
-          "revision": "e129d8f44e7fe7d14089f2386aaae388bf16cf4d",
+          "revision": "c5b13ae39d0a37babdb9e9b2ca1c7243ad110217",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": "master",
-          "revision": "656028b8fa4f340f22d3c3babfedb1fd0ec4f69e",
+          "revision": "9717050cbeb6f6dcbbb008947d5200849fd6bed8",
           "version": null
         }
       },
@@ -44,15 +44,6 @@
           "branch": null,
           "revision": "3aa55b372577751f30a9aba8534b08e4229b556e",
           "version": "5.23.3"
-        }
-      },
-      {
-        "package": "Shank",
-        "repositoryURL": "git@github.com:ZamzamInc/Shank.git",
-        "state": {
-          "branch": "develop",
-          "revision": "ff86b3cbcdd8bf0ef1cfb02ef5c439d99b65271a",
-          "version": null
         }
       },
       {
@@ -105,7 +96,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamUI.git",
         "state": {
           "branch": "develop",
-          "revision": "cb43eb96b0e7f528501f6bd126dbf438508b45d9",
+          "revision": "d16866a9ffc8259cadd6cb5d7255cdf5ebb22ba2",
           "version": null
         }
       }

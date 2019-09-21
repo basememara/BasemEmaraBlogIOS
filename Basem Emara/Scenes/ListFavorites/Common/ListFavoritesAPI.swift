@@ -13,7 +13,7 @@ import ZamzamUI
 // Scene namespace
 enum ListFavoritesAPI {}
 
-protocol ListFavoritesBusinessLogic: AppBusinessLogic {
+protocol ListFavoritesBusinessLogic: AppActionable {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest)
 }

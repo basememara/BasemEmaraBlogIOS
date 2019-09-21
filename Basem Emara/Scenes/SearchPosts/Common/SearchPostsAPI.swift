@@ -13,7 +13,7 @@ import ZamzamUI
 // Scene namespace
 enum SearchPostsAPI {}
 
-protocol SearchPostsBusinessLogic: AppBusinessLogic {
+protocol SearchPostsBusinessLogic: AppActionable {
     func fetchSearchResults(with request: PostsAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }

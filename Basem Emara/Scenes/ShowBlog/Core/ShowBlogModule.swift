@@ -12,8 +12,8 @@ import SwiftyPress
 
 struct ShowBlogModule: ShowBlogModuleType {
     
-    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogBusinessLogic {
-        ShowBlogInteractor(
+    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
+        ShowBlogAction(
             presenter: resolve(with: viewController),
             postWorker: resolve(),
             mediaWorker: resolve(),

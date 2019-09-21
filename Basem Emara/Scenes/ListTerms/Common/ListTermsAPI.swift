@@ -12,7 +12,7 @@ import ZamzamUI
 // Scene namespace
 enum ListTermsAPI {}
 
-protocol ListTermsBusinessLogic: AppBusinessLogic {
+protocol ListTermsBusinessLogic: AppActionable {
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest)
 }
 
