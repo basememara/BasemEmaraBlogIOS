@@ -395,7 +395,7 @@
 		8B0B02F921625DE000FF9D9F /* ShowPost */ = {
 			isa = PBXGroup;
 			children = (
-				8B63A2AA2162D29C003868F7 /* Common */,
+				8B63A2AA2162D29C003868F7 /* Core */,
 				8B63A2CA2164267B003868F7 /* Templates */,
 				8B0B02FA21625DFF00FF9D9F /* ShowPostViewController.swift */,
 				8B63A2CF216426BB003868F7 /* ShowPostInteractor.swift */,
@@ -566,12 +566,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8B33C4DD21694BB400658700 /* Common */ = {
+		8B33C4DD21694BB400658700 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8B33C4DE21694BE000658700 /* ListFavoritesAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8B4439DB229881CA00EC5575 /* Home */ = {
@@ -588,7 +588,7 @@
 		8B47A5DF20E10E8700681404 /* ListPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8B63A2BF2163C798003868F7 /* Common */,
+				8B63A2BF2163C798003868F7 /* Core */,
 				8B47A5E020E10E9F00681404 /* ListPostsViewController.swift */,
 				8B63A2C42163C822003868F7 /* ListPostsInteractor.swift */,
 				8B63A2C62163C830003868F7 /* ListPostsPresenter.swift */,
@@ -601,7 +601,7 @@
 		8B4D719E216A4030002ACA81 /* SearchPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8B4D71A9216A4057002ACA81 /* Common */,
+				8B4D71A9216A4057002ACA81 /* Core */,
 				8B4D71A1216A4043002ACA81 /* SearchPostsViewController.swift */,
 				8B4D71A3216A4043002ACA81 /* SearchPostsInteractor.swift */,
 				8B4D719F216A4043002ACA81 /* SearchPostsPresenter.swift */,
@@ -611,12 +611,12 @@
 			path = SearchPosts;
 			sourceTree = "<group>";
 		};
-		8B4D71A9216A4057002ACA81 /* Common */ = {
+		8B4D71A9216A4057002ACA81 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8B4D71AA216A4057002ACA81 /* SearchPostsAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8B52641A20D7C93B00170875 /* Main */ = {
@@ -645,7 +645,7 @@
 		8B52641D20D7C95500170875 /* ListFavorites */ = {
 			isa = PBXGroup;
 			children = (
-				8B33C4DD21694BB400658700 /* Common */,
+				8B33C4DD21694BB400658700 /* Core */,
 				8BF2CCBE20B6D77100C9C161 /* ListFavoritesViewController.swift */,
 				8B33C4E221694BFA00658700 /* ListFavoritesInteractor.swift */,
 				8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */,
@@ -658,7 +658,7 @@
 		8B52641F20D7C96700170875 /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
-				8BBF81D9216BFE7000158DDE /* Common */,
+				8BBF81D9216BFE7000158DDE /* Core */,
 				8BF2CCC020B6D78300C9C161 /* ShowMoreViewController.swift */,
 				8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */,
 				8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */,
@@ -666,18 +666,18 @@
 			path = ShowMore;
 			sourceTree = "<group>";
 		};
-		8B63A2AA2162D29C003868F7 /* Common */ = {
+		8B63A2AA2162D29C003868F7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8B63A2CB216426A1003868F7 /* ShowPostAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8B63A2AF2163AEDA003868F7 /* ListTerms */ = {
 			isa = PBXGroup;
 			children = (
-				8B63A2B42163B4A6003868F7 /* Common */,
+				8B63A2B42163B4A6003868F7 /* Core */,
 				8B63A2B22163AEFD003868F7 /* ListTermsViewController.swift */,
 				8B63A2B52163B4C7003868F7 /* ListTermsInteractor.swift */,
 				8B63A2B72163B4DE003868F7 /* ListTermsPresenter.swift */,
@@ -687,20 +687,20 @@
 			path = ListTerms;
 			sourceTree = "<group>";
 		};
-		8B63A2B42163B4A6003868F7 /* Common */ = {
+		8B63A2B42163B4A6003868F7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8B63A2BB2163B500003868F7 /* ListTermsAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		8B63A2BF2163C798003868F7 /* Common */ = {
+		8B63A2BF2163C798003868F7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8B63A2C02163C80A003868F7 /* ListPostsAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8B63A2CA2164267B003868F7 /* Templates */ = {
@@ -787,12 +787,12 @@
 			path = PreviewPost;
 			sourceTree = "<group>";
 		};
-		8BBF81D9216BFE7000158DDE /* Common */ = {
+		8BBF81D9216BFE7000158DDE /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8BBF81DA216BFE7D00158DDE /* ShowMoreAPI.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8BBF81E1216C0D5900158DDE /* ShowSettings */ = {
