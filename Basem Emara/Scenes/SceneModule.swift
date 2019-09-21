@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Shank
 import SwiftyPress
 
 /// Dependency injector for overriding concrete scene factories.
@@ -97,5 +98,12 @@ extension SceneModule {
         case previewPost = "PreviewPost"
         case listTerms = "ListTerms"
         case showSettings = "ShowSettings"
+    }
+}
+
+extension SceneModule: Module {
+    
+    func register() {
+        make { self as SceneModuleType }
     }
 }

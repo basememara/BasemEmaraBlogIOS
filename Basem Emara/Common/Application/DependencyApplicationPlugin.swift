@@ -7,17 +7,11 @@
 //
 
 import Shank
-import SwiftyPress
 import ZamzamUI
 
 final class DependencyApplicationPlugin: ApplicationPlugin {
     
-    private let modules: [Module] = [
-        CoreModule(),
-        AppModule()
-    ]
-    
-    init() {
+    init(_ modules: [Module]) {
         modules.register()
     }
 }

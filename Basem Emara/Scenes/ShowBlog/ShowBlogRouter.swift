@@ -9,10 +9,12 @@
 import UIKit
 import SwiftyPress
 
-struct ShowBlogRouter: HasScenes {
+struct ShowBlogRouter {
+    private let scenes: SceneModuleType
     weak var viewController: UIViewController?
     
-    init(viewController: UIViewController) {
+    init(scenes: SceneModuleType, viewController: UIViewController?) {
+        self.scenes = scenes
         self.viewController = viewController
     }
 }

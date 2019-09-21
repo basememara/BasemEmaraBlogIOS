@@ -38,29 +38,17 @@ class ShowBlogViewController: UIViewController {
         didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
     }
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
-    private lazy var interactor: ShowBlogBusinessLogic = ShowBlogInteractor(
-        presenter: ShowBlogPresenter(viewController: self),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker,
-        taxonomyWorker: taxonomyWorker,
-        preferences: preferences
-    )
+    private lazy var interactor: ShowBlogBusinessLogic = module.resolve(with: self)
+    private(set) lazy var router: ShowBlogRoutable = module.resolve(with: self)
     
-    private(set) lazy var router: ShowBlogRoutable = ShowBlogRouter(
-        viewController: self
-    )
-    
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
-    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var module: ShowBlogModuleType
     @Inject private var mailComposer: MailComposerType
-    @Inject private var preferences: PreferencesType
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
     
-    // MARK: - Internal variable
+    // MARK: - State
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: latestPostsCollectionView,
@@ -82,7 +70,7 @@ class ShowBlogViewController: UIViewController {
         delegate: self
     )
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +83,7 @@ class ShowBlogViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension ShowBlogViewController {
     
@@ -148,7 +136,7 @@ private extension ShowBlogViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension ShowBlogViewController: ShowBlogDisplayable {
     

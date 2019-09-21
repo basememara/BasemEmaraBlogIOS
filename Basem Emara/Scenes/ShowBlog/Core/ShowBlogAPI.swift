@@ -13,6 +13,12 @@ import ZamzamUI
 // Scene namespace
 enum ShowBlogAPI {}
 
+protocol ShowBlogModuleType {
+    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogBusinessLogic
+    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
+    func resolve(with viewController: UIViewController?) -> ShowBlogRoutable
+}
+
 protocol ShowBlogBusinessLogic: AppBusinessLogic {
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest)

@@ -109,6 +109,7 @@
 		8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5755E22901E270079BE42 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */; };
 		8BB5756622902C080079BE42 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5756522902C080079BE42 /* AppRoutable.swift */; };
+		8BB6D98123364E9A00744FAD /* ShowBlogModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB6D98023364E9A00744FAD /* ShowBlogModule.swift */; };
 		8BBD4CB4229C0AC80067144E /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD4CB3229C0AC80067144E /* HomeAPI.swift */; };
 		8BBD4CB6229C11680067144E /* MainSplitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD4CB5229C11680067144E /* MainSplitDetailViewController.swift */; };
 		8BBF81C9216B7BF700158DDE /* PreviewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */; };
@@ -305,6 +306,7 @@
 		8BB5755722901A540079BE42 /* SceneModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneModule.swift; sourceTree = "<group>"; };
 		8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogStyles.swift; sourceTree = "<group>"; };
 		8BB5756522902C080079BE42 /* AppRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
+		8BB6D98023364E9A00744FAD /* ShowBlogModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogModule.swift; sourceTree = "<group>"; };
 		8BBD4CB3229C0AC80067144E /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8BBD4CB5229C11680067144E /* MainSplitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitDetailViewController.swift; sourceTree = "<group>"; };
 		8BBF81C8216B7BF700158DDE /* PreviewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostViewController.swift; sourceTree = "<group>"; };
@@ -630,7 +632,7 @@
 		8B52641B20D7C94200170875 /* ShowBlog */ = {
 			isa = PBXGroup;
 			children = (
-				8BEEEF312123300E00A6AF99 /* Common */,
+				8BEEEF312123300E00A6AF99 /* Core */,
 				8BF2CCBA20B6D6D200C9C161 /* ShowBlogViewController.swift */,
 				8BEEEF362123505B00A6AF99 /* ShowBlogInteractor.swift */,
 				8BEEEF382123506B00A6AF99 /* ShowBlogPresenter.swift */,
@@ -802,13 +804,14 @@
 			path = ShowSettings;
 			sourceTree = "<group>";
 		};
-		8BEEEF312123300E00A6AF99 /* Common */ = {
+		8BEEEF312123300E00A6AF99 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8BEEEF32212330F900A6AF99 /* ShowBlogAPI.swift */,
+				8BB6D98023364E9A00744FAD /* ShowBlogModule.swift */,
 				8BB5755B22901CBB0079BE42 /* ShowBlogStyles.swift */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8BEEEF3A2123820400A6AF99 /* CleanScene */ = {
@@ -1215,6 +1218,7 @@
 				8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */,
 				8B4D71AC216A4057002ACA81 /* SearchPostsAPI.swift in Sources */,
 				8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */,
+				8BB6D98123364E9A00744FAD /* ShowBlogModule.swift in Sources */,
 				8BF3016C2326AD740058153D /* PostTableViewCell.swift in Sources */,
 				8BB5755822901A540079BE42 /* SceneModule.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,

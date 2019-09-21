@@ -15,7 +15,12 @@ class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {
         return [
-            DependencyApplicationPlugin(),
+            DependencyApplicationPlugin([
+                CoreModule(),
+                AppModule(),
+                SceneModule(),
+                ShowBlogModule()
+            ]),
             LoggerApplicationPlugin(),
             DataApplicationPlugin(),
             BackgroundApplicationPlugin(),
