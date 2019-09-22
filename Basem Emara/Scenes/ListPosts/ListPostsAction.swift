@@ -1,5 +1,5 @@
 //
-//  ListPostsInteractor.swift
+//  ListPostsAction.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListPostsInteractor: ListPostsBusinessLogic {
+struct ListPostsAction: ListPostsActionable {
     private let presenter: ListPostsPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -24,7 +24,7 @@ struct ListPostsInteractor: ListPostsBusinessLogic {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
@@ -58,7 +58,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
@@ -92,7 +92,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
@@ -126,7 +126,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest) {
         let fetchRequest = PostsAPI.FetchRequest()
@@ -160,7 +160,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)

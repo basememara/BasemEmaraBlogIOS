@@ -9,17 +9,17 @@
 import UIKit
 import SwiftyPress
 
-struct ShowBlogRouter {
-    private let scenes: SceneModuleType
+struct ShowBlogRouter: ShowBlogRoutable {
     weak var viewController: UIViewController?
+    private let scenes: SceneModuleType
     
-    init(scenes: SceneModuleType, viewController: UIViewController?) {
-        self.scenes = scenes
+    init(viewController: UIViewController?, scenes: SceneModuleType) {
         self.viewController = viewController
+        self.scenes = scenes
     }
 }
 
-extension ShowBlogRouter: ShowBlogRoutable {
+extension ShowBlogRouter {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = scenes.listPosts(params: params)
@@ -36,7 +36,7 @@ extension ShowBlogRouter: ShowBlogRoutable {
     }
     
     func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        return scenes.previewPost(for: model, delegate: viewController)
+        scenes.previewPost(for: model, delegate: viewController)
     }
     
     func listTerms() {

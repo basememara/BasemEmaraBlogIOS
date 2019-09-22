@@ -10,20 +10,23 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
+struct ShowMoreRouter: ShowMoreRoutable {
     weak var viewController: UIViewController?
     
+    private let scenes: SceneModuleType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
     init(
-        viewController: UIViewController,
+        viewController: UIViewController?,
+        scenes: SceneModuleType,
         constants: ConstantsType,
         mailComposer: MailComposerType,
         theme: Theme
     ) {
         self.viewController = viewController
+        self.scenes = scenes
         self.constants = constants
         self.mailComposer = mailComposer
         self.theme = theme

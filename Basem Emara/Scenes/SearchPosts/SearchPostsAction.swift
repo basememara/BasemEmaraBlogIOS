@@ -1,5 +1,5 @@
 //
-//  SearchPostsInteractor.swift
+//  SearchPostsAction.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-07.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct SearchPostsInteractor: SearchPostsBusinessLogic {
+struct SearchPostsAction: SearchPostsActionable {
     private let presenter: SearchPostsPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -24,7 +24,7 @@ struct SearchPostsInteractor: SearchPostsBusinessLogic {
     }
 }
 
-extension SearchPostsInteractor {
+extension SearchPostsAction {
 
     func fetchSearchResults(with request: PostsAPI.SearchRequest) {
         postWorker.search(with: request) {
@@ -52,7 +52,7 @@ extension SearchPostsInteractor {
     }
 }
 
-extension SearchPostsInteractor {
+extension SearchPostsAction {
     
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest) {
         let request = PostsAPI.FetchRequest()

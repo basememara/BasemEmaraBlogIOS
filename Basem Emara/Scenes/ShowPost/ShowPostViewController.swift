@@ -42,28 +42,18 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: ShowPostBusinessLogic = ShowPostInteractor(
-        presenter: ShowPostPresenter(
-            viewController: self,
-            constants: constants
-        ),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker,
-        authorWorker: authorWorker,
-        taxonomyWorker: taxonomyWorker
-    )
+    private lazy var action: ShowPostActionable = module.resolve(with: self)
     
-    private lazy var router: ShowPostRoutable = ShowPostRouter(
-        viewController: self,
-        listPostsDelegate: self
+    private lazy var router: ShowPostRoutable = module.resolve(
+        with: ShowPostAPI.RoutableInputs(
+            viewController: self,
+            listPostsDelegate: self
+        )
     )
     
     // MARK: - Internal variable
     
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
-    @Inject private var authorWorker: AuthorWorkerType
-    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var module: ShowPostModuleType
     @Inject private var notificationCenter: NotificationCenter
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
@@ -124,7 +114,7 @@ private extension ShowPostViewController {
         guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
-        interactor.fetchPost(
+        action.fetchPost(
             with: ShowPostAPI.Request(postID: postID)
         )
     }
@@ -192,7 +182,7 @@ private extension ShowPostViewController {
     @objc func favoriteTapped() {
         guard let postID = postID else { return }
         
-        interactor.toggleFavorite(
+        action.toggleFavorite(
             with: ShowPostAPI.FavoriteRequest(
                 postID: postID
             )
@@ -257,7 +247,7 @@ private extension ShowPostViewController {
         activityIndicatorView.startAnimating()
         postID = lastPostID
         
-        interactor.fetchPost(
+        action.fetchPost(
             with: ShowPostAPI.Request(postID: lastPostID)
         )
     }
@@ -293,7 +283,7 @@ extension ShowPostViewController: WKNavigationDelegate {
             return decisionHandler(.cancel)
         }
         
-        interactor.fetchByURL(
+        action.fetchByURL(
             with: ShowPostAPI.FetchWebRequest(
                 url: requestURL.absoluteString,
                 decisionHandler: decisionHandler

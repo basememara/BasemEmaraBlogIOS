@@ -16,10 +16,17 @@ protocol MainSplitRoutable: AppRoutable & DeepLinkRoutable {
 
 struct MainSplitRouter: MainSplitRoutable {
     weak var viewController: UIViewController?
+    
+    let scenes: SceneModuleType
     let constants: ConstantsType
     
-    init(viewController: UIViewController, constants: ConstantsType) {
+    init(
+        viewController: UIViewController,
+        scenes: SceneModuleType,
+        constants: ConstantsType
+    ) {
         self.viewController = viewController
+        self.scenes = scenes
         self.constants = constants
     }
 }

@@ -7,12 +7,19 @@
 //
 
 import SwiftyPress
+import UIKit
 import ZamzamUI
 
 // Scene namespace
 enum ListTermsAPI {}
 
-protocol ListTermsBusinessLogic: AppActionable {
+protocol ListTermsModuleType {
+    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsActionable
+    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
+    func resolve(with viewController: UIViewController?) -> ListTermsRoutable
+}
+
+protocol ListTermsActionable: AppActionable {
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest)
 }
 

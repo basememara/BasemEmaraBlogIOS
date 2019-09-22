@@ -26,20 +26,12 @@ class ListFavoritesViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: ListFavoritesBusinessLogic = ListFavoritesInteractor(
-        presenter: ListFavoritesPresenter(viewController: self),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker
-    )
-    
-    private lazy var router: ListFavoritesRoutable = ListFavoritesRouter(
-        viewController: self
-    )
+    private lazy var action: ListFavoritesActionable = module.resolve(with: self)
+    private lazy var router: ListFavoritesRoutable = module.resolve(with: self)
     
     // MARK: - Internal variable
     
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var module: ListFavoritesModuleType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
@@ -72,7 +64,7 @@ private extension ListFavoritesViewController {
     }
     
     func loadData() {
-        interactor.fetchFavoritePosts(
+        action.fetchFavoritePosts(
             with: ListFavoritesAPI.FetchPostsRequest()
         )
     }
@@ -119,7 +111,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
-                    self.interactor.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
+                    self.action.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
                 }.with {
                     $0.image = UIImage(named: .favoriteEmpty)

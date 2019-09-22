@@ -8,15 +8,17 @@
 
 import UIKit
 
-struct ListTermsRouter: HasScenes {
+struct ListTermsRouter: ListTermsRoutable {
     weak var viewController: UIViewController?
+    private let scenes: SceneModuleType
     
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController?, scenes: SceneModuleType) {
         self.viewController = viewController
+        self.scenes = scenes
     }
 }
 
-extension ListTermsRouter: ListTermsRoutable {
+extension ListTermsRouter {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = scenes.listPosts(params: params)

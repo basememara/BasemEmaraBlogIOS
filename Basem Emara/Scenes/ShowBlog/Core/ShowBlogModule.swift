@@ -28,8 +28,8 @@ struct ShowBlogModule: ShowBlogModuleType {
     
     func resolve(with viewController: UIViewController?) -> ShowBlogRoutable {
         ShowBlogRouter(
-            scenes: resolve(),
-            viewController: viewController
+            viewController: viewController,
+            scenes: resolve()
         )
     }
 }

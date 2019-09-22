@@ -14,10 +14,12 @@ import ZamzamUI
 final class ShortcutApplicationPlugin: ApplicationPlugin {
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
+    @Inject private var scenes: SceneModuleType
     @Inject private var constants: ConstantsType
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
+        scenes: scenes,
         constants: constants
     )
 }

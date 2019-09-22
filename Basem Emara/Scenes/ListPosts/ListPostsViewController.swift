@@ -25,20 +25,12 @@ class ListPostsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: ListPostsBusinessLogic = ListPostsInteractor(
-        presenter: ListPostsPresenter(viewController: self),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker
-    )
-    
-    private lazy var router: ListPostsRoutable = ListPostsRouter(
-        viewController: self
-    )
+    private lazy var action: ListPostsActionable = module.resolve(with: self)
+    private lazy var router: ListPostsRoutable = module.resolve(with: self)
     
     // MARK: - Internal variable
     
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var module: ListPostsModuleType
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
     
@@ -91,25 +83,25 @@ private extension ListPostsViewController {
     func loadData() {
         switch params.fetchType {
         case .latest:
-            interactor.fetchLatestPosts(
+            action.fetchLatestPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .popular:
-            interactor.fetchPopularPosts(
+            action.fetchPopularPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .picks:
-            interactor.fetchTopPickPosts(
+            action.fetchTopPickPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .terms(let ids):
-            interactor.fetchPostsByTerms(
+            action.fetchPostsByTerms(
                 with: ListPostsAPI.FetchPostsByTermsRequest(
                     ids: ids,
                     sort: params.sort
@@ -142,13 +134,13 @@ extension ListPostsViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
-        let isFavorite = interactor.isFavorite(postID: model.id)
+        let isFavorite = action.isFavorite(postID: model.id)
         let sender = tableView.cellForRow(at: indexPath) ?? tableView
         
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
-                    self.interactor.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
+                    self.action.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }.with {

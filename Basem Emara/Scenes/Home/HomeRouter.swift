@@ -10,10 +10,11 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct HomeRouter: HomeRoutable, HasScenes {
+struct HomeRouter: HomeRoutable {
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
+    private let scenes: SceneModuleType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
@@ -21,12 +22,14 @@ struct HomeRouter: HomeRoutable, HasScenes {
     init(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
+        scenes: SceneModuleType,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme
     ) {
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
+        self.scenes = scenes
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme

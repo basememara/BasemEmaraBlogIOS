@@ -40,20 +40,12 @@ class SearchPostsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: SearchPostsBusinessLogic = SearchPostsInteractor(
-        presenter: SearchPostsPresenter(viewController: self),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker
-    )
-    
-    private lazy var router: SearchPostsRoutable = SearchPostsRouter(
-        viewController: self
-    )
+    private lazy var action: SearchPostsActionable = module.resolve(with: self)
+    private lazy var router: SearchPostsRoutable = module.resolve(with: self)
 
     // MARK: - Internal variables
     
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var module: SearchPostsModuleType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
@@ -89,7 +81,7 @@ extension SearchPostsViewController {
     
     public func loadData() {
         guard let searchText = searchText else {
-            return interactor.fetchPopularPosts(
+            return action.fetchPopularPosts(
                 with: SearchPostsAPI.PopularRequest()
             )
         }
@@ -101,7 +93,7 @@ extension SearchPostsViewController {
     }
     
     private func searchData(for text: String, with scope: Int) {
-        interactor.fetchSearchResults(
+        action.fetchSearchResults(
             with: PostsAPI.SearchRequest(
                 query: text,
                 scope: {

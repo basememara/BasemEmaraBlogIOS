@@ -16,11 +16,13 @@ class MainSplitViewController: UISplitViewController {
     
     private lazy var router: MainSplitRoutable = MainSplitRouter(
         viewController: self,
+        scenes: scenes,
         constants: constants
     )
     
     // MARK: - Internal variable
     
+    @Inject private var scenes: SceneModuleType
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
     

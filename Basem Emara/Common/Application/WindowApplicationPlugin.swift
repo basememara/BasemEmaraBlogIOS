@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Shank
 import SwiftyPress
 import ZamzamUI
 
-final class WindowApplicationPlugin: ApplicationPlugin, SceneInjection, HasScenes {
+final class WindowApplicationPlugin: ApplicationPlugin {
     private var window: UIWindow?
+    
+    @Inject private var scenes: SceneModuleType
     
     init(for window: UIWindow?) {
         self.window = window
-        self.inject(scenes: SceneModule())
     }
 }
 

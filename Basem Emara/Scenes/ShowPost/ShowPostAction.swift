@@ -1,5 +1,5 @@
 //
-//  ShowPostInteractor.swift
+//  ShowPostAction.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ShowPostInteractor: ShowPostBusinessLogic {
+struct ShowPostAction: ShowPostActionable {
     private let presenter: ShowPostPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -30,7 +30,7 @@ struct ShowPostInteractor: ShowPostBusinessLogic {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func fetchPost(with request: ShowPostAPI.Request) {
         postWorker.fetch(id: request.postID) {
@@ -54,7 +54,7 @@ extension ShowPostInteractor {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest) {
         postWorker.fetch(url: request.url) {
@@ -108,7 +108,7 @@ extension ShowPostInteractor {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
         postWorker.toggleFavorite(id: request.postID)

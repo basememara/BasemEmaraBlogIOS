@@ -19,17 +19,16 @@ class HomeViewController: UITableViewController {
     
     // MARK: - Scene variables
     
-    private lazy var router: HomeRoutable = HomeRouter(
-        viewController: self,
-        listPostsDelegate: splitViewController as? MainSplitViewController,
-        mailComposer: mailComposer,
-        constants: constants,
-        theme: theme
+    private lazy var router: HomeRoutable = module.resolve(
+        with: HomeAPI.RoutableInputs(
+            viewController: self,
+            listPostsDelegate: splitViewController as? ListPostsDelegate
+        )
     )
     
     // MARK: - Internal variable
     
-    @Inject private var mailComposer: MailComposerType
+    @Inject private var module: HomeModuleType
     @Inject private var constants: ConstantsType
     @Inject private var theme: Theme
     

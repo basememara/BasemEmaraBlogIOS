@@ -13,7 +13,13 @@ import ZamzamUI
 // Scene namespace
 enum ListFavoritesAPI {}
 
-protocol ListFavoritesBusinessLogic: AppActionable {
+protocol ListFavoritesModuleType {
+    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
+    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
+    func resolve(with viewController: UIViewController?) -> ListFavoritesRoutable
+}
+
+protocol ListFavoritesActionable: AppActionable {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest)
 }

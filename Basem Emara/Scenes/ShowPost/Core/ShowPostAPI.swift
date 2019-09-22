@@ -13,7 +13,13 @@ import ZamzamUI
 // Scene namespace
 enum ShowPostAPI {}
 
-protocol ShowPostBusinessLogic: AppActionable {
+protocol ShowPostModuleType {
+    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostActionable
+    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
+    func resolve(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable
+}
+
+protocol ShowPostActionable: AppActionable {
     func fetchPost(with request: ShowPostAPI.Request)
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest)
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest)
@@ -43,6 +49,11 @@ protocol ShowPostLoadable {
 }
 
 extension ShowPostAPI {
+    
+    struct RoutableInputs {
+        weak var viewController: UIViewController?
+        weak var listPostsDelegate: ListPostsDelegate?
+    }
     
     struct Request {
         let postID: Int

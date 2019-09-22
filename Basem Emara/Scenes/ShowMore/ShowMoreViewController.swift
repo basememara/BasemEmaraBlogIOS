@@ -15,18 +15,12 @@ class ShowMoreViewController: UITableViewController {
     
     // MARK: - Scene variables
     
-    private(set) lazy var router: ShowMoreRoutable = ShowMoreRouter(
-        viewController: self,
-        constants: constants,
-        mailComposer: mailComposer,
-        theme: theme
-    )
+    private(set) lazy var router: ShowMoreRoutable = module.resolve(with: self)
     
     // MARK: - Internal variable
     
-    @Inject private var mailComposer: MailComposerType
+    @Inject private var module: ShowMoreModuleType
     @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
 }
 
 // MARK: - Interactions

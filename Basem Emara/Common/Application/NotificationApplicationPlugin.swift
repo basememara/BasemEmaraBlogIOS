@@ -15,10 +15,12 @@ import UserNotifications
 final class NotificationApplicationPlugin: NSObject, ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
-    @Inject var constants: ConstantsType
+    @Inject private var scenes: SceneModuleType
+    @Inject private var constants: ConstantsType
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
+        scenes: scenes,
         constants: constants
     )
 }

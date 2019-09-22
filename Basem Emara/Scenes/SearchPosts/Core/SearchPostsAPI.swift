@@ -13,7 +13,13 @@ import ZamzamUI
 // Scene namespace
 enum SearchPostsAPI {}
 
-protocol SearchPostsBusinessLogic: AppActionable {
+protocol SearchPostsModuleType {
+    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
+    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
+    func resolve(with viewController: UIViewController?) -> SearchPostsRoutable
+}
+
+protocol SearchPostsActionable: AppActionable {
     func fetchSearchResults(with request: PostsAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }

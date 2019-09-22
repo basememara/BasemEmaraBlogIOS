@@ -19,7 +19,14 @@ class AppDelegate: ApplicationPluggableDelegate {
                 CoreModule(),
                 AppModule(),
                 SceneModule(),
-                ShowBlogModule()
+                HomeModule(),
+                ShowBlogModule(),
+                ListFavoritesModule(),
+                ListPostsModule(),
+                ShowPostModule(),
+                SearchPostsModule(),
+                ListTermsModule(),
+                ShowMoreModule()
             ]),
             LoggerApplicationPlugin(),
             DataApplicationPlugin(),

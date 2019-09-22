@@ -7,10 +7,15 @@
 //
 
 import SwiftyPress
+import UIKit
 import ZamzamUI
 
 // Scene namespace
 enum HomeAPI {}
+
+protocol HomeModuleType {
+    func resolve(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable
+}
 
 protocol HomeDisplayable: class, AppDisplayable { // Controller
     
@@ -30,4 +35,12 @@ protocol HomeRoutable: AppRoutable { // Router
     
     func showSocial(for type: Social)
     func sendEmail(subject: String)
+}
+
+extension HomeAPI {
+    
+    struct RoutableInputs {
+        weak var viewController: UIViewController?
+        weak var listPostsDelegate: ListPostsDelegate?
+    }
 }

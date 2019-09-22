@@ -12,6 +12,7 @@ import SwiftyPress
 import ZamzamUI
 
 final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {
+    @Inject private var scenes: SceneModuleType
     @Inject private var postWorker: PostWorkerType
     @Inject private var taxonomyWorker: TaxonomyWorkerType
     @Inject private var constants: ConstantsType
@@ -19,6 +20,7 @@ final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
+        scenes: scenes,
         constants: constants
     )
 }
@@ -87,7 +89,8 @@ private extension DeepLinkApplicationPlugin {
     }
 }
 
-protocol DeepLinkRoutable: AppRoutable, HasScenes {
+protocol DeepLinkRoutable: AppRoutable {
+    var scenes: SceneModuleType { get }
     var constants: ConstantsType { get }
     
     func showPost(for id: Int)
@@ -125,10 +128,17 @@ extension DeepLinkRoutable {
 
 struct DeepLinkRouter: DeepLinkRoutable {
     weak var viewController: UIViewController?
+    
+    let scenes: SceneModuleType
     let constants: ConstantsType
     
-    init(viewController: UIViewController?, constants: ConstantsType) {
+    init(
+        viewController: UIViewController?,
+        scenes: SceneModuleType,
+        constants: ConstantsType
+    ) {
         self.viewController = viewController
+        self.scenes = scenes
         self.constants = constants
     }
 }

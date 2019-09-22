@@ -7,7 +7,12 @@
 //
 
 import SwiftyPress
+import UIKit
 import ZamzamUI
+
+protocol ShowMoreModuleType {
+    func resolve(with viewController: UIViewController?) -> ShowMoreRoutable
+}
 
 protocol ShowMoreRoutable: AppRoutable {
     func showSubscribe()

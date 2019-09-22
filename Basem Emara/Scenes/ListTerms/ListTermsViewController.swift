@@ -24,18 +24,12 @@ class ListTermsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var interactor: ListTermsBusinessLogic = ListTermsInteractor(
-        presenter: ListTermsPresenter(viewController: self),
-        taxonomyWorker: taxonomyWorker
-    )
-    
-    private lazy var router: ListTermsRoutable = ListTermsRouter(
-        viewController: self
-    )
+    private lazy var action: ListTermsActionable = module.resolve(with: self)
+    private lazy var router: ListTermsRoutable = module.resolve(with: self)
     
     // MARK: - Internal variable
     
-    @Inject private var taxonomyWorker: TaxonomyWorkerType
+    @Inject private var module: ListTermsModuleType
     
     private lazy var tableViewAdapter = TermsDataViewAdapter(
         for: tableView,
@@ -55,7 +49,7 @@ class ListTermsViewController: UIViewController {
 private extension ListTermsViewController {
     
     func loadData() {
-        interactor.fetchTerms(
+        action.fetchTerms(
             with: ListTermsAPI.FetchTermsRequest()
         )
     }
