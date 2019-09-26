@@ -10,8 +10,6 @@ import UIKit
 import SwiftyPress
 
 /// Dependency injector for overriding concrete scene factories.
-/// Inject delegates, parameters, interactors, presenters, routers,
-/// and so forth to override behavior in the next scene.
 protocol SceneModuleType {
     func startMain() -> UIViewController
     func showBlog() -> UIViewController

@@ -40,7 +40,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
         action: #selector(commentsTapped)
     )
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: ShowPostModuleType
     
@@ -56,7 +56,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     private lazy var constants: ConstantsType = module.component()
     private lazy var theme: Theme = module.component()
     
-    // MARK: - Internal variable
+    // MARK: - State
     
     private var viewModel: ShowPostAPI.ViewModel?
     private var history = [Int]()
@@ -65,7 +65,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     let application = UIApplication.shared
     var statusBar: UIView?
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension ShowPostViewController {
     
@@ -132,7 +132,7 @@ extension ShowPostViewController: ShowPostLoadable {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension ShowPostViewController: ShowPostDisplayable {
     

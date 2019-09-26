@@ -38,14 +38,14 @@ class SearchPostsViewController: UIViewController {
     
     @IBOutlet private var emptyPlaceholderView: UIView!
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: SearchPostsModuleType
     
     private lazy var action: SearchPostsActionable = module.component(with: self)
     private lazy var router: SearchPostsRoutable = module.component(with: self)
 
-    // MARK: - Internal variables
+    // MARK: - State
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
@@ -63,7 +63,7 @@ class SearchPostsViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 extension SearchPostsViewController {
     
@@ -113,7 +113,7 @@ extension SearchPostsViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension SearchPostsViewController: SearchPostsDisplayable {
 

@@ -18,7 +18,7 @@ class ShowSettingsViewController: UITableViewController {
     
     @IBOutlet private weak var themeSwitch: UISwitch!
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -28,7 +28,7 @@ class ShowSettingsViewController: UITableViewController {
     }
 }
 
-// MARK: - Nested types
+// MARK: - Subtypes
 
 extension ShowSettingsViewController: CellIdentifiable {
     

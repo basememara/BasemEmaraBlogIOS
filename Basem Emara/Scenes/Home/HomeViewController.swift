@@ -31,7 +31,7 @@ class HomeViewController: UITableViewController {
     private lazy var constants: ConstantsType = module.component()
     private lazy var theme: Theme = module.component()
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class HomeViewController: UITableViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension HomeViewController {
     
@@ -87,13 +87,13 @@ private extension HomeViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension HomeViewController: HomeDisplayable {
     
 }
 
-// MARK: - Nested types
+// MARK: - Subtypes
 
 extension HomeViewController: CellIdentifiable {
     

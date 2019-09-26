@@ -24,14 +24,14 @@ class ListFavoritesViewController: UIViewController {
     
     @IBOutlet private var emptyPlaceholderView: UIView!
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: ListFavoritesModuleType
     
     private lazy var action: ListFavoritesActionable = module.component(with: self)
     private lazy var router: ListFavoritesRoutable = module.component(with: self)
     
-    // MARK: - Internal variable
+    // MARK: - State
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
@@ -40,7 +40,7 @@ class ListFavoritesViewController: UIViewController {
     
     private var removedIDs = [Int]()
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class ListFavoritesViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension ListFavoritesViewController {
     
@@ -70,7 +70,7 @@ private extension ListFavoritesViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension ListFavoritesViewController: ListFavoritesDisplayable {
     

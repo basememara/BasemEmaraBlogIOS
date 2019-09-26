@@ -22,21 +22,21 @@ class ListTermsViewController: UIViewController {
         }
     }
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: ListTermsModuleType
     
     private lazy var action: ListTermsActionable = module.component(with: self)
     private lazy var router: ListTermsRoutable = module.component(with: self)
     
-    // MARK: - Internal variable
+    // MARK: - State
     
     private lazy var tableViewAdapter = TermsDataViewAdapter(
         for: tableView,
         delegate: self
     )
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ListTermsViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension ListTermsViewController {
     
@@ -55,7 +55,7 @@ private extension ListTermsViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension ListTermsViewController: ListTermsDisplayable {
     

@@ -13,7 +13,7 @@ import ZamzamUI
 
 class ShowMoreViewController: UITableViewController {
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: ShowMoreModuleType
     
@@ -38,7 +38,7 @@ private extension ShowMoreViewController {
     }
 }
 
-// MARK: - Nested types
+// MARK: - Subtypes
 
 extension ShowMoreViewController: CellIdentifiable {
     

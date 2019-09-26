@@ -23,7 +23,7 @@ class ListPostsViewController: UIViewController {
         }
     }
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var module: ListPostsModuleType
     
@@ -33,7 +33,7 @@ class ListPostsViewController: UIViewController {
     private lazy var constants: ConstantsType = module.component()
     private lazy var theme: Theme = module.component()
     
-    // MARK: - Internal variable
+    // MARK: - State
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,
@@ -47,7 +47,7 @@ class ListPostsViewController: UIViewController {
     
     weak var delegate: ListPostsDelegate?
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class ListPostsViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension ListPostsViewController {
     
@@ -112,7 +112,7 @@ private extension ListPostsViewController {
     }
 }
 
-// MARK: - Scene cycle
+// MARK: - Scene
 
 extension ListPostsViewController: ListPostsDisplayable {
     

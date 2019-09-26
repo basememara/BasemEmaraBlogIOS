@@ -10,7 +10,7 @@ import UIKit
 
 class MainSplitDetailViewController: MainViewController {
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class MainSplitDetailViewController: MainViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension MainSplitDetailViewController {
     

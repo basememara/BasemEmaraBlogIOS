@@ -12,7 +12,7 @@ import SwiftyPress
 
 class MainSplitViewController: UISplitViewController {
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
     @Inject private var appModule: SwiftyPressModule
     @Inject private var sceneModule: SceneModuleType
@@ -25,7 +25,7 @@ class MainSplitViewController: UISplitViewController {
     
     private lazy var theme: Theme = appModule.component()
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return theme.statusBarStyle

@@ -19,7 +19,7 @@ class PreviewPostViewController: UIViewController {
     @IBOutlet private weak var detailLabel: UILabel!
     @IBOutlet private weak var featuredImage: UIImageView!
     
-    // MARK: - Internal variable
+    // MARK: - Dependencies
     
     @Inject private var module: SwiftyPressModule
     
@@ -30,7 +30,7 @@ class PreviewPostViewController: UIViewController {
     var viewModel: PostsDataViewModel?
     weak var delegate: UIViewController?
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class PreviewPostViewController: UIViewController {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension PreviewPostViewController {
     
