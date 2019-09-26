@@ -12,22 +12,25 @@ import SwiftyPress
 import ZamzamUI
 
 struct HomeModule: HomeModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable {
+    func component(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable {
         HomeRouter(
             viewController: inputs.viewController,
             listPostsDelegate: inputs.listPostsDelegate,
-            scenes: resolve(),
-            mailComposer: resolve(),
-            constants: resolve(),
-            theme: resolve()
+            scenes: sceneModule,
+            mailComposer: appModule.component(),
+            constants: appModule.component(),
+            theme: appModule.component()
         )
     }
-}
-
-extension HomeModule: Module {
     
-    func register() {
-        make { self as HomeModuleType }
+    func component() -> ConstantsType {
+        appModule.component()
+    }
+    
+    func component() -> Theme {
+        appModule.component()
     }
 }

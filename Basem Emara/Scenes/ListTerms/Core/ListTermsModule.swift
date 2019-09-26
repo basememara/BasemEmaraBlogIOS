@@ -11,29 +11,24 @@ import Shank
 import SwiftyPress
 
 struct ListTermsModule: ListTermsModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
+    func component(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
         ListTermsAction(
-            presenter: resolve(with: viewController),
-            taxonomyWorker: resolve()
+            presenter: component(with: viewController),
+            taxonomyWorker: appModule.component()
         )
     }
     
-    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsPresentable {
+    func component(with viewController: ListTermsDisplayable?) -> ListTermsPresentable {
         ListTermsPresenter(viewController: viewController)
     }
     
-    func resolve(with viewController: UIViewController?) -> ListTermsRoutable {
+    func component(with viewController: UIViewController?) -> ListTermsRoutable {
         ListTermsRouter(
             viewController: viewController,
-            scenes: resolve()
+            scenes: sceneModule
         )
-    }
-}
-
-extension ListTermsModule: Module {
-    
-    func register() {
-        make { self as ListTermsModuleType }
     }
 }

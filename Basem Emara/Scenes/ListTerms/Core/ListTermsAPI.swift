@@ -14,9 +14,9 @@ import ZamzamUI
 enum ListTermsAPI {}
 
 protocol ListTermsModuleType {
-    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsActionable
-    func resolve(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
-    func resolve(with viewController: UIViewController?) -> ListTermsRoutable
+    func component(with viewController: ListTermsDisplayable?) -> ListTermsActionable
+    func component(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
+    func component(with viewController: UIViewController?) -> ListTermsRoutable
 }
 
 protocol ListTermsActionable: AppActionable {

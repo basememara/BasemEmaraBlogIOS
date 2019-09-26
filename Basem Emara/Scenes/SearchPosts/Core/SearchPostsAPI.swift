@@ -14,9 +14,9 @@ import ZamzamUI
 enum SearchPostsAPI {}
 
 protocol SearchPostsModuleType {
-    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
-    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
-    func resolve(with viewController: UIViewController?) -> SearchPostsRoutable
+    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
+    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
+    func component(with viewController: UIViewController?) -> SearchPostsRoutable
 }
 
 protocol SearchPostsActionable: AppActionable {

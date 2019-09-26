@@ -18,10 +18,6 @@ class ShowSettingsViewController: UITableViewController {
     
     @IBOutlet private weak var themeSwitch: UISwitch!
     
-    // MARK: - Internal variable
-    
-    @Inject private var preferences: PreferencesType
-    
     // MARK: - Controller cycle
     
     override func viewDidLayoutSubviews() {

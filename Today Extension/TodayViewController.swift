@@ -31,14 +31,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Internal variable
     
-    private let modules: [Module] = [
-        CoreModule(),
-        AppModule()
-    ]
+    private let container = Container {
+        Dependency { AppModule() as SwiftyPressModule }
+    }
     
-    @Inject private var dataWorker: DataWorkerType
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var mediaWorker: MediaWorkerType
+    @Inject private var module: SwiftyPressModule
+    
+    private lazy var dataWorker: DataWorkerType = module.component()
+    private lazy var postWorker: PostWorkerType = module.component()
+    private lazy var mediaWorker: MediaWorkerType = module.component()
     
     // MARK: - Controller cycle
     
@@ -62,7 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 private extension TodayViewController {
     
     func configure() {
-        modules.register()
+        container.build()
         dataWorker.configure()
         
         view.addGestureRecognizer(

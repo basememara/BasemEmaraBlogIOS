@@ -7,11 +7,25 @@
 //
 
 import Shank
+import SwiftyPress
 import ZamzamUI
 
 final class DependencyApplicationPlugin: ApplicationPlugin {
     
-    init(_ modules: [Module]) {
-        modules.register()
+    private let container = Container {
+        Dependency { AppModule() as SwiftyPressModule }
+        Dependency { SceneModule() as SceneModuleType }
+        Dependency { HomeModule() as HomeModuleType }
+        Dependency { ShowBlogModule() as ShowBlogModuleType }
+        Dependency { ListFavoritesModule() as ListFavoritesModuleType }
+        Dependency { ListPostsModule() as ListPostsModuleType }
+        Dependency { ShowPostModule() as ShowPostModuleType }
+        Dependency { SearchPostsModule() as SearchPostsModuleType }
+        Dependency { ListTermsModule() as ListTermsModuleType }
+        Dependency { ShowMoreModule() as ShowMoreModuleType }
+    }
+            
+    init() {
+        container.build()
     }
 }

@@ -12,7 +12,8 @@ import SwiftyPress
 import ZamzamUI
 
 final class DataApplicationPlugin: ApplicationPlugin {
-    @Inject private var dataWorker: DataWorkerType
+    @Inject private var module: SwiftyPressModule
+    private lazy var dataWorker: DataWorkerType = module.component()
 }
 
 extension DataApplicationPlugin {

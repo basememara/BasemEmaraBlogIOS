@@ -9,34 +9,43 @@
 import UIKit
 import Shank
 import SwiftyPress
+import ZamzamUI
 
 struct ShowBlogModule: ShowBlogModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
+    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
         ShowBlogAction(
-            presenter: resolve(with: viewController),
-            postWorker: resolve(),
-            mediaWorker: resolve(),
-            taxonomyWorker: resolve(),
-            preferences: resolve()
+            presenter: component(with: viewController),
+            postWorker: appModule.component(),
+            mediaWorker: appModule.component(),
+            taxonomyWorker: appModule.component(),
+            preferences: appModule.component()
         )
     }
     
-    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable {
+    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable {
         ShowBlogPresenter(viewController: viewController)
     }
     
-    func resolve(with viewController: UIViewController?) -> ShowBlogRoutable {
+    func component(with viewController: UIViewController?) -> ShowBlogRoutable {
         ShowBlogRouter(
             viewController: viewController,
-            scenes: resolve()
+            scenes: sceneModule
         )
     }
-}
-
-extension ShowBlogModule: Module {
     
-    func register() {
-        make { self as ShowBlogModuleType }
+    func component() -> ConstantsType {
+        appModule.component()
+    }
+    
+    func component() -> Theme {
+        appModule.component()
+    }
+    
+    func component() -> MailComposerType {
+        appModule.component()
+        
     }
 }

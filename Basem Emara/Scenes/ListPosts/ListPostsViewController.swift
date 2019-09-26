@@ -25,14 +25,15 @@ class ListPostsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var action: ListPostsActionable = module.resolve(with: self)
-    private lazy var router: ListPostsRoutable = module.resolve(with: self)
+    @Inject private var module: ListPostsModuleType
+    
+    private lazy var action: ListPostsActionable = module.component(with: self)
+    private lazy var router: ListPostsRoutable = module.component(with: self)
+    
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
     
     // MARK: - Internal variable
-    
-    @Inject private var module: ListPostsModuleType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,

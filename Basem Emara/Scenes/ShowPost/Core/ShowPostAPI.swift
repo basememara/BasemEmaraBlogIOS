@@ -14,9 +14,13 @@ import ZamzamUI
 enum ShowPostAPI {}
 
 protocol ShowPostModuleType {
-    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostActionable
-    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
-    func resolve(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable
+    func component(with viewController: ShowPostDisplayable?) -> ShowPostActionable
+    func component(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
+    func component(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable
+   
+    func component() -> NotificationCenter
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol ShowPostActionable: AppActionable {

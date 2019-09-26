@@ -14,9 +14,13 @@ import ZamzamUI
 enum ShowBlogAPI {}
 
 protocol ShowBlogModuleType {
-    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
-    func resolve(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
-    func resolve(with viewController: UIViewController?) -> ShowBlogRoutable
+    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
+    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
+    func component(with viewController: UIViewController?) -> ShowBlogRoutable
+    
+    func component() -> MailComposerType
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol ShowBlogActionable: AppActionable {

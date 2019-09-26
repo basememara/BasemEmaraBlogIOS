@@ -40,12 +40,12 @@ class SearchPostsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var action: SearchPostsActionable = module.resolve(with: self)
-    private lazy var router: SearchPostsRoutable = module.resolve(with: self)
+    @Inject private var module: SearchPostsModuleType
+    
+    private lazy var action: SearchPostsActionable = module.component(with: self)
+    private lazy var router: SearchPostsRoutable = module.component(with: self)
 
     // MARK: - Internal variables
-    
-    @Inject private var module: SearchPostsModuleType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,

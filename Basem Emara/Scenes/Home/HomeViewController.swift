@@ -17,20 +17,19 @@ class HomeViewController: UITableViewController {
     
     @IBOutlet private var headerView: UIView!
     
-    // MARK: - Scene variables
+    // MARK: - Dependencies
     
-    private lazy var router: HomeRoutable = module.resolve(
+    @Inject private var module: HomeModuleType
+    
+    private lazy var router: HomeRoutable = module.component(
         with: HomeAPI.RoutableInputs(
             viewController: self,
             listPostsDelegate: splitViewController as? ListPostsDelegate
         )
     )
     
-    // MARK: - Internal variable
-    
-    @Inject private var module: HomeModuleType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
     
     // MARK: - Controller cycle
     

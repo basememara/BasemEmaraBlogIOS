@@ -11,36 +11,43 @@ import Shank
 import SwiftyPress
 
 struct ShowPostModule: ShowPostModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
+    func component(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
         ShowPostAction(
-            presenter: resolve(with: viewController),
-            postWorker: resolve(),
-            mediaWorker: resolve(),
-            authorWorker: resolve(),
-            taxonomyWorker: resolve()
+            presenter: component(with: viewController),
+            postWorker: appModule.component(),
+            mediaWorker: appModule.component(),
+            authorWorker: appModule.component(),
+            taxonomyWorker: appModule.component()
         )
     }
     
-    func resolve(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
+    func component(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
         ShowPostPresenter(
             viewController: viewController,
-            constants: resolve()
+            constants: appModule.component()
         )
     }
     
-    func resolve(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable {
+    func component(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable {
         ShowPostRouter(
             viewController: inputs.viewController,
             listPostsDelegate: inputs.listPostsDelegate,
-            scenes: resolve()
+            scenes: sceneModule
         )
     }
-}
-
-extension ShowPostModule: Module {
     
-    func register() {
-        make { self as ShowPostModuleType }
+    func component() -> NotificationCenter {
+        appModule.component()
+    }
+    
+    func component() -> ConstantsType {
+        appModule.component()
+    }
+    
+    func component() -> Theme {
+        appModule.component()
     }
 }

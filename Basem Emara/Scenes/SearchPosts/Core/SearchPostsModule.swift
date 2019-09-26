@@ -11,30 +11,25 @@ import Shank
 import SwiftyPress
 
 struct SearchPostsModule: SearchPostsModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
+    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
         SearchPostsAction(
-            presenter: resolve(with: viewController),
-            postWorker: resolve(),
-            mediaWorker: resolve()
+            presenter: component(with: viewController),
+            postWorker: appModule.component(),
+            mediaWorker: appModule.component()
         )
     }
     
-    func resolve(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable {
+    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable {
         SearchPostsPresenter(viewController: viewController)
     }
     
-    func resolve(with viewController: UIViewController?) -> SearchPostsRoutable {
+    func component(with viewController: UIViewController?) -> SearchPostsRoutable {
         SearchPostsRouter(
             viewController: viewController,
-            scenes: resolve()
+            scenes: sceneModule
         )
-    }
-}
-
-extension SearchPostsModule: Module {
-    
-    func register() {
-        make { self as SearchPostsModuleType }
     }
 }

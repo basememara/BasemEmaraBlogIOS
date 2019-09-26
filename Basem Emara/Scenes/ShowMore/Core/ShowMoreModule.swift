@@ -11,21 +11,20 @@ import Shank
 import SwiftyPress
 
 struct ShowMoreModule: ShowMoreModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: UIViewController?) -> ShowMoreRoutable {
+    func component(with viewController: UIViewController?) -> ShowMoreRoutable {
         ShowMoreRouter(
             viewController: viewController,
-            scenes: resolve(),
-            constants: resolve(),
-            mailComposer: resolve(),
-            theme: resolve()
+            scenes: sceneModule,
+            constants: appModule.component(),
+            mailComposer: appModule.component(),
+            theme: appModule.component()
         )
     }
-}
-
-extension ShowMoreModule: Module {
     
-    func register() {
-        make { self as ShowMoreModuleType }
+    func component() -> ConstantsType {
+        appModule.component()
     }
 }

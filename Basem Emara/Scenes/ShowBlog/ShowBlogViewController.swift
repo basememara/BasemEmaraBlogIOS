@@ -40,13 +40,13 @@ class ShowBlogViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    private lazy var action: ShowBlogActionable = module.resolve(with: self)
-    private(set) lazy var router: ShowBlogRoutable = module.resolve(with: self)
-    
     @Inject private var module: ShowBlogModuleType
-    @Inject private var mailComposer: MailComposerType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    
+    private lazy var action: ShowBlogActionable = module.component(with: self)
+    private(set) lazy var router: ShowBlogRoutable = module.component(with: self)
+    private lazy var mailComposer: MailComposerType = module.component()
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
     
     // MARK: - State
     

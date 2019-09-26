@@ -14,9 +14,9 @@ import ZamzamUI
 enum ListFavoritesAPI {}
 
 protocol ListFavoritesModuleType {
-    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
-    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
-    func resolve(with viewController: UIViewController?) -> ListFavoritesRoutable
+    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
+    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
+    func component(with viewController: UIViewController?) -> ListFavoritesRoutable
 }
 
 protocol ListFavoritesActionable: AppActionable {

@@ -18,7 +18,8 @@ import ZamzamUI
 final class BackgroundApplicationPlugin: ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
-    @Inject private var dataWorker: DataWorkerType
+    @Inject private var module: SwiftyPressModule
+    private lazy var dataWorker: DataWorkerType = module.component()
 }
 
 extension BackgroundApplicationPlugin {

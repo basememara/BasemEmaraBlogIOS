@@ -12,17 +12,18 @@ import SwiftyPress
 import ZamzamUI
 
 final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {
-    @Inject private var scenes: SceneModuleType
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var taxonomyWorker: TaxonomyWorkerType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
     private lazy var router: DeepLinkRoutable = DeepLinkRouter(
         viewController: UIWindow.current?.rootViewController,
-        scenes: scenes,
-        constants: constants
+        scenes: sceneModule,
+        constants: appModule.component()
     )
+    
+    private lazy var postWorker: PostWorkerType = appModule.component()
+    private lazy var taxonomyWorker: TaxonomyWorkerType = appModule.component()
+    private lazy var theme: Theme = appModule.component()
 }
 
 extension DeepLinkApplicationPlugin {

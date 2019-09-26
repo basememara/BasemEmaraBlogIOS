@@ -42,21 +42,21 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     // MARK: - Scene variables
     
-    private lazy var action: ShowPostActionable = module.resolve(with: self)
+    @Inject private var module: ShowPostModuleType
     
-    private lazy var router: ShowPostRoutable = module.resolve(
+    private lazy var action: ShowPostActionable = module.component(with: self)
+    private lazy var router: ShowPostRoutable = module.component(
         with: ShowPostAPI.RoutableInputs(
             viewController: self,
             listPostsDelegate: self
         )
     )
     
-    // MARK: - Internal variable
+    private lazy var notificationCenter: NotificationCenter = module.component()
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
     
-    @Inject private var module: ShowPostModuleType
-    @Inject private var notificationCenter: NotificationCenter
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    // MARK: - Internal variable
     
     private var viewModel: ShowPostAPI.ViewModel?
     private var history = [Int]()

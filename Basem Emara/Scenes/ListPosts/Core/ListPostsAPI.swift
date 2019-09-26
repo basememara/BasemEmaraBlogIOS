@@ -14,9 +14,12 @@ import ZamzamUI
 enum ListPostsAPI {}
 
 protocol ListPostsModuleType {
-    func resolve(with viewController: ListPostsDisplayable?) -> ListPostsActionable
-    func resolve(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
-    func resolve(with viewController: UIViewController?) -> ListPostsRoutable
+    func component(with viewController: ListPostsDisplayable?) -> ListPostsActionable
+    func component(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
+    func component(with viewController: UIViewController?) -> ListPostsRoutable
+    
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol ListPostsActionable: AppActionable {

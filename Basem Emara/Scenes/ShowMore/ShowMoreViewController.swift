@@ -15,12 +15,10 @@ class ShowMoreViewController: UITableViewController {
     
     // MARK: - Scene variables
     
-    private(set) lazy var router: ShowMoreRoutable = module.resolve(with: self)
-    
-    // MARK: - Internal variable
-    
     @Inject private var module: ShowMoreModuleType
-    @Inject private var constants: ConstantsType
+    
+    private(set) lazy var router: ShowMoreRoutable = module.component(with: self)
+    private lazy var constants: ConstantsType = module.component()
 }
 
 // MARK: - Interactions

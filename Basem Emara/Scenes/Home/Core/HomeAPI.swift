@@ -14,7 +14,9 @@ import ZamzamUI
 enum HomeAPI {}
 
 protocol HomeModuleType {
-    func resolve(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable
+    func component(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol HomeDisplayable: class, AppDisplayable { // Controller

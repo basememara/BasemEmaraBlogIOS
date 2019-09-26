@@ -11,30 +11,25 @@ import Shank
 import SwiftyPress
 
 struct ListFavoritesModule: ListFavoritesModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
+    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
         ListFavoritesAction(
-            presenter: resolve(with: viewController),
-            postWorker: resolve(),
-            mediaWorker: resolve()
+            presenter: component(with: viewController),
+            postWorker: appModule.component(),
+            mediaWorker: appModule.component()
         )
     }
     
-    func resolve(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable {
+    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable {
         ListFavoritesPresenter(viewController: viewController)
     }
     
-    func resolve(with viewController: UIViewController?) -> ListFavoritesRoutable {
+    func component(with viewController: UIViewController?) -> ListFavoritesRoutable {
         ListFavoritesRouter(
             viewController: viewController,
-            scenes: resolve()
+            scenes: sceneModule
         )
-    }
-}
-
-extension ListFavoritesModule: Module {
-    
-    func register() {
-        make { self as ListFavoritesModuleType }
     }
 }

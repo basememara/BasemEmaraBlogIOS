@@ -26,12 +26,12 @@ class ListFavoritesViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var action: ListFavoritesActionable = module.resolve(with: self)
-    private lazy var router: ListFavoritesRoutable = module.resolve(with: self)
+    @Inject private var module: ListFavoritesModuleType
+    
+    private lazy var action: ListFavoritesActionable = module.component(with: self)
+    private lazy var router: ListFavoritesRoutable = module.component(with: self)
     
     // MARK: - Internal variable
-    
-    @Inject private var module: ListFavoritesModuleType
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
         for: tableView,

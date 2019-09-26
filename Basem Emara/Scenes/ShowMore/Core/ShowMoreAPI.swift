@@ -11,7 +11,8 @@ import UIKit
 import ZamzamUI
 
 protocol ShowMoreModuleType {
-    func resolve(with viewController: UIViewController?) -> ShowMoreRoutable
+    func component(with viewController: UIViewController?) -> ShowMoreRoutable
+    func component() -> ConstantsType
 }
 
 protocol ShowMoreRoutable: AppRoutable {

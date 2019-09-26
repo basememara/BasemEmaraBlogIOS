@@ -14,17 +14,16 @@ class MainSplitViewController: UISplitViewController {
     
     // MARK: - Scene variables
     
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
+    
     private lazy var router: MainSplitRoutable = MainSplitRouter(
         viewController: self,
-        scenes: scenes,
-        constants: constants
+        scenes: sceneModule,
+        constants: appModule.component()
     )
     
-    // MARK: - Internal variable
-    
-    @Inject private var scenes: SceneModuleType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    private lazy var theme: Theme = appModule.component()
     
     // MARK: - Controller cycle
     

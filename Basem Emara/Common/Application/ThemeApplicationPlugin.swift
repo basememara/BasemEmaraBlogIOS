@@ -12,7 +12,8 @@ import SwiftyPress
 import ZamzamUI
 
 final class ThemeApplicationPlugin: ApplicationPlugin {
-    @Inject private var theme: Theme
+    @Inject private var module: SwiftyPressModule
+    private lazy var theme: Theme = module.component()
 }
 
 extension ThemeApplicationPlugin {

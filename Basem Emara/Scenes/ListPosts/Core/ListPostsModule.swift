@@ -11,30 +11,33 @@ import Shank
 import SwiftyPress
 
 struct ListPostsModule: ListPostsModuleType {
+    @Inject private var appModule: SwiftyPressModule
+    @Inject private var sceneModule: SceneModuleType
     
-    func resolve(with viewController: ListPostsDisplayable?) -> ListPostsActionable {
+    func component(with viewController: ListPostsDisplayable?) -> ListPostsActionable {
         ListPostsAction(
-            presenter: resolve(with: viewController),
-            postWorker: resolve(),
-            mediaWorker: resolve()
+            presenter: component(with: viewController),
+            postWorker: appModule.component(),
+            mediaWorker: appModule.component()
         )
     }
     
-    func resolve(with viewController: ListPostsDisplayable?) -> ListPostsPresentable {
+    func component(with viewController: ListPostsDisplayable?) -> ListPostsPresentable {
         ListPostsPresenter(viewController: viewController)
     }
     
-    func resolve(with viewController: UIViewController?) -> ListPostsRoutable {
+    func component(with viewController: UIViewController?) -> ListPostsRoutable {
         ListPostsRouter(
             viewController: viewController,
-            scenes: resolve()
+            scenes: sceneModule
         )
     }
-}
-
-extension ListPostsModule: Module {
     
-    func register() {
-        make { self as ListPostsModuleType }
+    func component() -> ConstantsType {
+        appModule.component()
+    }
+    
+    func component() -> Theme {
+        appModule.component()
     }
 }

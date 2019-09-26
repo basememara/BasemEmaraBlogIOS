@@ -24,12 +24,12 @@ class ListTermsViewController: UIViewController {
     
     // MARK: - Scene variables
     
-    private lazy var action: ListTermsActionable = module.resolve(with: self)
-    private lazy var router: ListTermsRoutable = module.resolve(with: self)
+    @Inject private var module: ListTermsModuleType
+    
+    private lazy var action: ListTermsActionable = module.component(with: self)
+    private lazy var router: ListTermsRoutable = module.component(with: self)
     
     // MARK: - Internal variable
-    
-    @Inject private var module: ListTermsModuleType
     
     private lazy var tableViewAdapter = TermsDataViewAdapter(
         for: tableView,

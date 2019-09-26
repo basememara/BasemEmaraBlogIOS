@@ -21,9 +21,11 @@ class PreviewPostViewController: UIViewController {
     
     // MARK: - Internal variable
     
-    @Inject private var postWorker: PostWorkerType
-    @Inject private var constants: ConstantsType
-    @Inject private var theme: Theme
+    @Inject private var module: SwiftyPressModule
+    
+    private lazy var postWorker: PostWorkerType = module.component()
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
     
     var viewModel: PostsDataViewModel?
     weak var delegate: UIViewController?
