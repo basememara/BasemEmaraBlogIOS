@@ -9,15 +9,30 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol TodayBusinessLogic {
-    func fetchLatestPosts(with request: TodayModels.Request)
+// Scene namespace
+enum TodayAPI {}
+
+protocol TodayActionable {
+    func fetchLatestPosts(with request: TodayAPI.Request)
 }
 
 protocol TodayPresentable {
-    func presentLatestPosts(for response: TodayModels.Response)
+    func presentLatestPosts(for response: TodayAPI.Response)
     func presentLatestPosts(error: DataError)
 }
 
 protocol TodayDisplayable: class, AppDisplayable {
     func displayLatestPosts(with viewModels: [PostsDataViewModel])
+}
+
+extension TodayAPI {
+    
+    struct Request {
+        let maxLength: Int
+    }
+    
+    struct Response {
+        let posts: [PostType]
+        let media: [MediaType]
+    }
 }

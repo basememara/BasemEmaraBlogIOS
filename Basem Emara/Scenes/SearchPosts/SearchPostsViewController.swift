@@ -54,7 +54,7 @@ class SearchPostsViewController: UIViewController {
     
     var searchText: String?
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

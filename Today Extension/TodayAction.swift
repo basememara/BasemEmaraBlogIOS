@@ -1,5 +1,5 @@
 //
-//  TodayInteractor.swift
+//  TodayAction.swift
 //  Today Extension
 //
 //  Created by Basem Emara on 2018-10-21.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct TodayInteractor: TodayBusinessLogic {
+struct TodayAction: TodayActionable {
     private let presenter: TodayPresentable
     private let postWorker: PostWorkerType
     private let mediaWorker: MediaWorkerType
@@ -24,7 +24,7 @@ struct TodayInteractor: TodayBusinessLogic {
     }
 }
 
-extension TodayInteractor {
+extension TodayAction {
     
     func fetchLatestPosts(with request: TodayModels.Request) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
