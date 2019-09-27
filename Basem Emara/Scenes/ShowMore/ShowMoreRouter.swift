@@ -48,7 +48,7 @@ extension ShowMoreRouter {
     }
     
     func showDevelopedBy() {
-        UIApplication.shared.open(constants.baseURL)
+        present(safari: constants.baseURL.absoluteString, theme: theme)
     }
 }
 
