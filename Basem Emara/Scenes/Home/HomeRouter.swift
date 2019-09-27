@@ -39,8 +39,7 @@ struct HomeRouter: HomeRoutable {
 extension HomeRouter {
     
     func showAbout() {
-        //show(pageSlug: "about", constants: constants, theme: theme)
-        show(safari: "https://iosmentor.io", theme: theme)
+        show(pageSlug: "about", constants: constants, theme: theme)
     }
     
     func showPortfolio() {
