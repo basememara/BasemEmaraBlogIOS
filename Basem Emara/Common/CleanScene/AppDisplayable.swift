@@ -13,8 +13,6 @@ import ZamzamUI
 extension AppDisplayable where Self: UIViewController {
     
     func endRefreshing() {
-        #if !(WIDGET_EXT)
-        hideSpinner()
-        #endif
+        // Override individually
     }
 }
