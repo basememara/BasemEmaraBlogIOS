@@ -53,6 +53,8 @@
 		8B33C4E321694BFA00658700 /* ListFavoritesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesAction.swift */; };
 		8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */; };
 		8B33C4E721694C1600658700 /* ListFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */; };
+		8B3E80EA233E5BA2003B624E /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */; };
+		8B3E80EC233E5BBF003B624E /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */; };
 		8B4291112173A43800BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291152173B0A500BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291162173B0AB00BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
@@ -167,12 +169,6 @@
 		8BF3018E2326AEA70058153D /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF301712326AD9A0058153D /* SimplePostTableViewCell.xib */; };
 		8BF3018F2326AEA70058153D /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF301602326AD740058153D /* TermTableViewCell.swift */; };
 		8BF301902326AEA70058153D /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF301772326ADB00058153D /* TermTableViewCell.xib */; };
-		8BF301912326B0860058153D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF301582326A3190058153D /* ZamzamCore.bundle */; };
-		8BF301922326B0870058153D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF301582326A3190058153D /* ZamzamCore.bundle */; };
-		8BF301932326B08A0058153D /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3014F2326A1470058153D /* SwiftyPress.bundle */; };
-		8BF301942326B08A0058153D /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3014F2326A1470058153D /* SwiftyPress.bundle */; };
-		8BF301992326B1330058153D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF301582326A3190058153D /* ZamzamCore.bundle */; };
-		8BF3019A2326B1330058153D /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3014F2326A1470058153D /* SwiftyPress.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +256,8 @@
 		8B33C4E221694BFA00658700 /* ListFavoritesAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesAction.swift; sourceTree = "<group>"; };
 		8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesPresenter.swift; sourceTree = "<group>"; };
 		8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesRouter.swift; sourceTree = "<group>"; };
+		8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/Basem_Emara-grqpznfkmdmkmzdyfrgethjwsdds/SourcePackages/checkouts/ZamzamCore/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/Basem_Emara-grqpznfkmdmkmzdyfrgethjwsdds/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B4291102173A43800BCB422 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B4439DD229881E900EC5575 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8B4439EB2298886200EC5575 /* Taxonomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
@@ -329,8 +327,6 @@
 		8BF2CCCA20B6D84A00C9C161 /* ShowMore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowMore.storyboard; sourceTree = "<group>"; };
 		8BF2CCCC20B6D85500C9C161 /* SearchPosts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPosts.storyboard; sourceTree = "<group>"; };
 		8BF3014D2326A0B70058153D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwiftyPress.bundle/Info.plist; sourceTree = "<group>"; };
-		8BF3014F2326A1470058153D /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
-		8BF301582326A3190058153D /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/Basem_Emara-grqpznfkmdmkmzdyfrgethjwsdds/SourcePackages/checkouts/ZamzamCore/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8BF301602326AD740058153D /* TermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
 		8BF301622326AD740058153D /* PopularPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF301632326AD740058153D /* PickedPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedPostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -506,8 +502,8 @@
 				8B0D644E20BEB0FC0046056F /* Basem Emara iOSTests */,
 				8B1DC0E720B1AFE1009FBBBD /* Frameworks */,
 				8B1DC0CC20B1AE0E009FBBBD /* Products */,
-				8BF301582326A3190058153D /* ZamzamCore.bundle */,
-				8BF3014F2326A1470058153D /* SwiftyPress.bundle */,
+				8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */,
+				8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1084,8 +1080,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF301992326B1330058153D /* ZamzamCore.bundle in Resources */,
-				8BF3019A2326B1330058153D /* SwiftyPress.bundle in Resources */,
+				8B3E80EA233E5BA2003B624E /* ZamzamCore.bundle in Resources */,
+				8B3E80EC233E5BBF003B624E /* SwiftyPress.bundle in Resources */,
 				8B2135CE217D541200E63F21 /* InfoPlist.strings in Resources */,
 				8B4291112173A43800BCB422 /* seed.json in Resources */,
 				8B2135CB217D541200E63F21 /* Localizable.strings in Resources */,
@@ -1118,8 +1114,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF301912326B0860058153D /* ZamzamCore.bundle in Resources */,
-				8BF301932326B08A0058153D /* SwiftyPress.bundle in Resources */,
 				8BF3017C2326AEA70058153D /* PickedPostCollectionViewCell.xib in Resources */,
 				8BF301802326AEA70058153D /* PostTableViewCell.xib in Resources */,
 				8BF301822326AEA70058153D /* SimplePostTableViewCell.xib in Resources */,
@@ -1138,8 +1132,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF301922326B0870058153D /* ZamzamCore.bundle in Resources */,
-				8BF301942326B08A0058153D /* SwiftyPress.bundle in Resources */,
 				8BF301882326AEA70058153D /* PickedPostCollectionViewCell.xib in Resources */,
 				8BF3018C2326AEA70058153D /* PostTableViewCell.xib in Resources */,
 				8BF3018E2326AEA70058153D /* SimplePostTableViewCell.xib in Resources */,
@@ -1560,7 +1552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Staging";
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1583,7 +1575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1603,7 +1595,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1626,7 +1618,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1649,7 +1641,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1672,7 +1664,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1758,7 +1750,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Staging";
 				CODE_SIGN_ENTITLEMENTS = "Basem Emara/Basem Emara.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Basem Emara/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1778,7 +1770,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Today Extension/Today Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1801,7 +1793,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Post Notification Extension/Post Notification Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				INFOPLIST_FILE = "Post Notification Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
