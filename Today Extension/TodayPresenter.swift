@@ -25,7 +25,7 @@ struct TodayPresenter: TodayPresentable {
 
 extension TodayPresenter {
     
-    func presentLatestPosts(for response: TodayModels.Response) {
+    func presentLatestPosts(for response: TodayAPI.Response) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,

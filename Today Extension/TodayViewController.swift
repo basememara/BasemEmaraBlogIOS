@@ -21,15 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet private weak var captionLabel: UILabel!
     @IBOutlet private weak var featuredImage: UIImageView!
     
-    // MARK: - VIP variables
-    
-    private lazy var interactor: TodayBusinessLogic = TodayInteractor(
-        presenter: TodayPresenter(viewController: self),
-        postWorker: postWorker,
-        mediaWorker: mediaWorker
-    )
-    
-    // MARK: - Internal variable
+    // MARK: - Dependencies
     
     private let container = Container {
         Dependency { AppModule() as SwiftyPressModule }
@@ -37,11 +29,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @Inject private var module: SwiftyPressModule
     
-    private lazy var dataWorker: DataWorkerType = module.component()
-    private lazy var postWorker: PostWorkerType = module.component()
-    private lazy var mediaWorker: MediaWorkerType = module.component()
+    private lazy var action: TodayActionable = TodayAction(
+        presenter: TodayPresenter(viewController: self),
+        postWorker: module.component(),
+        mediaWorker: module.component()
+    )
     
-    // MARK: - Controller cycle
+    private lazy var dataWorker: DataWorkerType = module.component()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +54,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension TodayViewController {
     
@@ -72,13 +68,13 @@ private extension TodayViewController {
     }
     
     func loadData() {
-        interactor.fetchLatestPosts(
-            with: TodayModels.Request(maxLength: 1)
+        action.fetchLatestPosts(
+            with: TodayAPI.Request(maxLength: 1)
         )
     }
 }
 
-// MARK: - VIP cycle
+// MARK: - Scene
 
 extension TodayViewController: TodayDisplayable {
     

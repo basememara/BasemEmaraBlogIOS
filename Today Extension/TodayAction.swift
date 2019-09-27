@@ -26,7 +26,7 @@ struct TodayAction: TodayActionable {
 
 extension TodayAction {
     
-    func fetchLatestPosts(with request: TodayModels.Request) {
+    func fetchLatestPosts(with request: TodayAPI.Request) {
         let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
         
         postWorker.fetch(with: request) {
@@ -44,7 +44,7 @@ extension TodayAction {
                 }
                 
                 self.presenter.presentLatestPosts(
-                    for: TodayModels.Response(
+                    for: TodayAPI.Response(
                         posts: posts,
                         media: media
                     )

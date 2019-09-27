@@ -29,10 +29,9 @@
 		8B1DC10320B1B0BF009FBBBD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DC10220B1B0BF009FBBBD /* NotificationViewController.swift */; };
 		8B1DC10620B1B0BF009FBBBD /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1DC10420B1B0BF009FBBBD /* Notification.storyboard */; };
 		8B1DC10A20B1B0BF009FBBBD /* Post Notification Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B1DC0FC20B1B0BF009FBBBD /* Post Notification Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8B21359F217CDAA200E63F21 /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21359E217CDAA200E63F21 /* TodayInteractor.swift */; };
+		8B21359F217CDAA200E63F21 /* TodayAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21359E217CDAA200E63F21 /* TodayAction.swift */; };
 		8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */; };
-		8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */; };
-		8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A5217CDAF300E63F21 /* TodayModels.swift */; };
+		8B2135A4217CDAE800E63F21 /* TodayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A3217CDAE800E63F21 /* TodayAPI.swift */; };
 		8B2135A8217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135A9217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135AA217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
@@ -246,10 +245,9 @@
 		8B1DC10E20B1B1F2009FBBBD /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara.entitlements"; sourceTree = "<group>"; };
 		8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Today Extension.entitlements"; sourceTree = "<group>"; };
 		8B1DC11420B1BE45009FBBBD /* Post Notification Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Post Notification Extension.entitlements"; sourceTree = "<group>"; };
-		8B21359E217CDAA200E63F21 /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
+		8B21359E217CDAA200E63F21 /* TodayAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAction.swift; sourceTree = "<group>"; };
 		8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
-		8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInterfaces.swift; sourceTree = "<group>"; };
-		8B2135A5217CDAF300E63F21 /* TodayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModels.swift; sourceTree = "<group>"; };
+		8B2135A3217CDAE800E63F21 /* TodayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAPI.swift; sourceTree = "<group>"; };
 		8B2135A7217CE18A00E63F21 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -487,10 +485,10 @@
 		8B1DC0EA20B1AFE1009FBBBD /* Today Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8B2135A2217CDADF00E63F21 /* Common */,
-				8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */,
-				8B21359E217CDAA200E63F21 /* TodayInteractor.swift */,
+				8B2135A3217CDAE800E63F21 /* TodayAPI.swift */,
+				8B21359E217CDAA200E63F21 /* TodayAction.swift */,
 				8B2135A0217CDABE00E63F21 /* TodayPresenter.swift */,
+				8B1DC0EB20B1AFE1009FBBBD /* TodayViewController.swift */,
 				8B1DC0ED20B1AFE1009FBBBD /* Today.storyboard */,
 				8B21359D217CD8A500E63F21 /* Supporting Files */,
 			);
@@ -541,15 +539,6 @@
 				8B1DC11320B1BDF8009FBBBD /* Today Extension.entitlements */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8B2135A2217CDADF00E63F21 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				8B2135A3217CDAE800E63F21 /* TodayInterfaces.swift */,
-				8B2135A5217CDAF300E63F21 /* TodayModels.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		8B2135D3217D5F2200E63F21 /* Supporting Files */ = {
@@ -1241,18 +1230,17 @@
 			files = (
 				8BF301832326AEA70058153D /* TermTableViewCell.swift in Sources */,
 				8B2135A1217CDABE00E63F21 /* TodayPresenter.swift in Sources */,
-				8B21359F217CDAA200E63F21 /* TodayInteractor.swift in Sources */,
+				8B21359F217CDAA200E63F21 /* TodayAction.swift in Sources */,
 				8BF3017F2326AEA70058153D /* PostTableViewCell.swift in Sources */,
 				8B1180EC21586D730071315B /* AppTheme.swift in Sources */,
 				8BF301792326AEA70058153D /* LatestPostCollectionViewCell.swift in Sources */,
 				8BF3017D2326AEA70058153D /* PopularPostCollectionViewCell.swift in Sources */,
-				8B2135A6217CDAF300E63F21 /* TodayModels.swift in Sources */,
 				8B1DC0EC20B1AFE1009FBBBD /* TodayViewController.swift in Sources */,
 				8B5AA805214364C000EA4E2F /* Localizable.swift in Sources */,
 				8B2135A9217CE18A00E63F21 /* AppModule.swift in Sources */,
 				8BF301812326AEA70058153D /* SimplePostTableViewCell.swift in Sources */,
 				8BB5755D22901E260079BE42 /* ShowBlogStyles.swift in Sources */,
-				8B2135A4217CDAE800E63F21 /* TodayInterfaces.swift in Sources */,
+				8B2135A4217CDAE800E63F21 /* TodayAPI.swift in Sources */,
 				8B1CC500217AEE1900F00A70 /* AppDisplayable.swift in Sources */,
 				8BF3017B2326AEA70058153D /* PickedPostCollectionViewCell.swift in Sources */,
 			);
