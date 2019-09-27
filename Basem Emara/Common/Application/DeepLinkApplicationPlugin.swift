@@ -85,7 +85,7 @@ private extension DeepLinkApplicationPlugin {
         
         // Failed so open in Safari as fallback
         let destination = url.appendingQueryItem("mobileembed", value: 1).absoluteString
-        router.show(safari: destination, theme: theme)
+        router.present(safari: destination, theme: theme)
         return true
     }
 }

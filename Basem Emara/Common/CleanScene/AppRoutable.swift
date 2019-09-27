@@ -59,18 +59,6 @@ extension AppRoutable {
     ///   - url: URL to display in the browser.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func show(safari url: String, theme: Theme) {
-        // Handle Safari display in split view differently
-        viewController?.splitViewController?.present(safari: url, theme: theme)
-            ?? viewController?.show(safari: url, theme: theme)
-    }
-    
-    /// Open Safari view controller overlay.
-    ///
-    /// - Parameters:
-    ///   - url: URL to display in the browser.
-    ///   - constants: The app constants.
-    ///   - theme: The style of the Safari view controller.
     func present(safari url: String, theme: Theme) {
         // Handle Safari display in split view differently
         viewController?.splitViewController?.present(safari: url, theme: theme)
@@ -83,13 +71,13 @@ extension AppRoutable {
     ///   - slug: The slug of the page.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func show(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
+    func present(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
         let url = constants.baseURL
             .appendingPathComponent(slug)
             .appendingQueryItem("mobileembed", value: 1)
             .absoluteString
         
-        show(safari: url, theme: theme)
+        present(safari: url, theme: theme)
     }
 }
 
