@@ -17,6 +17,9 @@ protocol ListFavoritesModuleType {
     func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
     func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
     func component(with viewController: UIViewController?) -> ListFavoritesRoutable
+    
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol ListFavoritesActionable: AppActionable {
@@ -38,7 +41,6 @@ protocol ListFavoritesDisplayable: class, AppDisplayable {
 
 protocol ListFavoritesRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
-    func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }
 
 extension ListFavoritesAPI {

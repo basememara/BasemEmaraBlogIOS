@@ -15,7 +15,6 @@ protocol SceneModuleType {
     func showBlog() -> UIViewController
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
-    func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController
     func listTerms() -> UIViewController
 }
 
@@ -57,13 +56,6 @@ extension SceneModule {
         return controller
     }
     
-    func previewPost(for model: PostsDataViewModel, delegate: UIViewController?) -> UIViewController {
-        let controller: PreviewPostViewController = .make(fromStoryboard: Storyboard.previewPost.rawValue)
-        controller.viewModel = model
-        controller.delegate = delegate
-        return controller
-    }
-    
     func listTerms() -> UIViewController {
         return .make(fromStoryboard: Storyboard.listTerms.rawValue)
     }
@@ -87,7 +79,6 @@ extension SceneModule {
         case showBlog = "ShowBlog"
         case listPosts = "ListPosts"
         case showPost = "ShowPost"
-        case previewPost = "PreviewPost"
         case listTerms = "ListTerms"
     }
 }

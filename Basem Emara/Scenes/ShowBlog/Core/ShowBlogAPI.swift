@@ -59,7 +59,6 @@ protocol ShowBlogRoutable: AppRoutable {
     func listPosts(params: ListPostsAPI.Params)
     func showPost(for model: PostsDataViewModel)
     func showPost(for id: Int)
-    func previewPost(for model: PostsDataViewModel) -> UIViewController?
     func listTerms()
 }
 

@@ -44,6 +44,7 @@ class ShowBlogViewController: UIViewController {
     
     private lazy var action: ShowBlogActionable = module.component(with: self)
     private(set) lazy var router: ShowBlogRoutable = module.component(with: self)
+    
     private lazy var mailComposer: MailComposerType = module.component()
     private lazy var constants: ConstantsType = module.component()
     private lazy var theme: Theme = module.component()
@@ -109,12 +110,6 @@ private extension ShowBlogViewController {
             spacing: 10,
             inset: 16
         )
-        
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: latestPostsCollectionView)
-            registerForPreviewing(with: self, sourceView: popularPostsCollectionView)
-            registerForPreviewing(with: self, sourceView: pickedPostsCollectionView)
-        }
     }
     
     func loadData() {
@@ -274,38 +269,15 @@ extension ShowBlogViewController: TermsDataViewDelegate {
     }
 }
 
-extension ShowBlogViewController: UIViewControllerPreviewingDelegate {
+@available(iOS 13.0, *)
+extension ShowBlogViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let collectionView = previewingContext.sourceView as? UICollectionView,
-            let indexPath = collectionView.indexPathForItem(at: location),
-            let cell = collectionView.cellForItem(at: indexPath) else {
-                return nil
-        }
-        
-        previewingContext.sourceRect = cell.frame
-        
-        guard let viewModel: PostsDataViewModel = {
-            switch collectionView {
-            case latestPostsCollectionView:
-                return latestPostsCollectionViewAdapter.viewModels?[indexPath.row]
-            case popularPostsCollectionView:
-                return popularPostsCollectionViewAdapter.viewModels?[indexPath.row]
-            case pickedPostsCollectionView:
-                return pickedPostsCollectionViewAdapter.viewModels?[indexPath.row]
-            default:
-                return nil
-            }
-        }() else {
-            return nil
-        }
-        
-        return router.previewPost(for: viewModel)
+    func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
-        router.showPost(for: viewModel)
+    func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
+        router.showPost(for: model.id)
     }
 }
 

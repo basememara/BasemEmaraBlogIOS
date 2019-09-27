@@ -44,6 +44,9 @@ class SearchPostsViewController: UIViewController {
     
     private lazy var action: SearchPostsActionable = module.component(with: self)
     private lazy var router: SearchPostsRoutable = module.component(with: self)
+    
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
 
     // MARK: - State
     
@@ -73,10 +76,6 @@ extension SearchPostsViewController {
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: tableView)
-        }
     }
     
     public func loadData() {
@@ -166,18 +165,14 @@ extension SearchPostsViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchPostsViewController: UIViewControllerPreviewingDelegate {
+@available(iOS 13.0, *)
+extension SearchPostsViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
-        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        
-        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
-        return router.previewPost(for: models)
+    func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
-        router.showPost(for: viewModel)
+    func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
+        router.showPost(for: model)
     }
 }

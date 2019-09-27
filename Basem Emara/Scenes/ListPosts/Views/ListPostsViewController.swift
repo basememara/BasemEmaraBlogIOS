@@ -75,10 +75,6 @@ private extension ListPostsViewController {
                 title = .localized(.postsByTermsTitle)
             }
         }
-        
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: tableView)
-        }
     }
     
     func loadData() {
@@ -134,9 +130,8 @@ extension ListPostsViewController: PostsDataViewDelegate {
             ?? router.showPost(for: model) // Pass data forward
     }
     
-    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
+    func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
         let isFavorite = action.isFavorite(postID: model.id)
-        let sender = tableView.cellForRow(at: indexPath) ?? tableView
         
         return UISwipeActionsConfiguration(
             actions: [
@@ -147,72 +142,20 @@ extension ListPostsViewController: PostsDataViewDelegate {
                 }.with {
                     $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
                     $0.backgroundColor = theme.tint
-                },
-                UIContextualAction(style: .normal, title: .localized(.moreTitle)) { _, _, completion in
-                    self.present(
-                        actionSheet: nil,
-                        popoverFrom: sender,
-                        additionalActions: [
-                            UIAlertAction(title: .localized(.commentsTitle)) {
-                                self.present(
-                                    safari: self.constants.baseURL
-                                        .appendingPathComponent("mobile-comments")
-                                        .appendingQueryItem("postid", value: model.id)
-                                        .absoluteString,
-                                    theme: self.theme
-                                )
-                            },
-                            UIAlertAction(title: .localized(.shareTitle)) {
-                                let safariActivity = UIActivity.make(
-                                    title: .localized(.openInSafari),
-                                    imageName: UIImage.ImageName.safariShare.rawValue,
-                                    handler: {
-                                        guard let url = URL(string: model.link),
-                                            SCNetworkReachability.isOnline else {
-                                                self.present(
-                                                    alert: .localized(.browserNotAvailableErrorTitle),
-                                                    message: .localized(.notConnectedToInternetErrorMessage)
-                                                )
-                                                
-                                                return
-                                        }
-                                        
-                                        UIApplication.shared.open(url)
-                                    }
-                                )
-                                
-                                self.present(
-                                    activities: [model.title.htmlDecoded, model.link],
-                                    popoverFrom: sender,
-                                    applicationActivities: [safariActivity]
-                                )
-                            }
-                        ],
-                        includeCancelAction: true
-                    )
-                    
-                    completion(true)
-                }.with {
-                    $0.image = UIImage(named: .more)
-                    $0.backgroundColor = theme.secondaryTint
                 }
             ]
         )
     }
 }
 
-extension ListPostsViewController: UIViewControllerPreviewingDelegate {
+@available(iOS 13.0, *)
+extension ListPostsViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
-        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        
-        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
-        return router.previewPost(for: models)
+    func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
-        router.showPost(for: viewModel)
+    func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
+        router.showPost(for: model)
     }
 }

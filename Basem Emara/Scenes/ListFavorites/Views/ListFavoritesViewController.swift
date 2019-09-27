@@ -31,6 +31,9 @@ class ListFavoritesViewController: UIViewController {
     private lazy var action: ListFavoritesActionable = module.component(with: self)
     private lazy var router: ListFavoritesRoutable = module.component(with: self)
     
+    private lazy var constants: ConstantsType = module.component()
+    private lazy var theme: Theme = module.component()
+    
     // MARK: - State
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
@@ -42,11 +45,6 @@ class ListFavoritesViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
@@ -56,12 +54,6 @@ class ListFavoritesViewController: UIViewController {
 // MARK: - Setup
 
 private extension ListFavoritesViewController {
-    
-    func configure() {
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: tableView)
-        }
-    }
     
     func loadData() {
         action.fetchFavoritePosts(
@@ -107,7 +99,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
         router.showPost(for: model)
     }
     
-    func postsDataView(trailingSwipeActionsForModel model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
+    func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
@@ -121,18 +113,14 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     }
 }
 
-extension ListFavoritesViewController: UIViewControllerPreviewingDelegate {
+@available(iOS 13.0, *)
+extension ListFavoritesViewController {
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
-        previewingContext.sourceRect = tableView.rectForRow(at: indexPath)
-        
-        guard let models = tableViewAdapter.viewModels?[indexPath.row] else { return nil }
-        return router.previewPost(for: models)
+    func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let viewModel = (viewControllerToCommit as? PreviewPostViewController)?.viewModel else { return }
-        router.showPost(for: viewModel)
+    func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
+        router.showPost(for: model)
     }
 }

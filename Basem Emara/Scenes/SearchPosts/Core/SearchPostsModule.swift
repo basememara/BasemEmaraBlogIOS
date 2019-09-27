@@ -32,4 +32,12 @@ struct SearchPostsModule: SearchPostsModuleType {
             scenes: sceneModule
         )
     }
+    
+    func component() -> ConstantsType {
+        appModule.component()
+    }
+    
+    func component() -> Theme {
+        appModule.component()
+    }
 }

@@ -35,10 +35,6 @@ extension ShowBlogRouter {
         viewController?.show(controller)
     }
     
-    func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        scenes.previewPost(for: model, delegate: viewController)
-    }
-    
     func listTerms() {
         let controller = scenes.listTerms()
         viewController?.show(controller)

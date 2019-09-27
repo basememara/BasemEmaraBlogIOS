@@ -25,8 +25,4 @@ extension ListFavoritesRouter {
         let controller = scenes.showPost(for: model.id)
         viewController?.show(controller)
     }
-    
-    func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        return scenes.previewPost(for: model, delegate: viewController)
-    }
 }

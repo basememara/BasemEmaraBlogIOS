@@ -17,6 +17,9 @@ protocol SearchPostsModuleType {
     func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
     func component(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
     func component(with viewController: UIViewController?) -> SearchPostsRoutable
+    
+    func component() -> ConstantsType
+    func component() -> Theme
 }
 
 protocol SearchPostsActionable: AppActionable {
@@ -35,7 +38,6 @@ protocol SearchPostsDisplayable: class, AppDisplayable {
 
 protocol SearchPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
-    func previewPost(for model: PostsDataViewModel) -> UIViewController?
 }
 
 extension SearchPostsAPI {
