@@ -216,7 +216,6 @@
 
 /* Begin PBXFileReference section */
 		8B00E41520B30F9300B20B2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8B00E41620B30F9300B20B2C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		8B0A28922133CE8A0008135D /* AppDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDisplayable.swift; sourceTree = "<group>"; };
 		8B0A28942133E3680008135D /* ShowBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogRouter.swift; sourceTree = "<group>"; };
 		8B0A28992133EBBB0008135D /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -388,7 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				8B87FC6B22859061004AC246 /* .swiftlint.yml */,
-				8B00E41620B30F9300B20B2C /* Cartfile */,
 				8B00E41520B30F9300B20B2C /* README.md */,
 			);
 			name = Meta;
