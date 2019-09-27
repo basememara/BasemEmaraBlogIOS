@@ -19,7 +19,9 @@ final class BackgroundApplicationPlugin: ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject private var module: SwiftyPressModule
+    
     private lazy var dataWorker: DataWorkerType = module.component()
+    private lazy var preferences: PreferencesType = module.component()
 }
 
 extension BackgroundApplicationPlugin {
@@ -44,6 +46,13 @@ extension BackgroundApplicationPlugin {
                 let post = value.posts.sorted(by: { $0.createdAt > $1.createdAt }).first else {
                     return completionHandler(.noData)
             }
+            
+            // Do not bother user again about post notified before
+            guard !self.preferences.notificationPostIDs.contains(post.id) else {
+                return completionHandler(.noData)
+            }
+            
+            self.preferences.notificationPostIDs.append(post.id)
             
             var attachments = [UNNotificationAttachment]()
             var mediaURL = ""

@@ -10,7 +10,7 @@ import ZamzamCore
 
 public extension PreferencesType {
     
-    /// Returns the current favorite posts.
+    /// Returns the posts notified to the user.
     var notificationPostIDs: [Int] {
         get { return get(.notificationPostIDs) ?? [] }
         set { set(newValue, forKey: .notificationPostIDs) }
