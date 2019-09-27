@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Shank
 import SystemConfiguration
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 class ListPostsViewController: UIViewController {

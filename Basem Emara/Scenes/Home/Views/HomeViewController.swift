@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Shank
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 class HomeViewController: UITableViewController {

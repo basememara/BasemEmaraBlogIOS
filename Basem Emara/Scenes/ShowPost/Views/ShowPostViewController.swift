@@ -9,8 +9,8 @@
 import UIKit
 import WebKit
 import SystemConfiguration
-import Shank
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 class ShowPostViewController: UIViewController, StatusBarable {

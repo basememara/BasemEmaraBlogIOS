@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Shank
 import SwiftyPress
+import ZamzamCore
 
 struct ShowPostModule: ShowPostModuleType {
     @Inject private var appModule: SwiftyPressModule

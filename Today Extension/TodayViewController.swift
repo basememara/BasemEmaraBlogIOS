@@ -8,8 +8,8 @@
 
 import UIKit
 import NotificationCenter
-import Shank
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 class TodayViewController: UIViewController, NCWidgetProviding {
