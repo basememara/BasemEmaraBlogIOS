@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Shank
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {

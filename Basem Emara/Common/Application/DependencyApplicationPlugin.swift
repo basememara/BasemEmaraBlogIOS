@@ -6,8 +6,8 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Shank
 import SwiftyPress
+import ZamzamCore
 import ZamzamUI
 
 final class DependencyApplicationPlugin: ApplicationPlugin {
