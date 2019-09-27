@@ -1871,7 +1871,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:ZamzamInc/SwiftyPress.git";
 			requirement = {
-				branch = feature/ios13;
+				branch = develop;
 				kind = branch;
 			};
 		};

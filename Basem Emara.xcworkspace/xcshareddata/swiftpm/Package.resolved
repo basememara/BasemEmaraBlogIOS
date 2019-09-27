@@ -77,8 +77,8 @@
         "package": "SwiftyPress",
         "repositoryURL": "git@github.com:ZamzamInc/SwiftyPress.git",
         "state": {
-          "branch": "feature/ios13",
-          "revision": "d32f2b9876f728ef7e182e265f024b0ee738c1a7",
+          "branch": "develop",
+          "revision": "bf27d63cdc92313124a1f455f3cb96a500235002",
           "version": null
         }
       },
