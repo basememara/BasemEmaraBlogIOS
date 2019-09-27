@@ -8,25 +8,28 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
-struct HomeRouter: HomeRoutable, HasScenes {
+struct HomeRouter: HomeRoutable {
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
+    private let scenes: SceneModuleType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
     
     init(
-        viewController: UIViewController,
+        viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
+        scenes: SceneModuleType,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme
     ) {
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
+        self.scenes = scenes
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme
@@ -36,11 +39,11 @@ struct HomeRouter: HomeRoutable, HasScenes {
 extension HomeRouter {
     
     func showAbout() {
-        show(pageSlug: "about", constants: constants, theme: theme)
+        present(pageSlug: "about", constants: constants, theme: theme)
     }
     
     func showPortfolio() {
-        show(pageSlug: "portfolio", constants: constants, theme: theme)
+        present(pageSlug: "portfolio", constants: constants, theme: theme)
     }
 }
 
@@ -85,19 +88,19 @@ extension HomeRouter {
 extension HomeRouter {
     
     func showCoursesArchitecture() {
-        show(safari: "https://iosmentor.io", theme: theme)
+        present(safari: "https://iosmentor.io", theme: theme)
     }
     
     func showCoursesFramework() {
-        show(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
+        present(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
     }
     
     func showConsultingDevelopment() {
-        show(safari: "https://zamzam.io", theme: theme)
+        present(safari: "https://zamzam.io", theme: theme)
     }
     
     func showConsultingMentorship() {
-        show(safari: "https://iosmentor.io/express/", theme: theme)
+        present(safari: "https://iosmentor.io/express/", theme: theme)
     }
 }
 

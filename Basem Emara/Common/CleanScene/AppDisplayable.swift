@@ -6,14 +6,13 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ZamzamKit
+import ZamzamUI
 
 extension AppDisplayable where Self: UIViewController {
     
     func endRefreshing() {
-        #if !(WIDGET_EXT)
-        hideSpinner()
-        #endif
+        // Override individually
     }
 }

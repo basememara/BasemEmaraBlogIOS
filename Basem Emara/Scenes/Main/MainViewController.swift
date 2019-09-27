@@ -8,11 +8,11 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamCore
 
 class MainViewController: UITabBarController {
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,22 +9,20 @@
 import UIKit
 import SwiftyPress
 
-struct ListFavoritesRouter: HasScenes {
+struct ListFavoritesRouter: ListFavoritesRoutable {
     weak var viewController: UIViewController?
+    private let scenes: SceneModuleType
     
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController?, scenes: SceneModuleType) {
         self.viewController = viewController
+        self.scenes = scenes
     }
 }
 
-extension ListFavoritesRouter: ListFavoritesRoutable {
+extension ListFavoritesRouter {
     
     func showPost(for model: PostsDataViewModel) {
         let controller = scenes.showPost(for: model.id)
         viewController?.show(controller)
-    }
-    
-    func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        return scenes.previewPost(for: model, delegate: viewController)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 extension AppRoutable {
     
@@ -20,7 +20,7 @@ extension AppRoutable {
     ///   - completion: Completion the view controller after it is loaded.
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
-    func show<T: UIViewController>(tab: SceneConfigurator.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
+    func show<T: UIViewController>(tab: SceneModule.Tab, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
         // Handle tab bar controller in split view differently
         guard let splitViewController: UISplitViewController =
             viewController as? UISplitViewController
@@ -59,18 +59,6 @@ extension AppRoutable {
     ///   - url: URL to display in the browser.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func show(safari url: String, theme: Theme) {
-        // Handle Safari display in split view differently
-        viewController?.splitViewController?.present(safari: url, theme: theme)
-            ?? viewController?.show(safari: url, theme: theme)
-    }
-    
-    /// Open Safari view controller overlay.
-    ///
-    /// - Parameters:
-    ///   - url: URL to display in the browser.
-    ///   - constants: The app constants.
-    ///   - theme: The style of the Safari view controller.
     func present(safari url: String, theme: Theme) {
         // Handle Safari display in split view differently
         viewController?.splitViewController?.present(safari: url, theme: theme)
@@ -83,13 +71,13 @@ extension AppRoutable {
     ///   - slug: The slug of the page.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func show(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
+    func present(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
         let url = constants.baseURL
             .appendingPathComponent(slug)
             .appendingQueryItem("mobileembed", value: 1)
             .absoluteString
         
-        show(safari: url, theme: theme)
+        present(safari: url, theme: theme)
     }
 }
 

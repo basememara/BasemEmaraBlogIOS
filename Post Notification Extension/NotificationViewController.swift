@@ -18,7 +18,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     @IBOutlet private var detailLabel: UILabel?
     @IBOutlet private var featuredImage: UIImageView?
     
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     func didReceive(_ notification: UNNotification) {
         titleLabel?.text = notification.request.content.title

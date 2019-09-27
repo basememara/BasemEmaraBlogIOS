@@ -8,22 +8,25 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
-struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
+struct ShowMoreRouter: ShowMoreRoutable {
     weak var viewController: UIViewController?
     
+    private let scenes: SceneModuleType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
     init(
-        viewController: UIViewController,
+        viewController: UIViewController?,
+        scenes: SceneModuleType,
         constants: ConstantsType,
         mailComposer: MailComposerType,
         theme: Theme
     ) {
         self.viewController = viewController
+        self.scenes = scenes
         self.constants = constants
         self.mailComposer = mailComposer
         self.theme = theme
@@ -33,11 +36,11 @@ struct ShowMoreRouter: ShowMoreRoutable, HasScenes {
 extension ShowMoreRouter {
     
     func showSubscribe() {
-        show(pageSlug: "subscribe", constants: constants, theme: theme)
+        present(pageSlug: "subscribe", constants: constants, theme: theme)
     }
     
     func showWorkWithMe() {
-        show(pageSlug: "resume", constants: constants, theme: theme)
+        present(pageSlug: "resume", constants: constants, theme: theme)
     }
     
     func showSocial(for type: Social) {
@@ -45,7 +48,7 @@ extension ShowMoreRouter {
     }
     
     func showDevelopedBy() {
-        UIApplication.shared.open(constants.baseURL)
+        present(safari: constants.baseURL.absoluteString, theme: theme)
     }
 }
 
@@ -57,8 +60,8 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        let controller = scenes.showSettings()
-        viewController?.show(controller)
+        guard let settings = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settings)
     }
 }
 

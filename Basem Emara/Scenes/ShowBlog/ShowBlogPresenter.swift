@@ -6,8 +6,9 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Foundation
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 struct ShowBlogPresenter: ShowBlogPresentable {
     private weak var viewController: ShowBlogDisplayable?
@@ -25,7 +26,7 @@ struct ShowBlogPresenter: ShowBlogPresentable {
 
 extension ShowBlogPresenter {
     
-    func presentLatestPosts(for response: ShowBlogModels.PostsResponse) {
+    func presentLatestPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -50,7 +51,7 @@ extension ShowBlogPresenter {
 
 extension ShowBlogPresenter {
     
-    func presentPopularPosts(for response: ShowBlogModels.PostsResponse) {
+    func presentPopularPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -75,7 +76,7 @@ extension ShowBlogPresenter {
 
 extension ShowBlogPresenter {
     
-    func presentTopPickPosts(for response: ShowBlogModels.PostsResponse) {
+    func presentTopPickPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -100,7 +101,7 @@ extension ShowBlogPresenter {
 
 extension ShowBlogPresenter {
     
-    func presentTerms(for response: ShowBlogModels.TermsResponse) {
+    func presentTerms(for response: ShowBlogAPI.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,
@@ -125,9 +126,9 @@ extension ShowBlogPresenter {
 
 extension ShowBlogPresenter {
     
-    func presentToggleFavorite(for response: ShowBlogModels.FavoriteResponse) {
+    func presentToggleFavorite(for response: ShowBlogAPI.FavoriteResponse) {
         viewController?.displayToggleFavorite(
-            with: ShowBlogModels.FavoriteViewModel(
+            with: ShowBlogAPI.FavoriteViewModel(
                 postID: response.postID,
                 favorite: response.favorite
             )

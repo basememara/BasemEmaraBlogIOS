@@ -9,22 +9,20 @@
 import UIKit
 import SwiftyPress
 
-struct ListPostsRouter: HasScenes {
+struct ListPostsRouter: ListPostsRoutable {
     weak var viewController: UIViewController?
+    private let scenes: SceneModuleType
     
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController?, scenes: SceneModuleType) {
         self.viewController = viewController
+        self.scenes = scenes
     }
 }
 
-extension ListPostsRouter: ListPostsRoutable {
+extension ListPostsRouter {
     
     func showPost(for model: PostsDataViewModel) {
         let controller = scenes.showPost(for: model.id)
         viewController?.show(controller)
-    }
-    
-    func previewPost(for model: PostsDataViewModel) -> UIViewController? {
-        return scenes.previewPost(for: model, delegate: viewController)
     }
 }

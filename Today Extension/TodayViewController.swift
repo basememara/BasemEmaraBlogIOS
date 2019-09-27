@@ -9,9 +9,10 @@
 import UIKit
 import NotificationCenter
 import SwiftyPress
-import ZamzamKit
+import ZamzamCore
+import ZamzamUI
 
-class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInjection, NCWidgetProviding {
+class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Controls
     
@@ -20,19 +21,23 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInject
     @IBOutlet private weak var captionLabel: UILabel!
     @IBOutlet private weak var featuredImage: UIImageView!
     
-    // MARK: - VIP variables
+    // MARK: - Dependencies
     
-    private lazy var interactor: TodayBusinessLogic = TodayInteractor(
+    private let container = Container {
+        Dependency { AppModule() as SwiftyPressModule }
+    }
+    
+    @Inject private var module: SwiftyPressModule
+    
+    private lazy var action: TodayActionable = TodayAction(
         presenter: TodayPresenter(viewController: self),
-        postWorker: dependencies.resolve(),
-        mediaWorker: dependencies.resolve()
+        postWorker: module.component(),
+        mediaWorker: module.component()
     )
     
-    // MARK: - Internal variable
+    private lazy var dataWorker: DataWorkerType = module.component()
     
-    private lazy var dataWorker: DataWorkerType = dependencies.resolve()
-    
-    // MARK: - Controller cycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,26 +54,27 @@ class TodayViewController: ControllerModuleDelegate, HasDependencies, CoreInject
     }
 }
 
-// MARK: - Events
+// MARK: - Setup
 
 private extension TodayViewController {
     
     func configure() {
-        inject(dependencies: AppConfigurator())
+        container.build()
         dataWorker.configure()
+        
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
         )
     }
     
     func loadData() {
-        interactor.fetchLatestPosts(
-            with: TodayModels.Request(maxLength: 1)
+        action.fetchLatestPosts(
+            with: TodayAPI.Request(maxLength: 1)
         )
     }
 }
 
-// MARK: - VIP cycle
+// MARK: - Scene
 
 extension TodayViewController: TodayDisplayable {
     

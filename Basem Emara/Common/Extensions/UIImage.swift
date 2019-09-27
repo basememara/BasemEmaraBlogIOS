@@ -23,5 +23,6 @@ extension UIImage {
         case favoriteFilled = "favorite-filled"
         case more = "more-icon"
         case comments = "comments"
+        case safariShare = "safari-share"
     }
 }

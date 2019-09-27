@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamKit
+import ZamzamUI
 
 struct SearchPostsPresenter: SearchPostsPresentable {
     private weak var viewController: SearchPostsDisplayable?
@@ -25,7 +25,7 @@ struct SearchPostsPresenter: SearchPostsPresentable {
 
 extension SearchPostsPresenter {
 
-    func presentSearchResults(for response: SearchPostsModels.Response) {
+    func presentSearchResults(for response: SearchPostsAPI.Response) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
