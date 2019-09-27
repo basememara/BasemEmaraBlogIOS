@@ -22,6 +22,10 @@ class ShowPostViewController: UIViewController, StatusBarable {
             webView.navigationDelegate = self
             webView.scrollView.delegate = self
             webView.scrollView.contentInset.bottom += 60
+            
+            // Workaround for not obeying light/dark mode
+            // https://forums.developer.apple.com/thread/121139#376669
+            webView.backgroundColor = .clear
         }
     }
     

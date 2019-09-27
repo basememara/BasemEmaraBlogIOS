@@ -13,6 +13,7 @@ import ZamzamUI
 // Scene namespace
 enum HomeAPI {}
 
+/// Container of dependencies needed to execute this feature.
 protocol HomeModuleType {
     func component(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable
     func component() -> ConstantsType
