@@ -60,8 +60,8 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        let controller = scenes.showSettings()
-        viewController?.show(controller)
+        guard let settings = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settings)
     }
 }
 

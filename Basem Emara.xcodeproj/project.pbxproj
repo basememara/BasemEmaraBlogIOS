@@ -122,8 +122,6 @@
 		8BBF81CB216B7C1400158DDE /* PreviewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */; };
 		8BBF81D8216BFD6200158DDE /* ShowMoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */; };
 		8BBF81DB216BFE7D00158DDE /* ShowMoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81DA216BFE7D00158DDE /* ShowMoreAPI.swift */; };
-		8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */; };
-		8BBF81E5216C0DC500158DDE /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */; };
 		8BC685E32308F95C00B43139 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC685E22308F95C00B43139 /* Theme.xcassets */; };
 		8BD7BA3F22916EA3000AB0AE /* MainSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD7BA3E22916EA3000AB0AE /* MainSplit.storyboard */; };
 		8BEEEF33212330F900A6AF99 /* ShowBlogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEEF32212330F900A6AF99 /* ShowBlogAPI.swift */; };
@@ -325,8 +323,6 @@
 		8BBF81CA216B7C1400158DDE /* PreviewPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewPost.storyboard; sourceTree = "<group>"; };
 		8BBF81D7216BFD6200158DDE /* ShowMoreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreRouter.swift; sourceTree = "<group>"; };
 		8BBF81DA216BFE7D00158DDE /* ShowMoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreAPI.swift; sourceTree = "<group>"; };
-		8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
-		8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
 		8BC685E22308F95C00B43139 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		8BD7BA3E22916EA3000AB0AE /* MainSplit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainSplit.storyboard; sourceTree = "<group>"; };
 		8BEEEF32212330F900A6AF99 /* ShowBlogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogAPI.swift; sourceTree = "<group>"; };
@@ -524,7 +520,6 @@
 				8B4D719E216A4030002ACA81 /* SearchPosts */,
 				8B63A2AF2163AEDA003868F7 /* ListTerms */,
 				8B52641F20D7C96700170875 /* ShowMore */,
-				8BBF81E1216C0D5900158DDE /* ShowSettings */,
 				8B1DC0D920B1AE10009FBBBD /* LaunchScreen.storyboard */,
 				8BB5755722901A540079BE42 /* SceneModule.swift */,
 			);
@@ -814,15 +809,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		8BBF81E1216C0D5900158DDE /* ShowSettings */ = {
-			isa = PBXGroup;
-			children = (
-				8BBF81E2216C0DA800158DDE /* ShowSettingsViewController.swift */,
-				8BBF81E4216C0DC500158DDE /* ShowSettings.storyboard */,
-			);
-			path = ShowSettings;
-			sourceTree = "<group>";
-		};
 		8BEEEF312123300E00A6AF99 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,7 +1058,6 @@
 				8BD7BA3F22916EA3000AB0AE /* MainSplit.storyboard in Resources */,
 				8BF301782326ADB00058153D /* TermTableViewCell.xib in Resources */,
 				8BF2CCCB20B6D84A00C9C161 /* ShowMore.storyboard in Resources */,
-				8BBF81E5216C0DC500158DDE /* ShowSettings.storyboard in Resources */,
 				8BF301732326AD9A0058153D /* PostTableViewCell.xib in Resources */,
 				8BF301742326AD9A0058153D /* LatestPostCollectionViewCell.xib in Resources */,
 				8B1DC0DB20B1AE10009FBBBD /* LaunchScreen.storyboard in Resources */,
@@ -1216,7 +1201,6 @@
 				8BF301682326AD740058153D /* PopularPostCollectionViewCell.swift in Sources */,
 				8B2135B0217CEC3800E63F21 /* MainSplitViewController.swift in Sources */,
 				8B6B0CB8219D2D9A0018F2E0 /* AppDisplayable+Spinner.swift in Sources */,
-				8BBF81E3216C0DA800158DDE /* ShowSettingsViewController.swift in Sources */,
 				8BEEEF392123506B00A6AF99 /* ShowBlogPresenter.swift in Sources */,
 				8B2135D2217D565200E63F21 /* DeepLinkApplicationPlugin.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,

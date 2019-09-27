@@ -49,7 +49,7 @@ extension ShowMoreViewController: CellIdentifiable {
         case rate
         case share
         case notifications
-        case settings
+        case ios
         case developedBy
     }
 }
@@ -97,7 +97,7 @@ extension ShowMoreViewController {
                     
                     self?.present(alert: "You have registered to receive notifications.")
                 }
-        case .settings:
+        case .ios:
             router.showSettings()
         case .developedBy:
             router.showDevelopedBy()
