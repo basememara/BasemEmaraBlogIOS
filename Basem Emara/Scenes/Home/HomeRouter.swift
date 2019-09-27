@@ -39,11 +39,11 @@ struct HomeRouter: HomeRoutable {
 extension HomeRouter {
     
     func showAbout() {
-        show(pageSlug: "about", constants: constants, theme: theme)
+        present(pageSlug: "about", constants: constants, theme: theme)
     }
     
     func showPortfolio() {
-        show(pageSlug: "portfolio", constants: constants, theme: theme)
+        present(pageSlug: "portfolio", constants: constants, theme: theme)
     }
 }
 
@@ -88,19 +88,19 @@ extension HomeRouter {
 extension HomeRouter {
     
     func showCoursesArchitecture() {
-        show(safari: "https://iosmentor.io", theme: theme)
+        present(safari: "https://iosmentor.io", theme: theme)
     }
     
     func showCoursesFramework() {
-        show(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
+        present(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
     }
     
     func showConsultingDevelopment() {
-        show(safari: "https://zamzam.io", theme: theme)
+        present(safari: "https://zamzam.io", theme: theme)
     }
     
     func showConsultingMentorship() {
-        show(safari: "https://iosmentor.io/express/", theme: theme)
+        present(safari: "https://iosmentor.io/express/", theme: theme)
     }
 }
 

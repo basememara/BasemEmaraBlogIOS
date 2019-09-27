@@ -36,11 +36,11 @@ struct ShowMoreRouter: ShowMoreRoutable {
 extension ShowMoreRouter {
     
     func showSubscribe() {
-        show(pageSlug: "subscribe", constants: constants, theme: theme)
+        present(pageSlug: "subscribe", constants: constants, theme: theme)
     }
     
     func showWorkWithMe() {
-        show(pageSlug: "resume", constants: constants, theme: theme)
+        present(pageSlug: "resume", constants: constants, theme: theme)
     }
     
     func showSocial(for type: Social) {

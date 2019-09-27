@@ -187,11 +187,11 @@ private extension ShowBlogViewController {
             return
         }
         
-        show(safari: disclaimerURL, theme: theme)
+        present(safari: disclaimerURL, theme: theme)
     }
     
     @IBAction func privacyButtonTapped() {
-        show(safari: constants.privacyURL, theme: theme)
+        present(safari: constants.privacyURL, theme: theme)
     }
     
     @IBAction func contactButtonTapped() {
