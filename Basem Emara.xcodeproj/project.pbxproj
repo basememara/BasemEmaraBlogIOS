@@ -53,8 +53,6 @@
 		8B33C4E321694BFA00658700 /* ListFavoritesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E221694BFA00658700 /* ListFavoritesAction.swift */; };
 		8B33C4E521694C0B00658700 /* ListFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */; };
 		8B33C4E721694C1600658700 /* ListFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */; };
-		8B3E80EA233E5BA2003B624E /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */; };
-		8B3E80EC233E5BBF003B624E /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */; };
 		8B4291112173A43800BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291152173B0A500BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
 		8B4291162173B0AB00BCB422 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B4291102173A43800BCB422 /* seed.json */; };
@@ -101,6 +99,12 @@
 		8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */; };
 		8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */; };
 		8B6B7DD821EB92FC003FB20D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B7DD721EB92FC003FB20D /* UIViewController.swift */; };
+		8B85380B233F10F400D2BC80 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */; };
+		8B85380C233F10F400D2BC80 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */; };
+		8B85380D233F10F900D2BC80 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */; };
+		8B85380E233F10F900D2BC80 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */; };
+		8B85380F233F10FD00D2BC80 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */; };
+		8B853810233F10FD00D2BC80 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */; };
 		8B856E73217A716300B64E6C /* DataApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */; };
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
@@ -256,8 +260,6 @@
 		8B33C4E221694BFA00658700 /* ListFavoritesAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesAction.swift; sourceTree = "<group>"; };
 		8B33C4E421694C0B00658700 /* ListFavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesPresenter.swift; sourceTree = "<group>"; };
 		8B33C4E621694C1600658700 /* ListFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesRouter.swift; sourceTree = "<group>"; };
-		8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/Basem_Emara-grqpznfkmdmkmzdyfrgethjwsdds/SourcePackages/checkouts/ZamzamCore/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
-		8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/Basem_Emara-grqpznfkmdmkmzdyfrgethjwsdds/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B4291102173A43800BCB422 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B4439DD229881E900EC5575 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8B4439EB2298886200EC5575 /* Taxonomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
@@ -297,6 +299,8 @@
 		8B63A2D1216426C9003868F7 /* ShowPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostPresenter.swift; sourceTree = "<group>"; };
 		8B63A2D3216426D3003868F7 /* ShowPostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostRouter.swift; sourceTree = "<group>"; };
 		8B6B7DD721EB92FC003FB20D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
+		8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
 		8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B87FC6B22859061004AC246 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -502,8 +506,8 @@
 				8B0D644E20BEB0FC0046056F /* Basem Emara iOSTests */,
 				8B1DC0E720B1AFE1009FBBBD /* Frameworks */,
 				8B1DC0CC20B1AE0E009FBBBD /* Products */,
-				8B3E80EB233E5BBF003B624E /* SwiftyPress.bundle */,
-				8B3E80E9233E5BA2003B624E /* ZamzamCore.bundle */,
+				8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */,
+				8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1080,8 +1084,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B3E80EA233E5BA2003B624E /* ZamzamCore.bundle in Resources */,
-				8B3E80EC233E5BBF003B624E /* SwiftyPress.bundle in Resources */,
+				8B85380B233F10F400D2BC80 /* SwiftyPress.bundle in Resources */,
+				8B85380C233F10F400D2BC80 /* ZamzamCore.bundle in Resources */,
 				8B2135CE217D541200E63F21 /* InfoPlist.strings in Resources */,
 				8B4291112173A43800BCB422 /* seed.json in Resources */,
 				8B2135CB217D541200E63F21 /* Localizable.strings in Resources */,
@@ -1114,6 +1118,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B85380D233F10F900D2BC80 /* SwiftyPress.bundle in Resources */,
+				8B85380E233F10F900D2BC80 /* ZamzamCore.bundle in Resources */,
 				8BF3017C2326AEA70058153D /* PickedPostCollectionViewCell.xib in Resources */,
 				8BF301802326AEA70058153D /* PostTableViewCell.xib in Resources */,
 				8BF301822326AEA70058153D /* SimplePostTableViewCell.xib in Resources */,
@@ -1132,6 +1138,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B85380F233F10FD00D2BC80 /* SwiftyPress.bundle in Resources */,
+				8B853810233F10FD00D2BC80 /* ZamzamCore.bundle in Resources */,
 				8BF301882326AEA70058153D /* PickedPostCollectionViewCell.xib in Resources */,
 				8BF3018C2326AEA70058153D /* PostTableViewCell.xib in Resources */,
 				8BF3018E2326AEA70058153D /* SimplePostTableViewCell.xib in Resources */,
