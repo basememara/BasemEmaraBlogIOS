@@ -305,6 +305,7 @@
 		8B853812233F246900D2BC80 /* DeepLinkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAPI.swift; sourceTree = "<group>"; };
 		8B853814233F260300D2BC80 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
 		8B853816233F262300D2BC80 /* DeepLinkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkModule.swift; sourceTree = "<group>"; };
+		8B85381A2340170C00D2BC80 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8B856E72217A716300B64E6C /* DataPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPlugin.swift; sourceTree = "<group>"; };
 		8B87FC6B22859061004AC246 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -390,6 +391,7 @@
 		8B00E41420B30F8600B20B2C /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				8B85381A2340170C00D2BC80 /* .gitignore */,
 				8B87FC6B22859061004AC246 /* .swiftlint.yml */,
 				8B00E41520B30F9300B20B2C /* README.md */,
 			);
