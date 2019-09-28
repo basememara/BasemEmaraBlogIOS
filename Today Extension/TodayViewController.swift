@@ -23,8 +23,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Dependencies
     
-    private let container = Container {
-        Dependency { AppModule() as SwiftyPressModule }
+    private let container = Dependencies {
+        Module { AppModule() as SwiftyPressModule }
     }
     
     @Inject private var module: SwiftyPressModule

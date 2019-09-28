@@ -12,21 +12,21 @@ import ZamzamCore
 import ZamzamUI
 import UserNotifications
 
-final class NotificationApplicationPlugin: NSObject, ApplicationPlugin, Loggable {
+final class NotificationPlugin: NSObject, ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject private var deepLinkModule: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
 }
 
-extension NotificationApplicationPlugin {
+extension NotificationPlugin {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         application.applicationIconBadgeNumber = 0
     }
 }
 
-extension NotificationApplicationPlugin: UNUserNotificationCenterDelegate {
+extension NotificationPlugin: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         defer { completionHandler() }
@@ -53,7 +53,7 @@ extension NotificationApplicationPlugin: UNUserNotificationCenterDelegate {
     }
 }
 
-extension NotificationApplicationPlugin {
+extension NotificationPlugin {
     
     enum Category: String {
         case post = "postCategory"
@@ -64,7 +64,7 @@ extension NotificationApplicationPlugin {
     }
 }
 
-extension NotificationApplicationPlugin {
+extension NotificationPlugin {
     
     func register(completion: @escaping (Bool) -> Void) {
         userNotification.register(

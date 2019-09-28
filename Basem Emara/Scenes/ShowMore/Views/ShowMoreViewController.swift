@@ -86,7 +86,7 @@ extension ShowMoreViewController {
             present(activities: share, popoverFrom: cell)
         case .notifications:
             (UIApplication.shared.delegate as? AppDelegate)?.lazyPlugins
-                .compactMap { $0 as? NotificationApplicationPlugin }
+                .compactMap { $0 as? NotificationPlugin }
                 .first?
                 .register { [weak self] granted in
                     // TODO: Move to tutorial and localize

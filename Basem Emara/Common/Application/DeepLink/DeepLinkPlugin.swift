@@ -11,12 +11,12 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-final class DeepLinkApplicationPlugin: ApplicationPlugin, Loggable {
+final class DeepLinkPlugin: ApplicationPlugin, Loggable {
     @Inject private var module: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = module.component()
 }
 
-extension DeepLinkApplicationPlugin {
+extension DeepLinkPlugin {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let webpageURL = userActivity.webpageURL else {

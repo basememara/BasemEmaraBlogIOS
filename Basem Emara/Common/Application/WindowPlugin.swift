@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-final class WindowApplicationPlugin: ApplicationPlugin {
+final class WindowPlugin: ApplicationPlugin {
     private var window: UIWindow?
     
     @Inject private var scenes: SceneModuleType
@@ -21,7 +21,7 @@ final class WindowApplicationPlugin: ApplicationPlugin {
     }
 }
 
-extension WindowApplicationPlugin {
+extension WindowPlugin {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)

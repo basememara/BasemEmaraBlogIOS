@@ -15,14 +15,14 @@ class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {
         return [
-            DependencyApplicationPlugin(),
-            LoggerApplicationPlugin(),
-            DataApplicationPlugin(),
-            BackgroundApplicationPlugin(),
-            WindowApplicationPlugin(for: window),
-            ShortcutApplicationPlugin(),
-            NotificationApplicationPlugin(),
-            ThemeApplicationPlugin()
+            DependencyPlugin(),
+            LoggerPlugin(),
+            DataPlugin(),
+            BackgroundPlugin(),
+            WindowPlugin(for: window),
+            ShortcutPlugin(),
+            NotificationPlugin(),
+            ThemePlugin()
         ]
     }
 }
@@ -30,17 +30,17 @@ class AppDelegate: ApplicationPluggableDelegate {
 extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        lazyPlugins.compactMap { $0 as? BackgroundApplicationPlugin }.first?
+        lazyPlugins.compactMap { $0 as? BackgroundPlugin }.first?
             .application(application, performFetchWithCompletionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        lazyPlugins.compactMap { $0 as? ShortcutApplicationPlugin }.first?
+        lazyPlugins.compactMap { $0 as? ShortcutPlugin }.first?
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        return DeepLinkApplicationPlugin()
+        return DeepLinkPlugin()
             .application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }

@@ -11,12 +11,12 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-final class DataApplicationPlugin: ApplicationPlugin {
+final class DataPlugin: ApplicationPlugin {
     @Inject private var module: SwiftyPressModule
     private lazy var dataWorker: DataWorkerType = module.component()
 }
 
-extension DataApplicationPlugin {
+extension DataPlugin {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         dataWorker.configure()

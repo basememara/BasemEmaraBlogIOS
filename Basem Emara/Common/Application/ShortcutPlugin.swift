@@ -11,14 +11,14 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-final class ShortcutApplicationPlugin: ApplicationPlugin {
+final class ShortcutPlugin: ApplicationPlugin {
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
     @Inject private var deepLinkModule: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
 }
 
-extension ShortcutApplicationPlugin {
+extension ShortcutPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else {
@@ -40,7 +40,7 @@ extension ShortcutApplicationPlugin {
     }
 }
 
-private extension ShortcutApplicationPlugin {
+private extension ShortcutPlugin {
     
     /// Handle actions performed by home screen shortcuts
     /// - Returns: A Boolean value indicating whether or not the shortcut action succeeded.
@@ -61,7 +61,7 @@ private extension ShortcutApplicationPlugin {
     }
 }
 
-private extension ShortcutApplicationPlugin {
+private extension ShortcutPlugin {
     
     enum ShortcutItemType: String {
         case favorites
