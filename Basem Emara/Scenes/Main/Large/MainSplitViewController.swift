@@ -15,14 +15,9 @@ class MainSplitViewController: UISplitViewController {
     // MARK: - Dependencies
     
     @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var deepLinkModule: DeepLinkModuleType
     
-    private lazy var router: MainSplitRoutable = MainSplitRouter(
-        viewController: self,
-        scenes: sceneModule,
-        constants: appModule.component()
-    )
-    
+    private lazy var router: DeepLinkRoutable = deepLinkModule.component()
     private lazy var theme: Theme = appModule.component()
     
     // MARK: - Lifecycle

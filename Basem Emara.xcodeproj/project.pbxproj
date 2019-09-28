@@ -38,7 +38,6 @@
 		8B2135AA217CE18A00E63F21 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135A7217CE18A00E63F21 /* AppModule.swift */; };
 		8B2135AC217CE96900E63F21 /* ShortcutApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */; };
 		8B2135B0217CEC3800E63F21 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */; };
-		8B2135B2217CEC8D00E63F21 /* MainSplitRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */; };
 		8B2135B4217D49F800E63F21 /* NotificationApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */; };
 		8B2135CB217D541200E63F21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C7217D541100E63F21 /* Localizable.strings */; };
 		8B2135CC217D541200E63F21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B2135C7217D541100E63F21 /* Localizable.strings */; };
@@ -105,6 +104,9 @@
 		8B85380E233F10F900D2BC80 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */; };
 		8B85380F233F10FD00D2BC80 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */; };
 		8B853810233F10FD00D2BC80 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */; };
+		8B853813233F246900D2BC80 /* DeepLinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B853812233F246900D2BC80 /* DeepLinkAPI.swift */; };
+		8B853815233F260300D2BC80 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B853814233F260300D2BC80 /* DeepLinkRouter.swift */; };
+		8B853817233F262300D2BC80 /* DeepLinkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B853816233F262300D2BC80 /* DeepLinkModule.swift */; };
 		8B856E73217A716300B64E6C /* DataApplicationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */; };
 		8B8A2C9220D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
 		8B8A2C9320D6BC1F00E29992 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8A2C9120D6BC1F00E29992 /* Media.xcassets */; };
@@ -249,7 +251,6 @@
 		8B2135A7217CE18A00E63F21 /* AppModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
-		8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitRouter.swift; sourceTree = "<group>"; };
 		8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B2135C8217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
 		8B2135CA217D541100E63F21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Basem Emara/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
@@ -301,6 +302,9 @@
 		8B6B7DD721EB92FC003FB20D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8B8537FD233F0FFB00D2BC80 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
 		8B8537FF233F101600D2BC80 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
+		8B853812233F246900D2BC80 /* DeepLinkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkAPI.swift; sourceTree = "<group>"; };
+		8B853814233F260300D2BC80 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
+		8B853816233F262300D2BC80 /* DeepLinkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkModule.swift; sourceTree = "<group>"; };
 		8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApplicationPlugin.swift; sourceTree = "<group>"; };
 		8B87FC6B22859061004AC246 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B8A2C9120D6BC1F00E29992 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -771,6 +775,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8B853811233F243E00D2BC80 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				8B853812233F246900D2BC80 /* DeepLinkAPI.swift */,
+				8B853816233F262300D2BC80 /* DeepLinkModule.swift */,
+				8B853814233F260300D2BC80 /* DeepLinkRouter.swift */,
+				8B2135D1217D565200E63F21 /* DeepLinkApplicationPlugin.swift */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
 		8B8A2C9020D6BC0B00E29992 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +820,7 @@
 		8B9CE08A20D73C890077E4A0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				8B853811233F243E00D2BC80 /* DeepLink */,
 				8B9CE08B20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift */,
 				8B9CE08D20D73CB90077E4A0 /* LoggerApplicationPlugin.swift */,
 				8B856E72217A716300B64E6C /* DataApplicationPlugin.swift */,
@@ -813,7 +829,6 @@
 				8B2135AB217CE96900E63F21 /* ShortcutApplicationPlugin.swift */,
 				8B2135B3217D49F800E63F21 /* NotificationApplicationPlugin.swift */,
 				8B9CE09120D73CD40077E4A0 /* ThemeApplicationPlugin.swift */,
-				8B2135D1217D565200E63F21 /* DeepLinkApplicationPlugin.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -821,7 +836,6 @@
 		8BBD4C86229BEE050067144E /* Large */ = {
 			isa = PBXGroup;
 			children = (
-				8B2135B1217CEC8D00E63F21 /* MainSplitRouter.swift */,
 				8B2135AF217CEC3800E63F21 /* MainSplitViewController.swift */,
 				8BBD4CB5229C11680067144E /* MainSplitDetailViewController.swift */,
 				8BD7BA3E22916EA3000AB0AE /* MainSplit.storyboard */,
@@ -1202,6 +1216,7 @@
 				8BB5755C22901CBB0079BE42 /* ShowBlogStyles.swift in Sources */,
 				8B0A289A2133EBBB0008135D /* UIWindow.swift in Sources */,
 				8BBD4CB4229C0AC80067144E /* HomeAPI.swift in Sources */,
+				8B853813233F246900D2BC80 /* DeepLinkAPI.swift in Sources */,
 				8B63A2CC216426A1003868F7 /* ShowPostAPI.swift in Sources */,
 				8B9CE08C20D73CAA0077E4A0 /* DependencyApplicationPlugin.swift in Sources */,
 				8B5724382336B4E400F4CED6 /* ListFavoritesModule.swift in Sources */,
@@ -1238,6 +1253,7 @@
 				8BEEEF392123506B00A6AF99 /* ShowBlogPresenter.swift in Sources */,
 				8B2135D2217D565200E63F21 /* DeepLinkApplicationPlugin.swift in Sources */,
 				8BF2CCC120B6D78300C9C161 /* ShowMoreViewController.swift in Sources */,
+				8B853817233F262300D2BC80 /* DeepLinkModule.swift in Sources */,
 				8B33C4E321694BFA00658700 /* ListFavoritesAction.swift in Sources */,
 				8B0A28932133CE8A0008135D /* AppDisplayable.swift in Sources */,
 				8B0A28952133E3680008135D /* ShowBlogRouter.swift in Sources */,
@@ -1255,7 +1271,6 @@
 				8B2135AC217CE96900E63F21 /* ShortcutApplicationPlugin.swift in Sources */,
 				8B63A2C92163C838003868F7 /* ListPostsRouter.swift in Sources */,
 				8BF3016A2326AD740058153D /* SimplePostTableViewCell.swift in Sources */,
-				8B2135B2217CEC8D00E63F21 /* MainSplitRouter.swift in Sources */,
 				8BBF81DB216BFE7D00158DDE /* ShowMoreAPI.swift in Sources */,
 				8B5724422336B56E00F4CED6 /* ShowMoreModule.swift in Sources */,
 				8B63A2D2216426C9003868F7 /* ShowPostPresenter.swift in Sources */,
@@ -1263,6 +1278,7 @@
 				8B63A2D4216426D3003868F7 /* ShowPostRouter.swift in Sources */,
 				8BB6D98123364E9A00744FAD /* ShowBlogModule.swift in Sources */,
 				8BF3016C2326AD740058153D /* PostTableViewCell.swift in Sources */,
+				8B853815233F260300D2BC80 /* DeepLinkRouter.swift in Sources */,
 				8BB5755822901A540079BE42 /* SceneModule.swift in Sources */,
 				8BF2CCBF20B6D77100C9C161 /* ListFavoritesViewController.swift in Sources */,
 				8B5AA804214364C000EA4E2F /* Localizable.swift in Sources */,

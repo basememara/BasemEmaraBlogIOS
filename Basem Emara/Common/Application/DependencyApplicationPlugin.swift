@@ -15,6 +15,7 @@ final class DependencyApplicationPlugin: ApplicationPlugin {
     private let container = Container {
         Dependency { AppModule() as SwiftyPressModule }
         Dependency { SceneModule() as SceneModuleType }
+        Dependency { DeepLinkModule() as DeepLinkModuleType }
         Dependency { HomeModule() as HomeModuleType }
         Dependency { ShowBlogModule() as ShowBlogModuleType }
         Dependency { ListFavoritesModule() as ListFavoritesModuleType }

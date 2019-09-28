@@ -14,14 +14,8 @@ import ZamzamUI
 final class ShortcutApplicationPlugin: ApplicationPlugin {
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
-    
-    private lazy var router: DeepLinkRoutable = DeepLinkRouter(
-        viewController: UIWindow.current?.rootViewController,
-        scenes: sceneModule,
-        constants: appModule.component()
-    )
+    @Inject private var deepLinkModule: DeepLinkModuleType
+    private lazy var router: DeepLinkRoutable = deepLinkModule.component()
 }
 
 extension ShortcutApplicationPlugin {
