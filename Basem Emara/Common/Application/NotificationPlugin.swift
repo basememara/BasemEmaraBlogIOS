@@ -8,9 +8,8 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamCore
-import ZamzamUI
 import UserNotifications
+import ZamzamCore
 
 final class NotificationPlugin: NSObject, ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()

@@ -8,13 +8,13 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamUI
+import ZamzamCore
 
 @UIApplicationMain
 class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {
-        return [
+        [
             DependencyPlugin(),
             LoggerPlugin(),
             DataPlugin(),
@@ -40,7 +40,7 @@ extension AppDelegate {
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        return DeepLinkPlugin()
+        DeepLinkPlugin()
             .application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }

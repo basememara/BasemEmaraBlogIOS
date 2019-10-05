@@ -12,7 +12,6 @@ import UIKit
 import UserNotifications
 import ZamzamCore
 import ZamzamNotification
-import ZamzamUI
 
 final class BackgroundPlugin: ApplicationPlugin, Loggable {
     private let userNotification: UNUserNotificationCenter = .current()

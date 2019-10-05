@@ -85,7 +85,7 @@ extension ShowPostPresenter {
     }
     
     func presentPost(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.blogPostErrorTitle),
             message: error.localizedDescription
         )

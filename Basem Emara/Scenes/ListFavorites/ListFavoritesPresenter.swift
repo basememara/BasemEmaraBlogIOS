@@ -38,7 +38,7 @@ extension ListFavoritesPresenter {
     }
     
     func presentFavoritePosts(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )

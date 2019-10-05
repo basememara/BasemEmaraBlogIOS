@@ -39,7 +39,7 @@ extension TodayPresenter {
     }
     
     func presentLatestPosts(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )

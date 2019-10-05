@@ -51,17 +51,8 @@
         "repositoryURL": "git@github.com:SwiftyBeaver/SwiftyBeaver.git",
         "state": {
           "branch": null,
-          "revision": "62d53165ce78738dfdcb4fc32fe47ecdae0e6899",
+          "revision": "e47c8064d8348cc31f5d88da3e1973815dcc1f7a",
           "version": "1.8.0"
-        }
-      },
-      {
-        "package": "ZamzamKit",
-        "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
-        "state": {
-          "branch": "develop",
-          "revision": "059379dca779a66d76f7f76f951ffbac4b6ef876",
-          "version": null
         }
       }
     ]

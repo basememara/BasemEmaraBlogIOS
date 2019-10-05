@@ -12,7 +12,7 @@ public extension PreferencesType {
     
     /// Returns the posts notified to the user.
     var notificationPostIDs: [Int] {
-        get { return get(.notificationPostIDs) ?? [] }
+        get { get(.notificationPostIDs) ?? [] }
         set { set(newValue, forKey: .notificationPostIDs) }
     }
 }

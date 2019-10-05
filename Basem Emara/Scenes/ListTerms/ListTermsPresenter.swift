@@ -33,7 +33,7 @@ extension ListTermsPresenter {
     }
     
     func presentTerms(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )

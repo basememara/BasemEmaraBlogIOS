@@ -174,6 +174,6 @@ extension ListPostsAction {
     }
     
     func isFavorite(postID: Int) -> Bool {
-        return postWorker.hasFavorite(id: postID)
+        postWorker.hasFavorite(id: postID)
     }
 }

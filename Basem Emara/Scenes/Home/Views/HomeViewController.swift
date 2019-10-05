@@ -49,7 +49,7 @@ class HomeViewController: UITableViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return theme.statusBarStyle
+        theme.statusBarStyle
     }
 }
 

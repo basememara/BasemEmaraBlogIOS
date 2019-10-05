@@ -23,7 +23,7 @@ class MainSplitViewController: UISplitViewController {
     // MARK: - Lifecycle
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return theme.statusBarStyle
+        theme.statusBarStyle
     }
 }
 

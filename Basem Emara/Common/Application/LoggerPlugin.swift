@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamUI
+import ZamzamCore
 
 final class LoggerPlugin: ApplicationPlugin, Loggable {
     

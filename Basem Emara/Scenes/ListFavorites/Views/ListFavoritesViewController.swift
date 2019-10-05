@@ -100,7 +100,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
-        return UISwipeActionsConfiguration(
+        UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
                     self.action.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))

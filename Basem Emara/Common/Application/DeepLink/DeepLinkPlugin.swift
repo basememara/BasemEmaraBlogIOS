@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
 final class DeepLinkPlugin: ApplicationPlugin, Loggable {
     @Inject private var module: DeepLinkModuleType

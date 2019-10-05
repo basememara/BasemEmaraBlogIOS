@@ -21,7 +21,7 @@ protocol SceneModuleType {
 extension SceneModuleType {
     
     func listPosts(params: ListPostsAPI.Params) -> UIViewController {
-        return listPosts(params: params, delegate: nil)
+        listPosts(params: params, delegate: nil)
     }
 }
 
@@ -40,7 +40,7 @@ struct SceneModule: SceneModuleType {
 extension SceneModule {
     
     func showBlog() -> UIViewController {
-        return .make(fromStoryboard: Storyboard.showBlog.rawValue)
+        .make(fromStoryboard: Storyboard.showBlog.rawValue)
     }
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
@@ -57,7 +57,7 @@ extension SceneModule {
     }
     
     func listTerms() -> UIViewController {
-        return .make(fromStoryboard: Storyboard.listTerms.rawValue)
+        .make(fromStoryboard: Storyboard.listTerms.rawValue)
     }
 }
 

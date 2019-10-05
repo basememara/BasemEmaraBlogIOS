@@ -40,7 +40,7 @@ extension ShowBlogPresenter {
     }
     
     func presentLatestPosts(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -65,7 +65,7 @@ extension ShowBlogPresenter {
     }
     
     func presentPopularPosts(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -90,7 +90,7 @@ extension ShowBlogPresenter {
     }
     
     func presentTopPickPosts(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -115,7 +115,7 @@ extension ShowBlogPresenter {
     }
     
     func presentTerms(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )

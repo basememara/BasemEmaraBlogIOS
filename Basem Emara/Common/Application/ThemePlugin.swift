@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
 final class ThemePlugin: ApplicationPlugin {
     @Inject private var module: SwiftyPressModule

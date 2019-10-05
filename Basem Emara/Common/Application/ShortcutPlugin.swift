@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
 final class ShortcutPlugin: ApplicationPlugin {
     private var launchedShortcutItem: UIApplicationShortcutItem?

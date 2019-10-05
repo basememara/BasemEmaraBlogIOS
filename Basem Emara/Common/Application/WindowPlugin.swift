@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
 final class WindowPlugin: ApplicationPlugin {
     private var window: UIWindow?

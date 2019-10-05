@@ -225,6 +225,6 @@ private extension Theme {
 private extension Theme {
     
     var imageBorderWidthInCell: CGFloat {
-        return barStyle == .black ? 0 : 1
+        barStyle == .black ? 0 : 1
     }
 }

@@ -38,7 +38,7 @@ extension SearchPostsPresenter {
     }
     
     func presentSearchResults(error: DataError) {
-        let viewModel = AppModels.Error(
+        let viewModel = AppAPI.Error(
             title: .localized(.searchErrorTitle),
             message: error.localizedDescription
         )

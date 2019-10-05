@@ -8,7 +8,6 @@
 
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
 final class DependencyPlugin: ApplicationPlugin {
     
