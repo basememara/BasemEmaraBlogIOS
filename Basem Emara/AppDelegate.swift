@@ -13,34 +13,36 @@ import ZamzamCore
 @UIApplicationMain
 class AppDelegate: ApplicationPluggableDelegate {
 
-    override func plugins() -> [ApplicationPlugin] {
-        [
-            DependencyPlugin(),
-            LoggerPlugin(),
-            DataPlugin(),
-            BackgroundPlugin(),
-            WindowPlugin(for: window),
-            ShortcutPlugin(),
-            NotificationPlugin(),
-            ThemePlugin()
-        ]
+    private(set) lazy var plugins: [ApplicationPlugin] = [
+        DependencyPlugin(),
+        LoggerPlugin(),
+        DataPlugin(),
+        BackgroundPlugin(),
+        WindowPlugin(for: window),
+        ShortcutPlugin(),
+        NotificationPlugin(),
+        ThemePlugin()
+    ]
+
+    override init() {
+        super.init()
+        install(plugins)
     }
 }
 
 extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        lazyPlugins.compactMap { $0 as? BackgroundPlugin }.first?
+        plugins.compactMap { $0 as? BackgroundPlugin }.first?
             .application(application, performFetchWithCompletionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        lazyPlugins.compactMap { $0 as? ShortcutPlugin }.first?
+        plugins.compactMap { $0 as? ShortcutPlugin }.first?
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        DeepLinkPlugin()
-            .application(application, continue: userActivity, restorationHandler: restorationHandler)
+        DeepLinkPlugin().application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 }

@@ -85,7 +85,7 @@ extension ShowMoreViewController {
             let share = [message, constants.itunesURL]
             present(activities: share, popoverFrom: cell)
         case .notifications:
-            (UIApplication.shared.delegate as? AppDelegate)?.lazyPlugins
+            (UIApplication.shared.delegate as? AppDelegate)?.plugins
                 .compactMap { $0 as? NotificationPlugin }
                 .first?
                 .register { [weak self] granted in
