@@ -4,4 +4,10 @@
    <FileRef
       location = "container:BasemEmara.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../SwiftyPress">
+   </FileRef>
+   <FileRef
+      location = "group:../ZamzamKit">
+   </FileRef>
 </Workspace>
