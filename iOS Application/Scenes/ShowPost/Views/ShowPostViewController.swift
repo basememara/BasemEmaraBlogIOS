@@ -64,7 +64,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     // MARK: - State
     
     private var viewModel: ShowPostAPI.ViewModel?
-    private var history = [Int]()
+    private var history: [Int] = []
     
     var postID: Int?
     let application = UIApplication.shared

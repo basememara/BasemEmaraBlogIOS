@@ -52,7 +52,7 @@ extension BackgroundPlugin {
             
             self.preferences.notificationPostIDs.append(post.id)
             
-            var attachments = [UNNotificationAttachment]()
+            var attachments: [UNNotificationAttachment] = []
             var mediaURL = ""
             
             // Create local notification on exit

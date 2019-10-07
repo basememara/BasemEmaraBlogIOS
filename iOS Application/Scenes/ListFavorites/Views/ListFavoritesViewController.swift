@@ -41,7 +41,7 @@ class ListFavoritesViewController: UIViewController {
         delegate: self
     )
     
-    private var removedIDs = [Int]()
+    private var removedIDs: [Int] = []
     
     // MARK: - Lifecycle
     
