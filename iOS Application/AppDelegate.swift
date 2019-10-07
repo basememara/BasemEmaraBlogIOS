@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+}
+
+@available(iOS 13.0, *)
+extension AppDelegate {
 
     // MARK: UISceneSession Lifecycle
 
