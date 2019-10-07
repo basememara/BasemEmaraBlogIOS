@@ -1,8 +1,9 @@
 //
 //  NotificationViewController.swift
-//  BasemEmara iOS Notification
+//  Post Notification Extension
 //
-//  Created by Basem Emara on 2019-10-06.
+//  Created by Basem Emara on 2018-05-20.
+//  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
 import UIKit
@@ -11,15 +12,20 @@ import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
 
-    @IBOutlet var label: UILabel?
+    // MARK: - Controls
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any required interface initialization here.
-    }
+    @IBOutlet private var titleLabel: UILabel?
+    @IBOutlet private var detailLabel: UILabel?
+    @IBOutlet private var featuredImage: UIImageView?
+    
+    // MARK: - Lifecycle
     
     func didReceive(_ notification: UNNotification) {
-        self.label?.text = notification.request.content.body
+        titleLabel?.text = notification.request.content.title
+        detailLabel?.text = notification.request.content.body
+        featuredImage?.setImage(
+            from: notification.request.content.userInfo["mediaURL"] as? String
+        )
     }
 
 }
