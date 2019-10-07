@@ -78,9 +78,9 @@
 		8B42C70D234A6C7100F38E23 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		8B42C710234A6C7100F38E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8B42C712234A6C7100F38E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B42C719234A938100F38E23 /* Basem Emara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara.entitlements"; sourceTree = "<group>"; };
-		8B42C71A234A957F00F38E23 /* Basem Emara Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara Today.entitlements"; sourceTree = "<group>"; };
-		8B42C71B234A95C500F38E23 /* Basem Emara Notification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Basem Emara Notification.entitlements"; sourceTree = "<group>"; };
+		8B42C719234A938100F38E23 /* BasemEmara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasemEmara.entitlements; sourceTree = "<group>"; };
+		8B42C71A234A957F00F38E23 /* BasemEmaraToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasemEmaraToday.entitlements; sourceTree = "<group>"; };
+		8B42C71B234A95C500F38E23 /* BasemEmaraNotification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasemEmaraNotification.entitlements; sourceTree = "<group>"; };
 		8B42C724234A9BFB00F38E23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8B42C725234A9BFB00F38E23 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B42C726234A9BFB00F38E23 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		8B42C71C234A98D600F38E23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C719234A938100F38E23 /* Basem Emara.entitlements */,
+				8B42C719234A938100F38E23 /* BasemEmara.entitlements */,
 				8B42C6E9234A6BDB00F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -193,7 +193,7 @@
 		8B42C71D234A98DB00F38E23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C71A234A957F00F38E23 /* Basem Emara Today.entitlements */,
+				8B42C71A234A957F00F38E23 /* BasemEmaraToday.entitlements */,
 				8B42C6FB234A6C0E00F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -202,7 +202,7 @@
 		8B42C71E234A98E000F38E23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C71B234A95C500F38E23 /* Basem Emara Notification.entitlements */,
+				8B42C71B234A95C500F38E23 /* BasemEmaraNotification.entitlements */,
 				8B42C712234A6C7100F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -480,7 +480,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Application/Basem Emara.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Application/BasemEmara.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -554,7 +554,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Application/Basem Emara.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Application/BasemEmara.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -625,7 +625,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Today/Basem Emara Today.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
@@ -697,7 +697,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Today/Basem Emara Today.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
@@ -768,7 +768,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Notification/Basem Emara Notification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
@@ -840,7 +840,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Notification/Basem Emara Notification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
@@ -925,7 +925,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Application/Basem Emara.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Application/BasemEmara.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -997,7 +997,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Today/Basem Emara Today.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
@@ -1069,7 +1069,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "iOS Notification/Basem Emara Notification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 38;
