@@ -64,7 +64,9 @@ struct AppModule: SwiftyPressModule {
                 UserDefaults(
                     suiteName: {
                         switch environment {
-                        case .development, .staging:
+                        case .development:
+                            return "group.io.zamzam.Basem-Emara-dev"
+                        case .staging:
                             return "group.io.zamzam.Basem-Emara-staging"
                         case .production:
                             return "group.io.zamzam.Basem-Emara"
