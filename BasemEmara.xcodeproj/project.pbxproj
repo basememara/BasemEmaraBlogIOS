@@ -881,8 +881,8 @@
 		8B42C86E234BC2E200F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C881234BC6BB00F38E23 /* Today.storyboard */,
 				8B42C6F6234A6C0E00F38E23 /* TodayViewController.swift */,
+				8B42C881234BC6BB00F38E23 /* Today.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
