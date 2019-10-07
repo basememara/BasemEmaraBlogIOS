@@ -17,12 +17,12 @@
 		8B42C6F4234A6C0E00F38E23 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B42C6F3234A6C0E00F38E23 /* NotificationCenter.framework */; };
 		8B42C6F7234A6C0E00F38E23 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6F6234A6C0E00F38E23 /* TodayViewController.swift */; };
 		8B42C6FA234A6C0E00F38E23 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C6F8234A6C0E00F38E23 /* MainInterface.storyboard */; };
-		8B42C6FE234A6C0E00F38E23 /* Basem Emara Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C6F1234A6C0E00F38E23 /* Basem Emara Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B42C6FE234A6C0E00F38E23 /* BasemEmaraToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8B42C709234A6C7100F38E23 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B42C708234A6C7100F38E23 /* UserNotifications.framework */; };
 		8B42C70B234A6C7100F38E23 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B42C70A234A6C7100F38E23 /* UserNotificationsUI.framework */; };
 		8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C70D234A6C7100F38E23 /* NotificationViewController.swift */; };
 		8B42C711234A6C7100F38E23 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C70F234A6C7100F38E23 /* MainInterface.storyboard */; };
-		8B42C715234A6C7100F38E23 /* Basem Emara Notification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C707234A6C7100F38E23 /* Basem Emara Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8B42C715234A6C7100F38E23 /* BasemEmaraNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8B42C6FE234A6C0E00F38E23 /* Basem Emara Today.appex in Embed App Extensions */,
-				8B42C715234A6C7100F38E23 /* Basem Emara Notification.appex in Embed App Extensions */,
+				8B42C6FE234A6C0E00F38E23 /* BasemEmaraToday.appex in Embed App Extensions */,
+				8B42C715234A6C7100F38E23 /* BasemEmaraNotification.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B42C6D6234A6BDB00F38E23 /* BE Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BE Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B42C6DD234A6BDB00F38E23 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -67,12 +67,12 @@
 		8B42C6E4234A6BDB00F38E23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B42C6E7234A6BDB00F38E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B42C6E9234A6BDB00F38E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B42C6F1234A6C0E00F38E23 /* Basem Emara Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Basem Emara Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BasemEmaraToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C6F3234A6C0E00F38E23 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		8B42C6F6234A6C0E00F38E23 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		8B42C6F9234A6C0E00F38E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8B42C6FB234A6C0E00F38E23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B42C707234A6C7100F38E23 /* Basem Emara Notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Basem Emara Notification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BasemEmaraNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C708234A6C7100F38E23 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8B42C70A234A6C7100F38E23 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		8B42C70D234A6C7100F38E23 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -129,9 +129,9 @@
 		8B42C6D7234A6BDB00F38E23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C6D6234A6BDB00F38E23 /* BE Dev.app */,
-				8B42C6F1234A6C0E00F38E23 /* Basem Emara Today.appex */,
-				8B42C707234A6C7100F38E23 /* Basem Emara Notification.appex */,
+				8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */,
+				8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */,
+				8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			);
 			name = "BasemEmara iOS";
 			productName = "BasemEmara iOS";
-			productReference = 8B42C6D6234A6BDB00F38E23 /* BE Dev.app */;
+			productReference = 8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8B42C6F0234A6C0E00F38E23 /* BasemEmara iOS Today */ = {
@@ -255,7 +255,7 @@
 			);
 			name = "BasemEmara iOS Today";
 			productName = "BasemEmara iOS Today";
-			productReference = 8B42C6F1234A6C0E00F38E23 /* Basem Emara Today.appex */;
+			productReference = 8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		8B42C706234A6C7100F38E23 /* BasemEmara iOS Notification */ = {
@@ -272,7 +272,7 @@
 			);
 			name = "BasemEmara iOS Notification";
 			productName = "BasemEmara iOS Notification";
-			productReference = 8B42C707234A6C7100F38E23 /* Basem Emara Notification.appex */;
+			productReference = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -510,7 +510,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev";
 				PRODUCT_MODULE_NAME = BasemEmara;
-				PRODUCT_NAME = "$(APP_DISPLAY_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -581,7 +581,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
 				PRODUCT_MODULE_NAME = BasemEmara;
-				PRODUCT_NAME = "$(APP_DISPLAY_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -596,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "BE Dev Today";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -654,7 +655,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev.Today-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraToday;
-				PRODUCT_NAME = "Basem Emara Today";
+				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -667,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "Basem Emara Today";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -722,7 +724,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraToday;
-				PRODUCT_NAME = "Basem Emara Today";
+				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -737,6 +739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "BE Dev Notification";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -795,7 +798,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev.Post-Notification-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraNotification;
-				PRODUCT_NAME = "Basem Emara Notification";
+				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -808,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "Basem Emara Notification";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -863,7 +867,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraNotification;
-				PRODUCT_NAME = "Basem Emara Notification";
+				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -951,7 +955,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging";
 				PRODUCT_MODULE_NAME = BasemEmara;
-				PRODUCT_NAME = "$(APP_DISPLAY_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -964,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "BE Staging Today";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1022,7 +1027,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Today-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraToday;
-				PRODUCT_NAME = "Basem Emara Today";
+				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1035,6 +1040,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_DISPLAY_NAME = "BE Staging Notification";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1093,7 +1099,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Post-Notification-Extension";
 				PRODUCT_MODULE_NAME = BasemEmaraNotification;
-				PRODUCT_NAME = "Basem Emara Notification";
+				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
