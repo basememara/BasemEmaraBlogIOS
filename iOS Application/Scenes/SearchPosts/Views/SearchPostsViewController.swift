@@ -24,7 +24,7 @@ class SearchPostsViewController: UIViewController {
     
     private lazy var searchController = UISearchController(searchResultsController: nil).with {
         $0.searchResultsUpdater = self
-        $0.dimsBackgroundDuringPresentation = false
+        $0.obscuresBackgroundDuringPresentation = false
         $0.searchBar.delegate = self
         $0.searchBar.placeholder = .localized(.searchPlaceholder)
         $0.searchBar.scopeButtonTitles = [
