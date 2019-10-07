@@ -100,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B42C870234BC34C00F38E23 /* SwiftyPress in Frameworks */,
 				8B42C6F4234A6C0E00F38E23 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B42C70B234A6C7100F38E23 /* UserNotificationsUI.framework in Frameworks */,
+				8B42C872234BC35000F38E23 /* SwiftyPress in Frameworks */,
 				8B42C709234A6C7100F38E23 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +261,9 @@
 			dependencies = (
 			);
 			name = "BasemEmara iOS Today";
+			packageProductDependencies = (
+				8B42C86F234BC34C00F38E23 /* SwiftyPress */,
+			);
 			productName = "BasemEmara iOS Today";
 			productReference = 8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -276,6 +281,9 @@
 			dependencies = (
 			);
 			name = "BasemEmara iOS Notification";
+			packageProductDependencies = (
+				8B42C871234BC35000F38E23 /* SwiftyPress */,
+			);
 			productName = "BasemEmara iOS Notification";
 			productReference = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1174,6 +1182,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		8B42C728234BBB1300F38E23 /* SwiftyPress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			productName = SwiftyPress;
+		};
+		8B42C86F234BC34C00F38E23 /* SwiftyPress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			productName = SwiftyPress;
+		};
+		8B42C871234BC35000F38E23 /* SwiftyPress */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
 			productName = SwiftyPress;
