@@ -42,19 +42,19 @@ struct AppTheme: Theme {
 
 extension Theme {
     
-    func apply(for application: UIApplication) {
-        applyPlatform(for: application)
-        applyThemed(for: application)
-        applyCustom(for: application)
-        applyScenes(for: application)
+    func apply(for application: UIApplication?) {
+        application?.keyWindow?.tintColor = tint
+        
+        applyPlatform()
+        applyThemed()
+        applyCustom()
+        applyScenes()
     }
 }
 
 private extension Theme {
     
-    func applyPlatform(for application: UIApplication) {
-        application.keyWindow?.tintColor = tint
-        
+    func applyPlatform() {
         UITabBar.appearance().with {
             $0.barStyle = barStyle
             $0.tintColor = tint
@@ -102,7 +102,7 @@ private extension Theme {
 
 private extension Theme {
     
-    func applyThemed(for application: UIApplication) {
+    func applyThemed() {
         applyThemedViews()
         applyThemedLabels()
         applyThemedButtons()
@@ -186,7 +186,7 @@ private extension Theme {
     
 private extension Theme {
         
-    func applyCustom(for application: UIApplication) {
+    func applyCustom() {
         ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
             $0.backgroundColor = secondaryBackgroundColor
             $0.borderColor = separatorColor
@@ -215,7 +215,7 @@ private extension Theme {
 
 private extension Theme {
     
-    func applyScenes(for application: UIApplication) {
+    func applyScenes() {
         ShowBlogStyles.apply(self)
     }
 }
