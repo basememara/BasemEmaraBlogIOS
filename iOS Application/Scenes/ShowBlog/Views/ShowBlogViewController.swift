@@ -19,6 +19,7 @@ class ShowBlogViewController: UIViewController {
     @IBOutlet private weak var tagTitleLabel: UILabel!
     @IBOutlet private weak var picksTitleLabel: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView?
+    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private var titleView: UIView! // Needs strong reference, see storyboard
     
     @IBOutlet private weak var latestPostsCollectionView: UICollectionView! {
@@ -136,6 +137,7 @@ extension ShowBlogViewController: ShowBlogDisplayable {
     
     func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
         latestPostsCollectionViewAdapter.reloadData(with: viewModels)
+        endRefreshing()
     }
     
     func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
@@ -152,6 +154,10 @@ extension ShowBlogViewController: ShowBlogDisplayable {
     
     func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
         // Nothing to do
+    }
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
     }
 }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sqp-Od-GZN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sqp-Od-GZN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Blog-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
-                <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="BasemEmara" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODO-xw-sEA" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +250,9 @@
                                     <constraint firstAttribute="trailing" secondItem="Fnq-Th-VOv" secondAttribute="trailing" id="iW6-4L-FsF"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1At-5U-ED7">
+                                <rect key="frame" x="177.5" y="823.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -257,7 +260,9 @@
                             <constraint firstItem="Fnq-Th-VOv" firstAttribute="width" secondItem="ODO-xw-sEA" secondAttribute="width" id="8Tb-S6-wzD"/>
                             <constraint firstItem="dm0-16-rxd" firstAttribute="top" secondItem="ODO-xw-sEA" secondAttribute="top" id="8nu-UF-Pkf"/>
                             <constraint firstAttribute="trailing" secondItem="dm0-16-rxd" secondAttribute="trailing" id="ej7-XY-hxp"/>
+                            <constraint firstItem="1At-5U-ED7" firstAttribute="centerY" secondItem="ODO-xw-sEA" secondAttribute="centerY" id="fJe-j9-HKD"/>
                             <constraint firstItem="dm0-16-rxd" firstAttribute="leading" secondItem="ODO-xw-sEA" secondAttribute="leading" id="qpe-QN-goR"/>
+                            <constraint firstItem="1At-5U-ED7" firstAttribute="centerX" secondItem="ODO-xw-sEA" secondAttribute="centerX" id="wka-kz-2yT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
                     </view>
@@ -268,6 +273,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="1At-5U-ED7" id="QKw-lI-jhY"/>
                         <outlet property="latestPostsCollectionView" destination="dKu-FD-kTy" id="z6b-vR-EzW"/>
                         <outlet property="pickedPostsCollectionView" destination="dJZ-zQ-qJt" id="Js4-ZC-kef"/>
                         <outlet property="picksTitleLabel" destination="zaU-ob-DZz" id="UB1-sE-0dX"/>
