@@ -57,8 +57,18 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8B42C6F0234A6C0E00F38E23"
+            BuildableName = "BasemEmaraToday.appex"
+            BlueprintName = "BasemEmara iOS Today"
+            ReferencedContainer = "container:BasemEmara.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B42C6D5234A6BDB00F38E23"
@@ -66,7 +76,7 @@
             BlueprintName = "BasemEmara iOS"
             ReferencedContainer = "container:BasemEmara.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

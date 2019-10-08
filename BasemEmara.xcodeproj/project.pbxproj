@@ -175,6 +175,8 @@
 		8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B42C8B7234BDE4300F38E23 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */; };
 		8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
+		8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
+		8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1061,6 +1063,7 @@
 				8B42C86A234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C855234BC08A00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
+				8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */,
 				8B42C853234BC08A00F38E23 /* LatestPostCollectionViewCell.xib in Resources */,
 				8B42C89F234BCBFE00F38E23 /* Localizable.strings in Resources */,
 				8B42C848234BBFDC00F38E23 /* seed.json in Resources */,
@@ -1081,6 +1084,7 @@
 				8B42C86B234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C861234BC08B00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
+				8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */,
 				8B42C85F234BC08B00F38E23 /* LatestPostCollectionViewCell.xib in Resources */,
 				8B42C849234BBFE500F38E23 /* seed.json in Resources */,
 				8B42C8A0234BCBFE00F38E23 /* Localizable.strings in Resources */,
@@ -1384,7 +1388,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1456,7 +1460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
@@ -1529,7 +1533,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1599,7 +1603,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
@@ -1672,7 +1676,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1742,7 +1746,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
@@ -1829,7 +1833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1901,7 +1905,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1973,7 +1977,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.1.0;
+				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
