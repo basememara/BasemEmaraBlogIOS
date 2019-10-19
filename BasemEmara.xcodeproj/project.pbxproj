@@ -1310,6 +1310,7 @@
 		8B42C6D0234A69B900F38E23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_BUNDLE_ID = "io.zamzam.Basem-Emara-dev";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1349,6 +1350,7 @@
 		8B42C6D1234A69B900F38E23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_BUNDLE_ID = "io.zamzam.Basem-Emara";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1444,8 +1446,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev";
-				PRODUCT_MODULE_NAME = BasemEmara;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1515,8 +1516,7 @@
 				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara";
-				PRODUCT_MODULE_NAME = BasemEmara;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1589,8 +1589,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev.Today-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraToday;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Today-Extension";
 				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1658,8 +1657,7 @@
 				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Today-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraToday;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Today-Extension";
 				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1732,8 +1730,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-dev.Post-Notification-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Post-Notification-Extension";
 				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1801,8 +1798,7 @@
 				MARKETING_VERSION = 13.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara.Post-Notification-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Post-Notification-Extension";
 				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1817,6 +1813,7 @@
 		8B42C71F234A99EE00F38E23 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_BUNDLE_ID = "io.zamzam.Basem-Emara-staging";
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1914,8 +1911,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging";
-				PRODUCT_MODULE_NAME = BasemEmara;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = BasemEmara;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -1986,8 +1982,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Today-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraToday;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Today-Extension";
 				PRODUCT_NAME = BasemEmaraToday;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2058,8 +2053,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.zamzam.Basem-Emara-staging.Post-Notification-Extension";
-				PRODUCT_MODULE_NAME = BasemEmaraNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Post-Notification-Extension";
 				PRODUCT_NAME = BasemEmaraNotification;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
