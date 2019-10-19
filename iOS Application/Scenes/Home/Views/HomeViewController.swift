@@ -47,10 +47,6 @@ class HomeViewController: UITableViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        theme.statusBarStyle
-    }
 }
 
 // MARK: - Setup

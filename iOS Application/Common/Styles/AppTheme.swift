@@ -35,7 +35,7 @@ struct AppTheme: Theme {
     let negativeColor = UIColor(named: "negativeColor") ?? .red
     
     let isDarkStyle: Bool = {
-        guard #available(iOS 13.0, *) else { return false }
+        guard #available(iOS 13.0, *) else { return true }
         return UITraitCollection.current.userInterfaceStyle == .dark
     }()
 }
@@ -56,12 +56,10 @@ private extension Theme {
     
     func applyPlatform() {
         UITabBar.appearance().with {
-            $0.barStyle = barStyle
             $0.tintColor = tint
         }
         
         UINavigationBar.appearance().with {
-            $0.barStyle = barStyle
             $0.tintColor = tint
             $0.titleTextAttributes = [
                 .foregroundColor: labelColor
@@ -72,7 +70,7 @@ private extension Theme {
         }
         
         UIToolbar.appearance().with {
-            $0.barStyle = barStyle
+            $0.tintColor = tint
         }
         
         UICollectionView.appearance().backgroundColor = backgroundColor
@@ -87,8 +85,11 @@ private extension Theme {
             $0.selectionColor = secondaryBackgroundColor
         }
         
-        UITextField.appearance().keyboardAppearance = keyboardAppearance
-        
+        UITextField.appearance().with {
+            $0.backgroundColor = .white
+            $0.textColor = .black
+        }
+
         UIView.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .backgroundColor = tertiaryBackgroundColor
         
@@ -97,6 +98,9 @@ private extension Theme {
         
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = tertiaryLabelColor
+        
+        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self, UIViewController.self])
+            .tintColor = tint
     }
 }
 
@@ -134,6 +138,7 @@ private extension Theme {
     
     private func applyThemedButtons() {
         ThemedButton.appearance().with {
+            $0.setTitleColor(tint, for: .normal)
             $0.borderColor = tint
             $0.borderWidth = 1
             $0.cornerRadius = buttonCornerRadius
@@ -225,6 +230,6 @@ private extension Theme {
 private extension Theme {
     
     var imageBorderWidthInCell: CGFloat {
-        barStyle == .black ? 0 : 1
+        isDarkStyle ? 0 : 1
     }
 }

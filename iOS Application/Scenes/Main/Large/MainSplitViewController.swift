@@ -14,17 +14,8 @@ class MainSplitViewController: UISplitViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var appModule: SwiftyPressModule
     @Inject private var deepLinkModule: DeepLinkModuleType
-    
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
-    private lazy var theme: Theme = appModule.component()
-    
-    // MARK: - Lifecycle
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        theme.statusBarStyle
-    }
 }
 
 // MARK: - Delegates
