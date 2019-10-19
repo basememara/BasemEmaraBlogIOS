@@ -170,13 +170,13 @@
 		8B42C8A6234BCC0700F38E23 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C8A4234BCC0700F38E23 /* Localizable.swift */; };
 		8B42C8A7234BCC0700F38E23 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C8A4234BCC0700F38E23 /* Localizable.swift */; };
 		8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
-		8B42C8B4234BDE2F00F38E23 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */; };
-		8B42C8B5234BDE4000F38E23 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */; };
 		8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
-		8B42C8B7234BDE4300F38E23 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */; };
 		8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
 		8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
+		8BDE5081235BCA89001060CC /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
+		8BDE5082235BCAAD001060CC /* ZamzamCore.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
+		8BDE5083235BCAB1001060CC /* ZamzamCore.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,7 +340,7 @@
 		8B42C89D234BCBFE00F38E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "iOS Application/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		8B42C8A4234BCC0700F38E23 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Extensions/Localizable.swift; sourceTree = "<group>"; };
 		8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
-		8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
+		8BDE5080235BCA89001060CC /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,7 +383,7 @@
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
 				8B42C6F2234A6C0E00F38E23 /* Frameworks */,
 				8B42C6D7234A6BDB00F38E23 /* Products */,
-				8B42C8B3234BDE2F00F38E23 /* ZamzamCore.bundle */,
+				8BDE5080235BCA89001060CC /* ZamzamCore.bundle */,
 				8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */,
 			);
 			sourceTree = "<group>";
@@ -1024,7 +1024,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B42C8B4234BDE2F00F38E23 /* ZamzamCore.bundle in Resources */,
+				8BDE5081235BCA89001060CC /* ZamzamCore.bundle in Resources */,
 				8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B42C7C8234BBC9000F38E23 /* ListTerms.storyboard in Resources */,
@@ -1058,7 +1058,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B42C8B5234BDE4000F38E23 /* ZamzamCore.bundle in Resources */,
 				8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */,
 				8B42C86A234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1079,7 +1078,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B42C8B7234BDE4300F38E23 /* ZamzamCore.bundle in Resources */,
 				8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */,
 				8B42C86B234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1211,6 +1209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDE5082235BCAAD001060CC /* ZamzamCore.bundle in Sources */,
 				8B42C85A234BC08A00F38E23 /* SimplePostTableViewCell.swift in Sources */,
 				8B42C852234BC08A00F38E23 /* LatestPostCollectionViewCell.swift in Sources */,
 				8B42C84E234BC06100F38E23 /* AppTheme.swift in Sources */,
@@ -1233,6 +1232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDE5083235BCAB1001060CC /* ZamzamCore.bundle in Sources */,
 				8B42C874234BC3FF00F38E23 /* ShowBlogStyles.swift in Sources */,
 				8B42C869234BC0A300F38E23 /* AppModule.swift in Sources */,
 				8B42C847234BBFB600F38E23 /* AppDisplayable.swift in Sources */,

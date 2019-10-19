@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:BasemEmara.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../SwiftyPress">
    </FileRef>
    <FileRef
-      location = "group:../ZamzamKit">
+      location = "container:BasemEmara.xcodeproj">
    </FileRef>
 </Workspace>

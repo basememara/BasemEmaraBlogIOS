@@ -15,8 +15,8 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "4fcc2c1eb9ae5fb358df12e83bb51b7e4fb5d733",
-          "version": "5.8.2"
+          "revision": "9c039c8d8d2aa349b326c1059702d9f1b83bdb82",
+          "version": "5.8.3"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": null,
-          "revision": "69a4f4c73c877bf6df4cc416d1590a5e42426cc0",
-          "version": "3.19.0"
+          "revision": "53d83e5c505c367663eaa569568d32a45e89d896",
+          "version": "3.19.1"
         }
       },
       {
@@ -53,6 +53,15 @@
           "branch": null,
           "revision": "d215a5c97ff9695f4de18a114e760a63a19eb80a",
           "version": "1.8.2"
+        }
+      },
+      {
+        "package": "ZamzamKit",
+        "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
+        "state": {
+          "branch": null,
+          "revision": "8051764f59333c53a6f60228a723559c15d132bc",
+          "version": "5.1.0"
         }
       }
     ]
