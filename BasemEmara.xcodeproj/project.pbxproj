@@ -2113,8 +2113,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:ZamzamInc/SwiftyPress.git";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
