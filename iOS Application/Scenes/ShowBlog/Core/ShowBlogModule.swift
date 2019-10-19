@@ -46,6 +46,5 @@ struct ShowBlogModule: ShowBlogModuleType {
     
     func component() -> MailComposerType {
         appModule.component()
-        
     }
 }

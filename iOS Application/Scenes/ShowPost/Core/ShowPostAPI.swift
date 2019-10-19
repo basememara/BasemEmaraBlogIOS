@@ -52,6 +52,8 @@ protocol ShowPostLoadable {
     func loadData(for id: Int)
 }
 
+// MARK: - Request/Response
+
 extension ShowPostAPI {
     
     struct RoutableInputs {

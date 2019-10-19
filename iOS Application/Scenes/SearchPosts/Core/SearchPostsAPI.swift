@@ -40,6 +40,8 @@ protocol SearchPostsRoutable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
 }
 
+// MARK: - Request/Response
+
 extension SearchPostsAPI {
     
     struct PopularRequest {

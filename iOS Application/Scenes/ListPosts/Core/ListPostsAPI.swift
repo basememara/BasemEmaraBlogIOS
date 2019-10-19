@@ -60,6 +60,8 @@ protocol ListPostsDelegate: class {
     func listPosts(_ viewController: UIViewController, didSelect postID: Int)
 }
 
+// MARK: - Request/Response
+
 extension ListPostsAPI {
     
     enum FetchType {

@@ -15,6 +15,7 @@ final class DependencyPlugin: ApplicationPlugin {
         Module { AppModule() as SwiftyPressModule }
         Module { SceneModule() as SceneModuleType }
         Module { DeepLinkModule() as DeepLinkModuleType }
+        
         Module { HomeModule() as HomeModuleType }
         Module { ShowBlogModule() as ShowBlogModuleType }
         Module { ListFavoritesModule() as ListFavoritesModuleType }

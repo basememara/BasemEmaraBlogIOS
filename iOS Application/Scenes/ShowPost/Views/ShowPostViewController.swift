@@ -137,49 +137,6 @@ extension ShowPostViewController: ShowPostLoadable {
     }
 }
 
-// MARK: - Scene
-
-extension ShowPostViewController: ShowPostDisplayable {
-    
-    func displayPost(with viewModel: ShowPostAPI.ViewModel) {
-        self.viewModel = viewModel
-        
-        title = viewModel.title
-        commentBarButton.badgeText = "\(viewModel.commentCount)"
-        display(isFavorite: viewModel.favorite)
-        
-        webView.loadHTMLString(
-            viewModel.content,
-            baseURL: constants.baseURL
-        )
-    }
-    
-    func displayByURL(with viewModel: ShowPostAPI.WebViewModel) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.setToolbarHidden(false, animated: true)
-        
-        if let postID = viewModel.postID {
-            loadData(for: postID)
-            return viewModel.decisionHandler(.cancel)
-        }
-        
-        if let termID = viewModel.termID {
-            router.listPosts(params: .init(fetchType: .terms([termID])))
-            return viewModel.decisionHandler(.cancel)
-        }
-        
-        title = nil
-        activityIndicatorView.startAnimating()
-        viewModel.decisionHandler(.allow)
-    }
-    
-    func display(isFavorite: Bool) {
-        favoriteBarButton.image = isFavorite
-            ? UIImage(named: .favoriteFilled)
-            : UIImage(named: .favoriteEmpty)
-    }
-}
-
 // MARK: - Interactions
 
 private extension ShowPostViewController {
@@ -260,6 +217,49 @@ private extension ShowPostViewController {
     @objc func deviceOrientationDidChange() {
         removeStatusBar()
         showStatusBar()
+    }
+}
+
+// MARK: - Scene
+
+extension ShowPostViewController: ShowPostDisplayable {
+    
+    func displayPost(with viewModel: ShowPostAPI.ViewModel) {
+        self.viewModel = viewModel
+        
+        title = viewModel.title
+        commentBarButton.badgeText = "\(viewModel.commentCount)"
+        display(isFavorite: viewModel.favorite)
+        
+        webView.loadHTMLString(
+            viewModel.content,
+            baseURL: constants.baseURL
+        )
+    }
+    
+    func displayByURL(with viewModel: ShowPostAPI.WebViewModel) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setToolbarHidden(false, animated: true)
+        
+        if let postID = viewModel.postID {
+            loadData(for: postID)
+            return viewModel.decisionHandler(.cancel)
+        }
+        
+        if let termID = viewModel.termID {
+            router.listPosts(params: .init(fetchType: .terms([termID])))
+            return viewModel.decisionHandler(.cancel)
+        }
+        
+        title = nil
+        activityIndicatorView.startAnimating()
+        viewModel.decisionHandler(.allow)
+    }
+    
+    func display(isFavorite: Bool) {
+        favoriteBarButton.image = isFavorite
+            ? UIImage(named: .favoriteFilled)
+            : UIImage(named: .favoriteEmpty)
     }
 }
 

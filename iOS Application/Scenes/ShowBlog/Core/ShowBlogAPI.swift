@@ -62,6 +62,8 @@ protocol ShowBlogRoutable: AppRoutable {
     func listTerms()
 }
 
+// MARK: - Request/Response
+
 extension ShowBlogAPI {
     
     struct FetchPostsRequest {

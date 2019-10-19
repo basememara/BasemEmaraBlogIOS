@@ -55,7 +55,7 @@ struct AppModule: SwiftyPressModule {
             taxonomies: ["category", "post_tag", "series"],
             postMetaKeys: ["_series_part"],
             logFileName: "basememara"
-        ) as ConstantsStore
+        )
     }
     
     func componentStore() -> PreferencesStore {
@@ -74,17 +74,17 @@ struct AppModule: SwiftyPressModule {
                     }()
                 ) ?? .standard
             }()
-        ) as PreferencesStore
+        )
     }
 
     func componentStore() -> SeedStore {
         SeedFileStore(
             forResource: "seed.json",
             inBundle: .main
-        ) as SeedStore
+        )
     }
 
     func component() -> Theme {
-        AppTheme() as Theme
+        AppTheme()
     }
 }

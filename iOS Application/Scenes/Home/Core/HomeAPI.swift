@@ -40,6 +40,8 @@ protocol HomeRoutable: AppRoutable { // Router
     func sendEmail(subject: String)
 }
 
+// MARK: - Request/Response
+
 extension HomeAPI {
     
     struct RoutableInputs {

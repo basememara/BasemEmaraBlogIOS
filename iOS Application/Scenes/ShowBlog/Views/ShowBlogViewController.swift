@@ -131,36 +131,6 @@ private extension ShowBlogViewController {
     }
 }
 
-// MARK: - Scene
-
-extension ShowBlogViewController: ShowBlogDisplayable {
-    
-    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
-        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
-        endRefreshing()
-    }
-    
-    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
-        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
-        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTerms(with viewModels: [TermsDataViewModel]) {
-        topTermsTableViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
-        // Nothing to do
-    }
-    
-    func endRefreshing() {
-        activityIndicatorView.stopAnimating()
-    }
-}
-
 // MARK: - Interactions
 
 private extension ShowBlogViewController {
@@ -205,6 +175,36 @@ private extension ShowBlogViewController {
         }
         
         present(controller)
+    }
+}
+
+// MARK: - Scene
+
+extension ShowBlogViewController: ShowBlogDisplayable {
+    
+    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
+        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
+        endRefreshing()
+    }
+    
+    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
+        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
+        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayTerms(with viewModels: [TermsDataViewModel]) {
+        topTermsTableViewAdapter.reloadData(with: viewModels)
+    }
+    
+    func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
+        // Nothing to do
+    }
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
     }
 }
 

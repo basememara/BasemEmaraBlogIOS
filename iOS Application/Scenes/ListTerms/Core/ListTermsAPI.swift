@@ -36,6 +36,8 @@ protocol ListTermsRoutable: AppRoutable {
     func listPosts(params: ListPostsAPI.Params)
 }
 
+// MARK: - Request/Response
+
 extension ListTermsAPI {
     
     struct FetchTermsRequest {
