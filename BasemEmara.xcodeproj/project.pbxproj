@@ -374,6 +374,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B231EA3235C67C000CD0F39 /* Compact */ = {
+			isa = PBXGroup;
+			children = (
+				8B42C776234BBC8F00F38E23 /* Main.storyboard */,
+				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
+			);
+			path = Compact;
+			sourceTree = "<group>";
+		};
 		8B42C6CB234A69B900F38E23 = {
 			isa = PBXGroup;
 			children = (
@@ -485,7 +494,6 @@
 		8B42C730234BBC8F00F38E23 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C770234BBC8F00F38E23 /* Main */,
 				8B42C731234BBC8F00F38E23 /* Home */,
 				8B42C763234BBC8F00F38E23 /* ShowBlog */,
 				8B42C781234BBC8F00F38E23 /* ListFavorites */,
@@ -523,8 +531,10 @@
 		8B42C736234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C738234BBC8F00F38E23 /* HomeViewController.swift */,
+				8B231EA3235C67C000CD0F39 /* Compact */,
+				8B42C771234BBC8F00F38E23 /* Large */,
 				8B42C737234BBC8F00F38E23 /* Home.storyboard */,
+				8B42C738234BBC8F00F38E23 /* HomeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -553,8 +563,8 @@
 		8B42C740234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C742234BBC8F00F38E23 /* ListTermsViewController.swift */,
 				8B42C741234BBC8F00F38E23 /* ListTerms.storyboard */,
+				8B42C742234BBC8F00F38E23 /* ListTermsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -593,8 +603,8 @@
 		8B42C74D234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C74E234BBC8F00F38E23 /* ShowPostViewController.swift */,
 				8B42C74F234BBC8F00F38E23 /* ShowPost.storyboard */,
+				8B42C74E234BBC8F00F38E23 /* ShowPostViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -623,8 +633,8 @@
 		8B42C758234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */,
 				8B42C75A234BBC8F00F38E23 /* ListPosts.storyboard */,
+				8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -651,8 +661,8 @@
 		8B42C760234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */,
 				8B42C761234BBC8F00F38E23 /* ShowMore.storyboard */,
+				8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -682,28 +692,18 @@
 		8B42C76A234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 				8B42C76C234BBC8F00F38E23 /* ShowBlog.storyboard */,
+				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8B42C770234BBC8F00F38E23 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				8B42C771234BBC8F00F38E23 /* Large */,
-				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
-				8B42C776234BBC8F00F38E23 /* Main.storyboard */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		8B42C771234BBC8F00F38E23 /* Large */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
-				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
 				8B42C772234BBC8F00F38E23 /* MainSplit.storyboard */,
+				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
+				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
 			);
 			path = Large;
 			sourceTree = "<group>";
@@ -732,8 +732,8 @@
 		8B42C77E234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */,
 				8B42C77F234BBC8F00F38E23 /* SearchPosts.storyboard */,
+				8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -762,8 +762,8 @@
 		8B42C788234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */,
 				8B42C789234BBC8F00F38E23 /* ListFavorites.storyboard */,
+				8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
