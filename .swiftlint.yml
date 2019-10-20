@@ -3,6 +3,7 @@ analyzer_rules:
 - unused_private_declaration
 
 excluded:
+- Archive
 - Assets
 - Carthage
 - Submodules

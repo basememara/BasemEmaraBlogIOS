@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHl-wU-hL3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--More-->
+        <scene sceneID="i7n-U8-NTh">
+            <objects>
+                <tableViewController id="rHl-wU-hL3" customClass="ShowMoreViewController" customModule="BasemEmara" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="46Z-Wa-Mht">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Basem Emara" id="5Fu-MP-Omo">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subscribe" textLabel="C2d-UE-lkx" imageView="Csl-Gl-fpJ" style="IBUITableViewCellStyleDefault" id="mCa-1L-DOO">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mCa-1L-DOO" id="reB-nG-PpS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subscribe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C2d-UE-lkx" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="signup" id="Csl-Gl-fpJ">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedback" textLabel="5jP-ZH-UKF" imageView="9Lc-Bc-pL5" style="IBUITableViewCellStyleDefault" id="S4T-uz-ezn">
+                                        <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4T-uz-ezn" id="sqx-hx-6C0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Send me an email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5jP-ZH-UKF" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="feedback" id="9Lc-Bc-pL5">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="work" textLabel="DXY-NT-C83" imageView="f7g-fJ-kEu" style="IBUITableViewCellStyleDefault" id="KiI-88-z4W">
+                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KiI-88-z4W" id="3cc-Eh-RvF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Work with me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DXY-NT-C83" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="idea" id="f7g-fJ-kEu">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rate" textLabel="fbS-Lr-cH0" imageView="NWa-rc-K2l" style="IBUITableViewCellStyleDefault" id="mbS-k4-vFh">
+                                        <rect key="frame" x="0.0" y="187.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mbS-k4-vFh" id="w35-xi-xtI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Rate my app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fbS-Lr-cH0" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="rating" id="NWa-rc-K2l">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="share" textLabel="U5g-bG-A0G" imageView="WXK-8t-Prs" style="IBUITableViewCellStyleDefault" id="gFJ-o9-L9g">
+                                        <rect key="frame" x="0.0" y="231.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gFJ-o9-L9g" id="XaT-fD-maG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Share my app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U5g-bG-A0G" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="megaphone" id="WXK-8t-Prs">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifications" textLabel="R12-k0-Cv1" imageView="fZv-ZV-UIU" style="IBUITableViewCellStyleDefault" id="jSi-Tj-0Df">
+                                        <rect key="frame" x="0.0" y="275.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jSi-Tj-0Df" id="sWH-e9-Fsh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Get notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R12-k0-Cv1" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="notifications" id="fZv-ZV-UIU">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ios" textLabel="cqU-5t-96x" imageView="a5e-kW-SEg" style="IBUITableViewCellStyleDefault" id="XNT-Qv-kGQ">
+                                        <rect key="frame" x="0.0" y="319.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XNT-Qv-kGQ" id="8HU-i7-cuC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cqU-5t-96x" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="phone" id="a5e-kW-SEg">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Social" id="0Z3-uM-ufO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="vn1-R3-EoB">
+                                        <rect key="frame" x="0.0" y="419.5" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vn1-R3-EoB" id="pip-b9-TJ9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zIx-TO-may">
+                                                    <rect key="frame" x="12" y="12" width="132" height="36"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F27-TT-RJW" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="F27-TT-RJW" secondAttribute="height" multiplier="1:1" id="g8l-Xn-kfr"/>
+                                                            </constraints>
+                                                            <state key="normal" image="github"/>
+                                                            <connections>
+                                                                <action selector="githubButtonTapped" destination="rHl-wU-hL3" eventType="touchUpInside" id="ZAb-JL-qwy"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-Fu-pe0" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                                            <rect key="frame" x="48" y="0.0" width="36" height="36"/>
+                                                            <state key="normal" image="linkedin"/>
+                                                            <connections>
+                                                                <action selector="linkedInButtonTapped" destination="rHl-wU-hL3" eventType="touchUpInside" id="6EV-Iq-yBh"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZd-tN-GRb" customClass="ThemedImageButton" customModule="SwiftyPress">
+                                                            <rect key="frame" x="96" y="0.0" width="36" height="36"/>
+                                                            <state key="normal" image="twitter"/>
+                                                            <connections>
+                                                                <action selector="twitterButtonTapped" destination="rHl-wU-hL3" eventType="touchUpInside" id="f0V-1e-NUu"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zIx-TO-may" secondAttribute="trailing" id="7PF-w2-ADr"/>
+                                                <constraint firstItem="zIx-TO-may" firstAttribute="top" secondItem="pip-b9-TJ9" secondAttribute="top" constant="12" id="Mmm-Qw-KFN"/>
+                                                <constraint firstItem="zIx-TO-may" firstAttribute="leading" secondItem="pip-b9-TJ9" secondAttribute="leading" constant="12" id="PbL-Ub-Ipp"/>
+                                                <constraint firstAttribute="bottom" secondItem="zIx-TO-may" secondAttribute="bottom" constant="12" id="vCg-3N-Xpf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Other" id="gCH-8b-lYp">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="developedBy" textLabel="Ekt-3H-UDh" imageView="Lfp-zU-00g" style="IBUITableViewCellStyleDefault" id="Qh5-Ih-GKA">
+                                        <rect key="frame" x="0.0" y="535.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qh5-Ih-GKA" id="XRc-gZ-FAZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Developed by Basem Emara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ekt-3H-UDh" customClass="ThemedLabel" customModule="SwiftyPress">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="design" id="Lfp-zU-00g">
+                                                    <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rHl-wU-hL3" id="SZ9-VY-FDO"/>
+                            <outlet property="delegate" destination="rHl-wU-hL3" id="UYP-YR-Gfq"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="More" image="tab-more" id="07j-fO-AB5"/>
+                    <navigationItem key="navigationItem" title="More" leftItemsSupplementBackButton="YES" id="Tx0-Tn-wtA">
+                        <barButtonItem key="backBarButtonItem" title=" " id="LB4-6I-miS"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkN-bF-qiV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2158" y="-157"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="design" width="24" height="24"/>
+        <image name="feedback" width="24" height="24"/>
+        <image name="github" width="64" height="64"/>
+        <image name="idea" width="24" height="24"/>
+        <image name="linkedin" width="64" height="64"/>
+        <image name="megaphone" width="24" height="24"/>
+        <image name="notifications" width="24" height="24"/>
+        <image name="phone" width="24" height="24"/>
+        <image name="rating" width="24" height="24"/>
+        <image name="signup" width="24" height="24"/>
+        <image name="tab-more" width="25" height="25"/>
+        <image name="twitter" width="64" height="64"/>
+    </resources>
+</document>
