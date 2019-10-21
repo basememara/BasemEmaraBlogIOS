@@ -144,6 +144,10 @@ private extension Theme {
             $0.cornerRadius = buttonCornerRadius
         }
         
+        ThemedLabelButton.appearance().with {
+            $0.setTitleColor(tint, for: .normal)
+        }
+        
         ThemedPrimaryButton.appearance().with {
             $0.setTitleColor(backgroundColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: tint), for: .normal)
