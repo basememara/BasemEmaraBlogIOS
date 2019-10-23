@@ -22,14 +22,14 @@ final class WindowPlugin: ApplicationPlugin {
 
 extension WindowPlugin {
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        return true
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window?.rootViewController = scenes.startMain()
+        // Handled in `SceneDelegate` for iOS 13+
+        if #available(iOS 13.0, *) {} else {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = scenes.startMain()
+            window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 }

@@ -12,7 +12,6 @@ extension UIWindow {
     
     /// Returns the window object for your app.
     static var current: UIWindow? {
-        UIApplication.shared.keyWindow
-            ?? (UIApplication.shared.delegate as? AppDelegate)?.window
+        UIApplication.shared.windows.first { $0.isKeyWindow }
     }
 }

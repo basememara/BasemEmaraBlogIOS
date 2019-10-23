@@ -174,6 +174,8 @@
 		8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
 		8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
+		8BC4ECE0235D7D9900313365 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
+		8BC4ECE1235D7DA000313365 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 		8BDE5081235BCA89001060CC /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 		8BDE5082235BCAAD001060CC /* ZamzamCore.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 		8BDE5083235BCAB1001060CC /* ZamzamCore.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
@@ -374,6 +376,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B231EA3235C67C000CD0F39 /* Compact */ = {
+			isa = PBXGroup;
+			children = (
+				8B42C776234BBC8F00F38E23 /* Main.storyboard */,
+				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
+			);
+			path = Compact;
+			sourceTree = "<group>";
+		};
 		8B42C6CB234A69B900F38E23 = {
 			isa = PBXGroup;
 			children = (
@@ -485,7 +496,6 @@
 		8B42C730234BBC8F00F38E23 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C770234BBC8F00F38E23 /* Main */,
 				8B42C731234BBC8F00F38E23 /* Home */,
 				8B42C763234BBC8F00F38E23 /* ShowBlog */,
 				8B42C781234BBC8F00F38E23 /* ListFavorites */,
@@ -523,8 +533,10 @@
 		8B42C736234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C738234BBC8F00F38E23 /* HomeViewController.swift */,
+				8B231EA3235C67C000CD0F39 /* Compact */,
+				8B42C771234BBC8F00F38E23 /* Large */,
 				8B42C737234BBC8F00F38E23 /* Home.storyboard */,
+				8B42C738234BBC8F00F38E23 /* HomeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -553,8 +565,8 @@
 		8B42C740234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C742234BBC8F00F38E23 /* ListTermsViewController.swift */,
 				8B42C741234BBC8F00F38E23 /* ListTerms.storyboard */,
+				8B42C742234BBC8F00F38E23 /* ListTermsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -593,8 +605,8 @@
 		8B42C74D234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C74E234BBC8F00F38E23 /* ShowPostViewController.swift */,
 				8B42C74F234BBC8F00F38E23 /* ShowPost.storyboard */,
+				8B42C74E234BBC8F00F38E23 /* ShowPostViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -623,8 +635,8 @@
 		8B42C758234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */,
 				8B42C75A234BBC8F00F38E23 /* ListPosts.storyboard */,
+				8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -651,8 +663,8 @@
 		8B42C760234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */,
 				8B42C761234BBC8F00F38E23 /* ShowMore.storyboard */,
+				8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -682,28 +694,18 @@
 		8B42C76A234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 				8B42C76C234BBC8F00F38E23 /* ShowBlog.storyboard */,
+				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8B42C770234BBC8F00F38E23 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				8B42C771234BBC8F00F38E23 /* Large */,
-				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
-				8B42C776234BBC8F00F38E23 /* Main.storyboard */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		8B42C771234BBC8F00F38E23 /* Large */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
-				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
 				8B42C772234BBC8F00F38E23 /* MainSplit.storyboard */,
+				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
+				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
 			);
 			path = Large;
 			sourceTree = "<group>";
@@ -732,8 +734,8 @@
 		8B42C77E234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */,
 				8B42C77F234BBC8F00F38E23 /* SearchPosts.storyboard */,
+				8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -762,8 +764,8 @@
 		8B42C788234BBC8F00F38E23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */,
 				8B42C789234BBC8F00F38E23 /* ListFavorites.storyboard */,
+				8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1058,6 +1060,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC4ECE0235D7D9900313365 /* ZamzamCore.bundle in Resources */,
 				8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */,
 				8B42C86A234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1078,6 +1081,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC4ECE1235D7DA000313365 /* ZamzamCore.bundle in Resources */,
 				8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */,
 				8B42C86B234BC0B500F38E23 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1422,7 +1426,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1442,7 +1446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1495,7 +1499,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1513,7 +1517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
@@ -1564,7 +1568,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1585,7 +1589,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1635,7 +1639,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1654,7 +1658,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Today-Extension";
@@ -1705,7 +1709,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1726,7 +1730,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1776,7 +1780,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1795,7 +1799,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Post-Notification-Extension";
@@ -1887,7 +1891,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1907,7 +1911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1957,7 +1961,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1978,7 +1982,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2028,7 +2032,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2049,7 +2053,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.2;
+				MARKETING_VERSION = 13.0.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

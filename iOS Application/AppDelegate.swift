@@ -26,14 +26,6 @@ class AppDelegate: ApplicationPluggableDelegate {
 }
 
 extension AppDelegate {
-
-    @available(iOS 13.0, *)
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-}
-
-extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         plugins.compactMap { $0 as? BackgroundPlugin }.first?
