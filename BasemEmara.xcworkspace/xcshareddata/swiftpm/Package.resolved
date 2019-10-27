@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "c1d14588e5558a3669fd03510d135d88c5109069",
-          "version": "5.0.0-rc.2"
+          "revision": "2cbf59935fbb1f26e352ce4db53f1cf9408d5313",
+          "version": "5.0.0-rc.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "9c039c8d8d2aa349b326c1059702d9f1b83bdb82",
-          "version": "5.8.3"
+          "revision": "3f0200463a2c747f985fa32845e7b70b0172474c",
+          "version": "5.9.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": null,
-          "revision": "53d83e5c505c367663eaa569568d32a45e89d896",
-          "version": "3.19.1"
+          "revision": "9eec060b00e5dc7f00f1b06830eb78d62c44bb07",
+          "version": "3.20.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "git@github.com:SwiftyBeaver/SwiftyBeaver.git",
         "state": {
           "branch": null,
-          "revision": "d215a5c97ff9695f4de18a114e760a63a19eb80a",
-          "version": "1.8.2"
+          "revision": "1d61211e37d28ca00c155fa4e358ada912ca7b80",
+          "version": "1.8.3"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
           "branch": null,
-          "revision": "8051764f59333c53a6f60228a723559c15d132bc",
-          "version": "5.1.0"
+          "revision": "79da93b33883b725ceb8f92b0cd97959d843b52b",
+          "version": "5.1.2"
         }
       }
     ]

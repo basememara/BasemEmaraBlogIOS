@@ -153,27 +153,31 @@
 		8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */; };
 		8B42C868234BC0A300F38E23 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78B234BBC8F00F38E23 /* AppModule.swift */; };
 		8B42C869234BC0A300F38E23 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78B234BBC8F00F38E23 /* AppModule.swift */; };
-		8B42C86A234BC0B500F38E23 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C78C234BBC8F00F38E23 /* Media.xcassets */; };
-		8B42C86B234BC0B500F38E23 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C78C234BBC8F00F38E23 /* Media.xcassets */; };
 		8B42C870234BC34C00F38E23 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B42C86F234BC34C00F38E23 /* SwiftyPress */; };
 		8B42C872234BC35000F38E23 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B42C871234BC35000F38E23 /* SwiftyPress */; };
-		8B42C873234BC3FE00F38E23 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C765234BBC8F00F38E23 /* ShowBlogStyles.swift */; };
-		8B42C874234BC3FF00F38E23 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C765234BBC8F00F38E23 /* ShowBlogStyles.swift */; };
 		8B42C87F234BC6BB00F38E23 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C881234BC6BB00F38E23 /* Today.storyboard */; };
-		8B42C89E234BCBFE00F38E23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89A234BCBFD00F38E23 /* Localizable.strings */; };
-		8B42C89F234BCBFE00F38E23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89A234BCBFD00F38E23 /* Localizable.strings */; };
-		8B42C8A0234BCBFE00F38E23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89A234BCBFD00F38E23 /* Localizable.strings */; };
-		8B42C8A1234BCBFE00F38E23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89C234BCBFE00F38E23 /* InfoPlist.strings */; };
-		8B42C8A2234BCBFE00F38E23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89C234BCBFE00F38E23 /* InfoPlist.strings */; };
-		8B42C8A3234BCBFE00F38E23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C89C234BCBFE00F38E23 /* InfoPlist.strings */; };
-		8B42C8A5234BCC0700F38E23 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C8A4234BCC0700F38E23 /* Localizable.swift */; };
-		8B42C8A6234BCC0700F38E23 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C8A4234BCC0700F38E23 /* Localizable.swift */; };
-		8B42C8A7234BCC0700F38E23 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C8A4234BCC0700F38E23 /* Localizable.swift */; };
 		8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */; };
 		8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
 		8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
+		8B5C98BC23651FEA00F7F016 /* HomeStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98BB23651FEA00F7F016 /* HomeStyles.swift */; };
+		8B5C98C1236535CF00F7F016 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98C3236535CF00F7F016 /* InfoPlist.strings */; };
+		8B5C98C9236535FE00F7F016 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98C5236535FE00F7F016 /* Localizable.swift */; };
+		8B5C98CA236535FE00F7F016 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98C5236535FE00F7F016 /* Localizable.swift */; };
+		8B5C98CB236535FE00F7F016 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98C5236535FE00F7F016 /* Localizable.swift */; };
+		8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98CC2365362A00F7F016 /* Localizable.strings */; };
+		8B5C98CF2365362A00F7F016 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98CC2365362A00F7F016 /* Localizable.strings */; };
+		8B5C98D02365362A00F7F016 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98CC2365362A00F7F016 /* Localizable.strings */; };
+		8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
+		8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
+		8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
+		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
+		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
+		8BB4AD0723653B79003BD29B /* TodayModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0623653B79003BD29B /* TodayModule.swift */; };
+		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
+		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
+		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
 		8BC4ECE0235D7D9900313365 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 		8BC4ECE1235D7DA000313365 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
 		8BDE5081235BCA89001060CC /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDE5080235BCA89001060CC /* ZamzamCore.bundle */; };
@@ -338,10 +342,18 @@
 		8B42C831234BBD6000F38E23 /* TodayAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayAction.swift; sourceTree = "<group>"; };
 		8B42C844234BBDB400F38E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notification.storyboard; sourceTree = "<group>"; };
 		8B42C880234BC6BB00F38E23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Today.storyboard; sourceTree = "<group>"; };
-		8B42C89B234BCBFD00F38E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "iOS Application/en.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
-		8B42C89D234BCBFE00F38E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "iOS Application/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
-		8B42C8A4234BCC0700F38E23 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Extensions/Localizable.swift; sourceTree = "<group>"; };
 		8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
+		8B5C98BB23651FEA00F7F016 /* HomeStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStyles.swift; sourceTree = "<group>"; };
+		8B5C98C2236535CF00F7F016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8B5C98C5236535FE00F7F016 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		8B5C98CD2365362A00F7F016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8B5C98D1236536BF00F7F016 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
+		8BB4AD0623653B79003BD29B /* TodayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModule.swift; sourceTree = "<group>"; };
+		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
+		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BDE5080235BCA89001060CC /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -389,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C723234A9BEA00F38E23 /* Meta */,
+				8B5C98BD236534F800F7F016 /* Common */,
 				8B42C6D8234A6BDB00F38E23 /* iOS Application */,
 				8B42C6F5234A6C0E00F38E23 /* iOS Today */,
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
@@ -415,10 +428,8 @@
 				8B42C78D234BBC8F00F38E23 /* Common */,
 				8B42C730234BBC8F00F38E23 /* Scenes */,
 				8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */,
-				8B42C78B234BBC8F00F38E23 /* AppModule.swift */,
 				8B42C6E4234A6BDB00F38E23 /* Assets.xcassets */,
 				8B42C78C234BBC8F00F38E23 /* Media.xcassets */,
-				8B42C7BB234BBC9000F38E23 /* Theme.xcassets */,
 				8B42C71C234A98D600F38E23 /* Supporting Files */,
 			);
 			path = "iOS Application";
@@ -460,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C719234A938100F38E23 /* BasemEmara.entitlements */,
+				8B5C98C3236535CF00F7F016 /* InfoPlist.strings */,
 				8B42C6E9234A6BDB00F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -469,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C71A234A957F00F38E23 /* BasemEmaraToday.entitlements */,
+				8BB4AD1023653DA0003BD29B /* InfoPlist.strings */,
 				8B42C6FB234A6C0E00F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -478,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C71B234A95C500F38E23 /* BasemEmaraNotification.entitlements */,
+				8BB4AD0D23653D76003BD29B /* InfoPlist.strings */,
 				8B42C712234A6C7100F38E23 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -526,6 +540,7 @@
 			children = (
 				8B42C734234BBC8F00F38E23 /* HomeAPI.swift */,
 				8B42C733234BBC8F00F38E23 /* HomeModule.swift */,
+				8B5C98BB23651FEA00F7F016 /* HomeStyles.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -656,6 +671,7 @@
 			children = (
 				8B42C75D234BBC8F00F38E23 /* ShowMoreAPI.swift */,
 				8B42C75E234BBC8F00F38E23 /* ShowMoreModule.swift */,
+				8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -775,9 +791,7 @@
 			children = (
 				8B42C799234BBC9000F38E23 /* Application */,
 				8B42C7A7234BBC9000F38E23 /* CleanScene */,
-				8B42C7AA234BBC9000F38E23 /* Data */,
 				8B42C78E234BBC8F00F38E23 /* Extensions */,
-				8B42C899234BCBE900F38E23 /* Localizable */,
 				8B42C796234BBC9000F38E23 /* Styles */,
 				8B42C7AC234BBC9000F38E23 /* Views */,
 			);
@@ -800,7 +814,7 @@
 		8B42C796234BBC9000F38E23 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C798234BBC9000F38E23 /* AppTheme.swift */,
+				8B5C98D52365370200F7F016 /* Theme.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -888,6 +902,8 @@
 			isa = PBXGroup;
 			children = (
 				8B42C830234BBD6000F38E23 /* TodayAPI.swift */,
+				8BB4AD0623653B79003BD29B /* TodayModule.swift */,
+				8BB4AD0823653C58003BD29B /* TodayStyles.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -901,14 +917,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8B42C899234BCBE900F38E23 /* Localizable */ = {
+		8B5C98BD236534F800F7F016 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C8A4234BCC0700F38E23 /* Localizable.swift */,
-				8B42C89C234BCBFE00F38E23 /* InfoPlist.strings */,
-				8B42C89A234BCBFD00F38E23 /* Localizable.strings */,
+				8B42C7AA234BBC9000F38E23 /* Data */,
+				8B5C98BE2365350D00F7F016 /* Localization */,
+				8B5C98D1236536BF00F7F016 /* Media.xcassets */,
+				8B42C7BB234BBC9000F38E23 /* Theme.xcassets */,
+				8B42C78B234BBC8F00F38E23 /* AppModule.swift */,
+				8B42C798234BBC9000F38E23 /* AppTheme.swift */,
 			);
-			name = Localizable;
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8B5C98BE2365350D00F7F016 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				8B5C98CC2365362A00F7F016 /* Localizable.strings */,
+				8B5C98C5236535FE00F7F016 /* Localizable.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1028,8 +1056,10 @@
 			files = (
 				8BDE5081235BCA89001060CC /* ZamzamCore.bundle in Resources */,
 				8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */,
+				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B42C7C8234BBC9000F38E23 /* ListTerms.storyboard in Resources */,
+				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C7D2234BBC9000F38E23 /* ShowPost.storyboard in Resources */,
 				8B42C7E9234BBC9000F38E23 /* MainSplit.storyboard in Resources */,
 				8B42C7FD234BBC9000F38E23 /* Media.xcassets in Resources */,
@@ -1041,13 +1071,12 @@
 				8B42C81F234BBC9000F38E23 /* PostTableViewCell.xib in Resources */,
 				8B42C7ED234BBC9000F38E23 /* Main.storyboard in Resources */,
 				8B42C814234BBC9000F38E23 /* seed.json in Resources */,
-				8B42C89E234BCBFE00F38E23 /* Localizable.strings in Resources */,
+				8B5C98C1236535CF00F7F016 /* InfoPlist.strings in Resources */,
 				8B42C820234BBC9000F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C81C234BBC9000F38E23 /* PopularPostCollectionViewCell.xib in Resources */,
 				8B42C821234BBC9000F38E23 /* Theme.xcassets in Resources */,
 				8B42C7E6234BBC9000F38E23 /* ShowBlog.storyboard in Resources */,
 				8B42C7E8234BBC9000F38E23 /* LaunchScreen.storyboard in Resources */,
-				8B42C8A1234BCBFE00F38E23 /* InfoPlist.strings in Resources */,
 				8B42C7DE234BBC9000F38E23 /* ShowMore.storyboard in Resources */,
 				8B42C816234BBC9000F38E23 /* TermTableViewCell.xib in Resources */,
 				8B42C7C1234BBC9000F38E23 /* Home.storyboard in Resources */,
@@ -1061,18 +1090,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC4ECE0235D7D9900313365 /* ZamzamCore.bundle in Resources */,
+				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
 				8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */,
-				8B42C86A234BC0B500F38E23 /* Media.xcassets in Resources */,
+				8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C855234BC08A00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B484A21234CD5BE006F89F8 /* Theme.xcassets in Resources */,
 				8B42C853234BC08A00F38E23 /* LatestPostCollectionViewCell.xib in Resources */,
-				8B42C89F234BCBFE00F38E23 /* Localizable.strings in Resources */,
 				8B42C848234BBFDC00F38E23 /* seed.json in Resources */,
 				8B42C851234BC08A00F38E23 /* TermTableViewCell.xib in Resources */,
+				8B5C98CF2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C857234BC08A00F38E23 /* PopularPostCollectionViewCell.xib in Resources */,
 				8B42C87F234BC6BB00F38E23 /* Today.storyboard in Resources */,
-				8B42C8A2234BCBFE00F38E23 /* InfoPlist.strings in Resources */,
 				8B42C859234BC08A00F38E23 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1082,18 +1111,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BC4ECE1235D7DA000313365 /* ZamzamCore.bundle in Resources */,
+				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
 				8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */,
-				8B42C86B234BC0B500F38E23 /* Media.xcassets in Resources */,
+				8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C861234BC08B00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B484A22234CD5BF006F89F8 /* Theme.xcassets in Resources */,
 				8B42C85F234BC08B00F38E23 /* LatestPostCollectionViewCell.xib in Resources */,
 				8B42C849234BBFE500F38E23 /* seed.json in Resources */,
-				8B42C8A0234BCBFE00F38E23 /* Localizable.strings in Resources */,
 				8B42C85D234BC08B00F38E23 /* TermTableViewCell.xib in Resources */,
+				8B5C98D02365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C843234BBDB400F38E23 /* Notification.storyboard in Resources */,
 				8B42C863234BC08B00F38E23 /* PopularPostCollectionViewCell.xib in Resources */,
-				8B42C8A3234BCBFE00F38E23 /* InfoPlist.strings in Resources */,
 				8B42C865234BC08B00F38E23 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1160,6 +1189,7 @@
 				8B42C7D5234BBC9000F38E23 /* ListPostsModule.swift in Sources */,
 				8B42C808234BBC9000F38E23 /* DataPlugin.swift in Sources */,
 				8B42C7C5234BBC9000F38E23 /* ListTermsAPI.swift in Sources */,
+				8B5C98C9236535FE00F7F016 /* Localizable.swift in Sources */,
 				8B42C6DC234A6BDB00F38E23 /* SceneDelegate.swift in Sources */,
 				8B42C7FB234BBC9000F38E23 /* ListFavoritesViewController.swift in Sources */,
 				8B42C809234BBC9000F38E23 /* BackgroundPlugin.swift in Sources */,
@@ -1179,6 +1209,7 @@
 				8B42C80A234BBC9000F38E23 /* ThemePlugin.swift in Sources */,
 				8B42C7EC234BBC9000F38E23 /* MainViewController.swift in Sources */,
 				8B42C80C234BBC9000F38E23 /* NotificationPlugin.swift in Sources */,
+				8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */,
 				8B42C7DC234BBC9000F38E23 /* ShowMoreModule.swift in Sources */,
 				8B42C7C6234BBC9000F38E23 /* ListTermsAction.swift in Sources */,
 				8B42C7D8234BBC9000F38E23 /* ListPostsAction.swift in Sources */,
@@ -1188,7 +1219,6 @@
 				8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */,
 				8B42C800234BBC9000F38E23 /* Taxonomy.swift in Sources */,
 				8B42C7EE234BBC9000F38E23 /* SearchPostsModule.swift in Sources */,
-				8B42C8A5234BCC0700F38E23 /* Localizable.swift in Sources */,
 				8B42C7F9234BBC9000F38E23 /* ListFavoritesRouter.swift in Sources */,
 				8B42C7DF234BBC9000F38E23 /* ShowMoreViewController.swift in Sources */,
 				8B42C7F0234BBC9000F38E23 /* SearchPostsPresenter.swift in Sources */,
@@ -1196,12 +1226,14 @@
 				8B42C7F8234BBC9000F38E23 /* ListFavoritesAPI.swift in Sources */,
 				8B42C810234BBC9000F38E23 /* DeepLinkModule.swift in Sources */,
 				8B42C7E2234BBC9000F38E23 /* ShowBlogModule.swift in Sources */,
+				8B5C98BC23651FEA00F7F016 /* HomeStyles.swift in Sources */,
 				8B42C7F4234BBC9000F38E23 /* SearchPostsViewController.swift in Sources */,
 				8B42C818234BBC9000F38E23 /* PickedPostCollectionViewCell.swift in Sources */,
 				8B42C7CD234BBC9000F38E23 /* ShowPostAPI.swift in Sources */,
 				8B42C7D1234BBC9000F38E23 /* ShowPostViewController.swift in Sources */,
 				8B42C817234BBC9000F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */,
+				8B5C98D62365370200F7F016 /* Theme.swift in Sources */,
 				8B42C7C0234BBC9000F38E23 /* HomeRouter.swift in Sources */,
 				8B42C7DB234BBC9000F38E23 /* ShowMoreAPI.swift in Sources */,
 				8B42C812234BBC9000F38E23 /* AppDisplayable.swift in Sources */,
@@ -1216,15 +1248,16 @@
 				8BDE5082235BCAAD001060CC /* ZamzamCore.bundle in Sources */,
 				8B42C85A234BC08A00F38E23 /* SimplePostTableViewCell.swift in Sources */,
 				8B42C852234BC08A00F38E23 /* LatestPostCollectionViewCell.swift in Sources */,
+				8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */,
+				8BB4AD0723653B79003BD29B /* TodayModule.swift in Sources */,
 				8B42C84E234BC06100F38E23 /* AppTheme.swift in Sources */,
 				8B42C835234BBD6000F38E23 /* TodayPresenter.swift in Sources */,
 				8B42C6F7234A6C0E00F38E23 /* TodayViewController.swift in Sources */,
 				8B42C854234BC08A00F38E23 /* PickedPostCollectionViewCell.swift in Sources */,
+				8B5C98CA236535FE00F7F016 /* Localizable.swift in Sources */,
 				8B42C836234BBD6000F38E23 /* TodayAPI.swift in Sources */,
-				8B42C8A6234BCC0700F38E23 /* Localizable.swift in Sources */,
 				8B42C837234BBD6000F38E23 /* TodayAction.swift in Sources */,
 				8B42C850234BC08A00F38E23 /* TermTableViewCell.swift in Sources */,
-				8B42C873234BC3FE00F38E23 /* ShowBlogStyles.swift in Sources */,
 				8B42C868234BC0A300F38E23 /* AppModule.swift in Sources */,
 				8B42C856234BC08A00F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B42C846234BBFB500F38E23 /* AppDisplayable.swift in Sources */,
@@ -1237,7 +1270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BDE5083235BCAB1001060CC /* ZamzamCore.bundle in Sources */,
-				8B42C874234BC3FF00F38E23 /* ShowBlogStyles.swift in Sources */,
 				8B42C869234BC0A300F38E23 /* AppModule.swift in Sources */,
 				8B42C847234BBFB600F38E23 /* AppDisplayable.swift in Sources */,
 				8B42C84F234BC06100F38E23 /* AppTheme.swift in Sources */,
@@ -1247,7 +1279,7 @@
 				8B42C862234BC08B00F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
 				8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */,
 				8B42C864234BC08B00F38E23 /* PostTableViewCell.swift in Sources */,
-				8B42C8A7234BCC0700F38E23 /* Localizable.swift in Sources */,
+				8B5C98CB236535FE00F7F016 /* Localizable.swift in Sources */,
 				8B42C866234BC08B00F38E23 /* SimplePostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1292,18 +1324,34 @@
 			name = Today.storyboard;
 			sourceTree = "<group>";
 		};
-		8B42C89A234BCBFD00F38E23 /* Localizable.strings */ = {
+		8B5C98C3236535CF00F7F016 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8B42C89B234BCBFD00F38E23 /* en */,
+				8B5C98C2236535CF00F7F016 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8B5C98CC2365362A00F7F016 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B5C98CD2365362A00F7F016 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		8B42C89C234BCBFE00F38E23 /* InfoPlist.strings */ = {
+		8BB4AD0D23653D76003BD29B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8B42C89D234BCBFE00F38E23 /* en */,
+				8BB4AD0E23653D76003BD29B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8BB4AD1023653DA0003BD29B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BB4AD1123653DA0003BD29B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1426,7 +1474,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1446,7 +1494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1499,7 +1547,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1517,7 +1565,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
@@ -1568,7 +1616,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1589,7 +1637,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1639,7 +1687,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1658,7 +1706,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Today-Extension";
@@ -1709,7 +1757,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1730,7 +1778,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1780,7 +1828,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1799,7 +1847,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID).Post-Notification-Extension";
@@ -1891,7 +1939,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1911,7 +1959,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1961,7 +2009,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1982,7 +2030,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2032,7 +2080,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 43;
+				CURRENT_PROJECT_VERSION = 44;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2053,7 +2101,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 13.0.4;
+				MARKETING_VERSION = 13.0.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

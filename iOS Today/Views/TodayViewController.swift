@@ -22,21 +22,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Dependencies
     
-    private let container = Dependencies {
+    private let dependencies = Dependencies {
         Module { AppModule() as SwiftyPressModule }
+        Module { TodayModule() as TodayModuleType }
     }
     
-    @Inject private var module: SwiftyPressModule
+    @Inject private var module: TodayModuleType
     
-    private lazy var action: TodayActionable = TodayAction(
-        presenter: TodayPresenter(viewController: self),
-        postWorker: module.component(),
-        mediaWorker: module.component()
-    )
-    
+    private lazy var action: TodayActionable = module.component(with: self)
     private lazy var dataWorker: DataWorkerType = module.component()
     
     // MARK: - Lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +63,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 private extension TodayViewController {
     
-    func configure() {
-        container.build()
+    func commonInit() {
+        // Register dependency graph
+        dependencies.build()
+        
+        // Setup data storage
         dataWorker.configure()
         
+        // Set theme before views loaded into hierarchy
+        TodayStyles.apply(module.component())
+    }
+    
+    func configure() {
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
         )
