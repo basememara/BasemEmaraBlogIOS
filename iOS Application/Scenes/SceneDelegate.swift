@@ -10,23 +10,30 @@ import SwiftyPress
 import ZamzamCore
 
 @available(iOS 13.0, *)
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: ScenePluggableDelegate {
+    
     // MARK: - Dependencies
     
-    @Inject private var module: SwiftyPressModule
     @Inject private var scenes: SceneModuleType
     
-    private lazy var preferences: PreferencesType = module.component()
+    // MARK: - Overrides
     
-    // MARK: - State
-    
-    var window: UIWindow?
+    override func plugins() -> [ScenePlugin] {[
+        LoggerPlugin.shared,
+        ShortcutPlugin.shared
+    ]}
+}
+
+@available(iOS 13.0, *)
+extension SceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
         
-        window = UIWindow(windowScene: scene)
-        window?.rootViewController = scenes.startMain()
-        window?.makeKeyAndVisible()
+        window = UIWindow(windowScene: scene).with {
+            $0.overrideUserInterfaceStyle = .dark
+            $0.rootViewController = scenes.startMain()
+            $0.makeKeyAndVisible()
+        }
     }
 }

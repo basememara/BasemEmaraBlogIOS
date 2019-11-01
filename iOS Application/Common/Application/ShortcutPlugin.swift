@@ -10,14 +10,20 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class ShortcutPlugin: ApplicationPlugin {
-    private var launchedShortcutItem: UIApplicationShortcutItem?
+final class ShortcutPlugin {
+    static let shared = ShortcutPlugin()
+    
+    // MARK: - Dependencies
     
     @Inject private var deepLinkModule: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
+    
+    // MARK: - State
+    
+    private var launchedShortcutItem: UIApplicationShortcutItem?
 }
 
-extension ShortcutPlugin {
+extension ShortcutPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem else {
@@ -28,14 +34,28 @@ extension ShortcutPlugin {
         return false //Prevent "performActionForShortcutItem" from being called
     }
     
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(performShortcutAction(for: shortcutItem))
+    }
+}
+
+// iOS 12 and below
+extension ShortcutPlugin {
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         guard let shortcut = launchedShortcutItem else { return }
         performShortcutAction(for: shortcut)
         launchedShortcutItem = nil //Reset for next use
     }
+}
+
+// iOS 13+
+extension ShortcutPlugin: ScenePlugin {
     
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        completionHandler(performShortcutAction(for: shortcutItem))
+    func sceneDidBecomeActive() {
+        guard let shortcut = launchedShortcutItem else { return }
+        performShortcutAction(for: shortcut)
+        launchedShortcutItem = nil //Reset for next use
     }
 }
 

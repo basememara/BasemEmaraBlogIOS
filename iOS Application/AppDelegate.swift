@@ -13,31 +13,33 @@ import ZamzamCore
 @UIApplicationMain
 class AppDelegate: ApplicationPluggableDelegate {
 
-    override func application() -> [ApplicationPlugin] {[
+    override func plugins() -> [ApplicationPlugin] {[
         DependencyPlugin(),
-        LoggerPlugin(),
+        LoggerPlugin.shared,
         DataPlugin(),
         BackgroundPlugin(),
         WindowPlugin(for: window),
-        ShortcutPlugin(),
         NotificationPlugin(),
-        ThemePlugin()
+        ShortcutPlugin.shared,
+        ThemePlugin(),
+        DeepLinkPlugin()
     ]}
 }
 
 extension AppDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        plugins.compactMap { $0 as? BackgroundPlugin }.first?
+        pluginInstances.compactMap { $0 as? BackgroundPlugin }.first?
             .application(application, performFetchWithCompletionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        plugins.compactMap { $0 as? ShortcutPlugin }.first?
+        pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
             .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        DeepLinkPlugin().application(application, continue: userActivity, restorationHandler: restorationHandler)
+        pluginInstances.compactMap { $0 as? DeepLinkPlugin }.first?
+            .application(application, continue: userActivity, restorationHandler: restorationHandler) ?? false
     }
 }
