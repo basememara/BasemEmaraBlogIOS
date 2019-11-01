@@ -83,6 +83,19 @@ struct AppModule: SwiftyPressModule {
             inBundle: .main
         )
     }
+    
+    func componentStores() -> [LogStore] {
+        let constants: ConstantsType = component()
+        
+        return [
+            LogConsoleStore(minLevel: constants.minLogLevel),
+            LogOSStore(
+                minLevel: constants.minLogLevel,
+                subsystem: "io.zamzam.Basem-Emara",
+                category: "Application"
+            )
+        ]
+    }
 
     func component() -> Theme {
         AppTheme()
