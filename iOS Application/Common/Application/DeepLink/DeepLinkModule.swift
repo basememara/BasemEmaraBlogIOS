@@ -25,4 +25,8 @@ struct DeepLinkModule: DeepLinkModuleType {
             theme: appModule.component()
         )
     }
+    
+    func component() -> LogWorkerType {
+        appModule.component()
+    }
 }

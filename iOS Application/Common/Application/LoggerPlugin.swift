@@ -10,28 +10,28 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-struct LoggerPlugin: Loggable {
+final class LoggerPlugin {
     static let shared = LoggerPlugin()
+    
+    // MARK: - Dependencies
+    
+    @Inject private var module: SwiftyPressModule
+    private lazy var log: LogWorkerType = module.component()
 }
 
 extension LoggerPlugin: ApplicationPlugin {
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupLogger(for: application)
-        return true
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Log(info: "App did finish launching.")
+        log.info("App did finish launching.")
         return true
     }
     
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        Log(warn: "App did receive memory warning.")
+        log.warn("App did receive memory warning.")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        Log(warn: "App will terminate.")
+        log.warn("App will terminate.")
     }
 }
 
@@ -39,11 +39,11 @@ extension LoggerPlugin: ApplicationPlugin {
 extension LoggerPlugin {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        Log(debug: "App will enter foreground.")
+        log.debug("App will enter foreground.")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        Log(debug: "App did enter background.")
+        log.debug("App did enter background.")
     }
 }
 
@@ -51,18 +51,18 @@ extension LoggerPlugin {
 extension LoggerPlugin: ScenePlugin {
     
     func sceneWillEnterForeground() {
-        Log(debug: "App will enter foreground.")
+        log.debug("App will enter foreground.")
     }
     
     func sceneDidEnterBackground() {
-        Log(debug: "App did enter background.")
+        log.debug("App did enter background.")
     }
     
     func sceneDidBecomeActive() {
-        Log(debug: "App did become active.")
+        log.debug("App did become active.")
     }
     
     func sceneWillResignActive() {
-        Log(debug: "App did will resign active.")
+        log.debug("App did will resign active.")
     }
 }

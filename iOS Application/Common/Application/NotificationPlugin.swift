@@ -11,7 +11,7 @@ import SwiftyPress
 import UserNotifications
 import ZamzamCore
 
-final class NotificationPlugin: NSObject, ApplicationPlugin, Loggable {
+final class NotificationPlugin: NSObject, ApplicationPlugin {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject private var deepLinkModule: DeepLinkModuleType

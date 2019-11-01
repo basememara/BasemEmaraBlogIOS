@@ -10,9 +10,11 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class DeepLinkPlugin: ApplicationPlugin, Loggable {
+final class DeepLinkPlugin: ApplicationPlugin {
     @Inject private var module: DeepLinkModuleType
+    
     private lazy var router: DeepLinkRoutable = module.component()
+    private lazy var log: LogWorkerType = module.component()
 }
 
 extension DeepLinkPlugin {
@@ -22,7 +24,7 @@ extension DeepLinkPlugin {
             return false
         }
         
-        Log(debug: "Link passed to app: \(webpageURL.absoluteString)")
+        log.debug("Link passed to app: \(webpageURL.absoluteString)")
         return router.navigate(from: webpageURL)
     }
 }

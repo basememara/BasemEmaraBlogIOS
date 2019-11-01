@@ -54,7 +54,7 @@ struct AppModule: SwiftyPressModule {
             defaultFetchModifiedLimit: 25,
             taxonomies: ["category", "post_tag", "series"],
             postMetaKeys: ["_series_part"],
-            logFileName: "basememara"
+            minLogLevel: environment == .production ? .warning : .verbose
         )
     }
     

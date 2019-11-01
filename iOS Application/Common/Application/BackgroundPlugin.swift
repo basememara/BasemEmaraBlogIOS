@@ -13,13 +13,14 @@ import UserNotifications
 import ZamzamCore
 import ZamzamNotification
 
-final class BackgroundPlugin: ApplicationPlugin, Loggable {
+final class BackgroundPlugin: ApplicationPlugin {
     private let userNotification: UNUserNotificationCenter = .current()
     
     @Inject private var module: SwiftyPressModule
     
     private lazy var dataWorker: DataWorkerType = module.component()
     private lazy var preferences: PreferencesType = module.component()
+    private lazy var log: LogWorkerType = module.component()
 }
 
 extension BackgroundPlugin {
@@ -69,8 +70,8 @@ extension BackgroundPlugin {
                         "mediaURL": mediaURL
                     ],
                     completion: {
-                        guard $0 == nil else { return self.Log(error: "Could not schedule the notification for the post: \($0.debugDescription).") }
-                        self.Log(debug: "Scheduled notification for post during background fetch.")
+                        guard $0 == nil else { return self.log.error("Could not schedule the notification for the post: \($0.debugDescription).") }
+                        self.log.debug("Scheduled notification for post during background fetch.")
                     }
                 )
                 
@@ -91,7 +92,7 @@ extension BackgroundPlugin {
                 defer { thread.async { deferred() } }
                 
                 guard case .success(let attachment) = $0 else {
-                    return self.Log(error: "Could not download the post thumbnail (\(String(describing: link))): \($0.error.debugDescription).")
+                    return self.log.error("Could not download the post thumbnail (\(String(describing: link))): \($0.error.debugDescription).")
                 }
                 
                 // Store attachment to schedule notification later
