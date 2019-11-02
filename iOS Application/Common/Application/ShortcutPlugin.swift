@@ -23,6 +23,7 @@ final class ShortcutPlugin {
     private var launchedShortcutItem: UIApplicationShortcutItem?
 }
 
+// iOS 12 and below
 extension ShortcutPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,29 +34,25 @@ extension ShortcutPlugin: ApplicationPlugin {
         launchedShortcutItem = shortcutItem
         return false //Prevent "performActionForShortcutItem" from being called
     }
-    
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        completionHandler(performShortcutAction(for: shortcutItem))
-    }
-}
-
-// iOS 12 and below
-extension ShortcutPlugin {
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        guard let shortcut = launchedShortcutItem else { return }
-        performShortcutAction(for: shortcut)
-        launchedShortcutItem = nil //Reset for next use
-    }
 }
 
 // iOS 13+
 extension ShortcutPlugin: ScenePlugin {
     
+    @available(iOS 13.0, *)
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let shortcutItem = connectionOptions.shortcutItem else { return }
+        launchedShortcutItem = shortcutItem
+    }
+    
     func sceneDidBecomeActive() {
         guard let shortcut = launchedShortcutItem else { return }
         performShortcutAction(for: shortcut)
         launchedShortcutItem = nil //Reset for next use
+    }
+    
+    func scene(performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(performShortcutAction(for: shortcutItem))
     }
 }
 

@@ -18,8 +18,8 @@ class AppDelegate: ApplicationPluggableDelegate {
         LoggerPlugin.shared,
         DataPlugin(),
         BackgroundPlugin(),
-        WindowPlugin(for: window),
-        NotificationPlugin(),
+        WindowPlugin(for: self),
+        NotificationPlugin.shared,
         ShortcutPlugin.shared,
         ThemePlugin(),
         DeepLinkPlugin()
@@ -35,7 +35,7 @@ extension AppDelegate {
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
-            .application(application, performActionFor: shortcutItem, completionHandler: completionHandler)
+            .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {

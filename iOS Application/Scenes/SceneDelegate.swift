@@ -20,6 +20,8 @@ class SceneDelegate: ScenePluggableDelegate {
     
     override func plugins() -> [ScenePlugin] {[
         LoggerPlugin.shared,
+        WindowPlugin(for: self),
+        NotificationPlugin.shared,
         ShortcutPlugin.shared
     ]}
 }
@@ -27,13 +29,8 @@ class SceneDelegate: ScenePluggableDelegate {
 @available(iOS 13.0, *)
 extension SceneDelegate {
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let scene = scene as? UIWindowScene else { return }
-        
-        window = UIWindow(windowScene: scene).with {
-            $0.overrideUserInterfaceStyle = .dark
-            $0.rootViewController = scenes.startMain()
-            $0.makeKeyAndVisible()
-        }
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
+            .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
     }
 }

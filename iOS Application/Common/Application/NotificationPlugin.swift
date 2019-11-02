@@ -11,19 +11,29 @@ import SwiftyPress
 import UserNotifications
 import ZamzamCore
 
-final class NotificationPlugin: NSObject, ApplicationPlugin {
-    private let userNotification: UNUserNotificationCenter = .current()
+final class NotificationPlugin: NSObject {
+    static let shared = NotificationPlugin()
+    
+    // MARK: - Dependencies
     
     @Inject private var deepLinkModule: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
+    
+    // MARK: - State
+    
+    private let userNotification: UNUserNotificationCenter = .current()
 }
 
-extension NotificationPlugin {
+// MARK: - Lifecycle
+
+extension NotificationPlugin: ApplicationPlugin, ScenePlugin {
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
+    func sceneDidBecomeActive() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
+
+// MARK: - Delegates
 
 extension NotificationPlugin: UNUserNotificationCenterDelegate {
     
@@ -52,6 +62,8 @@ extension NotificationPlugin: UNUserNotificationCenterDelegate {
     }
 }
 
+// MARK: - Subtypes
+
 extension NotificationPlugin {
     
     enum Category: String {
@@ -62,6 +74,8 @@ extension NotificationPlugin {
         case share = "shareAction"
     }
 }
+
+// MARK: - Helpers
 
 extension NotificationPlugin {
     

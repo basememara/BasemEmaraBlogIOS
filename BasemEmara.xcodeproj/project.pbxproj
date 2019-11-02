@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B17BD47236C96BA000595BA /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BD46236C96BA000595BA /* ZamzamCore.bundle */; };
-		8B17BD48236C96CD000595BA /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BD46236C96BA000595BA /* ZamzamCore.bundle */; };
-		8B17BD49236C96D2000595BA /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BD46236C96BA000595BA /* ZamzamCore.bundle */; };
 		8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */; };
 		8B42C6DC234A6BDB00F38E23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */; };
 		8B42C6E5234A6BDB00F38E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C6E4234A6BDB00F38E23 /* Assets.xcassets */; };
@@ -181,6 +178,9 @@
 		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
+		8BF38A90236DCC61008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
+		8BF38A91236DCC78008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
+		8BF38A92236DCC7C008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,7 +216,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8B17BD46236C96BA000595BA /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -353,6 +352,7 @@
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,7 +405,7 @@
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
 				8B42C6F2234A6C0E00F38E23 /* Frameworks */,
 				8B42C6D7234A6BDB00F38E23 /* Products */,
-				8B17BD46236C96BA000595BA /* ZamzamCore.bundle */,
+				8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */,
 				8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */,
 			);
 			sourceTree = "<group>";
@@ -1052,7 +1052,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B17BD47236C96BA000595BA /* ZamzamCore.bundle in Resources */,
+				8BF38A90236DCC61008DDE1D /* ZamzamCore.bundle in Resources */,
 				8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
@@ -1087,9 +1087,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
-				8B17BD48236C96CD000595BA /* ZamzamCore.bundle in Resources */,
+				8BF38A91236DCC78008DDE1D /* ZamzamCore.bundle in Resources */,
 				8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */,
+				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C855234BC08A00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
@@ -1108,9 +1108,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
-				8B17BD49236C96D2000595BA /* ZamzamCore.bundle in Resources */,
+				8BF38A92236DCC7C008DDE1D /* ZamzamCore.bundle in Resources */,
 				8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */,
+				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
 				8B42C861234BC08B00F38E23 /* PickedPostCollectionViewCell.xib in Resources */,

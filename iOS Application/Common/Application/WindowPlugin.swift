@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class WindowPlugin: ApplicationPlugin {
+final class WindowPlugin {
     
     // MARK: - Dependencies
     
@@ -18,26 +18,41 @@ final class WindowPlugin: ApplicationPlugin {
     
     // MARK: - State
     
-    private var window: UIWindow?
+    private weak var delegate: WindowDelegate?
     
     // MARK: - Lifecycle
     
-    init(for window: UIWindow?) {
-        self.window = window
+    init(for delegate: WindowDelegate?) {
+        self.delegate = delegate
     }
 }
 
-extension WindowPlugin {
+// iOS 12 and below
+extension WindowPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Handled in `SceneDelegate` for iOS 13+
         if #available(iOS 13.0, *) {} else {
-            window = UIWindow(frame: UIScreen.main.bounds).with {
+            delegate?.window = UIWindow(frame: UIScreen.main.bounds).with {
                 $0.rootViewController = scenes.startMain()
                 $0.makeKeyAndVisible()
             }
         }
         
         return true
+    }
+}
+
+// iOS 13+
+extension WindowPlugin: ScenePlugin {
+    
+    @available(iOS 13.0, *)
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let scene = scene as? UIWindowScene else { return }
+        
+        delegate?.window = UIWindow(windowScene: scene).with {
+            $0.overrideUserInterfaceStyle = .dark
+            $0.rootViewController = scenes.startMain()
+            $0.makeKeyAndVisible()
+        }
     }
 }

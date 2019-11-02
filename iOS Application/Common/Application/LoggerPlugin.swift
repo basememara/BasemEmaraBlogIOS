@@ -35,19 +35,6 @@ extension LoggerPlugin: ApplicationPlugin {
     }
 }
 
-// iOS 12 and below
-extension LoggerPlugin {
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        log.debug("App will enter foreground.")
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        log.debug("App did enter background.")
-    }
-}
-
-// iOS 13+
 extension LoggerPlugin: ScenePlugin {
     
     func sceneWillEnterForeground() {
