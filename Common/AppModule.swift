@@ -91,7 +91,7 @@ struct AppModule: SwiftyPressModule {
             LogConsoleStore(minLevel: constants.minLogLevel),
             LogOSStore(
                 minLevel: constants.minLogLevel,
-                subsystem: "io.zamzam.Basem-Emara",
+                subsystem: Bundle.main.bundleIdentifier ?? "BasemEmara",
                 category: "Application"
             )
         ]
