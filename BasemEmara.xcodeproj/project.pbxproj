@@ -825,10 +825,10 @@
 				8B42C79B234BBC9000F38E23 /* LoggerPlugin.swift */,
 				8B42C79C234BBC9000F38E23 /* DataPlugin.swift */,
 				8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */,
+				8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */,
 				8B42C79A234BBC9000F38E23 /* WindowPlugin.swift */,
 				8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */,
 				8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */,
-				8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";

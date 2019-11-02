@@ -18,10 +18,10 @@ class AppDelegate: ApplicationPluggableDelegate {
         LoggerPlugin.shared,
         DataPlugin(),
         BackgroundPlugin(),
+        ThemePlugin(),
         WindowPlugin(for: self),
         NotificationPlugin.shared,
         ShortcutPlugin.shared,
-        ThemePlugin(),
         DeepLinkPlugin()
     ]}
 }
