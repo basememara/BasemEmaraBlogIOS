@@ -88,7 +88,10 @@ struct AppModule: SwiftyPressModule {
         let constants: ConstantsType = component()
         
         return [
-            LogConsoleStore(minLevel: constants.minLogLevel),
+            LogConsoleStore(
+                minLevel: constants.environment == .production ? .none
+                    : constants.minLogLevel
+            ),
             LogOSStore(
                 minLevel: constants.minLogLevel,
                 subsystem: Bundle.main.bundleIdentifier ?? "BasemEmara",
