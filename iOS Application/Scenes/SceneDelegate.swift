@@ -20,6 +20,7 @@ class SceneDelegate: ScenePluggableDelegate {
     
     override func plugins() -> [ScenePlugin] {[
         LoggerPlugin.shared,
+        BackgroundPlugin(),
         WindowPlugin(for: self),
         NotificationPlugin.shared,
         ShortcutPlugin.shared
