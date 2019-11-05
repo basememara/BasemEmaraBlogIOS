@@ -24,8 +24,8 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": null,
-          "revision": "9eec060b00e5dc7f00f1b06830eb78d62c44bb07",
-          "version": "3.20.0"
+          "revision": "40732f2ec0cdc32d9d3df8219b2e655deb3077f1",
+          "version": "3.21.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
           "branch": null,
-          "revision": "70eeae1345872e2c8db824e3e36f63ebd53b302e",
-          "version": "5.1.7"
+          "revision": "1a793f92778c7ea0e2c5b91fd990e3db9ffd6f8e",
+          "version": "5.1.8"
         }
       }
     ]
