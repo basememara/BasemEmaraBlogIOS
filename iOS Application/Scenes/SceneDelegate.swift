@@ -23,7 +23,8 @@ class SceneDelegate: ScenePluggableDelegate {
         BackgroundPlugin(),
         WindowPlugin(for: self),
         NotificationPlugin.shared,
-        ShortcutPlugin.shared
+        ShortcutPlugin.shared,
+        DeepLinkPlugin()
     ]}
 }
 
@@ -33,5 +34,10 @@ extension SceneDelegate {
     func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
             .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
+    }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        pluginInstances.compactMap { $0 as? DeepLinkPlugin }.first?
+            .scene(scene, continue: userActivity)
     }
 }

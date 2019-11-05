@@ -23,5 +23,7 @@ protocol DeepLinkRoutable: AppRoutable {
     func showPost(for id: Int)
     func showFavorites()
     func sendFeedback()
+    
+    @discardableResult
     func navigate(from url: URL) -> Bool
 }
