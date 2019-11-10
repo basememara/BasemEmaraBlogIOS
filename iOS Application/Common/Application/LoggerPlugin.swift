@@ -27,11 +27,11 @@ extension LoggerPlugin: ApplicationPlugin {
     }
     
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        log.warn("App did receive memory warning.")
+        log.warning("App did receive memory warning.")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        log.warn("App will terminate.")
+        log.warning("App will terminate.")
     }
 }
 

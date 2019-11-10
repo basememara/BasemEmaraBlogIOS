@@ -174,13 +174,13 @@
 		8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
 		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
+		8B9B62A02377991C00719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
+		8B9B62A12377992B00719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
+		8B9B62A22377993100719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
 		8BB4AD0723653B79003BD29B /* TodayModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0623653B79003BD29B /* TodayModule.swift */; };
 		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
-		8BF38A90236DCC61008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
-		8BF38A91236DCC78008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
-		8BF38A92236DCC7C008DDE1D /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,11 +348,11 @@
 		8B5C98D1236536BF00F7F016 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
+		8B9B629F2377991C00719122 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8BB4AD0623653B79003BD29B /* TodayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModule.swift; sourceTree = "<group>"; };
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,7 +405,7 @@
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
 				8B42C6F2234A6C0E00F38E23 /* Frameworks */,
 				8B42C6D7234A6BDB00F38E23 /* Products */,
-				8BF38A8F236DCC61008DDE1D /* ZamzamCore.bundle */,
+				8B9B629F2377991C00719122 /* ZamzamCore.bundle */,
 				8B42C8B1234BDE2700F38E23 /* SwiftyPress.bundle */,
 			);
 			sourceTree = "<group>";
@@ -1052,7 +1052,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF38A90236DCC61008DDE1D /* ZamzamCore.bundle in Resources */,
+				8B9B62A02377991C00719122 /* ZamzamCore.bundle in Resources */,
 				8B42C8B2234BDE2800F38E23 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
@@ -1087,7 +1087,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF38A91236DCC78008DDE1D /* ZamzamCore.bundle in Resources */,
+				8B9B62A12377992B00719122 /* ZamzamCore.bundle in Resources */,
 				8B42C8B6234BDE4000F38E23 /* SwiftyPress.bundle in Resources */,
 				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */,
@@ -1108,7 +1108,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF38A92236DCC7C008DDE1D /* ZamzamCore.bundle in Resources */,
+				8B9B62A22377993100719122 /* ZamzamCore.bundle in Resources */,
 				8B42C8B8234BDE4300F38E23 /* SwiftyPress.bundle in Resources */,
 				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */,
