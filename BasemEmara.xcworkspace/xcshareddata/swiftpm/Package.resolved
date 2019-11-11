@@ -50,9 +50,9 @@
         "package": "ZamzamKit",
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
-          "branch": null,
-          "revision": "1dbe4ef76169f2bd6bbadbbe58465fcfcb2c04a2",
-          "version": "5.1.9"
+          "branch": "develop",
+          "revision": "2ac9ff98e63e4977d98e27ed2129af5f72f60b2b",
+          "version": null
         }
       }
     ]
