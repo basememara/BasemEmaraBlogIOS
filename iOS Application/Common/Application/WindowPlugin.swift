@@ -14,7 +14,10 @@ final class WindowPlugin {
     
     // MARK: - Dependencies
     
+    @Inject private var module: SwiftyPressModule
     @Inject private var scenes: SceneModuleType
+    
+    private lazy var preferences: PreferencesType = module.component()
     
     // MARK: - State
     
@@ -50,7 +53,11 @@ extension WindowPlugin: ScenePlugin {
         guard let scene = scene as? UIWindowScene else { return }
         
         delegate?.window = UIWindow(windowScene: scene).with {
-            $0.overrideUserInterfaceStyle = .dark
+            // Default to dark theme if not specified
+            if !preferences.autoThemeEnabled {
+                $0.overrideUserInterfaceStyle = .dark
+            }
+            
             $0.rootViewController = scenes.startMain()
             $0.makeKeyAndVisible()
         }

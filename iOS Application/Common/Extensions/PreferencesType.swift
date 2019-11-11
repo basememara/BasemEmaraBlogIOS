@@ -6,6 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
+import Foundation
 import ZamzamCore
 
 public extension PreferencesType {
@@ -14,6 +15,12 @@ public extension PreferencesType {
     var notificationPostIDs: [Int] {
         get { get(.notificationPostIDs) ?? [] }
         set { set(newValue, forKey: .notificationPostIDs) }
+    }
+    
+    /// For reading themes from iOS dark/light mode
+    var autoThemeEnabled: Bool {
+        get { UserDefaults.standard.bool(forKey: "autoThemeEnabled") }
+        set { UserDefaults.standard.set(newValue, forKey: "autoThemeEnabled") }
     }
 }
 

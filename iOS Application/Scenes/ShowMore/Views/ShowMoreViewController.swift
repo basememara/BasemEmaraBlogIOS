@@ -48,8 +48,7 @@ extension ShowMoreViewController: CellIdentifiable {
         case work
         case rate
         case share
-        case notifications
-        case ios
+        case settings
         case developedBy
     }
 }
@@ -84,20 +83,7 @@ extension ShowMoreViewController {
             let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName ?? "")
             let share = [message, constants.itunesURL]
             present(activities: share, popoverFrom: cell)
-        case .notifications:
-            (UIApplication.shared.delegate as? AppDelegate)?.pluginInstances
-                .compactMap { $0 as? NotificationPlugin }
-                .first?
-                .register { [weak self] granted in
-                    // TODO: Move to tutorial and localize
-                    guard granted else {
-                        self?.present(alert: "Please enable any time from iOS settings.")
-                        return
-                    }
-                    
-                    self?.present(alert: "You have registered to receive notifications.")
-                }
-        case .ios:
+        case .settings:
             router.showSettings()
         case .developedBy:
             router.showDevelopedBy()

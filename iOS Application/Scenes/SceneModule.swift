@@ -16,6 +16,7 @@ protocol SceneModuleType {
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
     func listTerms() -> UIViewController
+    func showSettings() -> UIViewController
 }
 
 extension SceneModuleType {
@@ -59,6 +60,10 @@ extension SceneModule {
     func listTerms() -> UIViewController {
         .make(fromStoryboard: Storyboard.listTerms.rawValue)
     }
+    
+    func showSettings() -> UIViewController {
+        .make(fromStoryboard: Storyboard.showSettings.rawValue)
+    }
 }
 
 extension SceneModule {
@@ -80,5 +85,6 @@ extension SceneModule {
         case listPosts = "ListPosts"
         case showPost = "ShowPost"
         case listTerms = "ListTerms"
+        case showSettings = "ShowSettings"
     }
 }

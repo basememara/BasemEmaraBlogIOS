@@ -82,7 +82,7 @@
 		8B42C7FB234BBC9000F38E23 /* ListFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */; };
 		8B42C7FC234BBC9000F38E23 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78B234BBC8F00F38E23 /* AppModule.swift */; };
 		8B42C7FD234BBC9000F38E23 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C78C234BBC8F00F38E23 /* Media.xcassets */; };
-		8B42C7FE234BBC9000F38E23 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78F234BBC8F00F38E23 /* Preferences.swift */; };
+		8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */; };
 		8B42C7FF234BBC9000F38E23 /* UIContextMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */; };
 		8B42C800234BBC9000F38E23 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C791234BBC8F00F38E23 /* Taxonomy.swift */; };
 		8B42C801234BBC9000F38E23 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C792234BBC8F00F38E23 /* UIImage.swift */; };
@@ -174,6 +174,8 @@
 		8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
 		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
+		8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */; };
+		8B7A89F42379AA32002E5A75 /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */; };
 		8B9B62A02377991C00719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
 		8B9B62A12377992B00719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
 		8B9B62A22377993100719122 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B9B629F2377991C00719122 /* ZamzamCore.bundle */; };
@@ -300,7 +302,7 @@
 		8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesViewController.swift; sourceTree = "<group>"; };
 		8B42C78B234BBC8F00F38E23 /* AppModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		8B42C78C234BBC8F00F38E23 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		8B42C78F234BBC8F00F38E23 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesType.swift; sourceTree = "<group>"; };
 		8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContextMenuConfiguration.swift; sourceTree = "<group>"; };
 		8B42C791234BBC8F00F38E23 /* Taxonomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
 		8B42C792234BBC8F00F38E23 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -348,6 +350,8 @@
 		8B5C98D1236536BF00F7F016 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
+		8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
+		8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
 		8B9B629F2377991C00719122 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8BB4AD0623653B79003BD29B /* TodayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModule.swift; sourceTree = "<group>"; };
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
@@ -516,6 +520,7 @@
 				8B42C777234BBC8F00F38E23 /* SearchPosts */,
 				8B42C739234BBC8F00F38E23 /* ListTerms */,
 				8B42C75B234BBC8F00F38E23 /* ShowMore */,
+				8B7A89F02379A9F8002E5A75 /* ShowSettings */,
 				8B42C76E234BBC8F00F38E23 /* LaunchScreen.storyboard */,
 				8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */,
 				8B42C743234BBC8F00F38E23 /* SceneModule.swift */,
@@ -799,7 +804,7 @@
 		8B42C78E234BBC8F00F38E23 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C78F234BBC8F00F38E23 /* Preferences.swift */,
+				8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */,
 				8B42C791234BBC8F00F38E23 /* Taxonomy.swift */,
 				8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */,
 				8B42C792234BBC8F00F38E23 /* UIImage.swift */,
@@ -937,6 +942,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		8B7A89F02379A9F8002E5A75 /* ShowSettings */ = {
+			isa = PBXGroup;
+			children = (
+				8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */,
+				8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */,
+			);
+			path = ShowSettings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1060,6 +1074,7 @@
 				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C7D2234BBC9000F38E23 /* ShowPost.storyboard in Resources */,
 				8B42C7E9234BBC9000F38E23 /* MainSplit.storyboard in Resources */,
+				8B7A89F42379AA32002E5A75 /* ShowSettings.storyboard in Resources */,
 				8B42C7FD234BBC9000F38E23 /* Media.xcassets in Resources */,
 				8B42C7DA234BBC9000F38E23 /* ListPosts.storyboard in Resources */,
 				8B42C81D234BBC9000F38E23 /* LatestPostCollectionViewCell.xib in Resources */,
@@ -1181,6 +1196,7 @@
 				8B42C7C9234BBC9000F38E23 /* ListTermsViewController.swift in Sources */,
 				8B42C81E234BBC9000F38E23 /* PostTableViewCell.swift in Sources */,
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRouter.swift in Sources */,
+				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneModule.swift in Sources */,
 				8B42C7EF234BBC9000F38E23 /* SearchPostsAPI.swift in Sources */,
 				8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */,
@@ -1211,7 +1227,7 @@
 				8B42C7DC234BBC9000F38E23 /* ShowMoreModule.swift in Sources */,
 				8B42C7C6234BBC9000F38E23 /* ListTermsAction.swift in Sources */,
 				8B42C7D8234BBC9000F38E23 /* ListPostsAction.swift in Sources */,
-				8B42C7FE234BBC9000F38E23 /* Preferences.swift in Sources */,
+				8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */,
 				8B42C802234BBC9000F38E23 /* UIViewController.swift in Sources */,
 				8B42C801234BBC9000F38E23 /* UIImage.swift in Sources */,
 				8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */,
