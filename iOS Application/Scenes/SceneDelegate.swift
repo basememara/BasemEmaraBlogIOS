@@ -35,9 +35,4 @@ extension SceneDelegate {
         pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
             .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
     }
-    
-    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        pluginInstances.compactMap { $0 as? DeepLinkPlugin }.first?
-            .scene(scene, continue: userActivity)
-    }
 }

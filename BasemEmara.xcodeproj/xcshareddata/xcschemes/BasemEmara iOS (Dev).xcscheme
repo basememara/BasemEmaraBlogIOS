@@ -29,6 +29,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       enableThreadSanitizer = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftyPressModelTests"
+               BuildableName = "SwiftyPressModelTests"
+               BlueprintName = "SwiftyPressModelTests"
+               ReferencedContainer = "container:../SwiftyPress">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SwiftyPressTests"
+               BuildableName = "SwiftyPressTests"
+               BlueprintName = "SwiftyPressTests"
+               ReferencedContainer = "container:../SwiftyPress">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

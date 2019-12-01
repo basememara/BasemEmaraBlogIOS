@@ -37,9 +37,4 @@ extension AppDelegate {
         pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
             .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
     }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        pluginInstances.compactMap { $0 as? DeepLinkPlugin }.first?
-            .application(application, continue: userActivity, restorationHandler: restorationHandler) ?? false
-    }
 }
