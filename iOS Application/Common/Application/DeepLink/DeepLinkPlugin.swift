@@ -14,7 +14,7 @@ final class DeepLinkPlugin {
     @Inject private var module: DeepLinkModuleType
     
     private lazy var router: DeepLinkRoutable = module.component()
-    private lazy var log: LogWorkerType = module.component()
+    private lazy var log: LogProviderType = module.component()
 }
 
 extension DeepLinkPlugin: ApplicationPlugin {
@@ -39,7 +39,7 @@ extension DeepLinkPlugin: ScenePlugin {
                 return
         }
         
-        log.debug("Link passed to app: \(webpageURL.absoluteString)")
+        log.info("Link passed to app: \(webpageURL.absoluteString)")
         router.navigate(from: webpageURL)
     }
     
@@ -49,7 +49,7 @@ extension DeepLinkPlugin: ScenePlugin {
                 return
         }
         
-        log.debug("Link passed to app: \(webpageURL.absoluteString)")
+        log.info("Link passed to app: \(webpageURL.absoluteString)")
         router.navigate(from: webpageURL)
     }
 }

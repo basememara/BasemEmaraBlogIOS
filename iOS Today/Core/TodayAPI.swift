@@ -15,7 +15,7 @@ enum TodayAPI {}
 protocol TodayModuleType {
     func component(with viewController: TodayDisplayable?) -> TodayActionable
     func component(with viewController: TodayDisplayable?) -> TodayPresentable
-    func component() -> DataWorkerType
+    func component() -> DataProviderType
     func component() -> Theme
 }
 

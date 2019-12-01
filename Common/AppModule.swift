@@ -77,14 +77,15 @@ struct AppModule: SwiftyPressModule {
         )
     }
 
-    func componentStore() -> SeedStore {
+    func component() -> SeedStore {
         SeedFileStore(
             forResource: "seed.json",
-            inBundle: .main
+            inBundle: .main,
+            jsonDecoder: component()
         )
     }
     
-    func componentStores() -> [LogStore] {
+    func component() -> [LogStore] {
         let constants: ConstantsType = component()
         
         return [

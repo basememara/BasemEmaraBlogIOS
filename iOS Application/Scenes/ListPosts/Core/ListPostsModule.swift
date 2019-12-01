@@ -17,8 +17,8 @@ struct ListPostsModule: ListPostsModuleType {
     func component(with viewController: ListPostsDisplayable?) -> ListPostsActionable {
         ListPostsAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component()
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component()
         )
     }
     

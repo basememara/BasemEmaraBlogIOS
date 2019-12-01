@@ -17,8 +17,8 @@ struct ListFavoritesModule: ListFavoritesModuleType {
     func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
         ListFavoritesAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component()
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component()
         )
     }
     

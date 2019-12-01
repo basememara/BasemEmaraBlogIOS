@@ -15,8 +15,8 @@ struct TodayModule: TodayModuleType {
     func component(with viewController: TodayDisplayable?) -> TodayActionable {
         TodayAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component()
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component()
         )
     }
     
@@ -24,7 +24,7 @@ struct TodayModule: TodayModuleType {
         TodayPresenter(viewController: viewController)
     }
     
-    func component() -> DataWorkerType {
+    func component() -> DataProviderType {
         appModule.component()
     }
     

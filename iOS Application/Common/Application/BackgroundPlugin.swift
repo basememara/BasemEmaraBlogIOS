@@ -20,9 +20,9 @@ final class BackgroundPlugin {
     
     @Inject private var module: SwiftyPressModule
     
-    private lazy var dataWorker: DataWorkerType = module.component()
+    private lazy var dataProvider: DataProviderType = module.component()
     private lazy var preferences: PreferencesType = module.component()
-    private lazy var log: LogWorkerType = module.component()
+    private lazy var log: LogProviderType = module.component()
     
     // MARK: State
     
@@ -132,7 +132,7 @@ private extension BackgroundPlugin {
     
     func handleBackgroundTask(completion: @escaping (Result<Void, ZamzamError>) -> Void) {
         // Create local notifications when new content retrieved via background fetch
-        dataWorker.pull {
+        dataProvider.pull {
             // Validate if any updates that needs to be notified
             guard case .success = $0 else {
                 completion(.failure(.general))

@@ -30,7 +30,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @Inject private var module: TodayModuleType
     
     private lazy var action: TodayActionable = module.component(with: self)
-    private lazy var dataWorker: DataWorkerType = module.component()
+    private lazy var dataProvider: DataProviderType = module.component()
     
     // MARK: - Lifecycle
     
@@ -68,7 +68,7 @@ private extension TodayViewController {
         dependencies.build()
         
         // Setup data storage
-        dataWorker.configure()
+        dataProvider.configure()
         
         // Set theme before views loaded into hierarchy
         TodayStyles.apply(module.component())

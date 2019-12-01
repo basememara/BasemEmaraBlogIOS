@@ -14,23 +14,23 @@ struct DeepLinkRouter: DeepLinkRoutable {
     weak var viewController: UIViewController?
     
     private let scenes: SceneModuleType
-    private let postWorker: PostWorkerType
-    private let taxonomyWorker: TaxonomyWorkerType
+    private let postProvider: PostProviderType
+    private let taxonomyProvider: TaxonomyProviderType
     private let constants: ConstantsType
     private let theme: Theme
     
     init(
         viewController: UIViewController?,
         scenes: SceneModuleType,
-        postWorker: PostWorkerType,
-        taxonomyWorker: TaxonomyWorkerType,
+        postProvider: PostProviderType,
+        taxonomyProvider: TaxonomyProviderType,
         constants: ConstantsType,
         theme: Theme
     ) {
         self.viewController = viewController
         self.scenes = scenes
-        self.postWorker = postWorker
-        self.taxonomyWorker = taxonomyWorker
+        self.postProvider = postProvider
+        self.taxonomyProvider = taxonomyProvider
         self.constants = constants
         self.theme = theme
     }
@@ -92,10 +92,10 @@ extension DeepLinkRouter {
             }
             
             return true
-        } else if let id = postWorker.getID(byURL: url.absoluteString) {
+        } else if let id = postProvider.getID(byURL: url.absoluteString) {
             showPost(for: id)
             return true
-        } else if let id = taxonomyWorker.getID(byURL: url.absoluteString) {
+        } else if let id = taxonomyProvider.getID(byURL: url.absoluteString) {
             show(tab: .blog) { (controller: ShowBlogViewController) in
                 controller.router.listPosts(
                     params: .init(fetchType: .terms([id]))

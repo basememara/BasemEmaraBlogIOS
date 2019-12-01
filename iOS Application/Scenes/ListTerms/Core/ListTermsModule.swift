@@ -17,7 +17,7 @@ struct ListTermsModule: ListTermsModuleType {
     func component(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
         ListTermsAction(
             presenter: component(with: viewController),
-            taxonomyWorker: appModule.component()
+            taxonomyProvider: appModule.component()
         )
     }
     

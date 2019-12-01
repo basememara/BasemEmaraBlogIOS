@@ -19,14 +19,14 @@ struct DeepLinkModule: DeepLinkModuleType {
         DeepLinkRouter(
             viewController: UIWindow.current?.rootViewController,
             scenes: sceneModule,
-            postWorker: appModule.component(),
-            taxonomyWorker: appModule.component(),
+            postProvider: appModule.component(),
+            taxonomyProvider: appModule.component(),
             constants: appModule.component(),
             theme: appModule.component()
         )
     }
     
-    func component() -> LogWorkerType {
+    func component() -> LogProviderType {
         appModule.component()
     }
 }

@@ -16,7 +16,7 @@ enum DeepLinkAPI {}
 /// Container of dependencies needed to execute this feature.
 protocol DeepLinkModuleType {
     func component() -> DeepLinkRoutable
-    func component() -> LogWorkerType
+    func component() -> LogProviderType
 }
 
 protocol DeepLinkRoutable: AppRoutable {

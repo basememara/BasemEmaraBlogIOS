@@ -17,8 +17,8 @@ struct SearchPostsModule: SearchPostsModuleType {
     func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
         SearchPostsAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component()
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component()
         )
     }
     

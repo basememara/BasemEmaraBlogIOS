@@ -92,7 +92,7 @@ extension SearchPostsViewController {
     
     private func searchData(for text: String, with scope: Int) {
         action.fetchSearchResults(
-            with: PostsAPI.SearchRequest(
+            with: PostAPI.SearchRequest(
                 query: text,
                 scope: {
                     switch scope {

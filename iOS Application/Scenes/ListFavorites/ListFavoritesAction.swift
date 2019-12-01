@@ -10,31 +10,31 @@ import SwiftyPress
 
 struct ListFavoritesAction: ListFavoritesActionable {
     private let presenter: ListFavoritesPresentable
-    private let postWorker: PostWorkerType
-    private let mediaWorker: MediaWorkerType
+    private let postProvider: PostProviderType
+    private let mediaProvider: MediaProviderType
     
     init(
         presenter: ListFavoritesPresentable,
-        postWorker: PostWorkerType,
-        mediaWorker: MediaWorkerType
+        postProvider: PostProviderType,
+        mediaProvider: MediaProviderType
     ) {
         self.presenter = presenter
-        self.postWorker = postWorker
-        self.mediaWorker = mediaWorker
+        self.postProvider = postProvider
+        self.mediaProvider = mediaProvider
     }
 }
 
 extension ListFavoritesAction {
     
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
-        postWorker.fetchFavorites {
+        postProvider.fetchFavorites {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentFavoritePosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -55,12 +55,12 @@ extension ListFavoritesAction {
 extension ListFavoritesAction {
     
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
-        postWorker.toggleFavorite(id: request.postID)
+        postProvider.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ListFavoritesAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postWorker.hasFavorite(id: request.postID)
+                favorite: postProvider.hasFavorite(id: request.postID)
             )
         )
     }

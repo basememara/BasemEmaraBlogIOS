@@ -23,7 +23,7 @@ protocol SearchPostsModuleType {
 }
 
 protocol SearchPostsActionable: AppActionable {
-    func fetchSearchResults(with request: PostsAPI.SearchRequest)
+    func fetchSearchResults(with request: PostAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }
 

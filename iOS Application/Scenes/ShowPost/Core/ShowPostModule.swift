@@ -17,10 +17,10 @@ struct ShowPostModule: ShowPostModuleType {
     func component(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
         ShowPostAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component(),
-            authorWorker: appModule.component(),
-            taxonomyWorker: appModule.component()
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component(),
+            authorProvider: appModule.component(),
+            taxonomyProvider: appModule.component()
         )
     }
     

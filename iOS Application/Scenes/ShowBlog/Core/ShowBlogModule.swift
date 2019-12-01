@@ -18,9 +18,9 @@ struct ShowBlogModule: ShowBlogModuleType {
     func component(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
         ShowBlogAction(
             presenter: component(with: viewController),
-            postWorker: appModule.component(),
-            mediaWorker: appModule.component(),
-            taxonomyWorker: appModule.component(),
+            postProvider: appModule.component(),
+            mediaProvider: appModule.component(),
+            taxonomyProvider: appModule.component(),
             preferences: appModule.component()
         )
     }
