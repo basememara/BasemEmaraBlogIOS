@@ -40,16 +40,6 @@ extension BackgroundPlugin: ApplicationPlugin {
                 self?.log.info("Background fetching starting from `BGTaskScheduler`...")
                 
                 self?.handleBackgroundTask { [weak self] result in
-                    // Test
-                    UNUserNotificationCenter.current().add(
-                        body: "Triggered from BGTaskScheduler",
-                        timeInterval: 60,
-                        completion: {
-                            guard $0 == nil else { self?.log.error("Could not schedule the test notification for background task."); return }
-                            self?.log.debug("Scheduled notification for test during background fetch.")
-                        }
-                    )
-                    
                     switch result {
                     case .success:
                         self?.log.info("Background fetching completed")
@@ -79,16 +69,6 @@ extension BackgroundPlugin: ApplicationPlugin {
             log.info("Background fetching starting...")
             
             handleBackgroundTask { [weak self] result in
-                // Test
-                UNUserNotificationCenter.current().add(
-                    body: "Triggered from background performFetchWithCompletionHandler",
-                    timeInterval: 60,
-                    completion: {
-                        guard $0 == nil else { self?.log.error("Could not schedule the test notification for background task."); return }
-                        self?.log.debug("Scheduled notification for test during background fetch.")
-                    }
-                )
-                
                 switch result {
                 case .success:
                     self?.log.info("Background fetching completed")
