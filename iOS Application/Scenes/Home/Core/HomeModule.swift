@@ -12,25 +12,25 @@ import ZamzamCore
 import ZamzamUI
 
 struct HomeModule: HomeModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable {
         HomeRouter(
             viewController: inputs.viewController,
             listPostsDelegate: inputs.listPostsDelegate,
             scenes: sceneModule,
-            mailComposer: appModule.component(),
-            constants: appModule.component(),
-            theme: appModule.component()
+            mailComposer: appModule.dependency(),
+            constants: appModule.dependency(),
+            theme: appModule.dependency()
         )
     }
     
     func component() -> ConstantsType {
-        appModule.component()
+        appModule.dependency()
     }
     
     func component() -> Theme {
-        appModule.component()
+        appModule.dependency()
     }
 }

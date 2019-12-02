@@ -14,10 +14,10 @@ final class WindowPlugin {
     
     // MARK: - Dependencies
     
-    @Inject private var module: SwiftyPressModule
-    @Inject private var scenes: SceneModuleType
+    @Inject private var module: SwiftyPressCore
+    @Inject private var scenes: SceneRenderType
     
-    private lazy var preferences: PreferencesType = module.component()
+    private lazy var preferences: PreferencesType = module.dependency()
     
     // MARK: - State
     

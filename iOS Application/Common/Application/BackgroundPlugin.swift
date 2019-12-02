@@ -18,11 +18,11 @@ final class BackgroundPlugin {
     
     // MARK: Dependencies
     
-    @Inject private var module: SwiftyPressModule
+    @Inject private var module: SwiftyPressCore
     
-    private lazy var dataProvider: DataProviderType = module.component()
-    private lazy var preferences: PreferencesType = module.component()
-    private lazy var log: LogProviderType = module.component()
+    private lazy var dataProvider: DataProviderType = module.dependency()
+    private lazy var preferences: PreferencesType = module.dependency()
+    private lazy var log: LogProviderType = module.dependency()
     
     // MARK: State
     

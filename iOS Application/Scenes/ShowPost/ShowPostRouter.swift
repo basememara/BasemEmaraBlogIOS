@@ -12,12 +12,12 @@ struct ShowPostRouter: ShowPostRoutable {
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
-    private let scenes: SceneModuleType
+    private let scenes: SceneRenderType
     
     init(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
-        scenes: SceneModuleType
+        scenes: SceneRenderType
     ) {
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate

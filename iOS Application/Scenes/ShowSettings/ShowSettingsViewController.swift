@@ -18,8 +18,8 @@ class ShowSettingsViewController: UITableViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: SwiftyPressModule
-    private lazy var preferences: PreferencesType = module.component()
+    @Inject private var module: SwiftyPressCore
+    private lazy var preferences: PreferencesType = module.dependency()
     
     // MARK: - Lifecycle
     

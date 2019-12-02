@@ -11,20 +11,20 @@ import SwiftyPress
 import ZamzamCore
 
 struct ShowMoreModule: ShowMoreModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component(with viewController: UIViewController?) -> ShowMoreRoutable {
         ShowMoreRouter(
             viewController: viewController,
             scenes: sceneModule,
-            constants: appModule.component(),
-            mailComposer: appModule.component(),
-            theme: appModule.component()
+            constants: appModule.dependency(),
+            mailComposer: appModule.dependency(),
+            theme: appModule.dependency()
         )
     }
     
     func component() -> ConstantsType {
-        appModule.component()
+        appModule.dependency()
     }
 }

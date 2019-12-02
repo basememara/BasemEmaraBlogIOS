@@ -13,7 +13,7 @@ import UIKit
 struct DeepLinkRouter: DeepLinkRoutable {
     weak var viewController: UIViewController?
     
-    private let scenes: SceneModuleType
+    private let scenes: SceneRenderType
     private let postProvider: PostProviderType
     private let taxonomyProvider: TaxonomyProviderType
     private let constants: ConstantsType
@@ -21,7 +21,7 @@ struct DeepLinkRouter: DeepLinkRoutable {
     
     init(
         viewController: UIViewController?,
-        scenes: SceneModuleType,
+        scenes: SceneRenderType,
         postProvider: PostProviderType,
         taxonomyProvider: TaxonomyProviderType,
         constants: ConstantsType,

@@ -10,13 +10,13 @@ import SwiftyPress
 import ZamzamCore
 
 struct TodayModule: TodayModuleType {
-    @Inject private var appModule: SwiftyPressModule
+    @Inject private var appModule: SwiftyPressCore
     
     func component(with viewController: TodayDisplayable?) -> TodayActionable {
         TodayAction(
             presenter: component(with: viewController),
-            postProvider: appModule.component(),
-            mediaProvider: appModule.component()
+            postProvider: appModule.dependency(),
+            mediaProvider: appModule.dependency()
         )
     }
     
@@ -25,7 +25,7 @@ struct TodayModule: TodayModuleType {
     }
     
     func component() -> DataProviderType {
-        appModule.component()
+        appModule.dependency()
     }
     
     func component() -> Theme {

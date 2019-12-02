@@ -13,14 +13,14 @@ import ZamzamUI
 struct ShowMoreRouter: ShowMoreRoutable {
     weak var viewController: UIViewController?
     
-    private let scenes: SceneModuleType
+    private let scenes: SceneRenderType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
     init(
         viewController: UIViewController?,
-        scenes: SceneModuleType,
+        scenes: SceneRenderType,
         constants: ConstantsType,
         mailComposer: MailComposerType,
         theme: Theme

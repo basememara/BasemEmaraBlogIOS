@@ -11,8 +11,8 @@ import SwiftyPress
 import ZamzamCore
 
 final class DataPlugin: ApplicationPlugin {
-    @Inject private var module: SwiftyPressModule
-    private lazy var dataProvider: DataProviderType = module.component()
+    @Inject private var module: SwiftyPressCore
+    private lazy var dataProvider: DataProviderType = module.dependency()
 }
 
 extension DataPlugin {

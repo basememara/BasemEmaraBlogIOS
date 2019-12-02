@@ -12,21 +12,21 @@ import UIKit
 import ZamzamCore
 
 struct DeepLinkModule: DeepLinkModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component() -> DeepLinkRoutable {
         DeepLinkRouter(
             viewController: UIWindow.current?.rootViewController,
             scenes: sceneModule,
-            postProvider: appModule.component(),
-            taxonomyProvider: appModule.component(),
-            constants: appModule.component(),
-            theme: appModule.component()
+            postProvider: appModule.dependency(),
+            taxonomyProvider: appModule.dependency(),
+            constants: appModule.dependency(),
+            theme: appModule.dependency()
         )
     }
     
     func component() -> LogProviderType {
-        appModule.component()
+        appModule.dependency()
     }
 }

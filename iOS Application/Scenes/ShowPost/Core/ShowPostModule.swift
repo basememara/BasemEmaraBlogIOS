@@ -11,23 +11,23 @@ import SwiftyPress
 import ZamzamCore
 
 struct ShowPostModule: ShowPostModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
         ShowPostAction(
             presenter: component(with: viewController),
-            postProvider: appModule.component(),
-            mediaProvider: appModule.component(),
-            authorProvider: appModule.component(),
-            taxonomyProvider: appModule.component()
+            postProvider: appModule.dependency(),
+            mediaProvider: appModule.dependency(),
+            authorProvider: appModule.dependency(),
+            taxonomyProvider: appModule.dependency()
         )
     }
     
     func component(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
         ShowPostPresenter(
             viewController: viewController,
-            constants: appModule.component()
+            constants: appModule.dependency()
         )
     }
     
@@ -40,14 +40,14 @@ struct ShowPostModule: ShowPostModuleType {
     }
     
     func component() -> NotificationCenter {
-        appModule.component()
+        appModule.dependency()
     }
     
     func component() -> ConstantsType {
-        appModule.component()
+        appModule.dependency()
     }
     
     func component() -> Theme {
-        appModule.component()
+        appModule.dependency()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SceneModule.swift
+//  SceneRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-18.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 
 /// Dependency injector for overriding concrete scene factories.
-protocol SceneModuleType {
+protocol SceneRenderType {
     func startMain() -> UIViewController
     func showBlog() -> UIViewController
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
@@ -19,14 +19,14 @@ protocol SceneModuleType {
     func showSettings() -> UIViewController
 }
 
-extension SceneModuleType {
+extension SceneRenderType {
     
     func listPosts(params: ListPostsAPI.Params) -> UIViewController {
         listPosts(params: params, delegate: nil)
     }
 }
 
-struct SceneModule: SceneModuleType {
+struct SceneRender: SceneRenderType {
     
     func startMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
@@ -38,7 +38,7 @@ struct SceneModule: SceneModuleType {
     }
 }
 
-extension SceneModule {
+extension SceneRender {
     
     func showBlog() -> UIViewController {
         .make(fromStoryboard: Storyboard.showBlog.rawValue)
@@ -66,7 +66,7 @@ extension SceneModule {
     }
 }
 
-extension SceneModule {
+extension SceneRender {
     
     /// Tab identifiers for routing
     enum Tab: Int {

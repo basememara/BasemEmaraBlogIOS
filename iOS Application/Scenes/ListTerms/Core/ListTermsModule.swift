@@ -11,13 +11,13 @@ import SwiftyPress
 import ZamzamCore
 
 struct ListTermsModule: ListTermsModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
         ListTermsAction(
             presenter: component(with: viewController),
-            taxonomyProvider: appModule.component()
+            taxonomyProvider: appModule.dependency()
         )
     }
     

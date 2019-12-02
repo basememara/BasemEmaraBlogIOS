@@ -14,7 +14,7 @@ class SceneDelegate: ScenePluggableDelegate {
     
     // MARK: - Dependencies
     
-    @Inject private var scenes: SceneModuleType
+    @Inject private var scenes: SceneRenderType
     
     // MARK: - Overrides
     

@@ -12,8 +12,8 @@ import ZamzamCore
 final class DependencyPlugin: ApplicationPlugin {
     
     private let dependencies = Dependencies {
-        Module { AppModule() as SwiftyPressModule }
-        Module { SceneModule() as SceneModuleType }
+        Module { AppCore() as SwiftyPressCore }
+        Module { SceneRender() as SceneRenderType }
         Module { DeepLinkModule() as DeepLinkModuleType }
         
         Module { HomeModule() as HomeModuleType }

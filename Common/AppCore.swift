@@ -10,7 +10,7 @@ import Foundation
 import SwiftyPress
 import ZamzamCore
 
-struct AppModule: SwiftyPressModule {
+struct AppCore: SwiftyPressCore {
     private let environment: Environment = {
         #if DEBUG
         return .development
@@ -21,7 +21,7 @@ struct AppModule: SwiftyPressModule {
         #endif
     }()
     
-    func componentStore() -> ConstantsStore {
+    func dependencyStore() -> ConstantsStore {
         ConstantsMemoryStore(
             environment: environment,
             itunesName: "basememara",
@@ -58,7 +58,7 @@ struct AppModule: SwiftyPressModule {
         )
     }
     
-    func componentStore() -> PreferencesStore {
+    func dependencyStore() -> PreferencesStore {
         PreferencesDefaultsStore(
             defaults: {
                 UserDefaults(
@@ -77,16 +77,16 @@ struct AppModule: SwiftyPressModule {
         )
     }
 
-    func component() -> SeedStore {
+    func dependency() -> SeedStore {
         SeedFileStore(
             forResource: "seed.json",
             inBundle: .main,
-            jsonDecoder: component()
+            jsonDecoder: dependency()
         )
     }
     
-    func component() -> [LogStore] {
-        let constants: ConstantsType = component()
+    func dependency() -> [LogStore] {
+        let constants: ConstantsType = dependency()
         
         return [
             LogConsoleStore(
@@ -101,7 +101,7 @@ struct AppModule: SwiftyPressModule {
         ]
     }
 
-    func component() -> Theme {
+    func dependency() -> Theme {
         AppTheme()
     }
 }

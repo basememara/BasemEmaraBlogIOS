@@ -15,8 +15,8 @@ final class LoggerPlugin {
     
     // MARK: - Dependencies
     
-    @Inject private var module: SwiftyPressModule
-    private lazy var log: LogProviderType = module.component()
+    @Inject private var module: SwiftyPressCore
+    private lazy var log: LogProviderType = module.dependency()
 }
 
 extension LoggerPlugin: ApplicationPlugin {

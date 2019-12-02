@@ -10,9 +10,9 @@ import UIKit
 
 struct ListTermsRouter: ListTermsRoutable {
     weak var viewController: UIViewController?
-    private let scenes: SceneModuleType
+    private let scenes: SceneRenderType
     
-    init(viewController: UIViewController?, scenes: SceneModuleType) {
+    init(viewController: UIViewController?, scenes: SceneRenderType) {
         self.viewController = viewController
         self.scenes = scenes
     }

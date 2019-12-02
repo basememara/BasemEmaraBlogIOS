@@ -14,7 +14,7 @@ struct HomeRouter: HomeRoutable {
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
-    private let scenes: SceneModuleType
+    private let scenes: SceneRenderType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
@@ -22,7 +22,7 @@ struct HomeRouter: HomeRoutable {
     init(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
-        scenes: SceneModuleType,
+        scenes: SceneRenderType,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme

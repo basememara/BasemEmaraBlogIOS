@@ -11,14 +11,14 @@ import SwiftyPress
 import ZamzamCore
 
 struct SearchPostsModule: SearchPostsModuleType {
-    @Inject private var appModule: SwiftyPressModule
-    @Inject private var sceneModule: SceneModuleType
+    @Inject private var appModule: SwiftyPressCore
+    @Inject private var sceneModule: SceneRenderType
     
     func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
         SearchPostsAction(
             presenter: component(with: viewController),
-            postProvider: appModule.component(),
-            mediaProvider: appModule.component()
+            postProvider: appModule.dependency(),
+            mediaProvider: appModule.dependency()
         )
     }
     
@@ -34,10 +34,10 @@ struct SearchPostsModule: SearchPostsModuleType {
     }
     
     func component() -> ConstantsType {
-        appModule.component()
+        appModule.dependency()
     }
     
     func component() -> Theme {
-        appModule.component()
+        appModule.dependency()
     }
 }
