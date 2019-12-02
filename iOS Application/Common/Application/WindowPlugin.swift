@@ -63,3 +63,13 @@ extension WindowPlugin: ScenePlugin {
         }
     }
 }
+
+// MARK: - Helpers
+
+protocol WindowDelegate: class {
+    var window: UIWindow? { get set }
+}
+
+@available(iOS 13.0, *)
+extension ScenePluggableDelegate: WindowDelegate {}
+extension ApplicationPluggableDelegate: WindowDelegate {} // iOS 12 and below
