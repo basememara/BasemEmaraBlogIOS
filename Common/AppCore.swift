@@ -11,6 +11,7 @@ import SwiftyPress
 import ZamzamCore
 
 struct AppCore: SwiftyPressCore {
+    
     private let environment: Environment = {
         #if DEBUG
         return .development

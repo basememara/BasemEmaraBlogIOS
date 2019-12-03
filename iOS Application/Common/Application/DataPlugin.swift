@@ -10,9 +10,12 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class DataPlugin: ApplicationPlugin {
-    @Inject private var module: SwiftyPressCore
-    private lazy var dataProvider: DataProviderType = module.dependency()
+struct DataPlugin: ApplicationPlugin {
+    private let dataProvider: DataProviderType
+    
+    init(dataProvider: DataProviderType) {
+        self.dataProvider = dataProvider
+    }
 }
 
 extension DataPlugin {

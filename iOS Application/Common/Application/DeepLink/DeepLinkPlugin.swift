@@ -10,11 +10,19 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class DeepLinkPlugin {
-    @Inject private var module: DeepLinkModuleType
+struct DeepLinkPlugin {
+    private let module: DeepLinkModuleType
+    private let router: DeepLinkRoutable
+    private let log: LogProviderType
     
-    private lazy var router: DeepLinkRoutable = module.component()
-    private lazy var log: LogProviderType = module.component()
+    init(
+        module: DeepLinkModuleType,
+        log: LogProviderType
+    ) {
+        self.module = module
+        self.router = module.component()
+        self.log = log
+    }
 }
 
 extension DeepLinkPlugin: ApplicationPlugin {

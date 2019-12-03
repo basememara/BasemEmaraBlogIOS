@@ -12,16 +12,18 @@ import UserNotifications
 import ZamzamCore
 
 final class NotificationPlugin: NSObject {
-    static let shared = NotificationPlugin()
+    private let deepLinkModule: DeepLinkModuleType
+    private let router: DeepLinkRoutable
+    private let userNotification: UNUserNotificationCenter
     
-    // MARK: - Dependencies
-    
-    @Inject private var deepLinkModule: DeepLinkModuleType
-    private lazy var router: DeepLinkRoutable = deepLinkModule.component()
-    
-    // MARK: - State
-    
-    private let userNotification: UNUserNotificationCenter = .current()
+    init(
+        deepLinkModule: DeepLinkModuleType,
+        userNotification: UNUserNotificationCenter
+    ) {
+        self.deepLinkModule = deepLinkModule
+        self.router = deepLinkModule.component()
+        self.userNotification = userNotification
+    }
 }
 
 // MARK: - Lifecycle

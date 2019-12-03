@@ -10,9 +10,12 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class ThemePlugin: ApplicationPlugin {
-    @Inject private var module: SwiftyPressCore
-    private lazy var theme: Theme = module.dependency()
+struct ThemePlugin: ApplicationPlugin {
+    private let theme: Theme
+    
+    init(theme: Theme) {
+        self.theme = theme
+    }
 }
 
 extension ThemePlugin {

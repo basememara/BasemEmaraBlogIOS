@@ -19,12 +19,26 @@ class SceneDelegate: ScenePluggableDelegate {
     // MARK: - Overrides
     
     override func plugins() -> [ScenePlugin] {[
-        LoggerPlugin.shared,
-        BackgroundPlugin(),
-        WindowPlugin(for: self),
-        NotificationPlugin.shared,
-        ShortcutPlugin.shared,
-        DeepLinkPlugin()
+        LoggerPlugin(log: core.dependency()),
+        BackgroundPlugin(
+            dataProvider: core.dependency(),
+            preferences: core.dependency(),
+            log: core.dependency()
+        ),
+        WindowPlugin(
+            delegate: self,
+            scenes: SceneRender(core: core),
+            preferences: core.dependency()
+        ),
+        NotificationPlugin(
+            deepLinkModule: DeepLinkModule(),
+            userNotification: .current()
+        ),
+        ShortcutPlugin(deepLinkModule: DeepLinkModule()),
+        DeepLinkPlugin(
+            module: DeepLinkModule(),
+            log: core.dependency()
+        )
     ]}
 }
 

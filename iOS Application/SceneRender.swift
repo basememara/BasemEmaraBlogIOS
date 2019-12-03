@@ -27,6 +27,14 @@ extension SceneRenderType {
 }
 
 struct SceneRender: SceneRenderType {
+    private let core: SwiftyPressCore
+    
+    init(core: SwiftyPressCore) {
+        self.core = core
+    }
+}
+
+extension SceneRender {
     
     func startMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {

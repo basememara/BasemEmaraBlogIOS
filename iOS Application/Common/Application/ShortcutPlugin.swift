@@ -11,16 +11,17 @@ import SwiftyPress
 import ZamzamCore
 
 final class ShortcutPlugin {
-    static let shared = ShortcutPlugin()
-    
-    // MARK: - Dependencies
-    
-    @Inject private var deepLinkModule: DeepLinkModuleType
-    private lazy var router: DeepLinkRoutable = deepLinkModule.component()
+    private let deepLinkModule: DeepLinkModuleType
+    private let router: DeepLinkRoutable
     
     // MARK: - State
     
     private var launchedShortcutItem: UIApplicationShortcutItem?
+    
+    init(deepLinkModule: DeepLinkModuleType) {
+        self.deepLinkModule = deepLinkModule
+        self.router = deepLinkModule.component()
+    }
 }
 
 // iOS 12 and below

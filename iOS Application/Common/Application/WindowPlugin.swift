@@ -11,22 +11,21 @@ import SwiftyPress
 import ZamzamCore
 
 final class WindowPlugin {
-    
-    // MARK: - Dependencies
-    
-    @Inject private var module: SwiftyPressCore
-    @Inject private var scenes: SceneRenderType
-    
-    private lazy var preferences: PreferencesType = module.dependency()
-    
-    // MARK: - State
-    
     private weak var delegate: WindowDelegate?
+    
+    private let scenes: SceneRenderType
+    private let preferences: PreferencesType
     
     // MARK: - Lifecycle
     
-    init(for delegate: WindowDelegate?) {
+    init(
+        delegate: WindowDelegate?,
+        scenes: SceneRenderType,
+        preferences: PreferencesType
+    ) {
         self.delegate = delegate
+        self.scenes = scenes
+        self.preferences = preferences
     }
 }
 

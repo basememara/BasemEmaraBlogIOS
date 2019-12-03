@@ -14,15 +14,20 @@ import UserNotifications
 import ZamzamCore
 import ZamzamNotification
 
-final class BackgroundPlugin {
+struct BackgroundPlugin {
+    private let dataProvider: DataProviderType
+    private let preferences: PreferencesType
+    private let log: LogProviderType
     
-    // MARK: Dependencies
-    
-    @Inject private var module: SwiftyPressCore
-    
-    private lazy var dataProvider: DataProviderType = module.dependency()
-    private lazy var preferences: PreferencesType = module.dependency()
-    private lazy var log: LogProviderType = module.dependency()
+    init(
+        dataProvider: DataProviderType,
+        preferences: PreferencesType,
+        log: LogProviderType
+    ) {
+        self.dataProvider = dataProvider
+        self.preferences = preferences
+        self.log = log
+    }
     
     // MARK: State
     
@@ -35,23 +40,23 @@ extension BackgroundPlugin: ApplicationPlugin {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Enable background fetch for creating local notifications for new content
         if #available(iOS 13.0, *) {
-            BGTaskScheduler.shared.register(forTaskWithIdentifier: taskIdentifier, using: nil) { [weak self] in
+            BGTaskScheduler.shared.register(forTaskWithIdentifier: taskIdentifier, using: nil) {
                 guard let task = $0 as? BGAppRefreshTask else { return }
-                self?.log.info("Background fetching starting from `BGTaskScheduler`...")
+                self.log.info("Background fetching starting from `BGTaskScheduler`...")
                 
-                self?.handleBackgroundTask { [weak self] result in
+                self.handleBackgroundTask { result in
                     switch result {
                     case .success:
-                        self?.log.info("Background fetching completed")
+                        self.log.info("Background fetching completed")
                         task.setTaskCompleted(success: true)
                     case .failure(let error):
                         guard case .nonExistent = error else {
-                            self?.log.error("Background fetching failed: \(error)")
+                            self.log.error("Background fetching failed: \(error)")
                             task.setTaskCompleted(success: false)
                             break
                         }
                         
-                        self?.log.info("Background fetching completed with no data")
+                        self.log.info("Background fetching completed with no data")
                         task.setTaskCompleted(success: true)
                     }
                 }
@@ -68,19 +73,19 @@ extension BackgroundPlugin: ApplicationPlugin {
         if #available(iOS 13.0, *) {} else {
             log.info("Background fetching starting...")
             
-            handleBackgroundTask { [weak self] result in
+            handleBackgroundTask { result in
                 switch result {
                 case .success:
-                    self?.log.info("Background fetching completed")
+                    self.log.info("Background fetching completed")
                     completionHandler(.newData)
                 case .failure(let error):
                     guard case .nonExistent = error else {
-                        self?.log.error("Background fetching failed: \(error)")
+                        self.log.error("Background fetching failed: \(error)")
                         completionHandler(.failed)
                         break
                     }
                     
-                    self?.log.info("Background fetching completed with no data.")
+                    self.log.info("Background fetching completed with no data.")
                     completionHandler(.noData)
                 }
             }
@@ -131,7 +136,10 @@ private extension BackgroundPlugin {
                 return
             }
             
-            self.preferences.notificationPostIDs.append(post.id)
+            // Append post ID to list of notified IDs
+            self.preferences.set(notificationPostIDs:
+                self.preferences.notificationPostIDs + [post.id]
+            )
             
             var attachments: [UNNotificationAttachment] = []
             var mediaURL = ""

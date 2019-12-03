@@ -10,13 +10,12 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-final class LoggerPlugin {
-    static let shared = LoggerPlugin()
+struct LoggerPlugin {
+    private let log: LogProviderType
     
-    // MARK: - Dependencies
-    
-    @Inject private var module: SwiftyPressCore
-    private lazy var log: LogProviderType = module.dependency()
+    init(log: LogProviderType) {
+        self.log = log
+    }
 }
 
 extension LoggerPlugin: ApplicationPlugin {

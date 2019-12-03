@@ -15,14 +15,28 @@ class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {[
         DependencyPlugin(),
-        LoggerPlugin.shared,
-        DataPlugin(),
-        BackgroundPlugin(),
-        ThemePlugin(),
-        WindowPlugin(for: self),
-        NotificationPlugin.shared,
-        ShortcutPlugin.shared,
-        DeepLinkPlugin()
+        LoggerPlugin(log: core.dependency()),
+        DataPlugin(dataProvider: core.dependency()),
+        BackgroundPlugin(
+            dataProvider: core.dependency(),
+            preferences: core.dependency(),
+            log: core.dependency()
+        ),
+        ThemePlugin(theme: core.dependency()),
+        WindowPlugin(
+            delegate: self,
+            scenes: SceneRender(core: core),
+            preferences: core.dependency()
+        ),
+        NotificationPlugin(
+            deepLinkModule: DeepLinkModule(),
+            userNotification: .current()
+        ),
+        ShortcutPlugin(deepLinkModule: DeepLinkModule()),
+        DeepLinkPlugin(
+            module: DeepLinkModule(),
+            log: core.dependency()
+        )
     ]}
 }
 
@@ -37,4 +51,19 @@ extension AppDelegate {
         pluginInstances.compactMap { $0 as? ShortcutPlugin }.first?
             .scene(performActionFor: shortcutItem, completionHandler: completionHandler)
     }
+}
+
+// MARK: - Environment Components
+
+private extension UIApplication {
+    static let core = AppCore()
+}
+
+extension UIApplicationDelegate {
+    var core: SwiftyPressCore { UIApplication.core }
+}
+
+@available(iOS 13.0, *)
+extension UISceneDelegate {
+    var core: SwiftyPressCore { UIApplication.core }
 }
