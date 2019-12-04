@@ -11,11 +11,18 @@ import SwiftyPress
 
 /// Dependency injector for overriding concrete scene factories.
 protocol SceneRenderType {
-    func startMain() -> UIViewController
+    func launchMain() -> UIViewController
+    
+    func home() -> UIViewController
+    func listFavorites() -> UIViewController
+    func searchPosts() -> UIViewController
+    
     func showBlog() -> UIViewController
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
     func showPost(for id: Int) -> UIViewController
     func listTerms() -> UIViewController
+    
+    func showMore() -> UIViewController
     func showSettings() -> UIViewController
 }
 
@@ -36,13 +43,132 @@ struct SceneRender: SceneRenderType {
 
 extension SceneRender {
     
-    func startMain() -> UIViewController {
+    func launchMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return .make(fromStoryboard: Storyboard.mainSplit.rawValue)
+            return MainSplitViewController().with {
+                $0.viewControllers = [
+                    UINavigationController(rootViewController: home()),
+                    MainSplitDetailViewController().with {
+                        $0.viewControllers = [
+                            UINavigationController(
+                                rootViewController: showBlog().with {
+                                    $0.tabBarItem = UITabBarItem(
+                                        title: "Blog",
+                                        image: UIImage(named: "tab-megaphone"),
+                                        tag: Tab.blog.rawValue
+                                    )
+                                }
+                            ),
+                            UINavigationController(
+                                rootViewController: listFavorites().with {
+                                    $0.tabBarItem = UITabBarItem(
+                                        title: "Favorites",
+                                        image: UIImage(named: "tab-favorite"),
+                                        tag: Tab.favorites.rawValue
+                                    )
+                                }
+                            ).with {
+                                $0.navigationBar.prefersLargeTitles = true
+                            },
+                            UINavigationController(
+                                rootViewController: searchPosts().with {
+                                    $0.tabBarItem = UITabBarItem(
+                                        title: "Search",
+                                        image: UIImage(named: "tab-search"),
+                                        tag: Tab.search.rawValue
+                                    )
+                                }
+                            ).with {
+                                $0.navigationBar.prefersLargeTitles = true
+                            },
+                            UINavigationController(
+                                rootViewController: showMore().with {
+                                    $0.tabBarItem = UITabBarItem(
+                                        title: "More",
+                                        image: UIImage(named: "tab-more"),
+                                        tag: Tab.more.rawValue
+                                    )
+                                }
+                            ).with {
+                                $0.navigationBar.prefersLargeTitles = true
+                            }
+                        ]
+                    }
+                ]
+            }
         default:
-            return .make(fromStoryboard: Storyboard.main.rawValue)
+            return MainViewController().with {
+                $0.viewControllers = [
+                    UINavigationController(
+                        rootViewController: home().with {
+                            $0.tabBarItem = UITabBarItem(
+                                title: "Home",
+                                image: UIImage(named: "tab-home"),
+                                tag: Tab.home.rawValue
+                            )
+                        }
+                    ),
+                    UINavigationController(
+                        rootViewController: showBlog().with {
+                            $0.tabBarItem = UITabBarItem(
+                                title: "Blog",
+                                image: UIImage(named: "tab-megaphone"),
+                                tag: Tab.blog.rawValue
+                            )
+                        }
+                    ),
+                    UINavigationController(
+                        rootViewController: listFavorites().with {
+                            $0.tabBarItem = UITabBarItem(
+                                title: "Favorites",
+                                image: UIImage(named: "tab-favorite"),
+                                tag: Tab.favorites.rawValue
+                            )
+                        }
+                    ).with {
+                        $0.navigationBar.prefersLargeTitles = true
+                    },
+                    UINavigationController(
+                        rootViewController: searchPosts().with {
+                            $0.tabBarItem = UITabBarItem(
+                                title: "Search",
+                                image: UIImage(named: "tab-search"),
+                                tag: Tab.search.rawValue
+                            )
+                        }
+                    ).with {
+                        $0.navigationBar.prefersLargeTitles = true
+                    },
+                    UINavigationController(
+                        rootViewController: showMore().with {
+                            $0.tabBarItem = UITabBarItem(
+                                title: "More",
+                                image: UIImage(named: "tab-more"),
+                                tag: Tab.more.rawValue
+                            )
+                        }
+                    ).with {
+                        $0.navigationBar.prefersLargeTitles = true
+                    }
+                ]
+            }
         }
+    }
+}
+
+extension SceneRender {
+    
+    func home() -> UIViewController {
+        .make(fromStoryboard: Storyboard.home.rawValue)
+    }
+    
+    func listFavorites() -> UIViewController {
+        .make(fromStoryboard: Storyboard.listFavorites.rawValue)
+    }
+    
+    func searchPosts() -> UIViewController {
+        .make(fromStoryboard: Storyboard.searchPosts.rawValue)
     }
 }
 
@@ -68,6 +194,13 @@ extension SceneRender {
     func listTerms() -> UIViewController {
         .make(fromStoryboard: Storyboard.listTerms.rawValue)
     }
+}
+
+extension SceneRender {
+    
+    func showMore() -> UIViewController {
+        .make(fromStoryboard: Storyboard.showMore.rawValue)
+    }
     
     func showSettings() -> UIViewController {
         .make(fromStoryboard: Storyboard.showSettings.rawValue)
@@ -87,12 +220,16 @@ extension SceneRender {
     
     /// Storyboard identifiers for routing
     enum Storyboard: String {
-        case main = "Main"
-        case mainSplit = "MainSplit"
+        case home = "Home"
+        case listFavorites = "ListFavorites"
+        case searchPosts = "SearchPosts"
+        
         case showBlog = "ShowBlog"
         case listPosts = "ListPosts"
         case showPost = "ShowPost"
         case listTerms = "ListTerms"
+        
+        case showMore = "ShowMore"
         case showSettings = "ShowSettings"
     }
 }

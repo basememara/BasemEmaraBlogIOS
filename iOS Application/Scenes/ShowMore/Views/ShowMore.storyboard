@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -226,7 +226,6 @@
                             <outlet property="delegate" destination="rHl-wU-hL3" id="UYP-YR-Gfq"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="More" image="tab-more" id="07j-fO-AB5"/>
                     <navigationItem key="navigationItem" title="More" leftItemsSupplementBackButton="YES" id="Tx0-Tn-wtA">
                         <barButtonItem key="backBarButtonItem" title=" " id="LB4-6I-miS"/>
                     </navigationItem>
@@ -247,7 +246,6 @@
         <image name="rating" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
         <image name="signup" width="24" height="24"/>
-        <image name="tab-more" width="25" height="25"/>
         <image name="twitter" width="64" height="64"/>
     </resources>
 </document>

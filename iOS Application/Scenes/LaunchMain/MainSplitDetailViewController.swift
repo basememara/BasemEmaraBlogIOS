@@ -10,8 +10,6 @@ import UIKit
 
 class MainSplitDetailViewController: MainViewController {
     
-    // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

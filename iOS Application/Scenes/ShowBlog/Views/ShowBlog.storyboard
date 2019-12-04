@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sqp-Od-GZN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sqp-Od-GZN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Blog-->
+        <!--Show Blog View Controller-->
         <scene sceneID="bOy-m0-EDT">
             <objects>
                 <viewController id="Sqp-Od-GZN" customClass="ShowBlogViewController" customModule="BasemEmara" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,7 +266,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWG-HG-ADb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Blog" image="tab-megaphone" id="cpI-Os-Nhe"/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="LcI-eV-Fqo">
                         <barButtonItem key="backBarButtonItem" title=" " id="8K6-aO-gul"/>
                     </navigationItem>
@@ -322,6 +321,5 @@
     </scenes>
     <resources>
         <image name="icon-nobg" width="300" height="341"/>
-        <image name="tab-megaphone" width="25" height="25"/>
     </resources>
 </document>

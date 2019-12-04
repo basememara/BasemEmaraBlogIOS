@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEF-n8-evx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wEF-n8-evx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Search-->
         <scene sceneID="i7h-LI-exm">
             <objects>
-                <viewController id="wEF-n8-evx" customClass="SearchPostsViewController" customModule="Basem_Emara" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wEF-n8-evx" customClass="SearchPostsViewController" customModule="BasemEmara" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DdT-WV-OqV" customClass="ThemedView" customModule="SwiftyPress">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K8U-Vm-nhz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="tab-search" id="4Fa-Wj-khg"/>
                     <navigationItem key="navigationItem" title="Search" leftItemsSupplementBackButton="YES" id="Y0C-Hn-1cI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -87,6 +86,5 @@
     </scenes>
     <resources>
         <image name="empty-set" width="100" height="100"/>
-        <image name="tab-search" width="25" height="25"/>
     </resources>
 </document>

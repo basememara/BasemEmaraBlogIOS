@@ -11,9 +11,6 @@ import SwiftyPress
 import ZamzamCore
 
 class MainSplitViewController: UISplitViewController {
-    
-    // MARK: - Dependencies
-    
     @Inject private var deepLinkModule: DeepLinkModuleType
     private lazy var router: DeepLinkRoutable = deepLinkModule.component()
 }

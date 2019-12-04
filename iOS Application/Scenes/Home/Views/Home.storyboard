@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TIo-yi-Bka">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TIo-yi-Bka">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="UjO-V9-1Bf">
             <objects>
                 <tableViewController id="TIo-yi-Bka" customClass="HomeViewController" customModule="BasemEmara" customModuleProvider="target" sceneMemberID="viewController">
@@ -207,7 +207,6 @@
                             <outlet property="delegate" destination="TIo-yi-Bka" id="Zcg-0M-PiX"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Home" image="tab-home" id="s8y-er-h30"/>
                     <navigationItem key="navigationItem" id="bYw-p5-tZo">
                         <barButtonItem key="backBarButtonItem" title=" " id="Xky-V3-Ebh"/>
                     </navigationItem>
@@ -309,7 +308,6 @@
         <image name="portfolio" width="24" height="24"/>
         <image name="settings-checkmarks" width="24" height="24"/>
         <image name="swift-icon" width="24" height="24"/>
-        <image name="tab-home" width="25" height="25"/>
         <image name="training-icon" width="24" height="24"/>
         <image name="twitter" width="64" height="64"/>
     </resources>

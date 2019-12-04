@@ -35,7 +35,7 @@ extension WindowPlugin: ApplicationPlugin {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {} else {
             delegate?.window = UIWindow(frame: UIScreen.main.bounds).with {
-                $0.rootViewController = scenes.startMain()
+                $0.rootViewController = scenes.launchMain()
                 $0.makeKeyAndVisible()
             }
         }
@@ -57,7 +57,7 @@ extension WindowPlugin: ScenePlugin {
                 $0.overrideUserInterfaceStyle = .dark
             }
             
-            $0.rootViewController = scenes.startMain()
+            $0.rootViewController = scenes.launchMain()
             $0.makeKeyAndVisible()
         }
     }
