@@ -13,14 +13,14 @@ import ZamzamUI
 // Scene namespace
 enum ShowBlogAPI {}
 
-protocol ShowBlogModuleType {
-    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
-    func component(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
-    func component(with viewController: UIViewController?) -> ShowBlogRoutable
+protocol ShowBlogCoreType {
+    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
+    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
+    func dependency(with viewController: UIViewController?) -> ShowBlogRenderable
     
-    func component() -> MailComposerType
-    func component() -> ConstantsType
-    func component() -> Theme
+    func dependency() -> MailComposerType
+    func dependency() -> ConstantsType
+    func dependency() -> Theme
 }
 
 protocol ShowBlogActionable: AppActionable {
@@ -55,7 +55,7 @@ protocol ShowBlogDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel)
 }
 
-protocol ShowBlogRoutable: AppRoutable {
+protocol ShowBlogRenderable: AppRoutable {
     func listPosts(params: ListPostsAPI.Params)
     func showPost(for model: PostsDataViewModel)
     func showPost(for id: Int)

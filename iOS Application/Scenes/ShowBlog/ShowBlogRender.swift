@@ -1,5 +1,5 @@
 //
-//  ShowBlogRouter.swift
+//  ShowBlogRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-27.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyPress
 
-struct ShowBlogRouter: ShowBlogRoutable {
+struct ShowBlogRender: ShowBlogRenderable {
     weak var viewController: UIViewController?
     private let scenes: SceneRenderType
     
@@ -19,7 +19,7 @@ struct ShowBlogRouter: ShowBlogRoutable {
     }
 }
 
-extension ShowBlogRouter {
+extension ShowBlogRender {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = scenes.listPosts(params: params)

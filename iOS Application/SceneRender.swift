@@ -160,7 +160,9 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        .make(fromStoryboard: Storyboard.home.rawValue)
+        let controller: HomeViewController = .make(fromStoryboard: Storyboard.home.rawValue)
+        controller.core = HomeCore(core: core, render: self)
+        return controller
     }
     
     func listFavorites() -> UIViewController {
@@ -175,7 +177,9 @@ extension SceneRender {
 extension SceneRender {
     
     func showBlog() -> UIViewController {
-        .make(fromStoryboard: Storyboard.showBlog.rawValue)
+        let controller: ShowBlogViewController = .make(fromStoryboard: Storyboard.showBlog.rawValue)
+        controller.core = ShowBlogCore(core: core, render: self)
+        return controller
     }
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {

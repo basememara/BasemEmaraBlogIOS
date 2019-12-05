@@ -1,5 +1,5 @@
 //
-//  HomeRouter.swift
+//  HomeRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-24.
@@ -10,11 +10,11 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct HomeRouter: HomeRoutable {
+struct HomeRender: HomeRenderable {
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
-    private let scenes: SceneRenderType
+    private let render: SceneRenderType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
@@ -22,21 +22,21 @@ struct HomeRouter: HomeRoutable {
     init(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
-        scenes: SceneRenderType,
+        render: SceneRenderType,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme
     ) {
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
-        self.scenes = scenes
+        self.render = render
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme
     }
 }
 
-extension HomeRouter {
+extension HomeRender {
     
     func showAbout() {
         present(pageSlug: "about", constants: constants, theme: theme)
@@ -47,10 +47,10 @@ extension HomeRouter {
     }
 }
 
-extension HomeRouter {
+extension HomeRender {
     
     func showSeriesScalableApp(title: String?) {
-        let controller = scenes.listPosts(
+        let controller = render.listPosts(
             params: .init(
                 fetchType: .terms([80]),
                 title: title,
@@ -63,7 +63,7 @@ extension HomeRouter {
     }
     
     func showSeriesSwiftUtilities(title: String?) {
-        let controller = scenes.listPosts(
+        let controller = render.listPosts(
             params: .init(
                 fetchType: .terms([71]),
                 title: title,
@@ -85,7 +85,7 @@ extension HomeRouter {
     }
 }
 
-extension HomeRouter {
+extension HomeRender {
     
     func showCoursesArchitecture() {
         present(safari: "https://iosmentor.io", theme: theme)
@@ -104,7 +104,7 @@ extension HomeRouter {
     }
 }
 
-extension HomeRouter {
+extension HomeRender {
     
     func showSocial(for type: Social) {
         showSocial(for: type, theme: theme)

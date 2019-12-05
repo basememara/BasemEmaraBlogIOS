@@ -14,17 +14,17 @@ import ZamzamUI
 enum HomeAPI {}
 
 /// Container of dependencies needed to execute this feature.
-protocol HomeModuleType {
-    func component(with inputs: HomeAPI.RoutableInputs) -> HomeRoutable
-    func component() -> ConstantsType
-    func component() -> Theme
+protocol HomeCoreType {
+    func dependency(with inputs: HomeAPI.RoutableInputs) -> HomeRenderable
+    func dependency() -> ConstantsType
+    func dependency() -> Theme
 }
 
 protocol HomeDisplayable: class, AppDisplayable { // Controller
     
 }
 
-protocol HomeRoutable: AppRoutable { // Router
+protocol HomeRenderable: AppRoutable { // Router
     func showAbout()
     func showPortfolio()
     

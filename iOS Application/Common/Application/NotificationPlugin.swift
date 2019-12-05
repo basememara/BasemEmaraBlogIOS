@@ -50,7 +50,7 @@ extension NotificationPlugin: UNUserNotificationCenterDelegate {
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
             router.show(tab: .blog) { (controller: ShowBlogViewController) in
-                controller.router.showPost(for: id)
+                controller.render?.showPost(for: id)
             }
         case Action.share.rawValue:
             guard let popoverView = router.viewController?.view else { return }

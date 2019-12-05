@@ -40,14 +40,14 @@ class ShowBlogViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ShowBlogModuleType
+    var core: ShowBlogCoreType?
     
-    private lazy var action: ShowBlogActionable = module.component(with: self)
-    private(set) lazy var router: ShowBlogRoutable = module.component(with: self)
+    private lazy var action: ShowBlogActionable? = core?.dependency(with: self)
+    private(set) lazy var render: ShowBlogRenderable? = core?.dependency(with: self)
     
-    private lazy var mailComposer: MailComposerType = module.component()
-    private lazy var constants: ConstantsType = module.component()
-    private lazy var theme: Theme = module.component()
+    private lazy var mailComposer: MailComposerType? = core?.dependency()
+    private lazy var constants: ConstantsType? = core?.dependency()
+    private lazy var theme: Theme? = core?.dependency()
     
     // MARK: - State
     
@@ -113,19 +113,19 @@ private extension ShowBlogViewController {
     }
     
     func loadData() {
-        action.fetchLatestPosts(
+        action?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action.fetchPopularPosts(
+        action?.fetchPopularPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action.fetchTopPickPosts(
+        action?.fetchTopPickPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action.fetchTerms(
+        action?.fetchTerms(
             with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
     }
@@ -136,19 +136,19 @@ private extension ShowBlogViewController {
 private extension ShowBlogViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
-        router.listPosts(params: .init(fetchType: .popular))
+        render?.listPosts(params: .init(fetchType: .popular))
     }
     
     @IBAction func topPickedPostsSeeAllButtonTapped() {
-        router.listPosts(params: .init(fetchType: .picks))
+        render?.listPosts(params: .init(fetchType: .picks))
     }
     
     @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
-        router.listTerms()
+        render?.listTerms()
     }
     
     @IBAction func disclaimerButtonTapped() {
-        guard let disclaimerURL = constants.disclaimerURL else {
+        guard let disclaimerURL = constants?.disclaimerURL, let theme = theme else {
             present(
                 alert: .localized(.disclaimerNotAvailableErrorTitle),
                 message: .localized(.disclaimerNotAvailableErrorMessage)
@@ -161,17 +161,20 @@ private extension ShowBlogViewController {
     }
     
     @IBAction func privacyButtonTapped() {
+        guard let constants = constants, let theme = theme else { return }
         present(safari: constants.privacyURL, theme: theme)
     }
     
     @IBAction func contactButtonTapped() {
-        guard let controller = mailComposer.makeViewController(email: constants.email) else {
-            present(
-                alert: .localized(.couldNotSendEmail),
-                message: .localized(.couldNotSendEmailMessage)
-            )
-            
-            return
+        guard let mailComposer = mailComposer,
+            let constants = constants,
+            let controller = mailComposer.makeViewController(email: constants.email) else {
+                present(
+                    alert: .localized(.couldNotSendEmail),
+                    message: .localized(.couldNotSendEmailMessage)
+                )
+                
+                return
         }
         
         present(controller)
@@ -213,11 +216,11 @@ extension ShowBlogViewController: ShowBlogDisplayable {
 extension ShowBlogViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.showPost(for: model)
+        render?.showPost(for: model)
     }
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
-        action.toggleFavorite(
+        action?.toggleFavorite(
             with: ShowBlogAPI.FavoriteRequest(
                 postID: model.id
             )
@@ -265,7 +268,7 @@ extension ShowBlogViewController: PostsDataViewDelegate {
 extension ShowBlogViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.listPosts(
+        render?.listPosts(
             params: .init(
                 fetchType: .terms([model.id]),
                 title: model.name
@@ -278,11 +281,12 @@ extension ShowBlogViewController: TermsDataViewDelegate {
 extension ShowBlogViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        guard let constants = constants, let theme = theme else { return nil }
+        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router.showPost(for: model.id)
+        render?.showPost(for: model.id)
     }
 }
 

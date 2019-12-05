@@ -19,17 +19,17 @@ class HomeViewController: UITableViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: HomeModuleType
+    var core: HomeCoreType?
     
-    private lazy var router: HomeRoutable = module.component(
+    private lazy var render: HomeRenderable? = core?.dependency(
         with: HomeAPI.RoutableInputs(
             viewController: self,
             listPostsDelegate: splitViewController as? ListPostsDelegate
         )
     )
     
-    private lazy var constants: ConstantsType = module.component()
-    private lazy var theme: Theme = module.component()
+    private lazy var constants: ConstantsType? = core?.dependency()
+    private lazy var theme: Theme? = core?.dependency()
     
     // MARK: - Lifecycle
     
@@ -65,16 +65,16 @@ private extension HomeViewController {
     @IBAction func socialButtonTapped(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            router.showSocial(for: .github)
+            render?.showSocial(for: .github)
         case 2:
-            router.showSocial(for: .linkedIn)
+            render?.showSocial(for: .linkedIn)
         case 3:
-            router.showSocial(for: .twitter)
+            render?.showSocial(for: .twitter)
         case 4:
-            router.sendEmail(
+            render?.sendEmail(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
-                    constants.appDisplayName ?? ""
+                    constants?.appDisplayName ?? ""
                 )
             )
         default:
@@ -119,25 +119,25 @@ extension HomeViewController {
         
         switch identifier {
         case .about:
-            router.showAbout()
+            render?.showAbout()
         case .portfolio:
-            router.showPortfolio()
+            render?.showPortfolio()
         case .seriesScalableApp:
-            router.showSeriesScalableApp(
+            render?.showSeriesScalableApp(
                 title: cell.textLabel?.text
             )
         case .seriesSwiftUtilities:
-            router.showSeriesSwiftUtilities(
+            render?.showSeriesSwiftUtilities(
                 title: cell.textLabel?.text
             )
         case .coursesArchitecture:
-            router.showCoursesArchitecture()
+            render?.showCoursesArchitecture()
         case .coursesFramework:
-            router.showCoursesFramework()
+            render?.showCoursesFramework()
         case .consultingDevelopment:
-            router.showConsultingDevelopment()
+            render?.showConsultingDevelopment()
         case .consultingMentorship:
-            router.showConsultingMentorship()
+            render?.showConsultingMentorship()
         }
     }
 }
