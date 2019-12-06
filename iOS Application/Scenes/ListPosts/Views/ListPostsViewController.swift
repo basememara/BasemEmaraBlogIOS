@@ -139,7 +139,8 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     self.action.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
-                }.with {
+                }
+                .with {
                     $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
                     $0.backgroundColor = theme.tint
                 }

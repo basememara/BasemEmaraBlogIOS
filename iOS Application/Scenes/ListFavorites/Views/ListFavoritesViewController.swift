@@ -105,7 +105,8 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
                     self.action.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
-                }.with {
+                }
+                .with {
                     $0.image = UIImage(named: .favoriteEmpty)
                 }
             ]
