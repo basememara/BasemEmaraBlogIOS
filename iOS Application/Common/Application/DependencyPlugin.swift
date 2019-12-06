@@ -21,7 +21,7 @@ final class DependencyPlugin: ApplicationPlugin {
         //Module { ListFavoritesCore() as ListFavoritesCoreType }
         Module { ListPostsModule() as ListPostsModuleType }
         Module { ShowPostModule() as ShowPostModuleType }
-        Module { SearchPostsModule() as SearchPostsModuleType }
+        //Module { SearchPostsCore() as SearchPostsCoreType }
         Module { ListTermsModule() as ListTermsModuleType }
         Module { ShowMoreModule() as ShowMoreModuleType }
     }

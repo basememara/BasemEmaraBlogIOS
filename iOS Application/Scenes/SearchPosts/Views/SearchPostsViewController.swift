@@ -39,13 +39,13 @@ class SearchPostsViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: SearchPostsModuleType
+    var core: SearchPostsCoreType?
     
-    private lazy var action: SearchPostsActionable = module.component(with: self)
-    private lazy var router: SearchPostsRoutable = module.component(with: self)
+    private lazy var action: SearchPostsActionable? = core?.dependency(with: self)
+    private lazy var render: SearchPostsRenderable? = core?.dependency(with: self)
     
-    private lazy var constants: ConstantsType = module.component()
-    private lazy var theme: Theme = module.component()
+    private lazy var constants: ConstantsType? = core?.dependency()
+    private lazy var theme: Theme? = core?.dependency()
 
     // MARK: - State
     
@@ -79,9 +79,11 @@ extension SearchPostsViewController {
     
     public func loadData() {
         guard let searchText = searchText else {
-            return action.fetchPopularPosts(
+            action?.fetchPopularPosts(
                 with: SearchPostsAPI.PopularRequest()
             )
+            
+            return
         }
         
         self.searchText = nil
@@ -91,7 +93,7 @@ extension SearchPostsViewController {
     }
     
     private func searchData(for text: String, with scope: Int) {
-        action.fetchSearchResults(
+        action?.fetchSearchResults(
             with: PostAPI.SearchRequest(
                 query: text,
                 scope: {
@@ -152,7 +154,7 @@ extension SearchPostsViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.showPost(for: model)
+        render?.showPost(for: model)
     }
 }
 
@@ -168,10 +170,11 @@ extension SearchPostsViewController: UISearchBarDelegate {
 extension SearchPostsViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        guard let constants = constants, let theme = theme else { return nil }
+        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router.showPost(for: model)
+        render?.showPost(for: model)
     }
 }

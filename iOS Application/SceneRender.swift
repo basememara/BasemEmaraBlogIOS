@@ -68,7 +68,8 @@ extension SceneRender {
                                         tag: Tab.favorites.rawValue
                                     )
                                 }
-                            ).with {
+                            )
+                            .with {
                                 $0.navigationBar.prefersLargeTitles = true
                             },
                             UINavigationController(
@@ -79,7 +80,8 @@ extension SceneRender {
                                         tag: Tab.search.rawValue
                                     )
                                 }
-                            ).with {
+                            )
+                            .with {
                                 $0.navigationBar.prefersLargeTitles = true
                             },
                             UINavigationController(
@@ -90,7 +92,8 @@ extension SceneRender {
                                         tag: Tab.more.rawValue
                                     )
                                 }
-                            ).with {
+                            )
+                            .with {
                                 $0.navigationBar.prefersLargeTitles = true
                             }
                         ]
@@ -126,7 +129,8 @@ extension SceneRender {
                                 tag: Tab.favorites.rawValue
                             )
                         }
-                    ).with {
+                    )
+                    .with {
                         $0.navigationBar.prefersLargeTitles = true
                     },
                     UINavigationController(
@@ -137,7 +141,8 @@ extension SceneRender {
                                 tag: Tab.search.rawValue
                             )
                         }
-                    ).with {
+                    )
+                    .with {
                         $0.navigationBar.prefersLargeTitles = true
                     },
                     UINavigationController(
@@ -148,7 +153,8 @@ extension SceneRender {
                                 tag: Tab.more.rawValue
                             )
                         }
-                    ).with {
+                    )
+                    .with {
                         $0.navigationBar.prefersLargeTitles = true
                     }
                 ]
@@ -172,7 +178,9 @@ extension SceneRender {
     }
     
     func searchPosts() -> UIViewController {
-        .make(fromStoryboard: Storyboard.searchPosts.rawValue)
+        let controller: SearchPostsViewController = .make(fromStoryboard: Storyboard.searchPosts.rawValue)
+        controller.core = SearchPostsCore(core: core, render: self)
+        return controller
     }
 }
 
