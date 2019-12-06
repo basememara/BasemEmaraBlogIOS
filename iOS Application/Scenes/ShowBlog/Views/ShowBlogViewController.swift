@@ -289,6 +289,7 @@ extension ShowBlogViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
         guard let constants = constants, let theme = theme else { return nil }
+        
         return UIContextMenuConfiguration(
             for: model,
             at: indexPath,

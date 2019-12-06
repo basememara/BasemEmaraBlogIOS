@@ -10,19 +10,19 @@ import UIKit
 import SwiftyPress
 
 struct ShowBlogRender: ShowBlogRenderable {
+    private let render: SceneRenderType
     weak var viewController: UIViewController?
-    private let scenes: SceneRenderType
     
-    init(viewController: UIViewController?, scenes: SceneRenderType) {
+    init(render: SceneRenderType, viewController: UIViewController?) {
         self.viewController = viewController
-        self.scenes = scenes
+        self.render = render
     }
 }
 
 extension ShowBlogRender {
     
     func listPosts(params: ListPostsAPI.Params) {
-        let controller = scenes.listPosts(params: params)
+        let controller = render.listPosts(params: params)
         viewController?.show(controller)
     }
     
@@ -31,12 +31,12 @@ extension ShowBlogRender {
     }
     
     func showPost(for id: Int) {
-        let controller = scenes.showPost(for: id)
+        let controller = render.showPost(for: id)
         viewController?.show(controller)
     }
     
     func listTerms() {
-        let controller = scenes.listTerms()
+        let controller = render.listTerms()
         viewController?.show(controller)
     }
 }

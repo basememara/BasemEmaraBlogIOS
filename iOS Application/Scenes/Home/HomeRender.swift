@@ -11,25 +11,25 @@ import SwiftyPress
 import ZamzamUI
 
 struct HomeRender: HomeRenderable {
-    weak var viewController: UIViewController?
-    weak var listPostsDelegate: ListPostsDelegate?
-    
     private let render: SceneRenderType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
     
+    weak var viewController: UIViewController?
+    weak var listPostsDelegate: ListPostsDelegate?
+    
     init(
+        render: SceneRenderType,
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?,
-        render: SceneRenderType,
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme
     ) {
+        self.render = render
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
-        self.render = render
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme

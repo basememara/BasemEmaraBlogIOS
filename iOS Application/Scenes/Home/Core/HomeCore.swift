@@ -22,9 +22,9 @@ struct HomeCore: HomeCoreType {
     
     func dependency(with inputs: HomeAPI.RoutableInputs) -> HomeRenderable {
         HomeRender(
+            render: render,
             viewController: inputs.viewController,
             listPostsDelegate: inputs.listPostsDelegate,
-            render: render,
             mailComposer: core.dependency(),
             constants: core.dependency(),
             theme: core.dependency()

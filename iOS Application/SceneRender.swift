@@ -166,7 +166,9 @@ extension SceneRender {
     }
     
     func listFavorites() -> UIViewController {
-        .make(fromStoryboard: Storyboard.listFavorites.rawValue)
+        let controller: ListFavoritesViewController = .make(fromStoryboard: Storyboard.listFavorites.rawValue)
+        controller.core = ListFavoritesCore(core: core, render: self)
+        return controller
     }
     
     func searchPosts() -> UIViewController {

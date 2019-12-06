@@ -1,5 +1,5 @@
 //
-//  ShowBlogCore.swift
+//  ListFavoritesCore.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-09-21.
@@ -9,9 +9,8 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
 
-struct ShowBlogCore: ShowBlogCoreType {
+struct ListFavoritesCore: ListFavoritesCoreType {
     private let core: SwiftyPressCore
     private let render: SceneRenderType
     
@@ -20,22 +19,20 @@ struct ShowBlogCore: ShowBlogCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
-        ShowBlogAction(
+    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
+        ListFavoritesAction(
             presenter: dependency(with: viewController),
             postProvider: core.dependency(),
-            mediaProvider: core.dependency(),
-            taxonomyProvider: core.dependency(),
-            preferences: core.dependency()
+            mediaProvider: core.dependency()
         )
     }
     
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable {
-        ShowBlogPresenter(viewController: viewController)
+    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable {
+        ListFavoritesPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ShowBlogRenderable {
-        ShowBlogRender(
+    func dependency(with viewController: UIViewController?) -> ListFavoritesRenderable {
+        ListFavoritesRender(
             render: render,
             viewController: viewController
         )
@@ -46,10 +43,6 @@ struct ShowBlogCore: ShowBlogCoreType {
     }
     
     func dependency() -> Theme {
-        core.dependency()
-    }
-    
-    func dependency() -> MailComposerType {
         core.dependency()
     }
 }
