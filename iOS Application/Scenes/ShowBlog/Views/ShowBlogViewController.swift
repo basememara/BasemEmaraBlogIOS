@@ -203,7 +203,14 @@ extension ShowBlogViewController: ShowBlogDisplayable {
     }
     
     func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
-        // Nothing to do
+        // Refresh favorite status in collection if applicable
+        // TODO: Migrate to reactive views then wouldn't need to fetch
+        if latestPostsCollectionViewAdapter.viewModels?
+            .contains(where: { $0.id == viewModel.postID }) == true {
+                action?.fetchLatestPosts(
+                    with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
+                )
+        }
     }
     
     func endRefreshing() {
@@ -282,7 +289,33 @@ extension ShowBlogViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
         guard let constants = constants, let theme = theme else { return nil }
-        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        return UIContextMenuConfiguration(
+            for: model,
+            at: indexPath,
+            from: dataView,
+            delegate: self,
+            constants: constants,
+            theme: theme,
+            additionalActions: {
+                switch dataView as? UICollectionView {
+                case latestPostsCollectionView:
+                    return [
+                        UIAction(
+                            title: .localized(model.favorite == true ? .unfavoriteTitle : .favoriteTitle),
+                            image: UIImage(systemName: model.favorite == true ? "star.fill" : "star")
+                        ) { [weak self] _ in
+                            self?.action?.toggleFavorite(
+                                with: ShowBlogAPI.FavoriteRequest(
+                                    postID: model.id
+                                )
+                            )
+                        }
+                    ]
+                default:
+                    return []
+                }
+            }()
+        )
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
