@@ -54,7 +54,7 @@ extension DeepLinkRouter {
     
     func sendFeedback() {
         show(tab: .more) { (controller: ShowMoreViewController) in
-            controller.router.sendFeedback(
+            controller.render?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
                     self.constants.appDisplayName ?? ""

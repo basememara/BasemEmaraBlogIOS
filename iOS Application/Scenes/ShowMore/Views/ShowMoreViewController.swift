@@ -15,10 +15,10 @@ class ShowMoreViewController: UITableViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ShowMoreModuleType
+    var core: ShowMoreCoreType?
     
-    private(set) lazy var router: ShowMoreRoutable = module.component(with: self)
-    private lazy var constants: ConstantsType = module.component()
+    private(set) lazy var render: ShowMoreRenderable? = core?.dependency(with: self)
+    private lazy var constants: ConstantsType? = core?.dependency()
 }
 
 // MARK: - Interactions
@@ -26,15 +26,15 @@ class ShowMoreViewController: UITableViewController {
 private extension ShowMoreViewController {
     
     @IBAction func twitterButtonTapped() {
-        router.showSocial(for: .twitter)
+        render?.showSocial(for: .twitter)
     }
     
     @IBAction func linkedInButtonTapped() {
-        router.showSocial(for: .linkedIn)
+        render?.showSocial(for: .linkedIn)
     }
     
     @IBAction func githubButtonTapped() {
-        router.showSocial(for: .github)
+        render?.showSocial(for: .github)
     }
 }
 
@@ -67,26 +67,26 @@ extension ShowMoreViewController {
         
         switch identifier {
         case .subscribe:
-            router.showSubscribe()
+            render?.showSubscribe()
         case .feedback:
-            router.sendFeedback(
+            render?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
-                    constants.appDisplayName ?? ""
+                    constants?.appDisplayName ?? ""
                 )
             )
         case .work:
-            router.showWorkWithMe()
+            render?.showWorkWithMe()
         case .rate:
-            router.showRateApp()
+            render?.showRateApp()
         case .share:
-            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName ?? "")
-            let share = [message, constants.itunesURL]
+            let message: String = .localizedFormat(.shareAppMessage, constants?.appDisplayName ?? "")
+            let share = [message, constants?.itunesURL ?? ""]
             present(activities: share, popoverFrom: cell)
         case .settings:
-            router.showSettings()
+            render?.showSettings()
         case .developedBy:
-            router.showDevelopedBy()
+            render?.showDevelopedBy()
         }
     }
 }

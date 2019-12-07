@@ -10,12 +10,12 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-protocol ShowMoreModuleType {
-    func component(with viewController: UIViewController?) -> ShowMoreRoutable
-    func component() -> ConstantsType
+protocol ShowMoreCoreType {
+    func dependency(with viewController: UIViewController?) -> ShowMoreRenderable
+    func dependency() -> ConstantsType
 }
 
-protocol ShowMoreRoutable: AppRoutable {
+protocol ShowMoreRenderable: AppRoutable {
     func showSubscribe()
     func sendFeedback(subject: String)
     func showWorkWithMe()

@@ -23,7 +23,7 @@ final class DependencyPlugin: ApplicationPlugin {
         Module { ShowPostModule() as ShowPostModuleType }
         //Module { SearchPostsCore() as SearchPostsCoreType }
         Module { ListTermsModule() as ListTermsModuleType }
-        Module { ShowMoreModule() as ShowMoreModuleType }
+        //Module { ShowMoreCore() as ShowMoreCoreType }
     }
             
     init() {

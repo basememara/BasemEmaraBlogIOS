@@ -213,7 +213,9 @@ extension SceneRender {
 extension SceneRender {
     
     func showMore() -> UIViewController {
-        .make(fromStoryboard: Storyboard.showMore.rawValue)
+        let controller: ShowMoreViewController = .make(fromStoryboard: Storyboard.showMore.rawValue)
+        controller.core = ShowMoreCore(core: core, render: self)
+        return controller
     }
     
     func showSettings() -> UIViewController {

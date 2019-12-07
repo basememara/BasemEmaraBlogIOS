@@ -1,5 +1,5 @@
 //
-//  ShowMoreRouter.swift
+//  ShowMoreRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-08.
@@ -10,30 +10,30 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowMoreRouter: ShowMoreRoutable {
-    weak var viewController: UIViewController?
-    
-    private let scenes: SceneRenderType
+struct ShowMoreRender: ShowMoreRenderable {
+    private let render: SceneRenderType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
+    weak var viewController: UIViewController?
+    
     init(
-        viewController: UIViewController?,
-        scenes: SceneRenderType,
+        render: SceneRenderType,
         constants: ConstantsType,
         mailComposer: MailComposerType,
-        theme: Theme
+        theme: Theme,
+        viewController: UIViewController?
     ) {
-        self.viewController = viewController
-        self.scenes = scenes
+        self.render = render
         self.constants = constants
         self.mailComposer = mailComposer
         self.theme = theme
+        self.viewController = viewController
     }
 }
 
-extension ShowMoreRouter {
+extension ShowMoreRender {
     
     func showSubscribe() {
         present(pageSlug: "subscribe", constants: constants, theme: theme)
@@ -52,7 +52,7 @@ extension ShowMoreRouter {
     }
 }
 
-extension ShowMoreRouter {
+extension ShowMoreRender {
     
     func showRateApp() {
         guard let url = URL(string: constants.itunesURL) else { return }
@@ -60,12 +60,12 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        let controller = scenes.showSettings()
+        let controller = render.showSettings()
         viewController?.show(controller)
     }
 }
 
-extension ShowMoreRouter {
+extension ShowMoreRender {
     
     func sendFeedback(subject: String) {
         let mailComposerController = mailComposer.makeViewController(

@@ -49,8 +49,8 @@
 		8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */; };
 		8B42C7DA234BBC9000F38E23 /* ListPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C75A234BBC8F00F38E23 /* ListPosts.storyboard */; };
 		8B42C7DB234BBC9000F38E23 /* ShowMoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C75D234BBC8F00F38E23 /* ShowMoreAPI.swift */; };
-		8B42C7DC234BBC9000F38E23 /* ShowMoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C75E234BBC8F00F38E23 /* ShowMoreModule.swift */; };
-		8B42C7DD234BBC9000F38E23 /* ShowMoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C75F234BBC8F00F38E23 /* ShowMoreRouter.swift */; };
+		8B42C7DC234BBC9000F38E23 /* ShowMoreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C75E234BBC8F00F38E23 /* ShowMoreCore.swift */; };
+		8B42C7DD234BBC9000F38E23 /* ShowMoreRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C75F234BBC8F00F38E23 /* ShowMoreRender.swift */; };
 		8B42C7DE234BBC9000F38E23 /* ShowMore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C761234BBC8F00F38E23 /* ShowMore.storyboard */; };
 		8B42C7DF234BBC9000F38E23 /* ShowMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */; };
 		8B42C7E0234BBC9000F38E23 /* ShowBlogStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C765234BBC8F00F38E23 /* ShowBlogStyles.swift */; };
@@ -265,8 +265,8 @@
 		8B42C759234BBC8F00F38E23 /* ListPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPostsViewController.swift; sourceTree = "<group>"; };
 		8B42C75A234BBC8F00F38E23 /* ListPosts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListPosts.storyboard; sourceTree = "<group>"; };
 		8B42C75D234BBC8F00F38E23 /* ShowMoreAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreAPI.swift; sourceTree = "<group>"; };
-		8B42C75E234BBC8F00F38E23 /* ShowMoreModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreModule.swift; sourceTree = "<group>"; };
-		8B42C75F234BBC8F00F38E23 /* ShowMoreRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreRouter.swift; sourceTree = "<group>"; };
+		8B42C75E234BBC8F00F38E23 /* ShowMoreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreCore.swift; sourceTree = "<group>"; };
+		8B42C75F234BBC8F00F38E23 /* ShowMoreRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreRender.swift; sourceTree = "<group>"; };
 		8B42C761234BBC8F00F38E23 /* ShowMore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowMore.storyboard; sourceTree = "<group>"; };
 		8B42C762234BBC8F00F38E23 /* ShowMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreViewController.swift; sourceTree = "<group>"; };
 		8B42C765234BBC8F00F38E23 /* ShowBlogStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogStyles.swift; sourceTree = "<group>"; };
@@ -658,7 +658,7 @@
 			children = (
 				8B42C75C234BBC8F00F38E23 /* Core */,
 				8B42C760234BBC8F00F38E23 /* Views */,
-				8B42C75F234BBC8F00F38E23 /* ShowMoreRouter.swift */,
+				8B42C75F234BBC8F00F38E23 /* ShowMoreRender.swift */,
 			);
 			path = ShowMore;
 			sourceTree = "<group>";
@@ -667,7 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C75D234BBC8F00F38E23 /* ShowMoreAPI.swift */,
-				8B42C75E234BBC8F00F38E23 /* ShowMoreModule.swift */,
+				8B42C75E234BBC8F00F38E23 /* ShowMoreCore.swift */,
 				8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */,
 			);
 			path = Core;
@@ -1165,7 +1165,7 @@
 				8B42C7BE234BBC9000F38E23 /* HomeCore.swift in Sources */,
 				8B42C7EB234BBC9000F38E23 /* MainSplitDetailViewController.swift in Sources */,
 				8B42C7F7234BBC9000F38E23 /* ListFavoritesCore.swift in Sources */,
-				8B42C7DD234BBC9000F38E23 /* ShowMoreRouter.swift in Sources */,
+				8B42C7DD234BBC9000F38E23 /* ShowMoreRender.swift in Sources */,
 				8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */,
 				8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
@@ -1204,7 +1204,7 @@
 				8B42C7EC234BBC9000F38E23 /* MainViewController.swift in Sources */,
 				8B42C80C234BBC9000F38E23 /* NotificationPlugin.swift in Sources */,
 				8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */,
-				8B42C7DC234BBC9000F38E23 /* ShowMoreModule.swift in Sources */,
+				8B42C7DC234BBC9000F38E23 /* ShowMoreCore.swift in Sources */,
 				8B42C7C6234BBC9000F38E23 /* ListTermsAction.swift in Sources */,
 				8B42C7D8234BBC9000F38E23 /* ListPostsAction.swift in Sources */,
 				8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */,
