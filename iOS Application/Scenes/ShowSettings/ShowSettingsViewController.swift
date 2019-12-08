@@ -18,8 +18,7 @@ class ShowSettingsViewController: UITableViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: SwiftyPressCore
-    private lazy var preferences: PreferencesType = module.dependency()
+    var preferences: PreferencesType?
     
     // MARK: - Lifecycle
     
@@ -34,7 +33,7 @@ class ShowSettingsViewController: UITableViewController {
 private extension ShowSettingsViewController {
     
     func configure() {
-        autoThemeSwitch.isOn = preferences.autoThemeEnabled
+        autoThemeSwitch.isOn ?= preferences?.autoThemeEnabled
     }
 }
 
@@ -43,7 +42,7 @@ private extension ShowSettingsViewController {
 private extension ShowSettingsViewController {
     
     @IBAction func autoThemeSwitchChanged(_ sender: UISwitch) {
-        preferences.autoThemeEnabled = sender.isOn
+        preferences?.autoThemeEnabled = sender.isOn
         
         guard #available(iOS 13.0, *) else { return }
         UIWindow.current?.overrideUserInterfaceStyle = sender.isOn ? .unspecified : .dark

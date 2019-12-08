@@ -1,5 +1,5 @@
 //
-//  ListPostsRouter.swift
+//  ListPostsRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -9,20 +9,20 @@
 import UIKit
 import SwiftyPress
 
-struct ListPostsRouter: ListPostsRoutable {
+struct ListPostsRender: ListPostsRenderable {
+    private let render: SceneRenderType
     weak var viewController: UIViewController?
-    private let scenes: SceneRenderType
     
-    init(viewController: UIViewController?, scenes: SceneRenderType) {
+    init(render: SceneRenderType, viewController: UIViewController?) {
         self.viewController = viewController
-        self.scenes = scenes
+        self.render = render
     }
 }
 
-extension ListPostsRouter {
+extension ListPostsRender {
     
     func showPost(for model: PostsDataViewModel) {
-        let controller = scenes.showPost(for: model.id)
+        let controller = render.showPost(for: model.id)
         viewController?.show(controller)
     }
 }

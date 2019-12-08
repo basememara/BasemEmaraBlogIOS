@@ -19,10 +19,10 @@ final class DependencyPlugin: ApplicationPlugin {
         //Module { HomeModule() as HomeCoreType }
         //Module { ShowBlogModule() as ShowBlogModuleType }
         //Module { ListFavoritesCore() as ListFavoritesCoreType }
-        Module { ListPostsModule() as ListPostsModuleType }
-        Module { ShowPostModule() as ShowPostModuleType }
+        //Module { ListPostsCore() as ListPostsCoreType }
+        //Module { ShowPostCore() as ShowPostCoreType }
         //Module { SearchPostsCore() as SearchPostsCoreType }
-        Module { ListTermsModule() as ListTermsModuleType }
+        //Module { ListTermsCore() as ListTermsCoreType }
         //Module { ShowMoreCore() as ShowMoreCoreType }
     }
             

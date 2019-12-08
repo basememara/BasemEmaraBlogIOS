@@ -1,5 +1,5 @@
 //
-//  ListTermsRouter.swift
+//  ListTermsRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-struct ListTermsRouter: ListTermsRoutable {
+struct ListTermsRender: ListTermsRenderable {
+    private let render: SceneRenderType
     weak var viewController: UIViewController?
-    private let scenes: SceneRenderType
     
-    init(viewController: UIViewController?, scenes: SceneRenderType) {
+    init(render: SceneRenderType, viewController: UIViewController?) {
+        self.render = render
         self.viewController = viewController
-        self.scenes = scenes
     }
 }
 
-extension ListTermsRouter {
+extension ListTermsRender {
     
     func listPosts(params: ListPostsAPI.Params) {
-        let controller = scenes.listPosts(params: params)
+        let controller = render.listPosts(params: params)
         viewController?.show(controller)
     }
 }

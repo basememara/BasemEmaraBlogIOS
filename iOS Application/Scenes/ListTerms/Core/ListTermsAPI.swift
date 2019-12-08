@@ -13,10 +13,10 @@ import ZamzamUI
 // Scene namespace
 enum ListTermsAPI {}
 
-protocol ListTermsModuleType {
-    func component(with viewController: ListTermsDisplayable?) -> ListTermsActionable
-    func component(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
-    func component(with viewController: UIViewController?) -> ListTermsRoutable
+protocol ListTermsCoreType {
+    func dependency(with viewController: ListTermsDisplayable?) -> ListTermsActionable
+    func dependency(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
+    func dependency(with viewController: UIViewController?) -> ListTermsRenderable
 }
 
 protocol ListTermsActionable: AppActionable {
@@ -32,7 +32,7 @@ protocol ListTermsDisplayable: class, AppDisplayable {
     func displayTerms(with viewModels: [TermsDataViewModel])
 }
 
-protocol ListTermsRoutable: AppRoutable {
+protocol ListTermsRenderable: AppRoutable {
     func listPosts(params: ListPostsAPI.Params)
 }
 

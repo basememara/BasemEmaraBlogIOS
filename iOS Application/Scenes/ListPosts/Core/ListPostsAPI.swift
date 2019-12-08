@@ -13,13 +13,13 @@ import ZamzamUI
 // Scene namespace
 enum ListPostsAPI {}
 
-protocol ListPostsModuleType {
-    func component(with viewController: ListPostsDisplayable?) -> ListPostsActionable
-    func component(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
-    func component(with viewController: UIViewController?) -> ListPostsRoutable
+protocol ListPostsCoreType {
+    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsActionable
+    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
+    func dependency(with viewController: UIViewController?) -> ListPostsRenderable
     
-    func component() -> ConstantsType
-    func component() -> Theme
+    func dependency() -> ConstantsType
+    func dependency() -> Theme
 }
 
 protocol ListPostsActionable: AppActionable {
@@ -52,7 +52,7 @@ protocol ListPostsDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ListPostsAPI.FavoriteViewModel)
 }
 
-protocol ListPostsRoutable: AppRoutable {
+protocol ListPostsRenderable: AppRoutable {
     func showPost(for model: PostsDataViewModel)
 }
 

@@ -194,6 +194,7 @@ extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
         let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)
+        controller.core = ListPostsCore(core: core, render: self)
         controller.params = params
         controller.delegate = delegate
         return controller
@@ -201,12 +202,15 @@ extension SceneRender {
     
     func showPost(for id: Int) -> UIViewController {
         let controller: ShowPostViewController = .make(fromStoryboard: Storyboard.showPost.rawValue)
+        controller.core = ShowPostCore(core: core, render: self)
         controller.postID = id
         return controller
     }
     
     func listTerms() -> UIViewController {
-        .make(fromStoryboard: Storyboard.listTerms.rawValue)
+        let controller: ListTermsViewController = .make(fromStoryboard: Storyboard.listTerms.rawValue)
+        controller.core = ListTermsCore(core: core, render: self)
+        return controller
     }
 }
 
@@ -219,7 +223,9 @@ extension SceneRender {
     }
     
     func showSettings() -> UIViewController {
-        .make(fromStoryboard: Storyboard.showSettings.rawValue)
+        let controller: ShowSettingsViewController = .make(fromStoryboard: Storyboard.showSettings.rawValue)
+        controller.preferences = core.dependency()
+        return controller
     }
 }
 

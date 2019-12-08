@@ -1,5 +1,5 @@
 //
-//  ShowPostRouter.swift
+//  ShowPostRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-struct ShowPostRouter: ShowPostRoutable {
+struct ShowPostRender: ShowPostRenderable {
+    private let render: SceneRenderType
+    
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
-    private let scenes: SceneRenderType
-    
     init(
+        render: SceneRenderType,
         viewController: UIViewController?,
-        listPostsDelegate: ListPostsDelegate?,
-        scenes: SceneRenderType
+        listPostsDelegate: ListPostsDelegate?
     ) {
+        self.render = render
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
-        self.scenes = scenes
     }
 }
 
-extension ShowPostRouter {
+extension ShowPostRender {
     
     func listPosts(params: ListPostsAPI.Params) {
-        let controller = scenes.listPosts(
+        let controller = render.listPosts(
             params: params,
             delegate: listPostsDelegate
         )
