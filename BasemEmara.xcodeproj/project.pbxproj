@@ -182,7 +182,7 @@
 		8BAFB451239B71AE0032B202 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44E239B719A0032B202 /* SwiftyPress.bundle */; };
 		8BAFB452239B71B20032B202 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44C239B71830032B202 /* ZamzamCore.bundle */; };
 		8BAFB453239B71B50032B202 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44E239B719A0032B202 /* SwiftyPress.bundle */; };
-		8BB4AD0723653B79003BD29B /* TodayModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0623653B79003BD29B /* TodayModule.swift */; };
+		8BB4AD0723653B79003BD29B /* TodayCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0623653B79003BD29B /* TodayCore.swift */; };
 		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
@@ -359,7 +359,7 @@
 		8B928A53239CD698004EB139 /* ShortcutRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRender.swift; sourceTree = "<group>"; };
 		8BAFB44C239B71830032B202 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8BAFB44E239B719A0032B202 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
-		8BB4AD0623653B79003BD29B /* TodayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModule.swift; sourceTree = "<group>"; };
+		8BB4AD0623653B79003BD29B /* TodayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCore.swift; sourceTree = "<group>"; };
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -895,7 +895,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C830234BBD6000F38E23 /* TodayAPI.swift */,
-				8BB4AD0623653B79003BD29B /* TodayModule.swift */,
+				8BB4AD0623653B79003BD29B /* TodayCore.swift */,
 				8BB4AD0823653C58003BD29B /* TodayStyles.swift */,
 			);
 			path = Core;
@@ -1282,7 +1282,7 @@
 				8B42C85A234BC08A00F38E23 /* SimplePostTableViewCell.swift in Sources */,
 				8B42C852234BC08A00F38E23 /* LatestPostCollectionViewCell.swift in Sources */,
 				8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */,
-				8BB4AD0723653B79003BD29B /* TodayModule.swift in Sources */,
+				8BB4AD0723653B79003BD29B /* TodayCore.swift in Sources */,
 				8B42C84E234BC06100F38E23 /* AppTheme.swift in Sources */,
 				8B42C835234BBD6000F38E23 /* TodayPresenter.swift in Sources */,
 				8B42C6F7234A6C0E00F38E23 /* TodayViewController.swift in Sources */,

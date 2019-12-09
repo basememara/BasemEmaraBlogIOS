@@ -22,15 +22,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Dependencies
     
-    private let dependencies = Dependencies {
-        Module { AppCore() as SwiftyPressCore }
-        Module { TodayModule() as TodayModuleType }
-    }
+    var core: TodayCoreType? = TodayCore(core: AppCore())
     
-    @Inject private var module: TodayModuleType
-    
-    private lazy var action: TodayActionable = module.component(with: self)
-    private lazy var dataProvider: DataProviderType = module.component()
+    private lazy var action: TodayActionable? = core?.dependency(with: self)
+    private lazy var dataProvider: DataProviderType? = core?.dependency()
     
     // MARK: - Lifecycle
     
@@ -64,14 +59,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 private extension TodayViewController {
     
     func commonInit() {
-        // Register dependency graph
-        dependencies.build()
-        
         // Setup data storage
-        dataProvider.configure()
+        dataProvider?.configure()
         
         // Set theme before views loaded into hierarchy
-        TodayStyles.apply(module.component())
+        guard let theme: Theme = core?.dependency() else { return }
+        TodayStyles.apply(theme)
     }
     
     func configure() {
@@ -81,7 +74,7 @@ private extension TodayViewController {
     }
     
     func loadData() {
-        action.fetchLatestPosts(
+        action?.fetchLatestPosts(
             with: TodayAPI.Request(maxLength: 1)
         )
     }
