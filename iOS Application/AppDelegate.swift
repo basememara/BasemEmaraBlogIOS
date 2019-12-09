@@ -25,16 +25,24 @@ class AppDelegate: ApplicationPluggableDelegate {
         ThemePlugin(theme: core.dependency()),
         WindowPlugin(
             delegate: self,
-            scenes: SceneRender(core: core),
+            render: WindowRender(render: render),
             preferences: core.dependency()
         ),
         NotificationPlugin(
-            deepLinkModule: DeepLinkModule(),
+            render: NotificationRender(render: render),
             userNotification: .current()
         ),
-        ShortcutPlugin(deepLinkModule: DeepLinkModule()),
+        ShortcutPlugin(
+            render: ShortcutRender(
+                render: render,
+                constants: core.dependency()
+            )
+        ),
         DeepLinkPlugin(
-            module: DeepLinkModule(),
+            core: DeepLinkCore(
+                core: core,
+                render: render
+            ),
             log: core.dependency()
         )
     ]}
@@ -55,15 +63,29 @@ extension AppDelegate {
 
 // MARK: - Environment Components
 
-private extension UIApplication {
+private enum Root {
+    
+    /// Root dependency injection container
     static let core = AppCore()
+    
+    /// Root builder for all scenes.
+    ///
+    ///     NavigationView(
+    ///         render.listArticles()
+    ///     )
+    ///
+    /// Create views only through scene renders.
+    static let render = SceneRender(
+        core: core
+    )
 }
-
-extension UIApplicationDelegate {
-    var core: SwiftyPressCore { UIApplication.core }
+private extension UIApplicationDelegate {
+    var core: SwiftyPressCore { Root.core }
+    var render: SceneRender { Root.render }
 }
 
 @available(iOS 13.0, *)
 extension UISceneDelegate {
-    var core: SwiftyPressCore { UIApplication.core }
+    var core: SwiftyPressCore { Root.core }
+    var render: SceneRender { Root.render }
 }

@@ -12,12 +12,6 @@ import ZamzamCore
 @available(iOS 13.0, *)
 class SceneDelegate: ScenePluggableDelegate {
     
-    // MARK: - Dependencies
-    
-    @Inject private var scenes: SceneRenderType
-    
-    // MARK: - Overrides
-    
     override func plugins() -> [ScenePlugin] {[
         LoggerPlugin(log: core.dependency()),
         BackgroundPlugin(
@@ -27,16 +21,24 @@ class SceneDelegate: ScenePluggableDelegate {
         ),
         WindowPlugin(
             delegate: self,
-            scenes: SceneRender(core: core),
+            render: WindowRender(render: render),
             preferences: core.dependency()
         ),
         NotificationPlugin(
-            deepLinkModule: DeepLinkModule(),
+            render: NotificationRender(render: render),
             userNotification: .current()
         ),
-        ShortcutPlugin(deepLinkModule: DeepLinkModule()),
+        ShortcutPlugin(
+            render: ShortcutRender(
+                render: render,
+                constants: core.dependency()
+            )
+        ),
         DeepLinkPlugin(
-            module: DeepLinkModule(),
+            core: DeepLinkCore(
+                core: core,
+                render: render
+            ),
             log: core.dependency()
         )
     ]}

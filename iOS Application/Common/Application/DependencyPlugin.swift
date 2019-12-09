@@ -14,7 +14,7 @@ final class DependencyPlugin: ApplicationPlugin {
     private let dependencies = Dependencies {
         Module { AppCore() as SwiftyPressCore }
         Module { SceneRender(core: AppCore()) as SceneRenderType }
-        Module { DeepLinkModule() as DeepLinkModuleType }
+        //Module { DeepLinkCore() as DeepLinkCoreType }
         
         //Module { HomeModule() as HomeCoreType }
         //Module { ShowBlogModule() as ShowBlogModuleType }

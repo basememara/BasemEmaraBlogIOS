@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ShortcutPlugin.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-21.
@@ -11,16 +11,11 @@ import SwiftyPress
 import ZamzamCore
 
 final class ShortcutPlugin {
-    private let deepLinkModule: DeepLinkModuleType
-    private let router: DeepLinkRoutable
-    
-    // MARK: - State
-    
+    private let render: ShortcutRenderable
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
-    init(deepLinkModule: DeepLinkModuleType) {
-        self.deepLinkModule = deepLinkModule
-        self.router = deepLinkModule.component()
+    init(render: ShortcutRenderable) {
+        self.render = render
     }
 }
 
@@ -69,9 +64,9 @@ private extension ShortcutPlugin {
         
         switch shortcutItemType {
         case .favorites:
-            router.showFavorites()
+            render.showFavorites()
         case .contact:
-            router.sendFeedback()
+            render.sendFeedback()
         }
         
         return true

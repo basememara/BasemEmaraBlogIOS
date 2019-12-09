@@ -98,8 +98,8 @@
 		8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */; };
 		8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */; };
 		8B42C80F234BBC9000F38E23 /* DeepLinkPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */; };
-		8B42C810234BBC9000F38E23 /* DeepLinkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A5234BBC9000F38E23 /* DeepLinkModule.swift */; };
-		8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */; };
+		8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */; };
+		8B42C811234BBC9000F38E23 /* DeepLinkRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */; };
 		8B42C812234BBC9000F38E23 /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */; };
 		8B42C813234BBC9000F38E23 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */; };
 		8B42C814234BBC9000F38E23 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AB234BBC9000F38E23 /* seed.json */; };
@@ -172,6 +172,10 @@
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
 		8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */; };
 		8B7A89F42379AA32002E5A75 /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */; };
+		8B87EB44239D51A800AD73D4 /* NotificationRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRender.swift */; };
+		8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB45239D704900AD73D4 /* WindowRender.swift */; };
+		8B928A52239CD161004EB139 /* MainSplitRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A51239CD161004EB139 /* MainSplitRender.swift */; };
+		8B928A54239CD698004EB139 /* ShortcutRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A53239CD698004EB139 /* ShortcutRender.swift */; };
 		8BAFB44D239B71840032B202 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44C239B71830032B202 /* ZamzamCore.bundle */; };
 		8BAFB44F239B719A0032B202 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44E239B719A0032B202 /* SwiftyPress.bundle */; };
 		8BAFB450239B71AC0032B202 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BAFB44C239B71830032B202 /* ZamzamCore.bundle */; };
@@ -317,8 +321,8 @@
 		8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPlugin.swift; sourceTree = "<group>"; };
 		8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkAPI.swift; sourceTree = "<group>"; };
 		8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkPlugin.swift; sourceTree = "<group>"; };
-		8B42C7A5234BBC9000F38E23 /* DeepLinkModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkModule.swift; sourceTree = "<group>"; };
-		8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
+		8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkCore.swift; sourceTree = "<group>"; };
+		8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkRender.swift; sourceTree = "<group>"; };
 		8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDisplayable.swift; sourceTree = "<group>"; };
 		8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
 		8B42C7AB234BBC9000F38E23 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
@@ -349,6 +353,10 @@
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
 		8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
 		8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
+		8B87EB43239D51A800AD73D4 /* NotificationRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRender.swift; sourceTree = "<group>"; };
+		8B87EB45239D704900AD73D4 /* WindowRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRender.swift; sourceTree = "<group>"; };
+		8B928A51239CD161004EB139 /* MainSplitRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitRender.swift; sourceTree = "<group>"; };
+		8B928A53239CD698004EB139 /* ShortcutRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRender.swift; sourceTree = "<group>"; };
 		8BAFB44C239B71830032B202 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
 		8BAFB44E239B719A0032B202 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-bqvciuxssxnjsycjlikvmxldeyqi/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8BB4AD0623653B79003BD29B /* TodayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModule.swift; sourceTree = "<group>"; };
@@ -394,6 +402,7 @@
 				8B416B2F23977965006E67A9 /* Main.storyboard */,
 				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
 				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
+				8B928A51239CD161004EB139 /* MainSplitRender.swift */,
 				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
 			);
 			path = LaunchMain;
@@ -782,7 +791,6 @@
 			isa = PBXGroup;
 			children = (
 				8B42C799234BBC9000F38E23 /* Application */,
-				8B42C7A7234BBC9000F38E23 /* CleanScene */,
 				8B42C78E234BBC8F00F38E23 /* Extensions */,
 				8B42C796234BBC9000F38E23 /* Styles */,
 				8B42C7AC234BBC9000F38E23 /* Views */,
@@ -815,14 +823,14 @@
 			isa = PBXGroup;
 			children = (
 				8B42C7A2234BBC9000F38E23 /* DeepLink */,
+				8B87EB42239D518500AD73D4 /* Notification */,
+				8B87EB41239D517800AD73D4 /* Shortcut */,
+				8B87EB47239D704F00AD73D4 /* Window */,
+				8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */,
+				8B42C79C234BBC9000F38E23 /* DataPlugin.swift */,
 				8B42C79F234BBC9000F38E23 /* DependencyPlugin.swift */,
 				8B42C79B234BBC9000F38E23 /* LoggerPlugin.swift */,
-				8B42C79C234BBC9000F38E23 /* DataPlugin.swift */,
-				8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */,
 				8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */,
-				8B42C79A234BBC9000F38E23 /* WindowPlugin.swift */,
-				8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */,
-				8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -831,20 +839,11 @@
 			isa = PBXGroup;
 			children = (
 				8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */,
-				8B42C7A5234BBC9000F38E23 /* DeepLinkModule.swift */,
-				8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */,
+				8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */,
 				8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */,
+				8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */,
 			);
 			path = DeepLink;
-			sourceTree = "<group>";
-		};
-		8B42C7A7234BBC9000F38E23 /* CleanScene */ = {
-			isa = PBXGroup;
-			children = (
-				8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */,
-				8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */,
-			);
-			path = CleanScene;
 			sourceTree = "<group>";
 		};
 		8B42C7AA234BBC9000F38E23 /* Data */ = {
@@ -860,6 +859,8 @@
 			children = (
 				8B42C7AD234BBC9000F38E23 /* TermViewCells */,
 				8B42C7B0234BBC9000F38E23 /* PostViewCells */,
+				8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */,
+				8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -938,6 +939,33 @@
 				8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */,
 			);
 			path = ShowSettings;
+			sourceTree = "<group>";
+		};
+		8B87EB41239D517800AD73D4 /* Shortcut */ = {
+			isa = PBXGroup;
+			children = (
+				8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */,
+				8B928A53239CD698004EB139 /* ShortcutRender.swift */,
+			);
+			path = Shortcut;
+			sourceTree = "<group>";
+		};
+		8B87EB42239D518500AD73D4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */,
+				8B87EB43239D51A800AD73D4 /* NotificationRender.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		8B87EB47239D704F00AD73D4 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				8B42C79A234BBC9000F38E23 /* WindowPlugin.swift */,
+				8B87EB45239D704900AD73D4 /* WindowRender.swift */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1161,6 +1189,7 @@
 				8B42C7F6234BBC9000F38E23 /* ListFavoritesPresenter.swift in Sources */,
 				8B42C80B234BBC9000F38E23 /* DependencyPlugin.swift in Sources */,
 				8B42C7FF234BBC9000F38E23 /* UIContextMenuConfiguration.swift in Sources */,
+				8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */,
 				8B42C7E4234BBC9000F38E23 /* ShowBlogRender.swift in Sources */,
 				8B42C7C7234BBC9000F38E23 /* ListTermsPresenter.swift in Sources */,
 				8B42C807234BBC9000F38E23 /* LoggerPlugin.swift in Sources */,
@@ -1215,6 +1244,7 @@
 				8B42C7DC234BBC9000F38E23 /* ShowMoreCore.swift in Sources */,
 				8B42C7C6234BBC9000F38E23 /* ListTermsAction.swift in Sources */,
 				8B42C7D8234BBC9000F38E23 /* ListPostsAction.swift in Sources */,
+				8B928A52239CD161004EB139 /* MainSplitRender.swift in Sources */,
 				8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */,
 				8B42C802234BBC9000F38E23 /* UIViewController.swift in Sources */,
 				8B42C801234BBC9000F38E23 /* UIImage.swift in Sources */,
@@ -1223,10 +1253,12 @@
 				8B42C7EE234BBC9000F38E23 /* SearchPostsCore.swift in Sources */,
 				8B42C7F9234BBC9000F38E23 /* ListFavoritesRender.swift in Sources */,
 				8B42C7DF234BBC9000F38E23 /* ShowMoreViewController.swift in Sources */,
+				8B87EB44239D51A800AD73D4 /* NotificationRender.swift in Sources */,
 				8B42C7F0234BBC9000F38E23 /* SearchPostsPresenter.swift in Sources */,
 				8B42C7E0234BBC9000F38E23 /* ShowBlogStyles.swift in Sources */,
 				8B42C7F8234BBC9000F38E23 /* ListFavoritesAPI.swift in Sources */,
-				8B42C810234BBC9000F38E23 /* DeepLinkModule.swift in Sources */,
+				8B928A54239CD698004EB139 /* ShortcutRender.swift in Sources */,
+				8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */,
 				8B42C7E2234BBC9000F38E23 /* ShowBlogCore.swift in Sources */,
 				8B5C98BC23651FEA00F7F016 /* HomeStyles.swift in Sources */,
 				8B42C7F4234BBC9000F38E23 /* SearchPostsViewController.swift in Sources */,
@@ -1234,7 +1266,7 @@
 				8B42C7CD234BBC9000F38E23 /* ShowPostAPI.swift in Sources */,
 				8B42C7D1234BBC9000F38E23 /* ShowPostViewController.swift in Sources */,
 				8B42C817234BBC9000F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
-				8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */,
+				8B42C811234BBC9000F38E23 /* DeepLinkRender.swift in Sources */,
 				8B5C98D62365370200F7F016 /* Theme.swift in Sources */,
 				8B42C7C0234BBC9000F38E23 /* HomeRender.swift in Sources */,
 				8B42C7DB234BBC9000F38E23 /* ShowMoreAPI.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DeepLinkRouter.swift
+//  DeepLinkRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-09-28.
@@ -10,61 +10,28 @@ import Foundation
 import SwiftyPress
 import UIKit
 
-struct DeepLinkRouter: DeepLinkRoutable {
-    weak var viewController: UIViewController?
-    
-    private let scenes: SceneRenderType
+struct DeepLinkRender: DeepLinkRenderable {
+    private let render: SceneRenderType
     private let postProvider: PostProviderType
     private let taxonomyProvider: TaxonomyProviderType
-    private let constants: ConstantsType
     private let theme: Theme
     
+    weak var viewController = UIWindow.current?.rootViewController
+    
     init(
-        viewController: UIViewController?,
-        scenes: SceneRenderType,
+        render: SceneRenderType,
         postProvider: PostProviderType,
         taxonomyProvider: TaxonomyProviderType,
-        constants: ConstantsType,
         theme: Theme
     ) {
-        self.viewController = viewController
-        self.scenes = scenes
+        self.render = render
         self.postProvider = postProvider
         self.taxonomyProvider = taxonomyProvider
-        self.constants = constants
         self.theme = theme
     }
 }
 
-extension DeepLinkRouter {
-    
-    func showPost(for id: Int) {
-        guard let topViewController = UIWindow.current?.topViewController else {
-            return
-        }
-        
-        // Load post in place or show in new controller
-        (topViewController as? ShowPostLoadable)?.loadData(for: id)
-            ?? topViewController.show(scenes.showPost(for: id), dismiss: true)
-    }
-    
-    func showFavorites() {
-        show(tab: .favorites)
-    }
-    
-    func sendFeedback() {
-        show(tab: .more) { (controller: ShowMoreViewController) in
-            controller.render?.sendFeedback(
-                subject: .localizedFormat(
-                    .emailFeedbackSubject,
-                    self.constants.appDisplayName ?? ""
-                )
-            )
-        }
-    }
-}
-
-extension DeepLinkRouter {
+extension DeepLinkRender {
     
     /// Navigates to the view by URL.
     /// - Parameter url: URL requested.
@@ -93,7 +60,14 @@ extension DeepLinkRouter {
             
             return true
         } else if let id = postProvider.getID(byURL: url.absoluteString) {
-            showPost(for: id)
+            guard let topViewController = UIWindow.current?.topViewController else {
+                return false
+            }
+            
+            // Load post in place or show in new controller
+            (topViewController as? ShowPostLoadable)?.loadData(for: id)
+                ?? topViewController.show(render.showPost(for: id), dismiss: true)
+            
             return true
         } else if let id = taxonomyProvider.getID(byURL: url.absoluteString) {
             show(tab: .blog) { (controller: ShowBlogViewController) in

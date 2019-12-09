@@ -10,19 +10,13 @@ import Foundation
 import ZamzamCore
 import ZamzamUI
 
-// Namespace use
-enum DeepLinkAPI {}
-
 /// Container of dependencies needed to execute this feature.
-protocol DeepLinkModuleType {
-    func component() -> DeepLinkRoutable
-    func component() -> LogProviderType
+protocol DeepLinkCoreType {
+    func dependency() -> DeepLinkRenderable
+    func dependency() -> LogProviderType
 }
 
-protocol DeepLinkRoutable: AppRoutable {
-    func showPost(for id: Int)
-    func showFavorites()
-    func sendFeedback()
+protocol DeepLinkRenderable: AppRoutable {
     
     @discardableResult
     func navigate(from url: URL) -> Bool

@@ -13,18 +13,18 @@ import ZamzamCore
 final class WindowPlugin {
     private weak var delegate: WindowDelegate?
     
-    private let scenes: SceneRenderType
+    private let render: WindowRenderable
     private let preferences: PreferencesType
     
     // MARK: - Lifecycle
     
     init(
         delegate: WindowDelegate?,
-        scenes: SceneRenderType,
+        render: WindowRenderable,
         preferences: PreferencesType
     ) {
         self.delegate = delegate
-        self.scenes = scenes
+        self.render = render
         self.preferences = preferences
     }
 }
@@ -35,7 +35,7 @@ extension WindowPlugin: ApplicationPlugin {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {} else {
             delegate?.window = UIWindow(frame: UIScreen.main.bounds).with {
-                $0.rootViewController = scenes.launchMain()
+                $0.rootViewController = render.launchMain()
                 $0.makeKeyAndVisible()
             }
         }
@@ -57,7 +57,7 @@ extension WindowPlugin: ScenePlugin {
                 $0.overrideUserInterfaceStyle = .dark
             }
             
-            $0.rootViewController = scenes.launchMain()
+            $0.rootViewController = render.launchMain()
             $0.makeKeyAndVisible()
         }
     }

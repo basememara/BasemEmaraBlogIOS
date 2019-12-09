@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import SwiftyPress
-import ZamzamCore
 
 class MainSplitViewController: UISplitViewController {
-    @Inject private var deepLinkModule: DeepLinkModuleType
-    private lazy var router: DeepLinkRoutable = deepLinkModule.component()
+    var render: MainSplitRenderable?
 }
 
 // MARK: - Delegates
@@ -20,6 +17,6 @@ class MainSplitViewController: UISplitViewController {
 extension MainSplitViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        router.showPost(for: postID)
+        render?.showPost(for: postID)
     }
 }

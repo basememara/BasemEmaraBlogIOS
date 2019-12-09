@@ -12,16 +12,14 @@ import UserNotifications
 import ZamzamCore
 
 final class NotificationPlugin: NSObject {
-    private let deepLinkModule: DeepLinkModuleType
-    private let router: DeepLinkRoutable
+    private let render: NotificationRenderable
     private let userNotification: UNUserNotificationCenter
     
     init(
-        deepLinkModule: DeepLinkModuleType,
+        render: NotificationRenderable,
         userNotification: UNUserNotificationCenter
     ) {
-        self.deepLinkModule = deepLinkModule
-        self.router = deepLinkModule.component()
+        self.render = render
         self.userNotification = userNotification
     }
 }
@@ -49,12 +47,10 @@ extension NotificationPlugin: UNUserNotificationCenterDelegate {
         
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            router.show(tab: .blog) { (controller: ShowBlogViewController) in
-                controller.render?.showPost(for: id)
-            }
+            render.showBlog(for: id)
         case Action.share.rawValue:
-            guard let popoverView = router.viewController?.view else { return }
-            router.viewController?.present(
+            guard let popoverView = render.viewController?.view else { return }
+            render.viewController?.present(
                 activities: [response.notification.request.content.title.htmlDecoded, link],
                 popoverFrom: popoverView
             )
