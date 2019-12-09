@@ -93,7 +93,6 @@
 		8B42C808234BBC9000F38E23 /* DataPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C79C234BBC9000F38E23 /* DataPlugin.swift */; };
 		8B42C809234BBC9000F38E23 /* BackgroundPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */; };
 		8B42C80A234BBC9000F38E23 /* ThemePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */; };
-		8B42C80B234BBC9000F38E23 /* DependencyPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C79F234BBC9000F38E23 /* DependencyPlugin.swift */; };
 		8B42C80C234BBC9000F38E23 /* NotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */; };
 		8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */; };
 		8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */; };
@@ -316,7 +315,6 @@
 		8B42C79C234BBC9000F38E23 /* DataPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPlugin.swift; sourceTree = "<group>"; };
 		8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundPlugin.swift; sourceTree = "<group>"; };
 		8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemePlugin.swift; sourceTree = "<group>"; };
-		8B42C79F234BBC9000F38E23 /* DependencyPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyPlugin.swift; sourceTree = "<group>"; };
 		8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPlugin.swift; sourceTree = "<group>"; };
 		8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPlugin.swift; sourceTree = "<group>"; };
 		8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkAPI.swift; sourceTree = "<group>"; };
@@ -828,7 +826,6 @@
 				8B87EB47239D704F00AD73D4 /* Window */,
 				8B42C79D234BBC9000F38E23 /* BackgroundPlugin.swift */,
 				8B42C79C234BBC9000F38E23 /* DataPlugin.swift */,
-				8B42C79F234BBC9000F38E23 /* DependencyPlugin.swift */,
 				8B42C79B234BBC9000F38E23 /* LoggerPlugin.swift */,
 				8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */,
 			);
@@ -1187,7 +1184,6 @@
 				8B42C806234BBC9000F38E23 /* WindowPlugin.swift in Sources */,
 				8B42C7D4234BBC9000F38E23 /* ListPostsAPI.swift in Sources */,
 				8B42C7F6234BBC9000F38E23 /* ListFavoritesPresenter.swift in Sources */,
-				8B42C80B234BBC9000F38E23 /* DependencyPlugin.swift in Sources */,
 				8B42C7FF234BBC9000F38E23 /* UIContextMenuConfiguration.swift in Sources */,
 				8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */,
 				8B42C7E4234BBC9000F38E23 /* ShowBlogRender.swift in Sources */,

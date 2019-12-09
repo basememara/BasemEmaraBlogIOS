@@ -14,7 +14,6 @@ import ZamzamCore
 class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {[
-        DependencyPlugin(),
         LoggerPlugin(log: core.dependency()),
         DataPlugin(dataProvider: core.dependency()),
         BackgroundPlugin(
