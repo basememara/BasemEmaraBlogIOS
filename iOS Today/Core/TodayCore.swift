@@ -10,10 +10,10 @@ import SwiftyPress
 import ZamzamCore
 
 struct TodayCore: TodayCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     
-    init(core: SwiftyPressCore) {
-        self.core = core
+    init(root: SwiftyPressCore) {
+        self.root = root
     }
 }
 
@@ -22,8 +22,8 @@ extension TodayCore {
     func dependency(with viewController: TodayDisplayable?) -> TodayActionable {
         TodayAction(
             presenter: dependency(with: viewController),
-            postProvider: core.dependency(),
-            mediaProvider: core.dependency()
+            postProvider: root.dependency(),
+            mediaProvider: root.dependency()
         )
     }
     
@@ -32,7 +32,7 @@ extension TodayCore {
     }
     
     func dependency() -> DataProviderType {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> Theme {

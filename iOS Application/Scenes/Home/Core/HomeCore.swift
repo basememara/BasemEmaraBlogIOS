@@ -12,11 +12,11 @@ import ZamzamCore
 import ZamzamUI
 
 struct HomeCore: HomeCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     private let render: SceneRenderType
     
-    init(core: SwiftyPressCore, render: SceneRenderType) {
-        self.core = core
+    init(root: SwiftyPressCore, render: SceneRenderType) {
+        self.root = root
         self.render = render
     }
     
@@ -25,17 +25,17 @@ struct HomeCore: HomeCoreType {
             render: render,
             viewController: inputs.viewController,
             listPostsDelegate: inputs.listPostsDelegate,
-            mailComposer: core.dependency(),
-            constants: core.dependency(),
-            theme: core.dependency()
+            mailComposer: root.dependency(),
+            constants: root.dependency(),
+            theme: root.dependency()
         )
     }
     
     func dependency() -> ConstantsType {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> Theme {
-        core.dependency()
+        root.dependency()
     }
 }

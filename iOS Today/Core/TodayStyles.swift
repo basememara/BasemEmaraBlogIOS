@@ -10,6 +10,6 @@ import SwiftyPress
 enum TodayStyles {
     
     static func apply(_ theme: Theme) {
-        
+        // TODO: UIAppearance not working in iOS 13+ widget?
     }
 }

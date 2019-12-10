@@ -12,21 +12,21 @@ import ZamzamCore
 import ZamzamUI
 
 struct ShowBlogCore: ShowBlogCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     private let render: SceneRenderType
     
-    init(core: SwiftyPressCore, render: SceneRenderType) {
-        self.core = core
+    init(root: SwiftyPressCore, render: SceneRenderType) {
+        self.root = root
         self.render = render
     }
     
     func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
         ShowBlogAction(
             presenter: dependency(with: viewController),
-            postProvider: core.dependency(),
-            mediaProvider: core.dependency(),
-            taxonomyProvider: core.dependency(),
-            preferences: core.dependency()
+            postProvider: root.dependency(),
+            mediaProvider: root.dependency(),
+            taxonomyProvider: root.dependency(),
+            preferences: root.dependency()
         )
     }
     
@@ -42,14 +42,14 @@ struct ShowBlogCore: ShowBlogCoreType {
     }
     
     func dependency() -> ConstantsType {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> Theme {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> MailComposerType {
-        core.dependency()
+        root.dependency()
     }
 }

@@ -11,28 +11,28 @@ import SwiftyPress
 import ZamzamCore
 
 struct ShowPostCore: ShowPostCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     private let render: SceneRenderType
     
-    init(core: SwiftyPressCore, render: SceneRenderType) {
-        self.core = core
+    init(root: SwiftyPressCore, render: SceneRenderType) {
+        self.root = root
         self.render = render
     }
     
     func dependency(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
         ShowPostAction(
             presenter: dependency(with: viewController),
-            postProvider: core.dependency(),
-            mediaProvider: core.dependency(),
-            authorProvider: core.dependency(),
-            taxonomyProvider: core.dependency()
+            postProvider: root.dependency(),
+            mediaProvider: root.dependency(),
+            authorProvider: root.dependency(),
+            taxonomyProvider: root.dependency()
         )
     }
     
     func dependency(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
         ShowPostPresenter(
             viewController: viewController,
-            constants: core.dependency()
+            constants: root.dependency()
         )
     }
     
@@ -45,14 +45,14 @@ struct ShowPostCore: ShowPostCoreType {
     }
     
     func dependency() -> NotificationCenter {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> ConstantsType {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> Theme {
-        core.dependency()
+        root.dependency()
     }
 }

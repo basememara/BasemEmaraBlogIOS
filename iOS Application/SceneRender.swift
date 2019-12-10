@@ -168,19 +168,19 @@ extension SceneRender {
     
     func home() -> UIViewController {
         let controller: HomeViewController = .make(fromStoryboard: Storyboard.home.rawValue)
-        controller.core = HomeCore(core: core, render: self)
+        controller.core = HomeCore(root: core, render: self)
         return controller
     }
     
     func listFavorites() -> UIViewController {
         let controller: ListFavoritesViewController = .make(fromStoryboard: Storyboard.listFavorites.rawValue)
-        controller.core = ListFavoritesCore(core: core, render: self)
+        controller.core = ListFavoritesCore(root: core, render: self)
         return controller
     }
     
     func searchPosts() -> UIViewController {
         let controller: SearchPostsViewController = .make(fromStoryboard: Storyboard.searchPosts.rawValue)
-        controller.core = SearchPostsCore(core: core, render: self)
+        controller.core = SearchPostsCore(root: core, render: self)
         return controller
     }
 }
@@ -189,13 +189,13 @@ extension SceneRender {
     
     func showBlog() -> UIViewController {
         let controller: ShowBlogViewController = .make(fromStoryboard: Storyboard.showBlog.rawValue)
-        controller.core = ShowBlogCore(core: core, render: self)
+        controller.core = ShowBlogCore(root: core, render: self)
         return controller
     }
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
         let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)
-        controller.core = ListPostsCore(core: core, render: self)
+        controller.core = ListPostsCore(root: core, render: self)
         controller.params = params
         controller.delegate = delegate
         return controller
@@ -203,14 +203,14 @@ extension SceneRender {
     
     func showPost(for id: Int) -> UIViewController {
         let controller: ShowPostViewController = .make(fromStoryboard: Storyboard.showPost.rawValue)
-        controller.core = ShowPostCore(core: core, render: self)
+        controller.core = ShowPostCore(root: core, render: self)
         controller.postID = id
         return controller
     }
     
     func listTerms() -> UIViewController {
         let controller: ListTermsViewController = .make(fromStoryboard: Storyboard.listTerms.rawValue)
-        controller.core = ListTermsCore(core: core, render: self)
+        controller.core = ListTermsCore(root: core, render: self)
         return controller
     }
 }
@@ -219,7 +219,7 @@ extension SceneRender {
     
     func showMore() -> UIViewController {
         let controller: ShowMoreViewController = .make(fromStoryboard: Storyboard.showMore.rawValue)
-        controller.core = ShowMoreCore(core: core, render: self)
+        controller.core = ShowMoreCore(root: core, render: self)
         return controller
     }
     

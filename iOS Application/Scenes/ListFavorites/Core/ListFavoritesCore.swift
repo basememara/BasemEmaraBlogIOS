@@ -11,19 +11,19 @@ import SwiftyPress
 import ZamzamCore
 
 struct ListFavoritesCore: ListFavoritesCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     private let render: SceneRenderType
     
-    init(core: SwiftyPressCore, render: SceneRenderType) {
-        self.core = core
+    init(root: SwiftyPressCore, render: SceneRenderType) {
+        self.root = root
         self.render = render
     }
     
     func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
         ListFavoritesAction(
             presenter: dependency(with: viewController),
-            postProvider: core.dependency(),
-            mediaProvider: core.dependency()
+            postProvider: root.dependency(),
+            mediaProvider: root.dependency()
         )
     }
     
@@ -39,10 +39,10 @@ struct ListFavoritesCore: ListFavoritesCoreType {
     }
     
     func dependency() -> ConstantsType {
-        core.dependency()
+        root.dependency()
     }
     
     func dependency() -> Theme {
-        core.dependency()
+        root.dependency()
     }
 }

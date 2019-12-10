@@ -22,7 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Dependencies
     
-    var core: TodayCoreType? = TodayCore(core: AppCore())
+    var core: TodayCoreType? = TodayCore(root: AppCore())
     
     private lazy var action: TodayActionable? = core?.dependency(with: self)
     private lazy var dataProvider: DataProviderType? = core?.dependency()

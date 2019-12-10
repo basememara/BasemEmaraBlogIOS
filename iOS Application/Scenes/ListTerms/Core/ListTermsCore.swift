@@ -11,18 +11,18 @@ import SwiftyPress
 import ZamzamCore
 
 struct ListTermsCore: ListTermsCoreType {
-    private let core: SwiftyPressCore
+    private let root: SwiftyPressCore
     private let render: SceneRenderType
     
-    init(core: SwiftyPressCore, render: SceneRenderType) {
-        self.core = core
+    init(root: SwiftyPressCore, render: SceneRenderType) {
+        self.root = root
         self.render = render
     }
     
     func dependency(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
         ListTermsAction(
             presenter: dependency(with: viewController),
-            taxonomyProvider: core.dependency()
+            taxonomyProvider: root.dependency()
         )
     }
     
