@@ -19,8 +19,8 @@ struct ShowMoreCore: ShowMoreCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: UIViewController?) -> ShowMoreRenderable {
-        ShowMoreRender(
+    func dependency(with viewController: UIViewController?) -> ShowMoreRouterable {
+        ShowMoreRouter(
             render: render,
             constants: root.dependency(),
             mailComposer: root.dependency(),

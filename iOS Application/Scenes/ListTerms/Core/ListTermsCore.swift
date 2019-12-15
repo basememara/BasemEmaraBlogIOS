@@ -30,8 +30,8 @@ struct ListTermsCore: ListTermsCoreType {
         ListTermsPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ListTermsRenderable {
-        ListTermsRender(
+    func dependency(with viewController: UIViewController?) -> ListTermsRouterable {
+        ListTermsRouter(
             render: render,
             viewController: viewController
         )

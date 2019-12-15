@@ -1,5 +1,5 @@
 //
-//  ShowPostRender.swift
+//  ShowPostRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -7,25 +7,30 @@
 //
 
 import UIKit
+import SwiftyPress
+import ZamzamUI
 
-struct ShowPostRender: ShowPostRenderable {
+struct ShowPostRouter: ShowPostRouterable, AppRoutable {
     private let render: SceneRenderType
+    private let theme: Theme
     
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
     init(
         render: SceneRenderType,
+        theme: Theme,
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) {
         self.render = render
+        self.theme = theme
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
     }
 }
 
-extension ShowPostRender {
+extension ShowPostRouter {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = render.listPosts(
@@ -34,5 +39,12 @@ extension ShowPostRender {
         )
         
         viewController?.show(controller)
+    }
+}
+
+extension ShowPostRouter {
+    
+    func show(url: String) {
+        present(safari: url, theme: theme)
     }
 }

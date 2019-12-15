@@ -16,7 +16,7 @@ enum ShowBlogAPI {}
 protocol ShowBlogCoreType {
     func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
     func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
-    func dependency(with viewController: UIViewController?) -> ShowBlogRenderable
+    func dependency(with viewController: UIViewController?) -> ShowBlogRouterable
     
     func dependency() -> MailComposerType
     func dependency() -> ConstantsType
@@ -55,11 +55,14 @@ protocol ShowBlogDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel)
 }
 
-protocol ShowBlogRenderable: AppRoutable {
+protocol ShowBlogRouterable {
     func listPosts(params: ListPostsAPI.Params)
     func showPost(for model: PostsDataViewModel)
     func showPost(for id: Int)
     func listTerms()
+    func showDisclaimer(url: String?)
+    func show(url: String?)
+    func sendEmail(to email: String?)
 }
 
 // MARK: - Request/Response

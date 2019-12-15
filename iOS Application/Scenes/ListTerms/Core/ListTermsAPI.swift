@@ -16,7 +16,7 @@ enum ListTermsAPI {}
 protocol ListTermsCoreType {
     func dependency(with viewController: ListTermsDisplayable?) -> ListTermsActionable
     func dependency(with viewController: ListTermsDisplayable?) -> ListTermsPresentable
-    func dependency(with viewController: UIViewController?) -> ListTermsRenderable
+    func dependency(with viewController: UIViewController?) -> ListTermsRouterable
 }
 
 protocol ListTermsActionable: AppActionable {
@@ -32,7 +32,7 @@ protocol ListTermsDisplayable: class, AppDisplayable {
     func displayTerms(with viewModels: [TermsDataViewModel])
 }
 
-protocol ListTermsRenderable: AppRoutable {
+protocol ListTermsRouterable {
     func listPosts(params: ListPostsAPI.Params)
 }
 

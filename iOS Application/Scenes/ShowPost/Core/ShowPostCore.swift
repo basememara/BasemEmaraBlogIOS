@@ -36,11 +36,15 @@ struct ShowPostCore: ShowPostCoreType {
         )
     }
     
-    func dependency(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRenderable {
-        ShowPostRender(
+    func dependency(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> ShowPostRouterable {
+        ShowPostRouter(
             render: render,
-            viewController: inputs.viewController,
-            listPostsDelegate: inputs.listPostsDelegate
+            theme: root.dependency(),
+            viewController: viewController,
+            listPostsDelegate: listPostsDelegate
         )
     }
     

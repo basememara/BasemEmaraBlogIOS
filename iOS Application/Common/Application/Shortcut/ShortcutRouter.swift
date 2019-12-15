@@ -1,5 +1,5 @@
 //
-//  ShortcutRender.swift
+//  ShortcutRouter.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-08.
@@ -11,12 +11,12 @@ import ZamzamCore
 import ZamzamUI
 import UIKit
 
-protocol ShortcutRenderable: AppRoutable {
+protocol ShortcutRouterable {
     func showFavorites()
     func sendFeedback()
 }
 
-struct ShortcutRender: ShortcutRenderable {
+struct ShortcutRouter: ShortcutRouterable, AppRoutable {
     private let render: SceneRenderType
     private let constants: ConstantsType
     
@@ -31,15 +31,15 @@ struct ShortcutRender: ShortcutRenderable {
     }
 }
 
-extension ShortcutRender {
+extension ShortcutRouter {
     
     func showFavorites() {
-        show(tab: .favorites)
+        show(menu: .favorites)
     }
     
     func sendFeedback() {
-        show(tab: .more) { (controller: ShowMoreViewController) in
-            controller.render?.sendFeedback(
+        show(menu: .more) { (controller: ShowMoreViewController) in
+            controller.router?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
                     self.constants.appDisplayName ?? ""

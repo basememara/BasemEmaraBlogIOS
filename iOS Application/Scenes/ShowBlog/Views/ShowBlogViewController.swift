@@ -43,9 +43,8 @@ class ShowBlogViewController: UIViewController {
     var core: ShowBlogCoreType?
     
     private lazy var action: ShowBlogActionable? = core?.dependency(with: self)
-    private(set) lazy var render: ShowBlogRenderable? = core?.dependency(with: self)
+    private(set) lazy var router: ShowBlogRouterable? = core?.dependency(with: self)
     
-    private lazy var mailComposer: MailComposerType? = core?.dependency()
     private lazy var constants: ConstantsType? = core?.dependency()
     private lazy var theme: Theme? = core?.dependency()
     
@@ -136,48 +135,31 @@ private extension ShowBlogViewController {
 private extension ShowBlogViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
-        render?.listPosts(params: .init(fetchType: .popular))
+        router?.listPosts(
+            params: ListPostsAPI.Params(fetchType: .popular)
+        )
     }
     
     @IBAction func topPickedPostsSeeAllButtonTapped() {
-        render?.listPosts(params: .init(fetchType: .picks))
+        router?.listPosts(
+            params: ListPostsAPI.Params(fetchType: .picks)
+        )
     }
     
     @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
-        render?.listTerms()
+        router?.listTerms()
     }
     
     @IBAction func disclaimerButtonTapped() {
-        guard let disclaimerURL = constants?.disclaimerURL, let theme = theme else {
-            present(
-                alert: .localized(.disclaimerNotAvailableErrorTitle),
-                message: .localized(.disclaimerNotAvailableErrorMessage)
-            )
-            
-            return
-        }
-        
-        present(safari: disclaimerURL, theme: theme)
+        router?.showDisclaimer(url: constants?.disclaimerURL)
     }
     
     @IBAction func privacyButtonTapped() {
-        guard let constants = constants, let theme = theme else { return }
-        present(safari: constants.privacyURL, theme: theme)
+        router?.show(url: constants?.privacyURL)
     }
     
     @IBAction func contactButtonTapped() {
-        guard let mailComposer = mailComposer,
-            let constants = constants,
-            let controller = mailComposer.makeViewController(email: constants.email) else {
-                present(
-                    alert: .localized(.couldNotSendEmail),
-                    message: .localized(.couldNotSendEmailMessage)
-                )
-                
-                return
-        }
-        
-        present(controller)
+        router?.sendEmail(to: constants?.email)
     }
 }
 
@@ -223,7 +205,7 @@ extension ShowBlogViewController: ShowBlogDisplayable {
 extension ShowBlogViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        render?.showPost(for: model)
+        router?.showPost(for: model)
     }
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
@@ -275,8 +257,8 @@ extension ShowBlogViewController: PostsDataViewDelegate {
 extension ShowBlogViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        render?.listPosts(
-            params: .init(
+        router?.listPosts(
+            params: ListPostsAPI.Params(
                 fetchType: .terms([model.id]),
                 title: model.name
             )
@@ -298,29 +280,27 @@ extension ShowBlogViewController {
             constants: constants,
             theme: theme,
             additionalActions: {
-                switch dataView as? UICollectionView {
-                case latestPostsCollectionView:
-                    return [
-                        UIAction(
-                            title: .localized(model.favorite == true ? .unfavoriteTitle : .favoriteTitle),
-                            image: UIImage(systemName: model.favorite == true ? "star.fill" : "star")
-                        ) { [weak self] _ in
+                guard case latestPostsCollectionView = dataView as? UICollectionView else { return [] }
+                
+                return [
+                    UIAction(
+                        title: .localized(model.favorite == true ? .unfavoriteTitle : .favoriteTitle),
+                        image: UIImage(systemName: model.favorite == true ? "star.fill" : "star"),
+                        handler: { [weak self] _ in
                             self?.action?.toggleFavorite(
                                 with: ShowBlogAPI.FavoriteRequest(
                                     postID: model.id
                                 )
                             )
                         }
-                    ]
-                default:
-                    return []
-                }
+                    )
+                ]
             }()
         )
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        render?.showPost(for: model.id)
+        router?.showPost(for: model)
     }
 }
 

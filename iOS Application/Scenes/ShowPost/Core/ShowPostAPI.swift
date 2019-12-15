@@ -16,7 +16,11 @@ enum ShowPostAPI {}
 protocol ShowPostCoreType {
     func dependency(with viewController: ShowPostDisplayable?) -> ShowPostActionable
     func dependency(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
-    func dependency(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRenderable
+    
+    func dependency(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> ShowPostRouterable
    
     func dependency() -> NotificationCenter
     func dependency() -> ConstantsType
@@ -44,8 +48,9 @@ protocol ShowPostDisplayable: class, AppDisplayable {
     func display(isFavorite: Bool)
 }
 
-protocol ShowPostRenderable: AppRoutable {
+protocol ShowPostRouterable {
     func listPosts(params: ListPostsAPI.Params)
+    func show(url: String)
 }
 
 protocol ShowPostLoadable {
@@ -55,11 +60,6 @@ protocol ShowPostLoadable {
 // MARK: - Request/Response
 
 extension ShowPostAPI {
-    
-    struct RoutableInputs {
-        weak var viewController: UIViewController?
-        weak var listPostsDelegate: ListPostsDelegate?
-    }
     
     struct Request {
         let postID: Int

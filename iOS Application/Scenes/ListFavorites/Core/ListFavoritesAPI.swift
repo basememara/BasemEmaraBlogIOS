@@ -16,7 +16,7 @@ enum ListFavoritesAPI {}
 protocol ListFavoritesCoreType {
     func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
     func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
-    func dependency(with viewController: UIViewController?) -> ListFavoritesRenderable
+    func dependency(with viewController: UIViewController?) -> ListFavoritesRouterable
     
     func dependency() -> ConstantsType
     func dependency() -> Theme
@@ -39,7 +39,7 @@ protocol ListFavoritesDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ListFavoritesAPI.FavoriteViewModel)
 }
 
-protocol ListFavoritesRenderable: AppRoutable {
+protocol ListFavoritesRouterable {
     func showPost(for model: PostsDataViewModel)
 }
 

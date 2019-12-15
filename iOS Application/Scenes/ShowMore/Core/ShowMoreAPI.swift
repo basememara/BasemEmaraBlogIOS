@@ -11,16 +11,22 @@ import UIKit
 import ZamzamUI
 
 protocol ShowMoreCoreType {
-    func dependency(with viewController: UIViewController?) -> ShowMoreRenderable
+    func dependency(with viewController: UIViewController?) -> ShowMoreRouterable
     func dependency() -> ConstantsType
 }
 
-protocol ShowMoreRenderable: AppRoutable {
+protocol ShowMoreRouterable {
     func showSubscribe()
     func sendFeedback(subject: String)
     func showWorkWithMe()
     func showRateApp()
     func showSettings()
     func showDevelopedBy()
-    func showSocial(for type: Social)
+    func show(social: Social)
+    
+    func share(
+        appURL: String,
+        message: String,
+        popoverFrom view: UIView
+    )
 }

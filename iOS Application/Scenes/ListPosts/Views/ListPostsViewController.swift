@@ -28,7 +28,10 @@ class ListPostsViewController: UIViewController {
     var core: ListPostsCoreType?
     
     private lazy var action: ListPostsActionable? = core?.dependency(with: self)
-    private lazy var render: ListPostsRenderable? = core?.dependency(with: self)
+    private lazy var router: ListPostsRouterable? = core?.dependency(
+        viewController: self,
+        listPostsDelegate: delegate
+    )
     
     private lazy var constants: ConstantsType? = core?.dependency()
     private lazy var theme: Theme? = core?.dependency()
@@ -126,8 +129,7 @@ extension ListPostsViewController: ListPostsDisplayable {
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        delegate?.listPosts(self, didSelect: model.id) // Pass data back
-            ?? render?.showPost(for: model) // Pass data forward
+        router?.showPost(for: model)
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
@@ -158,6 +160,6 @@ extension ListPostsViewController {
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        render?.showPost(for: model)
+        router?.showPost(for: model)
     }
 }

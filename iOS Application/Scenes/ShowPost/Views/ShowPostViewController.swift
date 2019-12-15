@@ -50,11 +50,9 @@ class ShowPostViewController: UIViewController, StatusBarable {
     var core: ShowPostCoreType?
     
     private lazy var action: ShowPostActionable? = core?.dependency(with: self)
-    private lazy var router: ShowPostRenderable? = core?.dependency(
-        with: ShowPostAPI.RoutableInputs(
-            viewController: self,
-            listPostsDelegate: self
-        )
+    private lazy var router: ShowPostRouterable? = core?.dependency(
+        viewController: self,
+        listPostsDelegate: self
     )
     
     private lazy var notificationCenter: NotificationCenter? = core?.dependency()
@@ -164,12 +162,11 @@ private extension ShowPostViewController {
         guard let url = constants?.baseURL
             .appendingPathComponent("mobile-comments")
             .appendingQueryItem("postid", value: postID)
-            .absoluteString,
-            let theme = theme else {
+            .absoluteString else {
                 return
         }
         
-        router?.present(safari: url, theme: theme)
+        router?.show(url: url)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -289,12 +286,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         // Open same domain links within app
         guard requestURL.host == constants?.baseURL.host else {
             // Open external links in browser
-            guard let theme = theme else {
-                present(safari: requestURL.absoluteString)
-                return
-            }
-            
-            present(safari: requestURL.absoluteString, theme: theme)
+            router?.show(url: requestURL.absoluteString)
             return decisionHandler(.cancel)
         }
         

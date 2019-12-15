@@ -9,7 +9,7 @@
 import UIKit
 
 class MainSplitViewController: UISplitViewController {
-    var render: MainSplitRenderable?
+    var router: MainSplitRouterable?
 }
 
 // MARK: - Delegates
@@ -17,6 +17,6 @@ class MainSplitViewController: UISplitViewController {
 extension MainSplitViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        render?.showPost(for: postID)
+        router?.showPost(for: postID)
     }
 }

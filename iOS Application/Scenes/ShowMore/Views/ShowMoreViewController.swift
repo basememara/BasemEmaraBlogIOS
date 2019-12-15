@@ -17,7 +17,7 @@ class ShowMoreViewController: UITableViewController {
     
     var core: ShowMoreCoreType?
     
-    private(set) lazy var render: ShowMoreRenderable? = core?.dependency(with: self)
+    private(set) lazy var router: ShowMoreRouterable? = core?.dependency(with: self)
     private lazy var constants: ConstantsType? = core?.dependency()
 }
 
@@ -26,15 +26,15 @@ class ShowMoreViewController: UITableViewController {
 private extension ShowMoreViewController {
     
     @IBAction func twitterButtonTapped() {
-        render?.showSocial(for: .twitter)
+        router?.show(social: .twitter)
     }
     
     @IBAction func linkedInButtonTapped() {
-        render?.showSocial(for: .linkedIn)
+        router?.show(social: .linkedIn)
     }
     
     @IBAction func githubButtonTapped() {
-        render?.showSocial(for: .github)
+        router?.show(social: .github)
     }
 }
 
@@ -67,26 +67,28 @@ extension ShowMoreViewController {
         
         switch identifier {
         case .subscribe:
-            render?.showSubscribe()
+            router?.showSubscribe()
         case .feedback:
-            render?.sendFeedback(
+            router?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
                     constants?.appDisplayName ?? ""
                 )
             )
         case .work:
-            render?.showWorkWithMe()
+            router?.showWorkWithMe()
         case .rate:
-            render?.showRateApp()
+            router?.showRateApp()
         case .share:
-            let message: String = .localizedFormat(.shareAppMessage, constants?.appDisplayName ?? "")
-            let share = [message, constants?.itunesURL ?? ""]
-            present(activities: share, popoverFrom: cell)
+            router?.share(
+                appURL: constants?.itunesURL ?? "",
+                message: .localizedFormat(.shareAppMessage, constants?.appDisplayName ?? ""),
+                popoverFrom: cell
+            )
         case .settings:
-            render?.showSettings()
+            router?.showSettings()
         case .developedBy:
-            render?.showDevelopedBy()
+            router?.showDevelopedBy()
         }
     }
 }

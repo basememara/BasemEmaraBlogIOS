@@ -28,11 +28,11 @@ class AppDelegate: ApplicationPluggableDelegate {
             preferences: core.dependency()
         ),
         NotificationPlugin(
-            render: NotificationRender(render: render),
+            router: NotificationRouter(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            render: ShortcutRender(
+            router: ShortcutRouter(
                 render: render,
                 constants: core.dependency()
             )
@@ -78,6 +78,7 @@ private enum Root {
         core: core
     )
 }
+
 private extension UIApplicationDelegate {
     var core: SwiftyPressCore { Root.core }
     var render: SceneRender { Root.render }

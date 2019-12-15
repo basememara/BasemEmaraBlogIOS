@@ -20,11 +20,14 @@ struct HomeCore: HomeCoreType {
         self.render = render
     }
     
-    func dependency(with inputs: HomeAPI.RoutableInputs) -> HomeRenderable {
-        HomeRender(
+    func dependency(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> HomeRouterable {
+        HomeRouter(
             render: render,
-            viewController: inputs.viewController,
-            listPostsDelegate: inputs.listPostsDelegate,
+            viewController: viewController,
+            listPostsDelegate: listPostsDelegate,
             mailComposer: root.dependency(),
             constants: root.dependency(),
             theme: root.dependency()

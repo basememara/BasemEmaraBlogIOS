@@ -31,8 +31,8 @@ struct SearchPostsCore: SearchPostsCoreType {
         SearchPostsPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> SearchPostsRenderable {
-        SearchPostsRender(
+    func dependency(with viewController: UIViewController?) -> SearchPostsRouterable {
+        SearchPostsRouter(
             render: render,
             viewController: viewController
         )

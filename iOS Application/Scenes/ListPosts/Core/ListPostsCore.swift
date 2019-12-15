@@ -31,10 +31,11 @@ struct ListPostsCore: ListPostsCoreType {
         ListPostsPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ListPostsRenderable {
-        ListPostsRender(
+    func dependency(viewController: UIViewController?, listPostsDelegate: ListPostsDelegate?) -> ListPostsRouterable {
+        ListPostsRouter(
             render: render,
-            viewController: viewController
+            viewController: viewController,
+            listPostsDelegate: listPostsDelegate
         )
     }
     

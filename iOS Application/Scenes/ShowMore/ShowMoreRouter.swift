@@ -1,5 +1,5 @@
 //
-//  ShowMoreRender.swift
+//  ShowMoreRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-08.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowMoreRender: ShowMoreRenderable {
+struct ShowMoreRouter: ShowMoreRouterable, AppRoutable {
     private let render: SceneRenderType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
@@ -33,7 +33,7 @@ struct ShowMoreRender: ShowMoreRenderable {
     }
 }
 
-extension ShowMoreRender {
+extension ShowMoreRouter {
     
     func showSubscribe() {
         present(pageSlug: "subscribe", constants: constants, theme: theme)
@@ -43,8 +43,8 @@ extension ShowMoreRender {
         present(pageSlug: "resume", constants: constants, theme: theme)
     }
     
-    func showSocial(for type: Social) {
-        showSocial(for: type, theme: theme)
+    func show(social: Social) {
+        show(social: social, theme: theme)
     }
     
     func showDevelopedBy() {
@@ -52,7 +52,7 @@ extension ShowMoreRender {
     }
 }
 
-extension ShowMoreRender {
+extension ShowMoreRouter {
     
     func showRateApp() {
         guard let url = URL(string: constants.itunesURL) else { return }
@@ -65,7 +65,7 @@ extension ShowMoreRender {
     }
 }
 
-extension ShowMoreRender {
+extension ShowMoreRouter {
     
     func sendFeedback(subject: String) {
         let mailComposerController = mailComposer.makeViewController(
@@ -86,5 +86,13 @@ extension ShowMoreRender {
         }
         
         viewController?.present(controller)
+    }
+}
+
+extension ShowMoreRouter {
+    
+    func share(appURL: String, message: String, popoverFrom view: UIView) {
+        let share = [message, appURL]
+        viewController?.present(activities: share, popoverFrom: view)
     }
 }

@@ -12,7 +12,7 @@ import ZamzamCore
 
 struct DeepLinkPlugin {
     private let core: DeepLinkCoreType
-    private let render: DeepLinkRenderable
+    private let router: DeepLinkRouterable
     private let log: LogProviderType
     
     init(
@@ -20,7 +20,7 @@ struct DeepLinkPlugin {
         log: LogProviderType
     ) {
         self.core = core
-        self.render = core.dependency()
+        self.router = core.dependency()
         self.log = log
     }
 }
@@ -34,7 +34,7 @@ extension DeepLinkPlugin: ApplicationPlugin {
         }
         
         log.debug("Link passed to app: \(webpageURL.absoluteString)")
-        return render.navigate(from: webpageURL)
+        return router.navigate(from: webpageURL)
     }
 }
 
@@ -48,7 +48,7 @@ extension DeepLinkPlugin: ScenePlugin {
         }
         
         log.info("Link passed to app: \(webpageURL.absoluteString)")
-        render.navigate(from: webpageURL)
+        router.navigate(from: webpageURL)
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -58,6 +58,6 @@ extension DeepLinkPlugin: ScenePlugin {
         }
         
         log.info("Link passed to app: \(webpageURL.absoluteString)")
-        render.navigate(from: webpageURL)
+        router.navigate(from: webpageURL)
     }
 }

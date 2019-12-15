@@ -29,7 +29,7 @@ class ListFavoritesViewController: UIViewController {
     var core: ListFavoritesCoreType?
     
     private lazy var action: ListFavoritesActionable? = core?.dependency(with: self)
-    private lazy var render: ListFavoritesRenderable? = core?.dependency(with: self)
+    private lazy var router: ListFavoritesRouterable? = core?.dependency(with: self)
     
     private lazy var constants: ConstantsType? = core?.dependency()
     private lazy var theme: Theme? = core?.dependency()
@@ -96,7 +96,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        render?.showPost(for: model)
+        router?.showPost(for: model)
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
@@ -123,6 +123,6 @@ extension ListFavoritesViewController {
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        render?.showPost(for: model)
+        router?.showPost(for: model)
     }
 }

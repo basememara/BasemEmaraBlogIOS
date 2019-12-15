@@ -16,7 +16,11 @@ enum ListPostsAPI {}
 protocol ListPostsCoreType {
     func dependency(with viewController: ListPostsDisplayable?) -> ListPostsActionable
     func dependency(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
-    func dependency(with viewController: UIViewController?) -> ListPostsRenderable
+    
+    func dependency(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> ListPostsRouterable
     
     func dependency() -> ConstantsType
     func dependency() -> Theme
@@ -52,7 +56,7 @@ protocol ListPostsDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ListPostsAPI.FavoriteViewModel)
 }
 
-protocol ListPostsRenderable: AppRoutable {
+protocol ListPostsRouterable {
     func showPost(for model: PostsDataViewModel)
 }
 

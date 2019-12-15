@@ -20,8 +20,8 @@ struct DeepLinkCore: DeepLinkCoreType {
         self.render = render
     }
     
-    func dependency() -> DeepLinkRenderable {
-        DeepLinkRender(
+    func dependency() -> DeepLinkRouterable {
+        DeepLinkRouter(
             render: render,
             postProvider: core.dependency(),
             taxonomyProvider: core.dependency(),

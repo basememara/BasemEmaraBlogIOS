@@ -15,7 +15,12 @@ enum HomeAPI {}
 
 /// Container of dependencies needed to execute this feature.
 protocol HomeCoreType {
-    func dependency(with inputs: HomeAPI.RoutableInputs) -> HomeRenderable
+    
+    func dependency(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> HomeRouterable
+    
     func dependency() -> ConstantsType
     func dependency() -> Theme
 }
@@ -24,7 +29,7 @@ protocol HomeDisplayable: class, AppDisplayable { // Controller
     
 }
 
-protocol HomeRenderable: AppRoutable { // Router
+protocol HomeRouterable { // Router
     func showAbout()
     func showPortfolio()
     
@@ -36,16 +41,6 @@ protocol HomeRenderable: AppRoutable { // Router
     func showConsultingDevelopment()
     func showConsultingMentorship()
     
-    func showSocial(for type: Social)
+    func show(social: Social)
     func sendEmail(subject: String)
-}
-
-// MARK: - Request/Response
-
-extension HomeAPI {
-    
-    struct RoutableInputs {
-        weak var viewController: UIViewController?
-        weak var listPostsDelegate: ListPostsDelegate?
-    }
 }

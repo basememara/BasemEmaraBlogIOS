@@ -34,9 +34,11 @@ struct ShowBlogCore: ShowBlogCoreType {
         ShowBlogPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ShowBlogRenderable {
-        ShowBlogRender(
+    func dependency(with viewController: UIViewController?) -> ShowBlogRouterable {
+        ShowBlogRouter(
             render: render,
+            mailComposer: root.dependency(),
+            theme: root.dependency(),
             viewController: viewController
         )
     }

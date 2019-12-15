@@ -1,5 +1,5 @@
 //
-//  HomeRender.swift
+//  HomeRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-24.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct HomeRender: HomeRenderable {
+struct HomeRouter: HomeRouterable, AppRoutable {
     private let render: SceneRenderType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
@@ -36,7 +36,7 @@ struct HomeRender: HomeRenderable {
     }
 }
 
-extension HomeRender {
+extension HomeRouter {
     
     func showAbout() {
         present(pageSlug: "about", constants: constants, theme: theme)
@@ -47,7 +47,7 @@ extension HomeRender {
     }
 }
 
-extension HomeRender {
+extension HomeRouter {
     
     func showSeriesScalableApp(title: String?) {
         let controller = render.listPosts(
@@ -64,7 +64,7 @@ extension HomeRender {
     
     func showSeriesSwiftUtilities(title: String?) {
         let controller = render.listPosts(
-            params: .init(
+            params: ListPostsAPI.Params(
                 fetchType: .terms([71]),
                 title: title,
                 sort: seriesSort
@@ -85,7 +85,7 @@ extension HomeRender {
     }
 }
 
-extension HomeRender {
+extension HomeRouter {
     
     func showCoursesArchitecture() {
         present(safari: "https://iosmentor.io", theme: theme)
@@ -104,10 +104,10 @@ extension HomeRender {
     }
 }
 
-extension HomeRender {
+extension HomeRouter {
     
-    func showSocial(for type: Social) {
-        showSocial(for: type, theme: theme)
+    func show(social: Social) {
+        show(social: social, theme: theme)
     }
     
     func sendEmail(subject: String) {

@@ -12,11 +12,11 @@ import ZamzamUI
 
 /// Container of dependencies needed to execute this feature.
 protocol DeepLinkCoreType {
-    func dependency() -> DeepLinkRenderable
+    func dependency() -> DeepLinkRouterable
     func dependency() -> LogProviderType
 }
 
-protocol DeepLinkRenderable: AppRoutable {
+protocol DeepLinkRouterable {
     
     @discardableResult
     func navigate(from url: URL) -> Bool

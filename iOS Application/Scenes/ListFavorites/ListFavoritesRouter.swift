@@ -1,15 +1,15 @@
 //
-//  SearchPostsRender.swift
+//  ListFavoritesRender.swift
 //  Basem Emara
 //
-//  Created by Basem Emara on 2018-10-07.
+//  Created by Basem Emara on 2018-10-06.
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
 import UIKit
 import SwiftyPress
 
-struct SearchPostsRender: SearchPostsRenderable {
+struct ListFavoritesRouter: ListFavoritesRouterable {
     private let render: SceneRenderType
     weak var viewController: UIViewController?
     
@@ -19,8 +19,8 @@ struct SearchPostsRender: SearchPostsRenderable {
     }
 }
 
-extension SearchPostsRender {
-
+extension ListFavoritesRouter {
+    
     func showPost(for model: PostsDataViewModel) {
         let controller = render.showPost(for: model.id)
         viewController?.show(controller)

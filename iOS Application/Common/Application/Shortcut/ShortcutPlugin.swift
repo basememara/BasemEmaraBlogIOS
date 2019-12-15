@@ -11,11 +11,11 @@ import SwiftyPress
 import ZamzamCore
 
 final class ShortcutPlugin {
-    private let render: ShortcutRenderable
+    private let router: ShortcutRouterable
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
-    init(render: ShortcutRenderable) {
-        self.render = render
+    init(router: ShortcutRouterable) {
+        self.router = router
     }
 }
 
@@ -64,9 +64,9 @@ private extension ShortcutPlugin {
         
         switch shortcutItemType {
         case .favorites:
-            render.showFavorites()
+            router.showFavorites()
         case .contact:
-            render.sendFeedback()
+            router.sendFeedback()
         }
         
         return true

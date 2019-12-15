@@ -1,5 +1,5 @@
 //
-//  DeepLinkRender.swift
+//  DeepLinkRouter.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-09-28.
@@ -9,8 +9,9 @@
 import Foundation
 import SwiftyPress
 import UIKit
+import ZamzamUI
 
-struct DeepLinkRender: DeepLinkRenderable {
+struct DeepLinkRouter: DeepLinkRouterable, AppRoutable {
     private let render: SceneRenderType
     private let postProvider: PostProviderType
     private let taxonomyProvider: TaxonomyProviderType
@@ -31,7 +32,7 @@ struct DeepLinkRender: DeepLinkRenderable {
     }
 }
 
-extension DeepLinkRender {
+extension DeepLinkRouter {
     
     /// Navigates to the view by URL.
     /// - Parameter url: URL requested.
@@ -46,11 +47,11 @@ extension DeepLinkRender {
         if url.path.isEmpty || url.path == "/" {
             // Handle search if applicable
             guard let query = urlComponents.queryItems?.first(where: { $0.name == "s" })?.value else {
-                show(tab: .blog)
+                show(menu: .blog)
                 return true
             }
             
-            show(tab: .search) { (controller: SearchPostsViewController) in
+            show(menu: .search) { (controller: SearchPostsViewController) in
                 controller.searchText = query
 
                 if controller.isViewLoaded {
@@ -70,8 +71,8 @@ extension DeepLinkRender {
             
             return true
         } else if let id = taxonomyProvider.getID(byURL: url.absoluteString) {
-            show(tab: .blog) { (controller: ShowBlogViewController) in
-                controller.render?.listPosts(
+            show(menu: .blog) { (controller: ShowBlogViewController) in
+                controller.router?.listPosts(
                     params: .init(fetchType: .terms([id]))
                 )
             }

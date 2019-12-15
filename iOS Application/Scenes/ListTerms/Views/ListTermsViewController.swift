@@ -27,7 +27,7 @@ class ListTermsViewController: UIViewController {
     var core: ListTermsCoreType?
     
     private lazy var action: ListTermsActionable? = core?.dependency(with: self)
-    private lazy var render: ListTermsRenderable? = core?.dependency(with: self)
+    private lazy var router: ListTermsRouterable? = core?.dependency(with: self)
     
     // MARK: - State
     
@@ -69,8 +69,8 @@ extension ListTermsViewController: ListTermsDisplayable {
 extension ListTermsViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        render?.listPosts(
-            params: .init(
+        router?.listPosts(
+            params: ListPostsAPI.Params(
                 fetchType: .terms([model.id]),
                 title: model.name
             )

@@ -31,8 +31,8 @@ struct ListFavoritesCore: ListFavoritesCoreType {
         ListFavoritesPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ListFavoritesRenderable {
-        ListFavoritesRender(
+    func dependency(with viewController: UIViewController?) -> ListFavoritesRouterable {
+        ListFavoritesRouter(
             render: render,
             viewController: viewController
         )

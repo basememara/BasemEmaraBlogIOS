@@ -21,15 +21,12 @@ class HomeViewController: UITableViewController {
     
     var core: HomeCoreType?
     
-    private lazy var render: HomeRenderable? = core?.dependency(
-        with: HomeAPI.RoutableInputs(
-            viewController: self,
-            listPostsDelegate: splitViewController as? ListPostsDelegate
-        )
+    private lazy var router: HomeRouterable? = core?.dependency(
+        viewController: self,
+        listPostsDelegate: splitViewController as? ListPostsDelegate
     )
     
     private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
     
     // MARK: - Lifecycle
     
@@ -65,13 +62,13 @@ private extension HomeViewController {
     @IBAction func socialButtonTapped(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            render?.showSocial(for: .github)
+            router?.show(social: .github)
         case 2:
-            render?.showSocial(for: .linkedIn)
+            router?.show(social: .linkedIn)
         case 3:
-            render?.showSocial(for: .twitter)
+            router?.show(social: .twitter)
         case 4:
-            render?.sendEmail(
+            router?.sendEmail(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
                     constants?.appDisplayName ?? ""
@@ -119,25 +116,25 @@ extension HomeViewController {
         
         switch identifier {
         case .about:
-            render?.showAbout()
+            router?.showAbout()
         case .portfolio:
-            render?.showPortfolio()
+            router?.showPortfolio()
         case .seriesScalableApp:
-            render?.showSeriesScalableApp(
+            router?.showSeriesScalableApp(
                 title: cell.textLabel?.text
             )
         case .seriesSwiftUtilities:
-            render?.showSeriesSwiftUtilities(
+            router?.showSeriesSwiftUtilities(
                 title: cell.textLabel?.text
             )
         case .coursesArchitecture:
-            render?.showCoursesArchitecture()
+            router?.showCoursesArchitecture()
         case .coursesFramework:
-            render?.showCoursesFramework()
+            router?.showCoursesFramework()
         case .consultingDevelopment:
-            render?.showConsultingDevelopment()
+            router?.showConsultingDevelopment()
         case .consultingMentorship:
-            render?.showConsultingMentorship()
+            router?.showConsultingMentorship()
         }
     }
 }

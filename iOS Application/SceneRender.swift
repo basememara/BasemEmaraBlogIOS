@@ -41,13 +41,15 @@ struct SceneRender: SceneRenderType {
     }
 }
 
+// MARK: - Scenes
+
 extension SceneRender {
     
     func launchMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             return MainSplitViewController().with {
-                $0.render = MainSplitRender(render: self)
+                $0.router = MainSplitRouter(render: self)
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController().with {
@@ -57,7 +59,7 @@ extension SceneRender {
                                     $0.tabBarItem = UITabBarItem(
                                         title: "Blog",
                                         image: UIImage(named: "tab-megaphone"),
-                                        tag: Tab.blog.rawValue
+                                        tag: Menu.blog.rawValue
                                     )
                                 }
                             ),
@@ -66,7 +68,7 @@ extension SceneRender {
                                     $0.tabBarItem = UITabBarItem(
                                         title: "Favorites",
                                         image: UIImage(named: "tab-favorite"),
-                                        tag: Tab.favorites.rawValue
+                                        tag: Menu.favorites.rawValue
                                     )
                                 }
                             )
@@ -78,7 +80,7 @@ extension SceneRender {
                                     $0.tabBarItem = UITabBarItem(
                                         title: "Search",
                                         image: UIImage(named: "tab-search"),
-                                        tag: Tab.search.rawValue
+                                        tag: Menu.search.rawValue
                                     )
                                 }
                             )
@@ -90,7 +92,7 @@ extension SceneRender {
                                     $0.tabBarItem = UITabBarItem(
                                         title: "More",
                                         image: UIImage(named: "tab-more"),
-                                        tag: Tab.more.rawValue
+                                        tag: Menu.more.rawValue
                                     )
                                 }
                             )
@@ -109,7 +111,7 @@ extension SceneRender {
                             $0.tabBarItem = UITabBarItem(
                                 title: "Home",
                                 image: UIImage(named: "tab-home"),
-                                tag: Tab.home.rawValue
+                                tag: Menu.home.rawValue
                             )
                         }
                     ),
@@ -118,7 +120,7 @@ extension SceneRender {
                             $0.tabBarItem = UITabBarItem(
                                 title: "Blog",
                                 image: UIImage(named: "tab-megaphone"),
-                                tag: Tab.blog.rawValue
+                                tag: Menu.blog.rawValue
                             )
                         }
                     ),
@@ -127,7 +129,7 @@ extension SceneRender {
                             $0.tabBarItem = UITabBarItem(
                                 title: "Favorites",
                                 image: UIImage(named: "tab-favorite"),
-                                tag: Tab.favorites.rawValue
+                                tag: Menu.favorites.rawValue
                             )
                         }
                     )
@@ -139,7 +141,7 @@ extension SceneRender {
                             $0.tabBarItem = UITabBarItem(
                                 title: "Search",
                                 image: UIImage(named: "tab-search"),
-                                tag: Tab.search.rawValue
+                                tag: Menu.search.rawValue
                             )
                         }
                     )
@@ -151,7 +153,7 @@ extension SceneRender {
                             $0.tabBarItem = UITabBarItem(
                                 title: "More",
                                 image: UIImage(named: "tab-more"),
-                                tag: Tab.more.rawValue
+                                tag: Menu.more.rawValue
                             )
                         }
                     )
@@ -230,10 +232,12 @@ extension SceneRender {
     }
 }
 
+// MARK: - Subtypes
+
 extension SceneRender {
     
-    /// Tab identifiers for routing
-    enum Tab: Int {
+    /// Menu identifiers for routing
+    enum Menu: Int {
         case home = 0
         case blog = 1
         case favorites = 2

@@ -16,7 +16,7 @@ enum SearchPostsAPI {}
 protocol SearchPostsCoreType {
     func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
     func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
-    func dependency(with viewController: UIViewController?) -> SearchPostsRenderable
+    func dependency(with viewController: UIViewController?) -> SearchPostsRouterable
     
     func dependency() -> ConstantsType
     func dependency() -> Theme
@@ -36,7 +36,7 @@ protocol SearchPostsDisplayable: class, AppDisplayable {
     func displayPosts(with viewModels: [PostsDataViewModel])
 }
 
-protocol SearchPostsRenderable: AppRoutable {
+protocol SearchPostsRouterable {
     func showPost(for model: PostsDataViewModel)
 }
 

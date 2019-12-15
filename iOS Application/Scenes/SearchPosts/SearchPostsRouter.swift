@@ -1,14 +1,15 @@
 //
-//  ListTermsRender.swift
+//  SearchPostsRouter.swift
 //  Basem Emara
 //
-//  Created by Basem Emara on 2018-10-02.
+//  Created by Basem Emara on 2018-10-07.
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
 import UIKit
+import SwiftyPress
 
-struct ListTermsRender: ListTermsRenderable {
+struct SearchPostsRouter: SearchPostsRouterable {
     private let render: SceneRenderType
     weak var viewController: UIViewController?
     
@@ -18,10 +19,10 @@ struct ListTermsRender: ListTermsRenderable {
     }
 }
 
-extension ListTermsRender {
-    
-    func listPosts(params: ListPostsAPI.Params) {
-        let controller = render.listPosts(params: params)
+extension SearchPostsRouter {
+
+    func showPost(for model: PostsDataViewModel) {
+        let controller = render.showPost(for: model.id)
         viewController?.show(controller)
     }
 }

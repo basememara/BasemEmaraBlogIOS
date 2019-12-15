@@ -1,5 +1,5 @@
 //
-//  MainSplitRender.swift
+//  MainSplitRouter.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-08.
@@ -10,11 +10,11 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-protocol MainSplitRenderable {
+protocol MainSplitRouterable {
     func showPost(for id: Int)
 }
 
-struct MainSplitRender: MainSplitRenderable {
+struct MainSplitRouter: MainSplitRouterable {
     private let render: SceneRenderType
     
     init(render: SceneRenderType) {
@@ -22,7 +22,7 @@ struct MainSplitRender: MainSplitRenderable {
     }
 }
 
-extension MainSplitRender {
+extension MainSplitRouter {
     
     func showPost(for id: Int) {
         guard let topViewController = UIWindow.current?.topViewController else {

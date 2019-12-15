@@ -25,11 +25,11 @@ class SceneDelegate: ScenePluggableDelegate {
             preferences: core.dependency()
         ),
         NotificationPlugin(
-            render: NotificationRender(render: render),
+            router: NotificationRouter(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            render: ShortcutRender(
+            router: ShortcutRouter(
                 render: render,
                 constants: core.dependency()
             )

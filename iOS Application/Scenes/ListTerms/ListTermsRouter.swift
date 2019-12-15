@@ -1,15 +1,14 @@
 //
-//  ListFavoritesRender.swift
+//  ListTermsRouter.swift
 //  Basem Emara
 //
-//  Created by Basem Emara on 2018-10-06.
+//  Created by Basem Emara on 2018-10-02.
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
 import UIKit
-import SwiftyPress
 
-struct ListFavoritesRender: ListFavoritesRenderable {
+struct ListTermsRouter: ListTermsRouterable {
     private let render: SceneRenderType
     weak var viewController: UIViewController?
     
@@ -19,10 +18,10 @@ struct ListFavoritesRender: ListFavoritesRenderable {
     }
 }
 
-extension ListFavoritesRender {
+extension ListTermsRouter {
     
-    func showPost(for model: PostsDataViewModel) {
-        let controller = render.showPost(for: model.id)
+    func listPosts(params: ListPostsAPI.Params) {
+        let controller = render.listPosts(params: params)
         viewController?.show(controller)
     }
 }
