@@ -8,7 +8,10 @@
 
 import UIKit
 import SwiftyPress
-import ZamzamUI
+
+protocol AppRoutable {
+    var viewController: UIViewController? { get set }
+}
 
 extension AppRoutable {
     

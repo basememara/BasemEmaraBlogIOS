@@ -15,8 +15,8 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "d5e9aa41e5cc74a0f81801148e5ac1985d67b6ba",
-          "version": "5.11.0"
+          "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
+          "version": "5.12.0"
         }
       },
       {
@@ -60,7 +60,7 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
           "branch": "develop",
-          "revision": "163d6715bb87989a97edc59b8c7378c4c09f7899",
+          "revision": "3ca809a322ff1d7fdcc24727ba33f2cb00dc08ef",
           "version": null
         }
       }

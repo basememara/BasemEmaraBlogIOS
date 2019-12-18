@@ -9,7 +9,16 @@
 import UIKit
 
 class MainSplitViewController: UISplitViewController {
-    var router: MainSplitRouterable?
+    private let router: MainRouterType?
+    
+    init(router: MainRouterType?) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Delegates

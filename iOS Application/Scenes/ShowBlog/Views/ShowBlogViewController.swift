@@ -304,9 +304,9 @@ extension ShowBlogViewController {
     }
 }
 
-extension ShowBlogViewController: TabSelectable {
+extension ShowBlogViewController: MainSelectable {
     
-    func tabDidSelect() {
+    func mainDidSelect() {
         guard isViewLoaded else { return }
         scrollView?.scrollToTop()
     }

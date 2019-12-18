@@ -35,9 +35,13 @@ extension SceneRenderType {
 
 struct SceneRender: SceneRenderType {
     private let core: SwiftyPressCore
+    private let state: AppState
+    private let middleware: [MiddlewareType]
     
-    init(core: SwiftyPressCore) {
+    init(core: SwiftyPressCore, state: AppState, middleware: [MiddlewareType]) {
         self.core = core
+        self.state = state
+        self.middleware = middleware
     }
 }
 
@@ -48,120 +52,35 @@ extension SceneRender {
     func launchMain() -> UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController().with {
-                $0.router = MainSplitRouter(render: self)
+            return MainSplitViewController(
+                router: MainRouter(render: self)
+            )
+            .with {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
-                    MainSplitDetailViewController().with {
-                        $0.viewControllers = [
-                            UINavigationController(
-                                rootViewController: showBlog().with {
-                                    $0.tabBarItem = UITabBarItem(
-                                        title: "Blog",
-                                        image: UIImage(named: "tab-megaphone"),
-                                        tag: Menu.blog.rawValue
-                                    )
-                                }
-                            ),
-                            UINavigationController(
-                                rootViewController: listFavorites().with {
-                                    $0.tabBarItem = UITabBarItem(
-                                        title: "Favorites",
-                                        image: UIImage(named: "tab-favorite"),
-                                        tag: Menu.favorites.rawValue
-                                    )
-                                }
-                            )
-                            .with {
-                                $0.navigationBar.prefersLargeTitles = true
-                            },
-                            UINavigationController(
-                                rootViewController: searchPosts().with {
-                                    $0.tabBarItem = UITabBarItem(
-                                        title: "Search",
-                                        image: UIImage(named: "tab-search"),
-                                        tag: Menu.search.rawValue
-                                    )
-                                }
-                            )
-                            .with {
-                                $0.navigationBar.prefersLargeTitles = true
-                            },
-                            UINavigationController(
-                                rootViewController: showMore().with {
-                                    $0.tabBarItem = UITabBarItem(
-                                        title: "More",
-                                        image: UIImage(named: "tab-more"),
-                                        tag: Menu.more.rawValue
-                                    )
-                                }
-                            )
-                            .with {
-                                $0.navigationBar.prefersLargeTitles = true
-                            }
-                        ]
-                    }
+                    MainSplitDetailViewController(
+                        model: state.main ?? MainModel(
+                            menu: [],
+                            layout: .pad
+                        ),
+                        action: MainActionCreator(
+                            render: self,
+                            dispatch: action(to: MainReducer())
+                        )
+                    )
                 ]
             }
         default:
-            return MainViewController().with {
-                $0.viewControllers = [
-                    UINavigationController(
-                        rootViewController: home().with {
-                            $0.tabBarItem = UITabBarItem(
-                                title: "Home",
-                                image: UIImage(named: "tab-home"),
-                                tag: Menu.home.rawValue
-                            )
-                        }
-                    ),
-                    UINavigationController(
-                        rootViewController: showBlog().with {
-                            $0.tabBarItem = UITabBarItem(
-                                title: "Blog",
-                                image: UIImage(named: "tab-megaphone"),
-                                tag: Menu.blog.rawValue
-                            )
-                        }
-                    ),
-                    UINavigationController(
-                        rootViewController: listFavorites().with {
-                            $0.tabBarItem = UITabBarItem(
-                                title: "Favorites",
-                                image: UIImage(named: "tab-favorite"),
-                                tag: Menu.favorites.rawValue
-                            )
-                        }
-                    )
-                    .with {
-                        $0.navigationBar.prefersLargeTitles = true
-                    },
-                    UINavigationController(
-                        rootViewController: searchPosts().with {
-                            $0.tabBarItem = UITabBarItem(
-                                title: "Search",
-                                image: UIImage(named: "tab-search"),
-                                tag: Menu.search.rawValue
-                            )
-                        }
-                    )
-                    .with {
-                        $0.navigationBar.prefersLargeTitles = true
-                    },
-                    UINavigationController(
-                        rootViewController: showMore().with {
-                            $0.tabBarItem = UITabBarItem(
-                                title: "More",
-                                image: UIImage(named: "tab-more"),
-                                tag: Menu.more.rawValue
-                            )
-                        }
-                    )
-                    .with {
-                        $0.navigationBar.prefersLargeTitles = true
-                    }
-                ]
-            }
+            return MainViewController(
+                model: state.main ?? MainModel(
+                    menu: [],
+                    layout: .phone
+                ),
+                action: MainActionCreator(
+                    render: self,
+                    dispatch: action(to: MainReducer())
+                )
+            )
         }
     }
 }
@@ -229,6 +148,21 @@ extension SceneRender {
         let controller: ShowSettingsViewController = .make(fromStoryboard: Storyboard.showSettings.rawValue)
         controller.preferences = core.dependency()
         return controller
+    }
+}
+
+private extension SceneRender {
+    
+    /// Creates action closure for the view to send to the reducer. This separation decouples actions and reducers.
+    func action<Action, Reducer>(to reducer: Reducer) -> (Action) -> Void
+        where Reducer: ReducerType, Reducer.Action == Action {
+            return { action in
+                // Allow middleware to passively execute against action
+                self.middleware.forEach { $0.execute(on: action) }
+                
+                // Mutate the state for the action
+                reducer.reduce(self.state, action)
+            }
     }
 }
 

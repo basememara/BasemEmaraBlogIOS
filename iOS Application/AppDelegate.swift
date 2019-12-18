@@ -67,6 +67,11 @@ private enum Root {
     /// Root dependency injection container
     static let core = AppCore()
     
+    /// Root application storage
+    static let state = AppState(
+        notificationCenter: core.dependency()
+    )
+    
     /// Root builder for all scenes.
     ///
     ///     NavigationView(
@@ -75,7 +80,11 @@ private enum Root {
     ///
     /// Create views only through scene renders.
     static let render = SceneRender(
-        core: core
+        core: core,
+        state: state,
+        middleware: [ // All actions pass through
+            AnalyticsMiddleware()
+        ]
     )
 }
 

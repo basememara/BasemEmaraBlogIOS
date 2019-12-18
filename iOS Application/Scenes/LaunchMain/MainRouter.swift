@@ -10,11 +10,7 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-protocol MainSplitRouterable {
-    func showPost(for id: Int)
-}
-
-struct MainSplitRouter: MainSplitRouterable {
+struct MainRouter: MainRouterType {
     private let render: SceneRenderType
     
     init(render: SceneRenderType) {
@@ -22,7 +18,11 @@ struct MainSplitRouter: MainSplitRouterable {
     }
 }
 
-extension MainSplitRouter {
+extension MainRouter {
+    
+    func home() -> UIViewController {
+        render.home()
+    }
     
     func showPost(for id: Int) {
         guard let topViewController = UIWindow.current?.topViewController else {
