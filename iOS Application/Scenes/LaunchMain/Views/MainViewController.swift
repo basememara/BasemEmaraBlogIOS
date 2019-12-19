@@ -6,9 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import SwiftyPress
 import ZamzamCore
 
 class MainViewController: UITabBarController {
@@ -24,10 +22,7 @@ class MainViewController: UITabBarController {
     
     // MARK: - Lifecycle
     
-    init(
-        model: MainModelType,
-        action: MainActionCreatorType?
-    ) {
+    init(model: MainModelType, action: MainActionCreatorType?) {
         self.model = model
         self.action = action
         
@@ -40,36 +35,36 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        loadData()
+        setup()
+        load()
     }
 }
 
-// MARK: - Setup
+// MARK: - Configure
 
 private extension MainViewController {
     
-    func configure() {
+    func setup() {
         delegate = self
         model.subscribe(self, in: &token)
     }
     
-    func loadData() {
+    func load() {
         action?.fetchMenu(
-            with: MainAPI.FetchMenuRequest(layout: model.layout)
+            with: MainAPI.FetchMenuRequest(
+                layout: model.layout
+            )
         )
+    }
+    
+    func render() {
+        viewControllers = model.menu.map {
+            TabView(model: $0).render()
+        }
     }
 }
 
 // MARK: - Delegates
-
-extension MainViewController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        // Special handling per tab if needed
-        (viewController.contentViewController as? MainSelectable)?.mainDidSelect()
-    }
-}
 
 extension MainViewController: ModelObserver {
     
@@ -81,8 +76,26 @@ extension MainViewController: ModelObserver {
             token = nil
         }
         
-        // Construct view
-        viewControllers = model.menu.map { model in
+        render()
+    }
+}
+
+extension MainViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // Special handling per tab if needed
+        (viewController.contentViewController as? MainSelectable)?.mainDidSelect()
+    }
+}
+
+// MARK: - Subviews
+
+private extension MainViewController {
+
+    struct TabView {
+        let model: MainAPI.Menu
+        
+        func render() -> UIViewController {
             UINavigationController(
                 rootViewController: model.scene().with {
                     $0.tabBarItem = UITabBarItem(

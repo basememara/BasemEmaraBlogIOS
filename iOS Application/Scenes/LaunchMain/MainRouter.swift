@@ -5,8 +5,6 @@
 //  Created by Basem Emara on 2019-12-08.
 //
 
-import Foundation
-import SwiftyPress
 import UIKit
 import ZamzamUI
 

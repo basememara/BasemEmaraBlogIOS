@@ -12,15 +12,15 @@ class MainSplitDetailViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        setup()
     }
 }
 
-// MARK: - Setup
+// MARK: - Configure
 
 private extension MainSplitDetailViewController {
     
-    func configure() {
+    func setup() {
         contentViewController.navigationItem.leftBarButtonItem =
             splitViewController?.displayModeButtonItem
     }

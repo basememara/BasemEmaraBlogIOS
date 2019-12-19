@@ -59,26 +59,18 @@ extension SceneRender {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(
-                        model: state.main ?? MainModel(
-                            menu: [],
-                            layout: .pad
-                        ),
+                        model: state.main ?? MainModel(menu: [], layout: .pad),
                         action: MainActionCreator(
-                            render: self,
-                            dispatch: action(to: MainReducer())
+                            dispatch: action(to: MainReducer(render: self))
                         )
                     )
                 ]
             }
         default:
             return MainViewController(
-                model: state.main ?? MainModel(
-                    menu: [],
-                    layout: .phone
-                ),
+                model: state.main ?? MainModel(menu: [], layout: .phone),
                 action: MainActionCreator(
-                    render: self,
-                    dispatch: action(to: MainReducer())
+                    dispatch: action(to: MainReducer(render: self))
                 )
             )
         }

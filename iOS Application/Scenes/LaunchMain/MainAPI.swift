@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import ZamzamUI
 
 // Scene namespace
 enum MainAPI {}
 
 protocol MainModelType: ModelType {
     var menu: [MainAPI.Menu] { get }
-    var layout: UIUserInterfaceIdiom { get }
+    var layout: MainAPI.Layout { get }
 }
 
 protocol MainActionType: ActionType {
@@ -29,7 +28,6 @@ protocol MainReducerType: ReducerType {
 }
 
 protocol MainRouterType {
-    func home() -> UIViewController
     func showPost(for id: Int)
 }
 
@@ -43,7 +41,12 @@ protocol MainSelectable {
 extension MainAPI {
     
     struct FetchMenuRequest {
-        let layout: UIUserInterfaceIdiom
+        let layout: Layout
+    }
+    
+    enum Layout {
+        case pad
+        case phone
     }
     
     /// Data representation of the main menu and content

@@ -450,8 +450,8 @@
 		8B416B2223976FFA006E67A9 /* LaunchMain */ = {
 			isa = PBXGroup;
 			children = (
-				8B8905BE23A66AC800AB8A4F /* Core */,
 				8B8905C123A66ADF00AB8A4F /* Views */,
+				8B8905BF23A66AD600AB8A4F /* MainAPI.swift */,
 				8B8D231123A6EFC1000CBC35 /* MainModel.swift */,
 				8B8905C323A6710600AB8A4F /* MainAction.swift */,
 				8B8905C523A6711700AB8A4F /* MainReducer.swift */,
@@ -1024,14 +1024,6 @@
 				8B87EB45239D704900AD73D4 /* WindowRender.swift */,
 			);
 			path = Window;
-			sourceTree = "<group>";
-		};
-		8B8905BE23A66AC800AB8A4F /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				8B8905BF23A66AD600AB8A4F /* MainAPI.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		8B8905C123A66ADF00AB8A4F /* Views */ = {
