@@ -28,7 +28,7 @@ extension UIContextMenuConfiguration {
                 title: "",
                 children: actions + [
                     UIAction(title: .localized(.commentsTitle), image: UIImage(systemName: "text.bubble")) { [weak delegate] _ in
-                        delegate?.present(
+                        delegate?.modal(
                             safari: constants.baseURL
                                 .appendingPathComponent("mobile-comments")
                                 .appendingQueryItem("postid", value: model.id)

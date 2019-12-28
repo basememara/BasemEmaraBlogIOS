@@ -7,29 +7,16 @@
 //
 
 import SwiftyPress
-import UIKit
-import ZamzamUI
 
-// Scene namespace
-enum HomeAPI {}
-
-/// Container of dependencies needed to execute this feature.
-protocol HomeCoreType {
-    
-    func dependency(
-        viewController: UIViewController?,
-        listPostsDelegate: ListPostsDelegate?
-    ) -> HomeRouterable
-    
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
-}
-
-protocol HomeDisplayable: class, AppDisplayable { // Controller
+protocol HomeModelType: ModelType {
     
 }
 
-protocol HomeRouterable { // Router
+protocol HomeActionCreatorType: ActionCreatorType {
+    
+}
+
+protocol HomeRouterType {
     func showAbout()
     func showPortfolio()
     
@@ -42,5 +29,9 @@ protocol HomeRouterable { // Router
     func showConsultingMentorship()
     
     func show(social: Social)
-    func sendEmail(subject: String)
+    func sendEmail()
 }
+
+// MARK: - Request/Response
+
+enum HomeAPI {}

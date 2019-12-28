@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowMoreRouter: ShowMoreRouterable, AppRoutable {
+struct ShowMoreRouter: ShowMoreRouterable {
     private let render: SceneRenderType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
@@ -36,19 +36,19 @@ struct ShowMoreRouter: ShowMoreRouterable, AppRoutable {
 extension ShowMoreRouter {
     
     func showSubscribe() {
-        present(pageSlug: "subscribe", constants: constants, theme: theme)
+        viewController?.modal(pageSlug: "subscribe", constants: constants, theme: theme)
     }
     
     func showWorkWithMe() {
-        present(pageSlug: "resume", constants: constants, theme: theme)
+        viewController?.modal(pageSlug: "resume", constants: constants, theme: theme)
     }
     
     func show(social: Social) {
-        show(social: social, theme: theme)
+        viewController?.show(social: social, theme: theme)
     }
     
     func showDevelopedBy() {
-        present(safari: constants.baseURL.absoluteString, theme: theme)
+        viewController?.modal(safari: constants.baseURL.absoluteString, theme: theme)
     }
 }
 

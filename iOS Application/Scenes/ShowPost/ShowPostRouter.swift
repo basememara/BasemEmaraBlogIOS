@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowPostRouter: ShowPostRouterable, AppRoutable {
+struct ShowPostRouter: ShowPostRouterable {
     private let render: SceneRenderType
     private let theme: Theme
     
@@ -45,6 +45,6 @@ extension ShowPostRouter {
 extension ShowPostRouter {
     
     func show(url: String) {
-        present(safari: url, theme: theme)
+        viewController?.modal(safari: url, theme: theme)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowBlogRouter: ShowBlogRouterable, AppRoutable {
+struct ShowBlogRouter: ShowBlogRouterable {
     private let render: SceneRenderType
     private let mailComposer: MailComposerType?
     private let theme: Theme?
@@ -59,7 +59,7 @@ extension ShowBlogRouter {
             return
         }
         
-        present(safari: url, theme: theme)
+        viewController?.modal(safari: url, theme: theme)
     }
     
     func showDisclaimerError() {
@@ -74,7 +74,7 @@ extension ShowBlogRouter {
     
     func show(url: String?) {
         guard let url = url, let theme = theme else { return }
-        present(safari: url, theme: theme)
+        viewController?.modal(safari: url, theme: theme)
     }
 }
 

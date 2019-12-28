@@ -7,24 +7,13 @@
 
 import UIKit
 
-// Scene namespace
-enum MainAPI {}
-
 protocol MainModelType: ModelType {
     var menu: [MainAPI.Menu] { get }
     var layout: MainAPI.Layout { get }
 }
 
-protocol MainActionType: ActionType {
-    
-}
-
 protocol MainActionCreatorType: ActionCreatorType {
     func fetchMenu(with request: MainAPI.FetchMenuRequest)
-}
-
-protocol MainReducerType: ReducerType {
-    
 }
 
 protocol MainRouterType {
@@ -38,7 +27,7 @@ protocol MainSelectable {
 
 // MARK: - Request/Response
 
-extension MainAPI {
+enum MainAPI {
     
     struct FetchMenuRequest {
         let layout: Layout

@@ -16,7 +16,7 @@ protocol ShortcutRouterable {
     func sendFeedback()
 }
 
-struct ShortcutRouter: ShortcutRouterable, AppRoutable {
+struct ShortcutRouter: ShortcutRouterable {
     private let render: SceneRenderType
     private let constants: ConstantsType
     
@@ -34,11 +34,11 @@ struct ShortcutRouter: ShortcutRouterable, AppRoutable {
 extension ShortcutRouter {
     
     func showFavorites() {
-        show(menu: .favorites)
+        viewController?.show(menu: .favorites)
     }
     
     func sendFeedback() {
-        show(menu: .more) { (controller: ShowMoreViewController) in
+        viewController?.show(menu: .more) { (controller: ShowMoreViewController) in
             controller.router?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,

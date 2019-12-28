@@ -5,7 +5,7 @@
 //  Created by Basem Emara on 2019-12-15.
 //
 
-struct MainReducer: MainReducerType {
+struct MainReducer: ReducerType {
     private let render: SceneRenderType
     
     init(render: SceneRenderType) {
@@ -15,7 +15,7 @@ struct MainReducer: MainReducerType {
 
 extension MainReducer {
     
-    func reduce(_ state: AppState, _ action: MainAction) -> AppState {
+    func reduce(_ state: AppState, _ action: MainAction) {
         switch action {
         case .loadMenu(let items, let layout):
             state.main = MainModel(
@@ -66,7 +66,5 @@ extension MainReducer {
                 layout: layout
             )
         }
-        
-        return state
     }
 }

@@ -18,6 +18,7 @@
 		8B20F10C23A92952007A88DC /* AppActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10B23A92952007A88DC /* AppActionable.swift */; };
 		8B20F10D23A92952007A88DC /* AppActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10B23A92952007A88DC /* AppActionable.swift */; };
 		8B20F10E23A92952007A88DC /* AppActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10B23A92952007A88DC /* AppActionable.swift */; };
+		8B2FE66A23AB4DE900682D98 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE66923AB4DE900682D98 /* HomeModel.swift */; };
 		8B416B3023977965006E67A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B416B2F23977965006E67A9 /* Main.storyboard */; };
 		8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */; };
 		8B42C6DC234A6BDB00F38E23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */; };
@@ -30,7 +31,6 @@
 		8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C70D234A6C7100F38E23 /* NotificationViewController.swift */; };
 		8B42C715234A6C7100F38E23 /* BasemEmaraNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8B42C729234BBB1300F38E23 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B42C728234BBB1300F38E23 /* SwiftyPress */; };
-		8B42C7BE234BBC9000F38E23 /* HomeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C733234BBC8F00F38E23 /* HomeCore.swift */; };
 		8B42C7BF234BBC9000F38E23 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C734234BBC8F00F38E23 /* HomeAPI.swift */; };
 		8B42C7C0234BBC9000F38E23 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C735234BBC8F00F38E23 /* HomeRouter.swift */; };
 		8B42C7C1234BBC9000F38E23 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C737234BBC8F00F38E23 /* Home.storyboard */; };
@@ -111,7 +111,6 @@
 		8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */; };
 		8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */; };
 		8B42C812234BBC9000F38E23 /* AppDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */; };
-		8B42C813234BBC9000F38E23 /* AppRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */; };
 		8B42C814234BBC9000F38E23 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AB234BBC9000F38E23 /* seed.json */; };
 		8B42C815234BBC9000F38E23 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */; };
 		8B42C816234BBC9000F38E23 /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AF234BBC9000F38E23 /* TermTableViewCell.xib */; };
@@ -247,6 +246,7 @@
 		8B20F10323A928E5007A88DC /* AppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
 		8B20F10723A9293A007A88DC /* AppPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentable.swift; sourceTree = "<group>"; };
 		8B20F10B23A92952007A88DC /* AppActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActionable.swift; sourceTree = "<group>"; };
+		8B2FE66923AB4DE900682D98 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		8B416B2F23977965006E67A9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,7 +268,6 @@
 		8B42C724234A9BFB00F38E23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8B42C725234A9BFB00F38E23 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B42C726234A9BFB00F38E23 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8B42C733234BBC8F00F38E23 /* HomeCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
 		8B42C734234BBC8F00F38E23 /* HomeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8B42C735234BBC8F00F38E23 /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8B42C737234BBC8F00F38E23 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -349,7 +348,6 @@
 		8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkCore.swift; sourceTree = "<group>"; };
 		8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
 		8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDisplayable.swift; sourceTree = "<group>"; };
-		8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoutable.swift; sourceTree = "<group>"; };
 		8B42C7AB234BBC9000F38E23 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
 		8B42C7AF234BBC9000F38E23 /* TermTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermTableViewCell.xib; sourceTree = "<group>"; };
@@ -594,21 +592,13 @@
 		8B42C731234BBC8F00F38E23 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C732234BBC8F00F38E23 /* Core */,
 				8B42C736234BBC8F00F38E23 /* Views */,
-				8B42C735234BBC8F00F38E23 /* HomeRouter.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		8B42C732234BBC8F00F38E23 /* Core */ = {
-			isa = PBXGroup;
-			children = (
 				8B42C734234BBC8F00F38E23 /* HomeAPI.swift */,
-				8B42C733234BBC8F00F38E23 /* HomeCore.swift */,
+				8B2FE66923AB4DE900682D98 /* HomeModel.swift */,
+				8B42C735234BBC8F00F38E23 /* HomeRouter.swift */,
 				8B5C98BB23651FEA00F7F016 /* HomeStyles.swift */,
 			);
-			path = Core;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		8B42C736234BBC8F00F38E23 /* Views */ = {
@@ -918,7 +908,6 @@
 				8B20F10323A928E5007A88DC /* AppAPI.swift */,
 				8B42C7A8234BBC9000F38E23 /* AppDisplayable.swift */,
 				8B20F10723A9293A007A88DC /* AppPresentable.swift */,
-				8B42C7A9234BBC9000F38E23 /* AppRoutable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1293,7 +1282,6 @@
 				8B42C7E5234BBC9000F38E23 /* ShowBlogViewController.swift in Sources */,
 				8B42C815234BBC9000F38E23 /* TermTableViewCell.swift in Sources */,
 				8B42C805234BBC9000F38E23 /* AppTheme.swift in Sources */,
-				8B42C7BE234BBC9000F38E23 /* HomeCore.swift in Sources */,
 				8B42C7EB234BBC9000F38E23 /* MainSplitDetailViewController.swift in Sources */,
 				8B42C7F7234BBC9000F38E23 /* ListFavoritesCore.swift in Sources */,
 				8B8905EC23A6CD9300AB8A4F /* StateType.swift in Sources */,
@@ -1302,7 +1290,6 @@
 				8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
 				8B8905EA23A6CD9300AB8A4F /* ReducerType.swift in Sources */,
-				8B42C813234BBC9000F38E23 /* AppRoutable.swift in Sources */,
 				8B42C7D7234BBC9000F38E23 /* ListPostsPresenter.swift in Sources */,
 				8B42C7E7234BBC9000F38E23 /* ShowBlogAction.swift in Sources */,
 				8B42C7D3234BBC9000F38E23 /* ShowPostAction.swift in Sources */,
@@ -1375,6 +1362,7 @@
 				8B20F10023A89227007A88DC /* AnalyticsMiddleware.swift in Sources */,
 				8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */,
 				8B42C7C0234BBC9000F38E23 /* HomeRouter.swift in Sources */,
+				8B2FE66A23AB4DE900682D98 /* HomeModel.swift in Sources */,
 				8B42C7DB234BBC9000F38E23 /* ShowMoreAPI.swift in Sources */,
 				8B42C812234BBC9000F38E23 /* AppDisplayable.swift in Sources */,
 				8B42C7C2234BBC9000F38E23 /* HomeViewController.swift in Sources */,

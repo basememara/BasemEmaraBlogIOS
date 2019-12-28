@@ -17,22 +17,15 @@ class HomeViewController: UITableViewController {
     
     @IBOutlet private var headerView: UIView!
     
-    // MARK: - Dependencies
+    // MARK: - Components
     
-    var core: HomeCoreType?
-    
-    private lazy var router: HomeRouterable? = core?.dependency(
-        viewController: self,
-        listPostsDelegate: splitViewController as? ListPostsDelegate
-    )
-    
-    private lazy var constants: ConstantsType? = core?.dependency()
+    var router: HomeRouterType?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,11 +39,11 @@ class HomeViewController: UITableViewController {
     }
 }
 
-// MARK: - Setup
+// MARK: - Configure
 
 private extension HomeViewController {
     
-    func configure() {
+    func setup() {
         tableView.tableHeaderView = headerView
     }
 }
@@ -68,22 +61,11 @@ private extension HomeViewController {
         case 3:
             router?.show(social: .twitter)
         case 4:
-            router?.sendEmail(
-                subject: .localizedFormat(
-                    .emailFeedbackSubject,
-                    constants?.appDisplayName ?? ""
-                )
-            )
+            router?.sendEmail()
         default:
             break
         }
     }
-}
-
-// MARK: - Scene
-
-extension HomeViewController: HomeDisplayable {
-    
 }
 
 // MARK: - Subtypes

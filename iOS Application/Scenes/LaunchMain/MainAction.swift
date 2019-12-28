@@ -5,7 +5,7 @@
 //  Created by Basem Emara on 2019-12-15.
 //
 
-enum MainAction: MainActionType {
+enum MainAction: ActionType {
     case loadMenu([SceneRender.Menu], MainAPI.Layout)
 }
 

@@ -11,7 +11,7 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-struct DeepLinkRouter: DeepLinkRouterable, AppRoutable {
+struct DeepLinkRouter: DeepLinkRouterable {
     private let render: SceneRenderType
     private let postProvider: PostProviderType
     private let taxonomyProvider: TaxonomyProviderType
@@ -47,11 +47,11 @@ extension DeepLinkRouter {
         if url.path.isEmpty || url.path == "/" {
             // Handle search if applicable
             guard let query = urlComponents.queryItems?.first(where: { $0.name == "s" })?.value else {
-                show(menu: .blog)
+                viewController?.show(menu: .blog)
                 return true
             }
             
-            show(menu: .search) { (controller: SearchPostsViewController) in
+            viewController?.show(menu: .search) { (controller: SearchPostsViewController) in
                 controller.searchText = query
 
                 if controller.isViewLoaded {
@@ -71,7 +71,7 @@ extension DeepLinkRouter {
             
             return true
         } else if let id = taxonomyProvider.getID(byURL: url.absoluteString) {
-            show(menu: .blog) { (controller: ShowBlogViewController) in
+            viewController?.show(menu: .blog) { (controller: ShowBlogViewController) in
                 controller.router?.listPosts(
                     params: .init(fetchType: .terms([id]))
                 )
@@ -82,7 +82,7 @@ extension DeepLinkRouter {
         
         // Failed so open in Safari as fallback
         let destination = url.appendingQueryItem("mobileembed", value: 1).absoluteString
-        present(safari: destination, theme: theme)
+        viewController?.modal(safari: destination, theme: theme)
         return true
     }
 }

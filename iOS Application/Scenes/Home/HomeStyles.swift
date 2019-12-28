@@ -11,7 +11,10 @@ import UIKit
 enum HomeStyles {
     
     static func apply(_ theme: Theme) {
-        UIImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self, UIViewController.self])
+        UIImageView
+            .appearance(
+                whenContainedInInstancesOf: [UITableViewCell.self, UIViewController.self]
+            )
             .tintColor = theme.tint
     }
 }

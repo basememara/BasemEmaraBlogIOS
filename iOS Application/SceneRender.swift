@@ -81,7 +81,16 @@ extension SceneRender {
     
     func home() -> UIViewController {
         let controller: HomeViewController = .make(fromStoryboard: Storyboard.home.rawValue)
-        controller.core = HomeCore(root: core, render: self)
+        
+        controller.router = HomeRouter(
+            render: self,
+            viewController: controller,
+            listPostsDelegate: controller.splitViewController as? ListPostsDelegate,
+            mailComposer: core.dependency(),
+            constants: core.dependency(),
+            theme: core.dependency()
+        )
+        
         return controller
     }
     

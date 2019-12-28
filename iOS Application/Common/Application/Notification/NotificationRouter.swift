@@ -15,7 +15,7 @@ protocol NotificationRouterable {
     func share(title: String, link: String)
 }
 
-struct NotificationRouter: NotificationRouterable, AppRoutable {
+struct NotificationRouter: NotificationRouterable {
     private let render: SceneRenderType
     weak var viewController = UIWindow.current?.rootViewController
     
@@ -27,7 +27,7 @@ struct NotificationRouter: NotificationRouterable, AppRoutable {
 extension NotificationRouter {
     
     func showBlog(for id: Int) {
-        show(menu: .blog) { (controller: ShowBlogViewController) in
+        viewController?.show(menu: .blog) { (controller: ShowBlogViewController) in
             controller.router?.showPost(for: id)
         }
     }

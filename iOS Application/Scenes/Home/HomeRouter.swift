@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct HomeRouter: HomeRouterable, AppRoutable {
+struct HomeRouter: HomeRouterType {
     private let render: SceneRenderType
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
@@ -39,11 +39,19 @@ struct HomeRouter: HomeRouterable, AppRoutable {
 extension HomeRouter {
     
     func showAbout() {
-        present(pageSlug: "about", constants: constants, theme: theme)
+        viewController?.modal(
+            pageSlug: "about",
+            constants: constants,
+            theme: theme
+        )
     }
     
     func showPortfolio() {
-        present(pageSlug: "portfolio", constants: constants, theme: theme)
+        viewController?.modal(
+            pageSlug: "portfolio",
+            constants: constants,
+            theme: theme
+        )
     }
 }
 
@@ -51,7 +59,7 @@ extension HomeRouter {
     
     func showSeriesScalableApp(title: String?) {
         let controller = render.listPosts(
-            params: .init(
+            params: ListPostsAPI.Params(
                 fetchType: .terms([80]),
                 title: title,
                 sort: seriesSort
@@ -88,32 +96,47 @@ extension HomeRouter {
 extension HomeRouter {
     
     func showCoursesArchitecture() {
-        present(safari: "https://iosmentor.io", theme: theme)
+        viewController?.modal(
+            safari: "https://iosmentor.io",
+            theme: theme
+        )
     }
     
     func showCoursesFramework() {
-        present(safari: "https://iosmentor.io/webinars/swift-frameworks/", theme: theme)
+        viewController?.modal(
+            safari: "https://iosmentor.io/webinars/swift-frameworks/",
+            theme: theme
+        )
     }
     
     func showConsultingDevelopment() {
-        present(safari: "https://zamzam.io", theme: theme)
+        viewController?.modal(
+            safari: "https://zamzam.io",
+            theme: theme
+        )
     }
     
     func showConsultingMentorship() {
-        present(safari: "https://iosmentor.io/express/", theme: theme)
+        viewController?.modal(
+            safari: "https://iosmentor.io/express/",
+            theme: theme
+        )
     }
 }
 
 extension HomeRouter {
     
     func show(social: Social) {
-        show(social: social, theme: theme)
+        viewController?.show(social: social, theme: theme)
     }
     
-    func sendEmail(subject: String) {
+    func sendEmail() {
         let mailComposerController = mailComposer.makeViewController(
             email: constants.email,
-            subject: subject,
+            subject: .localizedFormat(
+                .emailFeedbackSubject,
+                constants.appDisplayName ?? ""
+            ),
             body: nil,
             isHTML: true,
             attachment: nil
