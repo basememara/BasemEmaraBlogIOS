@@ -14,12 +14,12 @@ import ZamzamUI
 enum ListFavoritesAPI {}
 
 protocol ListFavoritesCoreType {
-    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
-    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
-    func dependency(with viewController: UIViewController?) -> ListFavoritesRouterable
+    func action(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
+    func presenter(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
+    func router(with viewController: UIViewController?) -> ListFavoritesRouterable
     
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ListFavoritesActionable: AppActionable {

@@ -14,16 +14,16 @@ import ZamzamUI
 enum ListPostsAPI {}
 
 protocol ListPostsCoreType {
-    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsActionable
-    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
+    func action(with viewController: ListPostsDisplayable?) -> ListPostsActionable
+    func presenter(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
     
-    func dependency(
+    func router(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) -> ListPostsRouterable
     
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ListPostsActionable: AppActionable {

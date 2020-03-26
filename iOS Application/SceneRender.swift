@@ -147,7 +147,7 @@ extension SceneRender {
     
     func showSettings() -> UIViewController {
         let controller: ShowSettingsViewController = .make(fromStoryboard: Storyboard.showSettings.rawValue)
-        controller.preferences = core.dependency()
+        controller.preferences = core.preferences()
         return controller
     }
 }

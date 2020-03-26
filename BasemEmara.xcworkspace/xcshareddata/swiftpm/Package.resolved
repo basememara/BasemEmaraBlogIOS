@@ -2,30 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "git@github.com:Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "2cbf59935fbb1f26e352ce4db53f1cf9408d5313",
-          "version": "5.0.0-rc.3"
-        }
-      },
-      {
         "package": "Kingfisher",
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
-          "branch": null,
-          "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
-          "version": "5.12.0"
+          "branch": "master",
+          "revision": "c48773198f0ec86af8ae1a0ba23965f45bcda5b9",
+          "version": null
         }
       },
       {
         "package": "Realm",
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
-          "branch": null,
-          "revision": "40732f2ec0cdc32d9d3df8219b2e655deb3077f1",
-          "version": "3.21.0"
+          "branch": "master",
+          "revision": "61642a09324b1cceca001c0b274b790960ad4aaa",
+          "version": null
         }
       },
       {
@@ -33,8 +24,8 @@
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "512dfaa4f59930e193c92e00ba1924bde69b19de",
-          "version": "5.23.5"
+          "revision": "35662ff940e340bf630ad1d1d88acfc7af18bee6",
+          "version": "5.23.8"
         }
       },
       {
@@ -50,8 +41,8 @@
         "package": "SwiftyPress",
         "repositoryURL": "git@github.com:ZamzamInc/SwiftyPress.git",
         "state": {
-          "branch": "develop",
-          "revision": "8e5ff9d93d1731f85eda372b551c1d8d3e2cf56e",
+          "branch": "feature/refactor",
+          "revision": "5f1118624d7c424d6b3e5524d1bd72ca4ad84fa0",
           "version": null
         }
       },
@@ -59,8 +50,8 @@
         "package": "ZamzamKit",
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
-          "branch": "develop",
-          "revision": "3ca809a322ff1d7fdcc24727ba33f2cb00dc08ef",
+          "branch": "master",
+          "revision": "41717dfc3b1ecd40181484189379b6f32e68376c",
           "version": null
         }
       }

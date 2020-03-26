@@ -19,30 +19,30 @@ struct ListFavoritesCore: ListFavoritesCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
+    func action(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable {
         ListFavoritesAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository()
         )
     }
     
-    func dependency(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable {
+    func presenter(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable {
         ListFavoritesPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ListFavoritesRouterable {
+    func router(with viewController: UIViewController?) -> ListFavoritesRouterable {
         ListFavoritesRouter(
             render: render,
             viewController: viewController
         )
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
     
-    func dependency() -> Theme {
-        root.dependency()
+    func theme() -> Theme {
+        root.theme()
     }
 }

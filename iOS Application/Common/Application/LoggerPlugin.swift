@@ -11,9 +11,9 @@ import SwiftyPress
 import ZamzamCore
 
 struct LoggerPlugin {
-    private let log: LogProviderType
+    private let log: LogRepositoryType
     
-    init(log: LogProviderType) {
+    init(log: LogRepositoryType) {
         self.log = log
     }
 }

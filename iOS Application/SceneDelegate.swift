@@ -13,16 +13,16 @@ import ZamzamCore
 class SceneDelegate: ScenePluggableDelegate {
     
     override func plugins() -> [ScenePlugin] {[
-        LoggerPlugin(log: core.dependency()),
+        LoggerPlugin(log: core.log()),
         BackgroundPlugin(
-            dataProvider: core.dependency(),
-            preferences: core.dependency(),
-            log: core.dependency()
+            dataRepository: core.dataRepository(),
+            preferences: core.preferences(),
+            log: core.log()
         ),
         WindowPlugin(
             delegate: self,
             render: WindowRender(render: render),
-            preferences: core.dependency()
+            preferences: core.preferences()
         ),
         NotificationPlugin(
             router: NotificationRouter(render: render),
@@ -31,7 +31,7 @@ class SceneDelegate: ScenePluggableDelegate {
         ShortcutPlugin(
             router: ShortcutRouter(
                 render: render,
-                constants: core.dependency()
+                constants: core.constants()
             )
         ),
         DeepLinkPlugin(
@@ -39,7 +39,7 @@ class SceneDelegate: ScenePluggableDelegate {
                 core: core,
                 render: render
             ),
-            log: core.dependency()
+            log: core.log()
         )
     ]}
 }

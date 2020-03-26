@@ -19,44 +19,44 @@ struct ShowPostCore: ShowPostCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
+    func action(with viewController: ShowPostDisplayable?) -> ShowPostActionable {
         ShowPostAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency(),
-            authorProvider: root.dependency(),
-            taxonomyProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository(),
+            authorRepository: root.authorRepository(),
+            taxonomyRepository: root.taxonomyRepository()
         )
     }
     
-    func dependency(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
+    func presenter(with viewController: ShowPostDisplayable?) -> ShowPostPresentable {
         ShowPostPresenter(
             viewController: viewController,
-            constants: root.dependency()
+            constants: root.constants()
         )
     }
     
-    func dependency(
+    func router(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) -> ShowPostRouterable {
         ShowPostRouter(
             render: render,
-            theme: root.dependency(),
+            theme: root.theme(),
             viewController: viewController,
             listPostsDelegate: listPostsDelegate
         )
     }
     
-    func dependency() -> NotificationCenter {
-        root.dependency()
+    func notificationCenter() -> NotificationCenter {
+        root.notificationCenter()
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
     
-    func dependency() -> Theme {
-        root.dependency()
+    func theme() -> Theme {
+        root.theme()
     }
 }

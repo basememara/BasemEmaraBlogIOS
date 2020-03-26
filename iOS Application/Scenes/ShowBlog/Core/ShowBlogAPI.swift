@@ -14,13 +14,13 @@ import ZamzamUI
 enum ShowBlogAPI {}
 
 protocol ShowBlogCoreType {
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
-    func dependency(with viewController: UIViewController?) -> ShowBlogRouterable
+    func action(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable
+    func presenter(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable
+    func router(with viewController: UIViewController?) -> ShowBlogRouterable
     
-    func dependency() -> MailComposerType
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
+    func mailComposer() -> MailComposerType
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ShowBlogActionable: AppActionable {

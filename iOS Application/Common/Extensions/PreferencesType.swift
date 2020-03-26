@@ -30,6 +30,6 @@ public extension PreferencesType {
     }
 }
 
-extension String.Keys {
-    static let notificationPostIDs = String.Key<[Int]?>("notificationPostIDs")
+extension PreferencesAPI.Keys {
+    static let notificationPostIDs = PreferencesAPI.Key<[Int]?>("notificationPostIDs")
 }

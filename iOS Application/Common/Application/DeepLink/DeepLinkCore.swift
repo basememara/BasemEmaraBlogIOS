@@ -20,16 +20,16 @@ struct DeepLinkCore: DeepLinkCoreType {
         self.render = render
     }
     
-    func dependency() -> DeepLinkRouterable {
+    func router() -> DeepLinkRouterable {
         DeepLinkRouter(
             render: render,
-            postProvider: core.dependency(),
-            taxonomyProvider: core.dependency(),
-            theme: core.dependency()
+            postRepository: core.postRepository(),
+            taxonomyRepository: core.taxonomyRepository(),
+            theme: core.theme()
         )
     }
     
-    func dependency() -> LogProviderType {
-        core.dependency()
+    func log() -> LogRepositoryType {
+        core.log()
     }
 }

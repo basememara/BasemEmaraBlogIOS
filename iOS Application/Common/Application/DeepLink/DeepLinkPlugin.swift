@@ -13,14 +13,14 @@ import ZamzamCore
 struct DeepLinkPlugin {
     private let core: DeepLinkCoreType
     private let router: DeepLinkRouterable
-    private let log: LogProviderType
+    private let log: LogRepositoryType
     
     init(
         core: DeepLinkCoreType,
-        log: LogProviderType
+        log: LogRepositoryType
     ) {
         self.core = core
-        self.router = core.dependency()
+        self.router = core.router()
         self.log = log
     }
 }

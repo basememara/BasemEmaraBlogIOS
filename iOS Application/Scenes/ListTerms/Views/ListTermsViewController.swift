@@ -26,8 +26,8 @@ class ListTermsViewController: UIViewController {
     
     var core: ListTermsCoreType?
     
-    private lazy var action: ListTermsActionable? = core?.dependency(with: self)
-    private lazy var router: ListTermsRouterable? = core?.dependency(with: self)
+    private lazy var action: ListTermsActionable? = core?.action(with: self)
+    private lazy var router: ListTermsRouterable? = core?.router(with: self)
     
     // MARK: - State
     

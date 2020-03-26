@@ -14,18 +14,18 @@ import ZamzamCore
 class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {[
-        LoggerPlugin(log: core.dependency()),
-        DataPlugin(dataProvider: core.dependency()),
+        LoggerPlugin(log: core.log()),
+        DataPlugin(dataRepository: core.dataRepository()),
         BackgroundPlugin(
-            dataProvider: core.dependency(),
-            preferences: core.dependency(),
-            log: core.dependency()
+            dataRepository: core.dataRepository(),
+            preferences: core.preferences(),
+            log: core.log()
         ),
-        ThemePlugin(theme: core.dependency()),
+        ThemePlugin(theme: core.theme()),
         WindowPlugin(
             delegate: self,
             render: WindowRender(render: render),
-            preferences: core.dependency()
+            preferences: core.preferences()
         ),
         NotificationPlugin(
             router: NotificationRouter(render: render),
@@ -34,7 +34,7 @@ class AppDelegate: ApplicationPluggableDelegate {
         ShortcutPlugin(
             router: ShortcutRouter(
                 render: render,
-                constants: core.dependency()
+                constants: core.constants()
             )
         ),
         DeepLinkPlugin(
@@ -42,7 +42,7 @@ class AppDelegate: ApplicationPluggableDelegate {
                 core: core,
                 render: render
             ),
-            log: core.dependency()
+            log: core.log()
         )
     ]}
 }
@@ -69,7 +69,7 @@ private enum Root {
     
     /// Root application storage
     static let state = AppState(
-        notificationCenter: core.dependency()
+        notificationCenter: core.notificationCenter()
     )
     
     /// Root builder for all scenes.

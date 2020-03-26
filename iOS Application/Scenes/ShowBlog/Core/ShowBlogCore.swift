@@ -20,38 +20,38 @@ struct ShowBlogCore: ShowBlogCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
+    func action(with viewController: ShowBlogDisplayable?) -> ShowBlogActionable {
         ShowBlogAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency(),
-            taxonomyProvider: root.dependency(),
-            preferences: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository(),
+            taxonomyRepository: root.taxonomyRepository(),
+            preferences: root.preferences()
         )
     }
     
-    func dependency(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable {
+    func presenter(with viewController: ShowBlogDisplayable?) -> ShowBlogPresentable {
         ShowBlogPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ShowBlogRouterable {
+    func router(with viewController: UIViewController?) -> ShowBlogRouterable {
         ShowBlogRouter(
             render: render,
-            mailComposer: root.dependency(),
-            theme: root.dependency(),
+            mailComposer: root.mailComposer(),
+            theme: root.theme(),
             viewController: viewController
         )
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
     
-    func dependency() -> Theme {
-        root.dependency()
+    func theme() -> Theme {
+        root.theme()
     }
     
-    func dependency() -> MailComposerType {
-        root.dependency()
+    func mailComposer() -> MailComposerType {
+        root.mailComposer()
     }
 }

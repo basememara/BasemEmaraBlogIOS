@@ -26,7 +26,7 @@ extension ModelType {
             observer.newState(model: model)
         }
         
-        notificationCenter.addObserver(for: .AppStateDidUpdate, in: &token) { [weak observer] notification in
+        notificationCenter.addObserver(forName: .AppStateDidUpdate, in: &token) { [weak observer] notification in
             guard let state = notification.userInfo?["substate"] as? T.Model else { return }
             observer?.newState(model: state)
         }

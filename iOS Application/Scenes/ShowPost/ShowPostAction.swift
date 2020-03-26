@@ -10,30 +10,30 @@ import SwiftyPress
 
 struct ShowPostAction: ShowPostActionable {
     private let presenter: ShowPostPresentable
-    private let postProvider: PostProviderType
-    private let mediaProvider: MediaProviderType
-    private let authorProvider: AuthorProviderType
-    private let taxonomyProvider: TaxonomyProviderType
+    private let postRepository: PostRepositoryType
+    private let mediaRepository: MediaRepositoryType
+    private let authorRepository: AuthorRepositoryType
+    private let taxonomyRepository: TaxonomyRepositoryType
     
     init(
         presenter: ShowPostPresentable,
-        postProvider: PostProviderType,
-        mediaProvider: MediaProviderType,
-        authorProvider: AuthorProviderType,
-        taxonomyProvider: TaxonomyProviderType
+        postRepository: PostRepositoryType,
+        mediaRepository: MediaRepositoryType,
+        authorRepository: AuthorRepositoryType,
+        taxonomyRepository: TaxonomyRepositoryType
     ) {
         self.presenter = presenter
-        self.postProvider = postProvider
-        self.mediaProvider = mediaProvider
-        self.authorProvider = authorProvider
-        self.taxonomyProvider = taxonomyProvider
+        self.postRepository = postRepository
+        self.mediaRepository = mediaRepository
+        self.authorRepository = authorRepository
+        self.taxonomyRepository = taxonomyRepository
     }
 }
 
 extension ShowPostAction {
     
     func fetchPost(with request: ShowPostAPI.Request) {
-        postProvider.fetch(id: request.postID) {
+        postRepository.fetch(id: request.postID) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentPost(
                     error: $0.error ?? .unknownReason(nil)
@@ -47,7 +47,7 @@ extension ShowPostAction {
                     categories: value.terms.filter { $0.taxonomy == .category },
                     tags: value.terms.filter { $0.taxonomy == .tag },
                     author: value.author,
-                    favorite: self.postProvider.hasFavorite(id: value.post.id)
+                    favorite: self.postRepository.hasFavorite(id: value.post.id)
                 )
             )
         }
@@ -57,10 +57,10 @@ extension ShowPostAction {
 extension ShowPostAction {
     
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest) {
-        postProvider.fetch(url: request.url) {
+        postRepository.fetch(url: request.url) {
             // Handle if URL is not for a post
             if case .nonExistent? = $0.error {
-                self.taxonomyProvider.fetch(url: request.url) {
+                self.taxonomyRepository.fetch(url: request.url) {
                     guard case .success(let term) = $0 else {
                         // URL could not be found
                         return self.presenter.presentByURL(
@@ -111,11 +111,11 @@ extension ShowPostAction {
 extension ShowPostAction {
     
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
-        postProvider.toggleFavorite(id: request.postID)
+        postRepository.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ShowPostAPI.FavoriteResponse(
-                favorite: postProvider.hasFavorite(id: request.postID)
+                favorite: postRepository.hasFavorite(id: request.postID)
             )
         )
     }

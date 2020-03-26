@@ -10,17 +10,17 @@ import SwiftyPress
 
 struct TodayAction: TodayActionable {
     private let presenter: TodayPresentable
-    private let postProvider: PostProviderType
-    private let mediaProvider: MediaProviderType
+    private let postRepository: PostRepositoryType
+    private let mediaRepository: MediaRepositoryType
     
     init(
         presenter: TodayPresentable,
-        postProvider: PostProviderType,
-        mediaProvider: MediaProviderType
+        postRepository: PostRepositoryType,
+        mediaRepository: MediaRepositoryType
     ) {
         self.presenter = presenter
-        self.postProvider = postProvider
-        self.mediaProvider = mediaProvider
+        self.postRepository = postRepository
+        self.mediaRepository = mediaRepository
     }
 }
 
@@ -29,14 +29,14 @@ extension TodayAction {
     func fetchLatestPosts(with request: TodayAPI.Request) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
-        postProvider.fetch(with: request) {
+        postRepository.fetch(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentLatestPosts(
                         error: $0.error ?? .unknownReason(nil)

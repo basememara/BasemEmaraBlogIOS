@@ -10,31 +10,31 @@ import SwiftyPress
 
 struct SearchPostsAction: SearchPostsActionable {
     private let presenter: SearchPostsPresentable
-    private let postProvider: PostProviderType
-    private let mediaProvider: MediaProviderType
+    private let postRepository: PostRepositoryType
+    private let mediaRepository: MediaRepositoryType
     
     init(
         presenter: SearchPostsPresentable,
-        postProvider: PostProviderType,
-        mediaProvider: MediaProviderType
+        postRepository: PostRepositoryType,
+        mediaRepository: MediaRepositoryType
     ) {
         self.presenter = presenter
-        self.postProvider = postProvider
-        self.mediaProvider = mediaProvider
+        self.postRepository = postRepository
+        self.mediaRepository = mediaRepository
     }
 }
 
 extension SearchPostsAction {
 
     func fetchSearchResults(with request: PostAPI.SearchRequest) {
-        postProvider.search(with: request) {
+        postRepository.search(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentSearchResults(
                         error: $0.error ?? .unknownReason(nil)
@@ -57,14 +57,14 @@ extension SearchPostsAction {
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest) {
         let request = PostAPI.FetchRequest()
         
-        postProvider.fetchPopular(with: request) {
+        postRepository.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentSearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentSearchResults(
                         error: $0.error ?? .unknownReason(nil)

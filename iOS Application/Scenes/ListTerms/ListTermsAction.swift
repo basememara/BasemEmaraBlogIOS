@@ -10,18 +10,18 @@ import SwiftyPress
 
 struct ListTermsAction: ListTermsActionable {
     private let presenter: ListTermsPresentable
-    private let taxonomyProvider: TaxonomyProviderType
+    private let taxonomyRepository: TaxonomyRepositoryType
     
-    init(presenter: ListTermsPresentable, taxonomyProvider: TaxonomyProviderType) {
+    init(presenter: ListTermsPresentable, taxonomyRepository: TaxonomyRepositoryType) {
         self.presenter = presenter
-        self.taxonomyProvider = taxonomyProvider
+        self.taxonomyRepository = taxonomyRepository
     }
 }
 
 extension ListTermsAction {
     
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
-        taxonomyProvider.fetch(by: [.category, .tag]) {
+        taxonomyRepository.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
                     error: $0.error ?? .unknownReason(nil)

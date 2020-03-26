@@ -13,21 +13,21 @@ import ZamzamUI
 
 struct DeepLinkRouter: DeepLinkRouterable {
     private let render: SceneRenderType
-    private let postProvider: PostProviderType
-    private let taxonomyProvider: TaxonomyProviderType
+    private let postRepository: PostRepositoryType
+    private let taxonomyRepository: TaxonomyRepositoryType
     private let theme: Theme
     
     weak var viewController = UIWindow.current?.rootViewController
     
     init(
         render: SceneRenderType,
-        postProvider: PostProviderType,
-        taxonomyProvider: TaxonomyProviderType,
+        postRepository: PostRepositoryType,
+        taxonomyRepository: TaxonomyRepositoryType,
         theme: Theme
     ) {
         self.render = render
-        self.postProvider = postProvider
-        self.taxonomyProvider = taxonomyProvider
+        self.postRepository = postRepository
+        self.taxonomyRepository = taxonomyRepository
         self.theme = theme
     }
 }
@@ -60,7 +60,7 @@ extension DeepLinkRouter {
             }
             
             return true
-        } else if let id = postProvider.getID(byURL: url.absoluteString) {
+        } else if let id = postRepository.getID(byURL: url.absoluteString) {
             guard let topViewController = UIWindow.current?.topViewController else {
                 return false
             }
@@ -70,7 +70,7 @@ extension DeepLinkRouter {
                 ?? topViewController.show(render.showPost(for: id), dismiss: true)
             
             return true
-        } else if let id = taxonomyProvider.getID(byURL: url.absoluteString) {
+        } else if let id = taxonomyRepository.getID(byURL: url.absoluteString) {
             viewController?.show(menu: .blog) { (controller: ShowBlogViewController) in
                 controller.router?.listPosts(
                     params: .init(fetchType: .terms([id]))

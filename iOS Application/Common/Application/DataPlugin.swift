@@ -11,17 +11,17 @@ import SwiftyPress
 import ZamzamCore
 
 struct DataPlugin: ApplicationPlugin {
-    private let dataProvider: DataProviderType
+    private let dataRepository: DataRepositoryType
     
-    init(dataProvider: DataProviderType) {
-        self.dataProvider = dataProvider
+    init(dataRepository: DataRepositoryType) {
+        self.dataRepository = dataRepository
     }
 }
 
 extension DataPlugin {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        dataProvider.configure()
+        dataRepository.configure()
         return true
     }
 }

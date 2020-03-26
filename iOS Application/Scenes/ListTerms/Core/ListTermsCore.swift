@@ -19,18 +19,18 @@ struct ListTermsCore: ListTermsCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
+    func action(with viewController: ListTermsDisplayable?) -> ListTermsActionable {
         ListTermsAction(
-            presenter: dependency(with: viewController),
-            taxonomyProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            taxonomyRepository: root.taxonomyRepository()
         )
     }
     
-    func dependency(with viewController: ListTermsDisplayable?) -> ListTermsPresentable {
+    func presenter(with viewController: ListTermsDisplayable?) -> ListTermsPresentable {
         ListTermsPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> ListTermsRouterable {
+    func router(with viewController: UIViewController?) -> ListTermsRouterable {
         ListTermsRouter(
             render: render,
             viewController: viewController

@@ -17,8 +17,8 @@ class ShowMoreViewController: UITableViewController {
     
     var core: ShowMoreCoreType?
     
-    private(set) lazy var router: ShowMoreRouterable? = core?.dependency(with: self)
-    private lazy var constants: ConstantsType? = core?.dependency()
+    private(set) lazy var router: ShowMoreRouterable? = core?.router(with: self)
+    private lazy var constants: ConstantsType? = core?.constants()
 }
 
 // MARK: - Interactions

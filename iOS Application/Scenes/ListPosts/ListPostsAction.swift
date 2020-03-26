@@ -10,17 +10,17 @@ import SwiftyPress
 
 struct ListPostsAction: ListPostsActionable {
     private let presenter: ListPostsPresentable
-    private let postProvider: PostProviderType
-    private let mediaProvider: MediaProviderType
+    private let postRepository: PostRepositoryType
+    private let mediaRepository: MediaRepositoryType
     
     init(
         presenter: ListPostsPresentable,
-        postProvider: PostProviderType,
-        mediaProvider: MediaProviderType
+        postRepository: PostRepositoryType,
+        mediaRepository: MediaRepositoryType
     ) {
         self.presenter = presenter
-        self.postProvider = postProvider
-        self.mediaProvider = mediaProvider
+        self.postRepository = postRepository
+        self.mediaRepository = mediaRepository
     }
 }
 
@@ -29,7 +29,7 @@ extension ListPostsAction {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
         
-        postProvider.fetch(with: fetchRequest) {
+        postRepository.fetch(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -40,7 +40,7 @@ extension ListPostsAction {
                 posts = posts.sorted(by: sort)
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -63,7 +63,7 @@ extension ListPostsAction {
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
         
-        postProvider.fetchPopular(with: fetchRequest) {
+        postRepository.fetchPopular(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -74,7 +74,7 @@ extension ListPostsAction {
                 posts = posts.sorted(by: sort)
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -97,7 +97,7 @@ extension ListPostsAction {
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
         
-        postProvider.fetchTopPicks(with: fetchRequest) {
+        postRepository.fetchTopPicks(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -108,7 +108,7 @@ extension ListPostsAction {
                 posts = posts.sorted(by: sort)
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -131,7 +131,7 @@ extension ListPostsAction {
     func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
         
-        postProvider.fetch(byTermIDs: request.ids, with: fetchRequest) {
+        postRepository.fetch(byTermIDs: request.ids, with: fetchRequest) {
             guard case .success(var posts) = $0 else {
                 return self.presenter.presentPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)
@@ -142,7 +142,7 @@ extension ListPostsAction {
                 posts = posts.sorted(by: sort)
             }
             
-            self.mediaProvider.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentPostsByTerms(
                         error: $0.error ?? .unknownReason(nil)
@@ -163,17 +163,17 @@ extension ListPostsAction {
 extension ListPostsAction {
     
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
-        postProvider.toggleFavorite(id: request.postID)
+        postRepository.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ListPostsAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postProvider.hasFavorite(id: request.postID)
+                favorite: postRepository.hasFavorite(id: request.postID)
             )
         )
     }
     
     func isFavorite(postID: Int) -> Bool {
-        postProvider.hasFavorite(id: postID)
+        postRepository.hasFavorite(id: postID)
     }
 }

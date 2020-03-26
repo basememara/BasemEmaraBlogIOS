@@ -15,16 +15,16 @@ import ZamzamCore
 import ZamzamNotification
 
 struct BackgroundPlugin {
-    private let dataProvider: DataProviderType
+    private let dataRepository: DataRepositoryType
     private let preferences: PreferencesType
-    private let log: LogProviderType
+    private let log: LogRepositoryType
     
     init(
-        dataProvider: DataProviderType,
+        dataRepository: DataRepositoryType,
         preferences: PreferencesType,
-        log: LogProviderType
+        log: LogRepositoryType
     ) {
-        self.dataProvider = dataProvider
+        self.dataRepository = dataRepository
         self.preferences = preferences
         self.log = log
     }
@@ -117,7 +117,7 @@ private extension BackgroundPlugin {
     
     func handleBackgroundTask(completion: @escaping (Result<Void, ZamzamError>) -> Void) {
         // Create local notifications when new content retrieved via background fetch
-        dataProvider.pull {
+        dataRepository.pull {
             // Validate if any updates that needs to be notified
             guard case .success = $0 else {
                 completion(.failure(.general))

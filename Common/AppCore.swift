@@ -6,7 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSURL
 import SwiftyPress
 import ZamzamCore
 
@@ -22,8 +22,8 @@ struct AppCore: SwiftyPressCore {
         #endif
     }()
     
-    func dependencyStore() -> ConstantsStore {
-        ConstantsMemoryStore(
+    func constantsService() -> ConstantsService {
+        ConstantsMemoryService(
             environment: environment,
             itunesName: "basememara",
             itunesID: "1021806851",
@@ -59,8 +59,8 @@ struct AppCore: SwiftyPressCore {
         )
     }
     
-    func dependencyStore() -> PreferencesStore {
-        PreferencesDefaultsStore(
+    func preferencesService() -> PreferencesService {
+        PreferencesDefaultsService(
             defaults: {
                 UserDefaults(
                     suiteName: {
@@ -78,23 +78,23 @@ struct AppCore: SwiftyPressCore {
         )
     }
 
-    func dependency() -> SeedStore {
-        SeedFileStore(
+    func seedService() -> SeedService {
+        SeedFileService(
             forResource: "seed.json",
             inBundle: .main,
-            jsonDecoder: dependency()
+            jsonDecoder: jsonDecoder()
         )
     }
     
-    func dependency() -> [LogStore] {
-        let constants: ConstantsType = dependency()
+    func logServices() -> [LogService] {
+        let constants: ConstantsType = self.constants()
         
         return [
-            LogConsoleStore(
+            LogConsoleService(
                 minLevel: constants.environment == .production ? .none
                     : constants.minLogLevel
             ),
-            LogOSStore(
+            LogOSService(
                 minLevel: constants.minLogLevel,
                 subsystem: Bundle.main.bundleIdentifier ?? "BasemEmara",
                 category: "Application"
@@ -102,7 +102,7 @@ struct AppCore: SwiftyPressCore {
         ]
     }
 
-    func dependency() -> Theme {
+    func theme() -> Theme {
         AppTheme()
     }
 }

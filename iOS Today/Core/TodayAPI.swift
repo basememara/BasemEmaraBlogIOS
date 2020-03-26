@@ -13,10 +13,10 @@ import ZamzamUI
 enum TodayAPI {}
 
 protocol TodayCoreType {
-    func dependency(with viewController: TodayDisplayable?) -> TodayActionable
-    func dependency(with viewController: TodayDisplayable?) -> TodayPresentable
-    func dependency() -> DataProviderType
-    func dependency() -> Theme
+    func action(with viewController: TodayDisplayable?) -> TodayActionable
+    func presenter(with viewController: TodayDisplayable?) -> TodayPresentable
+    func dataRepository() -> DataRepositoryType
+    func theme() -> Theme
 }
 
 protocol TodayActionable {

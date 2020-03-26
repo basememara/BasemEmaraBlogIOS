@@ -14,17 +14,17 @@ import ZamzamUI
 enum ShowPostAPI {}
 
 protocol ShowPostCoreType {
-    func dependency(with viewController: ShowPostDisplayable?) -> ShowPostActionable
-    func dependency(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
+    func action(with viewController: ShowPostDisplayable?) -> ShowPostActionable
+    func presenter(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
     
-    func dependency(
+    func router(
         viewController: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) -> ShowPostRouterable
    
-    func dependency() -> NotificationCenter
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
+    func notificationCenter() -> NotificationCenter
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ShowPostActionable: AppActionable {

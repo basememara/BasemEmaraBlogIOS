@@ -19,17 +19,17 @@ struct ShowMoreCore: ShowMoreCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: UIViewController?) -> ShowMoreRouterable {
+    func router(with viewController: UIViewController?) -> ShowMoreRouterable {
         ShowMoreRouter(
             render: render,
-            constants: root.dependency(),
-            mailComposer: root.dependency(),
-            theme: root.dependency(),
+            constants: root.constants(),
+            mailComposer: root.mailComposer(),
+            theme: root.theme(),
             viewController: viewController
         )
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
 }

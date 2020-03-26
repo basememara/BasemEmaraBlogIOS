@@ -11,8 +11,8 @@ import UIKit
 import ZamzamUI
 
 protocol ShowMoreCoreType {
-    func dependency(with viewController: UIViewController?) -> ShowMoreRouterable
-    func dependency() -> ConstantsType
+    func router(with viewController: UIViewController?) -> ShowMoreRouterable
+    func constants() -> ConstantsType
 }
 
 protocol ShowMoreRouterable {
