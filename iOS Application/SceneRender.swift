@@ -50,29 +50,20 @@ struct SceneRender: SceneRenderType {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
+        let render = MainRender(render: self)
+        let reducer = MainReducer(render: render)
+        let store = Store(for: \.mainState, using: reducer)
+        
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController(
-                router: MainRouter(render: self)
-            )
-            .with {
+            return MainSplitViewController(render: render).with {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
-                    MainSplitDetailViewController(
-                        model: state.main ?? MainModel(menu: [], layout: .pad),
-                        action: MainActionCreator(
-                            dispatch: action(to: MainReducer(render: self))
-                        )
-                    )
+                    MainSplitDetailViewController(store)
                 ]
             }
         default:
-            return MainViewController(
-                model: state.main ?? MainModel(menu: [], layout: .phone),
-                action: MainActionCreator(
-                    dispatch: action(to: MainReducer(render: self))
-                )
-            )
+            return MainViewController(store)
         }
     }
 }
@@ -80,16 +71,20 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        let controller: HomeViewController = .make(fromStoryboard: Storyboard.home.rawValue)
-        
-        controller.router = HomeRouter(
+        let render = HomeRender(
             render: self,
-            viewController: controller,
-            listPostsDelegate: controller.splitViewController as? ListPostsDelegate,
-            mailComposer: core.dependency(),
-            constants: core.dependency(),
-            theme: core.dependency()
+            mailComposer: core.mailComposer(),
+            constants: core.constants(),
+            theme: core.theme()
         )
+        
+        let reducer = HomeReducer(render: render)
+        let store = Store(for: \.homeState, using: reducer)
+        let interactor = HomeInteractor(send: store.action)
+        let controller = HomeViewController(store, interactor)
+        
+        // Assign delegates
+        render.presentationContextProvider = controller
         
         return controller
     }
@@ -152,37 +147,12 @@ extension SceneRender {
     }
 }
 
-private extension SceneRender {
-    
-    /// Creates action closure for the view to send to the reducer. This separation decouples actions and reducers.
-    func action<Action, Reducer>(to reducer: Reducer) -> (Action) -> Void
-        where Reducer: ReducerType, Reducer.Action == Action {
-            return { action in
-                // Allow middleware to passively execute against action
-                self.middleware.forEach { $0.execute(on: action) }
-                
-                // Mutate the state for the action
-                reducer.reduce(self.state, action)
-            }
-    }
-}
-
 // MARK: - Subtypes
 
 extension SceneRender {
     
-    /// Menu identifiers for routing
-    enum Menu: Int {
-        case home = 0
-        case blog = 1
-        case favorites = 2
-        case search = 3
-        case more = 4
-    }
-    
-    /// Storyboard identifiers for routing
+    /// Storyboard identifiers for routing.
     enum Storyboard: String {
-        case home = "Home"
         case listFavorites = "ListFavorites"
         case searchPosts = "SearchPosts"
         

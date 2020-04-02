@@ -5,6 +5,6 @@
 //
 
 /// The middleware that passively executes tasks based on any action before it it sent to a reducer.
-protocol MiddlewareType {
-    func execute(on action: ActionType)
+public protocol MiddlewareType {
+    func callAsFunction(_ action: ActionType)
 }

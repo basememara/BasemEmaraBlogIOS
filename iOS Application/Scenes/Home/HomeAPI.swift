@@ -1,22 +1,23 @@
 //
-//  HomeInterfaces.swift
-//  Basem Emara
+//  HomeAPI.swift
+//  BasemEmara iOS
 //
-//  Created by Basem Emara on 2019-05-27.
-//  Copyright © 2019 Zamzam Inc. All rights reserved.
+//  Created by Basem Emara on 2020-04-02.
 //
 
 import SwiftyPress
 
-protocol HomeModelType: ModelType {
-    
+protocol HomeInteractorType: InteractorType {
+    func fetchProfile()
+    func fetchMenu()
+    func fetchSocial()
+    func select(menu: HomeAPI.MenuItem)
+    func select(social: Social)
 }
 
-protocol HomeActionCreatorType: ActionCreatorType {
-    
-}
+protocol HomeReducerType: ReducerType {}
 
-protocol HomeRouterType {
+protocol HomeRenderType {
     func showAbout()
     func showPortfolio()
     
@@ -32,6 +33,33 @@ protocol HomeRouterType {
     func sendEmail()
 }
 
-// MARK: - Request/Response
+// MARK: - Namespace
 
-enum HomeAPI {}
+enum HomeAPI {
+    
+    enum Menu: String {
+        case about
+        case portfolio
+        case seriesScalableApp
+        case seriesSwiftUtilities
+        case coursesArchitecture
+        case coursesFramework
+        case consultingDevelopment
+        case consultingMentorship
+    }
+    
+    struct MenuItem {
+        let type: Menu
+        let title: String
+    }
+    
+    struct MenuSection {
+        let title: String?
+        let items: [MenuItem]
+    }
+    
+    struct SocialItem {
+        let type: Social
+        let title: String
+    }
+}

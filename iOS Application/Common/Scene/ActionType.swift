@@ -5,7 +5,12 @@
 //
 
 /// The action component of the scene.
-protocol ActionType {}
+public protocol ActionType {}
 
-/// A component used to create an action asynchronously.
-protocol ActionCreatorType {}
+/// The action creator component of the scene.
+public protocol InteractorType {
+    associatedtype Action: ActionType
+    
+    /// Performs the asynchronous task and sends a new action.
+    var send: (Action) -> Void { get }
+}

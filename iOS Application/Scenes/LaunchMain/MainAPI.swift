@@ -2,48 +2,43 @@
 //  MainAPI.swift
 //  BasemEmara iOS
 //
-//  Created by Basem Emara on 2019-12-15.
+//  Created by Basem Emara on 2020-04-02.
 //
 
-import UIKit
+import UIKit.UIViewController
 
-protocol MainModelType: ModelType {
-    var menu: [MainAPI.Menu] { get }
-    var layout: MainAPI.Layout { get }
+protocol MainReducerType: ReducerType {}
+
+protocol MainRenderType {
+    func home() -> UIViewController
+    func showBlog() -> UIViewController
+    func listFavorites() -> UIViewController
+    func searchPosts() -> UIViewController
+    func showMore() -> UIViewController
+    func showPost(for id: Int) -> UIViewController
 }
 
-protocol MainActionCreatorType: ActionCreatorType {
-    func fetchMenu(with request: MainAPI.FetchMenuRequest)
-}
-
-protocol MainRouterType {
-    func showPost(for id: Int)
-}
-
-/// Used to notify the controller was selected from the main controller
+/// Used to notify the controller was selected from the main controller.
 protocol MainSelectable {
     func mainDidSelect()
 }
 
-// MARK: - Request/Response
+// MARK: - Namespace
 
 enum MainAPI {
     
-    struct FetchMenuRequest {
-        let layout: Layout
+    enum Menu: Int {
+        case home
+        case blog
+        case favorites
+        case search
+        case more
     }
     
-    enum Layout {
-        case pad
-        case phone
-    }
-    
-    /// Data representation of the main menu and content
-    struct Menu {
-        let id: Int
+    struct TabItem {
+        let type: Menu
         let title: String
         let imageName: String
-        let prefersLargeTitles: Bool?
-        let scene: () -> UIViewController
+        let view: () -> UIViewController?
     }
 }

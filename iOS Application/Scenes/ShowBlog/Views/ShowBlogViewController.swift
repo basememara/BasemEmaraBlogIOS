@@ -89,6 +89,7 @@ private extension ShowBlogViewController {
     
     func configure() {
         navigationItem.titleView = titleView
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
             centerPosition: true,

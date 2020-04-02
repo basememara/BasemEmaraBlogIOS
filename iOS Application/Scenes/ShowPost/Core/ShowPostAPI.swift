@@ -54,7 +54,7 @@ protocol ShowPostRouterable {
 }
 
 protocol ShowPostLoadable {
-    func loadData(for id: Int)
+    func load(_ id: Int)
 }
 
 // MARK: - Request/Response

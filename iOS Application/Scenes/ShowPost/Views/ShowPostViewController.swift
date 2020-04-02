@@ -125,7 +125,7 @@ private extension ShowPostViewController {
 
 extension ShowPostViewController: ShowPostLoadable {
     
-    func loadData(for id: Int) {
+    func load(_ id: Int) {
         if let lastPostID = postID {
             history.append(lastPostID)
         }
@@ -244,7 +244,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         navigationController?.setToolbarHidden(false, animated: true)
         
         if let postID = viewModel.postID {
-            loadData(for: postID)
+            load(postID)
             return viewModel.decisionHandler(.cancel)
         }
         
@@ -270,7 +270,7 @@ extension ShowPostViewController: ShowPostDisplayable {
 extension ShowPostViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        loadData(for: postID)
+        load(postID)
         viewController.dismissOrPop()
     }
 }

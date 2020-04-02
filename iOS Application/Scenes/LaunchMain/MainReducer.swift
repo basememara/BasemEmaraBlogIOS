@@ -5,66 +5,58 @@
 //  Created by Basem Emara on 2019-12-15.
 //
 
-struct MainReducer: ReducerType {
-    private let render: SceneRenderType
+struct MainReducer: MainReducerType {
+    private let render: MainRenderType
     
-    init(render: SceneRenderType) {
+    init(render: MainRenderType) {
         self.render = render
     }
 }
 
 extension MainReducer {
     
-    func reduce(_ state: AppState, _ action: MainAction) {
+    func callAsFunction(_ state: inout MainState, _ action: MainAction) {
         switch action {
-        case .loadMenu(let items, let layout):
-            state.main = MainModel(
-                menu: items.map { menu in
-                    switch menu {
-                    case .home:
-                        return MainAPI.Menu(
-                            id: menu.rawValue,
-                            title: "Home", // TODO: Localize
-                            imageName: "tab-home",
-                            prefersLargeTitles: nil,
-                            scene: render.home
-                        )
-                    case .blog:
-                        return MainAPI.Menu(
-                            id: menu.rawValue,
-                            title: "Blog",
-                            imageName: "tab-megaphone",
-                            prefersLargeTitles: nil,
-                            scene: render.showBlog
-                        )
-                    case .favorites:
-                        return MainAPI.Menu(
-                            id: menu.rawValue,
-                            title: "Favorites",
-                            imageName: "tab-favorite",
-                            prefersLargeTitles: true,
-                            scene: render.listFavorites
-                        )
-                    case .search:
-                        return MainAPI.Menu(
-                            id: menu.rawValue,
-                            title: "Search",
-                            imageName: "tab-search",
-                            prefersLargeTitles: true,
-                            scene: render.searchPosts
-                        )
-                    case .more:
-                        return MainAPI.Menu(
-                            id: menu.rawValue,
-                            title: "More",
-                            imageName: "tab-more",
-                            prefersLargeTitles: true,
-                            scene: render.showMore
-                        )
-                    }
-                },
-                layout: layout
-            )
+        case .fetchMenu(let idiom):
+            var menu = [
+                MainAPI.TabItem(
+                    type: .blog,
+                    title: "Blog", // TODO: Localize
+                    imageName: "tab-megaphone",
+                    view: render.showBlog
+                ),
+                MainAPI.TabItem(
+                    type: .favorites,
+                    title: "Favorites",
+                    imageName: "tab-favorite",
+                    view: render.listFavorites
+                ),
+                MainAPI.TabItem(
+                    type: .search,
+                    title: "Search",
+                    imageName: "tab-search",
+                    view: render.searchPosts
+                ),
+                MainAPI.TabItem(
+                    type: .more,
+                    title: "More",
+                    imageName: "tab-more",
+                    view: render.showMore
+                )
+            ]
+            
+            if case .phone = idiom {
+                menu.prepend(
+                    MainAPI.TabItem(
+                        type: .home,
+                        title: "Home",
+                        imageName: "tab-home",
+                        view: render.home
+                    )
+                )
+            }
+            
+            state.tabMenu = menu
         }
     }
 }

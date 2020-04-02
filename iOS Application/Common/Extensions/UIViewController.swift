@@ -19,32 +19,33 @@ extension UIViewController {
     ///   - completion: Completion the view controller after it is loaded.
     /// - Returns: Returns the view controller instance from the storyboard.
     @discardableResult
-    func show<T: UIViewController>(menu: SceneRender.Menu, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T? {
-        // Handle tab bar controller in split view differently
-        guard let splitViewController = self as? UISplitViewController ?? splitViewController else {
-            // No split view
-            guard let tabBarController = UIWindow.current?
-                .rootViewController as? UITabBarController else {
+    func show<T, M>(menu: M, configure: ((T) -> Void)? = nil, completion: ((T) -> Void)? = nil) -> T?
+        where T: UIViewController, M: RawRepresentable, M.RawValue == Int {
+            // Handle tab bar controller in split view differently
+            guard let splitViewController = self as? UISplitViewController ?? splitViewController else {
+                // No split view
+                guard let tabBarController = UIWindow.current?
+                    .rootViewController as? UITabBarController else {
+                        return nil
+                }
+                
+                return tabBarController.setSelected(
+                    index: menu.rawValue,
+                    configure: configure,
+                    completion: completion
+                )
+            }
+            
+            guard let tabBarController = splitViewController
+                .viewControllers.last as? UITabBarController else {
                     return nil
             }
             
             return tabBarController.setSelected(
-                index: menu.rawValue,
+                index: max(menu.rawValue - 1, 0),
                 configure: configure,
                 completion: completion
             )
-        }
-        
-        guard let tabBarController = splitViewController
-            .viewControllers.last as? UITabBarController else {
-                return nil
-        }
-        
-        return tabBarController.setSelected(
-            index: max(menu.rawValue - 1, 0),
-            configure: configure,
-            completion: completion
-        )
     }
 }
 
