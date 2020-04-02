@@ -5,11 +5,13 @@
 //  Created by Basem Emara on 2019-12-29.
 //
 
-struct HomeReducer: HomeReducerType {
-    private let render: HomeRenderType
+import SwiftyPress
+
+struct HomeReducer: ReducerType {
+    private let presenter: HomePresenterType
     
-    init(render: HomeRenderType) {
-        self.render = render
+    init(presenter: HomePresenterType) {
+        self.presenter = presenter
     }
 }
 
@@ -26,26 +28,9 @@ extension HomeReducer {
         case .loadSocial(let social):
             state.socialMenu = social
         case .selectMenu(let item):
-            switch item.type {
-            case .about:
-                render.showAbout()
-            case .portfolio:
-                render.showPortfolio()
-            case .seriesScalableApp:
-                render.showSeriesScalableApp(title: item.title)
-            case .seriesSwiftUtilities:
-                render.showSeriesSwiftUtilities(title: item.title)
-            case .coursesArchitecture:
-                render.showCoursesArchitecture()
-            case .coursesFramework:
-                render.showCoursesFramework()
-            case .consultingDevelopment:
-                render.showConsultingDevelopment()
-            case .consultingMentorship:
-                render.showConsultingMentorship()
-            }
-        case .selectSocial(let social):
-            render.show(social: social)
+            presenter.select(menu: item)
+        case .selectSocial(let item):
+            presenter.select(social: item)
         }
     }
 }

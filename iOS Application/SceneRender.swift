@@ -50,13 +50,13 @@ struct SceneRender: SceneRenderType {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
-        let render = MainRender(render: self)
-        let reducer = MainReducer(render: render)
+        let presenter = MainPresenter(render: self)
+        let reducer = MainReducer(presenter: presenter)
         let store = Store(for: \.mainState, using: reducer)
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController(render: render).with {
+            return MainSplitViewController(presenter: presenter).with {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(store)
@@ -71,20 +71,20 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        let render = HomeRender(
+        var presenter = HomePresenter(
             render: self,
             mailComposer: core.mailComposer(),
             constants: core.constants(),
             theme: core.theme()
         )
         
-        let reducer = HomeReducer(render: render)
+        let reducer = HomeReducer(presenter: presenter)
         let store = Store(for: \.homeState, using: reducer)
         let interactor = HomeInteractor(send: store.action)
         let controller = HomeViewController(store, interactor)
         
         // Assign delegates
-        render.presentationContextProvider = controller
+        presenter.presentationContext = controller
         
         return controller
     }

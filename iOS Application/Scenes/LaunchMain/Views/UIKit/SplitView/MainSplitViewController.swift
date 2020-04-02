@@ -9,10 +9,10 @@
 import UIKit
 
 class MainSplitViewController: UISplitViewController {
-    private let render: MainRenderType?
+    private let presenter: MainPresenterType
     
-    init(render: MainRenderType?) {
-        self.render = render
+    init(presenter: MainPresenterType) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,9 +29,7 @@ extension MainSplitViewController: ListPostsDelegate {
         guard let topViewController = UIWindow.current?.topViewController else { return }
         
         // Load post in place or show in new controller
-        (topViewController as? ShowPostLoadable)?.load(postID) ?? {
-            guard let view = render?.showPost(for: postID) else { return }
-            topViewController.show(view)
-        }()
+        (topViewController as? ShowPostLoadable)?.load(postID)
+            ?? topViewController.show(presenter.showPost(for: postID))
     }
 }

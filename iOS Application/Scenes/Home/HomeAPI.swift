@@ -15,22 +15,9 @@ protocol HomeInteractorType: InteractorType {
     func select(social: Social)
 }
 
-protocol HomeReducerType: ReducerType {}
-
-protocol HomeRenderType {
-    func showAbout()
-    func showPortfolio()
-    
-    func showSeriesScalableApp(title: String?)
-    func showSeriesSwiftUtilities(title: String?)
-    
-    func showCoursesArchitecture()
-    func showCoursesFramework()
-    func showConsultingDevelopment()
-    func showConsultingMentorship()
-    
-    func show(social: Social)
-    func sendEmail()
+protocol HomePresenterType: PresenterType {
+    func select(menu: HomeAPI.MenuItem)
+    func select(social: Social)
 }
 
 // MARK: - Namespace

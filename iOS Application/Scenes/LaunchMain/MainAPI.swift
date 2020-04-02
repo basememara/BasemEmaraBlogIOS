@@ -7,14 +7,8 @@
 
 import UIKit.UIViewController
 
-protocol MainReducerType: ReducerType {}
-
-protocol MainRenderType {
-    func home() -> UIViewController
-    func showBlog() -> UIViewController
-    func listFavorites() -> UIViewController
-    func searchPosts() -> UIViewController
-    func showMore() -> UIViewController
+protocol MainPresenterType: PresenterType {
+    func fetchMenu(for idiom: UIUserInterfaceIdiom) -> [MainAPI.TabItem]
     func showPost(for id: Int) -> UIViewController
 }
 
