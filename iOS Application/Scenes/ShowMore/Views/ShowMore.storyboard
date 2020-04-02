@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHl-wU-hL3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rHl-wU-hL3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -170,7 +170,7 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-Fu-pe0" customClass="ThemedImageButton" customModule="SwiftyPress">
                                                             <rect key="frame" x="48" y="0.0" width="36" height="36"/>
-                                                            <state key="normal" image="linkedin"/>
+                                                            <state key="normal" image="linkedIn"/>
                                                             <connections>
                                                                 <action selector="linkedInButtonTapped" destination="rHl-wU-hL3" eventType="touchUpInside" id="6EV-Iq-yBh"/>
                                                             </connections>
@@ -241,7 +241,7 @@
         <image name="feedback" width="24" height="24"/>
         <image name="github" width="64" height="64"/>
         <image name="idea" width="24" height="24"/>
-        <image name="linkedin" width="64" height="64"/>
+        <image name="linkedIn" width="64" height="64"/>
         <image name="megaphone" width="24" height="24"/>
         <image name="rating" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
