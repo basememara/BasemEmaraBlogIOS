@@ -5,18 +5,18 @@
         "package": "Kingfisher",
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "7ccfb6cefdb6180cde839310e3dbd5b2d6fefee5",
-          "version": null
+          "version": "5.13.3"
         }
       },
       {
         "package": "Realm",
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
-          "branch": "master",
-          "revision": "272a273f5ae256486b50ff4c70d6207a5de4fa91",
-          "version": null
+          "branch": null,
+          "revision": "07734d6ee4b49b5656c51dab51c20a2d59b9de45",
+          "version": "4.4.0"
         }
       },
       {
@@ -32,27 +32,27 @@
         "package": "Stencil",
         "repositoryURL": "git@github.com:ZamzamInc/Stencil.git",
         "state": {
-          "branch": "lite",
+          "branch": null,
           "revision": "2ad923ba172ace3c38a3995eedbec03e322c828b",
-          "version": null
+          "version": "0.13.2"
         }
       },
       {
         "package": "SwiftyPress",
         "repositoryURL": "git@github.com:ZamzamInc/SwiftyPress.git",
         "state": {
-          "branch": "feature/refactor",
-          "revision": "2950e9259e1563749c0016eb9606342621b17dea",
-          "version": null
+          "branch": null,
+          "revision": "14ef0676e90a287b19d90ff2f02358cf24e6c428",
+          "version": "3.0.2"
         }
       },
       {
         "package": "ZamzamKit",
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
-          "branch": "master",
-          "revision": "377f52c0e4ba106b4a13278f98c663b1fd8ed6a2",
-          "version": null
+          "branch": null,
+          "revision": "0d2c731548ad88a889b0db3b6e235e2924307214",
+          "version": "5.3.0"
         }
       }
     ]

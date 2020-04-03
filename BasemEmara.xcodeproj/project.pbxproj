@@ -182,6 +182,12 @@
 		8B81CC1F24360CEA0050CAC9 /* InteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */; };
 		8B81CC2124360D0F0050CAC9 /* PresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC2024360D0F0050CAC9 /* PresenterType.swift */; };
 		8B81CC232436120A0050CAC9 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC222436120A0050CAC9 /* MainPresenter.swift */; };
+		8B81CC282436F49E0050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
+		8B81CC292436F49E0050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
+		8B81CC2A2436F4A40050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
+		8B81CC2B2436F4A40050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
+		8B81CC2C2436F4A70050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
+		8B81CC2D2436F4A70050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
 		8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */; };
 		8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB45239D704900AD73D4 /* WindowRender.swift */; };
 		8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905BA23A5E13100AB8A4F /* AppState.swift */; };
@@ -375,6 +381,8 @@
 		8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorType.swift; sourceTree = "<group>"; };
 		8B81CC2024360D0F0050CAC9 /* PresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterType.swift; sourceTree = "<group>"; };
 		8B81CC222436120A0050CAC9 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
 		8B87EB45239D704900AD73D4 /* WindowRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRender.swift; sourceTree = "<group>"; };
 		8B8905BA23A5E13100AB8A4F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -457,6 +465,8 @@
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
 				8B42C6F2234A6C0E00F38E23 /* Frameworks */,
 				8B42C6D7234A6BDB00F38E23 /* Products */,
+				8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */,
+				8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1191,6 +1201,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B81CC282436F49E0050CAC9 /* ZamzamCore.bundle in Resources */,
+				8B81CC292436F49E0050CAC9 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B42C7C8234BBC9000F38E23 /* ListTerms.storyboard in Resources */,
@@ -1223,6 +1235,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B81CC2A2436F4A40050CAC9 /* SwiftyPress.bundle in Resources */,
+				8B81CC2B2436F4A40050CAC9 /* ZamzamCore.bundle in Resources */,
 				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1242,6 +1256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B81CC2C2436F4A70050CAC9 /* SwiftyPress.bundle in Resources */,
+				8B81CC2D2436F4A70050CAC9 /* ZamzamCore.bundle in Resources */,
 				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1630,7 +1646,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1703,7 +1719,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1772,7 +1788,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1843,7 +1859,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1913,7 +1929,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1984,7 +2000,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2095,7 +2111,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2165,7 +2181,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2236,7 +2252,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2321,8 +2337,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:ZamzamInc/SwiftyPress.git";
 			requirement = {
-				branch = feature/refactor;
-				kind = branch;
+				kind = exactVersion;
+				version = 3.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
