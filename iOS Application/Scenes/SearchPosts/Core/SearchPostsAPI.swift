@@ -13,17 +13,17 @@ import ZamzamUI
 // Scene namespace
 enum SearchPostsAPI {}
 
-protocol SearchPostsModuleType {
-    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
-    func component(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
-    func component(with viewController: UIViewController?) -> SearchPostsRoutable
+protocol SearchPostsCoreType {
+    func action(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
+    func presenter(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
+    func router(with viewController: UIViewController?) -> SearchPostsRouterable
     
-    func component() -> ConstantsType
-    func component() -> Theme
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol SearchPostsActionable: AppActionable {
-    func fetchSearchResults(with request: PostsAPI.SearchRequest)
+    func fetchSearchResults(with request: PostAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }
 
@@ -36,7 +36,7 @@ protocol SearchPostsDisplayable: class, AppDisplayable {
     func displayPosts(with viewModels: [PostsDataViewModel])
 }
 
-protocol SearchPostsRoutable: AppRoutable {
+protocol SearchPostsRouterable {
     func showPost(for model: PostsDataViewModel)
 }
 

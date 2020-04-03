@@ -14,13 +14,21 @@ import ZamzamUI
 extension UIContextMenuConfiguration {
     
     /// Returns context menu ocnfiguration for a blog post.
-    convenience init(for model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable, delegate: UIViewController?, constants: ConstantsType, theme: Theme) {
+    convenience init(
+        for model: PostsDataViewModel,
+        at indexPath: IndexPath,
+        from dataView: DataViewable,
+        delegate: UIViewController?,
+        constants: ConstantsType,
+        theme: Theme,
+        additionalActions actions: [UIAction] = []
+    ) {
         self.init(identifier: NSNumber(value: model.id), previewProvider: nil) { _ in
             UIMenu(
                 title: "",
-                children: [
+                children: actions + [
                     UIAction(title: .localized(.commentsTitle), image: UIImage(systemName: "text.bubble")) { [weak delegate] _ in
-                        delegate?.present(
+                        delegate?.modal(
                             safari: constants.baseURL
                                 .appendingPathComponent("mobile-comments")
                                 .appendingQueryItem("postid", value: model.id)

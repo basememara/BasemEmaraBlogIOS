@@ -10,17 +10,23 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-protocol ShowMoreModuleType {
-    func component(with viewController: UIViewController?) -> ShowMoreRoutable
-    func component() -> ConstantsType
+protocol ShowMoreCoreType {
+    func router(with viewController: UIViewController?) -> ShowMoreRouterable
+    func constants() -> ConstantsType
 }
 
-protocol ShowMoreRoutable: AppRoutable {
+protocol ShowMoreRouterable {
     func showSubscribe()
     func sendFeedback(subject: String)
     func showWorkWithMe()
     func showRateApp()
     func showSettings()
     func showDevelopedBy()
-    func showSocial(for type: Social)
+    func show(social: Social)
+    
+    func share(
+        appURL: String,
+        message: String,
+        popoverFrom view: UIView
+    )
 }

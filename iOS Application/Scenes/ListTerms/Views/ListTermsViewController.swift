@@ -24,10 +24,10 @@ class ListTermsViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ListTermsModuleType
+    var core: ListTermsCoreType?
     
-    private lazy var action: ListTermsActionable = module.component(with: self)
-    private lazy var router: ListTermsRoutable = module.component(with: self)
+    private lazy var action: ListTermsActionable? = core?.action(with: self)
+    private lazy var router: ListTermsRouterable? = core?.router(with: self)
     
     // MARK: - State
     
@@ -49,7 +49,7 @@ class ListTermsViewController: UIViewController {
 private extension ListTermsViewController {
     
     func loadData() {
-        action.fetchTerms(
+        action?.fetchTerms(
             with: ListTermsAPI.FetchTermsRequest()
         )
     }
@@ -69,8 +69,8 @@ extension ListTermsViewController: ListTermsDisplayable {
 extension ListTermsViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.listPosts(
-            params: .init(
+        router?.listPosts(
+            params: ListPostsAPI.Params(
                 fetchType: .terms([model.id]),
                 title: model.name
             )

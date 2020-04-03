@@ -7,32 +7,44 @@
 //
 
 import UIKit
+import SwiftyPress
+import ZamzamUI
 
-struct ShowPostRouter: ShowPostRoutable {
+struct ShowPostRouter: ShowPostRouterable {
+    private let render: SceneRenderType
+    private let theme: Theme
+    
     weak var viewController: UIViewController?
     weak var listPostsDelegate: ListPostsDelegate?
     
-    private let scenes: SceneModuleType
-    
     init(
+        render: SceneRenderType,
+        theme: Theme,
         viewController: UIViewController?,
-        listPostsDelegate: ListPostsDelegate?,
-        scenes: SceneModuleType
+        listPostsDelegate: ListPostsDelegate?
     ) {
+        self.render = render
+        self.theme = theme
         self.viewController = viewController
         self.listPostsDelegate = listPostsDelegate
-        self.scenes = scenes
     }
 }
 
 extension ShowPostRouter {
     
     func listPosts(params: ListPostsAPI.Params) {
-        let controller = scenes.listPosts(
+        let controller = render.listPosts(
             params: params,
             delegate: listPostsDelegate
         )
         
         viewController?.show(controller)
+    }
+}
+
+extension ShowPostRouter {
+    
+    func show(url: String) {
+        viewController?.modal(safari: url, theme: theme)
     }
 }

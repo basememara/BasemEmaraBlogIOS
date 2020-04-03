@@ -13,14 +13,18 @@ import ZamzamUI
 // Scene namespace
 enum ShowPostAPI {}
 
-protocol ShowPostModuleType {
-    func component(with viewController: ShowPostDisplayable?) -> ShowPostActionable
-    func component(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
-    func component(with inputs: ShowPostAPI.RoutableInputs) -> ShowPostRoutable
+protocol ShowPostCoreType {
+    func action(with viewController: ShowPostDisplayable?) -> ShowPostActionable
+    func presenter(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
+    
+    func router(
+        viewController: UIViewController?,
+        listPostsDelegate: ListPostsDelegate?
+    ) -> ShowPostRouterable
    
-    func component() -> NotificationCenter
-    func component() -> ConstantsType
-    func component() -> Theme
+    func notificationCenter() -> NotificationCenter
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ShowPostActionable: AppActionable {
@@ -44,22 +48,18 @@ protocol ShowPostDisplayable: class, AppDisplayable {
     func display(isFavorite: Bool)
 }
 
-protocol ShowPostRoutable: AppRoutable {
+protocol ShowPostRouterable {
     func listPosts(params: ListPostsAPI.Params)
+    func show(url: String)
 }
 
 protocol ShowPostLoadable {
-    func loadData(for id: Int)
+    func load(_ id: Int)
 }
 
 // MARK: - Request/Response
 
 extension ShowPostAPI {
-    
-    struct RoutableInputs {
-        weak var viewController: UIViewController?
-        weak var listPostsDelegate: ListPostsDelegate?
-    }
     
     struct Request {
         let postID: Int

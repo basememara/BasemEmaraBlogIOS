@@ -11,22 +11,22 @@ import ZamzamCore
 
 struct ShowBlogAction: ShowBlogActionable {
     private let presenter: ShowBlogPresentable
-    private let postWorker: PostWorkerType
-    private let mediaWorker: MediaWorkerType
-    private let taxonomyWorker: TaxonomyWorkerType
+    private let postRepository: PostRepositoryType
+    private let mediaRepository: MediaRepositoryType
+    private let taxonomyRepository: TaxonomyRepositoryType
     private let preferences: PreferencesType
 
     init(
         presenter: ShowBlogPresentable,
-        postWorker: PostWorkerType,
-        mediaWorker: MediaWorkerType,
-        taxonomyWorker: TaxonomyWorkerType,
+        postRepository: PostRepositoryType,
+        mediaRepository: MediaRepositoryType,
+        taxonomyRepository: TaxonomyRepositoryType,
         preferences: PreferencesType
     ) {
         self.presenter = presenter
-        self.postWorker = postWorker
-        self.mediaWorker = mediaWorker
-        self.taxonomyWorker = taxonomyWorker
+        self.postRepository = postRepository
+        self.mediaRepository = mediaRepository
+        self.taxonomyRepository = taxonomyRepository
         self.preferences = preferences
     }
 }
@@ -34,16 +34,16 @@ struct ShowBlogAction: ShowBlogActionable {
 extension ShowBlogAction {
     
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest) {
-        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
+        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
-        postWorker.fetch(with: request) {
+        postRepository.fetch(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -62,16 +62,16 @@ extension ShowBlogAction {
     }
     
     func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest) {
-        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
+        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
-        postWorker.fetchPopular(with: request) {
+        postRepository.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -90,16 +90,16 @@ extension ShowBlogAction {
     }
     
     func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest) {
-        let request = PostsAPI.FetchRequest(maxLength: request.maxLength)
+        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
-        postWorker.fetchTopPicks(with: request) {
+        postRepository.fetchTopPicks(with: request) {
             guard case .success(let posts) = $0 else {
                 return self.presenter.presentTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.mediaWorker.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
                     return self.presenter.presentTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
@@ -121,7 +121,7 @@ extension ShowBlogAction {
 extension ShowBlogAction {
     
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
-        taxonomyWorker.fetch(by: [.category, .tag]) {
+        taxonomyRepository.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
                 return self.presenter.presentTerms(
                     error: $0.error ?? .unknownReason(nil)
@@ -145,12 +145,12 @@ extension ShowBlogAction {
 extension ShowBlogAction {
     
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
-        postWorker.toggleFavorite(id: request.postID)
+        postRepository.toggleFavorite(id: request.postID)
         
         presenter.presentToggleFavorite(
             for: ShowBlogAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postWorker.hasFavorite(id: request.postID)
+                favorite: postRepository.hasFavorite(id: request.postID)
             )
         )
     }

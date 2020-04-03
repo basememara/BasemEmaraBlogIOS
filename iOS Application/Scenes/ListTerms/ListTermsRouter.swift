@@ -8,20 +8,20 @@
 
 import UIKit
 
-struct ListTermsRouter: ListTermsRoutable {
+struct ListTermsRouter: ListTermsRouterable {
+    private let render: SceneRenderType
     weak var viewController: UIViewController?
-    private let scenes: SceneModuleType
     
-    init(viewController: UIViewController?, scenes: SceneModuleType) {
+    init(render: SceneRenderType, viewController: UIViewController?) {
+        self.render = render
         self.viewController = viewController
-        self.scenes = scenes
     }
 }
 
 extension ListTermsRouter {
     
     func listPosts(params: ListPostsAPI.Params) {
-        let controller = scenes.listPosts(params: params)
+        let controller = render.listPosts(params: params)
         viewController?.show(controller)
     }
 }

@@ -12,6 +12,13 @@ import ZamzamUI
 // Scene namespace
 enum TodayAPI {}
 
+protocol TodayCoreType {
+    func action(with viewController: TodayDisplayable?) -> TodayActionable
+    func presenter(with viewController: TodayDisplayable?) -> TodayPresentable
+    func dataRepository() -> DataRepositoryType
+    func theme() -> Theme
+}
+
 protocol TodayActionable {
     func fetchLatestPosts(with request: TodayAPI.Request)
 }

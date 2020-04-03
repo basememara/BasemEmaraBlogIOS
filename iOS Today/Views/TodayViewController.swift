@@ -22,21 +22,22 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Dependencies
     
-    private let container = Dependencies {
-        Module { AppModule() as SwiftyPressModule }
-    }
+    var core: TodayCoreType? = TodayCore(root: AppCore())
     
-    @Inject private var module: SwiftyPressModule
-    
-    private lazy var action: TodayActionable = TodayAction(
-        presenter: TodayPresenter(viewController: self),
-        postWorker: module.component(),
-        mediaWorker: module.component()
-    )
-    
-    private lazy var dataWorker: DataWorkerType = module.component()
+    private lazy var action: TodayActionable? = core?.action(with: self)
+    private lazy var dataRepository: DataRepositoryType? = core?.dataRepository()
     
     // MARK: - Lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +58,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 private extension TodayViewController {
     
-    func configure() {
-        container.build()
-        dataWorker.configure()
+    func commonInit() {
+        // Setup data storage
+        dataRepository?.configure()
         
+        // Set theme before views loaded into hierarchy
+        guard let theme: Theme = core?.theme() else { return }
+        TodayStyles.apply(theme)
+    }
+    
+    func configure() {
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(widgetTapped))
         )
     }
     
     func loadData() {
-        action.fetchLatestPosts(
+        action?.fetchLatestPosts(
             with: TodayAPI.Request(maxLength: 1)
         )
     }

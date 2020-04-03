@@ -22,7 +22,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
             webView.navigationDelegate = self
             webView.scrollView.delegate = self
             webView.scrollView.contentInset.bottom += 60
-            webView.backgroundColor = theme.backgroundColor
+            webView.backgroundColor ?= theme?.backgroundColor
             
             // Workaround for initial flash
             // https://stackoverflow.com/a/35121664
@@ -47,19 +47,17 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ShowPostModuleType
+    var core: ShowPostCoreType?
     
-    private lazy var action: ShowPostActionable = module.component(with: self)
-    private lazy var router: ShowPostRoutable = module.component(
-        with: ShowPostAPI.RoutableInputs(
-            viewController: self,
-            listPostsDelegate: self
-        )
+    private lazy var action: ShowPostActionable? = core?.action(with: self)
+    private lazy var router: ShowPostRouterable? = core?.router(
+        viewController: self,
+        listPostsDelegate: self
     )
     
-    private lazy var notificationCenter: NotificationCenter = module.component()
-    private lazy var constants: ConstantsType = module.component()
-    private lazy var theme: Theme = module.component()
+    private lazy var notificationCenter: NotificationCenter? = core?.notificationCenter()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     
@@ -78,8 +76,8 @@ class ShowPostViewController: UIViewController, StatusBarable {
         loadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.isToolbarHidden = false
         navigationController?.hidesBarsOnSwipe = true
     }
@@ -108,10 +106,10 @@ private extension ShowPostViewController {
         
         // Status bar background transparent so fill in on scroll
         showStatusBar()
-        notificationCenter.addObserver(
-            for: UIDevice.orientationDidChangeNotification,
+        notificationCenter?.addObserver(
+            self,
             selector: #selector(deviceOrientationDidChange),
-            from: self
+            name: UIDevice.orientationDidChangeNotification
         )
     }
     
@@ -119,7 +117,7 @@ private extension ShowPostViewController {
         guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
-        action.fetchPost(
+        action?.fetchPost(
             with: ShowPostAPI.Request(postID: postID)
         )
     }
@@ -127,7 +125,7 @@ private extension ShowPostViewController {
 
 extension ShowPostViewController: ShowPostLoadable {
     
-    func loadData(for id: Int) {
+    func load(_ id: Int) {
         if let lastPostID = postID {
             history.append(lastPostID)
         }
@@ -144,7 +142,7 @@ private extension ShowPostViewController {
     @objc func favoriteTapped() {
         guard let postID = postID else { return }
         
-        action.toggleFavorite(
+        action?.toggleFavorite(
             with: ShowPostAPI.FavoriteRequest(
                 postID: postID
             )
@@ -161,12 +159,14 @@ private extension ShowPostViewController {
             return
         }
         
-        let url = constants.baseURL
+        guard let url = constants?.baseURL
             .appendingPathComponent("mobile-comments")
             .appendingQueryItem("postid", value: postID)
-            .absoluteString
+            .absoluteString else {
+                return
+        }
         
-        router.present(safari: url, theme: theme)
+        router?.show(url: url)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -209,7 +209,7 @@ private extension ShowPostViewController {
         activityIndicatorView.startAnimating()
         postID = lastPostID
         
-        action.fetchPost(
+        action?.fetchPost(
             with: ShowPostAPI.Request(postID: lastPostID)
         )
     }
@@ -231,10 +231,12 @@ extension ShowPostViewController: ShowPostDisplayable {
         commentBarButton.badgeText = "\(viewModel.commentCount)"
         display(isFavorite: viewModel.favorite)
         
-        webView.loadHTMLString(
-            viewModel.content,
-            baseURL: constants.baseURL
-        )
+        if let baseURL = constants?.baseURL {
+            webView.loadHTMLString(
+                viewModel.content,
+                baseURL: baseURL
+            )
+        }
     }
     
     func displayByURL(with viewModel: ShowPostAPI.WebViewModel) {
@@ -242,12 +244,12 @@ extension ShowPostViewController: ShowPostDisplayable {
         navigationController?.setToolbarHidden(false, animated: true)
         
         if let postID = viewModel.postID {
-            loadData(for: postID)
+            load(postID)
             return viewModel.decisionHandler(.cancel)
         }
         
         if let termID = viewModel.termID {
-            router.listPosts(params: .init(fetchType: .terms([termID])))
+            router?.listPosts(params: .init(fetchType: .terms([termID])))
             return viewModel.decisionHandler(.cancel)
         }
         
@@ -268,7 +270,7 @@ extension ShowPostViewController: ShowPostDisplayable {
 extension ShowPostViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        loadData(for: postID)
+        load(postID)
         viewController.dismissOrPop()
     }
 }
@@ -282,13 +284,13 @@ extension ShowPostViewController: WKNavigationDelegate {
         }
         
         // Open same domain links within app
-        guard requestURL.host == constants.baseURL.host else {
+        guard requestURL.host == constants?.baseURL.host else {
             // Open external links in browser
-            present(safari: requestURL.absoluteString, theme: theme)
+            router?.show(url: requestURL.absoluteString)
             return decisionHandler(.cancel)
         }
         
-        action.fetchByURL(
+        action?.fetchByURL(
             with: ShowPostAPI.FetchWebRequest(
                 url: requestURL.absoluteString,
                 decisionHandler: decisionHandler

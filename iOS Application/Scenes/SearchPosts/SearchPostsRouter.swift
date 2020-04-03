@@ -9,20 +9,20 @@
 import UIKit
 import SwiftyPress
 
-struct SearchPostsRouter: SearchPostsRoutable {
+struct SearchPostsRouter: SearchPostsRouterable {
+    private let render: SceneRenderType
     weak var viewController: UIViewController?
-    private let scenes: SceneModuleType
     
-    init(viewController: UIViewController?, scenes: SceneModuleType) {
+    init(render: SceneRenderType, viewController: UIViewController?) {
+        self.render = render
         self.viewController = viewController
-        self.scenes = scenes
     }
 }
 
 extension SearchPostsRouter {
 
     func showPost(for model: PostsDataViewModel) {
-        let controller = scenes.showPost(for: model.id)
+        let controller = render.showPost(for: model.id)
         viewController?.show(controller)
     }
 }

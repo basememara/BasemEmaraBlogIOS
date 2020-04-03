@@ -10,45 +10,45 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowMoreRouter: ShowMoreRoutable {
-    weak var viewController: UIViewController?
-    
-    private let scenes: SceneModuleType
+struct ShowMoreRouter: ShowMoreRouterable {
+    private let render: SceneRenderType
     private let constants: ConstantsType
     private let mailComposer: MailComposerType
     private let theme: Theme
     
+    weak var viewController: UIViewController?
+    
     init(
-        viewController: UIViewController?,
-        scenes: SceneModuleType,
+        render: SceneRenderType,
         constants: ConstantsType,
         mailComposer: MailComposerType,
-        theme: Theme
+        theme: Theme,
+        viewController: UIViewController?
     ) {
-        self.viewController = viewController
-        self.scenes = scenes
+        self.render = render
         self.constants = constants
         self.mailComposer = mailComposer
         self.theme = theme
+        self.viewController = viewController
     }
 }
 
 extension ShowMoreRouter {
     
     func showSubscribe() {
-        present(pageSlug: "subscribe", constants: constants, theme: theme)
+        viewController?.modal(pageSlug: "subscribe", constants: constants, theme: theme)
     }
     
     func showWorkWithMe() {
-        present(pageSlug: "resume", constants: constants, theme: theme)
+        viewController?.modal(pageSlug: "resume", constants: constants, theme: theme)
     }
     
-    func showSocial(for type: Social) {
-        showSocial(for: type, theme: theme)
+    func show(social: Social) {
+        viewController?.show(social: social, theme: theme)
     }
     
     func showDevelopedBy() {
-        present(safari: constants.baseURL.absoluteString, theme: theme)
+        viewController?.modal(safari: constants.baseURL.absoluteString, theme: theme)
     }
 }
 
@@ -60,8 +60,8 @@ extension ShowMoreRouter {
     }
     
     func showSettings() {
-        guard let settings = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(settings)
+        let controller = render.showSettings()
+        viewController?.show(controller)
     }
 }
 
@@ -86,5 +86,13 @@ extension ShowMoreRouter {
         }
         
         viewController?.present(controller)
+    }
+}
+
+extension ShowMoreRouter {
+    
+    func share(appURL: String, message: String, popoverFrom view: UIView) {
+        let share = [message, appURL]
+        viewController?.present(activities: share, popoverFrom: view)
     }
 }

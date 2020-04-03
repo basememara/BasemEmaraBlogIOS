@@ -26,13 +26,13 @@ class ListFavoritesViewController: UIViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ListFavoritesModuleType
+    var core: ListFavoritesCoreType?
     
-    private lazy var action: ListFavoritesActionable = module.component(with: self)
-    private lazy var router: ListFavoritesRoutable = module.component(with: self)
+    private lazy var action: ListFavoritesActionable? = core?.action(with: self)
+    private lazy var router: ListFavoritesRouterable? = core?.router(with: self)
     
-    private lazy var constants: ConstantsType = module.component()
-    private lazy var theme: Theme = module.component()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     
@@ -56,7 +56,7 @@ class ListFavoritesViewController: UIViewController {
 private extension ListFavoritesViewController {
     
     func loadData() {
-        action.fetchFavoritePosts(
+        action?.fetchFavoritePosts(
             with: ListFavoritesAPI.FetchPostsRequest()
         )
     }
@@ -96,16 +96,17 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router.showPost(for: model)
+        router?.showPost(for: model)
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
         UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
-                    self.action.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
+                    self.action?.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
-                }.with {
+                }
+                .with {
                     $0.image = UIImage(named: .favoriteEmpty)
                 }
             ]
@@ -117,10 +118,11 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
 extension ListFavoritesViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        guard let constants = constants, let theme = theme else { return nil }
+        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router.showPost(for: model)
+        router?.showPost(for: model)
     }
 }

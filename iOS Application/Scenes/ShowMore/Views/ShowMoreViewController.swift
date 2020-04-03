@@ -15,10 +15,10 @@ class ShowMoreViewController: UITableViewController {
     
     // MARK: - Dependencies
     
-    @Inject private var module: ShowMoreModuleType
+    var core: ShowMoreCoreType?
     
-    private(set) lazy var router: ShowMoreRoutable = module.component(with: self)
-    private lazy var constants: ConstantsType = module.component()
+    private(set) lazy var router: ShowMoreRouterable? = core?.router(with: self)
+    private lazy var constants: ConstantsType? = core?.constants()
 }
 
 // MARK: - Interactions
@@ -26,15 +26,15 @@ class ShowMoreViewController: UITableViewController {
 private extension ShowMoreViewController {
     
     @IBAction func twitterButtonTapped() {
-        router.showSocial(for: .twitter)
+        router?.show(social: .twitter)
     }
     
     @IBAction func linkedInButtonTapped() {
-        router.showSocial(for: .linkedIn)
+        router?.show(social: .linkedIn)
     }
     
     @IBAction func githubButtonTapped() {
-        router.showSocial(for: .github)
+        router?.show(social: .github)
     }
 }
 
@@ -48,8 +48,7 @@ extension ShowMoreViewController: CellIdentifiable {
         case work
         case rate
         case share
-        case notifications
-        case ios
+        case settings
         case developedBy
     }
 }
@@ -68,39 +67,28 @@ extension ShowMoreViewController {
         
         switch identifier {
         case .subscribe:
-            router.showSubscribe()
+            router?.showSubscribe()
         case .feedback:
-            router.sendFeedback(
+            router?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
-                    constants.appDisplayName ?? ""
+                    constants?.appDisplayName ?? ""
                 )
             )
         case .work:
-            router.showWorkWithMe()
+            router?.showWorkWithMe()
         case .rate:
-            router.showRateApp()
+            router?.showRateApp()
         case .share:
-            let message: String = .localizedFormat(.shareAppMessage, constants.appDisplayName ?? "")
-            let share = [message, constants.itunesURL]
-            present(activities: share, popoverFrom: cell)
-        case .notifications:
-            (UIApplication.shared.delegate as? AppDelegate)?.plugins
-                .compactMap { $0 as? NotificationPlugin }
-                .first?
-                .register { [weak self] granted in
-                    // TODO: Move to tutorial and localize
-                    guard granted else {
-                        self?.present(alert: "Please enable any time from iOS settings.")
-                        return
-                    }
-                    
-                    self?.present(alert: "You have registered to receive notifications.")
-                }
-        case .ios:
-            router.showSettings()
+            router?.share(
+                appURL: constants?.itunesURL ?? "",
+                message: .localizedFormat(.shareAppMessage, constants?.appDisplayName ?? ""),
+                popoverFrom: cell
+            )
+        case .settings:
+            router?.showSettings()
         case .developedBy:
-            router.showDevelopedBy()
+            router?.showDevelopedBy()
         }
     }
 }

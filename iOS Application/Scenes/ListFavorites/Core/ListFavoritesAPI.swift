@@ -13,13 +13,13 @@ import ZamzamUI
 // Scene namespace
 enum ListFavoritesAPI {}
 
-protocol ListFavoritesModuleType {
-    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
-    func component(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
-    func component(with viewController: UIViewController?) -> ListFavoritesRoutable
+protocol ListFavoritesCoreType {
+    func action(with viewController: ListFavoritesDisplayable?) -> ListFavoritesActionable
+    func presenter(with viewController: ListFavoritesDisplayable?) -> ListFavoritesPresentable
+    func router(with viewController: UIViewController?) -> ListFavoritesRouterable
     
-    func component() -> ConstantsType
-    func component() -> Theme
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol ListFavoritesActionable: AppActionable {
@@ -39,7 +39,7 @@ protocol ListFavoritesDisplayable: class, AppDisplayable {
     func displayToggleFavorite(with viewModel: ListFavoritesAPI.FavoriteViewModel)
 }
 
-protocol ListFavoritesRoutable: AppRoutable {
+protocol ListFavoritesRouterable {
     func showPost(for model: PostsDataViewModel)
 }
 
