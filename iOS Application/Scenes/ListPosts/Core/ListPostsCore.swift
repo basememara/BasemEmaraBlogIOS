@@ -19,19 +19,19 @@ struct ListPostsCore: ListPostsCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsActionable {
+    func action(with viewController: ListPostsDisplayable?) -> ListPostsActionable {
         ListPostsAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository()
         )
     }
     
-    func dependency(with viewController: ListPostsDisplayable?) -> ListPostsPresentable {
+    func presenter(with viewController: ListPostsDisplayable?) -> ListPostsPresentable {
         ListPostsPresenter(viewController: viewController)
     }
     
-    func dependency(viewController: UIViewController?, listPostsDelegate: ListPostsDelegate?) -> ListPostsRouterable {
+    func router(viewController: UIViewController?, listPostsDelegate: ListPostsDelegate?) -> ListPostsRouterable {
         ListPostsRouter(
             render: render,
             viewController: viewController,
@@ -39,11 +39,11 @@ struct ListPostsCore: ListPostsCoreType {
         )
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
     
-    func dependency() -> Theme {
-        root.dependency()
+    func theme() -> Theme {
+        root.theme()
     }
 }

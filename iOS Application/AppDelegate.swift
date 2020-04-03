@@ -14,18 +14,18 @@ import ZamzamCore
 class AppDelegate: ApplicationPluggableDelegate {
 
     override func plugins() -> [ApplicationPlugin] {[
-        LoggerPlugin(log: core.dependency()),
-        DataPlugin(dataProvider: core.dependency()),
+        LoggerPlugin(log: core.log()),
+        DataPlugin(dataRepository: core.dataRepository()),
         BackgroundPlugin(
-            dataProvider: core.dependency(),
-            preferences: core.dependency(),
-            log: core.dependency()
+            dataRepository: core.dataRepository(),
+            preferences: core.preferences(),
+            log: core.log()
         ),
-        ThemePlugin(theme: core.dependency()),
+        ThemePlugin(theme: core.theme()),
         WindowPlugin(
             delegate: self,
             render: WindowRender(render: render),
-            preferences: core.dependency()
+            preferences: core.preferences()
         ),
         NotificationPlugin(
             router: NotificationRouter(render: render),
@@ -34,7 +34,7 @@ class AppDelegate: ApplicationPluggableDelegate {
         ShortcutPlugin(
             router: ShortcutRouter(
                 render: render,
-                constants: core.dependency()
+                constants: core.constants()
             )
         ),
         DeepLinkPlugin(
@@ -42,7 +42,7 @@ class AppDelegate: ApplicationPluggableDelegate {
                 core: core,
                 render: render
             ),
-            log: core.dependency()
+            log: core.log()
         )
     ]}
 }
@@ -62,15 +62,10 @@ extension AppDelegate {
 
 // MARK: - Environment Components
 
-private enum Root {
+private enum App {
     
-    /// Root dependency injection container
+    /// Root dependency injection container.
     static let core = AppCore()
-    
-    /// Root application storage
-    static let state = AppState(
-        notificationCenter: core.dependency()
-    )
     
     /// Root builder for all scenes.
     ///
@@ -81,7 +76,7 @@ private enum Root {
     /// Create views only through scene renders.
     static let render = SceneRender(
         core: core,
-        state: state,
+        state: AppState.root,
         middleware: [ // All actions pass through
             AnalyticsMiddleware()
         ]
@@ -89,12 +84,12 @@ private enum Root {
 }
 
 private extension UIApplicationDelegate {
-    var core: SwiftyPressCore { Root.core }
-    var render: SceneRender { Root.render }
+    var core: SwiftyPressCore { App.core }
+    var render: SceneRender { App.render }
 }
 
 @available(iOS 13.0, *)
 extension UISceneDelegate {
-    var core: SwiftyPressCore { Root.core }
-    var render: SceneRender { Root.render }
+    var core: SwiftyPressCore { App.core }
+    var render: SceneRender { App.render }
 }

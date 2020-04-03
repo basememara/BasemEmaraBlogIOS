@@ -5,12 +5,13 @@
 //
 
 /// The reducer to dispatch an action to state for the scene.
-protocol ReducerType {
+public protocol ReducerType {
     associatedtype Action: ActionType
+    associatedtype State: StateType
     
     /// Performs the logic and mutates the state.
     /// - Parameters:
-    ///   - state: The global state for the application
+    ///   - state: The state for the component.
     ///   - action: The action to perform on the state.
-    func reduce(_ state: AppState, _ action: Action)
+    func callAsFunction(_ state: inout State, _ action: Action)
 }

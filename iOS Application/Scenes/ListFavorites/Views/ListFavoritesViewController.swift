@@ -28,11 +28,11 @@ class ListFavoritesViewController: UIViewController {
     
     var core: ListFavoritesCoreType?
     
-    private lazy var action: ListFavoritesActionable? = core?.dependency(with: self)
-    private lazy var router: ListFavoritesRouterable? = core?.dependency(with: self)
+    private lazy var action: ListFavoritesActionable? = core?.action(with: self)
+    private lazy var router: ListFavoritesRouterable? = core?.router(with: self)
     
-    private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     

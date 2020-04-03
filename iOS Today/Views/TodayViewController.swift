@@ -24,8 +24,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     var core: TodayCoreType? = TodayCore(root: AppCore())
     
-    private lazy var action: TodayActionable? = core?.dependency(with: self)
-    private lazy var dataProvider: DataProviderType? = core?.dependency()
+    private lazy var action: TodayActionable? = core?.action(with: self)
+    private lazy var dataRepository: DataRepositoryType? = core?.dataRepository()
     
     // MARK: - Lifecycle
     
@@ -60,10 +60,10 @@ private extension TodayViewController {
     
     func commonInit() {
         // Setup data storage
-        dataProvider?.configure()
+        dataRepository?.configure()
         
         // Set theme before views loaded into hierarchy
-        guard let theme: Theme = core?.dependency() else { return }
+        guard let theme: Theme = core?.theme() else { return }
         TodayStyles.apply(theme)
     }
     

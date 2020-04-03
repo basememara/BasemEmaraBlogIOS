@@ -42,11 +42,11 @@ class ShowBlogViewController: UIViewController {
     
     var core: ShowBlogCoreType?
     
-    private lazy var action: ShowBlogActionable? = core?.dependency(with: self)
-    private(set) lazy var router: ShowBlogRouterable? = core?.dependency(with: self)
+    private lazy var action: ShowBlogActionable? = core?.action(with: self)
+    private(set) lazy var router: ShowBlogRouterable? = core?.router(with: self)
     
-    private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     
@@ -89,6 +89,7 @@ private extension ShowBlogViewController {
     
     func configure() {
         navigationItem.titleView = titleView
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
             centerPosition: true,

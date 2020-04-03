@@ -27,14 +27,14 @@ class ListPostsViewController: UIViewController {
     
     var core: ListPostsCoreType?
     
-    private lazy var action: ListPostsActionable? = core?.dependency(with: self)
-    private lazy var router: ListPostsRouterable? = core?.dependency(
+    private lazy var action: ListPostsActionable? = core?.action(with: self)
+    private lazy var router: ListPostsRouterable? = core?.router(
         viewController: self,
         listPostsDelegate: delegate
     )
     
-    private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     

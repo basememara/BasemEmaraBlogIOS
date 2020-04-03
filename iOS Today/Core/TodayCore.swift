@@ -19,23 +19,23 @@ struct TodayCore: TodayCoreType {
 
 extension TodayCore {
     
-    func dependency(with viewController: TodayDisplayable?) -> TodayActionable {
+    func action(with viewController: TodayDisplayable?) -> TodayActionable {
         TodayAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository()
         )
     }
     
-    func dependency(with viewController: TodayDisplayable?) -> TodayPresentable {
+    func presenter(with viewController: TodayDisplayable?) -> TodayPresentable {
         TodayPresenter(viewController: viewController)
     }
     
-    func dependency() -> DataProviderType {
-        root.dependency()
+    func dataRepository() -> DataRepositoryType {
+        root.dataRepository()
     }
     
-    func dependency() -> Theme {
+    func theme() -> Theme {
         AppTheme()
     }
 }

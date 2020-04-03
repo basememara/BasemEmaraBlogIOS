@@ -14,12 +14,12 @@ import ZamzamUI
 enum SearchPostsAPI {}
 
 protocol SearchPostsCoreType {
-    func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
-    func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
-    func dependency(with viewController: UIViewController?) -> SearchPostsRouterable
+    func action(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable
+    func presenter(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable
+    func router(with viewController: UIViewController?) -> SearchPostsRouterable
     
-    func dependency() -> ConstantsType
-    func dependency() -> Theme
+    func constants() -> ConstantsType
+    func theme() -> Theme
 }
 
 protocol SearchPostsActionable: AppActionable {

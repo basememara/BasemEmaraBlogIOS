@@ -49,15 +49,15 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     var core: ShowPostCoreType?
     
-    private lazy var action: ShowPostActionable? = core?.dependency(with: self)
-    private lazy var router: ShowPostRouterable? = core?.dependency(
+    private lazy var action: ShowPostActionable? = core?.action(with: self)
+    private lazy var router: ShowPostRouterable? = core?.router(
         viewController: self,
         listPostsDelegate: self
     )
     
-    private lazy var notificationCenter: NotificationCenter? = core?.dependency()
-    private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
+    private lazy var notificationCenter: NotificationCenter? = core?.notificationCenter()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
     
     // MARK: - State
     
@@ -107,9 +107,9 @@ private extension ShowPostViewController {
         // Status bar background transparent so fill in on scroll
         showStatusBar()
         notificationCenter?.addObserver(
-            for: UIDevice.orientationDidChangeNotification,
+            self,
             selector: #selector(deviceOrientationDidChange),
-            from: self
+            name: UIDevice.orientationDidChangeNotification
         )
     }
     
@@ -125,7 +125,7 @@ private extension ShowPostViewController {
 
 extension ShowPostViewController: ShowPostLoadable {
     
-    func loadData(for id: Int) {
+    func load(_ id: Int) {
         if let lastPostID = postID {
             history.append(lastPostID)
         }
@@ -244,7 +244,7 @@ extension ShowPostViewController: ShowPostDisplayable {
         navigationController?.setToolbarHidden(false, animated: true)
         
         if let postID = viewModel.postID {
-            loadData(for: postID)
+            load(postID)
             return viewModel.decisionHandler(.cancel)
         }
         
@@ -270,7 +270,7 @@ extension ShowPostViewController: ShowPostDisplayable {
 extension ShowPostViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        loadData(for: postID)
+        load(postID)
         viewController.dismissOrPop()
     }
 }

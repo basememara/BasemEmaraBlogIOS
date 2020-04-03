@@ -41,11 +41,11 @@ class SearchPostsViewController: UIViewController {
     
     var core: SearchPostsCoreType?
     
-    private lazy var action: SearchPostsActionable? = core?.dependency(with: self)
-    private lazy var router: SearchPostsRouterable? = core?.dependency(with: self)
+    private lazy var action: SearchPostsActionable? = core?.action(with: self)
+    private lazy var router: SearchPostsRouterable? = core?.router(with: self)
     
-    private lazy var constants: ConstantsType? = core?.dependency()
-    private lazy var theme: Theme? = core?.dependency()
+    private lazy var constants: ConstantsType? = core?.constants()
+    private lazy var theme: Theme? = core?.theme()
 
     // MARK: - State
     

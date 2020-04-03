@@ -19,30 +19,30 @@ struct SearchPostsCore: SearchPostsCoreType {
         self.render = render
     }
     
-    func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
+    func action(with viewController: SearchPostsDisplayable?) -> SearchPostsActionable {
         SearchPostsAction(
-            presenter: dependency(with: viewController),
-            postProvider: root.dependency(),
-            mediaProvider: root.dependency()
+            presenter: presenter(with: viewController),
+            postRepository: root.postRepository(),
+            mediaRepository: root.mediaRepository()
         )
     }
     
-    func dependency(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable {
+    func presenter(with viewController: SearchPostsDisplayable?) -> SearchPostsPresentable {
         SearchPostsPresenter(viewController: viewController)
     }
     
-    func dependency(with viewController: UIViewController?) -> SearchPostsRouterable {
+    func router(with viewController: UIViewController?) -> SearchPostsRouterable {
         SearchPostsRouter(
             render: render,
             viewController: viewController
         )
     }
     
-    func dependency() -> ConstantsType {
-        root.dependency()
+    func constants() -> ConstantsType {
+        root.constants()
     }
     
-    func dependency() -> Theme {
-        root.dependency()
+    func theme() -> Theme {
+        root.theme()
     }
 }
