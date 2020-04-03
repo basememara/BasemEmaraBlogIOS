@@ -71,7 +71,7 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        var presenter = HomePresenter(
+        let presenter = HomePresenter(
             render: self,
             mailComposer: core.mailComposer(),
             constants: core.constants(),
@@ -80,7 +80,7 @@ extension SceneRender {
         
         let reducer = HomeReducer(presenter: presenter)
         let store = Store(for: \.homeState, using: reducer)
-        let interactor = HomeInteractor(send: store.action)
+        let interactor = HomeInteractor(action: store.action)
         let controller = HomeViewController(store, interactor)
         
         // Assign delegates

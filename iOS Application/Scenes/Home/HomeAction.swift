@@ -18,13 +18,13 @@ enum HomeAction: ActionType {
 // MARK: - Logic
 
 struct HomeInteractor: HomeInteractorType {
-    let send: (HomeAction) -> Void
+    let action: (HomeAction) -> Void
 }
 
 extension HomeInteractor {
     
     func fetchProfile() {
-        send(.loadProfile(
+        action(.loadProfile(
             avatar: "BasemProfilePic",
             name: "Basem Emara",
             caption: "Mobile Architect / iOS Jedi"
@@ -87,7 +87,7 @@ extension HomeInteractor {
             )
         ]
         
-        send(.loadMenu(sections))
+        action(.loadMenu(sections))
     }
     
     func fetchSocial() {
@@ -110,14 +110,14 @@ extension HomeInteractor {
             )
         ]
         
-        send(.loadSocial(items))
+        action(.loadSocial(items))
     }
     
     func select(menu: HomeAPI.MenuItem) {
-        send(.selectMenu(menu))
+        action(.selectMenu(menu))
     }
     
     func select(social: Social) {
-        send(.selectSocial(social))
+        action(.selectSocial(social))
     }
 }

@@ -10,5 +10,5 @@ public protocol InteractorType {
     associatedtype Action: ActionType
     
     /// Performs the asynchronous task and sends a new action.
-    var send: (Action) -> Void { get }
+    var action: (Action) -> Void { get }
 }
