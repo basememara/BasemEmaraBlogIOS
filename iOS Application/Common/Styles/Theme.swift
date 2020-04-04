@@ -52,7 +52,7 @@ private extension Theme {
         
         UITableViewCell.appearance().with {
             $0.backgroundColor = .clear
-            $0.selectionColor = secondaryBackgroundColor
+            $0.selectedBackgroundColor = secondaryBackgroundColor
         }
         
         UITextField.appearance().with {
@@ -121,7 +121,7 @@ private extension Theme {
         ThemedPrimaryButton.appearance().with {
             $0.setTitleColor(backgroundColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: tint), for: .normal)
-            $0.titleFont = .systemFont(ofSize: 15, weight: .bold)
+            $0.titleLabelFont = .systemFont(ofSize: 15, weight: .bold)
             
             $0.setTitleColor(tint, for: .selected)
             $0.setBackgroundImage(UIImage(from: backgroundColor), for: .selected)
@@ -135,7 +135,7 @@ private extension Theme {
         ThemedSecondaryButton.appearance().with {
             $0.setTitleColor(secondaryLabelColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: backgroundColor), for: .normal)
-            $0.titleFont = .systemFont(ofSize: 15, weight: .bold)
+            $0.titleLabelFont = .systemFont(ofSize: 15, weight: .bold)
             $0.borderColor = secondaryLabelColor
             $0.borderWidth = 1
             $0.cornerRadius = buttonCornerRadius
