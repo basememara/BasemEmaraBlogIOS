@@ -29,7 +29,6 @@
 		8B42C70B234A6C7100F38E23 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B42C70A234A6C7100F38E23 /* UserNotificationsUI.framework */; };
 		8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C70D234A6C7100F38E23 /* NotificationViewController.swift */; };
 		8B42C715234A6C7100F38E23 /* BasemEmaraNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8B42C729234BBB1300F38E23 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B42C728234BBB1300F38E23 /* SwiftyPress */; };
 		8B42C7C0234BBC9000F38E23 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C735234BBC8F00F38E23 /* HomePresenter.swift */; };
 		8B42C7C2234BBC9000F38E23 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C738234BBC8F00F38E23 /* HomeViewController.swift */; };
 		8B42C7C3234BBC9000F38E23 /* ListTermsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C73A234BBC8F00F38E23 /* ListTermsRouter.swift */; };
@@ -174,6 +173,18 @@
 		8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
 		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
+		8B7996D32437947100A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996D22437947100A27E58 /* SwiftyPress */; };
+		8B7996D42437947100A27E58 /* SwiftyPress in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996D22437947100A27E58 /* SwiftyPress */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8B7996DD2437963200A27E58 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DB2437963200A27E58 /* ZamzamCore.bundle */; };
+		8B7996DE2437963200A27E58 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DC2437963200A27E58 /* SwiftyPress.bundle */; };
+		8B7996DF2437964400A27E58 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DC2437963200A27E58 /* SwiftyPress.bundle */; };
+		8B7996E02437964400A27E58 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DB2437963200A27E58 /* ZamzamCore.bundle */; };
+		8B7996E12437964800A27E58 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DC2437963200A27E58 /* SwiftyPress.bundle */; };
+		8B7996E22437964800A27E58 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7996DB2437963200A27E58 /* ZamzamCore.bundle */; };
+		8B7996EA24379E4C00A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996E924379E4C00A27E58 /* SwiftyPress */; };
+		8B7996EB24379E4C00A27E58 /* SwiftyPress in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996E924379E4C00A27E58 /* SwiftyPress */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8B7996ED24379E5200A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996EC24379E5200A27E58 /* SwiftyPress */; };
+		8B7996EE24379E5200A27E58 /* SwiftyPress in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996EC24379E5200A27E58 /* SwiftyPress */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */; };
 		8B7A89F42379AA32002E5A75 /* ShowSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */; };
 		8B81CC172435A19A0050CAC9 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC162435A19A0050CAC9 /* HomeAPI.swift */; };
@@ -182,12 +193,6 @@
 		8B81CC1F24360CEA0050CAC9 /* InteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */; };
 		8B81CC2124360D0F0050CAC9 /* PresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC2024360D0F0050CAC9 /* PresenterType.swift */; };
 		8B81CC232436120A0050CAC9 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC222436120A0050CAC9 /* MainPresenter.swift */; };
-		8B81CC282436F49E0050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
-		8B81CC292436F49E0050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
-		8B81CC2A2436F4A40050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
-		8B81CC2B2436F4A40050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
-		8B81CC2C2436F4A70050CAC9 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */; };
-		8B81CC2D2436F4A70050CAC9 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */; };
 		8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */; };
 		8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB45239D704900AD73D4 /* WindowRender.swift */; };
 		8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905BA23A5E13100AB8A4F /* AppState.swift */; };
@@ -205,8 +210,6 @@
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
 		8BBB3A7123B91FFA002C58A7 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB3A7023B91FFA002C58A7 /* HomeReducer.swift */; };
-		8BBCEA75242D24D700499813 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBCEA74242D24D700499813 /* SwiftyPress */; };
-		8BBCEA77242D24DC00499813 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBCEA76242D24DC00499813 /* SwiftyPress */; };
 		8BBCEA7E242FDDAE00499813 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCEA7D242FDDAE00499813 /* StoreType.swift */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +241,39 @@
 				8B42C715234A6C7100F38E23 /* BasemEmaraNotification.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7996C924378F2800A27E58 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B7996D42437947100A27E58 /* SwiftyPress in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7996CB2437917B00A27E58 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B7996EB24379E4C00A27E58 /* SwiftyPress in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7996CD2437917F00A27E58 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B7996EE24379E5200A27E58 /* SwiftyPress in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -373,6 +409,8 @@
 		8B5C98D1236536BF00F7F016 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
+		8B7996DB2437963200A27E58 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B7996DC2437963200A27E58 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
 		8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
 		8B81CC162435A19A0050CAC9 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
@@ -381,8 +419,6 @@
 		8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorType.swift; sourceTree = "<group>"; };
 		8B81CC2024360D0F0050CAC9 /* PresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterType.swift; sourceTree = "<group>"; };
 		8B81CC222436120A0050CAC9 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
-		8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
 		8B87EB45239D704900AD73D4 /* WindowRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRender.swift; sourceTree = "<group>"; };
 		8B8905BA23A5E13100AB8A4F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -408,7 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B42C729234BBB1300F38E23 /* SwiftyPress in Frameworks */,
+				8B7996D32437947100A27E58 /* SwiftyPress in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +452,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BBCEA75242D24D700499813 /* SwiftyPress in Frameworks */,
+				8B7996EA24379E4C00A27E58 /* SwiftyPress in Frameworks */,
 				8B42C6F4234A6C0E00F38E23 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,7 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B42C70B234A6C7100F38E23 /* UserNotificationsUI.framework in Frameworks */,
-				8BBCEA77242D24DC00499813 /* SwiftyPress in Frameworks */,
+				8B7996ED24379E5200A27E58 /* SwiftyPress in Frameworks */,
 				8B42C709234A6C7100F38E23 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,8 +501,8 @@
 				8B42C70C234A6C7100F38E23 /* iOS Notification */,
 				8B42C6F2234A6C0E00F38E23 /* Frameworks */,
 				8B42C6D7234A6BDB00F38E23 /* Products */,
-				8B81CC272436F49E0050CAC9 /* SwiftyPress.bundle */,
-				8B81CC262436F49D0050CAC9 /* ZamzamCore.bundle */,
+				8B7996DC2437963200A27E58 /* SwiftyPress.bundle */,
+				8B7996DB2437963200A27E58 /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1098,6 +1134,7 @@
 				8B42C6D4234A6BDB00F38E23 /* Resources */,
 				8B42C8B0234BD51200F38E23 /* Run Lint Script */,
 				8B42C702234A6C0E00F38E23 /* Embed App Extensions */,
+				8B7996C924378F2800A27E58 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1107,7 +1144,7 @@
 			);
 			name = "BasemEmara iOS";
 			packageProductDependencies = (
-				8B42C728234BBB1300F38E23 /* SwiftyPress */,
+				8B7996D22437947100A27E58 /* SwiftyPress */,
 			);
 			productName = "BasemEmara iOS";
 			productReference = 8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */;
@@ -1120,6 +1157,8 @@
 				8B42C6ED234A6C0E00F38E23 /* Sources */,
 				8B42C6EE234A6C0E00F38E23 /* Frameworks */,
 				8B42C6EF234A6C0E00F38E23 /* Resources */,
+				8B7996CB2437917B00A27E58 /* Embed Frameworks */,
+				8BD405352438203E00FBECFE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1127,7 +1166,7 @@
 			);
 			name = "BasemEmara iOS Today";
 			packageProductDependencies = (
-				8BBCEA74242D24D700499813 /* SwiftyPress */,
+				8B7996E924379E4C00A27E58 /* SwiftyPress */,
 			);
 			productName = "BasemEmara iOS Today";
 			productReference = 8B42C6F1234A6C0E00F38E23 /* BasemEmaraToday.appex */;
@@ -1140,6 +1179,8 @@
 				8B42C703234A6C7100F38E23 /* Sources */,
 				8B42C704234A6C7100F38E23 /* Frameworks */,
 				8B42C705234A6C7100F38E23 /* Resources */,
+				8B7996CD2437917F00A27E58 /* Embed Frameworks */,
+				8BD405362438204B00FBECFE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1147,7 +1188,7 @@
 			);
 			name = "BasemEmara iOS Notification";
 			packageProductDependencies = (
-				8BBCEA76242D24DC00499813 /* SwiftyPress */,
+				8B7996EC24379E5200A27E58 /* SwiftyPress */,
 			);
 			productName = "BasemEmara iOS Notification";
 			productReference = 8B42C707234A6C7100F38E23 /* BasemEmaraNotification.appex */;
@@ -1183,7 +1224,7 @@
 			);
 			mainGroup = 8B42C6CB234A69B900F38E23;
 			packageReferences = (
-				8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */,
+				8B7996D12437947100A27E58 /* XCRemoteSwiftPackageReference "SwiftyPress" */,
 			);
 			productRefGroup = 8B42C6D7234A6BDB00F38E23 /* Products */;
 			projectDirPath = "";
@@ -1201,8 +1242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B81CC282436F49E0050CAC9 /* ZamzamCore.bundle in Resources */,
-				8B81CC292436F49E0050CAC9 /* SwiftyPress.bundle in Resources */,
+				8B7996DD2437963200A27E58 /* ZamzamCore.bundle in Resources */,
+				8B7996DE2437963200A27E58 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C81B234BBC9000F38E23 /* PickedPostCollectionViewCell.xib in Resources */,
 				8B42C7C8234BBC9000F38E23 /* ListTerms.storyboard in Resources */,
@@ -1235,8 +1276,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B81CC2A2436F4A40050CAC9 /* SwiftyPress.bundle in Resources */,
-				8B81CC2B2436F4A40050CAC9 /* ZamzamCore.bundle in Resources */,
+				8B7996DF2437964400A27E58 /* SwiftyPress.bundle in Resources */,
+				8B7996E02437964400A27E58 /* ZamzamCore.bundle in Resources */,
 				8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D3236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1256,8 +1297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B81CC2C2436F4A70050CAC9 /* SwiftyPress.bundle in Resources */,
-				8B81CC2D2436F4A70050CAC9 /* ZamzamCore.bundle in Resources */,
+				8B7996E12437964800A27E58 /* SwiftyPress.bundle in Resources */,
+				8B7996E22437964800A27E58 /* ZamzamCore.bundle in Resources */,
 				8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */,
 				8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1293,6 +1334,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		8BD405352438203E00FBECFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n";
+		};
+		8BD405362438204B00FBECFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1646,7 +1721,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1719,7 +1794,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1788,7 +1863,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1859,7 +1934,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1929,7 +2004,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2000,7 +2075,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2111,7 +2186,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2181,7 +2256,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2252,7 +2327,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2333,30 +2408,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */ = {
+		8B7996D12437947100A27E58 /* XCRemoteSwiftPackageReference "SwiftyPress" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:ZamzamInc/SwiftyPress.git";
+			repositoryURL = "https://github.com/ZamzamInc/SwiftyPress.git";
 			requirement = {
-				kind = exactVersion;
-				version = 3.0.2;
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8B42C728234BBB1300F38E23 /* SwiftyPress */ = {
+		8B7996D22437947100A27E58 /* SwiftyPress */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			package = 8B7996D12437947100A27E58 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
 			productName = SwiftyPress;
 		};
-		8BBCEA74242D24D700499813 /* SwiftyPress */ = {
+		8B7996E924379E4C00A27E58 /* SwiftyPress */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			package = 8B7996D12437947100A27E58 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
 			productName = SwiftyPress;
 		};
-		8BBCEA76242D24DC00499813 /* SwiftyPress */ = {
+		8B7996EC24379E5200A27E58 /* SwiftyPress */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B42C727234BBB1300F38E23 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
+			package = 8B7996D12437947100A27E58 /* XCRemoteSwiftPackageReference "SwiftyPress" */;
 			productName = SwiftyPress;
 		};
 /* End XCSwiftPackageProductDependency section */
