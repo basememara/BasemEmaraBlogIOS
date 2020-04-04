@@ -7,7 +7,7 @@
 
 import SwiftyPress
 
-protocol HomeInteractorType: InteractorType {
+protocol HomeActionType: ActionType {
     func fetchProfile()
     func fetchMenu()
     func fetchSocial()
@@ -16,6 +16,9 @@ protocol HomeInteractorType: InteractorType {
 }
 
 protocol HomePresenterType: PresenterType {
+    func loadProfile(avatar: String, name: String, caption: String)
+    func load(menu: [HomeAPI.MenuSection])
+    func load(social: [HomeAPI.SocialItem])
     func select(menu: HomeAPI.MenuItem)
     func select(social: Social)
 }

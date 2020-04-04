@@ -5,7 +5,7 @@
 //  Created by Basem Emara on 2019-12-14.
 //
 
-public struct AppState: StateType {
+public struct AppState {
     var mainState = MainState()
     var homeState = HomeState()
 }

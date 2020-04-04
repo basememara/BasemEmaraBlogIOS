@@ -1,5 +1,5 @@
 //
-//  HomeInteractor.swift
+//  HomeAction.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
@@ -7,28 +7,22 @@
 
 import SwiftyPress
 
-enum HomeAction: ActionType {
-    case loadProfile(avatar: String, name: String, caption: String)
-    case loadMenu([HomeAPI.MenuSection])
-    case loadSocial([HomeAPI.SocialItem])
-    case selectMenu(HomeAPI.MenuItem)
-    case selectSocial(Social)
+struct HomeAction: HomeActionType {
+    private let presenter: HomePresenterType
+    
+    init(presenter: HomePresenterType) {
+        self.presenter = presenter
+    }
 }
 
-// MARK: - Logic
-
-struct HomeInteractor: HomeInteractorType {
-    let action: (HomeAction) -> Void
-}
-
-extension HomeInteractor {
+extension HomeAction {
     
     func fetchProfile() {
-        action(.loadProfile(
+        presenter.loadProfile(
             avatar: "BasemProfilePic",
             name: "Basem Emara",
             caption: "Mobile Architect / iOS Jedi"
-        ))
+        )
     }
     
     func fetchMenu() {
@@ -87,7 +81,7 @@ extension HomeInteractor {
             )
         ]
         
-        action(.loadMenu(sections))
+        presenter.load(menu: sections)
     }
     
     func fetchSocial() {
@@ -110,14 +104,14 @@ extension HomeInteractor {
             )
         ]
         
-        action(.loadSocial(items))
+        presenter.load(social: items)
     }
     
     func select(menu: HomeAPI.MenuItem) {
-        action(.selectMenu(menu))
+        presenter.select(menu: menu)
     }
     
     func select(social: Social) {
-        action(.selectSocial(social))
+        presenter.select(social: social)
     }
 }

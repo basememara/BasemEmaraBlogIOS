@@ -9,11 +9,13 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-    private let store: Store<MainReducer>
+    private let store: Store<MainState>
+    private let action: MainActionType
     private var token: NotificationCenter.Token?
     
-    init(_ store: Store<MainReducer>) {
+    init(store: Store<MainState>, action: MainActionType) {
         self.store = store
+        self.action = action
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,9 +37,8 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
-        
         store(in: &token, observer: load)
-        store.action(.fetchMenu(UIDevice.current.userInterfaceIdiom))
+        action.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
     func load(_ state: MainState) {

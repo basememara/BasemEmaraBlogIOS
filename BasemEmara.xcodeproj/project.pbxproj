@@ -190,16 +190,13 @@
 		8B81CC172435A19A0050CAC9 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC162435A19A0050CAC9 /* HomeAPI.swift */; };
 		8B81CC192435A5CC0050CAC9 /* HomeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC182435A5CC0050CAC9 /* HomeAction.swift */; };
 		8B81CC1B2435B96E0050CAC9 /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1A2435B96E0050CAC9 /* MainAPI.swift */; };
-		8B81CC1F24360CEA0050CAC9 /* InteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */; };
+		8B81CC1F24360CEA0050CAC9 /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1E24360CEA0050CAC9 /* ActionType.swift */; };
 		8B81CC2124360D0F0050CAC9 /* PresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC2024360D0F0050CAC9 /* PresenterType.swift */; };
 		8B81CC232436120A0050CAC9 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC222436120A0050CAC9 /* MainPresenter.swift */; };
 		8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */; };
 		8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB45239D704900AD73D4 /* WindowRender.swift */; };
 		8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905BA23A5E13100AB8A4F /* AppState.swift */; };
 		8B8905C423A6710600AB8A4F /* MainAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905C323A6710600AB8A4F /* MainAction.swift */; };
-		8B8905C623A6711700AB8A4F /* MainReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905C523A6711700AB8A4F /* MainReducer.swift */; };
-		8B8905E823A6CD9300AB8A4F /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905E223A6CD9200AB8A4F /* ActionType.swift */; };
-		8B8905EA23A6CD9300AB8A4F /* ReducerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905E423A6CD9300AB8A4F /* ReducerType.swift */; };
 		8B8905EB23A6CD9300AB8A4F /* MiddlewareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905E523A6CD9300AB8A4F /* MiddlewareType.swift */; };
 		8B8905EC23A6CD9300AB8A4F /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905E623A6CD9300AB8A4F /* StateType.swift */; };
 		8B8D231223A6EFC1000CBC35 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D231123A6EFC1000CBC35 /* MainState.swift */; };
@@ -209,7 +206,6 @@
 		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
-		8BBB3A7123B91FFA002C58A7 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB3A7023B91FFA002C58A7 /* HomeReducer.swift */; };
 		8BBCEA7E242FDDAE00499813 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCEA7D242FDDAE00499813 /* StoreType.swift */; };
 /* End PBXBuildFile section */
 
@@ -416,16 +412,13 @@
 		8B81CC162435A19A0050CAC9 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8B81CC182435A5CC0050CAC9 /* HomeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAction.swift; sourceTree = "<group>"; };
 		8B81CC1A2435B96E0050CAC9 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
-		8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorType.swift; sourceTree = "<group>"; };
+		8B81CC1E24360CEA0050CAC9 /* ActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
 		8B81CC2024360D0F0050CAC9 /* PresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterType.swift; sourceTree = "<group>"; };
 		8B81CC222436120A0050CAC9 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
 		8B87EB45239D704900AD73D4 /* WindowRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRender.swift; sourceTree = "<group>"; };
 		8B8905BA23A5E13100AB8A4F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8B8905C323A6710600AB8A4F /* MainAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAction.swift; sourceTree = "<group>"; };
-		8B8905C523A6711700AB8A4F /* MainReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReducer.swift; sourceTree = "<group>"; };
-		8B8905E223A6CD9200AB8A4F /* ActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
-		8B8905E423A6CD9300AB8A4F /* ReducerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReducerType.swift; sourceTree = "<group>"; };
 		8B8905E523A6CD9300AB8A4F /* MiddlewareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddlewareType.swift; sourceTree = "<group>"; };
 		8B8905E623A6CD9300AB8A4F /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 		8B8D231123A6EFC1000CBC35 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
@@ -435,7 +428,6 @@
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8BBB3A7023B91FFA002C58A7 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
 		8BBCEA7D242FDDAE00499813 /* StoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -485,7 +477,6 @@
 				8B81CC1A2435B96E0050CAC9 /* MainAPI.swift */,
 				8B8905C323A6710600AB8A4F /* MainAction.swift */,
 				8B81CC222436120A0050CAC9 /* MainPresenter.swift */,
-				8B8905C523A6711700AB8A4F /* MainReducer.swift */,
 				8B8D231123A6EFC1000CBC35 /* MainState.swift */,
 			);
 			path = LaunchMain;
@@ -629,7 +620,6 @@
 				8B81CC162435A19A0050CAC9 /* HomeAPI.swift */,
 				8B81CC182435A5CC0050CAC9 /* HomeAction.swift */,
 				8B42C735234BBC8F00F38E23 /* HomePresenter.swift */,
-				8BBB3A7023B91FFA002C58A7 /* HomeReducer.swift */,
 				8B2FE66923AB4DE900682D98 /* HomeState.swift */,
 				8B5C98BB23651FEA00F7F016 /* HomeStyle.swift */,
 			);
@@ -1063,10 +1053,8 @@
 		8B8D231023A6EC28000CBC35 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				8B8905E223A6CD9200AB8A4F /* ActionType.swift */,
-				8B81CC1E24360CEA0050CAC9 /* InteractorType.swift */,
+				8B81CC1E24360CEA0050CAC9 /* ActionType.swift */,
 				8B8905E523A6CD9300AB8A4F /* MiddlewareType.swift */,
-				8B8905E423A6CD9300AB8A4F /* ReducerType.swift */,
 				8B81CC2024360D0F0050CAC9 /* PresenterType.swift */,
 				8B8905E623A6CD9300AB8A4F /* StateType.swift */,
 				8BBCEA7D242FDDAE00499813 /* StoreType.swift */,
@@ -1377,7 +1365,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B42C806234BBC9000F38E23 /* WindowPlugin.swift in Sources */,
-				8B8905C623A6711700AB8A4F /* MainReducer.swift in Sources */,
 				8B42C7D4234BBC9000F38E23 /* ListPostsAPI.swift in Sources */,
 				8B8905C423A6710600AB8A4F /* MainAction.swift in Sources */,
 				8B42C7F6234BBC9000F38E23 /* ListFavoritesPresenter.swift in Sources */,
@@ -1385,7 +1372,7 @@
 				8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */,
 				8B42C7E4234BBC9000F38E23 /* ShowBlogRouter.swift in Sources */,
 				8B42C7C7234BBC9000F38E23 /* ListTermsPresenter.swift in Sources */,
-				8B81CC1F24360CEA0050CAC9 /* InteractorType.swift in Sources */,
+				8B81CC1F24360CEA0050CAC9 /* ActionType.swift in Sources */,
 				8B42C807234BBC9000F38E23 /* LoggerPlugin.swift in Sources */,
 				8B20F10C23A92952007A88DC /* AppActionable.swift in Sources */,
 				8B42C7CB234BBC9000F38E23 /* ShowPostPresenter.swift in Sources */,
@@ -1400,10 +1387,8 @@
 				8B8905EC23A6CD9300AB8A4F /* StateType.swift in Sources */,
 				8B42C7DD234BBC9000F38E23 /* ShowMoreRouter.swift in Sources */,
 				8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */,
-				8BBB3A7123B91FFA002C58A7 /* HomeReducer.swift in Sources */,
 				8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
-				8B8905EA23A6CD9300AB8A4F /* ReducerType.swift in Sources */,
 				8B42C7D7234BBC9000F38E23 /* ListPostsPresenter.swift in Sources */,
 				8B42C7E7234BBC9000F38E23 /* ShowBlogAction.swift in Sources */,
 				8B42C7D3234BBC9000F38E23 /* ShowPostAction.swift in Sources */,
@@ -1413,7 +1398,6 @@
 				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneRender.swift in Sources */,
 				8B42C7EF234BBC9000F38E23 /* SearchPostsAPI.swift in Sources */,
-				8B8905E823A6CD9300AB8A4F /* ActionType.swift in Sources */,
 				8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */,
 				8B81CC172435A19A0050CAC9 /* HomeAPI.swift in Sources */,
 				8B81CC232436120A0050CAC9 /* MainPresenter.swift in Sources */,

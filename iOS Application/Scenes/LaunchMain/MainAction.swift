@@ -7,6 +7,23 @@
 
 import UIKit.UIDevice
 
-enum MainAction: ActionType {
-    case fetchMenu(UIUserInterfaceIdiom)
+struct MainAction: MainActionType {
+    private let presenter: MainPresenterType
+    
+    init(presenter: MainPresenterType) {
+        self.presenter = presenter
+    }
+}
+
+extension MainAction {
+    
+    func fetchMenu(for idiom: UIUserInterfaceIdiom) {
+        var menu: [MainAPI.Menu] = [.blog, .favorites, .search, .more]
+        
+        if case .phone = idiom {
+            menu.prepend(.home)
+        }
+        
+        presenter.load(menu: menu)
+    }
 }

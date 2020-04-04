@@ -8,21 +8,18 @@
 import Foundation
 import ZamzamCore
 
-public protocol StoreType {}
+public protocol StoreType: AnyObject {}
 
 /// The store to handle state, reducer, and action requests.
-public class Store<Reducer: ReducerType>: StoreType {
-    private let keyValue: WritableKeyPath<AppState, Reducer.State>
-    private let reducer: Reducer
+public class Store<State: StateType>: StoreType {
+    private let keyPath: WritableKeyPath<AppState, State>
     private let middleware: [MiddlewareType]
     
     public init(
-        for keyValue: WritableKeyPath<AppState, Reducer.State>,
-        using reducer: Reducer,
-        middleware: [MiddlewareType] = []
+        keyPath: WritableKeyPath<AppState, State>,
+        with middleware: [MiddlewareType] = []
     ) {
-        self.keyValue = keyValue
-        self.reducer = reducer
+        self.keyPath = keyPath
         self.middleware = middleware
     }
 }
@@ -30,17 +27,19 @@ public class Store<Reducer: ReducerType>: StoreType {
 public extension Store {
     
     /// The current value of the state.
-    private(set) var state: Reducer.State {
-        get { AppState.queue.sync { AppState.root[keyPath: keyValue] } }
+    private(set) var state: State {
+        get { AppState.queue.sync { AppState.root[keyPath: keyPath] } }
         set {
-            AppState.queue.sync(flags: .barrier) { AppState.root[keyPath: keyValue] = newValue }
+            AppState.queue.sync(flags: .barrier) { AppState.root[keyPath: keyPath] = newValue }
             NotificationCenter.default.post(name: .stateDidChange, userInfo: [.state: newValue])
         }
     }
     
-    func action(_ action: Reducer.Action) {
-        middleware.forEach { $0(action) }
-        reducer(&state, action)
+    /// Mutate the state by sending and action.
+    /// - Parameter input: The input of the request.
+    func send(_ input: State.Input) {
+        middleware.forEach { $0(input) }
+        state.receive(input)
     }
 }
 
@@ -51,9 +50,9 @@ public extension Store {
     /// - Parameters:
     ///   - token: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
-    func callAsFunction(in token: inout NotificationCenter.Token?, observer: @escaping (Reducer.State) -> Void) {
+    func callAsFunction(in token: inout NotificationCenter.Token?, observer: @escaping (State) -> Void) {
         NotificationCenter.default.addObserver(forName: .stateDidChange, queue: .main, in: &token) { notification in
-            guard let state = notification.userInfo?[.state] as? Reducer.State else { return }
+            guard let state = notification.userInfo?[.state] as? State else { return }
             observer(state)
         }
     }
