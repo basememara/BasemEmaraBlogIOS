@@ -15,18 +15,18 @@ struct HomeState: StateType {
     private(set) var socialMenu: [HomeAPI.SocialItem] = []
 }
 
-// MARK: - Mutations
+// MARK: - Reducer
 
 extension HomeState {
     
-    enum Input: InputType {
+    enum Action: ActionType {
         case loadProfile(avatar: String, name: String, caption: String)
         case loadMenu([HomeAPI.MenuSection])
         case loadSocial([HomeAPI.SocialItem])
     }
     
-    mutating func receive(_ input: Input) {
-        switch input {
+    mutating func receive(_ action: Action) {
+        switch action {
         case .loadProfile(let avatar, let name, let caption):
             profileAvatar = avatar
             profileName = name

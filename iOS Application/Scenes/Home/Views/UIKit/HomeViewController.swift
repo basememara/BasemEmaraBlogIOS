@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class HomeViewController: UIViewController {
     private let store: Store<HomeState>
-    private let action: HomeActionType
+    private let interactor: HomeInteractorType
     private var token: NotificationCenter.Token?
     
     // MARK: - Controls
@@ -33,9 +33,9 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(store: Store<HomeState>, action: HomeActionType) {
+    init(store: Store<HomeState>, interactor: HomeInteractorType) {
         self.store = store
-        self.action = action
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,9 +73,9 @@ private extension HomeViewController {
         
         store(in: &token, observer: load)
         
-        action.fetchProfile()
-        action.fetchMenu()
-        action.fetchSocial()
+        interactor.fetchProfile()
+        interactor.fetchMenu()
+        interactor.fetchSocial()
     }
     
     func load(_ state: HomeState) {
@@ -96,7 +96,7 @@ extension HomeViewController: UITableViewDelegate {
                 return
         }
         
-        action.select(menu: item)
+        interactor.select(menu: item)
     }
 }
 
@@ -131,6 +131,6 @@ extension HomeViewController: HomeHeaderViewDelegate {
     
     func didTapSocialButton(_ sender: UIButton) {
         guard let item = Social.allCases[safe: sender.tag] else { return }
-        action.select(social: item)
+        interactor.select(social: item)
     }
 }

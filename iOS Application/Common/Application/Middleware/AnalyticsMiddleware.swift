@@ -7,9 +7,9 @@
 
 struct AnalyticsMiddleware: MiddlewareType {
     
-    func callAsFunction(_ input: InputType) {
-        switch input {
-        case MainState.Input.loadMenu:
+    func callAsFunction(_ action: ActionType) {
+        switch action {
+        case MainState.Action.loadMenu:
             print("Analytics middleware triggered on action 'MainAction.fetchMenu'.")
         default:
             break

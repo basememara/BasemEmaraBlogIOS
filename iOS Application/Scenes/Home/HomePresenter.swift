@@ -15,7 +15,7 @@ class HomePresenter: HomePresenterType {
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
-    private let display: Input<HomeState>
+    private let send: Action<HomeState>
     
     weak var presentationContext: UIViewController?
     
@@ -24,28 +24,28 @@ class HomePresenter: HomePresenterType {
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme,
-        display: @escaping Input<HomeState>
+        send: @escaping Action<HomeState>
     ) {
         self.render = render
         self.mailComposer = mailComposer
         self.constants = constants
         self.theme = theme
-        self.display = display
+        self.send = send
     }
 }
 
 extension HomePresenter {
     
     func loadProfile(avatar: String, name: String, caption: String) {
-        display(.loadProfile(avatar: avatar, name: name, caption: caption))
+        send(.loadProfile(avatar: avatar, name: name, caption: caption))
     }
     
     func load(menu: [HomeAPI.MenuSection]) {
-        display(.loadMenu(menu))
+        send(.loadMenu(menu))
     }
     
     func load(social: [HomeAPI.SocialItem]) {
-        display(.loadSocial(social))
+        send(.loadSocial(social))
     }
     
     func select(menu: HomeAPI.MenuItem) {

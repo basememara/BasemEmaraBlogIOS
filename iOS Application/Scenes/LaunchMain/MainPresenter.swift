@@ -9,11 +9,11 @@ import UIKit.UIViewController
 
 class MainPresenter: MainPresenterType {
     private let render: SceneRenderType
-    private let display: Input<MainState>
+    private let send: Action<MainState>
     
-    init(render: SceneRenderType, display: @escaping Input<MainState>) {
+    init(render: SceneRenderType, send: @escaping Action<MainState>) {
         self.render = render
-        self.display = display
+        self.send = send
     }
 }
 
@@ -60,7 +60,7 @@ extension MainPresenter {
             }
         }
         
-        display(.loadMenu(menu))
+        send(.loadMenu(menu))
     }
 }
 

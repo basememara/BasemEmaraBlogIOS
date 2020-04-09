@@ -8,7 +8,7 @@
 import UIKit.UIDevice
 import UIKit.UIViewController
 
-protocol MainActionType: ActionType {
+protocol MainInteractorType: InteractorType {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)
 }
 

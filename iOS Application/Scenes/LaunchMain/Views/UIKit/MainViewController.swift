@@ -10,12 +10,12 @@ import UIKit
 
 class MainViewController: UITabBarController {
     private let store: Store<MainState>
-    private let action: MainActionType
+    private let interactor: MainInteractorType
     private var token: NotificationCenter.Token?
     
-    init(store: Store<MainState>, action: MainActionType) {
+    init(store: Store<MainState>, interactor: MainInteractorType) {
         self.store = store
-        self.action = action
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,7 +38,7 @@ private extension MainViewController {
     func prepare() {
         delegate = self
         store(in: &token, observer: load)
-        action.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
+        interactor.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
     func load(_ state: MainState) {

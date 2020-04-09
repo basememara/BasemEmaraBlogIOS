@@ -1,5 +1,5 @@
 //
-//  HomeAction.swift
+//  HomeInteractor.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
@@ -7,7 +7,7 @@
 
 import SwiftyPress
 
-struct HomeAction: HomeActionType {
+struct HomeInteractor: HomeInteractorType {
     private let presenter: HomePresenterType
     
     init(presenter: HomePresenterType) {
@@ -15,7 +15,7 @@ struct HomeAction: HomeActionType {
     }
 }
 
-extension HomeAction {
+extension HomeInteractor {
     
     func fetchProfile() {
         presenter.loadProfile(

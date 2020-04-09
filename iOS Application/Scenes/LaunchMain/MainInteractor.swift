@@ -1,5 +1,5 @@
 //
-//  MainAction.swift
+//  MainInteractor.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-15.
@@ -7,7 +7,7 @@
 
 import UIKit.UIDevice
 
-struct MainAction: MainActionType {
+struct MainInteractor: MainInteractorType {
     private let presenter: MainPresenterType
     
     init(presenter: MainPresenterType) {
@@ -15,7 +15,7 @@ struct MainAction: MainActionType {
     }
 }
 
-extension MainAction {
+extension MainInteractor {
     
     func fetchMenu(for idiom: UIUserInterfaceIdiom) {
         var menu: [MainAPI.Menu] = [.blog, .favorites, .search, .more]

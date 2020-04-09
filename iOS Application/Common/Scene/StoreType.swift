@@ -35,11 +35,12 @@ public extension Store {
         }
     }
     
-    /// Mutate the state by sending and action.
-    /// - Parameter input: The input of the request.
-    func send(_ input: State.Input) {
-        middleware.forEach { $0(input) }
-        state.receive(input)
+    /// Mutate the state by sending an action.
+    ///
+    /// - Parameter action: The action of the request.
+    func send(_ action: State.Action) {
+        middleware.forEach { $0(action) }
+        state.receive(action)
     }
 }
 

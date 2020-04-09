@@ -54,4 +54,5 @@ disabled_rules:
 - vertical_parameter_alignment_on_call
 - multiline_function_chains
 - sorted_imports
+- type_name
 
