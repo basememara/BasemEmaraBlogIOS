@@ -24,6 +24,7 @@ class SceneDelegate: ScenePluggableDelegate {
             render: WindowRender(render: render),
             preferences: core.preferences()
         ),
+        ThemePlugin(theme: core.theme()),
         NotificationPlugin(
             router: NotificationRouter(render: render),
             userNotification: .current()

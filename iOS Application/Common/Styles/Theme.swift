@@ -12,8 +12,8 @@ import SwiftyPress
 
 extension Theme {
     
-    func apply(for application: UIApplication?) {
-        application?.keyWindow?.tintColor = tint
+    func apply(for window: UIWindow?) {
+        window?.tintColor = tint
         
         applyPlatform()
         applyThemed()

@@ -298,14 +298,7 @@ extension ShowPostViewController: WKNavigationDelegate {
         )
     }
     
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        // Start the network activity indicator when the web view is loading
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        // Stop the network activity indicator when the loading finishes
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         activityIndicatorView.stopAnimating()
     }
 }

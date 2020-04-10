@@ -21,12 +21,12 @@ class AppDelegate: ApplicationPluggableDelegate {
             preferences: core.preferences(),
             log: core.log()
         ),
-        ThemePlugin(theme: core.theme()),
         WindowPlugin(
             delegate: self,
             render: WindowRender(render: render),
             preferences: core.preferences()
         ),
+        ThemePlugin(theme: core.theme()),
         NotificationPlugin(
             router: NotificationRouter(render: render),
             userNotification: .current()
