@@ -1146,7 +1146,7 @@
 				8B42C6EE234A6C0E00F38E23 /* Frameworks */,
 				8B42C6EF234A6C0E00F38E23 /* Resources */,
 				8B7996CB2437917B00A27E58 /* Embed Frameworks */,
-				8BD405352438203E00FBECFE /* ShellScript */,
+				8BD405352438203E00FBECFE /* Run Strip Framework Script */,
 			);
 			buildRules = (
 			);
@@ -1168,7 +1168,7 @@
 				8B42C704234A6C7100F38E23 /* Frameworks */,
 				8B42C705234A6C7100F38E23 /* Resources */,
 				8B7996CD2437917F00A27E58 /* Embed Frameworks */,
-				8BD405362438204B00FBECFE /* ShellScript */,
+				8BD405362438204B00FBECFE /* Run Strip Framework Script */,
 			);
 			buildRules = (
 			);
@@ -1323,7 +1323,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		8BD405352438203E00FBECFE /* ShellScript */ = {
+		8BD405352438203E00FBECFE /* Run Strip Framework Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1332,6 +1332,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Strip Framework Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1340,7 +1341,7 @@
 			shellPath = /bin/sh;
 			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n";
 		};
-		8BD405362438204B00FBECFE /* ShellScript */ = {
+		8BD405362438204B00FBECFE /* Run Strip Framework Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1349,6 +1350,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Strip Framework Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -2396,8 +2398,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZamzamInc/SwiftyPress.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 3.0.3;
+				kind = revision;
+				revision = 1f633778e241121ea9b0632d450ffc449f50c528;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
