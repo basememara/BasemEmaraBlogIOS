@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "16e6ec9b42263adf6bdaa6ddb7716bd5236d7b63",
-          "version": null
+          "revision": "349ed06467a6f8a4939bcb83db301542bc84eac9",
+          "version": "5.13.4"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/ZamzamInc/SwiftyPress.git",
         "state": {
           "branch": null,
-          "revision": "1f633778e241121ea9b0632d450ffc449f50c528",
-          "version": null
+          "revision": "db5dee6de81ea9b6b923fd6e8d228de30bb8ec6c",
+          "version": "3.0.5"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
           "branch": null,
-          "revision": "fce9eb6bf48c721118a6aab3f16c925af6a7ed4b",
-          "version": "5.3.2"
+          "revision": "cf934cbb6f259bcb479bca9b07fe3e457c771821",
+          "version": "5.3.3"
         }
       }
     ]
