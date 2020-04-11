@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import SwiftyPress
@@ -16,11 +17,11 @@ protocol HomeInteractorType: InteractorType {
 }
 
 protocol HomePresenterType: PresenterType {
-    func loadProfile(avatar: String, name: String, caption: String)
-    func load(menu: [HomeAPI.MenuSection])
-    func load(social: [HomeAPI.SocialItem])
-    func select(menu: HomeAPI.MenuItem)
-    func select(social: Social)
+    func displayProfile(avatar: String, name: String, caption: String)
+    func display(menu: [HomeAPI.MenuSection])
+    func display(social: [HomeAPI.SocialItem])
+    func display(menu: HomeAPI.MenuItem)
+    func display(social: Social)
 }
 
 // MARK: - Namespace

@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-19.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import SwiftyPress

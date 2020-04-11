@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  Basem Emara
+//  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-05-20.
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
@@ -142,6 +142,19 @@ import SwiftUI
 
 struct HomeViewController_Preview: PreviewProvider {
     
+    static var previews: some View {
+        Group {
+            HomeViewRepresentable()
+            
+            HomeViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .colorScheme(.dark)
+        }
+    }
+}
+
+extension HomeViewController_Preview {
+    
     struct HomeViewRepresentable: UIViewRepresentable {
         
         func makeUIView(context: Context) -> UIView {
@@ -211,19 +224,6 @@ struct HomeViewController_Preview: PreviewProvider {
         }
         
         func updateUIView(_ view: UIView, context: Context) {}
-    }
-}
-
-extension HomeViewController_Preview {
-    
-    static var previews: some View {
-        Group {
-            HomeViewRepresentable()
-            
-            HomeViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .colorScheme(.dark)
-        }
     }
 }
 #endif

@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import UIKit.UIDevice
@@ -13,8 +14,8 @@ protocol MainInteractorType: InteractorType {
 }
 
 protocol MainPresenterType: PresenterType {
-    func load(menu: [MainAPI.Menu])
-    func showPost(for id: Int) -> UIViewController
+    func display(menu: [MainAPI.Menu])
+    func displayPost(for id: Int) -> UIViewController
 }
 
 /// Used to notify the controller was selected from the main controller.

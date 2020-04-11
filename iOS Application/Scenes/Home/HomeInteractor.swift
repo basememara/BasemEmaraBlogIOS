@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import SwiftyPress
@@ -18,7 +19,7 @@ struct HomeInteractor: HomeInteractorType {
 extension HomeInteractor {
     
     func fetchProfile() {
-        presenter.loadProfile(
+        presenter.displayProfile(
             avatar: "BasemProfilePic",
             name: "Basem Emara",
             caption: "Mobile Architect / iOS Jedi"
@@ -81,7 +82,7 @@ extension HomeInteractor {
             )
         ]
         
-        presenter.load(menu: sections)
+        presenter.display(menu: sections)
     }
     
     func fetchSocial() {
@@ -104,14 +105,14 @@ extension HomeInteractor {
             )
         ]
         
-        presenter.load(social: items)
+        presenter.display(social: items)
     }
     
     func select(menu: HomeAPI.MenuItem) {
-        presenter.select(menu: menu)
+        presenter.display(menu: menu)
     }
     
     func select(social: Social) {
-        presenter.select(social: social)
+        presenter.display(social: social)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  HomeRender.swift
-//  Basem Emara
+//  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-05-24.
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
@@ -36,19 +36,19 @@ class HomePresenter: HomePresenterType {
 
 extension HomePresenter {
     
-    func loadProfile(avatar: String, name: String, caption: String) {
+    func displayProfile(avatar: String, name: String, caption: String) {
         send(.loadProfile(avatar: avatar, name: name, caption: caption))
     }
     
-    func load(menu: [HomeAPI.MenuSection]) {
+    func display(menu: [HomeAPI.MenuSection]) {
         send(.loadMenu(menu))
     }
     
-    func load(social: [HomeAPI.SocialItem]) {
+    func display(social: [HomeAPI.SocialItem]) {
         send(.loadSocial(social))
     }
     
-    func select(menu: HomeAPI.MenuItem) {
+    func display(menu: HomeAPI.MenuItem) {
         switch menu.type {
         case .about:
             presentationContext?.modal(
@@ -89,7 +89,7 @@ extension HomePresenter {
         }
     }
     
-    func select(social: Social) {
+    func display(social: Social) {
         switch social {
         case .email:
             sendEmail()

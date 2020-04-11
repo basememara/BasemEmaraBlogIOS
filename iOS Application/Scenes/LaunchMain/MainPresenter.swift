@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import UIKit.UIViewController
@@ -19,7 +20,7 @@ class MainPresenter: MainPresenterType {
 
 extension MainPresenter {
     
-    func load(menu: [MainAPI.Menu]) {
+    func display(menu: [MainAPI.Menu]) {
         let menu: [MainAPI.TabItem] = menu.map {
             switch $0 {
             case .blog:
@@ -66,7 +67,7 @@ extension MainPresenter {
 
 extension MainPresenter {
     
-    func showPost(for id: Int) -> UIViewController {
+    func displayPost(for id: Int) -> UIViewController {
         render.showPost(for: id)
     }
 }

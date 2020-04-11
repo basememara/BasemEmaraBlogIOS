@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-15.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import UIKit.UIDevice
@@ -24,6 +25,6 @@ extension MainInteractor {
             menu.prepend(.home)
         }
         
-        presenter.load(menu: menu)
+        presenter.display(menu: menu)
     }
 }

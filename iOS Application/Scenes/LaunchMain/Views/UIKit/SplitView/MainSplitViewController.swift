@@ -30,6 +30,6 @@ extension MainSplitViewController: ListPostsDelegate {
         
         // Load post in place or show in new controller
         (topViewController as? ShowPostLoadable)?.load(postID)
-            ?? topViewController.show(presenter.showPost(for: postID))
+            ?? topViewController.show(presenter.displayPost(for: postID))
     }
 }
