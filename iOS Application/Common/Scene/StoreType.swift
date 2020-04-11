@@ -5,15 +5,20 @@
 //  Created by Basem Emara on 2020-03-28.
 //
 
-import Foundation
+import Foundation.NSNotification
 import ZamzamCore
 
-public protocol StoreType: AnyObject {}
+public protocol StoreType: AnyObject {
+    associatedtype State: StateType
+    var state: State { get }
+}
 
 /// The store to handle state, reducer, and action requests.
 public class Store<State: StateType>: StoreType {
     private let keyPath: WritableKeyPath<AppState, State>
+    private var testState: AppState?
     private let middleware: [MiddlewareType]
+    private let notificationCenter: NotificationCenter = .default
     
     public init(
         keyPath: WritableKeyPath<AppState, State>,
@@ -28,10 +33,10 @@ public extension Store {
     
     /// The current value of the state.
     private(set) var state: State {
-        get { AppState.queue.sync { AppState.root[keyPath: keyPath] } }
+        get { (testState ?? AppState.root)[keyPath: keyPath] }
         set {
-            AppState.queue.sync(flags: .barrier) { AppState.root[keyPath: keyPath] = newValue }
-            NotificationCenter.default.post(name: .stateDidChange, userInfo: [.state: newValue])
+            AppState.root[keyPath: keyPath] = newValue
+            notificationCenter.post(name: .stateDidChange, userInfo: [.state: newValue])
         }
     }
     
@@ -52,7 +57,7 @@ public extension Store {
     ///   - token: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
     func callAsFunction(in token: inout NotificationCenter.Token?, observer: @escaping (State) -> Void) {
-        NotificationCenter.default.addObserver(forName: .stateDidChange, queue: .main, in: &token) { notification in
+        notificationCenter.addObserver(forName: .stateDidChange, queue: .main, in: &token) { notification in
             guard let state = notification.userInfo?[.state] as? State else { return }
             observer(state)
         }
@@ -63,7 +68,6 @@ public extension Store {
 
 extension AppState {
     fileprivate(set) static var root = AppState()
-    fileprivate static let queue = DispatchQueue(label: "com.basememara.AppState", attributes: .concurrent)
 }
 
 private extension NSNotification.Name {
@@ -73,3 +77,19 @@ private extension NSNotification.Name {
 private extension AnyHashable {
     static let state = "state"
 }
+
+// MARK: - Testing
+
+#if DEBUG
+extension Store {
+    
+    /// Initializer used for constructing custom previews for testing.
+    convenience init(
+        keyPath: WritableKeyPath<AppState, State>,
+        for testState: AppState
+    ) {
+        self.init(keyPath: keyPath)
+        self.testState = testState
+    }
+}
+#endif
