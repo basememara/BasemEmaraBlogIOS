@@ -5,10 +5,15 @@
 //  Created by Basem Emara on 2020-04-02.
 //
 
+import UIKit.UIDevice
 import UIKit.UIViewController
 
+protocol MainInteractorType: InteractorType {
+    func fetchMenu(for idiom: UIUserInterfaceIdiom)
+}
+
 protocol MainPresenterType: PresenterType {
-    func fetchMenu(for idiom: UIUserInterfaceIdiom) -> [MainAPI.TabItem]
+    func load(menu: [MainAPI.Menu])
     func showPost(for id: Int) -> UIViewController
 }
 

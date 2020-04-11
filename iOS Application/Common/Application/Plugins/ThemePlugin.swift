@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-struct ThemePlugin: ApplicationPlugin {
+struct ThemePlugin {
     private let theme: Theme
     
     init(theme: Theme) {
@@ -18,10 +18,23 @@ struct ThemePlugin: ApplicationPlugin {
     }
 }
 
-extension ThemePlugin {
+// iOS 12 and below
+extension ThemePlugin: ApplicationPlugin {
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        theme.apply(for: application)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if #available(iOS 13.0, *) {} else {
+            theme.apply(for: .current)
+        }
+        
         return true
+    }
+}
+
+// iOS 13+
+extension ThemePlugin: ScenePlugin {
+    
+    @available(iOS 13.0, *)
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        theme.apply(for: .current)
     }
 }

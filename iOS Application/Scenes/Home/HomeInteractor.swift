@@ -7,28 +7,22 @@
 
 import SwiftyPress
 
-enum HomeAction: ActionType {
-    case loadProfile(avatar: String, name: String, caption: String)
-    case loadMenu([HomeAPI.MenuSection])
-    case loadSocial([HomeAPI.SocialItem])
-    case selectMenu(HomeAPI.MenuItem)
-    case selectSocial(Social)
-}
-
-// MARK: - Logic
-
 struct HomeInteractor: HomeInteractorType {
-    let action: (HomeAction) -> Void
+    private let presenter: HomePresenterType
+    
+    init(presenter: HomePresenterType) {
+        self.presenter = presenter
+    }
 }
 
 extension HomeInteractor {
     
     func fetchProfile() {
-        action(.loadProfile(
+        presenter.loadProfile(
             avatar: "BasemProfilePic",
             name: "Basem Emara",
             caption: "Mobile Architect / iOS Jedi"
-        ))
+        )
     }
     
     func fetchMenu() {
@@ -87,7 +81,7 @@ extension HomeInteractor {
             )
         ]
         
-        action(.loadMenu(sections))
+        presenter.load(menu: sections)
     }
     
     func fetchSocial() {
@@ -110,14 +104,14 @@ extension HomeInteractor {
             )
         ]
         
-        action(.loadSocial(items))
+        presenter.load(social: items)
     }
     
     func select(menu: HomeAPI.MenuItem) {
-        action(.selectMenu(menu))
+        presenter.select(menu: menu)
     }
     
     func select(social: Social) {
-        action(.selectSocial(social))
+        presenter.select(social: social)
     }
 }

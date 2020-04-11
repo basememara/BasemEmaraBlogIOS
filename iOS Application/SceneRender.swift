@@ -50,20 +50,20 @@ struct SceneRender: SceneRenderType {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
-        let presenter = MainPresenter(render: self)
-        let reducer = MainReducer(presenter: presenter)
-        let store = Store(for: \.mainState, using: reducer)
+        let store = Store(keyPath: \.mainState, with: middleware)
+        let presenter = MainPresenter(render: self, send: store.send)
+        let interactor = MainInteractor(presenter: presenter)
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             return MainSplitViewController(presenter: presenter).with {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
-                    MainSplitDetailViewController(store)
+                    MainSplitDetailViewController(store: store, interactor: interactor)
                 ]
             }
         default:
-            return MainViewController(store)
+            return MainViewController(store: store, interactor: interactor)
         }
     }
 }
@@ -71,17 +71,18 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
+        let store = Store(keyPath: \.homeState)
+        
         let presenter = HomePresenter(
             render: self,
             mailComposer: core.mailComposer(),
             constants: core.constants(),
-            theme: core.theme()
+            theme: core.theme(),
+            send: store.send
         )
         
-        let reducer = HomeReducer(presenter: presenter)
-        let store = Store(for: \.homeState, using: reducer)
-        let interactor = HomeInteractor(action: store.action)
-        let controller = HomeViewController(store, interactor)
+        let interactor = HomeInteractor(presenter: presenter)
+        let controller = HomeViewController(store: store, interactor: interactor)
         
         // Assign delegates
         presenter.presentationContext = controller

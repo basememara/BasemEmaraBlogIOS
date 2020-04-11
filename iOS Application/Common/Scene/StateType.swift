@@ -5,4 +5,10 @@
 //
 
 /// The data of the component.
-public protocol StateType {}
+public protocol StateType {
+    associatedtype Action: ActionType
+    mutating func receive(_ action: Action)
+}
+
+public protocol ActionType {}
+public typealias Action<State: StateType> = (State.Action) -> Void

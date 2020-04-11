@@ -6,5 +6,21 @@
 //
 
 struct MainState: StateType {
-    var tabMenu: [MainAPI.TabItem] = []
+    private(set) var tabMenu: [MainAPI.TabItem] = []
+}
+
+// MARK: - Reducer
+
+extension MainState {
+    
+    enum Action: ActionType {
+        case loadMenu([MainAPI.TabItem])
+    }
+    
+    mutating func receive(_ action: Action) {
+        switch action {
+        case .loadMenu(let menu):
+            tabMenu = menu
+        }
+    }
 }

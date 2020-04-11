@@ -12,8 +12,8 @@ import ZamzamCore
 import ZamzamUI
 
 final class HomeViewController: UIViewController {
-    private let store: Store<HomeReducer>
-    private let interactor: HomeInteractor
+    private let store: Store<HomeState>
+    private let interactor: HomeInteractorType?
     private var token: NotificationCenter.Token?
     
     // MARK: - Controls
@@ -33,7 +33,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(_ store: Store<HomeReducer>, _ interactor: HomeInteractor) {
+    init(store: Store<HomeState>, interactor: HomeInteractorType?) {
         self.store = store
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
@@ -73,9 +73,9 @@ private extension HomeViewController {
         
         store(in: &token, observer: load)
         
-        interactor.fetchProfile()
-        interactor.fetchMenu()
-        interactor.fetchSocial()
+        interactor?.fetchProfile()
+        interactor?.fetchMenu()
+        interactor?.fetchSocial()
     }
     
     func load(_ state: HomeState) {
@@ -96,7 +96,7 @@ extension HomeViewController: UITableViewDelegate {
                 return
         }
         
-        interactor.select(menu: item)
+        interactor?.select(menu: item)
     }
 }
 
@@ -131,6 +131,99 @@ extension HomeViewController: HomeHeaderViewDelegate {
     
     func didTapSocialButton(_ sender: UIButton) {
         guard let item = Social.allCases[safe: sender.tag] else { return }
-        interactor.select(social: item)
+        interactor?.select(social: item)
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+struct HomeViewController_Preview: PreviewProvider {
+    
+    struct HomeViewRepresentable: UIViewRepresentable {
+        
+        func makeUIView(context: Context) -> UIView {
+            let testState = AppState(
+                homeState: HomeState(
+                    profileAvatar: "BasemProfilePic",
+                    profileName: "John Doe",
+                    profileCaption: "Quality Assurance / iOS",
+                    homeMenu: [
+                        HomeAPI.MenuSection(
+                            title: nil,
+                            items: [
+                                HomeAPI.MenuItem(
+                                    type: .about,
+                                    title: "Company Info"
+                                ),
+                                HomeAPI.MenuItem(
+                                    type: .portfolio,
+                                    title: "Customers"
+                                )
+                            ]
+                        ),
+                        HomeAPI.MenuSection(
+                            title: "Services",
+                            items: [
+                                HomeAPI.MenuItem(
+                                    type: .seriesScalableApp,
+                                    title: "Testing"
+                                ),
+                                HomeAPI.MenuItem(
+                                    type: .seriesSwiftUtilities,
+                                    title: "Reporting"
+                                )
+                            ]
+                        ),
+                        HomeAPI.MenuSection(
+                            title: "Something",
+                            items: [
+                                HomeAPI.MenuItem(
+                                    type: .coursesArchitecture,
+                                    title: "Lorem Ipsum"
+                                ),
+                                HomeAPI.MenuItem(
+                                    type: .coursesFramework,
+                                    title: "Anything Else"
+                                )
+                            ]
+                        )
+                    ],
+                    socialMenu: [
+                        HomeAPI.SocialItem(
+                            type: .twitter,
+                            title: "Twitter"
+                        ),
+                        HomeAPI.SocialItem(
+                            type: .email,
+                            title: "Email"
+                        )
+                    ]
+                )
+            )
+            
+            return HomeViewController(
+                store: Store(keyPath: \.homeState, for: testState),
+                interactor: nil
+            ).view ?? .init()
+        }
+        
+        func updateUIView(_ view: UIView, context: Context) {}
+    }
+}
+
+extension HomeViewController_Preview {
+    
+    static var previews: some View {
+        Group {
+            HomeViewRepresentable()
+            
+            HomeViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .colorScheme(.dark)
+        }
+    }
+}
+#endif

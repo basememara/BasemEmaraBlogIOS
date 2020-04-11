@@ -12,6 +12,10 @@ extension UIWindow {
     
     /// Returns the window object for your app.
     static var current: UIWindow? {
-        UIApplication.shared.windows.first { $0.isKeyWindow }
+        guard #available(iOS 13, *) else {
+            return UIApplication.shared.keyWindow
+        }
+        
+        return UIApplication.shared.windows.first { $0.isKeyWindow }
     }
 }

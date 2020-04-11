@@ -5,4 +5,4 @@
 //  Created by Basem Emara on 2020-04-02.
 //
 
-public protocol PresenterType {}
+public protocol PresenterType: AnyObject {}
