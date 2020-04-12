@@ -7,7 +7,7 @@
 //
 
 struct MainState: StateType {
-    private(set) var tabMenu: [MainAPI.TabItem] = []
+    private(set) var tabMenu: [MainAPI.TabMenu] = []
 }
 
 // MARK: - Reducer
@@ -15,7 +15,7 @@ struct MainState: StateType {
 extension MainState {
     
     enum Action: ActionType {
-        case loadMenu([MainAPI.TabItem])
+        case loadMenu([MainAPI.TabMenu])
     }
     
     mutating func receive(_ action: Action) {

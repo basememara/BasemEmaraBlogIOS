@@ -20,46 +20,27 @@ class MainPresenter: MainPresenterType {
 
 extension MainPresenter {
     
-    func display(menu: [MainAPI.Menu]) {
-        let menu: [MainAPI.TabItem] = menu.map {
-            switch $0 {
-            case .blog:
-                return MainAPI.TabItem(
-                    type: .blog,
-                    title: "Blog", // TODO: Localize
-                    imageName: "tab-megaphone",
-                    view: render.showBlog
-                )
-            case .favorites:
-                return MainAPI.TabItem(
-                    type: .favorites,
-                    title: "Favorites",
-                    imageName: "tab-favorite",
-                    view: render.listFavorites
-                )
-            case .search:
-                return MainAPI.TabItem(
-                    type: .search,
-                    title: "Search",
-                    imageName: "tab-search",
-                    view: render.searchPosts
-                )
-            case .more:
-                return MainAPI.TabItem(
-                    type: .more,
-                    title: "More",
-                    imageName: "tab-more",
-                    view: render.showMore
-                )
-            case .home:
-                return MainAPI.TabItem(
-                    type: .home,
-                    title: "Home",
-                    imageName: "tab-home",
-                    view: render.home
-                )
+    func display(menu: [MainAPI.TabItem]) {
+        let menu: [MainAPI.TabMenu] = menu
+            .reduce(into: [MainAPI.TabMenu]()) { result, next in
+                let view: UIViewController
+                
+                switch next.id {
+                case .home:
+                    view = render.home()
+                case .blog:
+                    view = render.showBlog()
+                case .favorites:
+                    view = render.listFavorites()
+                case .search:
+                    view = render.searchPosts()
+                case .more:
+                    view = render.showMore()
+                }
+                
+                let menu = MainAPI.TabMenu(item: next, view: view)
+                result.append(menu)
             }
-        }
         
         send(.loadMenu(menu))
     }

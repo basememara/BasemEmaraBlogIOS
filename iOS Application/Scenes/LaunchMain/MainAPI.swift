@@ -14,7 +14,7 @@ protocol MainInteractorType: InteractorType {
 }
 
 protocol MainPresenterType: PresenterType {
-    func display(menu: [MainAPI.Menu])
+    func display(menu: [MainAPI.TabItem])
     func displayPost(for id: Int) -> UIViewController
 }
 
@@ -35,10 +35,18 @@ enum MainAPI {
         case more
     }
     
-    struct TabItem {
-        let type: Menu
+    struct TabItem: Identifiable {
+        let id: Menu
         let title: String
         let imageName: String
-        let view: () -> UIViewController?
     }
+    
+    struct TabMenu {
+        let item: TabItem
+        let view: UIViewController
+    }
+}
+
+extension MainAPI.TabMenu: Identifiable {
+    var id: MainAPI.Menu { item.id }
 }

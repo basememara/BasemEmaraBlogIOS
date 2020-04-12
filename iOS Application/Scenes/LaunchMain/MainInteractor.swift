@@ -19,10 +19,37 @@ struct MainInteractor: MainInteractorType {
 extension MainInteractor {
     
     func fetchMenu(for idiom: UIUserInterfaceIdiom) {
-        var menu: [MainAPI.Menu] = [.blog, .favorites, .search, .more]
+        var menu: [MainAPI.TabItem] = [
+            MainAPI.TabItem(
+                id: .blog,
+                title: "Blog", // TODO: Localize
+                imageName: "tab-megaphone"
+            ),
+            MainAPI.TabItem(
+                id: .favorites,
+                title: "Favorites",
+                imageName: "tab-favorite"
+            ),
+            MainAPI.TabItem(
+                id: .search,
+                title: "Search",
+                imageName: "tab-search"
+            ),
+            MainAPI.TabItem(
+                id: .more,
+                title: "More",
+                imageName: "tab-more"
+            )
+        ]
         
         if case .phone = idiom {
-            menu.prepend(.home)
+            menu.prepend(
+                MainAPI.TabItem(
+                    id: .home,
+                    title: "Home",
+                    imageName: "tab-home"
+                )
+            )
         }
         
         presenter.display(menu: menu)

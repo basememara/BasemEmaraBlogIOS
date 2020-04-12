@@ -10,10 +10,10 @@ import UIKit
 
 class MainViewController: UITabBarController {
     private let store: Store<MainState>
-    private let interactor: MainInteractorType
+    private let interactor: MainInteractorType?
     private var token: NotificationCenter.Token?
     
-    init(store: Store<MainState>, interactor: MainInteractorType) {
+    init(store: Store<MainState>, interactor: MainInteractorType?) {
         self.store = store
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +38,7 @@ private extension MainViewController {
     func prepare() {
         delegate = self
         store(in: &token, observer: load)
-        interactor.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
+        interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
     func load(_ state: MainState) {
@@ -60,24 +60,19 @@ extension MainViewController: UITabBarControllerDelegate {
 
 private extension UINavigationController {
     
-    convenience init(_ state: MainAPI.TabItem) {
+    convenience init(_ state: MainAPI.TabMenu) {
         defer {
             self.navigationBar.prefersLargeTitles = true
             self.navigationBar.topItem?.backBarButtonItem =
                 UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
         
-        guard let view = state.view() else {
-            self.init()
-            return
-        }
-        
         self.init(
-            rootViewController: view.with {
+            rootViewController: state.view.with {
                 $0.tabBarItem = UITabBarItem(
-                    title: state.title,
-                    image: UIImage(named: state.imageName),
-                    tag: state.type.rawValue
+                    title: state.item.title,
+                    image: UIImage(named: state.item.imageName),
+                    tag: state.item.id.rawValue
                 )
             }
         )
