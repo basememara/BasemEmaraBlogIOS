@@ -22,7 +22,7 @@ struct ThemePlugin {
 extension ThemePlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if #available(iOS 13.0, *) {} else {
+        if #available(iOS 13, *) {} else {
             theme.apply(for: .current)
         }
         
@@ -33,7 +33,7 @@ extension ThemePlugin: ApplicationPlugin {
 // iOS 13+
 extension ThemePlugin: ScenePlugin {
     
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         theme.apply(for: .current)
     }

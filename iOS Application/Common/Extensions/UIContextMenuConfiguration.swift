@@ -10,7 +10,7 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension UIContextMenuConfiguration {
     
     /// Returns context menu ocnfiguration for a blog post.

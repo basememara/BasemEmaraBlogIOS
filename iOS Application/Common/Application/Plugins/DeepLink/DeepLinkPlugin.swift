@@ -38,7 +38,7 @@ extension DeepLinkPlugin: ApplicationPlugin {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension DeepLinkPlugin: ScenePlugin {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

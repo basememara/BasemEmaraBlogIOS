@@ -114,7 +114,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension ListFavoritesViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {

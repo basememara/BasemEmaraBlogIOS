@@ -35,7 +35,7 @@ struct AppTheme: Theme {
     let negativeColor = ColorTypeAlias(named: "negativeColor") ?? .red
     
     let isDarkStyle: Bool = {
-        guard #available(iOS 13.0, *) else { return false }
+        guard #available(iOS 13, *) else { return false }
         return UITraitCollection.current.userInterfaceStyle == .dark
     }()
 }

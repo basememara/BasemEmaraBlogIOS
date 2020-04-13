@@ -151,7 +151,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension ListPostsViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {

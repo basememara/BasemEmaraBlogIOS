@@ -16,7 +16,7 @@ import SwiftUI
 protocol SceneRenderType {
     func launchMain() -> UIViewController
     
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     func launchMain<T: View>() -> T?
     
     func home() -> UIViewController
@@ -73,7 +73,7 @@ extension SceneRender {
         }
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
         let store = Store(keyPath: \.mainState, with: middleware)
         let presenter = MainPresenter(render: self, send: store.send)

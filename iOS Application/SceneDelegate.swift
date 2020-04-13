@@ -9,7 +9,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 class SceneDelegate: ScenePluggableDelegate {
     
     override func plugins() -> [ScenePlugin] {[
@@ -45,7 +45,7 @@ class SceneDelegate: ScenePluggableDelegate {
     ]}
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension SceneDelegate {
     
     func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

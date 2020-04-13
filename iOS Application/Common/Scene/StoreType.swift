@@ -36,7 +36,7 @@ public extension Store {
         get { (testState ?? AppState.root)[keyPath: keyPath] }
         set {
             #if canImport(Combine)
-            if #available(iOS 13.0, *) {
+            if #available(iOS 13, *) {
                 objectWillChange.send()
             }
             #endif
@@ -73,7 +73,7 @@ public extension Store {
 #if canImport(Combine)
 import Combine
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension Store: ObservableObject {}
 #endif
 

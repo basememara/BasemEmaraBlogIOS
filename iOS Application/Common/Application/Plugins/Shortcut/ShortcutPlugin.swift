@@ -35,7 +35,7 @@ extension ShortcutPlugin: ApplicationPlugin {
 // iOS 13+
 extension ShortcutPlugin: ScenePlugin {
     
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let shortcutItem = connectionOptions.shortcutItem else { return }
         launchedShortcutItem = shortcutItem

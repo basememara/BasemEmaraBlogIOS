@@ -33,7 +33,7 @@ final class WindowPlugin {
 extension WindowPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if #available(iOS 13.0, *) {} else {
+        if #available(iOS 13, *) {} else {
             delegate?.window = UIWindow(frame: UIScreen.main.bounds).with {
                 $0.rootViewController = render.launchMain()
                 $0.makeKeyAndVisible()
@@ -47,7 +47,7 @@ extension WindowPlugin: ApplicationPlugin {
 // iOS 13+
 extension WindowPlugin: ScenePlugin {
     
-    @available(iOS 13.0, *)
+    @available(iOS 13, *)
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
         
@@ -69,6 +69,6 @@ protocol WindowDelegate: class {
     var window: UIWindow? { get set }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension ScenePluggableDelegate: WindowDelegate {}
 extension ApplicationPluggableDelegate: WindowDelegate {} // iOS 12 and below

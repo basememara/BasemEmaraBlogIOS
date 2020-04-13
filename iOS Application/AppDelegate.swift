@@ -88,7 +88,7 @@ private extension UIApplicationDelegate {
     var render: SceneRender { App.render }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension UISceneDelegate {
     var core: SwiftyPressCore { App.core }
     var render: SceneRender { App.render }

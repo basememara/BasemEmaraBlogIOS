@@ -44,7 +44,7 @@ private extension ShowSettingsViewController {
     @IBAction func autoThemeSwitchChanged(_ sender: UISwitch) {
         preferences?.autoThemeEnabled = sender.isOn
         
-        guard #available(iOS 13.0, *) else { return }
+        guard #available(iOS 13, *) else { return }
         UIWindow.current?.overrideUserInterfaceStyle = sender.isOn ? .unspecified : .dark
     }
 }

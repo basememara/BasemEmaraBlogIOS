@@ -37,7 +37,7 @@ extension BackgroundPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Enable background fetch for creating local notifications for new content
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             BGTaskScheduler.shared.register(forTaskWithIdentifier: taskIdentifier, using: nil) {
                 guard let task = $0 as? BGAppRefreshTask else { return }
                 self.log.info("Background fetching starting from `BGTaskScheduler`...")
@@ -68,7 +68,7 @@ extension BackgroundPlugin: ApplicationPlugin {
     
     // iOS 12 and below
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if #available(iOS 13.0, *) {} else {
+        if #available(iOS 13, *) {} else {
             log.info("Background fetching starting...")
             
             handleBackgroundTask { result in
@@ -94,7 +94,7 @@ extension BackgroundPlugin: ApplicationPlugin {
 extension BackgroundPlugin: ScenePlugin {
     
     func sceneDidEnterBackground() {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13, *) {
             BGTaskScheduler.shared.cancelAllTaskRequests()
             
             let request = BGAppRefreshTaskRequest(identifier: taskIdentifier).with {
