@@ -140,6 +140,7 @@ extension HomeViewController: HomeHeaderViewDelegate {
 #if DEBUG && canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct HomeViewController_Preview: PreviewProvider {
     
     static var previews: some View {
@@ -153,6 +154,7 @@ struct HomeViewController_Preview: PreviewProvider {
     }
 }
 
+@available(iOS 13.0, *)
 extension HomeViewController_Preview {
     
     struct HomeViewRepresentable: UIViewRepresentable {
