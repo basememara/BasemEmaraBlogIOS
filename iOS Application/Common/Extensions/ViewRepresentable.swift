@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-13.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import UIKit.UIViewController
