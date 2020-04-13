@@ -22,7 +22,7 @@ struct MainView: View {
         TabView {
             ForEach(store.state.tabMenu) { menu in
                 NavigationView {
-                    menu.view()
+                    ViewRepresentable(viewController: menu.view)
                 }
                 .tabItem {
                     Image(menu.item.imageName)

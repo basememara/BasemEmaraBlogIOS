@@ -61,19 +61,8 @@ extension MainViewController: UITabBarControllerDelegate {
 private extension UINavigationController {
     
     convenience init(_ state: MainAPI.TabMenu) {
-        defer {
-            self.navigationBar.prefersLargeTitles = true
-            self.navigationBar.topItem?.backBarButtonItem =
-                UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        }
-        
-        guard let view: UIViewController = state.view() else {
-            self.init()
-            return
-        }
-        
         self.init(
-            rootViewController: view.with {
+            rootViewController: state.view.with {
                 $0.tabBarItem = UITabBarItem(
                     title: state.item.title,
                     image: UIImage(named: state.item.imageName),
@@ -81,5 +70,9 @@ private extension UINavigationController {
                 )
             }
         )
+        
+        self.navigationBar.prefersLargeTitles = true
+        self.navigationBar.topItem?.backBarButtonItem =
+            UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

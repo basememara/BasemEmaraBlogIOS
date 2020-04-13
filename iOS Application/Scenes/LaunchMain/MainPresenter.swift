@@ -38,20 +38,7 @@ extension MainPresenter {
                     view = render.showMore()
                 }
                 
-                let menu: MainAPI.TabMenu
-                
-                if #available(iOS 13, *) {
-                    menu = MainAPI.TabMenu(
-                        item: next,
-                        view: ViewRepresentable(viewController: view)
-                    )
-                } else {
-                    menu = MainAPI.TabMenu(
-                        item: next,
-                        view: view
-                    )
-                }
-                
+                let menu = MainAPI.TabMenu(item: next, view: view)
                 result.append(menu)
             }
         
