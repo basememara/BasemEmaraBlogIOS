@@ -67,8 +67,13 @@ private extension UINavigationController {
                 UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
         
+        guard let view: UIViewController = state.view() else {
+            self.init()
+            return
+        }
+        
         self.init(
-            rootViewController: state.view.with {
+            rootViewController: view.with {
                 $0.tabBarItem = UITabBarItem(
                     title: state.item.title,
                     image: UIImage(named: state.item.imageName),

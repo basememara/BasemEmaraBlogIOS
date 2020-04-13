@@ -8,6 +8,9 @@
 
 import UIKit.UIDevice
 import UIKit.UIViewController
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 
 protocol MainInteractorType: InteractorType {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)
@@ -43,10 +46,31 @@ enum MainAPI {
     
     struct TabMenu {
         let item: TabItem
-        let view: UIViewController
+        
+        /// View to store UIKit and SwiftUI reference
+        private let anyView: Any
     }
 }
 
 extension MainAPI.TabMenu: Identifiable {
     var id: MainAPI.Menu { item.id }
+}
+
+// Support between UIKit and SwiftUI simultaneously
+// https://stackoverflow.com/a/43503888
+extension MainAPI.TabMenu {
+    
+    init(item: MainAPI.TabItem, view: Any) {
+        self.item = item
+        self.anyView = view
+    }
+    
+    func view() -> UIViewController? {
+        anyView as? UIViewController
+    }
+    
+    @available(iOS 13.0, *)
+    func view() -> ViewRepresentable? {
+        anyView as? ViewRepresentable
+    }
 }

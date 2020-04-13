@@ -35,6 +35,12 @@ public extension Store {
     private(set) var state: State {
         get { (testState ?? AppState.root)[keyPath: keyPath] }
         set {
+            #if canImport(Combine)
+            if #available(iOS 13.0, *) {
+                objectWillChange.send()
+            }
+            #endif
+            
             AppState.root[keyPath: keyPath] = newValue
             notificationCenter.post(name: .stateDidChange, userInfo: [.state: newValue])
         }
@@ -63,6 +69,13 @@ public extension Store {
         }
     }
 }
+
+#if canImport(Combine)
+import Combine
+
+@available(iOS 13.0, *)
+extension Store: ObservableObject {}
+#endif
 
 // MARK: - Helpers
 

@@ -9,6 +9,9 @@
 import UIKit
 import SwiftyPress
 import ZamzamCore
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 
 final class WindowPlugin {
     private weak var delegate: WindowDelegate?
@@ -57,7 +60,11 @@ extension WindowPlugin: ScenePlugin {
                 $0.overrideUserInterfaceStyle = .dark
             }
             
-            $0.rootViewController = render.launchMain()
+            //$0.rootViewController = render.launchMain()
+            if let view: MainView = render.launchMain() {
+                $0.rootViewController = UIHostingController(rootView: view)
+            }
+            
             $0.makeKeyAndVisible()
         }
     }

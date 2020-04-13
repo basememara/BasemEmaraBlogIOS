@@ -207,6 +207,9 @@
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
 		8BBCEA7E242FDDAE00499813 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCEA7D242FDDAE00499813 /* StoreType.swift */; };
+		8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB5C2443E77800BC6288 /* MainView.swift */; };
+		8BF7EB5F244400C900BC6288 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF7EB5E244400C900BC6288 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8BF7EB6124448FAF00BC6288 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -429,6 +432,9 @@
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCEA7D242FDDAE00499813 /* StoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
+		8BF7EB5C2443E77800BC6288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8BF7EB5E244400C900BC6288 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +442,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF7EB5F244400C900BC6288 /* SwiftUI.framework in Frameworks */,
 				8B7996D32437947100A27E58 /* SwiftyPress in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +533,7 @@
 		8B42C6F2234A6C0E00F38E23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BF7EB5E244400C900BC6288 /* SwiftUI.framework */,
 				8B42C6F3234A6C0E00F38E23 /* NotificationCenter.framework */,
 				8B42C708234A6C7100F38E23 /* UserNotifications.framework */,
 				8B42C70A234A6C7100F38E23 /* UserNotificationsUI.framework */,
@@ -876,6 +884,7 @@
 				8B42C792234BBC8F00F38E23 /* UIImage.swift */,
 				8B42C793234BBC8F00F38E23 /* UIViewController.swift */,
 				8B42C794234BBC9000F38E23 /* UIWindow.swift */,
+				8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1075,6 +1084,7 @@
 		8B9D23532432A8140028003D /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				8BF7EB5C2443E77800BC6288 /* MainView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1190,6 +1200,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Zamzam Inc.";
 				TargetAttributes = {
 					8B42C6D5234A6BDB00F38E23 = {
 						CreatedOnToolsVersion = 11.0;
@@ -1389,6 +1400,7 @@
 				8B8905EC23A6CD9300AB8A4F /* StateType.swift in Sources */,
 				8B42C7DD234BBC9000F38E23 /* ShowMoreRouter.swift in Sources */,
 				8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */,
+				8BF7EB6124448FAF00BC6288 /* ViewRepresentable.swift in Sources */,
 				8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
 				8B42C7D7234BBC9000F38E23 /* ListPostsPresenter.swift in Sources */,
@@ -1445,6 +1457,7 @@
 				8B42C7F0234BBC9000F38E23 /* SearchPostsPresenter.swift in Sources */,
 				8B42C7E0234BBC9000F38E23 /* ShowBlogStyles.swift in Sources */,
 				8B42C7F8234BBC9000F38E23 /* ListFavoritesAPI.swift in Sources */,
+				8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */,
 				8B928A54239CD698004EB139 /* ShortcutRouter.swift in Sources */,
 				8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */,
 				8B42C7E2234BBC9000F38E23 /* ShowBlogCore.swift in Sources */,

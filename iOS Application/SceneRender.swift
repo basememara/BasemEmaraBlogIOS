@@ -8,10 +8,16 @@
 
 import UIKit
 import SwiftyPress
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 
 /// Dependency injector for overriding concrete scene factories.
 protocol SceneRenderType {
     func launchMain() -> UIViewController
+    
+    @available(iOS 13.0, *)
+    func launchMain<T: View>() -> T?
     
     func home() -> UIViewController
     func listFavorites() -> UIViewController
@@ -65,6 +71,16 @@ extension SceneRender {
         default:
             return MainViewController(store: store, interactor: interactor)
         }
+    }
+    
+    @available(iOS 13.0, *)
+    func launchMain<T: View>() -> T? {
+        let store = Store(keyPath: \.mainState, with: middleware)
+        let presenter = MainPresenter(render: self, send: store.send)
+        let interactor = MainInteractor(presenter: presenter)
+        
+        // Unused until SwiftUI is more stable
+        return MainView(store: store, interactor: interactor) as? T
     }
 }
 
