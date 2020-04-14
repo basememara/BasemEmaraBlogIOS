@@ -10,9 +10,9 @@ import UIKit.UIViewController
 
 class MainPresenter: MainPresenterType {
     private let render: SceneRenderType
-    private let send: Action<MainState>
+    private let send: SendAction<MainState>
     
-    init(render: SceneRenderType, send: @escaping Action<MainState>) {
+    init(render: SceneRenderType, send: @escaping SendAction<MainState>) {
         self.render = render
         self.send = send
     }
@@ -38,8 +38,9 @@ extension MainPresenter {
                     view = render.showMore()
                 }
                 
-                let menu = MainAPI.TabMenu(item: next, view: view)
-                result.append(menu)
+                result.append(
+                    MainAPI.TabMenu(item: next, view: view)
+                )
             }
         
         send(.loadMenu(menu))

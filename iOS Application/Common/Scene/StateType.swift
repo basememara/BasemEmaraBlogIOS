@@ -11,4 +11,6 @@ public protocol StateType {
 }
 
 public protocol ActionType {}
-public typealias Action<State: StateType> = (State.Action) -> Void
+
+/// Function for sending actions to the state.
+public typealias SendAction<State: StateType> = (State.Action) -> Void

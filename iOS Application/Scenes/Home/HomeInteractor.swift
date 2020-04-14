@@ -25,6 +25,9 @@ extension HomeInteractor {
             caption: "Mobile Architect / iOS Jedi"
         )
     }
+}
+
+extension HomeInteractor {
     
     func fetchMenu() {
         let sections = [
@@ -84,6 +87,9 @@ extension HomeInteractor {
         
         presenter.display(menu: sections)
     }
+}
+
+extension HomeInteractor {
     
     func fetchSocial() {
         let items = [
@@ -107,6 +113,9 @@ extension HomeInteractor {
         
         presenter.display(social: items)
     }
+}
+
+extension HomeInteractor {
     
     func select(menu: HomeAPI.MenuItem) {
         presenter.display(menu: menu)

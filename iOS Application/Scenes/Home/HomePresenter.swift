@@ -15,7 +15,7 @@ class HomePresenter: HomePresenterType {
     private let mailComposer: MailComposerType
     private let constants: ConstantsType
     private let theme: Theme
-    private let send: Action<HomeState>
+    private let send: SendAction<HomeState>
     
     weak var presentationContext: UIViewController?
     
@@ -24,7 +24,7 @@ class HomePresenter: HomePresenterType {
         mailComposer: MailComposerType,
         constants: ConstantsType,
         theme: Theme,
-        send: @escaping Action<HomeState>
+        send: @escaping SendAction<HomeState>
     ) {
         self.render = render
         self.mailComposer = mailComposer
