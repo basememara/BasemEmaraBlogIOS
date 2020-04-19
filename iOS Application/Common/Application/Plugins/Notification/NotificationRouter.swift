@@ -28,7 +28,7 @@ extension NotificationRouter {
     
     func showBlog(for id: Int) {
         viewController?.show(menu: MainAPI.Menu.blog) { (controller: ShowBlogViewController) in
-            controller.router?.showPost(for: id)
+            controller.render?.showPost(for: id)
         }
     }
 }

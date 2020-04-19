@@ -77,9 +77,11 @@ private extension HomeHeaderView {
 extension HomeHeaderView {
     
     func load(_ state: HomeState) {
-        profileAvatarImageView.image = UIImage(named: state.profileAvatar)
-        profileNameLabel.text = state.profileName
-        profileCaptionLabel.text = state.profileCaption
+        if let profile = state.profile {
+            profileAvatarImageView.image = UIImage(named: profile.avatar)
+            profileNameLabel.text = profile.name
+            profileCaptionLabel.text = profile.caption
+        }
         
         socialStackView
             .deleteArrangedSubviews()

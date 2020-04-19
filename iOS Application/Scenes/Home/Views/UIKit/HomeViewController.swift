@@ -16,6 +16,8 @@ final class HomeViewController: UIViewController {
     private let interactor: HomeInteractorType?
     private var token: NotificationCenter.Token?
     
+    var render: HomeRenderType?
+    
     // MARK: - Controls
     
     private lazy var tableView = UITableView(
@@ -96,7 +98,7 @@ extension HomeViewController: UITableViewDelegate {
                 return
         }
         
-        interactor?.select(menu: item)
+        render?.select(menu: item)
     }
 }
 
@@ -131,7 +133,7 @@ extension HomeViewController: HomeHeaderViewDelegate {
     
     func didTapSocialButton(_ sender: UIButton) {
         guard let item = Social.allCases[safe: sender.tag] else { return }
-        interactor?.select(social: item)
+        render?.select(social: item)
     }
 }
 
@@ -162,9 +164,11 @@ extension HomeViewController_Preview {
         func makeUIView(context: Context) -> UIView {
             let testState = AppState(
                 homeState: HomeState(
-                    profileAvatar: "BasemProfilePic",
-                    profileName: "John Doe",
-                    profileCaption: "Quality Assurance / iOS",
+                    profile: HomeAPI.Profile(
+                        avatar: "BasemProfilePic",
+                        name: "John Doe",
+                        caption: "Quality Assurance / iOS"
+                    ),
                     homeMenu: [
                         HomeAPI.MenuSection(
                             title: nil,

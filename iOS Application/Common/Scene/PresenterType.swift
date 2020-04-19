@@ -3,6 +3,7 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-public protocol PresenterType: AnyObject {}
+public protocol PresenterType {}

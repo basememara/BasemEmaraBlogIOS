@@ -13,23 +13,27 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject private var store: Store<MainState>
     private let interactor: MainInteractorType?
+    private let render: MainRenderType
     
-    init(store: Store<MainState>, interactor: MainInteractorType?) {
+    init(store: Store<MainState>, interactor: MainInteractorType?, render: MainRenderType) {
         self.store = store
         self.interactor = interactor
+        self.render = render
     }
     
     var body: some View {
         TabView {
             ForEach(store.state.tabMenu) { menu in
                 NavigationView {
-                    ViewRepresentable(viewController: menu.view)
+                    ViewRepresentable(
+                        viewController: self.render.rootView(for: menu.id)
+                    )
                 }
                 .tabItem {
-                    Image(menu.item.imageName)
-                    Text(menu.item.title)
+                    Image(menu.imageName)
+                    Text(menu.title)
                 }
-                .tag(menu.item.id)
+                .tag(menu.id)
             }
         }.onAppear {
             self.interactor?.fetchMenu(

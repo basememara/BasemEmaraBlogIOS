@@ -72,7 +72,7 @@ extension DeepLinkRouter {
             return true
         } else if let id = taxonomyRepository.getID(byURL: url.absoluteString) {
             viewController?.show(menu: MainAPI.Menu.blog) { (controller: ShowBlogViewController) in
-                controller.router?.listPosts(
+                controller.render?.listPosts(
                     params: .init(fetchType: .terms([id]))
                 )
             }

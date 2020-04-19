@@ -15,7 +15,11 @@ protocol MainInteractorType: InteractorType {
 
 protocol MainPresenterType: PresenterType {
     func display(menu: [MainAPI.TabItem])
-    func displayPost(for id: Int) -> UIViewController
+}
+
+protocol MainRenderType: RenderType {
+    func rootView(for menu: MainAPI.Menu) -> UIViewController
+    func postView(for id: Int) -> UIViewController
 }
 
 /// Used to notify the controller was selected from the main controller.
@@ -40,13 +44,4 @@ enum MainAPI {
         let title: String
         let imageName: String
     }
-    
-    struct TabMenu {
-        let item: TabItem
-        let view: UIViewController
-    }
-}
-
-extension MainAPI.TabMenu: Identifiable {
-    var id: MainAPI.Menu { item.id }
 }

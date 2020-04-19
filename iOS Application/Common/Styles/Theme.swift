@@ -196,7 +196,6 @@ private extension Theme {
     
     func applyScenes() {
         HomeStyle.apply(self)
-        ShowBlogStyles.apply(self)
         ShowMoreStyles.apply(self)
     }
 }

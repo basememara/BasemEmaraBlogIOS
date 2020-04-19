@@ -6,14 +6,10 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-import UIKit.UIViewController
-
-class MainPresenter: MainPresenterType {
-    private let render: SceneRenderType
+struct MainPresenter: MainPresenterType {
     private let send: SendAction<MainState>
     
-    init(render: SceneRenderType, send: @escaping SendAction<MainState>) {
-        self.render = render
+    init(send: @escaping SendAction<MainState>) {
         self.send = send
     }
 }
@@ -21,35 +17,6 @@ class MainPresenter: MainPresenterType {
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        let menu: [MainAPI.TabMenu] = menu
-            .reduce(into: [MainAPI.TabMenu]()) { result, next in
-                let view: UIViewController
-                
-                switch next.id {
-                case .home:
-                    view = render.home()
-                case .blog:
-                    view = render.showBlog()
-                case .favorites:
-                    view = render.listFavorites()
-                case .search:
-                    view = render.searchPosts()
-                case .more:
-                    view = render.showMore()
-                }
-                
-                result.append(
-                    MainAPI.TabMenu(item: next, view: view)
-                )
-            }
-        
         send(.loadMenu(menu))
-    }
-}
-
-extension MainPresenter {
-    
-    func displayPost(for id: Int) -> UIViewController {
-        render.showPost(for: id)
     }
 }

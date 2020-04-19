@@ -57,30 +57,44 @@ extension SceneRender {
     
     func launchMain() -> UIViewController {
         let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(render: self, send: store.send)
+        let presenter = MainPresenter(send: store.send)
         let interactor = MainInteractor(presenter: presenter)
+        let render = MainRender(render: self)
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController(presenter: presenter).with {
+            return MainSplitViewController(render: render).with {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
-                    MainSplitDetailViewController(store: store, interactor: interactor)
+                    MainSplitDetailViewController(
+                        store: store,
+                        interactor: interactor,
+                        render: render
+                    )
                 ]
             }
         default:
-            return MainViewController(store: store, interactor: interactor)
+            return MainViewController(
+                store: store,
+                interactor: interactor,
+                render: render
+            )
         }
     }
     
     @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
         let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(render: self, send: store.send)
+        let presenter = MainPresenter(send: store.send)
         let interactor = MainInteractor(presenter: presenter)
+        let render = MainRender(render: self)
         
         // Unused until SwiftUI is more stable
-        return MainView(store: store, interactor: interactor) as? T
+        return MainView(
+            store: store,
+            interactor: interactor,
+            render: render
+        ) as? T
     }
 }
 
@@ -88,23 +102,56 @@ extension SceneRender {
     
     func home() -> UIViewController {
         let store = Store(keyPath: \.homeState)
+        let presenter = HomePresenter(send: store.send)
+        let interactor = HomeInteractor(presenter: presenter)
+        let controller = HomeViewController(store: store, interactor: interactor)
         
-        let presenter = HomePresenter(
+        controller.render = HomeRender(
             render: self,
             mailComposer: core.mailComposer(),
             constants: core.constants(),
             theme: core.theme(),
-            send: store.send
+            presentationContext: controller
         )
-        
-        let interactor = HomeInteractor(presenter: presenter)
-        let controller = HomeViewController(store: store, interactor: interactor)
-        
-        // Assign delegates
-        presenter.presentationContext = controller
         
         return controller
     }
+}
+
+extension SceneRender {
+    
+    func showBlog() -> UIViewController {
+        let store = Store(keyPath: \.showBlogState)
+        let presenter = ShowBlogPresenter(send: store.send)
+        
+        let interactor = ShowBlogInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository(),
+            taxonomyRepository: core.taxonomyRepository(),
+            preferences: core.preferences()
+        )
+        
+        let controller: ShowBlogViewController = .make(fromStoryboard: Storyboard.showBlog.rawValue)
+        
+        controller.store = store
+        controller.interactor = interactor
+        
+        controller.render = ShowBlogRender(
+            render: self,
+            mailComposer: core.mailComposer(),
+            theme: core.theme(),
+            presentationContext: controller
+        )
+        
+        controller.constants = core.constants()
+        controller.theme = core.theme()
+        
+        return controller
+    }
+}
+
+extension SceneRender {
     
     func listFavorites() -> UIViewController {
         let controller: ListFavoritesViewController = .make(fromStoryboard: Storyboard.listFavorites.rawValue)
@@ -120,12 +167,6 @@ extension SceneRender {
 }
 
 extension SceneRender {
-    
-    func showBlog() -> UIViewController {
-        let controller: ShowBlogViewController = .make(fromStoryboard: Storyboard.showBlog.rawValue)
-        controller.core = ShowBlogCore(root: core, render: self)
-        return controller
-    }
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
         let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)

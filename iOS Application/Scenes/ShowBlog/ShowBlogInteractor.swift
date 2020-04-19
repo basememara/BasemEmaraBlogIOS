@@ -9,15 +9,15 @@
 import SwiftyPress
 import ZamzamCore
 
-struct ShowBlogAction: ShowBlogActionable {
-    private let presenter: ShowBlogPresentable
+struct ShowBlogInteractor: ShowBlogInteractorType {
+    private let presenter: ShowBlogPresenterType
     private let postRepository: PostRepositoryType
     private let mediaRepository: MediaRepositoryType
     private let taxonomyRepository: TaxonomyRepositoryType
     private let preferences: PreferencesType
 
     init(
-        presenter: ShowBlogPresentable,
+        presenter: ShowBlogPresenterType,
         postRepository: PostRepositoryType,
         mediaRepository: MediaRepositoryType,
         taxonomyRepository: TaxonomyRepositoryType,
@@ -31,82 +31,26 @@ struct ShowBlogAction: ShowBlogActionable {
     }
 }
 
-extension ShowBlogAction {
+extension ShowBlogInteractor {
     
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
         postRepository.fetch(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.presentLatestPosts(
+                return self.presenter.displayLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.presentLatestPosts(
+                    return self.presenter.displayLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.presentLatestPosts(
-                    for: ShowBlogAPI.PostsResponse(
-                        posts: posts,
-                        media: media,
-                        favorites: self.preferences.favorites
-                    )
-                )
-            }
-        }
-    }
-    
-    func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest) {
-        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
-        
-        postRepository.fetchPopular(with: request) {
-            guard case .success(let posts) = $0 else {
-                return self.presenter.presentPopularPosts(
-                    error: $0.error ?? .unknownReason(nil)
-                )
-            }
-            
-            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard case .success(let media) = $0 else {
-                    return self.presenter.presentPopularPosts(
-                        error: $0.error ?? .unknownReason(nil)
-                    )
-                }
-                
-                self.presenter.presentPopularPosts(
-                    for: ShowBlogAPI.PostsResponse(
-                        posts: posts,
-                        media: media,
-                        favorites: self.preferences.favorites
-                    )
-                )
-            }
-        }
-    }
-    
-    func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest) {
-        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
-        
-        postRepository.fetchTopPicks(with: request) {
-            guard case .success(let posts) = $0 else {
-                return self.presenter.presentTopPickPosts(
-                    error: $0.error ?? .unknownReason(nil)
-                )
-            }
-            
-            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
-                guard case .success(let media) = $0 else {
-                    return self.presenter.presentTopPickPosts(
-                        error: $0.error ?? .unknownReason(nil)
-                    )
-                }
-                
-                self.presenter.presentTopPickPosts(
+                self.presenter.displayLatestPosts(
                     for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
@@ -118,12 +62,74 @@ extension ShowBlogAction {
     }
 }
 
-extension ShowBlogAction {
+extension ShowBlogInteractor {
+    
+    func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest) {
+        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
+        
+        postRepository.fetchPopular(with: request) {
+            guard case .success(let posts) = $0 else {
+                return self.presenter.displayPopularPosts(
+                    error: $0.error ?? .unknownReason(nil)
+                )
+            }
+            
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+                guard case .success(let media) = $0 else {
+                    return self.presenter.displayPopularPosts(
+                        error: $0.error ?? .unknownReason(nil)
+                    )
+                }
+                
+                self.presenter.displayPopularPosts(
+                    for: ShowBlogAPI.PostsResponse(
+                        posts: posts,
+                        media: media,
+                        favorites: self.preferences.favorites
+                    )
+                )
+            }
+        }
+    }
+}
+
+extension ShowBlogInteractor {
+    
+    func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest) {
+        let request = PostAPI.FetchRequest(maxLength: request.maxLength)
+        
+        postRepository.fetchTopPicks(with: request) {
+            guard case .success(let posts) = $0 else {
+                return self.presenter.displayTopPickPosts(
+                    error: $0.error ?? .unknownReason(nil)
+                )
+            }
+            
+            self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
+                guard case .success(let media) = $0 else {
+                    return self.presenter.displayTopPickPosts(
+                        error: $0.error ?? .unknownReason(nil)
+                    )
+                }
+                
+                self.presenter.displayTopPickPosts(
+                    for: ShowBlogAPI.PostsResponse(
+                        posts: posts,
+                        media: media,
+                        favorites: self.preferences.favorites
+                    )
+                )
+            }
+        }
+    }
+}
+
+extension ShowBlogInteractor {
     
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
             guard case .success(let value) = $0 else {
-                return self.presenter.presentTerms(
+                return self.presenter.displayTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
@@ -133,7 +139,7 @@ extension ShowBlogAction {
                 .prefix(request.maxLength)
                 .array
             
-            self.presenter.presentTerms(
+            self.presenter.displayTerms(
                 for: ShowBlogAPI.TermsResponse(
                     terms: terms
                 )
@@ -142,12 +148,12 @@ extension ShowBlogAction {
     }
 }
 
-extension ShowBlogAction {
+extension ShowBlogInteractor {
     
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
         postRepository.toggleFavorite(id: request.postID)
         
-        presenter.presentToggleFavorite(
+        presenter.displayToggleFavorite(
             for: ShowBlogAPI.FavoriteResponse(
                 postID: request.postID,
                 favorite: postRepository.hasFavorite(id: request.postID)

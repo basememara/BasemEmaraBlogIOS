@@ -11,11 +11,17 @@ import UIKit
 class MainViewController: UITabBarController {
     private let store: Store<MainState>
     private let interactor: MainInteractorType?
+    private let render: MainRenderType
     private var token: NotificationCenter.Token?
     
-    init(store: Store<MainState>, interactor: MainInteractorType?) {
+    init(
+        store: Store<MainState>,
+        interactor: MainInteractorType?,
+        render: MainRenderType
+    ) {
         self.store = store
         self.interactor = interactor
+        self.render = render
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,7 +48,21 @@ private extension MainViewController {
     }
     
     func load(_ state: MainState) {
-        viewControllers = state.tabMenu.map(UINavigationController.init)
+        viewControllers = state.tabMenu.map { item in
+            UINavigationController(
+                rootViewController: render.rootView(for: item.id).with {
+                    $0.tabBarItem = UITabBarItem(
+                        title: item.title,
+                        image: UIImage(named: item.imageName),
+                        tag: item.id.rawValue
+                    )
+                }
+            ).with {
+                $0.navigationBar.prefersLargeTitles = true
+                $0.navigationBar.topItem?.backBarButtonItem =
+                    UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+            }
+        }
     }
 }
 
@@ -53,26 +73,5 @@ extension MainViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         // Special handling per tab if needed
         (viewController.contentViewController as? MainSelectable)?.mainDidSelect()
-    }
-}
-
-// MARK: - Helpers
-
-private extension UINavigationController {
-    
-    convenience init(_ state: MainAPI.TabMenu) {
-        self.init(
-            rootViewController: state.view.with {
-                $0.tabBarItem = UITabBarItem(
-                    title: state.item.title,
-                    image: UIImage(named: state.item.imageName),
-                    tag: state.item.id.rawValue
-                )
-            }
-        )
-        
-        self.navigationBar.prefersLargeTitles = true
-        self.navigationBar.topItem?.backBarButtonItem =
-            UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

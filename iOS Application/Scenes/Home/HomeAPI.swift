@@ -12,16 +12,17 @@ protocol HomeInteractorType: InteractorType {
     func fetchProfile()
     func fetchMenu()
     func fetchSocial()
-    func select(menu: HomeAPI.MenuItem)
-    func select(social: Social)
 }
 
 protocol HomePresenterType: PresenterType {
-    func displayProfile(avatar: String, name: String, caption: String)
+    func display(profile: HomeAPI.Profile)
     func display(menu: [HomeAPI.MenuSection])
     func display(social: [HomeAPI.SocialItem])
-    func display(menu: HomeAPI.MenuItem)
-    func display(social: Social)
+}
+
+protocol HomeRenderType: RenderType {
+    func select(menu: HomeAPI.MenuItem)
+    func select(social: Social)
 }
 
 // MARK: - Namespace
@@ -47,6 +48,12 @@ enum HomeAPI {
     struct MenuSection {
         let title: String?
         let items: [MenuItem]
+    }
+    
+    struct Profile {
+        let avatar: String
+        let name: String
+        let caption: String
     }
     
     struct SocialItem {

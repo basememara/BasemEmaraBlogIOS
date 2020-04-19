@@ -12,6 +12,12 @@ import ZamzamCore
 import ZamzamUI
 
 class ShowBlogViewController: UIViewController {
+    private var token: NotificationCenter.Token?
+    var store: Store<ShowBlogState>!
+    var interactor: ShowBlogInteractorType?
+    var render: ShowBlogRenderType?
+    var constants: ConstantsType?
+    var theme: Theme?
     
     // MARK: - Controls
     
@@ -38,16 +44,6 @@ class ShowBlogViewController: UIViewController {
         didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
     }
     
-    // MARK: - Dependencies
-    
-    var core: ShowBlogCoreType?
-    
-    private lazy var action: ShowBlogActionable? = core?.action(with: self)
-    private(set) lazy var router: ShowBlogRouterable? = core?.router(with: self)
-    
-    private lazy var constants: ConstantsType? = core?.constants()
-    private lazy var theme: Theme? = core?.theme()
-    
     // MARK: - State
     
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
@@ -70,16 +66,23 @@ class ShowBlogViewController: UIViewController {
         delegate: self
     )
     
+    // MARK: - Initializers
+    
+//    init(store: Store<ShowBlogState>, interactor: ShowBlogInteractorType?) {
+//        self.store = store
+//        self.interactor = interactor
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        loadData()
+        prepare()
     }
 }
 
@@ -87,7 +90,7 @@ class ShowBlogViewController: UIViewController {
 
 private extension ShowBlogViewController {
     
-    func configure() {
+    func prepare() {
         navigationItem.titleView = titleView
         navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -110,24 +113,46 @@ private extension ShowBlogViewController {
             spacing: 10,
             inset: 16
         )
-    }
-    
-    func loadData() {
-        action?.fetchLatestPosts(
+        
+        store(in: &token, observer: load)
+        
+        interactor?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action?.fetchPopularPosts(
+        interactor?.fetchPopularPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action?.fetchTopPickPosts(
+        interactor?.fetchTopPickPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        action?.fetchTerms(
+        interactor?.fetchTerms(
             with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
+    }
+    
+    func load(_ state: ShowBlogState) {
+        latestPostsCollectionViewAdapter.reloadData(
+            with: state.latestPosts
+        )
+        
+        popularPostsCollectionViewAdapter.reloadData(
+            with: state.popularPosts
+        )
+        
+        pickedPostsCollectionViewAdapter.reloadData(
+            with: state.topPickPosts
+        )
+        
+        topTermsTableViewAdapter.reloadData(
+            with: state.terms
+        )
+        
+        // TODO: Handle error
+        
+        endRefreshing()
     }
 }
 
@@ -136,68 +161,31 @@ private extension ShowBlogViewController {
 private extension ShowBlogViewController {
     
     @IBAction func popularPostsSeeAllButtonTapped() {
-        router?.listPosts(
+        render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .popular)
         )
     }
     
     @IBAction func topPickedPostsSeeAllButtonTapped() {
-        router?.listPosts(
+        render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .picks)
         )
     }
     
     @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
-        router?.listTerms()
+        render?.listTerms()
     }
     
     @IBAction func disclaimerButtonTapped() {
-        router?.showDisclaimer(url: constants?.disclaimerURL)
+        render?.showDisclaimer(url: constants?.disclaimerURL)
     }
     
     @IBAction func privacyButtonTapped() {
-        router?.show(url: constants?.privacyURL)
+        render?.show(url: constants?.privacyURL)
     }
     
     @IBAction func contactButtonTapped() {
-        router?.sendEmail(to: constants?.email)
-    }
-}
-
-// MARK: - Scene
-
-extension ShowBlogViewController: ShowBlogDisplayable {
-    
-    func displayLatestPosts(with viewModels: [PostsDataViewModel]) {
-        latestPostsCollectionViewAdapter.reloadData(with: viewModels)
-        endRefreshing()
-    }
-    
-    func displayPopularPosts(with viewModels: [PostsDataViewModel]) {
-        popularPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTopPickPosts(with viewModels: [PostsDataViewModel]) {
-        pickedPostsCollectionViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayTerms(with viewModels: [TermsDataViewModel]) {
-        topTermsTableViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayToggleFavorite(with viewModel: ShowBlogAPI.FavoriteViewModel) {
-        // Refresh favorite status in collection if applicable
-        // TODO: Migrate to reactive views then wouldn't need to fetch
-        if latestPostsCollectionViewAdapter.viewModels?
-            .contains(where: { $0.id == viewModel.postID }) == true {
-                action?.fetchLatestPosts(
-                    with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
-                )
-        }
-    }
-    
-    func endRefreshing() {
-        activityIndicatorView.stopAnimating()
+        render?.sendEmail(to: constants?.email)
     }
 }
 
@@ -206,11 +194,11 @@ extension ShowBlogViewController: ShowBlogDisplayable {
 extension ShowBlogViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
-        action?.toggleFavorite(
+        interactor?.toggleFavorite(
             with: ShowBlogAPI.FavoriteRequest(
                 postID: model.id
             )
@@ -258,7 +246,7 @@ extension ShowBlogViewController: PostsDataViewDelegate {
 extension ShowBlogViewController: TermsDataViewDelegate {
     
     func termsDataView(didSelect model: TermsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router?.listPosts(
+        render?.listPosts(
             params: ListPostsAPI.Params(
                 fetchType: .terms([model.id]),
                 title: model.name
@@ -288,7 +276,7 @@ extension ShowBlogViewController {
                         title: .localized(model.favorite == true ? .unfavoriteTitle : .favoriteTitle),
                         image: UIImage(systemName: model.favorite == true ? "star.fill" : "star"),
                         handler: { [weak self] _ in
-                            self?.action?.toggleFavorite(
+                            self?.interactor?.toggleFavorite(
                                 with: ShowBlogAPI.FavoriteRequest(
                                     postID: model.id
                                 )
@@ -301,7 +289,7 @@ extension ShowBlogViewController {
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
 }
 
@@ -310,5 +298,14 @@ extension ShowBlogViewController: MainSelectable {
     func mainDidSelect() {
         guard isViewLoaded else { return }
         scrollView?.scrollToTop()
+    }
+}
+
+// MARK: - Helpers
+
+private extension ShowBlogViewController {
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
     }
 }

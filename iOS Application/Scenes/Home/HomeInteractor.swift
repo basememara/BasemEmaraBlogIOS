@@ -6,8 +6,6 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-import SwiftyPress
-
 struct HomeInteractor: HomeInteractorType {
     private let presenter: HomePresenterType
     
@@ -19,10 +17,12 @@ struct HomeInteractor: HomeInteractorType {
 extension HomeInteractor {
     
     func fetchProfile() {
-        presenter.displayProfile(
-            avatar: "BasemProfilePic",
-            name: "Basem Emara",
-            caption: "Mobile Architect / iOS Jedi"
+        presenter.display(
+            profile: HomeAPI.Profile(
+                avatar: "BasemProfilePic",
+                name: "Basem Emara",
+                caption: "Mobile Architect / iOS Jedi"
+            )
         )
     }
 }
@@ -112,16 +112,5 @@ extension HomeInteractor {
         ]
         
         presenter.display(social: items)
-    }
-}
-
-extension HomeInteractor {
-    
-    func select(menu: HomeAPI.MenuItem) {
-        presenter.display(menu: menu)
-    }
-    
-    func select(social: Social) {
-        presenter.display(social: social)
     }
 }
