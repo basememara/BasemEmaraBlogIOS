@@ -6,15 +6,15 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIImage
 
 extension UIImage {
     
     /// Returns the image object associated with the specified filename.
     ///
     /// - Parameter name: Enum case for image name
-    convenience init?(named name: ImageName) {
-        self.init(named: name.rawValue)
+    convenience init?(named name: ImageName, inBundle bundle: Bundle? = nil) {
+        self.init(named: name.rawValue, inBundle: bundle)
     }
     
     enum ImageName: String {

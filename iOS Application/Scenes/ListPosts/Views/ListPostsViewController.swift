@@ -18,7 +18,7 @@ class ListPostsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: PostTableViewCell.self)
+            tableView.register(xib: PostTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }

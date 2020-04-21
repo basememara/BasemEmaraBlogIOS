@@ -21,7 +21,7 @@ class PostTableViewCell: UITableViewCell, PostsDataViewCell {
 
 extension PostTableViewCell {
     
-    func bind(_ model: PostsDataViewModel) {
+    func load(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
         dateLabel.text = model.date

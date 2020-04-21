@@ -54,8 +54,6 @@ extension ShowBlogState {
                 .firstIndex(where: { $0.id == value.postID }) {
                 //topPickPosts[index] = PostsDataViewModel(
             }
-            
-            
         case .loadError(let value):
             error = value
         }

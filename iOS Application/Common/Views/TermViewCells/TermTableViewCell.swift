@@ -17,7 +17,7 @@ class TermTableViewCell: UITableViewCell, TermsDataViewCell {
 
 extension TermTableViewCell {
     
-    func bind(_ model: TermsDataViewModel) {
+    func load(_ model: TermsDataViewModel) {
         nameLabel.text = model.name
         countLabel.text = "(\(model.count))"
     }

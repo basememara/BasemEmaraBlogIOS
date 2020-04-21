@@ -23,7 +23,7 @@ class PickedPostCollectionViewCell: UICollectionViewCell, PostsDataViewCell {
 
 extension PickedPostCollectionViewCell {
     
-    func bind(_ model: PostsDataViewModel) {
+    func load(_ model: PostsDataViewModel) {
         self.model = model
         
         titleLabel.text = model.title
@@ -32,9 +32,9 @@ extension PickedPostCollectionViewCell {
         favoriteButton.isSelected =  model.favorite ?? false
     }
     
-    func bind(_ model: PostsDataViewModel, delegate: PostsDataViewDelegate?) {
+    func load(_ model: PostsDataViewModel, delegate: PostsDataViewDelegate?) {
         self.delegate = delegate
-        bind(model)
+        load(model)
     }
 }
 

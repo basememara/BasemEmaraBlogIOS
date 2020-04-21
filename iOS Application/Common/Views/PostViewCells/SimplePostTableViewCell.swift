@@ -17,7 +17,7 @@ class SimplePostTableViewCell: UITableViewCell, PostsDataViewCell {
 
 extension SimplePostTableViewCell {
     
-    func bind(_ model: PostsDataViewModel) {
+    func load(_ model: PostsDataViewModel) {
         titleLabel.text = model.title
         detailLabel.text = model.date
     }

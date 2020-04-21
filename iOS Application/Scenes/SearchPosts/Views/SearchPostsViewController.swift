@@ -17,7 +17,7 @@ class SearchPostsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(nib: SimplePostTableViewCell.self)
+            tableView.register(xib: SimplePostTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }
