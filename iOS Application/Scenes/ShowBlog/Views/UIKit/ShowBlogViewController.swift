@@ -96,19 +96,19 @@ private extension ShowBlogViewController {
             makeHeader(
                 title: .localized(.popularPostsTitle),
                 buttonTitle: .localized(.seeAllButton),
-                buttonAction: #selector(popularPostsSeeAllButtonTapped)
+                buttonAction: #selector(didTapPopularPostsSeeAllButton)
             ),
             popularPostsCollectionView,
             makeHeader(
                 title: .localized(.postsByTermsTitle),
                 buttonTitle: .localized(.seeAllButton),
-                buttonAction: #selector(topTermsSeeAllButtonTapped)
+                buttonAction: #selector(didTapTermsSeeAllButton)
             ),
             topTermsTableView,
             makeHeader(
                 title: .localized(.topPicksTitle),
                 buttonTitle: .localized(.seeAllButton),
-                buttonAction: #selector(topPickedPostsSeeAllButtonTapped)
+                buttonAction: #selector(didTapTopPickedPostsSeeAllButton)
             ),
             pickedPostsCollectionView,
             makeFooter()
@@ -162,31 +162,31 @@ private extension ShowBlogViewController {
 
 extension ShowBlogViewController {
     
-    @objc func popularPostsSeeAllButtonTapped() {
+    @objc func didTapPopularPostsSeeAllButton() {
         render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .popular)
         )
     }
     
-    @objc func topPickedPostsSeeAllButtonTapped() {
+    @objc func didTapTopPickedPostsSeeAllButton() {
         render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .picks)
         )
     }
     
-    @objc func topTermsSeeAllButtonTapped() {
+    @objc func didTapTermsSeeAllButton() {
         render?.listTerms()
     }
     
-    @objc func disclaimerButtonTapped() {
+    @objc func didTapDisclaimerButton() {
         render?.showDisclaimer(url: constants?.disclaimerURL)
     }
     
-    @objc func privacyButtonTapped() {
+    @objc func didTapPrivacyButton() {
         render?.show(url: constants?.privacyURL)
     }
     
-    @objc func contactButtonTapped() {
+    @objc func didTapContactButton() {
         render?.sendEmail(to: constants?.email)
     }
 }

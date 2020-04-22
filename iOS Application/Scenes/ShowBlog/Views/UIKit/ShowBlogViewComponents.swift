@@ -88,11 +88,11 @@ extension ShowBlogViewController {
                     arrangedSubviews: [
                         ThemedButton(type: .system).with {
                             $0.setTitle("Disclaimer", for: .normal)
-                            $0.addTarget(self, action: #selector(disclaimerButtonTapped), for: .touchUpInside)
+                            $0.addTarget(self, action: #selector(didTapDisclaimerButton), for: .touchUpInside)
                         },
                         ThemedButton(type: .system).with {
                             $0.setTitle("Privacy", for: .normal)
-                            $0.addTarget(self, action: #selector(privacyButtonTapped), for: .touchUpInside)
+                            $0.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
                         }
                     ]
                 ).with {
@@ -102,7 +102,7 @@ extension ShowBlogViewController {
                 },
                 ThemedButton(type: .system).with {
                     $0.setTitle("Contact", for: .normal)
-                    $0.addTarget(self, action: #selector(contactButtonTapped), for: .touchUpInside)
+                    $0.addTarget(self, action: #selector(didTapContactButton), for: .touchUpInside)
                 }
             ]
         ).with {
