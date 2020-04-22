@@ -115,7 +115,6 @@
 		8B42C819234BBC9000F38E23 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B3234BBC9000F38E23 /* SimplePostTableViewCell.swift */; };
 		8B42C81A234BBC9000F38E23 /* LatestPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B4234BBC9000F38E23 /* LatestPostCollectionViewCell.swift */; };
 		8B42C81E234BBC9000F38E23 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B8234BBC9000F38E23 /* PostTableViewCell.swift */; };
-		8B42C81F234BBC9000F38E23 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7B9234BBC9000F38E23 /* PostTableViewCell.xib */; };
 		8B42C820234BBC9000F38E23 /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */; };
 		8B42C821234BBC9000F38E23 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BB234BBC9000F38E23 /* Theme.xcassets */; };
 		8B42C835234BBD6000F38E23 /* TodayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C82F234BBD6000F38E23 /* TodayPresenter.swift */; };
@@ -130,14 +129,10 @@
 		8B42C84F234BC06100F38E23 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C798234BBC9000F38E23 /* AppTheme.swift */; };
 		8B42C850234BC08A00F38E23 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */; };
 		8B42C851234BC08A00F38E23 /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AF234BBC9000F38E23 /* TermTableViewCell.xib */; };
-		8B42C858234BC08A00F38E23 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B8234BBC9000F38E23 /* PostTableViewCell.swift */; };
-		8B42C859234BC08A00F38E23 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7B9234BBC9000F38E23 /* PostTableViewCell.xib */; };
 		8B42C85A234BC08A00F38E23 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B3234BBC9000F38E23 /* SimplePostTableViewCell.swift */; };
 		8B42C85B234BC08A00F38E23 /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */; };
 		8B42C85C234BC08B00F38E23 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */; };
 		8B42C85D234BC08B00F38E23 /* TermTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AF234BBC9000F38E23 /* TermTableViewCell.xib */; };
-		8B42C864234BC08B00F38E23 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B8234BBC9000F38E23 /* PostTableViewCell.swift */; };
-		8B42C865234BC08B00F38E23 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7B9234BBC9000F38E23 /* PostTableViewCell.xib */; };
 		8B42C866234BC08B00F38E23 /* SimplePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B3234BBC9000F38E23 /* SimplePostTableViewCell.swift */; };
 		8B42C867234BC08B00F38E23 /* SimplePostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */; };
 		8B42C868234BC0A300F38E23 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78B234BBC8F00F38E23 /* AppCore.swift */; };
@@ -375,7 +370,6 @@
 		8B42C7B3234BBC9000F38E23 /* SimplePostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePostTableViewCell.swift; sourceTree = "<group>"; };
 		8B42C7B4234BBC9000F38E23 /* LatestPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B42C7B8234BBC9000F38E23 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		8B42C7B9234BBC9000F38E23 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimplePostTableViewCell.xib; sourceTree = "<group>"; };
 		8B42C7BB234BBC9000F38E23 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		8B42C82F234BBD6000F38E23 /* TodayPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayPresenter.swift; sourceTree = "<group>"; };
@@ -949,7 +943,6 @@
 				8B42C7B2234BBC9000F38E23 /* PickedPostCollectionViewCell.swift */,
 				8B42C7B1234BBC9000F38E23 /* PopularPostCollectionViewCell.swift */,
 				8B42C7B8234BBC9000F38E23 /* PostTableViewCell.swift */,
-				8B42C7B9234BBC9000F38E23 /* PostTableViewCell.xib */,
 				8B42C7B3234BBC9000F38E23 /* SimplePostTableViewCell.swift */,
 				8B42C7BA234BBC9000F38E23 /* SimplePostTableViewCell.xib */,
 			);
@@ -1246,7 +1239,6 @@
 				8B42C6E5234A6BDB00F38E23 /* Assets.xcassets in Resources */,
 				8B42C7CF234BBC9000F38E23 /* style.css in Resources */,
 				8B42C7CE234BBC9000F38E23 /* post.html in Resources */,
-				8B42C81F234BBC9000F38E23 /* PostTableViewCell.xib in Resources */,
 				8B42C814234BBC9000F38E23 /* seed.json in Resources */,
 				8B5C98C1236535CF00F7F016 /* InfoPlist.strings in Resources */,
 				8B42C820234BBC9000F38E23 /* SimplePostTableViewCell.xib in Resources */,
@@ -1271,7 +1263,6 @@
 				8B42C851234BC08A00F38E23 /* TermTableViewCell.xib in Resources */,
 				8B5C98CF2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C87F234BC6BB00F38E23 /* Today.storyboard in Resources */,
-				8B42C859234BC08A00F38E23 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1287,7 +1278,6 @@
 				8B42C85D234BC08B00F38E23 /* TermTableViewCell.xib in Resources */,
 				8B5C98D02365362A00F7F016 /* Localizable.strings in Resources */,
 				8B42C843234BBDB400F38E23 /* Notification.storyboard in Resources */,
-				8B42C865234BC08B00F38E23 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1483,7 +1473,6 @@
 				8B42C868234BC0A300F38E23 /* AppCore.swift in Sources */,
 				8B42C846234BBFB500F38E23 /* AppDisplayable.swift in Sources */,
 				8B20F10523A928E5007A88DC /* AppAPI.swift in Sources */,
-				8B42C858234BC08A00F38E23 /* PostTableViewCell.swift in Sources */,
 				8B20F10D23A92952007A88DC /* AppActionable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1500,7 +1489,6 @@
 				8B20F10A23A9293A007A88DC /* AppPresentable.swift in Sources */,
 				8B42C85C234BC08B00F38E23 /* TermTableViewCell.swift in Sources */,
 				8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */,
-				8B42C864234BC08B00F38E23 /* PostTableViewCell.swift in Sources */,
 				8B5C98CB236535FE00F7F016 /* Localizable.swift in Sources */,
 				8B42C866234BC08B00F38E23 /* SimplePostTableViewCell.swift in Sources */,
 			);

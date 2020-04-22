@@ -78,13 +78,9 @@ private extension PickedPostCollectionViewCell {
         }
         
         addSubview(view)
-        view.edges(to: self)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        view.edges(to: self)
+        stackView.edges(to: view, insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16))
         
         featuredImage.aspectRatioSize()
         

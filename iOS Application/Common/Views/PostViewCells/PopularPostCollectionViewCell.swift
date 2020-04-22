@@ -83,12 +83,7 @@ private extension PopularPostCollectionViewCell {
         addSubview(separator)
         
         view.edges(to: self)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        stackView.edges(to: view, insets: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 18))
         
         featuredImage.aspectRatioSize()
         
