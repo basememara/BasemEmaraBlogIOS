@@ -17,7 +17,7 @@ class ListTermsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(xib: TermTableViewCell.self)
+            tableView.register(TermTableViewCell.self)
             tableView.contentInset.bottom += 20
         }
     }

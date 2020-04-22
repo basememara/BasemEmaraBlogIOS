@@ -171,13 +171,12 @@ extension ShowBlogViewController {
     
     func makeTopTermsTableView() -> UITableView {
         UITableView().with {
-            $0.register(xib: TermTableViewCell.self)
+            $0.register(TermTableViewCell.self)
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
             $0.isScrollEnabled = false
             $0.tableFooterView = UIView()
             $0.sectionHeaderHeight = 28
-            $0.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.heightAnchor.constraint(equalToConstant: 280).isActive = true
         }

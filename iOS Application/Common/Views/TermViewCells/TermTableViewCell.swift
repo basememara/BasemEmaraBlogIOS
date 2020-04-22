@@ -9,13 +9,63 @@
 import UIKit
 import SwiftyPress
 
-class TermTableViewCell: UITableViewCell, TermsDataViewCell {
+final class TermTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var countLabel: UILabel!
+    private let nameLabel = ThemedLabel().with {
+        $0.font = .preferredFont(forTextStyle: .body)
+        $0.numberOfLines = 1
+    }
+    
+    private let countLabel = ThemedFootnote().with {
+        $0.font = .preferredFont(forTextStyle: .footnote)
+        $0.numberOfLines = 1
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        prepare()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
-extension TermTableViewCell {
+// MARK: - Setup
+
+private extension TermTableViewCell {
+    
+    func prepare() {
+        separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        
+        let stackView = UIStackView(arrangedSubviews: [
+            nameLabel,
+            countLabel.with {
+                $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+            }
+        ]).with {
+            $0.axis = .horizontal
+            $0.spacing = 8
+        }
+        
+        let view = ThemedView().with {
+            $0.addSubview(stackView)
+        }
+        
+        addSubview(view)
+        view.edges(to: self)
+        
+        stackView.edges(
+            to: view,
+            insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16),
+            safeArea: true
+        )
+    }
+}
+
+// MARK: - Delegates
+
+extension TermTableViewCell: TermsDataViewCell {
     
     func load(_ model: TermsDataViewModel) {
         nameLabel.text = model.name
