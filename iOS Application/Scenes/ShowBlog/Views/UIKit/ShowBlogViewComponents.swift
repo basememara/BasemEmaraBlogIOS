@@ -161,7 +161,7 @@ extension ShowBlogViewController {
                 inset: 16
             )
         ).with {
-            $0.register(xib: PickedPostCollectionViewCell.self)
+            $0.register(PickedPostCollectionViewCell.self)
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
             $0.translatesAutoresizingMaskIntoConstraints = false
