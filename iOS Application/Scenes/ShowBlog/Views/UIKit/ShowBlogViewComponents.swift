@@ -142,7 +142,7 @@ extension ShowBlogViewController {
                 inset: 16
             )
         ).with {
-            $0.register(xib: PopularPostCollectionViewCell.self)
+            $0.register(PopularPostCollectionViewCell.self)
             $0.decelerationRate = .fast
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false

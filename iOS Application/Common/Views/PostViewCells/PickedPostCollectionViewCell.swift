@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-class PickedPostCollectionViewCell: UICollectionViewCell {
+final class PickedPostCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel = ThemedHeadline().with {
         $0.font = .preferredFont(forTextStyle: .headline)
@@ -29,6 +29,7 @@ class PickedPostCollectionViewCell: UICollectionViewCell {
     
     private lazy var favoriteButton = ThemedImageButton().with {
         $0.setImage(UIImage(named: .favoriteEmpty), for: .normal)
+        $0.imageView?.contentMode = .scaleAspectFit
         $0.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside) // Must be in lazy init
     }
     
@@ -50,6 +51,11 @@ class PickedPostCollectionViewCell: UICollectionViewCell {
 private extension PickedPostCollectionViewCell {
     
     func prepare() {
+        let favoriteView = UIView().with {
+            $0.backgroundColor = .clear
+            $0.addSubview(favoriteButton)
+        }
+        
         let stackView = UIStackView(arrangedSubviews: [
             featuredImage,
             UIStackView(arrangedSubviews: [
@@ -57,10 +63,7 @@ private extension PickedPostCollectionViewCell {
                     $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
                 },
                 summaryLabel,
-                UIView().with {
-                    $0.backgroundColor = .clear
-                    $0.addSubview(favoriteButton)
-                }
+                favoriteView
             ]).with {
                 $0.axis = .vertical
                 $0.spacing = 5
@@ -84,6 +87,9 @@ private extension PickedPostCollectionViewCell {
         stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
         featuredImage.aspectRatioSize()
+        
+        favoriteView.heightAnchor.constraint(equalTo: favoriteButton.heightAnchor).isActive = true
+        favoriteButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         favoriteButton.center()
     }
 }
