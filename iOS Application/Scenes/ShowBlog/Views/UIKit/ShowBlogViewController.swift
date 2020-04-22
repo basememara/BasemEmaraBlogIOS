@@ -11,56 +11,39 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowBlogViewController: UIViewController {
+final class ShowBlogViewController: UIViewController {
+    private let store: Store<ShowBlogState>
+    private let interactor: ShowBlogInteractorType?
+    private let constants: ConstantsType?
+    private let theme: Theme?
     private var token: NotificationCenter.Token?
-    var store: Store<ShowBlogState>!
-    var interactor: ShowBlogInteractorType?
+    
     var render: ShowBlogRenderType?
-    var constants: ConstantsType?
-    var theme: Theme?
     
     // MARK: - Controls
     
-    @IBOutlet private weak var popularTitleLabel: UILabel!
-    @IBOutlet private weak var tagTitleLabel: UILabel!
-    @IBOutlet private weak var picksTitleLabel: UILabel!
-    @IBOutlet private weak var scrollView: UIScrollView?
-    @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet private var titleView: UIView! // Needs strong reference, see storyboard
+    private lazy var scrollStackView = makeScrollStackView()
+    private lazy var activityIndicatorView = view.makeActivityIndicator()
     
-    @IBOutlet private weak var latestPostsCollectionView: UICollectionView! {
-        didSet { latestPostsCollectionView.register(cell: LatestPostCollectionViewCell.self) }
-    }
-    
-    @IBOutlet private weak var popularPostsCollectionView: UICollectionView! {
-        didSet { popularPostsCollectionView.register(cell: PopularPostCollectionViewCell.self) }
-    }
-    
-    @IBOutlet private weak var pickedPostsCollectionView: UICollectionView! {
-        didSet { pickedPostsCollectionView.register(cell: PickedPostCollectionViewCell.self) }
-    }
-    
-    @IBOutlet private weak var topTermsTableView: UITableView! {
-        didSet { topTermsTableView.register(nib: TermTableViewCell.self) }
-    }
-    
-    // MARK: - State
-    
+    private lazy var latestPostsCollectionView = makeLatestPostsCollectionView()
     private lazy var latestPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: latestPostsCollectionView,
         delegate: self
     )
     
+    private lazy var popularPostsCollectionView = makePopularPostsCollectionView()
     private lazy var popularPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: popularPostsCollectionView,
         delegate: self
     )
     
+    private lazy var pickedPostsCollectionView = makePickedPostsCollectionView()
     private lazy var pickedPostsCollectionViewAdapter = PostsDataViewAdapter(
         for: pickedPostsCollectionView,
         delegate: self
     )
     
+    private lazy var topTermsTableView = makeTopTermsTableView()
     private lazy var topTermsTableViewAdapter = TermsDataViewAdapter(
         for: topTermsTableView,
         delegate: self
@@ -68,21 +51,32 @@ class ShowBlogViewController: UIViewController {
     
     // MARK: - Initializers
     
-//    init(store: Store<ShowBlogState>, interactor: ShowBlogInteractorType?) {
-//        self.store = store
-//        self.interactor = interactor
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(
+        store: Store<ShowBlogState>,
+        interactor: ShowBlogInteractorType?,
+        constants: ConstantsType,
+        theme: Theme
+    ) {
+        self.store = store
+        self.interactor = interactor
+        self.constants = constants
+        self.theme = theme
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+    }
+    
+    override func loadView() {
+        view = scrollStackView
     }
 }
 
@@ -91,31 +85,39 @@ class ShowBlogViewController: UIViewController {
 private extension ShowBlogViewController {
     
     func prepare() {
-        navigationItem.titleView = titleView
+        // Configure controls
+        navigationItem.titleView = makeTitle()
         navigationController?.navigationBar.prefersLargeTitles = false
+        activityIndicatorView.startAnimating()
         
-        latestPostsCollectionView.collectionViewLayout = SnapPagingLayout(
-            centerPosition: true,
-            peekWidth: 40,
-            spacing: 20,
-            inset: 16
-        )
+        // Compose layout
+        scrollStackView.add(rows: [
+            latestPostsCollectionView,
+            makeHeader(
+                title: .localized(.popularPostsTitle),
+                buttonTitle: .localized(.seeAllButton),
+                buttonAction: #selector(popularPostsSeeAllButtonTapped)
+            ),
+            popularPostsCollectionView,
+            makeHeader(
+                title: .localized(.postsByTermsTitle),
+                buttonTitle: .localized(.seeAllButton),
+                buttonAction: #selector(topTermsSeeAllButtonTapped)
+            ),
+            topTermsTableView,
+            makeHeader(
+                title: .localized(.topPicksTitle),
+                buttonTitle: .localized(.seeAllButton),
+                buttonAction: #selector(topPickedPostsSeeAllButtonTapped)
+            ),
+            pickedPostsCollectionView,
+            makeFooter()
+        ])
         
-        popularPostsCollectionView.decelerationRate = .fast
-        popularPostsCollectionView.collectionViewLayout = MultiRowLayout(
-            rowsCount: 3,
-            inset: 16
-        )
-        
-        pickedPostsCollectionView.collectionViewLayout = SnapPagingLayout(
-            centerPosition: false,
-            peekWidth: 20,
-            spacing: 10,
-            inset: 16
-        )
-        
+        // Bind state
         store(in: &token, observer: load)
         
+        // Fetch data
         interactor?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
@@ -152,39 +154,39 @@ private extension ShowBlogViewController {
         
         // TODO: Handle error
         
-        endRefreshing()
+        activityIndicatorView.stopAnimating()
     }
 }
 
 // MARK: - Interactions
 
-private extension ShowBlogViewController {
+extension ShowBlogViewController {
     
-    @IBAction func popularPostsSeeAllButtonTapped() {
+    @objc func popularPostsSeeAllButtonTapped() {
         render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .popular)
         )
     }
     
-    @IBAction func topPickedPostsSeeAllButtonTapped() {
+    @objc func topPickedPostsSeeAllButtonTapped() {
         render?.listPosts(
             params: ListPostsAPI.Params(fetchType: .picks)
         )
     }
     
-    @IBAction func topTermsSeeAllButtonTapped(_ sender: Any) {
+    @objc func topTermsSeeAllButtonTapped() {
         render?.listTerms()
     }
     
-    @IBAction func disclaimerButtonTapped() {
+    @objc func disclaimerButtonTapped() {
         render?.showDisclaimer(url: constants?.disclaimerURL)
     }
     
-    @IBAction func privacyButtonTapped() {
+    @objc func privacyButtonTapped() {
         render?.show(url: constants?.privacyURL)
     }
     
-    @IBAction func contactButtonTapped() {
+    @objc func contactButtonTapped() {
         render?.sendEmail(to: constants?.email)
     }
 }
@@ -297,15 +299,6 @@ extension ShowBlogViewController: MainSelectable {
     
     func mainDidSelect() {
         guard isViewLoaded else { return }
-        scrollView?.scrollToTop()
-    }
-}
-
-// MARK: - Helpers
-
-private extension ShowBlogViewController {
-    
-    func endRefreshing() {
-        activityIndicatorView.stopAnimating()
+        scrollStackView.scrollToTop()
     }
 }

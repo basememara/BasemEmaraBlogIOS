@@ -132,10 +132,12 @@ extension SceneRender {
             preferences: core.preferences()
         )
         
-        let controller: ShowBlogViewController = .make(fromStoryboard: Storyboard.showBlog.rawValue)
-        
-        controller.store = store
-        controller.interactor = interactor
+        let controller = ShowBlogViewController(
+            store: store,
+            interactor: interactor,
+            constants: core.constants(),
+            theme: core.theme()
+        )
         
         controller.render = ShowBlogRender(
             render: self,
@@ -143,9 +145,6 @@ extension SceneRender {
             theme: core.theme(),
             presentationContext: controller
         )
-        
-        controller.constants = core.constants()
-        controller.theme = core.theme()
         
         return controller
     }
