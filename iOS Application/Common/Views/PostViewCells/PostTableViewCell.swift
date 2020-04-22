@@ -45,6 +45,8 @@ final class PostTableViewCell: UITableViewCell {
 private extension PostTableViewCell {
     
     func prepare() {
+        separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
         let stackView = UIStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
                 titleLabel.with {
@@ -70,7 +72,6 @@ private extension PostTableViewCell {
             $0.addSubview(stackView)
         }
         
-        separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         addSubview(view)
         
         view.edges(to: self)
