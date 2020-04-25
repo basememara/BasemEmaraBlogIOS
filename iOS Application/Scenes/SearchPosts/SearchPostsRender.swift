@@ -6,23 +6,23 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
 import SwiftyPress
+import UIKit.UIViewController
 
-struct SearchPostsRouter: SearchPostsRouterable {
+struct SearchPostsRender: SearchPostsRenderType {
     private let render: SceneRenderType
-    weak var viewController: UIViewController?
+    weak var presentationContext: UIViewController?
     
-    init(render: SceneRenderType, viewController: UIViewController?) {
+    init(render: SceneRenderType, presentationContext: UIViewController?) {
         self.render = render
-        self.viewController = viewController
+        self.presentationContext = presentationContext
     }
 }
 
-extension SearchPostsRouter {
+extension SearchPostsRender {
 
     func showPost(for model: PostsDataViewModel) {
         let controller = render.showPost(for: model.id)
-        viewController?.show(controller)
+        presentationContext?.show(controller)
     }
 }

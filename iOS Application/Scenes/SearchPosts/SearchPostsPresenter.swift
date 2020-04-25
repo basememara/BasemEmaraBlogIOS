@@ -10,22 +10,23 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct SearchPostsPresenter: SearchPostsPresentable {
-    private weak var viewController: SearchPostsDisplayable?
+struct SearchPostsPresenter: SearchPostsPresenterType {
+    private let send: SendAction<SearchPostsState>
+    private let dateFormatter: DateFormatter
     
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: SearchPostsDisplayable?) {
-        self.viewController = viewController
+    init(send: @escaping SendAction<SearchPostsState>) {
+        self.send = send
+        
+        dateFormatter = DateFormatter().with {
+            $0.dateStyle = .medium
+            $0.timeStyle = .none
+        }
     }
 }
 
 extension SearchPostsPresenter {
 
-    func presentSearchResults(for response: SearchPostsAPI.Response) {
+    func displaySearchResults(for response: SearchPostsAPI.Response) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -34,15 +35,15 @@ extension SearchPostsPresenter {
             )
         }
         
-        viewController?.displayPosts(with: viewModels)
+        send(.loadPosts(viewModels))
     }
     
-    func presentSearchResults(error: DataError) {
+    func displaySearchResults(error: DataError) {
         let viewModel = AppAPI.Error(
             title: .localized(.searchErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        send(.loadError(viewModel))
     }
 }

@@ -55,7 +55,7 @@ extension DeepLinkRouter {
                 controller.searchText = query
 
                 if controller.isViewLoaded {
-                    controller.loadData()
+                    controller.fetch()
                 }
             }
             

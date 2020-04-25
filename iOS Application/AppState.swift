@@ -12,4 +12,5 @@ public struct AppState {
     var listFavoritesState = ListFavoritesState()
     var listPostsState = ListPostsState()
     var listTermsState = ListTermsState()
+    var searchPostsState = SearchPostsState()
 }

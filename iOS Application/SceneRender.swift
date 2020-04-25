@@ -178,8 +178,27 @@ extension SceneRender {
     }
     
     func searchPosts() -> UIViewController {
-        let controller: SearchPostsViewController = .make(fromStoryboard: Storyboard.searchPosts.rawValue)
-        controller.core = SearchPostsCore(root: core, render: self)
+        let store = Store(keyPath: \.searchPostsState)
+        let presenter = SearchPostsPresenter(send: store.send)
+        
+        let interactor = SearchPostsInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository()
+        )
+        
+        let controller = SearchPostsViewController(
+            store: store,
+            interactor: interactor,
+            constants: core.constants(),
+            theme: core.theme()
+        )
+        
+        controller.render = SearchPostsRender(
+            render: self,
+            presentationContext: controller
+        )
+        
         return controller
     }
 }

@@ -11,16 +11,27 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class SearchPostsViewController: UIViewController {
+final class SearchPostsViewController: UIViewController {
+    private let store: Store<SearchPostsState>
+    private let interactor: SearchPostsInteractorType?
+    private let constants: ConstantsType
+    private let theme: Theme
+    private var token: NotificationCenter.Token?
+    
+    var render: SearchPostsRenderType?
+    var searchText: String?
     
     // MARK: - Controls
 
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            tableView.register(SimplePostTableViewCell.self)
-            tableView.contentInset.bottom += 20
-        }
+    private lazy var tableView = UITableView().with {
+        $0.register(SimplePostTableViewCell.self)
+        $0.contentInset.bottom += 20
     }
+    
+    private lazy var tableViewAdapter = PostsDataViewAdapter(
+        for: tableView,
+        delegate: self
+    )
     
     private lazy var searchController = UISearchController(searchResultsController: nil).with {
         $0.searchResultsUpdater = self
@@ -35,65 +46,63 @@ class SearchPostsViewController: UIViewController {
         ]
     }
     
-    @IBOutlet private var emptyPlaceholderView: UIView!
-    
-    // MARK: - Dependencies
-    
-    var core: SearchPostsCoreType?
-    
-    private lazy var action: SearchPostsActionable? = core?.action(with: self)
-    private lazy var router: SearchPostsRouterable? = core?.router(with: self)
-    
-    private lazy var constants: ConstantsType? = core?.constants()
-    private lazy var theme: Theme? = core?.theme()
-
-    // MARK: - State
-    
-    private lazy var tableViewAdapter = PostsDataViewAdapter(
-        for: tableView,
-        delegate: self
+    private lazy var emptyPlaceholderView = EmptyPlaceholderView(
+        text: .localized(.emptySearchMessage)
     )
     
-    var searchText: String?
+    // MARK: - Initializers
+    
+    init(
+        store: Store<SearchPostsState>,
+        interactor: SearchPostsInteractorType?,
+        constants: ConstantsType,
+        theme: Theme
+    ) {
+        self.store = store
+        self.interactor = interactor
+        self.constants = constants
+        self.theme = theme
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        loadData()
+        prepare()
+        fetch()
     }
 }
 
 // MARK: - Setup
 
-extension SearchPostsViewController {
+private extension SearchPostsViewController {
     
-    private func configure() {
-        // Handles switching tabs while focused
-        definesPresentationContext = true
-        
+    func prepare() {
+        // Configure controls
+        navigationItem.title = .localized(.searchTitle)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    
-    public func loadData() {
-        guard let searchText = searchText else {
-            action?.fetchPopularPosts(
-                with: SearchPostsAPI.PopularRequest()
-            )
-            
-            return
-        }
+        definesPresentationContext = true
         
-        self.searchText = nil
-        searchController.isActive = true
-        searchController.searchBar.text = searchText
-        searchData(for: searchText, with: 0)
+        // Compose layout
+        view.addSubview(tableView)
+        tableView.edges(to: view)
+        
+        // Bind state
+        store(in: &token, observer: load)
     }
     
-    private func searchData(for text: String, with scope: Int) {
-        action?.fetchSearchResults(
+    func load(_ state: SearchPostsState) {
+        tableViewAdapter.reloadData(with: state.posts)
+    }
+    
+    func search(for text: String, with scope: Int) {
+        interactor?.fetchSearchResults(
             with: PostAPI.SearchRequest(
                 query: text,
                 scope: {
@@ -113,12 +122,21 @@ extension SearchPostsViewController {
     }
 }
 
-// MARK: - Scene
-
-extension SearchPostsViewController: SearchPostsDisplayable {
-
-    func displayPosts(with viewModels: [PostsDataViewModel]) {
-        tableViewAdapter.reloadData(with: viewModels)
+extension SearchPostsViewController {
+    
+    func fetch() {
+        guard let searchText = searchText else {
+            interactor?.fetchPopularPosts(
+                with: SearchPostsAPI.PopularRequest()
+            )
+            
+            return
+        }
+        
+        self.searchText = nil
+        searchController.isActive = true
+        searchController.searchBar.text = searchText
+        search(for: searchText, with: 0)
     }
 }
 
@@ -129,14 +147,15 @@ extension SearchPostsViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text, !text.isEmpty else {
-            return loadData()
+            fetch()
+            return
         }
         
         // Skip irrelevant search until some characters
         guard text.count > 1 else { return }
         
         SearchPostsViewController.searchLimiter.execute { [weak self] in
-            self?.searchData(
+            self?.search(
                 for: text,
                 with: searchController.searchBar.selectedScopeButtonIndex
             )
@@ -154,7 +173,7 @@ extension SearchPostsViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
 }
 
@@ -162,7 +181,7 @@ extension SearchPostsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         guard let text = searchController.searchBar.text else { return }
-        searchData(for: text, with: selectedScope)
+        search(for: text, with: selectedScope)
     }
 }
 
@@ -170,11 +189,10 @@ extension SearchPostsViewController: UISearchBarDelegate {
 extension SearchPostsViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        guard let constants = constants, let theme = theme else { return nil }
-        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
 }

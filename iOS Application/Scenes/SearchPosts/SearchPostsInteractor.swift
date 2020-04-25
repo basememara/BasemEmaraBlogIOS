@@ -8,13 +8,13 @@
 
 import SwiftyPress
 
-struct SearchPostsAction: SearchPostsActionable {
-    private let presenter: SearchPostsPresentable
+struct SearchPostsInteractor: SearchPostsInteractorType {
+    private let presenter: SearchPostsPresenterType
     private let postRepository: PostRepositoryType
     private let mediaRepository: MediaRepositoryType
     
     init(
-        presenter: SearchPostsPresentable,
+        presenter: SearchPostsPresenterType,
         postRepository: PostRepositoryType,
         mediaRepository: MediaRepositoryType
     ) {
@@ -24,24 +24,24 @@ struct SearchPostsAction: SearchPostsActionable {
     }
 }
 
-extension SearchPostsAction {
+extension SearchPostsInteractor {
 
     func fetchSearchResults(with request: PostAPI.SearchRequest) {
         postRepository.search(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.presentSearchResults(
+                return self.presenter.displaySearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.presentSearchResults(
+                    return self.presenter.displaySearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.presentSearchResults(
+                self.presenter.displaySearchResults(
                     for: SearchPostsAPI.Response(
                         posts: posts,
                         media: media
@@ -52,26 +52,26 @@ extension SearchPostsAction {
     }
 }
 
-extension SearchPostsAction {
+extension SearchPostsInteractor {
     
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest) {
         let request = PostAPI.FetchRequest()
         
         postRepository.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.presentSearchResults(
+                return self.presenter.displaySearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.presentSearchResults(
+                    return self.presenter.displaySearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.presentSearchResults(
+                self.presenter.displaySearchResults(
                     for: SearchPostsAPI.Response(
                         posts: posts,
                         media: media
