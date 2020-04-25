@@ -8,13 +8,13 @@
 
 import SwiftyPress
 
-struct ListFavoritesAction: ListFavoritesActionable {
-    private let presenter: ListFavoritesPresentable
+struct ListFavoritesInteractor: ListFavoritesInteractorType {
+    private let presenter: ListFavoritesPresenterType
     private let postRepository: PostRepositoryType
     private let mediaRepository: MediaRepositoryType
     
     init(
-        presenter: ListFavoritesPresentable,
+        presenter: ListFavoritesPresenterType,
         postRepository: PostRepositoryType,
         mediaRepository: MediaRepositoryType
     ) {
@@ -24,24 +24,24 @@ struct ListFavoritesAction: ListFavoritesActionable {
     }
 }
 
-extension ListFavoritesAction {
+extension ListFavoritesInteractor {
     
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
         postRepository.fetchFavorites {
             guard case .success(let posts) = $0 else {
-                return self.presenter.presentFavoritePosts(
+                return self.presenter.displayFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.presentFavoritePosts(
+                    return self.presenter.displayFavoritePosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.presentFavoritePosts(
+                self.presenter.displayFavoritePosts(
                     for: ListFavoritesAPI.FetchPostsResponse(
                         posts: posts,
                         media: media
@@ -52,12 +52,12 @@ extension ListFavoritesAction {
     }
 }
 
-extension ListFavoritesAction {
+extension ListFavoritesInteractor {
     
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
         postRepository.toggleFavorite(id: request.postID)
         
-        presenter.presentToggleFavorite(
+        presenter.displayToggleFavorite(
             for: ListFavoritesAPI.FavoriteResponse(
                 postID: request.postID,
                 favorite: postRepository.hasFavorite(id: request.postID)

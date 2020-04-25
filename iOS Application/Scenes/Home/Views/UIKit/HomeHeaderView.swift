@@ -15,7 +15,6 @@ import ZamzamUI
 }
 
 class HomeHeaderView: UIView {
-    weak var delegate: HomeHeaderViewDelegate?
     
     private lazy var stackView = UIStackView().with {
         $0.axis = .vertical
@@ -49,6 +48,8 @@ class HomeHeaderView: UIView {
         $0.spacing = 12
     }
     
+    weak var delegate: HomeHeaderViewDelegate?
+    
     convenience init(_ state: HomeState) {
         self.init()
         self.prepare()
@@ -59,7 +60,7 @@ class HomeHeaderView: UIView {
 private extension HomeHeaderView {
     
     func prepare() {
-        frame.size.height = 200 // TODO: Extract to design tokens
+        frame.size.height = 200
         addSubview(stackView)
         
         stackView.addArrangedSubviews([
@@ -69,7 +70,7 @@ private extension HomeHeaderView {
             socialStackView
         ])
         
-        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 16, right: 8) // TODO: Extract to design tokens
+        let insets = UIEdgeInsets(top: 8, left: 8, bottom: 16, right: 8)
         stackView.edges(to: self, insets: insets)
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import SwiftyPress
-import ZamzamUI
 
 protocol ShowBlogInteractorType: InteractorType {
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest)

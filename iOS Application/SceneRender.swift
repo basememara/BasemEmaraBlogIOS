@@ -153,8 +153,27 @@ extension SceneRender {
 extension SceneRender {
     
     func listFavorites() -> UIViewController {
-        let controller: ListFavoritesViewController = .make(fromStoryboard: Storyboard.listFavorites.rawValue)
-        controller.core = ListFavoritesCore(root: core, render: self)
+        let store = Store(keyPath: \.listFavoritesState)
+        let presenter = ListFavoritesPresenter(send: store.send)
+        
+        let interactor = ListFavoritesInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository()
+        )
+        
+        let controller = ListFavoritesViewController(
+            store: store,
+            interactor: interactor,
+            constants: core.constants(),
+            theme: core.theme()
+        )
+        
+        controller.render = ListFavoritesRender(
+            render: self,
+            presentationContext: controller
+        )
+        
         return controller
     }
     

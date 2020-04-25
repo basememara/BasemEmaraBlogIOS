@@ -34,6 +34,7 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        fetch()
     }
 }
 
@@ -44,6 +45,9 @@ private extension MainViewController {
     func prepare() {
         delegate = self
         store(in: &token, observer: load)
+    }
+    
+    func fetch() {
         interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
@@ -60,7 +64,7 @@ private extension MainViewController {
             ).with {
                 $0.navigationBar.prefersLargeTitles = true
                 $0.navigationBar.topItem?.backBarButtonItem =
-                    UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+                    UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             }
         }
     }

@@ -50,6 +50,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +75,9 @@ private extension HomeViewController {
         tableView.edges(to: view)
         
         store(in: &token, observer: load)
-        
+    }
+    
+    func fetch() {
         interactor?.fetchProfile()
         interactor?.fetchMenu()
         interactor?.fetchSocial()

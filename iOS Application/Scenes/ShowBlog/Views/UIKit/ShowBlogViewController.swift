@@ -14,8 +14,8 @@ import ZamzamUI
 final class ShowBlogViewController: UIViewController {
     private let store: Store<ShowBlogState>
     private let interactor: ShowBlogInteractorType?
-    private let constants: ConstantsType?
-    private let theme: Theme?
+    private let constants: ConstantsType
+    private let theme: Theme
     private var token: NotificationCenter.Token?
     
     var render: ShowBlogRenderType?
@@ -73,6 +73,7 @@ final class ShowBlogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        fetch()
     }
     
     override func loadView() {
@@ -116,8 +117,9 @@ private extension ShowBlogViewController {
         
         // Bind state
         store(in: &token, observer: load)
-        
-        // Fetch data
+    }
+    
+    func fetch() {
         interactor?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
@@ -179,15 +181,15 @@ extension ShowBlogViewController {
     }
     
     @objc func didTapDisclaimerButton() {
-        render?.showDisclaimer(url: constants?.disclaimerURL)
+        render?.showDisclaimer(url: constants.disclaimerURL)
     }
     
     @objc func didTapPrivacyButton() {
-        render?.show(url: constants?.privacyURL)
+        render?.show(url: constants.privacyURL)
     }
     
     @objc func didTapContactButton() {
-        render?.sendEmail(to: constants?.email)
+        render?.sendEmail(to: constants.email)
     }
 }
 
@@ -261,9 +263,7 @@ extension ShowBlogViewController: TermsDataViewDelegate {
 extension ShowBlogViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        guard let constants = constants, let theme = theme else { return nil }
-        
-        return UIContextMenuConfiguration(
+        UIContextMenuConfiguration(
             for: model,
             at: indexPath,
             from: dataView,

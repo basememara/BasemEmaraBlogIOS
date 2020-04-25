@@ -9,4 +9,5 @@ public struct AppState {
     var mainState = MainState()
     var homeState = HomeState()
     var showBlogState = ShowBlogState()
+    var listFavoritesState = ListFavoritesState()
 }

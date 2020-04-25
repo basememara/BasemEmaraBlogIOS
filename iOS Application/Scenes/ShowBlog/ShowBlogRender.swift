@@ -15,7 +15,7 @@ struct ShowBlogRender: ShowBlogRenderType {
     private let mailComposer: MailComposerType?
     private let theme: Theme?
     
-    weak var presentationContext: UIViewController?
+    private weak var presentationContext: UIViewController?
     
     init(
         render: SceneRenderType,

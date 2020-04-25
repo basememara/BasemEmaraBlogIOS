@@ -79,11 +79,10 @@
 		8B42C7F2234BBC9000F38E23 /* SearchPostsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C77D234BBC8F00F38E23 /* SearchPostsRouter.swift */; };
 		8B42C7F3234BBC9000F38E23 /* SearchPosts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C77F234BBC8F00F38E23 /* SearchPosts.storyboard */; };
 		8B42C7F4234BBC9000F38E23 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */; };
-		8B42C7F5234BBC9000F38E23 /* ListFavoritesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C782234BBC8F00F38E23 /* ListFavoritesAction.swift */; };
+		8B42C7F5234BBC9000F38E23 /* ListFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C782234BBC8F00F38E23 /* ListFavoritesInteractor.swift */; };
 		8B42C7F6234BBC9000F38E23 /* ListFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C783234BBC8F00F38E23 /* ListFavoritesPresenter.swift */; };
-		8B42C7F7234BBC9000F38E23 /* ListFavoritesCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C785234BBC8F00F38E23 /* ListFavoritesCore.swift */; };
 		8B42C7F8234BBC9000F38E23 /* ListFavoritesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C786234BBC8F00F38E23 /* ListFavoritesAPI.swift */; };
-		8B42C7F9234BBC9000F38E23 /* ListFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C787234BBC8F00F38E23 /* ListFavoritesRouter.swift */; };
+		8B42C7F9234BBC9000F38E23 /* ListFavoritesRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C787234BBC8F00F38E23 /* ListFavoritesRender.swift */; };
 		8B42C7FA234BBC9000F38E23 /* ListFavorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C789234BBC8F00F38E23 /* ListFavorites.storyboard */; };
 		8B42C7FB234BBC9000F38E23 /* ListFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */; };
 		8B42C7FC234BBC9000F38E23 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78B234BBC8F00F38E23 /* AppCore.swift */; };
@@ -91,7 +90,6 @@
 		8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */; };
 		8B42C7FF234BBC9000F38E23 /* UIContextMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */; };
 		8B42C800234BBC9000F38E23 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C791234BBC8F00F38E23 /* Taxonomy.swift */; };
-		8B42C801234BBC9000F38E23 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C792234BBC8F00F38E23 /* UIImage.swift */; };
 		8B42C802234BBC9000F38E23 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C793234BBC8F00F38E23 /* UIViewController.swift */; };
 		8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C794234BBC9000F38E23 /* UIWindow.swift */; };
 		8B42C805234BBC9000F38E23 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C798234BBC9000F38E23 /* AppTheme.swift */; };
@@ -149,7 +147,6 @@
 		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
 		8B748B9F244CBA9D00742CD3 /* MainRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B748B9E244CBA9D00742CD3 /* MainRender.swift */; };
-		8B7518A7244F1E3C0043D617 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7518A6244F1E3C0043D617 /* UIImageView.swift */; };
 		8B7996D32437947100A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996D22437947100A27E58 /* SwiftyPress */; };
 		8B7996D42437947100A27E58 /* SwiftyPress in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996D22437947100A27E58 /* SwiftyPress */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8B7996EA24379E4C00A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996E924379E4C00A27E58 /* SwiftyPress */; };
@@ -177,6 +174,9 @@
 		8BB4AD0923653C58003BD29B /* TodayStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0823653C58003BD29B /* TodayStyles.swift */; };
 		8BB4AD0F23653D76003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD0D23653D76003BD29B /* InfoPlist.strings */; };
 		8BB4AD1223653DA0003BD29B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4AD1023653DA0003BD29B /* InfoPlist.strings */; };
+		8BB63D0B24512A5C00B07A48 /* ListFavoritesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB63D0A24512A5C00B07A48 /* ListFavoritesState.swift */; };
+		8BB63D1B2454525900B07A48 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BB63D1A2454525800B07A48 /* ZamzamCore.bundle */; };
+		8BB63D1D2454526200B07A48 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BB63D1C2454526200B07A48 /* SwiftyPress.bundle */; };
 		8BBCEA7E242FDDAE00499813 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCEA7D242FDDAE00499813 /* StoreType.swift */; };
 		8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB5C2443E77800BC6288 /* MainView.swift */; };
 		8BF7EB5F244400C900BC6288 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF7EB5E244400C900BC6288 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -328,11 +328,10 @@
 		8B42C77D234BBC8F00F38E23 /* SearchPostsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsRouter.swift; sourceTree = "<group>"; };
 		8B42C77F234BBC8F00F38E23 /* SearchPosts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchPosts.storyboard; sourceTree = "<group>"; };
 		8B42C780234BBC8F00F38E23 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
-		8B42C782234BBC8F00F38E23 /* ListFavoritesAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesAction.swift; sourceTree = "<group>"; };
+		8B42C782234BBC8F00F38E23 /* ListFavoritesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesInteractor.swift; sourceTree = "<group>"; };
 		8B42C783234BBC8F00F38E23 /* ListFavoritesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesPresenter.swift; sourceTree = "<group>"; };
-		8B42C785234BBC8F00F38E23 /* ListFavoritesCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesCore.swift; sourceTree = "<group>"; };
 		8B42C786234BBC8F00F38E23 /* ListFavoritesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesAPI.swift; sourceTree = "<group>"; };
-		8B42C787234BBC8F00F38E23 /* ListFavoritesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesRouter.swift; sourceTree = "<group>"; };
+		8B42C787234BBC8F00F38E23 /* ListFavoritesRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesRender.swift; sourceTree = "<group>"; };
 		8B42C789234BBC8F00F38E23 /* ListFavorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListFavorites.storyboard; sourceTree = "<group>"; };
 		8B42C78A234BBC8F00F38E23 /* ListFavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesViewController.swift; sourceTree = "<group>"; };
 		8B42C78B234BBC8F00F38E23 /* AppCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
@@ -340,7 +339,6 @@
 		8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesType.swift; sourceTree = "<group>"; };
 		8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContextMenuConfiguration.swift; sourceTree = "<group>"; };
 		8B42C791234BBC8F00F38E23 /* Taxonomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
-		8B42C792234BBC8F00F38E23 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8B42C793234BBC8F00F38E23 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8B42C794234BBC9000F38E23 /* UIWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		8B42C798234BBC9000F38E23 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
 		8B748B9E244CBA9D00742CD3 /* MainRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRender.swift; sourceTree = "<group>"; };
-		8B7518A6244F1E3C0043D617 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		8B7A89F12379AA28002E5A75 /* ShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSettingsViewController.swift; sourceTree = "<group>"; };
 		8B7A89F32379AA32002E5A75 /* ShowSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowSettings.storyboard; sourceTree = "<group>"; };
 		8B81CC162435A19A0050CAC9 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
@@ -401,6 +398,9 @@
 		8BB4AD0823653C58003BD29B /* TodayStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStyles.swift; sourceTree = "<group>"; };
 		8BB4AD0E23653D76003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BB4AD1123653DA0003BD29B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8BB63D0A24512A5C00B07A48 /* ListFavoritesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoritesState.swift; sourceTree = "<group>"; };
+		8BB63D1A2454525800B07A48 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
+		8BB63D1C2454526200B07A48 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
 		8BBCEA7D242FDDAE00499813 /* StoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
 		8BF7EB5C2443E77800BC6288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8BF7EB5E244400C900BC6288 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -442,8 +442,8 @@
 		8B1702A2244FD89E0008D6A2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 				8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */,
+				8B42C76B234BBC8F00F38E23 /* ShowBlogViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -480,6 +480,8 @@
 		8B42C6CB234A69B900F38E23 = {
 			isa = PBXGroup;
 			children = (
+				8BB63D1C2454526200B07A48 /* SwiftyPress.bundle */,
+				8BB63D1A2454525800B07A48 /* ZamzamCore.bundle */,
 				8BA6C37D244E577D002E1558 /* ZamzamKit */,
 				8B2FCD902447F3820017460B /* SwiftyPress */,
 				8B42C723234A9BEA00F38E23 /* Meta */,
@@ -816,22 +818,14 @@
 		8B42C781234BBC8F00F38E23 /* ListFavorites */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C784234BBC8F00F38E23 /* Core */,
 				8B42C788234BBC8F00F38E23 /* Views */,
-				8B42C782234BBC8F00F38E23 /* ListFavoritesAction.swift */,
+				8B42C786234BBC8F00F38E23 /* ListFavoritesAPI.swift */,
+				8B42C782234BBC8F00F38E23 /* ListFavoritesInteractor.swift */,
 				8B42C783234BBC8F00F38E23 /* ListFavoritesPresenter.swift */,
-				8B42C787234BBC8F00F38E23 /* ListFavoritesRouter.swift */,
+				8B42C787234BBC8F00F38E23 /* ListFavoritesRender.swift */,
+				8BB63D0A24512A5C00B07A48 /* ListFavoritesState.swift */,
 			);
 			path = ListFavorites;
-			sourceTree = "<group>";
-		};
-		8B42C784234BBC8F00F38E23 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				8B42C786234BBC8F00F38E23 /* ListFavoritesAPI.swift */,
-				8B42C785234BBC8F00F38E23 /* ListFavoritesCore.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		8B42C788234BBC8F00F38E23 /* Views */ = {
@@ -861,8 +855,6 @@
 				8B42C78F234BBC8F00F38E23 /* PreferencesType.swift */,
 				8B42C791234BBC8F00F38E23 /* Taxonomy.swift */,
 				8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */,
-				8B42C792234BBC8F00F38E23 /* UIImage.swift */,
-				8B7518A6244F1E3C0043D617 /* UIImageView.swift */,
 				8B42C793234BBC8F00F38E23 /* UIViewController.swift */,
 				8B42C794234BBC9000F38E23 /* UIWindow.swift */,
 				8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */,
@@ -1218,6 +1210,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB63D1B2454525900B07A48 /* ZamzamCore.bundle in Resources */,
+				8BB63D1D2454526200B07A48 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B42C7C8234BBC9000F38E23 /* ListTerms.storyboard in Resources */,
 				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
@@ -1349,7 +1343,6 @@
 				8B42C815234BBC9000F38E23 /* TermTableViewCell.swift in Sources */,
 				8B42C805234BBC9000F38E23 /* AppTheme.swift in Sources */,
 				8B42C7EB234BBC9000F38E23 /* MainSplitDetailViewController.swift in Sources */,
-				8B42C7F7234BBC9000F38E23 /* ListFavoritesCore.swift in Sources */,
 				8B8905EC23A6CD9300AB8A4F /* StateType.swift in Sources */,
 				8B42C7DD234BBC9000F38E23 /* ShowMoreRouter.swift in Sources */,
 				8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */,
@@ -1357,9 +1350,9 @@
 				8B42C803234BBC9000F38E23 /* UIWindow.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
 				8B42C7D7234BBC9000F38E23 /* ListPostsPresenter.swift in Sources */,
-				8B7518A7244F1E3C0043D617 /* UIImageView.swift in Sources */,
 				8B42C7E7234BBC9000F38E23 /* ShowBlogInteractor.swift in Sources */,
 				8B42C7D3234BBC9000F38E23 /* ShowPostAction.swift in Sources */,
+				8BB63D0B24512A5C00B07A48 /* ListFavoritesState.swift in Sources */,
 				8B42C7C9234BBC9000F38E23 /* ListTermsViewController.swift in Sources */,
 				8B42C81E234BBC9000F38E23 /* PostTableViewCell.swift in Sources */,
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRouter.swift in Sources */,
@@ -1386,7 +1379,7 @@
 				8B0A6EB1244BEC7600D1D8D2 /* HomeRender.swift in Sources */,
 				8B48EB3524469A1E0032D5E8 /* ShowBlogState.swift in Sources */,
 				8B42C7E3234BBC9000F38E23 /* ShowBlogPresenter.swift in Sources */,
-				8B42C7F5234BBC9000F38E23 /* ListFavoritesAction.swift in Sources */,
+				8B42C7F5234BBC9000F38E23 /* ListFavoritesInteractor.swift in Sources */,
 				8B42C7EA234BBC9000F38E23 /* MainSplitViewController.swift in Sources */,
 				8B42C7C3234BBC9000F38E23 /* ListTermsRouter.swift in Sources */,
 				8B42C7C4234BBC9000F38E23 /* ListTermsCore.swift in Sources */,
@@ -1403,11 +1396,10 @@
 				8B42C7D8234BBC9000F38E23 /* ListPostsAction.swift in Sources */,
 				8B42C7FE234BBC9000F38E23 /* PreferencesType.swift in Sources */,
 				8B42C802234BBC9000F38E23 /* UIViewController.swift in Sources */,
-				8B42C801234BBC9000F38E23 /* UIImage.swift in Sources */,
 				8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */,
 				8B42C800234BBC9000F38E23 /* Taxonomy.swift in Sources */,
 				8B42C7EE234BBC9000F38E23 /* SearchPostsCore.swift in Sources */,
-				8B42C7F9234BBC9000F38E23 /* ListFavoritesRouter.swift in Sources */,
+				8B42C7F9234BBC9000F38E23 /* ListFavoritesRender.swift in Sources */,
 				8B42C7DF234BBC9000F38E23 /* ShowMoreViewController.swift in Sources */,
 				8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */,
 				8B42C7F0234BBC9000F38E23 /* SearchPostsPresenter.swift in Sources */,
