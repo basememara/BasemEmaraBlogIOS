@@ -9,17 +9,17 @@
 import SwiftyPress
 import ZamzamUI
 
-struct ListTermsPresenter: ListTermsPresentable {
-    private weak var viewController: ListTermsDisplayable?
+struct ListTermsPresenter: ListTermsPresenterType {
+    private let send: SendAction<ListTermsState>
     
-    init(viewController: ListTermsDisplayable?) {
-        self.viewController = viewController
+    init(send: @escaping SendAction<ListTermsState>) {
+        self.send = send
     }
 }
 
 extension ListTermsPresenter {
     
-    func presentTerms(for response: ListTermsAPI.TermsResponse) {
+    func displayTerms(for response: ListTermsAPI.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,
@@ -29,15 +29,15 @@ extension ListTermsPresenter {
             )
         }
         
-        viewController?.displayTerms(with: viewModels)
+        send(.loadTerms(viewModels))
     }
     
-    func presentTerms(error: DataError) {
+    func displayTerms(error: DataError) {
         let viewModel = AppAPI.Error(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        send(.loadError(viewModel))
     }
 }

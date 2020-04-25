@@ -11,4 +11,5 @@ public struct AppState {
     var showBlogState = ShowBlogState()
     var listFavoritesState = ListFavoritesState()
     var listPostsState = ListPostsState()
+    var listTermsState = ListTermsState()
 }

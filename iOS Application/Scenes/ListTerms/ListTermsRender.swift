@@ -6,22 +6,22 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
+import UIKit.UIViewController
 
-struct ListTermsRouter: ListTermsRouterable {
+struct ListTermsRender: ListTermsRenderType {
     private let render: SceneRenderType
-    weak var viewController: UIViewController?
+    private weak var presentationContext: UIViewController?
     
-    init(render: SceneRenderType, viewController: UIViewController?) {
+    init(render: SceneRenderType, presentationContext: UIViewController?) {
         self.render = render
-        self.viewController = viewController
+        self.presentationContext = presentationContext
     }
 }
 
-extension ListTermsRouter {
+extension ListTermsRender {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = render.listPosts(params: params)
-        viewController?.show(controller)
+        presentationContext?.show(controller)
     }
 }

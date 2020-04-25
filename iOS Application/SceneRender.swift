@@ -223,8 +223,24 @@ extension SceneRender {
     }
     
     func listTerms() -> UIViewController {
-        let controller: ListTermsViewController = .make(fromStoryboard: Storyboard.listTerms.rawValue)
-        controller.core = ListTermsCore(root: core, render: self)
+        let store = Store(keyPath: \.listTermsState)
+        let presenter = ListTermsPresenter(send: store.send)
+        
+        let interactor = ListTermsInteractor(
+            presenter: presenter,
+            taxonomyRepository: core.taxonomyRepository()
+        )
+        
+        let controller = ListTermsViewController(
+            store: store,
+            interactor: interactor
+        )
+        
+        controller.render = ListTermsRender(
+            render: self,
+            presentationContext: controller
+        )
+        
         return controller
     }
 }
