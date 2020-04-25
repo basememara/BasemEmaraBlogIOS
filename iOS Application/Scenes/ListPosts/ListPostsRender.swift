@@ -6,38 +6,38 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
 import SwiftyPress
+import UIKit.UIViewController
 
-struct ListPostsRouter: ListPostsRouterable {
+struct ListPostsRender: ListPostsRenderType {
     private let render: SceneRenderType
     
-    weak var viewController: UIViewController?
-    weak var listPostsDelegate: ListPostsDelegate?
+    private weak var presentationContext: UIViewController?
+    private weak var listPostsDelegate: ListPostsDelegate?
     
     init(
         render: SceneRenderType,
-        viewController: UIViewController?,
+        presentationContext: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) {
         self.render = render
-        self.viewController = viewController
+        self.presentationContext = presentationContext
         self.listPostsDelegate = listPostsDelegate
     }
 }
 
-extension ListPostsRouter {
+extension ListPostsRender {
     
     func showPost(for model: PostsDataViewModel) {
         guard let listPostsDelegate = listPostsDelegate,
-            let viewController = viewController else {
-                self.viewController?.show(
+            let presentationContext = presentationContext else {
+                self.presentationContext?.show(
                     render.showPost(for: model.id)
                 )
                 
                 return
         }
         
-        listPostsDelegate.listPosts(viewController, didSelect: model.id)
+        listPostsDelegate.listPosts(presentationContext, didSelect: model.id)
     }
 }

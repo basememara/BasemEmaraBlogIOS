@@ -187,10 +187,31 @@ extension SceneRender {
 extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
-        let controller: ListPostsViewController = .make(fromStoryboard: Storyboard.listPosts.rawValue)
-        controller.core = ListPostsCore(root: core, render: self)
+        let store = Store(keyPath: \.listPostsState)
+        let presenter = ListPostsPresenter(send: store.send)
+        
+        let interactor = ListPostsInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository()
+        )
+        
+        let controller = ListPostsViewController(
+            store: store,
+            interactor: interactor,
+            constants: core.constants(),
+            theme: core.theme()
+        )
+        
+        controller.render = ListPostsRender(
+            render: self,
+            presentationContext: controller,
+            listPostsDelegate: nil
+        )
+        
         controller.params = params
         controller.delegate = delegate
+        
         return controller
     }
     

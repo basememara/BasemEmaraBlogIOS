@@ -6,8 +6,8 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
 import SwiftyPress
+import UIKit.UIViewController
 
 struct ListFavoritesRender: ListFavoritesRenderType {
     private let render: SceneRenderType

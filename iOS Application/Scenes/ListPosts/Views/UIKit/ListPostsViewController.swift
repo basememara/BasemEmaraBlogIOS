@@ -13,35 +13,13 @@ import ZamzamCore
 import ZamzamUI
 
 class ListPostsViewController: UIViewController {
+    private let store: Store<ListPostsState>
+    private let interactor: ListPostsInteractorType?
+    private let constants: ConstantsType
+    private let theme: Theme
+    private var token: NotificationCenter.Token?
     
-    // MARK: - Controls
-    
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            tableView.register(PostTableViewCell.self)
-            tableView.contentInset.bottom += 20
-        }
-    }
-    
-    // MARK: - Dependencies
-    
-    var core: ListPostsCoreType?
-    
-    private lazy var action: ListPostsActionable? = core?.action(with: self)
-    private lazy var router: ListPostsRouterable? = core?.router(
-        viewController: self,
-        listPostsDelegate: delegate
-    )
-    
-    private lazy var constants: ConstantsType? = core?.constants()
-    private lazy var theme: Theme? = core?.theme()
-    
-    // MARK: - State
-    
-    private lazy var tableViewAdapter = PostsDataViewAdapter(
-        for: tableView,
-        delegate: self
-    )
+    var render: ListPostsRenderType?
     
     var params = ListPostsAPI.Params(
         fetchType: .latest,
@@ -50,12 +28,43 @@ class ListPostsViewController: UIViewController {
     
     weak var delegate: ListPostsDelegate?
     
+    // MARK: - Controls
+    
+    private lazy var tableView = UITableView().with {
+        $0.register(PostTableViewCell.self)
+        $0.contentInset.bottom += 20
+    }
+    
+    private lazy var tableViewAdapter = PostsDataViewAdapter(
+        for: tableView,
+        delegate: self
+    )
+    
+    // MARK: - Initializers
+    
+    init(
+        store: Store<ListPostsState>,
+        interactor: ListPostsInteractorType?,
+        constants: ConstantsType,
+        theme: Theme
+    ) {
+        self.store = store
+        self.interactor = interactor
+        self.constants = constants
+        self.theme = theme
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        loadData()
+        prepare()
+        fetch()
     }
 }
 
@@ -63,7 +72,8 @@ class ListPostsViewController: UIViewController {
 
 private extension ListPostsViewController {
     
-    func configure() {
+    func prepare() {
+        // Configure controls
         if let title = params.title {
             self.title = title
         } else {
@@ -78,30 +88,37 @@ private extension ListPostsViewController {
                 title = .localized(.postsByTermsTitle)
             }
         }
+        
+        // Compose layout
+        view.addSubview(tableView)
+        tableView.edges(to: view)
+        
+        // Bind state
+        store(in: &token, observer: load)
     }
     
-    func loadData() {
+    func fetch() {
         switch params.fetchType {
         case .latest:
-            action?.fetchLatestPosts(
+            interactor?.fetchLatestPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .popular:
-            action?.fetchPopularPosts(
+            interactor?.fetchPopularPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .picks:
-            action?.fetchTopPickPosts(
+            interactor?.fetchTopPickPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .terms(let ids):
-            action?.fetchPostsByTerms(
+            interactor?.fetchPostsByTerms(
                 with: ListPostsAPI.FetchPostsByTermsRequest(
                     ids: ids,
                     sort: params.sort
@@ -109,18 +126,11 @@ private extension ListPostsViewController {
             )
         }
     }
-}
-
-// MARK: - Scene
-
-extension ListPostsViewController: ListPostsDisplayable {
     
-    func displayPosts(with viewModels: [PostsDataViewModel]) {
-        tableViewAdapter.reloadData(with: viewModels)
-    }
-    
-    func displayToggleFavorite(with viewModel: ListPostsAPI.FavoriteViewModel) {
-        // Nothing to do
+    func load(_ state: ListPostsState) {
+        tableViewAdapter.reloadData(with: state.posts)
+        
+        // TODO: Handle error
     }
 }
 
@@ -129,22 +139,22 @@ extension ListPostsViewController: ListPostsDisplayable {
 extension ListPostsViewController: PostsDataViewDelegate {
     
     func postsDataView(didSelect model: PostsDataViewModel, at indexPath: IndexPath, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
-        guard let isFavorite = action?.isFavorite(postID: model.id) else { return nil }
+        guard let isFavorite = interactor?.isFavorite(postID: model.id) else { return nil }
         
         return UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
-                    self.action?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
+                    self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }
                 .with {
                     $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
-                    $0.backgroundColor ?= theme?.tint
+                    $0.backgroundColor = theme.tint
                 }
             ]
         )
@@ -155,11 +165,10 @@ extension ListPostsViewController: PostsDataViewDelegate {
 extension ListPostsViewController {
     
     func postsDataView(contextMenuConfigurationFor model: PostsDataViewModel, at indexPath: IndexPath, point: CGPoint, from dataView: DataViewable) -> UIContextMenuConfiguration? {
-        guard let constants = constants, let theme = theme else { return nil }
-        return UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
+        UIContextMenuConfiguration(for: model, at: indexPath, from: dataView, delegate: self, constants: constants, theme: theme)
     }
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
-        router?.showPost(for: model)
+        render?.showPost(for: model)
     }
 }

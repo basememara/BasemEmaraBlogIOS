@@ -6,7 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
@@ -31,7 +31,7 @@ extension ListFavoritesPresenter {
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
+                dateFormatter: dateFormatter
             )
         }
         

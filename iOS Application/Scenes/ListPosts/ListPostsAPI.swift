@@ -7,26 +7,9 @@
 //
 
 import SwiftyPress
-import UIKit
-import ZamzamUI
+import UIKit.UIViewController
 
-// Scene namespace
-enum ListPostsAPI {}
-
-protocol ListPostsCoreType {
-    func action(with viewController: ListPostsDisplayable?) -> ListPostsActionable
-    func presenter(with viewController: ListPostsDisplayable?) -> ListPostsPresentable
-    
-    func router(
-        viewController: UIViewController?,
-        listPostsDelegate: ListPostsDelegate?
-    ) -> ListPostsRouterable
-    
-    func constants() -> ConstantsType
-    func theme() -> Theme
-}
-
-protocol ListPostsActionable: AppActionable {
+protocol ListPostsInteractorType: InteractorType {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest)
@@ -35,28 +18,18 @@ protocol ListPostsActionable: AppActionable {
     func isFavorite(postID: Int) -> Bool
 }
 
-protocol ListPostsPresentable: AppPresentable {
-    func presentLatestPosts(for response: ListPostsAPI.PostsResponse)
-    func presentLatestPosts(error: DataError)
+protocol ListPostsPresenterType: PresenterType {
+    func displayPosts(for response: ListPostsAPI.PostsResponse)
     
-    func presentPopularPosts(for response: ListPostsAPI.PostsResponse)
-    func presentPopularPosts(error: DataError)
+    func displayLatestPosts(error: DataError)
+    func displayPopularPosts(error: DataError)
+    func displayTopPickPosts(error: DataError)
+    func displayPostsByTerms(error: DataError)
     
-    func presentTopPickPosts(for response: ListPostsAPI.PostsResponse)
-    func presentTopPickPosts(error: DataError)
-    
-    func presentPostsByTerms(for response: ListPostsAPI.PostsResponse)
-    func presentPostsByTerms(error: DataError)
-    
-    func presentToggleFavorite(for response: ListPostsAPI.FavoriteResponse)
+    func displayToggleFavorite(for response: ListPostsAPI.FavoriteResponse)
 }
 
-protocol ListPostsDisplayable: class, AppDisplayable {
-    func displayPosts(with viewModels: [PostsDataViewModel])
-    func displayToggleFavorite(with viewModel: ListPostsAPI.FavoriteViewModel)
-}
-
-protocol ListPostsRouterable {
+protocol ListPostsRenderType: RenderType {
     func showPost(for model: PostsDataViewModel)
 }
 
@@ -64,9 +37,9 @@ protocol ListPostsDelegate: class {
     func listPosts(_ viewController: UIViewController, didSelect postID: Int)
 }
 
-// MARK: - Request/Response
+// MARK: - Namespace
 
-extension ListPostsAPI {
+enum ListPostsAPI {
     
     enum FetchType {
         case latest
