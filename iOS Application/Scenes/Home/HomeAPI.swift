@@ -43,6 +43,7 @@ enum HomeAPI {
     struct MenuItem {
         let type: Menu
         let title: String
+        let icon: String
     }
     
     struct MenuSection {

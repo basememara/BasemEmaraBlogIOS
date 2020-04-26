@@ -68,9 +68,6 @@ private extension Theme {
         
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = tertiaryLabelColor
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self, UIViewController.self])
-            .tintColor = tint
     }
 }
 

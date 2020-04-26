@@ -86,18 +86,14 @@ extension HomeHeaderView {
         
         socialStackView
             .deleteArrangedSubviews()
-            .addArrangedSubviews(state.socialMenu.map { social in
-                UIButton(type: .custom).with {
-                    $0.setImage(UIImage(named: social.type.rawValue), for: .normal)
-                    $0.contentMode = .scaleAspectFit
-                    $0.heightAnchor.constraint(equalToConstant: 32).isActive = true
-                    $0.heightAnchor.constraint(equalTo: $0.widthAnchor, multiplier: 1).isActive = true
-                    
-                    if let delegate = delegate, let index = social.type.index() {
-                        $0.addTarget(delegate, action: #selector(delegate.didTapSocialButton), for: .touchUpInside)
-                        $0.tag = index
-                    }
-                }
+            .addArrangedSubviews(state.socialMenu.compactMap {
+                guard let delegate = delegate else { return nil }
+                
+                return SocialButton(
+                    social: $0.type,
+                    target: delegate,
+                    action: #selector(delegate.didTapSocialButton)
+                )
             })
     }
 }

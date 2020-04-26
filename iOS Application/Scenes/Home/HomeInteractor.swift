@@ -36,11 +36,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .about,
-                        title: "About me"
+                        title: "About me",
+                        icon: "about"
                     ),
                     HomeAPI.MenuItem(
                         type: .portfolio,
-                        title: "Portfolio"
+                        title: "Portfolio",
+                        icon: "portfolio"
                     )
                 ]
             ),
@@ -49,11 +51,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .seriesScalableApp,
-                        title: "Building Scalable iOS App"
+                        title: "Building Scalable iOS App",
+                        icon: "seriesScalableApp"
                     ),
                     HomeAPI.MenuItem(
                         type: .seriesSwiftUtilities,
-                        title: "Swift Utility Belt"
+                        title: "Swift Utility Belt",
+                        icon: "seriesSwiftUtilities"
                     )
                 ]
             ),
@@ -62,11 +66,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .coursesArchitecture,
-                        title: "iOS Architecture Masterclass"
+                        title: "iOS Architecture Masterclass",
+                        icon: "coursesArchitecture"
                     ),
                     HomeAPI.MenuItem(
                         type: .coursesFramework,
-                        title: "Building Swift Frameworks"
+                        title: "Building Swift Frameworks",
+                        icon: "coursesFramework"
                     )
                 ]
             ),
@@ -75,11 +81,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .consultingDevelopment,
-                        title: "iOS Development"
+                        title: "iOS Development",
+                        icon: "consultingDevelopment"
                     ),
                     HomeAPI.MenuItem(
                         type: .consultingMentorship,
-                        title: "Mentorship Express"
+                        title: "Mentorship Express",
+                        icon: "consultingMentorship"
                     )
                 ]
             )

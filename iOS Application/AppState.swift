@@ -13,4 +13,5 @@ public struct AppState {
     var listPostsState = ListPostsState()
     var listTermsState = ListTermsState()
     var searchPostsState = SearchPostsState()
+    var showMoreState = ShowMoreState()
 }

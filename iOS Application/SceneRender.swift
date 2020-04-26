@@ -267,8 +267,19 @@ extension SceneRender {
 extension SceneRender {
     
     func showMore() -> UIViewController {
-        let controller: ShowMoreViewController = .make(fromStoryboard: Storyboard.showMore.rawValue)
-        controller.core = ShowMoreCore(root: core, render: self)
+        let store = Store(keyPath: \.showMoreState)
+        let presenter = ShowMorePresenter(send: store.send)
+        let interactor = ShowMoreInteractor(presenter: presenter)
+        let controller = ShowMoreViewController(store: store, interactor: interactor)
+        
+        controller.render = ShowMoreRender(
+            render: self,
+            constants: core.constants(),
+            mailComposer: core.mailComposer(),
+            theme: core.theme(),
+            presentationContext: controller
+        )
+        
         return controller
     }
     

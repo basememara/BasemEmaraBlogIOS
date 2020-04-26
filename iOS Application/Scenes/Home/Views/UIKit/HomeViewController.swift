@@ -64,7 +64,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-// MARK: - Configure
+// MARK: - Setup
 
 private extension HomeViewController {
     
@@ -127,7 +127,7 @@ extension HomeViewController: UITableViewDataSource {
         
         return UITableViewCell(style: .default, reuseIdentifier: nil).with {
             $0.textLabel?.text = item.title
-            $0.imageView?.image = UIImage(named: item.type.rawValue)
+            $0.imageView?.image = UIImage(named: item.icon)
         }
     }
 }
@@ -178,11 +178,13 @@ extension HomeViewController_Preview {
                             items: [
                                 HomeAPI.MenuItem(
                                     type: .about,
-                                    title: "Company Info"
+                                    title: "Company Info",
+                                    icon: "about"
                                 ),
                                 HomeAPI.MenuItem(
                                     type: .portfolio,
-                                    title: "Customers"
+                                    title: "Customers",
+                                    icon: "portfolio"
                                 )
                             ]
                         ),
@@ -191,11 +193,13 @@ extension HomeViewController_Preview {
                             items: [
                                 HomeAPI.MenuItem(
                                     type: .seriesScalableApp,
-                                    title: "Testing"
+                                    title: "Testing",
+                                    icon: "seriesScalableApp"
                                 ),
                                 HomeAPI.MenuItem(
                                     type: .seriesSwiftUtilities,
-                                    title: "Reporting"
+                                    title: "Reporting",
+                                    icon: "seriesSwiftUtilities"
                                 )
                             ]
                         ),
@@ -204,11 +208,13 @@ extension HomeViewController_Preview {
                             items: [
                                 HomeAPI.MenuItem(
                                     type: .coursesArchitecture,
-                                    title: "Lorem Ipsum"
+                                    title: "Lorem Ipsum",
+                                    icon: "coursesArchitecture"
                                 ),
                                 HomeAPI.MenuItem(
                                     type: .coursesFramework,
-                                    title: "Anything Else"
+                                    title: "Anything Else",
+                                    icon: "coursesFramework"
                                 )
                             ]
                         )

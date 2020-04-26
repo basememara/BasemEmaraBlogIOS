@@ -39,7 +39,7 @@ extension ShortcutRouter {
     
     func sendFeedback() {
         viewController?.show(menu: MainAPI.Menu.more) { (controller: ShowMoreViewController) in
-            controller.router?.sendFeedback(
+            controller.render?.sendFeedback(
                 subject: .localizedFormat(
                     .emailFeedbackSubject,
                     self.constants.appDisplayName ?? ""
