@@ -235,9 +235,40 @@ extension SceneRender {
     }
     
     func showPost(for id: Int) -> UIViewController {
-        let controller: ShowPostViewController = .make(fromStoryboard: Storyboard.showPost.rawValue)
-        controller.core = ShowPostCore(root: core, render: self)
-        controller.postID = id
+        let store = Store(keyPath: \.showPostState)
+        
+        let presenter = ShowPostPresenter(
+            send: store.send,
+            constants: core.constants(),
+            templateFile: Bundle.main.string(file: "post.html"),
+            styleSheetFile: Bundle.main.string(file: "style.css")
+        )
+        
+        let interactor = ShowPostInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository(),
+            authorRepository: core.authorRepository(),
+            taxonomyRepository: core.taxonomyRepository()
+        )
+        
+        let controller = ShowPostViewController(
+            store: store,
+            interactor: interactor,
+            constants: core.constants(),
+            theme: core.theme(),
+            application: .shared,
+            notificationCenter: core.notificationCenter(),
+            postID: id
+        )
+        
+        controller.render = ShowPostRender(
+            render: self,
+            theme: core.theme(),
+            presentationContext: controller,
+            listPostsDelegate: controller
+        )
+        
         return controller
     }
     

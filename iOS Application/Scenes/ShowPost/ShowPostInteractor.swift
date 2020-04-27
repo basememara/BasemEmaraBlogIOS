@@ -8,15 +8,15 @@
 
 import SwiftyPress
 
-struct ShowPostAction: ShowPostActionable {
-    private let presenter: ShowPostPresentable
+struct ShowPostInteractor: ShowPostInteractorType {
+    private let presenter: ShowPostPresenterType
     private let postRepository: PostRepositoryType
     private let mediaRepository: MediaRepositoryType
     private let authorRepository: AuthorRepositoryType
     private let taxonomyRepository: TaxonomyRepositoryType
     
     init(
-        presenter: ShowPostPresentable,
+        presenter: ShowPostPresenterType,
         postRepository: PostRepositoryType,
         mediaRepository: MediaRepositoryType,
         authorRepository: AuthorRepositoryType,
@@ -30,17 +30,17 @@ struct ShowPostAction: ShowPostActionable {
     }
 }
 
-extension ShowPostAction {
+extension ShowPostInteractor {
     
     func fetchPost(with request: ShowPostAPI.Request) {
         postRepository.fetch(id: request.postID) {
             guard case .success(let value) = $0 else {
-                return self.presenter.presentPost(
+                return self.presenter.displayPost(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
-            self.presenter.presentPost(
+            self.presenter.displayPost(
                 for: ShowPostAPI.Response(
                     post: value.post,
                     media: value.media,
@@ -54,7 +54,7 @@ extension ShowPostAction {
     }
 }
 
-extension ShowPostAction {
+extension ShowPostInteractor {
     
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest) {
         postRepository.fetch(url: request.url) {
@@ -63,7 +63,7 @@ extension ShowPostAction {
                 self.taxonomyRepository.fetch(url: request.url) {
                     guard case .success(let term) = $0 else {
                         // URL could not be found
-                        return self.presenter.presentByURL(
+                        return self.presenter.displayByURL(
                             for: ShowPostAPI.FetchWebResponse(
                                 post: nil,
                                 term: nil,
@@ -73,7 +73,7 @@ extension ShowPostAction {
                     }
                     
                     // URL was a taxonomy term
-                    self.presenter.presentByURL(
+                    self.presenter.displayByURL(
                         for: ShowPostAPI.FetchWebResponse(
                             post: nil,
                             term: term,
@@ -87,7 +87,7 @@ extension ShowPostAction {
             
             guard case .success(let post) = $0 else {
                 // URL could not be found
-                return self.presenter.presentByURL(
+                return self.presenter.displayByURL(
                     for: ShowPostAPI.FetchWebResponse(
                         post: nil,
                         term: nil,
@@ -97,7 +97,7 @@ extension ShowPostAction {
             }
             
             // URL was a post
-            self.presenter.presentByURL(
+            self.presenter.displayByURL(
                 for: ShowPostAPI.FetchWebResponse(
                     post: post,
                     term: nil,
@@ -108,12 +108,12 @@ extension ShowPostAction {
     }
 }
 
-extension ShowPostAction {
+extension ShowPostInteractor {
     
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
         postRepository.toggleFavorite(id: request.postID)
         
-        presenter.presentToggleFavorite(
+        presenter.displayToggleFavorite(
             for: ShowPostAPI.FavoriteResponse(
                 favorite: postRepository.hasFavorite(id: request.postID)
             )

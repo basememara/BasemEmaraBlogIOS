@@ -10,45 +10,22 @@ import SwiftyPress
 import WebKit
 import ZamzamUI
 
-// Scene namespace
-enum ShowPostAPI {}
-
-protocol ShowPostCoreType {
-    func action(with viewController: ShowPostDisplayable?) -> ShowPostActionable
-    func presenter(with viewController: ShowPostDisplayable?) -> ShowPostPresentable
-    
-    func router(
-        viewController: UIViewController?,
-        listPostsDelegate: ListPostsDelegate?
-    ) -> ShowPostRouterable
-   
-    func notificationCenter() -> NotificationCenter
-    func constants() -> ConstantsType
-    func theme() -> Theme
-}
-
-protocol ShowPostActionable: AppActionable {
+protocol ShowPostInteractorType: InteractorType {
     func fetchPost(with request: ShowPostAPI.Request)
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest)
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest)
 }
 
-protocol ShowPostPresentable: AppPresentable {
-    func presentPost(for response: ShowPostAPI.Response)
-    func presentPost(error: DataError)
+protocol ShowPostPresenterType: PresenterType {
+    func displayPost(for response: ShowPostAPI.Response)
+    func displayPost(error: DataError)
     
-    func presentByURL(for response: ShowPostAPI.FetchWebResponse)
+    func displayByURL(for response: ShowPostAPI.FetchWebResponse)
     
-    func presentToggleFavorite(for response: ShowPostAPI.FavoriteResponse)
+    func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse)
 }
 
-protocol ShowPostDisplayable: class, AppDisplayable {
-    func displayPost(with viewModel: ShowPostAPI.ViewModel)
-    func displayByURL(with viewModel: ShowPostAPI.WebViewModel)
-    func display(isFavorite: Bool)
-}
-
-protocol ShowPostRouterable {
+protocol ShowPostRenderType: RenderType {
     func listPosts(params: ListPostsAPI.Params)
     func show(url: String)
 }
@@ -57,9 +34,9 @@ protocol ShowPostLoadable {
     func load(_ id: Int)
 }
 
-// MARK: - Request/Response
+// MARK: - Namespace
 
-extension ShowPostAPI {
+enum ShowPostAPI {
     
     struct Request {
         let postID: Int
@@ -93,7 +70,7 @@ extension ShowPostAPI {
         let favorite: Bool
     }
     
-    struct ViewModel {
+    struct PostViewModel {
         let title: String
         let link: String
         let content: String

@@ -14,23 +14,33 @@ import ZamzamCore
 import ZamzamUI
 
 class ShowPostViewController: UIViewController, StatusBarable {
+    private let store: Store<ShowPostState>
+    private let interactor: ShowPostInteractorType?
+    private let constants: ConstantsType
+    private let theme: Theme
+    private let notificationCenter: NotificationCenter
+    private var token: NotificationCenter.Token?
+    
+    private var postID: Int?
+    private var viewModel: ShowPostAPI.PostViewModel?
+    private var history: [Int] = []
+    
+    let application: UIApplication
+    var statusBar: UIView?
+    var render: ShowPostRenderType?
     
     // MARK: - Controls
     
-    @IBOutlet private weak var webView: WKWebView! {
-        didSet {
-            webView.navigationDelegate = self
-            webView.scrollView.delegate = self
-            webView.scrollView.contentInset.bottom += 60
-            webView.backgroundColor ?= theme?.backgroundColor
-            
-            // Workaround for initial flash
-            // https://stackoverflow.com/a/35121664
-            webView.isOpaque = false
-        }
+    private lazy var webView = WKWebView().with {
+        $0.navigationDelegate = self
+        $0.scrollView.delegate = self
+        $0.scrollView.contentInset.bottom += 60
+        $0.backgroundColor = theme.backgroundColor
+        
+        // Workaround for initial flash
+        // https://stackoverflow.com/a/35121664
+        $0.isOpaque = false
     }
-    
-    private lazy var activityIndicatorView = view.makeActivityIndicator()
     
     private lazy var favoriteBarButton = UIBarButtonItem(
         imageName: UIImage.ImageName.favoriteEmpty.rawValue,
@@ -45,35 +55,50 @@ class ShowPostViewController: UIViewController, StatusBarable {
         action: #selector(commentsTapped)
     )
     
-    // MARK: - Dependencies
+    private lazy var toolbarButtons = [
+        UIBarButtonItem(imageName: "back", target: self, action: #selector(backTapped)),
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        commentBarButton,
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        favoriteBarButton,
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
+    ]
     
-    var core: ShowPostCoreType?
+    private lazy var activityIndicatorView = view.makeActivityIndicator()
     
-    private lazy var action: ShowPostActionable? = core?.action(with: self)
-    private lazy var router: ShowPostRouterable? = core?.router(
-        viewController: self,
-        listPostsDelegate: self
-    )
+    // MARK: - Initializers
     
-    private lazy var notificationCenter: NotificationCenter? = core?.notificationCenter()
-    private lazy var constants: ConstantsType? = core?.constants()
-    private lazy var theme: Theme? = core?.theme()
+    init(
+        store: Store<ShowPostState>,
+        interactor: ShowPostInteractorType?,
+        constants: ConstantsType,
+        theme: Theme,
+        application: UIApplication,
+        notificationCenter: NotificationCenter,
+        postID: Int
+    ) {
+        self.store = store
+        self.interactor = interactor
+        self.constants = constants
+        self.theme = theme
+        self.application = application
+        self.notificationCenter = notificationCenter
+        self.postID = postID
+        super.init(nibName: nil, bundle: nil)
+        hidesBottomBarWhenPushed = true // Must be done in initialization
+    }
     
-    // MARK: - State
-    
-    private var viewModel: ShowPostAPI.ViewModel?
-    private var history: [Int] = []
-    
-    var postID: Int?
-    let application = UIApplication.shared
-    var statusBar: UIView?
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        loadData()
+        prepare()
+        fetch()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,33 +118,86 @@ class ShowPostViewController: UIViewController, StatusBarable {
 
 private extension ShowPostViewController {
     
-    func configure() {
-        toolbarItems = [
-            UIBarButtonItem(imageName: "back", target: self, action: #selector(backTapped)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            commentBarButton,
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            favoriteBarButton,
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped(_:)))
-        ]
+    func prepare() {
+        // Configure controls
+        toolbarItems = toolbarButtons
         
-        // Status bar background transparent so fill in on scroll
+        // Compose layout
+        view.addSubview(webView)
+        webView.edges(to: view)
+        
+        // Status bar background transparent so fill on scroll
         showStatusBar()
-        notificationCenter?.addObserver(
+        notificationCenter.addObserver(
             self,
             selector: #selector(deviceOrientationDidChange),
             name: UIDevice.orientationDidChangeNotification
         )
+        
+        // Bind state
+        store(in: &token, observer: load)
     }
     
-    func loadData() {
+    func fetch() {
         guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
-        action?.fetchPost(
+        interactor?.fetchPost(
             with: ShowPostAPI.Request(postID: postID)
         )
+    }
+}
+
+private extension ShowPostViewController {
+    
+    func load(_ state: ShowPostState) {
+        if let web = state.web {
+            load(web)
+        }
+        
+        if let post = state.post {
+            load(post)
+        }
+        
+        load(favorite: state.favorite)
+    }
+    
+    func load(_ viewModel: ShowPostAPI.PostViewModel) {
+        self.viewModel = viewModel
+        
+        title = viewModel.title
+        commentBarButton.badgeText = "\(viewModel.commentCount)"
+        load(favorite: viewModel.favorite)
+        
+        webView.loadHTMLString(
+            viewModel.content,
+            baseURL: constants.baseURL
+        )
+    }
+    
+    func load(_ viewModel: ShowPostAPI.WebViewModel) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setToolbarHidden(false, animated: true)
+        
+        if let postID = viewModel.postID {
+            load(postID)
+            return viewModel.decisionHandler(.cancel)
+        }
+        
+        if let termID = viewModel.termID {
+            render?.listPosts(params: .init(fetchType: .terms([termID])))
+            return viewModel.decisionHandler(.cancel)
+        }
+        
+        title = nil
+        activityIndicatorView.startAnimating()
+        viewModel.decisionHandler(.allow)
+    }
+    
+    func load(favorite: Bool) {
+        favoriteBarButton.image = favorite
+            ? UIImage(named: .favoriteFilled)
+            : UIImage(named: .favoriteEmpty)
     }
 }
 
@@ -131,7 +209,7 @@ extension ShowPostViewController: ShowPostLoadable {
         }
         
         postID = id
-        loadData()
+        fetch()
     }
 }
 
@@ -142,7 +220,7 @@ private extension ShowPostViewController {
     @objc func favoriteTapped() {
         guard let postID = postID else { return }
         
-        action?.toggleFavorite(
+        interactor?.toggleFavorite(
             with: ShowPostAPI.FavoriteRequest(
                 postID: postID
             )
@@ -159,14 +237,12 @@ private extension ShowPostViewController {
             return
         }
         
-        guard let url = constants?.baseURL
+        let url = constants.baseURL
             .appendingPathComponent("mobile-comments")
             .appendingQueryItem("postid", value: postID)
-            .absoluteString else {
-                return
-        }
+            .absoluteString
         
-        router?.show(url: url)
+        render?.show(url: url)
     }
     
     @objc func shareTapped(_ sender: UIBarButtonItem) {
@@ -189,7 +265,7 @@ private extension ShowPostViewController {
                     return
                 }
 
-                UIApplication.shared.open(url)
+                self.application.open(url)
             }
         )
         
@@ -209,59 +285,13 @@ private extension ShowPostViewController {
         activityIndicatorView.startAnimating()
         postID = lastPostID
         
-        action?.fetchPost(
+        interactor?.fetchPost(
             with: ShowPostAPI.Request(postID: lastPostID)
         )
     }
     
     @objc func deviceOrientationDidChange() {
-        removeStatusBar()
-        showStatusBar()
-    }
-}
-
-// MARK: - Scene
-
-extension ShowPostViewController: ShowPostDisplayable {
-    
-    func displayPost(with viewModel: ShowPostAPI.ViewModel) {
-        self.viewModel = viewModel
-        
-        title = viewModel.title
-        commentBarButton.badgeText = "\(viewModel.commentCount)"
-        display(isFavorite: viewModel.favorite)
-        
-        if let baseURL = constants?.baseURL {
-            webView.loadHTMLString(
-                viewModel.content,
-                baseURL: baseURL
-            )
-        }
-    }
-    
-    func displayByURL(with viewModel: ShowPostAPI.WebViewModel) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.setToolbarHidden(false, animated: true)
-        
-        if let postID = viewModel.postID {
-            load(postID)
-            return viewModel.decisionHandler(.cancel)
-        }
-        
-        if let termID = viewModel.termID {
-            router?.listPosts(params: .init(fetchType: .terms([termID])))
-            return viewModel.decisionHandler(.cancel)
-        }
-        
-        title = nil
-        activityIndicatorView.startAnimating()
-        viewModel.decisionHandler(.allow)
-    }
-    
-    func display(isFavorite: Bool) {
-        favoriteBarButton.image = isFavorite
-            ? UIImage(named: .favoriteFilled)
-            : UIImage(named: .favoriteEmpty)
+        resetStatusBar()
     }
 }
 
@@ -284,13 +314,13 @@ extension ShowPostViewController: WKNavigationDelegate {
         }
         
         // Open same domain links within app
-        guard requestURL.host == constants?.baseURL.host else {
+        guard requestURL.host == constants.baseURL.host else {
             // Open external links in browser
-            router?.show(url: requestURL.absoluteString)
+            render?.show(url: requestURL.absoluteString)
             return decisionHandler(.cancel)
         }
         
-        action?.fetchByURL(
+        interactor?.fetchByURL(
             with: ShowPostAPI.FetchWebRequest(
                 url: requestURL.absoluteString,
                 decisionHandler: decisionHandler

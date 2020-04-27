@@ -10,27 +10,27 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct ShowPostRouter: ShowPostRouterable {
+struct ShowPostRender: ShowPostRenderType {
     private let render: SceneRenderType
     private let theme: Theme
     
-    weak var viewController: UIViewController?
-    weak var listPostsDelegate: ListPostsDelegate?
+    private weak var presentationContext: UIViewController?
+    private weak var listPostsDelegate: ListPostsDelegate?
     
     init(
         render: SceneRenderType,
         theme: Theme,
-        viewController: UIViewController?,
+        presentationContext: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) {
         self.render = render
         self.theme = theme
-        self.viewController = viewController
+        self.presentationContext = presentationContext
         self.listPostsDelegate = listPostsDelegate
     }
 }
 
-extension ShowPostRouter {
+extension ShowPostRender {
     
     func listPosts(params: ListPostsAPI.Params) {
         let controller = render.listPosts(
@@ -38,13 +38,13 @@ extension ShowPostRouter {
             delegate: listPostsDelegate
         )
         
-        viewController?.show(controller)
+        presentationContext?.show(controller)
     }
 }
 
-extension ShowPostRouter {
+extension ShowPostRender {
     
     func show(url: String) {
-        viewController?.modal(safari: url, theme: theme)
+        presentationContext?.modal(safari: url, theme: theme)
     }
 }
