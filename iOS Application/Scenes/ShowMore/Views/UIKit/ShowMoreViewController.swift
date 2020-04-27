@@ -165,7 +165,6 @@ private extension ShowMoreViewController {
     
     func makeSocialTableViewCell() -> UITableViewCell {
         UITableViewCell(frame: .zero).with {
-            socialCellStackView.removeFromSuperview()
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             

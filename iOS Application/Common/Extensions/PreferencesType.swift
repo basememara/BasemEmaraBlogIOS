@@ -13,8 +13,11 @@ public extension PreferencesType {
     
     /// For reading themes from iOS dark/light mode
     var autoThemeEnabled: Bool {
-        get { UserDefaults.standard.bool(forKey: "autoThemeEnabled") }
-        set { UserDefaults.standard.set(newValue, forKey: "autoThemeEnabled") }
+        UserDefaults.standard.bool(forKey: "autoThemeEnabled")
+    }
+    
+    func set(autoThemeEnabled value: Bool) {
+        UserDefaults.standard.set(value, forKey: "autoThemeEnabled")
     }
 }
 

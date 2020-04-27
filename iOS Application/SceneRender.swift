@@ -284,8 +284,21 @@ extension SceneRender {
     }
     
     func showSettings() -> UIViewController {
-        let controller: ShowSettingsViewController = .make(fromStoryboard: Storyboard.showSettings.rawValue)
-        controller.preferences = core.preferences()
+        let store = Store(keyPath: \.showSettingsState)
+        let presenter = ShowSettingsPresenter(send: store.send)
+        let render = ShowSettingsRender(application: .shared)
+        
+        let interactor = ShowSettingsInteractor(
+            presenter: presenter,
+            preferences: core.preferences()
+        )
+        
+        let controller = ShowSettingsViewController(
+            store: store,
+            interactor: interactor,
+            render: render
+        )
+        
         return controller
     }
 }
