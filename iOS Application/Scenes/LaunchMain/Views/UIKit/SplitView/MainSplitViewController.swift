@@ -26,7 +26,7 @@ class MainSplitViewController: UISplitViewController {
 extension MainSplitViewController: ListPostsDelegate {
     
     func listPosts(_ viewController: UIViewController, didSelect postID: Int) {
-        guard let topViewController = UIWindow.current?.topViewController else { return }
+        guard let topViewController = view.window?.topViewController else { return }
         
         // Load post in place or show in new controller
         (topViewController as? ShowPostLoadable)?.load(postID)

@@ -141,6 +141,8 @@ private extension HomeRender {
 private extension HomeRender {
     
     func sendEmail() {
+        guard let window = presentationContext?.view.window else { return }
+        
         let mailComposerController = mailComposer.makeViewController(
             email: constants.email,
             subject: .localizedFormat(
@@ -153,7 +155,7 @@ private extension HomeRender {
         )
         
         guard let controller = mailComposerController else {
-            UIWindow.current?.visibleViewController?.present(
+            window.visibleViewController?.present(
                 alert: .localized(.couldNotSendEmail),
                 message: .localized(.couldNotSendEmailMessage)
             )
@@ -161,6 +163,6 @@ private extension HomeRender {
             return
         }
         
-        UIWindow.current?.visibleViewController?.present(controller)
+        window.visibleViewController?.present(controller)
     }
 }

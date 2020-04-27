@@ -23,7 +23,7 @@ extension ThemePlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {} else {
-            theme.apply(for: .current)
+            theme.apply(for: application.currentWindow)
         }
         
         return true
@@ -35,6 +35,6 @@ extension ThemePlugin: ScenePlugin {
     
     @available(iOS 13, *)
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        theme.apply(for: .current)
+        theme.apply(for: UIApplication.shared.currentWindow)
     }
 }

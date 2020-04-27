@@ -79,8 +79,8 @@ private extension ShowSettingsViewController {
         autoThemeSwitch.isOn = autoThemeEnabled
         
         guard #available(iOS 13, *) else { return }
-        UIWindow.current?.overrideUserInterfaceStyle = autoThemeEnabled
-            ? .unspecified : .dark
+        view.window?.overrideUserInterfaceStyle =
+            autoThemeEnabled ? .unspecified : .dark
     }
 }
 

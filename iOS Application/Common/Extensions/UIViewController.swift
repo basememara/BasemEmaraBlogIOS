@@ -24,7 +24,7 @@ extension UIViewController {
             // Handle tab bar controller in split view differently
             guard let splitViewController = self as? UISplitViewController ?? splitViewController else {
                 // No split view
-                guard let tabBarController = UIWindow.current?
+                guard let tabBarController = view.window?
                     .rootViewController as? UITabBarController else {
                         return nil
                 }

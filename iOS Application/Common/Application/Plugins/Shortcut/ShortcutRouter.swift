@@ -20,7 +20,7 @@ struct ShortcutRouter: ShortcutRouterable {
     private let render: SceneRenderType
     private let constants: ConstantsType
     
-    weak var viewController = UIWindow.current?.rootViewController
+    weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
     init(
         render: SceneRenderType,

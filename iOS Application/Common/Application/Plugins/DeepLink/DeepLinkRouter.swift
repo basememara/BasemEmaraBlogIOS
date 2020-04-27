@@ -17,7 +17,7 @@ struct DeepLinkRouter: DeepLinkRouterable {
     private let taxonomyRepository: TaxonomyRepositoryType
     private let theme: Theme
     
-    weak var viewController = UIWindow.current?.rootViewController
+    weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
     init(
         render: SceneRenderType,
@@ -61,7 +61,7 @@ extension DeepLinkRouter {
             
             return true
         } else if let id = postRepository.getID(byURL: url.absoluteString) {
-            guard let topViewController = UIWindow.current?.topViewController else {
+            guard let topViewController = UIApplication.shared.currentWindow?.topViewController else {
                 return false
             }
             
