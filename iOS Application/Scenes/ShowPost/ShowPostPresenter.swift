@@ -30,7 +30,7 @@ struct ShowPostPresenter: ShowPostPresenterType {
         self.templateFile = templateFile
         self.styleSheetFile = styleSheetFile
         
-        self.dateFormatter = DateFormatter().with {
+        self.dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
             $0.timeStyle = .none
         }

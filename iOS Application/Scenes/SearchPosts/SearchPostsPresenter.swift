@@ -17,7 +17,7 @@ struct SearchPostsPresenter: SearchPostsPresenterType {
     init(send: @escaping SendAction<SearchPostsState>) {
         self.send = send
         
-        dateFormatter = DateFormatter().with {
+        dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
             $0.timeStyle = .none
         }

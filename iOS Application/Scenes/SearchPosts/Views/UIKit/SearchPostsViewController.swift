@@ -23,7 +23,7 @@ final class SearchPostsViewController: UIViewController {
     
     // MARK: - Controls
 
-    private lazy var tableView = UITableView().with {
+    private lazy var tableView = UITableView().apply {
         $0.register(SimplePostTableViewCell.self)
         $0.contentInset.bottom += 20
     }
@@ -33,7 +33,7 @@ final class SearchPostsViewController: UIViewController {
         delegate: self
     )
     
-    private lazy var searchController = UISearchController(searchResultsController: nil).with {
+    private lazy var searchController = UISearchController(searchResultsController: nil).apply {
         $0.searchResultsUpdater = self
         $0.obscuresBackgroundDuringPresentation = false
         $0.searchBar.delegate = self

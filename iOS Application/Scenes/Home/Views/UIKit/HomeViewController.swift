@@ -23,13 +23,13 @@ final class HomeViewController: UIViewController {
     private lazy var tableView = UITableView(
         frame: .zero,
         style: .grouped
-    ).with {
+    ).apply {
         $0.delegate = self
         $0.dataSource = self
         $0.tableHeaderView = headerView
     }
     
-    private lazy var headerView = HomeHeaderView(store.state).with {
+    private lazy var headerView = HomeHeaderView(store.state).apply {
         $0.delegate = self
     }
     
@@ -125,7 +125,7 @@ extension HomeViewController: UITableViewDataSource {
                 return UITableViewCell()
         }
         
-        return UITableViewCell(style: .default, reuseIdentifier: nil).with {
+        return UITableViewCell(style: .default, reuseIdentifier: nil).apply {
             $0.textLabel?.text = item.title
             $0.imageView?.image = UIImage(named: item.icon)
         }

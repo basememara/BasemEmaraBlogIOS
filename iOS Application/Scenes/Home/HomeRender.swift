@@ -106,7 +106,7 @@ private extension HomeRender {
                 sort: seriesSort
             ),
             delegate: listPostsDelegate
-        ).with {
+        ).apply {
             $0.hidesBottomBarWhenPushed = true
         }
         
@@ -121,7 +121,7 @@ private extension HomeRender {
                 sort: seriesSort
             ),
             delegate: listPostsDelegate
-        ).with {
+        ).apply {
             $0.hidesBottomBarWhenPushed = true
         }
         

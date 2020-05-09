@@ -34,7 +34,7 @@ extension WindowPlugin: ApplicationPlugin {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {} else {
-            delegate?.window = UIWindow(frame: UIScreen.main.bounds).with {
+            delegate?.window = UIWindow(frame: UIScreen.main.bounds).apply {
                 $0.rootViewController = render.launchMain()
                 $0.makeKeyAndVisible()
             }
@@ -51,7 +51,7 @@ extension WindowPlugin: ScenePlugin {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
         
-        delegate?.window = UIWindow(windowScene: scene).with {
+        delegate?.window = UIWindow(windowScene: scene).apply {
             // Default to dark theme if not specified
             if !preferences.autoThemeEnabled {
                 $0.overrideUserInterfaceStyle = .dark

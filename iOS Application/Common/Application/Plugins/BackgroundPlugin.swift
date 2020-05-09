@@ -97,7 +97,7 @@ extension BackgroundPlugin: ScenePlugin {
         if #available(iOS 13, *) {
             BGTaskScheduler.shared.cancelAllTaskRequests()
             
-            let request = BGAppRefreshTaskRequest(identifier: taskIdentifier).with {
+            let request = BGAppRefreshTaskRequest(identifier: taskIdentifier).apply {
                 $0.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60)
             }
             

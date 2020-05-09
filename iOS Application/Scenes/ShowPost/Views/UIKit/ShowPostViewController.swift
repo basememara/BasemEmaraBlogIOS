@@ -31,7 +31,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     // MARK: - Controls
     
-    private lazy var webView = WKWebView().with {
+    private lazy var webView = WKWebView().apply {
         $0.navigationDelegate = self
         $0.scrollView.delegate = self
         $0.scrollView.contentInset.bottom += 60

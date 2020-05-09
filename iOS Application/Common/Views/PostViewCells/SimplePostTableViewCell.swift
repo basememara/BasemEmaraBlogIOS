@@ -11,13 +11,13 @@ import SwiftyPress
 
 final class SimplePostTableViewCell: UITableViewCell {
     
-    private let titleLabel = ThemedHeadline().with {
+    private let titleLabel = ThemedHeadline().apply {
         $0.font = .preferredFont(forTextStyle: .body)
         $0.adjustsFontForContentSizeCategory = true
         $0.numberOfLines = 2
     }
     
-    private let detailLabel = ThemedCaption().with {
+    private let detailLabel = ThemedCaption().apply {
         $0.font = .preferredFont(forTextStyle: .footnote)
         $0.numberOfLines = 1
     }
@@ -40,16 +40,16 @@ private extension SimplePostTableViewCell {
         accessoryType = .disclosureIndicator
         
         let stackView = UIStackView(arrangedSubviews: [
-            titleLabel.with {
+            titleLabel.apply {
                 $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
             },
             detailLabel
-        ]).with {
+        ]).apply {
             $0.axis = .vertical
             $0.spacing = 6
         }
         
-        let view = ThemedView().with {
+        let view = ThemedView().apply {
             $0.addSubview(stackView)
         }
         

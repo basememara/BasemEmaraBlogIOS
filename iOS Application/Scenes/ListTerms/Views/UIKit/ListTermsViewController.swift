@@ -20,7 +20,7 @@ class ListTermsViewController: UIViewController {
     
     // MARK: - Controls
     
-    private lazy var tableView = UITableView().with {
+    private lazy var tableView = UITableView().apply {
         $0.register(TermTableViewCell.self)
         $0.contentInset.bottom += 20
     }

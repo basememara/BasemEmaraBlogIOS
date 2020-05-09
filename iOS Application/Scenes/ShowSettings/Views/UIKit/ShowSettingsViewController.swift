@@ -156,7 +156,7 @@ extension ShowSettingsViewController: UITableViewDataSource {
 private extension ShowSettingsViewController {
     
     func makeTableView(delegate: UITableViewDelegate & UITableViewDataSource) -> UITableView {
-        UITableView().with {
+        UITableView().apply {
             $0.delegate = self
             $0.dataSource = self
             $0.tableFooterView = UIView()
@@ -164,13 +164,13 @@ private extension ShowSettingsViewController {
     }
     
     func makeAutoThemeSwitch() -> UISwitch {
-        UISwitch().with {
+        UISwitch().apply {
             $0.addTarget(self, action: #selector(autoThemeSwitchChanged), for: .valueChanged)
         }
     }
     
     func makeAutoThemeTableViewCell(text: String, icon: String) -> UITableViewCell {
-        let cell = makeDefaultTableViewCell(text: text, icon: icon).with {
+        let cell = makeDefaultTableViewCell(text: text, icon: icon).apply {
             $0.selectionStyle = .none
             $0.addSubview(autoThemeSwitch)
         }
@@ -185,7 +185,7 @@ private extension ShowSettingsViewController {
     }
     
     func makeDefaultTableViewCell(text: String, icon: String) -> UITableViewCell {
-        UITableViewCell(style: .default, reuseIdentifier: nil).with {
+        UITableViewCell(style: .default, reuseIdentifier: nil).apply {
             $0.textLabel?.text = text
             $0.imageView?.image = UIImage(named: icon)
         }

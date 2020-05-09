@@ -17,7 +17,7 @@ struct ListFavoritesPresenter: ListFavoritesPresenterType {
     init(send: @escaping SendAction<ListFavoritesState>) {
         self.send = send
         
-        self.dateFormatter = DateFormatter().with {
+        self.dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
             $0.timeStyle = .none
         }

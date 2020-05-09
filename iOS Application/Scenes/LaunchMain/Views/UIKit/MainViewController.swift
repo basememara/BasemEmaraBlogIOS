@@ -54,14 +54,14 @@ private extension MainViewController {
     func load(_ state: MainState) {
         viewControllers = state.tabMenu.map { item in
             UINavigationController(
-                rootViewController: render.rootView(for: item.id).with {
+                rootViewController: render.rootView(for: item.id).apply {
                     $0.tabBarItem = UITabBarItem(
                         title: item.title,
                         image: UIImage(named: item.imageName),
                         tag: item.id.rawValue
                     )
                 }
-            ).with {
+            ).apply {
                 $0.navigationBar.prefersLargeTitles = true
                 $0.navigationBar.topItem?.backBarButtonItem =
                     UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

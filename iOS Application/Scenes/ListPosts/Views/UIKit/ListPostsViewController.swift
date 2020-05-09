@@ -30,7 +30,7 @@ class ListPostsViewController: UIViewController {
     
     // MARK: - Controls
     
-    private lazy var tableView = UITableView().with {
+    private lazy var tableView = UITableView().apply {
         $0.register(PostTableViewCell.self)
         $0.contentInset.bottom += 20
     }
@@ -152,7 +152,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     tableView.reloadRows(at: [indexPath], with: .none)
                     completion(true)
                 }
-                .with {
+                .apply {
                     $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
                     $0.backgroundColor = theme.tint
                 }

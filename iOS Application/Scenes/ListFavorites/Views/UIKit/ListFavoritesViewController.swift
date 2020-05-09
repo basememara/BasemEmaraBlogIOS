@@ -22,7 +22,7 @@ final class ListFavoritesViewController: UIViewController {
 
     // MARK: - Controls
     
-    private lazy var tableView = UITableView().with {
+    private lazy var tableView = UITableView().apply {
         $0.register(PostTableViewCell.self)
         $0.contentInset.bottom += 20
     }
@@ -119,7 +119,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
                     self.interactor?.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
                 }
-                .with {
+                .apply {
                     $0.image = UIImage(named: .favoriteEmpty)
                 }
             ]

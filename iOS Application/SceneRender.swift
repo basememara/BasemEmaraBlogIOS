@@ -63,7 +63,7 @@ extension SceneRender {
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController(render: render).with {
+            return MainSplitViewController(render: render).apply {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(

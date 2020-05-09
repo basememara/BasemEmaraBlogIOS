@@ -11,12 +11,12 @@ import SwiftyPress
 
 final class TermTableViewCell: UITableViewCell {
     
-    private let nameLabel = ThemedLabel().with {
+    private let nameLabel = ThemedLabel().apply {
         $0.font = .preferredFont(forTextStyle: .body)
         $0.numberOfLines = 1
     }
     
-    private let countLabel = ThemedFootnote().with {
+    private let countLabel = ThemedFootnote().apply {
         $0.font = .preferredFont(forTextStyle: .footnote)
         $0.numberOfLines = 1
     }
@@ -40,15 +40,15 @@ private extension TermTableViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [
             nameLabel,
-            countLabel.with {
+            countLabel.apply {
                 $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
             }
-        ]).with {
+        ]).apply {
             $0.axis = .horizontal
             $0.spacing = 8
         }
         
-        let view = ThemedView().with {
+        let view = ThemedView().apply {
             $0.addSubview(stackView)
         }
         

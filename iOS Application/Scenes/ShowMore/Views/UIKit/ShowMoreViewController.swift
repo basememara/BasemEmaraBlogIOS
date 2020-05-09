@@ -148,14 +148,14 @@ private extension ShowMoreViewController {
         UITableView(
             frame: .zero,
             style: .grouped
-        ).with {
+        ).apply {
             $0.delegate = delegate
             $0.dataSource = delegate
         }
     }
     
     func makeSocialCellStackView() -> UIStackView {
-        UIStackView().with {
+        UIStackView().apply {
             $0.axis = .horizontal
             $0.alignment = .fill
             $0.distribution = .fillEqually
@@ -164,7 +164,7 @@ private extension ShowMoreViewController {
     }
     
     func makeSocialTableViewCell() -> UITableViewCell {
-        UITableViewCell(frame: .zero).with {
+        UITableViewCell(frame: .zero).apply {
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             
@@ -179,7 +179,7 @@ private extension ShowMoreViewController {
     }
     
     func makeDefaultTableViewCell(text: String, icon: String) -> UITableViewCell {
-        UITableViewCell(style: .default, reuseIdentifier: nil).with {
+        UITableViewCell(style: .default, reuseIdentifier: nil).apply {
             $0.textLabel?.text = text
             $0.imageView?.image = UIImage(named: icon)
         }

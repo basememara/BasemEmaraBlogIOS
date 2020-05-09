@@ -12,18 +12,18 @@ import ZamzamUI
 
 final class PostTableViewCell: UITableViewCell {
     
-    private let titleLabel = ThemedHeadline().with {
+    private let titleLabel = ThemedHeadline().apply {
         $0.font = .preferredFont(forTextStyle: .headline)
         $0.adjustsFontForContentSizeCategory = true
         $0.numberOfLines = 2
     }
     
-    private let summaryLabel = ThemedSubhead().with {
+    private let summaryLabel = ThemedSubhead().apply {
         $0.font = .preferredFont(forTextStyle: .subheadline)
         $0.numberOfLines = 2
     }
     
-    private let dateLabel = ThemedCaption().with {
+    private let dateLabel = ThemedCaption().apply {
         $0.font = .preferredFont(forTextStyle: .footnote)
         $0.numberOfLines = 1
     }
@@ -49,26 +49,26 @@ private extension PostTableViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
-                titleLabel.with {
+                titleLabel.apply {
                     $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
                 },
                 summaryLabel,
-                dateLabel.with {
+                dateLabel.apply {
                     $0.setContentHuggingPriority(.defaultLow, for: .vertical)
                 }
-            ]).with {
+            ]).apply {
                 $0.axis = .vertical
                 $0.spacing = 10
             },
-            UIView().with {
+            UIView().apply {
                 $0.addSubview(featuredImage)
             }
-        ]).with {
+        ]).apply {
             $0.axis = .horizontal
             $0.spacing = 20
         }
         
-        let view = ThemedView().with {
+        let view = ThemedView().apply {
             $0.addSubview(stackView)
         }
         

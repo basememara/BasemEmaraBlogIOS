@@ -17,7 +17,7 @@ extension ShowBlogViewController {
         ScrollStackView(
             insets: UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0),
             spacing: 16
-        ).with {
+        ).apply {
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
         }
@@ -29,18 +29,18 @@ extension ShowBlogViewController {
     func makeTitle() -> UIView {
         UIStackView(
             arrangedSubviews: [
-                UIImageView(imageNamed: "icon-nobg").with {
+                UIImageView(imageNamed: "icon-nobg").apply {
                     $0.contentMode = .scaleAspectFit
                     $0.widthAnchor.constraint(equalToConstant: 30).isActive = true
                 },
-                ThemedLabel().with {
+                ThemedLabel().apply {
                     $0.text = "Basem Emara"
                     $0.font = UIFont(name: "Helvetica", size: 21) ?? .systemFont(ofSize: 21)
                     $0.adjustsFontSizeToFitWidth = true
                     $0.minimumScaleFactor = 0.5
                 }
             ]
-        ).with {
+        ).apply {
             $0.axis = .horizontal
             $0.spacing = 8
         }
@@ -49,27 +49,27 @@ extension ShowBlogViewController {
     func makeHeader(title: String, buttonTitle: String, buttonAction: Selector) -> UIView {
         UIStackView(
             arrangedSubviews: [
-                ThemedSeparator().with {
+                ThemedSeparator().apply {
                     $0.translatesAutoresizingMaskIntoConstraints = false
                     $0.heightAnchor.constraint(equalToConstant: 1).isActive = true
                 },
                 UIStackView(
                     arrangedSubviews: [
-                        ThemedHeadline().with {
+                        ThemedHeadline().apply {
                             $0.text = title
                             $0.font = .preferredFont(forTextStyle: .headline)
                         },
-                        UIButton(type: .system).with {
+                        UIButton(type: .system).apply {
                             $0.setTitle(buttonTitle, for: .normal)
                             $0.addTarget(self, action: buttonAction, for: .touchUpInside)
                             $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
                         }
                     ]
-                ).with {
+                ).apply {
                     $0.axis = .horizontal
                 }
             ]
-        ).with {
+        ).apply {
             $0.axis = .vertical
             $0.spacing = 8
             $0.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -80,32 +80,32 @@ extension ShowBlogViewController {
     func makeFooter() -> UIView {
         UIStackView(
             arrangedSubviews: [
-                ThemedSeparator().with {
+                ThemedSeparator().apply {
                     $0.translatesAutoresizingMaskIntoConstraints = false
                     $0.heightAnchor.constraint(equalToConstant: 1).isActive = true
                 },
                 UIStackView(
                     arrangedSubviews: [
-                        ThemedButton(type: .system).with {
+                        ThemedButton(type: .system).apply {
                             $0.setTitle("Disclaimer", for: .normal)
                             $0.addTarget(self, action: #selector(didTapDisclaimerButton), for: .touchUpInside)
                         },
-                        ThemedButton(type: .system).with {
+                        ThemedButton(type: .system).apply {
                             $0.setTitle("Privacy", for: .normal)
                             $0.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
                         }
                     ]
-                ).with {
+                ).apply {
                     $0.axis = .horizontal
                     $0.distribution = .fillEqually
                     $0.spacing = 8
                 },
-                ThemedButton(type: .system).with {
+                ThemedButton(type: .system).apply {
                     $0.setTitle("Contact", for: .normal)
                     $0.addTarget(self, action: #selector(didTapContactButton), for: .touchUpInside)
                 }
             ]
-        ).with {
+        ).apply {
             $0.axis = .vertical
             $0.spacing = 16
             $0.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -125,7 +125,7 @@ extension ShowBlogViewController {
                 spacing: 20,
                 inset: 16
             )
-        ).with {
+        ).apply {
             $0.register(LatestPostCollectionViewCell.self)
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
@@ -141,7 +141,7 @@ extension ShowBlogViewController {
                 rowsCount: 3,
                 inset: 16
             )
-        ).with {
+        ).apply {
             $0.register(PopularPostCollectionViewCell.self)
             $0.decelerationRate = .fast
             $0.showsHorizontalScrollIndicator = false
@@ -160,7 +160,7 @@ extension ShowBlogViewController {
                 spacing: 10,
                 inset: 16
             )
-        ).with {
+        ).apply {
             $0.register(PickedPostCollectionViewCell.self)
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
@@ -170,7 +170,7 @@ extension ShowBlogViewController {
     }
     
     func makeTopTermsTableView() -> UITableView {
-        UITableView().with {
+        UITableView().apply {
             $0.register(TermTableViewCell.self)
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false

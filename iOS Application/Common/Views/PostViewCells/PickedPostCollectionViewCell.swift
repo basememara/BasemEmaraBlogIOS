@@ -12,22 +12,22 @@ import ZamzamCore
 
 final class PickedPostCollectionViewCell: UICollectionViewCell {
     
-    private let titleLabel = ThemedHeadline().with {
+    private let titleLabel = ThemedHeadline().apply {
         $0.font = .preferredFont(forTextStyle: .headline)
         $0.numberOfLines = 2
     }
     
-    private let summaryLabel = ThemedSubhead().with {
+    private let summaryLabel = ThemedSubhead().apply {
         $0.font = .preferredFont(forTextStyle: .subheadline)
         $0.numberOfLines = 3
     }
     
-    private let featuredImage = ThemedImageView(imageNamed: .placeholder).with {
+    private let featuredImage = ThemedImageView(imageNamed: .placeholder).apply {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
     }
     
-    private lazy var favoriteButton = ThemedImageButton().with {
+    private lazy var favoriteButton = ThemedImageButton().apply {
         $0.setImage(UIImage(named: .favoriteEmpty), for: .normal)
         $0.imageView?.contentMode = .scaleAspectFit
         $0.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside) // Must be in lazy init
@@ -51,7 +51,7 @@ final class PickedPostCollectionViewCell: UICollectionViewCell {
 private extension PickedPostCollectionViewCell {
     
     func prepare() {
-        let favoriteView = UIView().with {
+        let favoriteView = UIView().apply {
             $0.backgroundColor = .clear
             $0.addSubview(favoriteButton)
         }
@@ -59,21 +59,21 @@ private extension PickedPostCollectionViewCell {
         let stackView = UIStackView(arrangedSubviews: [
             featuredImage,
             UIStackView(arrangedSubviews: [
-                titleLabel.with {
+                titleLabel.apply {
                     $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
                 },
                 summaryLabel,
                 favoriteView
-            ]).with {
+            ]).apply {
                 $0.axis = .vertical
                 $0.spacing = 5
             }
-        ]).with {
+        ]).apply {
             $0.axis = .horizontal
             $0.spacing = 8
         }
         
-        let view = ThemedView().with {
+        let view = ThemedView().apply {
             $0.addSubview(stackView)
         }
         
