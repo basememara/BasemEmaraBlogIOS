@@ -13,7 +13,7 @@ import ZamzamUI
 /// Container of dependencies needed to execute this feature.
 protocol DeepLinkCoreType {
     func router() -> DeepLinkRouterable
-    func log() -> LogRepositoryType
+    func log() -> LogRepository
 }
 
 protocol DeepLinkRouterable {

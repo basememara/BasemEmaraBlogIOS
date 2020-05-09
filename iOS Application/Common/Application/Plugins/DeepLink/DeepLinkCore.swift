@@ -29,7 +29,7 @@ struct DeepLinkCore: DeepLinkCoreType {
         )
     }
     
-    func log() -> LogRepositoryType {
+    func log() -> LogRepository {
         core.log()
     }
 }
