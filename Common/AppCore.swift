@@ -87,7 +87,7 @@ struct AppCore: SwiftyPressCore {
     }
     
     func logServices() -> [LogService] {
-        let constants: ConstantsType = self.constants()
+        let constants = self.constants()
         
         return [
             LogConsoleService(

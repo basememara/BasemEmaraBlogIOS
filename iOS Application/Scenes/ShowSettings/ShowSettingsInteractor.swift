@@ -10,9 +10,9 @@ import ZamzamCore
 
 struct ShowSettingsInteractor: ShowSettingsInteractorType {
     private let presenter: ShowSettingsPresenterType
-    private let preferences: PreferencesType
+    private let preferences: Preferences
     
-    init(presenter: ShowSettingsPresenterType, preferences: PreferencesType) {
+    init(presenter: ShowSettingsPresenterType, preferences: Preferences) {
         self.presenter = presenter
         self.preferences = preferences
     }

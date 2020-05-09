@@ -14,7 +14,7 @@ import ZamzamUI
 final class ShowBlogViewController: UIViewController {
     private let store: Store<ShowBlogState>
     private let interactor: ShowBlogInteractorType?
-    private let constants: ConstantsType
+    private let constants: Constants
     private let theme: Theme
     private var token: NotificationCenter.Token?
     
@@ -54,7 +54,7 @@ final class ShowBlogViewController: UIViewController {
     init(
         store: Store<ShowBlogState>,
         interactor: ShowBlogInteractorType?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme
     ) {
         self.store = store

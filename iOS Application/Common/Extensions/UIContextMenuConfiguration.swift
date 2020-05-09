@@ -19,7 +19,7 @@ extension UIContextMenuConfiguration {
         at indexPath: IndexPath,
         from dataView: DataViewable,
         delegate: UIViewController?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme,
         additionalActions actions: [UIAction] = []
     ) {

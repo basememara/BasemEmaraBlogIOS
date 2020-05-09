@@ -14,14 +14,14 @@ import SystemConfiguration
 
 struct ShowPostPresenter: ShowPostPresenterType {
     private let send: SendAction<ShowPostState>
-    private let constants: ConstantsType
+    private let constants: Constants
     private let templateFile: String?
     private let styleSheetFile: String?
     private let dateFormatter: DateFormatter
     
     init(
         send: @escaping SendAction<ShowPostState>,
-        constants: ConstantsType,
+        constants: Constants,
         templateFile: String?,
         styleSheetFile: String?
     ) {

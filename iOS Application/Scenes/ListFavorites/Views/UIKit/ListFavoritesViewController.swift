@@ -14,7 +14,7 @@ import ZamzamUI
 final class ListFavoritesViewController: UIViewController {
     private let store: Store<ListFavoritesState>
     private let interactor: ListFavoritesInteractorType?
-    private let constants: ConstantsType
+    private let constants: Constants
     private let theme: Theme
     private var token: NotificationCenter.Token?
     
@@ -41,7 +41,7 @@ final class ListFavoritesViewController: UIViewController {
     init(
         store: Store<ListFavoritesState>,
         interactor: ListFavoritesInteractorType?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme
     ) {
         self.store = store

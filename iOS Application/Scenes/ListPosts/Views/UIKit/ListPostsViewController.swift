@@ -15,7 +15,7 @@ import ZamzamUI
 class ListPostsViewController: UIViewController {
     private let store: Store<ListPostsState>
     private let interactor: ListPostsInteractorType?
-    private let constants: ConstantsType
+    private let constants: Constants
     private let theme: Theme
     private var token: NotificationCenter.Token?
     
@@ -45,7 +45,7 @@ class ListPostsViewController: UIViewController {
     init(
         store: Store<ListPostsState>,
         interactor: ListPostsInteractorType?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme
     ) {
         self.store = store

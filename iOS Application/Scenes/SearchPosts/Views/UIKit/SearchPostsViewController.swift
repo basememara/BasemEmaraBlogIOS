@@ -14,7 +14,7 @@ import ZamzamUI
 final class SearchPostsViewController: UIViewController {
     private let store: Store<SearchPostsState>
     private let interactor: SearchPostsInteractorType?
-    private let constants: ConstantsType
+    private let constants: Constants
     private let theme: Theme
     private var token: NotificationCenter.Token?
     
@@ -55,7 +55,7 @@ final class SearchPostsViewController: UIViewController {
     init(
         store: Store<SearchPostsState>,
         interactor: SearchPostsInteractorType?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme
     ) {
         self.store = store

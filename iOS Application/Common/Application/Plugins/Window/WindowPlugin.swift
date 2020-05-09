@@ -14,14 +14,14 @@ final class WindowPlugin {
     private weak var delegate: WindowDelegate?
     
     private let render: WindowRenderable
-    private let preferences: PreferencesType
+    private let preferences: Preferences
     
     // MARK: - Lifecycle
     
     init(
         delegate: WindowDelegate?,
         render: WindowRenderable,
-        preferences: PreferencesType
+        preferences: Preferences
     ) {
         self.delegate = delegate
         self.render = render

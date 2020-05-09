@@ -14,14 +14,14 @@ struct ShowBlogInteractor: ShowBlogInteractorType {
     private let postRepository: PostRepositoryType
     private let mediaRepository: MediaRepositoryType
     private let taxonomyRepository: TaxonomyRepositoryType
-    private let preferences: PreferencesType
+    private let preferences: Preferences
 
     init(
         presenter: ShowBlogPresenterType,
         postRepository: PostRepositoryType,
         mediaRepository: MediaRepositoryType,
         taxonomyRepository: TaxonomyRepositoryType,
-        preferences: PreferencesType
+        preferences: Preferences
     ) {
         self.presenter = presenter
         self.postRepository = postRepository

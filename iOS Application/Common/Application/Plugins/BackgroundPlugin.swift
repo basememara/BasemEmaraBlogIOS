@@ -16,7 +16,7 @@ import ZamzamNotification
 
 struct BackgroundPlugin {
     private let dataRepository: DataRepositoryType
-    private let preferences: PreferencesType
+    private let preferences: Preferences
     private let log: LogRepository
     
     private let userNotification: UNUserNotificationCenter = .current()
@@ -24,7 +24,7 @@ struct BackgroundPlugin {
     
     init(
         dataRepository: DataRepositoryType,
-        preferences: PreferencesType,
+        preferences: Preferences,
         log: LogRepository
     ) {
         self.dataRepository = dataRepository

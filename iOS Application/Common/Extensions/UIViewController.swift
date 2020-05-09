@@ -106,7 +106,7 @@ extension UIViewController {
     ///   - slug: The slug of the page.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func modal(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
+    func modal(pageSlug slug: String, constants: Constants, theme: Theme) {
         let url = constants.baseURL
             .appendingPathComponent(slug)
             .appendingQueryItem("mobileembed", value: 1)
