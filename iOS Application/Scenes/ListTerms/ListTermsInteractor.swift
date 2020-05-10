@@ -10,9 +10,9 @@ import SwiftyPress
 
 struct ListTermsInteractor: ListTermsInteractorType {
     private let presenter: ListTermsPresenterType
-    private let taxonomyRepository: TaxonomyRepositoryType
+    private let taxonomyRepository: TaxonomyRepository
     
-    init(presenter: ListTermsPresenterType, taxonomyRepository: TaxonomyRepositoryType) {
+    init(presenter: ListTermsPresenterType, taxonomyRepository: TaxonomyRepository) {
         self.presenter = presenter
         self.taxonomyRepository = taxonomyRepository
     }

@@ -41,7 +41,7 @@ extension ListPostsPresenter {
 
 extension ListPostsPresenter {
     
-    func displayLatestPosts(error: DataError) {
+    func displayLatestPosts(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
@@ -50,7 +50,7 @@ extension ListPostsPresenter {
         send(.loadError(viewModel))
     }
     
-    func displayPopularPosts(error: DataError) {
+    func displayPopularPosts(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
@@ -59,7 +59,7 @@ extension ListPostsPresenter {
         send(.loadError(viewModel))
     }
     
-    func displayTopPickPosts(error: DataError) {
+    func displayTopPickPosts(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
@@ -68,7 +68,7 @@ extension ListPostsPresenter {
         send(.loadError(viewModel))
     }
     
-    func displayPostsByTerms(error: DataError) {
+    func displayPostsByTerms(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.postsByTermsErrorTitle),
             message: error.localizedDescription

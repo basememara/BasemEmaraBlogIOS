@@ -14,7 +14,7 @@ protocol ListTermsInteractorType: InteractorType {
 
 protocol ListTermsPresenterType: PresenterType {
     func displayTerms(for response: ListTermsAPI.TermsResponse)
-    func displayTerms(error: DataError)
+    func displayTerms(error: SwiftyPressError)
 }
 
 protocol ListTermsRenderType: RenderType {

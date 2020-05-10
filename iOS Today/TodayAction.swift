@@ -10,13 +10,13 @@ import SwiftyPress
 
 struct TodayAction: TodayActionable {
     private let presenter: TodayPresentable
-    private let postRepository: PostRepositoryType
-    private let mediaRepository: MediaRepositoryType
+    private let postRepository: PostRepository
+    private let mediaRepository: MediaRepository
     
     init(
         presenter: TodayPresentable,
-        postRepository: PostRepositoryType,
-        mediaRepository: MediaRepositoryType
+        postRepository: PostRepository,
+        mediaRepository: MediaRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository

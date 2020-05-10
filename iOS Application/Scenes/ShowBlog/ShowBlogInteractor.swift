@@ -11,16 +11,16 @@ import ZamzamCore
 
 struct ShowBlogInteractor: ShowBlogInteractorType {
     private let presenter: ShowBlogPresenterType
-    private let postRepository: PostRepositoryType
-    private let mediaRepository: MediaRepositoryType
-    private let taxonomyRepository: TaxonomyRepositoryType
+    private let postRepository: PostRepository
+    private let mediaRepository: MediaRepository
+    private let taxonomyRepository: TaxonomyRepository
     private let preferences: Preferences
 
     init(
         presenter: ShowBlogPresenterType,
-        postRepository: PostRepositoryType,
-        mediaRepository: MediaRepositoryType,
-        taxonomyRepository: TaxonomyRepositoryType,
+        postRepository: PostRepository,
+        mediaRepository: MediaRepository,
+        taxonomyRepository: TaxonomyRepository,
         preferences: Preferences
     ) {
         self.presenter = presenter

@@ -21,10 +21,10 @@ protocol ListPostsInteractorType: InteractorType {
 protocol ListPostsPresenterType: PresenterType {
     func displayPosts(for response: ListPostsAPI.PostsResponse)
     
-    func displayLatestPosts(error: DataError)
-    func displayPopularPosts(error: DataError)
-    func displayTopPickPosts(error: DataError)
-    func displayPostsByTerms(error: DataError)
+    func displayLatestPosts(error: SwiftyPressError)
+    func displayPopularPosts(error: SwiftyPressError)
+    func displayTopPickPosts(error: SwiftyPressError)
+    func displayPostsByTerms(error: SwiftyPressError)
     
     func displayToggleFavorite(for response: ListPostsAPI.FavoriteResponse)
 }

@@ -15,7 +15,7 @@ import ZamzamCore
 import ZamzamNotification
 
 struct BackgroundPlugin {
-    private let dataRepository: DataRepositoryType
+    private let dataRepository: DataRepository
     private let preferences: Preferences
     private let log: LogRepository
     
@@ -23,7 +23,7 @@ struct BackgroundPlugin {
     private let taskIdentifier = "io.zamzam.Basem-Emara.backgroundRefresh"
     
     init(
-        dataRepository: DataRepositoryType,
+        dataRepository: DataRepository,
         preferences: Preferences,
         log: LogRepository
     ) {

@@ -38,7 +38,7 @@ extension ListFavoritesPresenter {
         send(.loadFavorites(viewModels))
     }
     
-    func displayFavoritePosts(error: DataError) {
+    func displayFavoritePosts(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription

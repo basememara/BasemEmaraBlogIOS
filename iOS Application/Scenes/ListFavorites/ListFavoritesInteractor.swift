@@ -10,13 +10,13 @@ import SwiftyPress
 
 struct ListFavoritesInteractor: ListFavoritesInteractorType {
     private let presenter: ListFavoritesPresenterType
-    private let postRepository: PostRepositoryType
-    private let mediaRepository: MediaRepositoryType
+    private let postRepository: PostRepository
+    private let mediaRepository: MediaRepository
     
     init(
         presenter: ListFavoritesPresenterType,
-        postRepository: PostRepositoryType,
-        mediaRepository: MediaRepositoryType
+        postRepository: PostRepository,
+        mediaRepository: MediaRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository

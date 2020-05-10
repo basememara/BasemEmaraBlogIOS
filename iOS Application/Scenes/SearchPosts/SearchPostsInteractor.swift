@@ -10,13 +10,13 @@ import SwiftyPress
 
 struct SearchPostsInteractor: SearchPostsInteractorType {
     private let presenter: SearchPostsPresenterType
-    private let postRepository: PostRepositoryType
-    private let mediaRepository: MediaRepositoryType
+    private let postRepository: PostRepository
+    private let mediaRepository: MediaRepository
     
     init(
         presenter: SearchPostsPresenterType,
-        postRepository: PostRepositoryType,
-        mediaRepository: MediaRepositoryType
+        postRepository: PostRepository,
+        mediaRepository: MediaRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository

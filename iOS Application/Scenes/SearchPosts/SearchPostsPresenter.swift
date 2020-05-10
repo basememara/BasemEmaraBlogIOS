@@ -38,7 +38,7 @@ extension SearchPostsPresenter {
         send(.loadPosts(viewModels))
     }
     
-    func displaySearchResults(error: DataError) {
+    func displaySearchResults(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.searchErrorTitle),
             message: error.localizedDescription

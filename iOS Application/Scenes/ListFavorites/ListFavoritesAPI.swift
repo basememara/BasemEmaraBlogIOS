@@ -15,7 +15,7 @@ protocol ListFavoritesInteractorType: InteractorType {
 
 protocol ListFavoritesPresenterType: PresenterType {
     func displayFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse)
-    func displayFavoritePosts(error: DataError)
+    func displayFavoritePosts(error: SwiftyPressError)
     
     func displayToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse)
 }

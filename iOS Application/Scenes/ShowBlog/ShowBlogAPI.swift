@@ -18,16 +18,16 @@ protocol ShowBlogInteractorType: InteractorType {
 
 protocol ShowBlogPresenterType: PresenterType {
     func displayLatestPosts(for response: ShowBlogAPI.PostsResponse)
-    func displayLatestPosts(error: DataError)
+    func displayLatestPosts(error: SwiftyPressError)
     
     func displayPopularPosts(for response: ShowBlogAPI.PostsResponse)
-    func displayPopularPosts(error: DataError)
+    func displayPopularPosts(error: SwiftyPressError)
     
     func displayTopPickPosts(for response: ShowBlogAPI.PostsResponse)
-    func displayTopPickPosts(error: DataError)
+    func displayTopPickPosts(error: SwiftyPressError)
     
     func displayTerms(for response: ShowBlogAPI.TermsResponse)
-    func displayTerms(error: DataError)
+    func displayTerms(error: SwiftyPressError)
     
     func displayToggleFavorite(for response: ShowBlogAPI.FavoriteResponse)
 }

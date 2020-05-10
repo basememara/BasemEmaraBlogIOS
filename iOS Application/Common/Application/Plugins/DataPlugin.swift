@@ -11,9 +11,9 @@ import SwiftyPress
 import ZamzamCore
 
 struct DataPlugin: ApplicationPlugin {
-    private let dataRepository: DataRepositoryType
+    private let dataRepository: DataRepository
     
-    init(dataRepository: DataRepositoryType) {
+    init(dataRepository: DataRepository) {
         self.dataRepository = dataRepository
     }
 }

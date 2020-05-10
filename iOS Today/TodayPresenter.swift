@@ -38,7 +38,7 @@ extension TodayPresenter {
         viewController?.displayLatestPosts(with: viewModels)
     }
     
-    func presentLatestPosts(error: DataError) {
+    func presentLatestPosts(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription

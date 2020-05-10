@@ -32,7 +32,7 @@ extension ListTermsPresenter {
         send(.loadTerms(viewModels))
     }
     
-    func displayTerms(error: DataError) {
+    func displayTerms(error: SwiftyPressError) {
         let viewModel = AppAPI.Error(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription

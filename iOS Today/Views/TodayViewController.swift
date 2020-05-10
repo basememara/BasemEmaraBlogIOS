@@ -25,7 +25,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var core: TodayCoreType? = TodayCore(root: AppCore())
     
     private lazy var action: TodayActionable? = core?.action(with: self)
-    private lazy var dataRepository: DataRepositoryType? = core?.dataRepository()
+    private lazy var dataRepository = core?.dataRepository()
     
     // MARK: - Lifecycle
     

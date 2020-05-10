@@ -15,7 +15,7 @@ enum TodayAPI {}
 protocol TodayCoreType {
     func action(with viewController: TodayDisplayable?) -> TodayActionable
     func presenter(with viewController: TodayDisplayable?) -> TodayPresentable
-    func dataRepository() -> DataRepositoryType
+    func dataRepository() -> DataRepository
     func theme() -> Theme
 }
 
@@ -25,7 +25,7 @@ protocol TodayActionable {
 
 protocol TodayPresentable {
     func presentLatestPosts(for response: TodayAPI.Response)
-    func presentLatestPosts(error: DataError)
+    func presentLatestPosts(error: SwiftyPressError)
 }
 
 protocol TodayDisplayable: class, AppDisplayable {

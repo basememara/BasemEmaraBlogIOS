@@ -18,7 +18,7 @@ protocol ShowPostInteractorType: InteractorType {
 
 protocol ShowPostPresenterType: PresenterType {
     func displayPost(for response: ShowPostAPI.Response)
-    func displayPost(error: DataError)
+    func displayPost(error: SwiftyPressError)
     
     func displayByURL(for response: ShowPostAPI.FetchWebResponse)
     

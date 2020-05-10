@@ -31,7 +31,7 @@ extension TodayCore {
         TodayPresenter(viewController: viewController)
     }
     
-    func dataRepository() -> DataRepositoryType {
+    func dataRepository() -> DataRepository {
         root.dataRepository()
     }
     

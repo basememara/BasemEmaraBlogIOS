@@ -15,7 +15,7 @@ protocol SearchPostsInteractorType: InteractorType {
 
 protocol SearchPostsPresenterType: PresenterType {
     func displaySearchResults(for response: SearchPostsAPI.Response)
-    func displaySearchResults(error: DataError)
+    func displaySearchResults(error: SwiftyPressError)
 }
 
 protocol SearchPostsRenderType: RenderType {
