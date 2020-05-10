@@ -77,14 +77,6 @@ struct AppCore: SwiftyPressCore {
             }()
         )
     }
-
-    func seedService() -> SeedService {
-        SeedFileService(
-            forResource: "seed.json",
-            inBundle: .main,
-            jsonDecoder: jsonDecoder()
-        )
-    }
     
     func logServices() -> [LogService] {
         let constants = self.constants()
@@ -100,6 +92,14 @@ struct AppCore: SwiftyPressCore {
                 category: "Application"
             )
         ]
+    }
+
+    func seedService() -> SeedService {
+        SeedFileService(
+            forResource: "seed.json",
+            inBundle: .main,
+            jsonDecoder: jsonDecoder()
+        )
     }
 
     func theme() -> Theme {
