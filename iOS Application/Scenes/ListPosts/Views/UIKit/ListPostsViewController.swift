@@ -17,7 +17,7 @@ class ListPostsViewController: UIViewController {
     private let interactor: ListPostsInteractorType?
     private let constants: Constants
     private let theme: Theme
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: ListPostsRenderType?
     
@@ -94,7 +94,7 @@ private extension ListPostsViewController {
         tableView.edges(to: view)
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

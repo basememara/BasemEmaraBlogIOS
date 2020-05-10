@@ -14,7 +14,7 @@ import ZamzamUI
 final class HomeViewController: UIViewController {
     private let store: Store<HomeState>
     private let interactor: HomeInteractorType?
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: HomeRenderType?
     
@@ -74,7 +74,7 @@ private extension HomeViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

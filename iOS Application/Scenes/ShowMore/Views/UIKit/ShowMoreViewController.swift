@@ -14,7 +14,7 @@ import ZamzamUI
 final class ShowMoreViewController: UIViewController {
     private let store: Store<ShowMoreState>
     private let interactor: ShowMoreInteractorType?
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: ShowMoreRenderType?
     
@@ -57,7 +57,7 @@ private extension ShowMoreViewController {
         tableView.edges(to: view)
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

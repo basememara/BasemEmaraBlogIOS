@@ -14,7 +14,7 @@ class ShowSettingsViewController: UIViewController {
     private let store: Store<ShowSettingsState>
     private let interactor: ShowSettingsInteractorType?
     private let render: ShowSettingsRenderType?
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
     
@@ -60,7 +60,7 @@ private extension ShowSettingsViewController {
         tableView.edges(to: view)
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

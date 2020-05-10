@@ -19,7 +19,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     private let constants: Constants
     private let theme: Theme
     private let notificationCenter: NotificationCenter
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     private var postID: Int?
     private var viewModel: ShowPostAPI.PostViewModel?
@@ -135,7 +135,7 @@ private extension ShowPostViewController {
         )
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

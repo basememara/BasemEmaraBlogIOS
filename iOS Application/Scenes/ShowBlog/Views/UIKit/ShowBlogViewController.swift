@@ -16,7 +16,7 @@ final class ShowBlogViewController: UIViewController {
     private let interactor: ShowBlogInteractorType?
     private let constants: Constants
     private let theme: Theme
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: ShowBlogRenderType?
     
@@ -116,7 +116,7 @@ private extension ShowBlogViewController {
         ])
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

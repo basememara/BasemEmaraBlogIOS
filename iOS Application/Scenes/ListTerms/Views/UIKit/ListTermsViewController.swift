@@ -14,7 +14,7 @@ import ZamzamUI
 class ListTermsViewController: UIViewController {
     private let store: Store<ListTermsState>
     private let interactor: ListTermsInteractorType?
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: ListTermsRenderType?
     
@@ -67,7 +67,7 @@ private extension ListTermsViewController {
         tableView.edges(to: view)
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {

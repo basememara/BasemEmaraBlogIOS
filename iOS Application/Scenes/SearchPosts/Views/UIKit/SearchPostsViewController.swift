@@ -16,7 +16,7 @@ final class SearchPostsViewController: UIViewController {
     private let interactor: SearchPostsInteractorType?
     private let constants: Constants
     private let theme: Theme
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     var render: SearchPostsRenderType?
     var searchText: String?
@@ -94,7 +94,7 @@ private extension SearchPostsViewController {
         tableView.edges(to: view)
         
         // Bind state
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func load(_ state: SearchPostsState) {

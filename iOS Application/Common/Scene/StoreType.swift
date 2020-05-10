@@ -61,10 +61,10 @@ public extension Store {
     /// Observation to state changes and executes the block.
     ///
     /// - Parameters:
-    ///   - token: An opaque object to act as the observer and will manage its auto release.
+    ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
-    func callAsFunction(in token: inout NotificationCenter.Token?, observer: @escaping (State) -> Void) {
-        notificationCenter.addObserver(forName: .stateDidChange, queue: .main, in: &token) { notification in
+    func callAsFunction(in cancellable: inout NotificationCenter.Cancellable?, observer: @escaping (State) -> Void) {
+        notificationCenter.addObserver(forName: .stateDidChange, queue: .main, in: &cancellable) { notification in
             guard let state = notification.userInfo?[.state] as? State else { return }
             observer(state)
         }

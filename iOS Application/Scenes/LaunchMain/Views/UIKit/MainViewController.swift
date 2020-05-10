@@ -12,7 +12,7 @@ class MainViewController: UITabBarController {
     private let store: Store<MainState>
     private let interactor: MainInteractorType?
     private let render: MainRenderType
-    private var token: NotificationCenter.Token?
+    private var cancellable: NotificationCenter.Cancellable?
     
     init(
         store: Store<MainState>,
@@ -44,7 +44,7 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
-        store(in: &token, observer: load)
+        store(in: &cancellable, observer: load)
     }
     
     func fetch() {
