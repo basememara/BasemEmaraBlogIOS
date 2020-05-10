@@ -94,8 +94,8 @@ struct AppCore: SwiftyPressCore {
         ]
     }
 
-    func seedService() -> SeedService {
-        SeedFileService(
+    func dataSeed() -> DataSeed {
+        DataFileSeed(
             forResource: "seed.json",
             inBundle: .main,
             jsonDecoder: jsonDecoder()

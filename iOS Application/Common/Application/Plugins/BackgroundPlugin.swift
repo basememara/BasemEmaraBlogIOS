@@ -115,7 +115,7 @@ private extension BackgroundPlugin {
     
     func handleBackgroundTask(completion: @escaping (Result<Void, ZamzamError>) -> Void) {
         // Create local notifications when new content retrieved via background fetch
-        dataRepository.pull {
+        dataRepository.fetch {
             // Validate if any updates that needs to be notified
             guard case .success = $0 else {
                 completion(.failure(.general))
