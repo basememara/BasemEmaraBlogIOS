@@ -8,13 +8,14 @@
 
 import Foundation
 import SwiftyPress
+import UIKit.UIViewController
 import ZamzamUI
 
 struct TodayPresenter: TodayPresentable {
-    private weak var viewController: TodayDisplayable?
+    private weak var viewController: (TodayDisplayable & UIViewController)?
     private let dateFormatter: DateFormatter
     
-    init(viewController: TodayDisplayable?) {
+    init(viewController: (TodayDisplayable & UIViewController)?) {
         self.viewController = viewController
         
         self.dateFormatter = DateFormatter(
@@ -44,6 +45,9 @@ extension TodayPresenter {
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        viewController?.present(
+            alert: viewModel.title,
+            message: viewModel.message
+        )
     }
 }

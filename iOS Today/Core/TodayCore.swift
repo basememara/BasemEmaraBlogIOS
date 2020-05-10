@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyPress
+import UIKit.UIViewController
 import ZamzamCore
 
 struct TodayCore: TodayCoreType {
@@ -19,7 +20,7 @@ struct TodayCore: TodayCoreType {
 
 extension TodayCore {
     
-    func action(with viewController: TodayDisplayable?) -> TodayActionable {
+    func action(with viewController: (TodayDisplayable & UIViewController)?) -> TodayActionable {
         TodayAction(
             presenter: presenter(with: viewController),
             postRepository: root.postRepository(),
@@ -27,7 +28,7 @@ extension TodayCore {
         )
     }
     
-    func presenter(with viewController: TodayDisplayable?) -> TodayPresentable {
+    func presenter(with viewController: (TodayDisplayable & UIViewController)?) -> TodayPresentable {
         TodayPresenter(viewController: viewController)
     }
     

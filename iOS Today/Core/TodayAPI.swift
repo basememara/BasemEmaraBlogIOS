@@ -7,14 +7,15 @@
 //
 
 import SwiftyPress
+import UIKit.UIViewController
 import ZamzamUI
 
 // Scene namespace
 enum TodayAPI {}
 
 protocol TodayCoreType {
-    func action(with viewController: TodayDisplayable?) -> TodayActionable
-    func presenter(with viewController: TodayDisplayable?) -> TodayPresentable
+    func action(with viewController: (TodayDisplayable & UIViewController)?) -> TodayActionable
+    func presenter(with viewController: (TodayDisplayable & UIViewController)?) -> TodayPresentable
     func dataRepository() -> DataRepository
     func theme() -> Theme
 }
@@ -28,7 +29,7 @@ protocol TodayPresentable {
     func presentLatestPosts(error: SwiftyPressError)
 }
 
-protocol TodayDisplayable: class, AppDisplayable {
+protocol TodayDisplayable: AnyObject {
     func displayLatestPosts(with viewModels: [PostsDataViewModel])
 }
 
