@@ -8,16 +8,16 @@
 
 import SwiftyPress
 
-protocol ListTermsInteractorType: InteractorType {
+protocol ListTermsInteractable: Interactor {
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest)
 }
 
-protocol ListTermsPresenterType: PresenterType {
+protocol ListTermsPresentable: Presenter {
     func displayTerms(for response: ListTermsAPI.TermsResponse)
     func displayTerms(error: SwiftyPressError)
 }
 
-protocol ListTermsRenderType: RenderType {
+protocol ListTermsRenderable: Render {
     func listPosts(params: ListPostsAPI.Params)
 }
 

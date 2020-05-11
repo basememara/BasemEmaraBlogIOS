@@ -8,11 +8,11 @@
 
 import UIKit.UIViewController
 
-struct ListTermsRender: ListTermsRenderType {
-    private let render: SceneRenderType
+struct ListTermsRender: ListTermsRenderable {
+    private let render: SceneRenderable
     private weak var presentationContext: UIViewController?
     
-    init(render: SceneRenderType, presentationContext: UIViewController?) {
+    init(render: SceneRenderable, presentationContext: UIViewController?) {
         self.render = render
         self.presentationContext = presentationContext
     }

@@ -14,12 +14,12 @@ import ZamzamUI
 
 class ListPostsViewController: UIViewController {
     private let store: Store<ListPostsState>
-    private let interactor: ListPostsInteractorType?
+    private let interactor: ListPostsInteractable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: ListPostsRenderType?
+    var render: ListPostsRenderable?
     
     var params = ListPostsAPI.Params(
         fetchType: .latest,
@@ -44,7 +44,7 @@ class ListPostsViewController: UIViewController {
     
     init(
         store: Store<ListPostsState>,
-        interactor: ListPostsInteractorType?,
+        interactor: ListPostsInteractable?,
         constants: Constants,
         theme: Theme
     ) {

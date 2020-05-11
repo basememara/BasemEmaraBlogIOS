@@ -9,14 +9,14 @@
 import SwiftyPress
 import UIKit.UIViewController
 
-struct ListPostsRender: ListPostsRenderType {
-    private let render: SceneRenderType
+struct ListPostsRender: ListPostsRenderable {
+    private let render: SceneRenderable
     
     private weak var presentationContext: UIViewController?
     private weak var listPostsDelegate: ListPostsDelegate?
     
     init(
-        render: SceneRenderType,
+        render: SceneRenderable,
         presentationContext: UIViewController?,
         listPostsDelegate: ListPostsDelegate?
     ) {

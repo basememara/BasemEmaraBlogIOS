@@ -8,10 +8,10 @@
 
 import UIKit.UIDevice
 
-struct MainInteractor: MainInteractorType {
-    private let presenter: MainPresenterType
+struct MainInteractor: MainInteractable {
+    private let presenter: MainPresentable
     
-    init(presenter: MainPresenterType) {
+    init(presenter: MainPresentable) {
         self.presenter = presenter
     }
 }

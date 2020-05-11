@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ShowPostState: StateType {
+struct ShowPostState: State {
     private(set) var web: ShowPostAPI.WebViewModel?
     private(set) var post: ShowPostAPI.PostViewModel?
     private(set) var favorite: Bool = false
@@ -19,14 +19,14 @@ struct ShowPostState: StateType {
 
 extension ShowPostState {
     
-    enum Action: ActionType {
+    enum ShowPostAction: Action {
         case loadWeb(ShowPostAPI.WebViewModel)
         case loadPost(ShowPostAPI.PostViewModel)
         case favorite(Bool)
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ShowPostAction) {
         switch action {
         case .loadWeb(let value):
             web = value

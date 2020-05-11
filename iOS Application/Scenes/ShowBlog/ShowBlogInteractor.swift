@@ -9,15 +9,15 @@
 import SwiftyPress
 import ZamzamCore
 
-struct ShowBlogInteractor: ShowBlogInteractorType {
-    private let presenter: ShowBlogPresenterType
+struct ShowBlogInteractor: ShowBlogInteractable {
+    private let presenter: ShowBlogPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
     private let taxonomyRepository: TaxonomyRepository
     private let preferences: Preferences
 
     init(
-        presenter: ShowBlogPresenterType,
+        presenter: ShowBlogPresentable,
         postRepository: PostRepository,
         mediaRepository: MediaRepository,
         taxonomyRepository: TaxonomyRepository,

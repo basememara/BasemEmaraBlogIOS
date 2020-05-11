@@ -9,21 +9,21 @@
 import Foundation.NSNotification
 import ZamzamCore
 
-public protocol StoreType: AnyObject {
-    associatedtype State: StateType
-    func send(_ action: State.Action)
+public protocol StoreRepresentable: AnyObject {
+    associatedtype StateType: State
+    func send(_ action: StateType.ActionType)
 }
 
 /// The store to handle state, reducer, and action requests.
-public class Store<State: StateType>: StoreType {
-    private let keyPath: WritableKeyPath<AppState, State>
+public class Store<StateType: State>: StoreRepresentable {
+    private let keyPath: WritableKeyPath<AppState, StateType>
     private var testState: AppState?
-    private let middleware: [MiddlewareType]
+    private let middleware: [Middleware]
     private let notificationCenter: NotificationCenter = .default
     
     public init(
-        keyPath: WritableKeyPath<AppState, State>,
-        with middleware: [MiddlewareType] = []
+        keyPath: WritableKeyPath<AppState, StateType>,
+        with middleware: [Middleware] = []
     ) {
         self.keyPath = keyPath
         self.middleware = middleware
@@ -33,7 +33,7 @@ public class Store<State: StateType>: StoreType {
 public extension Store {
     
     /// The current value of the state.
-    private(set) var state: State {
+    private(set) var state: StateType {
         get { (testState ?? AppState.root)[keyPath: keyPath] }
         set {
             #if canImport(Combine)
@@ -50,7 +50,7 @@ public extension Store {
     /// Mutate the state by sending an action.
     ///
     /// - Parameter action: The action of the request.
-    func send(_ action: State.Action) {
+    func send(_ action: StateType.ActionType) {
         middleware.forEach { $0(action) }
         state.receive(action)
     }
@@ -63,9 +63,9 @@ public extension Store {
     /// - Parameters:
     ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
-    func callAsFunction(in cancellable: inout NotificationCenter.Cancellable?, observer: @escaping (State) -> Void) {
+    func callAsFunction(in cancellable: inout NotificationCenter.Cancellable?, observer: @escaping (StateType) -> Void) {
         notificationCenter.addObserver(forName: .stateDidChange, queue: .main, in: &cancellable) { notification in
-            guard let state = notification.userInfo?[.state] as? State else { return }
+            guard let state = notification.userInfo?[.state] as? StateType else { return }
             observer(state)
         }
     }
@@ -99,7 +99,7 @@ extension Store {
     
     /// Initializer used for constructing custom previews for testing.
     convenience init(
-        keyPath: WritableKeyPath<AppState, State>,
+        keyPath: WritableKeyPath<AppState, StateType>,
         for testState: AppState
     ) {
         self.init(keyPath: keyPath)

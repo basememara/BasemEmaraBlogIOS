@@ -8,10 +8,10 @@
 
 import UIKit.UIViewController
 
-struct MainRender: MainRenderType {
-    private let render: SceneRenderType
+struct MainRender: MainRenderable {
+    private let render: SceneRenderable
     
-    init(render: SceneRenderType) {
+    init(render: SceneRenderable) {
         self.render = render
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct ShowMorePresenter<Store: StoreType>: ShowMorePresenterType where Store.State == ShowMoreState {
+struct ShowMorePresenter<Store: StoreRepresentable>: ShowMorePresentable where Store.StateType == ShowMoreState {
     private let store: Store
     
     init(store: Store) {

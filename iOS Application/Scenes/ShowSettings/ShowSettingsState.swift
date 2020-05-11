@@ -6,7 +6,7 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct ShowSettingsState: StateType {
+struct ShowSettingsState: State {
     private(set) var settingsMenu: [ShowSettingsAPI.MenuItem] = []
     private(set) var autoThemeEnabled: Bool = true
 }
@@ -15,12 +15,12 @@ struct ShowSettingsState: StateType {
 
 extension ShowSettingsState {
     
-    enum Action: ActionType {
+    enum ShowSettingsAction: Action {
         case loadMenu([ShowSettingsAPI.MenuItem])
         case setAutoThemeEnabled(Bool)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ShowSettingsAction) {
         switch action {
         case .loadMenu(let value):
             settingsMenu = value

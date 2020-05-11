@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ShowBlogState: StateType {
+struct ShowBlogState: State {
     private(set) var latestPosts: [PostsDataViewModel] = []
     private(set) var popularPosts: [PostsDataViewModel] = []
     private(set) var topPickPosts: [PostsDataViewModel] = []
@@ -20,7 +20,7 @@ struct ShowBlogState: StateType {
 
 extension ShowBlogState {
     
-    enum Action: ActionType {
+    enum ShowBlogAction: Action {
         case loadLatestPosts([PostsDataViewModel])
         case loadPopularPosts([PostsDataViewModel])
         case loadTopPickPosts([PostsDataViewModel])
@@ -29,7 +29,7 @@ extension ShowBlogState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ShowBlogAction) {
         switch action {
         case .loadLatestPosts(let value):
             latestPosts = value

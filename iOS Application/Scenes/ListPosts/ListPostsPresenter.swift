@@ -10,7 +10,7 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ListPostsPresenter<Store: StoreType>: ListPostsPresenterType where Store.State == ListPostsState {
+struct ListPostsPresenter<Store: StoreRepresentable>: ListPostsPresentable where Store.StateType == ListPostsState {
     private let store: Store
     private let dateFormatter: DateFormatter
     

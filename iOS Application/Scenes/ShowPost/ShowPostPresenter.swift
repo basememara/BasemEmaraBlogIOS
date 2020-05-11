@@ -12,7 +12,7 @@ import ZamzamUI
 import Stencil
 import SystemConfiguration
 
-struct ShowPostPresenter<Store: StoreType>: ShowPostPresenterType where Store.State == ShowPostState {
+struct ShowPostPresenter<Store: StoreRepresentable>: ShowPostPresentable where Store.StateType == ShowPostState {
     private let store: Store
     private let constants: Constants
     private let templateFile: String?

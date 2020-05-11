@@ -10,14 +10,14 @@ import UIKit
 
 class MainViewController: UITabBarController {
     private let store: Store<MainState>
-    private let interactor: MainInteractorType?
-    private let render: MainRenderType
+    private let interactor: MainInteractable?
+    private let render: MainRenderable
     private var cancellable: NotificationCenter.Cancellable?
     
     init(
         store: Store<MainState>,
-        interactor: MainInteractorType?,
-        render: MainRenderType
+        interactor: MainInteractable?,
+        render: MainRenderable
     ) {
         self.store = store
         self.interactor = interactor

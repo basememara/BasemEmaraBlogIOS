@@ -17,13 +17,13 @@ protocol ShortcutRouterable {
 }
 
 struct ShortcutRouter: ShortcutRouterable {
-    private let render: SceneRenderType
+    private let render: SceneRenderable
     private let constants: Constants
     
     weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
     init(
-        render: SceneRenderType,
+        render: SceneRenderable,
         constants: Constants
     ) {
         self.render = render

@@ -13,7 +13,7 @@ import SwiftUI
 #endif
 
 /// Dependency injector for overriding concrete scene factories.
-protocol SceneRenderType {
+protocol SceneRenderable {
     func launchMain() -> UIViewController
     
     @available(iOS 13, *)
@@ -32,19 +32,19 @@ protocol SceneRenderType {
     func showSettings() -> UIViewController
 }
 
-extension SceneRenderType {
+extension SceneRenderable {
     
     func listPosts(params: ListPostsAPI.Params) -> UIViewController {
         listPosts(params: params, delegate: nil)
     }
 }
 
-struct SceneRender: SceneRenderType {
+struct SceneRender: SceneRenderable {
     private let core: SwiftyPressCore
     private let state: AppState
-    private let middleware: [MiddlewareType]
+    private let middleware: [Middleware]
     
-    init(core: SwiftyPressCore, state: AppState, middleware: [MiddlewareType]) {
+    init(core: SwiftyPressCore, state: AppState, middleware: [Middleware]) {
         self.core = core
         self.state = state
         self.middleware = middleware

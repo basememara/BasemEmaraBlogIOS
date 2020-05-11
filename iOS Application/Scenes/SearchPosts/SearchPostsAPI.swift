@@ -8,17 +8,17 @@
 
 import SwiftyPress
 
-protocol SearchPostsInteractorType: InteractorType {
+protocol SearchPostsInteractable: Interactor {
     func fetchSearchResults(with request: PostAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }
 
-protocol SearchPostsPresenterType: PresenterType {
+protocol SearchPostsPresenterType: Presenter {
     func displaySearchResults(for response: SearchPostsAPI.Response)
     func displaySearchResults(error: SwiftyPressError)
 }
 
-protocol SearchPostsRenderType: RenderType {
+protocol SearchPostsRenderType: Render {
     func showPost(for model: PostsDataViewModel)
 }
 

@@ -12,7 +12,7 @@ import UIKit
 import ZamzamUI
 
 struct DeepLinkRouter: DeepLinkRouterable {
-    private let render: SceneRenderType
+    private let render: SceneRenderable
     private let postRepository: PostRepository
     private let taxonomyRepository: TaxonomyRepository
     private let theme: Theme
@@ -20,7 +20,7 @@ struct DeepLinkRouter: DeepLinkRouterable {
     weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
     init(
-        render: SceneRenderType,
+        render: SceneRenderable,
         postRepository: PostRepository,
         taxonomyRepository: TaxonomyRepository,
         theme: Theme

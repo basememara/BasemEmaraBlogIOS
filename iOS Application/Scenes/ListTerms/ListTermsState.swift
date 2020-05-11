@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListTermsState: StateType {
+struct ListTermsState: State {
     private(set) var terms: [TermsDataViewModel] = []
     private(set) var error: AppAPI.Error?
 }
@@ -17,12 +17,12 @@ struct ListTermsState: StateType {
 
 extension ListTermsState {
     
-    enum Action: ActionType {
+    enum ListTermsAction: Action {
         case loadTerms([TermsDataViewModel])
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ListTermsAction) {
         switch action {
         case .loadTerms(let value):
             terms = value

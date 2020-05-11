@@ -8,19 +8,19 @@
 
 import SwiftyPress
 
-protocol HomeInteractorType: InteractorType {
+protocol HomeInteractable: Interactor {
     func fetchProfile()
     func fetchMenu()
     func fetchSocial()
 }
 
-protocol HomePresenterType: PresenterType {
+protocol HomePresentable: Presenter {
     func display(profile: HomeAPI.Profile)
     func display(menu: [HomeAPI.MenuSection])
     func display(social: [HomeAPI.SocialItem])
 }
 
-protocol HomeRenderType: RenderType {
+protocol HomeRenderable: Render {
     func select(menu: HomeAPI.MenuItem)
     func select(social: Social)
 }

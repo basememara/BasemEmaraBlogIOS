@@ -13,10 +13,10 @@ import ZamzamUI
 
 final class HomeViewController: UIViewController {
     private let store: Store<HomeState>
-    private let interactor: HomeInteractorType?
+    private let interactor: HomeInteractable?
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: HomeRenderType?
+    var render: HomeRenderable?
     
     // MARK: - Controls
     
@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(store: Store<HomeState>, interactor: HomeInteractorType?) {
+    init(store: Store<HomeState>, interactor: HomeInteractable?) {
         self.store = store
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)

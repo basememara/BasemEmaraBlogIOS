@@ -9,15 +9,15 @@
 import UIKit.UIDevice
 import UIKit.UIViewController
 
-protocol MainInteractorType: InteractorType {
+protocol MainInteractable: Interactor {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)
 }
 
-protocol MainPresenterType: PresenterType {
+protocol MainPresentable: Presenter {
     func display(menu: [MainAPI.TabItem])
 }
 
-protocol MainRenderType: RenderType {
+protocol MainRenderable: Render {
     func rootView(for menu: MainAPI.Menu) -> UIViewController
     func postView(for id: Int) -> UIViewController
 }

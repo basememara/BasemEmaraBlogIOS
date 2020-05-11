@@ -10,13 +10,13 @@ import SwiftyPress
 import WebKit
 import ZamzamUI
 
-protocol ShowPostInteractorType: InteractorType {
+protocol ShowPostInteractable: Interactor {
     func fetchPost(with request: ShowPostAPI.Request)
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest)
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest)
 }
 
-protocol ShowPostPresenterType: PresenterType {
+protocol ShowPostPresentable: Presenter {
     func displayPost(for response: ShowPostAPI.Response)
     func displayPost(error: SwiftyPressError)
     
@@ -25,7 +25,7 @@ protocol ShowPostPresenterType: PresenterType {
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse)
 }
 
-protocol ShowPostRenderType: RenderType {
+protocol ShowPostRenderable: Render {
     func listPosts(params: ListPostsAPI.Params)
     func show(url: String)
 }

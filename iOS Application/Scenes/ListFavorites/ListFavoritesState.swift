@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListFavoritesState: StateType {
+struct ListFavoritesState: State {
     private(set) var favorites: [PostsDataViewModel] = []
     private(set) var error: AppAPI.Error?
 }
@@ -17,13 +17,13 @@ struct ListFavoritesState: StateType {
 
 extension ListFavoritesState {
     
-    enum Action: ActionType {
+    enum ListFavoritesAction: Action {
         case loadFavorites([PostsDataViewModel])
         case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let value):
             favorites = value

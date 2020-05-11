@@ -8,15 +8,15 @@
 
 import SwiftyPress
 
-struct ShowPostInteractor: ShowPostInteractorType {
-    private let presenter: ShowPostPresenterType
+struct ShowPostInteractor: ShowPostInteractable {
+    private let presenter: ShowPostPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
     private let authorRepository: AuthorRepository
     private let taxonomyRepository: TaxonomyRepository
     
     init(
-        presenter: ShowPostPresenterType,
+        presenter: ShowPostPresentable,
         postRepository: PostRepository,
         mediaRepository: MediaRepository,
         authorRepository: AuthorRepository,

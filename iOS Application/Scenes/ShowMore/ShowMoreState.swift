@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ShowMoreState: StateType {
+struct ShowMoreState: State {
     private(set) var moreMenu: [ShowMoreAPI.MenuSection] = []
     private(set) var socialMenu: [ShowMoreAPI.SocialItem] = []
 }
@@ -17,12 +17,12 @@ struct ShowMoreState: StateType {
 
 extension ShowMoreState {
     
-    enum Action: ActionType {
+    enum ShowMoreAction: Action {
         case loadMenu([ShowMoreAPI.MenuSection])
         case loadSocial([ShowMoreAPI.SocialItem])
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: ShowMoreAction) {
         switch action {
         case .loadMenu(let sections):
             moreMenu = sections

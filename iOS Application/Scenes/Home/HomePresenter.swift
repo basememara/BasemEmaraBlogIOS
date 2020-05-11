@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct HomePresenter<Store: StoreType>: HomePresenterType where Store.State == HomeState {
+struct HomePresenter<Store: StoreRepresentable>: HomePresentable where Store.StateType == HomeState {
     private let store: Store
     
     init(store: Store) {

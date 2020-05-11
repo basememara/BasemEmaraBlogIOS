@@ -13,10 +13,10 @@ import ZamzamUI
 
 final class ShowMoreViewController: UIViewController {
     private let store: Store<ShowMoreState>
-    private let interactor: ShowMoreInteractorType?
+    private let interactor: ShowMoreInteractable?
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: ShowMoreRenderType?
+    var render: ShowMoreRenderable?
     
     // MARK: - Controls
     
@@ -25,7 +25,7 @@ final class ShowMoreViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(store: Store<ShowMoreState>, interactor: ShowMoreInteractorType?) {
+    init(store: Store<ShowMoreState>, interactor: ShowMoreInteractable?) {
         self.store = store
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)

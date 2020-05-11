@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct HomeState: StateType {
+struct HomeState: State {
     private(set) var profile: HomeAPI.Profile?
     private(set) var homeMenu: [HomeAPI.MenuSection] = []
     private(set) var socialMenu: [HomeAPI.SocialItem] = []
@@ -18,13 +18,13 @@ struct HomeState: StateType {
 
 extension HomeState {
     
-    enum Action: ActionType {
+    enum HomeAction: Action {
         case loadProfile(HomeAPI.Profile)
         case loadMenu([HomeAPI.MenuSection])
         case loadSocial([HomeAPI.SocialItem])
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: HomeAction) {
         switch action {
         case .loadProfile(let profile):
             self.profile = profile

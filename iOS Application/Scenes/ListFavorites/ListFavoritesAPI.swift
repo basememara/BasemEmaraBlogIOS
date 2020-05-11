@@ -8,19 +8,19 @@
 
 import SwiftyPress
 
-protocol ListFavoritesInteractorType: InteractorType {
+protocol ListFavoritesInteractorType: Interactor {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest)
 }
 
-protocol ListFavoritesPresenterType: PresenterType {
+protocol ListFavoritesPresenterType: Presenter {
     func displayFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse)
     func displayFavoritePosts(error: SwiftyPressError)
     
     func displayToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse)
 }
 
-protocol ListFavoritesRenderType: RenderType {
+protocol ListFavoritesRenderType: Render {
     func showPost(for model: PostsDataViewModel)
 }
 

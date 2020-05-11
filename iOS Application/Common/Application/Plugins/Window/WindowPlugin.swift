@@ -65,7 +65,7 @@ extension WindowPlugin: ScenePlugin {
 
 // MARK: - Helpers
 
-protocol WindowDelegate: class {
+protocol WindowDelegate: AnyObject {
     var window: UIWindow? { get set }
 }
 

@@ -10,7 +10,7 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ListFavoritesPresenter<Store: StoreType>: ListFavoritesPresenterType where Store.State == ListFavoritesState {
+struct ListFavoritesPresenter<Store: StoreRepresentable>: ListFavoritesPresenterType where Store.StateType == ListFavoritesState {
     private let store: Store
     private let dateFormatter: DateFormatter
     

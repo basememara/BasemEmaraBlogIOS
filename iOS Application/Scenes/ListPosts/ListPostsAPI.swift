@@ -9,7 +9,7 @@
 import SwiftyPress
 import UIKit.UIViewController
 
-protocol ListPostsInteractorType: InteractorType {
+protocol ListPostsInteractable: Interactor {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest)
@@ -18,7 +18,7 @@ protocol ListPostsInteractorType: InteractorType {
     func isFavorite(postID: Int) -> Bool
 }
 
-protocol ListPostsPresenterType: PresenterType {
+protocol ListPostsPresentable: Presenter {
     func displayPosts(for response: ListPostsAPI.PostsResponse)
     
     func displayLatestPosts(error: SwiftyPressError)
@@ -29,11 +29,11 @@ protocol ListPostsPresenterType: PresenterType {
     func displayToggleFavorite(for response: ListPostsAPI.FavoriteResponse)
 }
 
-protocol ListPostsRenderType: RenderType {
+protocol ListPostsRenderable: Render {
     func showPost(for model: PostsDataViewModel)
 }
 
-protocol ListPostsDelegate: class {
+protocol ListPostsDelegate: AnyObject {
     func listPosts(_ viewController: UIViewController, didSelect postID: Int)
 }
 

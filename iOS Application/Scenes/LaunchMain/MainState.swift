@@ -6,7 +6,7 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct MainState: StateType {
+struct MainState: State {
     private(set) var tabMenu: [MainAPI.TabItem] = []
 }
 
@@ -14,11 +14,11 @@ struct MainState: StateType {
 
 extension MainState {
     
-    enum Action: ActionType {
+    enum MainAction: Action {
         case loadMenu([MainAPI.TabItem])
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: MainAction) {
         switch action {
         case .loadMenu(let menu):
             tabMenu = menu

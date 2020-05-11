@@ -13,12 +13,12 @@ import ZamzamUI
 
 final class ShowBlogViewController: UIViewController {
     private let store: Store<ShowBlogState>
-    private let interactor: ShowBlogInteractorType?
+    private let interactor: ShowBlogInteractable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: ShowBlogRenderType?
+    var render: ShowBlogRenderable?
     
     // MARK: - Controls
     
@@ -53,7 +53,7 @@ final class ShowBlogViewController: UIViewController {
     
     init(
         store: Store<ShowBlogState>,
-        interactor: ShowBlogInteractorType?,
+        interactor: ShowBlogInteractable?,
         constants: Constants,
         theme: Theme
     ) {

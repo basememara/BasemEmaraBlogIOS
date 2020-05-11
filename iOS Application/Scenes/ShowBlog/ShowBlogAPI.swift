@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-protocol ShowBlogInteractorType: InteractorType {
+protocol ShowBlogInteractable: Interactor {
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest)
@@ -16,7 +16,7 @@ protocol ShowBlogInteractorType: InteractorType {
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest)
 }
 
-protocol ShowBlogPresenterType: PresenterType {
+protocol ShowBlogPresentable: Presenter {
     func displayLatestPosts(for response: ShowBlogAPI.PostsResponse)
     func displayLatestPosts(error: SwiftyPressError)
     
@@ -32,7 +32,7 @@ protocol ShowBlogPresenterType: PresenterType {
     func displayToggleFavorite(for response: ShowBlogAPI.FavoriteResponse)
 }
 
-protocol ShowBlogRenderType: RenderType {
+protocol ShowBlogRenderable: Render {
     func listPosts(params: ListPostsAPI.Params)
     func showPost(for model: PostsDataViewModel)
     func showPost(for id: Int)

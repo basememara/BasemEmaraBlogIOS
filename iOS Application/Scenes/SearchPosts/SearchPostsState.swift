@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct SearchPostsState: StateType {
+struct SearchPostsState: State {
     private(set) var posts: [PostsDataViewModel] = []
     private(set) var error: AppAPI.Error?
 }
@@ -17,12 +17,12 @@ struct SearchPostsState: StateType {
 
 extension SearchPostsState {
     
-    enum Action: ActionType {
+    enum SearchPostsAction: Action {
         case loadPosts([PostsDataViewModel])
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: Action) {
+    mutating func receive(_ action: SearchPostsAction) {
         switch action {
         case .loadPosts(let value):
             posts = value

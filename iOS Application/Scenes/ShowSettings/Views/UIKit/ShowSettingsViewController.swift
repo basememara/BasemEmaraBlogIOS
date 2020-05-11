@@ -12,8 +12,8 @@ import ZamzamUI
 
 class ShowSettingsViewController: UIViewController {
     private let store: Store<ShowSettingsState>
-    private let interactor: ShowSettingsInteractorType?
-    private let render: ShowSettingsRenderType?
+    private let interactor: ShowSettingsInteractable?
+    private let render: ShowSettingsRenderable?
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
@@ -25,7 +25,7 @@ class ShowSettingsViewController: UIViewController {
     
     init(
         store: Store<ShowSettingsState>,
-        interactor: ShowSettingsInteractorType?,
+        interactor: ShowSettingsInteractable?,
         render: ShowSettingsRender?
     ) {
         self.store = store

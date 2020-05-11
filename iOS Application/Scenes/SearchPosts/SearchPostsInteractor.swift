@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct SearchPostsInteractor: SearchPostsInteractorType {
+struct SearchPostsInteractor: SearchPostsInteractable {
     private let presenter: SearchPostsPresenterType
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository

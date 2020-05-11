@@ -5,11 +5,11 @@
 //  Created by Basem Emara on 2019-12-16.
 //
 
-struct AnalyticsMiddleware: MiddlewareType {
+struct AnalyticsMiddleware: Middleware {
     
-    func callAsFunction(_ action: ActionType) {
+    func callAsFunction(_ action: Action) {
         switch action {
-        case MainState.Action.loadMenu:
+        case MainState.MainAction.loadMenu:
             print("Analytics middleware triggered on action 'MainAction.fetchMenu'.")
         default:
             break

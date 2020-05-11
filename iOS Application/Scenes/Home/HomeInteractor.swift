@@ -6,10 +6,10 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct HomeInteractor: HomeInteractorType {
-    private let presenter: HomePresenterType
+struct HomeInteractor: HomeInteractable {
+    private let presenter: HomePresentable
     
-    init(presenter: HomePresenterType) {
+    init(presenter: HomePresentable) {
         self.presenter = presenter
     }
 }

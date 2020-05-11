@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-struct ListTermsPresenter<Store: StoreType>: ListTermsPresenterType where Store.State == ListTermsState {
+struct ListTermsPresenter<Store: StoreRepresentable>: ListTermsPresentable where Store.StateType == ListTermsState {
     private let store: Store
     
     init(store: Store) {

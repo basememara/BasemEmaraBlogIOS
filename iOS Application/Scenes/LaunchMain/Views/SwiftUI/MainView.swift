@@ -12,10 +12,10 @@ import SwiftUI
 @available(iOS 13, *)
 struct MainView: View {
     @ObservedObject private var store: Store<MainState>
-    private let interactor: MainInteractorType?
-    private let render: MainRenderType
+    private let interactor: MainInteractable?
+    private let render: MainRenderable
     
-    init(store: Store<MainState>, interactor: MainInteractorType?, render: MainRenderType) {
+    init(store: Store<MainState>, interactor: MainInteractable?, render: MainRenderable) {
         self.store = store
         self.interactor = interactor
         self.render = render

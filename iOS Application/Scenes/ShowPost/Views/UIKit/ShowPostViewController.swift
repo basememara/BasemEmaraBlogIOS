@@ -15,7 +15,7 @@ import ZamzamUI
 
 class ShowPostViewController: UIViewController, StatusBarable {
     private let store: Store<ShowPostState>
-    private let interactor: ShowPostInteractorType?
+    private let interactor: ShowPostInteractable?
     private let constants: Constants
     private let theme: Theme
     private let notificationCenter: NotificationCenter
@@ -27,7 +27,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     let application: UIApplication
     var statusBar: UIView?
-    var render: ShowPostRenderType?
+    var render: ShowPostRenderable?
     
     // MARK: - Controls
     
@@ -71,7 +71,7 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     init(
         store: Store<ShowPostState>,
-        interactor: ShowPostInteractorType?,
+        interactor: ShowPostInteractable?,
         constants: Constants,
         theme: Theme,
         application: UIApplication,

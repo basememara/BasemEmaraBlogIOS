@@ -8,18 +8,18 @@
 
 import SwiftyPress
 
-protocol ShowSettingsInteractorType: InteractorType {
+protocol ShowSettingsInteractable: Interactor {
     func fetchMenu()
     func fetchTheme()
     func setTheme(with request: ShowSettingsAPI.SetThemeRequest)
 }
 
-protocol ShowSettingsPresenterType: PresenterType {
+protocol ShowSettingsPresentable: Presenter {
     func display(menu: [ShowSettingsAPI.MenuItem])
     func displayTheme(for response: ShowSettingsAPI.SetThemeResponse)
 }
 
-protocol ShowSettingsRenderType: RenderType {
+protocol ShowSettingsRenderable: Render {
     func openSettings()
 }
 

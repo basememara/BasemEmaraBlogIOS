@@ -13,10 +13,10 @@ import ZamzamUI
 
 class ListTermsViewController: UIViewController {
     private let store: Store<ListTermsState>
-    private let interactor: ListTermsInteractorType?
+    private let interactor: ListTermsInteractable?
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: ListTermsRenderType?
+    var render: ListTermsRenderable?
     
     // MARK: - Controls
     
@@ -34,7 +34,7 @@ class ListTermsViewController: UIViewController {
     
     init(
         store: Store<ListTermsState>,
-        interactor: ListTermsInteractorType?
+        interactor: ListTermsInteractable?
     ) {
         self.store = store
         self.interactor = interactor

@@ -9,9 +9,9 @@
 import UIKit
 
 class MainSplitViewController: UISplitViewController {
-    private let render: MainRenderType
+    private let render: MainRenderable
     
-    init(render: MainRenderType) {
+    init(render: MainRenderable) {
         self.render = render
         super.init(nibName: nil, bundle: nil)
     }

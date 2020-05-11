@@ -9,17 +9,17 @@
 import SwiftyPress
 import UIKit.UIView
 
-protocol ShowMoreInteractorType: InteractorType {
+protocol ShowMoreInteractable: Interactor {
     func fetchMenu()
     func fetchSocial()
 }
 
-protocol ShowMorePresenterType: PresenterType {
+protocol ShowMorePresentable: Presenter {
     func display(menu: [ShowMoreAPI.MenuSection])
     func display(social: [ShowMoreAPI.SocialItem])
 }
 
-protocol ShowMoreRenderType: RenderType {
+protocol ShowMoreRenderable: Render {
     func select(menu: ShowMoreAPI.MenuItem, from view: UIView)
     func select(social: Social)
     func sendFeedback(subject: String)

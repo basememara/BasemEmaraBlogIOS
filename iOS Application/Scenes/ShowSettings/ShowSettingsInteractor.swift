@@ -8,11 +8,11 @@
 
 import ZamzamCore
 
-struct ShowSettingsInteractor: ShowSettingsInteractorType {
-    private let presenter: ShowSettingsPresenterType
+struct ShowSettingsInteractor: ShowSettingsInteractable {
+    private let presenter: ShowSettingsPresentable
     private let preferences: Preferences
     
-    init(presenter: ShowSettingsPresenterType, preferences: Preferences) {
+    init(presenter: ShowSettingsPresentable, preferences: Preferences) {
         self.presenter = presenter
         self.preferences = preferences
     }

@@ -6,10 +6,10 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct ShowMoreInteractor: ShowMoreInteractorType {
-    private let presenter: ShowMorePresenterType
+struct ShowMoreInteractor: ShowMoreInteractable {
+    private let presenter: ShowMorePresentable
     
-    init(presenter: ShowMorePresenterType) {
+    init(presenter: ShowMorePresentable) {
         self.presenter = presenter
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyPress
 import ZamzamUI
 
-struct SearchPostsPresenter<Store: StoreType>: SearchPostsPresenterType where Store.State == SearchPostsState {
+struct SearchPostsPresenter<Store: StoreRepresentable>: SearchPostsPresenterType where Store.StateType == SearchPostsState {
     private let store: Store
     private let dateFormatter: DateFormatter
     

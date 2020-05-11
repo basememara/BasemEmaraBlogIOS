@@ -9,7 +9,7 @@
 import Foundation.NSURL
 import UIKit.UIApplication
 
-struct ShowSettingsRender: ShowSettingsRenderType {
+struct ShowSettingsRender: ShowSettingsRenderable {
     private let application: UIApplication
     
     init(application: UIApplication) {

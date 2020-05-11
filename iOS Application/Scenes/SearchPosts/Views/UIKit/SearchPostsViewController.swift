@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class SearchPostsViewController: UIViewController {
     private let store: Store<SearchPostsState>
-    private let interactor: SearchPostsInteractorType?
+    private let interactor: SearchPostsInteractable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
@@ -54,7 +54,7 @@ final class SearchPostsViewController: UIViewController {
     
     init(
         store: Store<SearchPostsState>,
-        interactor: SearchPostsInteractorType?,
+        interactor: SearchPostsInteractable?,
         constants: Constants,
         theme: Theme
     ) {
