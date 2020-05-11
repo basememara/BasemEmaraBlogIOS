@@ -57,7 +57,7 @@ extension SceneRender {
     
     func launchMain() -> UIViewController {
         let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(send: store.send)
+        let presenter = MainPresenter(store: store)
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         
@@ -85,7 +85,7 @@ extension SceneRender {
     @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
         let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(send: store.send)
+        let presenter = MainPresenter(store: store)
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         
@@ -102,7 +102,7 @@ extension SceneRender {
     
     func home() -> UIViewController {
         let store = Store(keyPath: \.homeState)
-        let presenter = HomePresenter(send: store.send)
+        let presenter = HomePresenter(store: store)
         let interactor = HomeInteractor(presenter: presenter)
         let controller = HomeViewController(store: store, interactor: interactor)
         
@@ -122,7 +122,7 @@ extension SceneRender {
     
     func showBlog() -> UIViewController {
         let store = Store(keyPath: \.showBlogState)
-        let presenter = ShowBlogPresenter(send: store.send)
+        let presenter = ShowBlogPresenter(store: store)
         
         let interactor = ShowBlogInteractor(
             presenter: presenter,
@@ -154,7 +154,7 @@ extension SceneRender {
     
     func listFavorites() -> UIViewController {
         let store = Store(keyPath: \.listFavoritesState)
-        let presenter = ListFavoritesPresenter(send: store.send)
+        let presenter = ListFavoritesPresenter(store: store)
         
         let interactor = ListFavoritesInteractor(
             presenter: presenter,
@@ -179,7 +179,7 @@ extension SceneRender {
     
     func searchPosts() -> UIViewController {
         let store = Store(keyPath: \.searchPostsState)
-        let presenter = SearchPostsPresenter(send: store.send)
+        let presenter = SearchPostsPresenter(store: store)
         
         let interactor = SearchPostsInteractor(
             presenter: presenter,
@@ -207,7 +207,7 @@ extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
         let store = Store(keyPath: \.listPostsState)
-        let presenter = ListPostsPresenter(send: store.send)
+        let presenter = ListPostsPresenter(store: store)
         
         let interactor = ListPostsInteractor(
             presenter: presenter,
@@ -238,7 +238,7 @@ extension SceneRender {
         let store = Store(keyPath: \.showPostState)
         
         let presenter = ShowPostPresenter(
-            send: store.send,
+            store: store,
             constants: core.constants(),
             templateFile: Bundle.main.string(file: "post.html"),
             styleSheetFile: Bundle.main.string(file: "style.css")
@@ -274,7 +274,7 @@ extension SceneRender {
     
     func listTerms() -> UIViewController {
         let store = Store(keyPath: \.listTermsState)
-        let presenter = ListTermsPresenter(send: store.send)
+        let presenter = ListTermsPresenter(store: store)
         
         let interactor = ListTermsInteractor(
             presenter: presenter,
@@ -299,7 +299,7 @@ extension SceneRender {
     
     func showMore() -> UIViewController {
         let store = Store(keyPath: \.showMoreState)
-        let presenter = ShowMorePresenter(send: store.send)
+        let presenter = ShowMorePresenter(store: store)
         let interactor = ShowMoreInteractor(presenter: presenter)
         let controller = ShowMoreViewController(store: store, interactor: interactor)
         
@@ -316,7 +316,7 @@ extension SceneRender {
     
     func showSettings() -> UIViewController {
         let store = Store(keyPath: \.showSettingsState)
-        let presenter = ShowSettingsPresenter(send: store.send)
+        let presenter = ShowSettingsPresenter(store: store)
         let render = ShowSettingsRender(application: .shared)
         
         let interactor = ShowSettingsInteractor(
@@ -331,24 +331,5 @@ extension SceneRender {
         )
         
         return controller
-    }
-}
-
-// MARK: - Subtypes
-
-extension SceneRender {
-    
-    /// Storyboard identifiers for routing.
-    enum Storyboard: String {
-        case listFavorites = "ListFavorites"
-        case searchPosts = "SearchPosts"
-        
-        case showBlog = "ShowBlog"
-        case listPosts = "ListPosts"
-        case showPost = "ShowPost"
-        case listTerms = "ListTerms"
-        
-        case showMore = "ShowMore"
-        case showSettings = "ShowSettings"
     }
 }

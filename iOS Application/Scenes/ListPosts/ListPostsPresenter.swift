@@ -10,12 +10,12 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ListPostsPresenter: ListPostsPresenterType {
-    private let send: SendAction<ListPostsState>
+struct ListPostsPresenter<Store: StoreType>: ListPostsPresenterType where Store.State == ListPostsState {
+    private let store: Store
     private let dateFormatter: DateFormatter
     
-    init(send: @escaping SendAction<ListPostsState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
         
         self.dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
@@ -35,7 +35,7 @@ extension ListPostsPresenter {
             )
         }
         
-        send(.loadPosts(viewModels))
+        store.send(.loadPosts(viewModels))
     }
 }
 
@@ -47,7 +47,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -56,7 +56,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -65,7 +65,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
     
     func displayPostsByTerms(error: SwiftyPressError) {
@@ -74,7 +74,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -86,6 +86,6 @@ extension ListPostsPresenter {
             favorite: response.favorite
         )
         
-        send(.toggleFavorite(viewModel))
+        store.send(.toggleFavorite(viewModel))
     }
 }

@@ -6,21 +6,21 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct ShowMorePresenter: ShowMorePresenterType {
-    private let send: SendAction<ShowMoreState>
+struct ShowMorePresenter<Store: StoreType>: ShowMorePresenterType where Store.State == ShowMoreState {
+    private let store: Store
     
-    init(send: @escaping SendAction<ShowMoreState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
     }
 }
 
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        send(.loadMenu(menu))
+        store.send(.loadMenu(menu))
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        send(.loadSocial(social))
+        store.send(.loadSocial(social))
     }
 }

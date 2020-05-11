@@ -12,20 +12,20 @@ import ZamzamUI
 import Stencil
 import SystemConfiguration
 
-struct ShowPostPresenter: ShowPostPresenterType {
-    private let send: SendAction<ShowPostState>
+struct ShowPostPresenter<Store: StoreType>: ShowPostPresenterType where Store.State == ShowPostState {
+    private let store: Store
     private let constants: Constants
     private let templateFile: String?
     private let styleSheetFile: String?
     private let dateFormatter: DateFormatter
     
     init(
-        send: @escaping SendAction<ShowPostState>,
+        store: Store,
         constants: Constants,
         templateFile: String?,
         styleSheetFile: String?
     ) {
-        self.send = send
+        self.store = store
         self.constants = constants
         self.templateFile = templateFile
         self.styleSheetFile = styleSheetFile
@@ -85,7 +85,7 @@ extension ShowPostPresenter {
                 favorite: response.favorite
             )
             
-            send(.loadPost(viewModel))
+            store.send(.loadPost(viewModel))
         } catch {
             displayPost(error: .parseFailure(error))
         }
@@ -97,7 +97,7 @@ extension ShowPostPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -110,13 +110,13 @@ extension ShowPostPresenter {
             decisionHandler: response.decisionHandler
         )
         
-        send(.loadWeb(viewModel))
+        store.send(.loadWeb(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        send(.favorite(response.favorite))
+        store.send(.favorite(response.favorite))
     }
 }

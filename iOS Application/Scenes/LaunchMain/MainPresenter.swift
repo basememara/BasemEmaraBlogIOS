@@ -6,17 +6,17 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct MainPresenter: MainPresenterType {
-    private let send: SendAction<MainState>
+struct MainPresenter<Store: StoreType>: MainPresenterType where Store.State == MainState {
+    private let store: Store
     
-    init(send: @escaping SendAction<MainState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
     }
 }
 
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        send(.loadMenu(menu))
+        store.send(.loadMenu(menu))
     }
 }

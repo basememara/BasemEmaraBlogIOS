@@ -10,12 +10,12 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ShowBlogPresenter: ShowBlogPresenterType {
-    private let send: SendAction<ShowBlogState>
+struct ShowBlogPresenter<Store: StoreType>: ShowBlogPresenterType where Store.State == ShowBlogState {
+    private let store: Store
     private let dateFormatter: DateFormatter
     
-    init(send: @escaping SendAction<ShowBlogState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
         
         self.dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
@@ -36,7 +36,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        send(.loadLatestPosts(viewModels))
+        store.send(.loadLatestPosts(viewModels))
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
@@ -45,7 +45,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -61,7 +61,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        send(.loadPopularPosts(viewModels))
+        store.send(.loadPopularPosts(viewModels))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -70,7 +70,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -86,7 +86,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        send(.loadTopPickPosts(viewModels))
+        store.send(.loadTopPickPosts(viewModels))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -95,7 +95,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -111,7 +111,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        send(.loadTerms(viewModels))
+        store.send(.loadTerms(viewModels))
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -120,7 +120,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -132,6 +132,6 @@ extension ShowBlogPresenter {
             favorite: response.favorite
         )
         
-        send(.toggleFavorite(viewModel))
+        store.send(.toggleFavorite(viewModel))
     }
 }

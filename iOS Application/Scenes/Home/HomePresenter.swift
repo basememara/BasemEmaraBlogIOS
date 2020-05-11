@@ -6,25 +6,25 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct HomePresenter: HomePresenterType {
-    private let send: SendAction<HomeState>
+struct HomePresenter<Store: StoreType>: HomePresenterType where Store.State == HomeState {
+    private let store: Store
     
-    init(send: @escaping SendAction<HomeState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
     }
 }
 
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        send(.loadProfile(profile))
+        store.send(.loadProfile(profile))
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        send(.loadMenu(menu))
+        store.send(.loadMenu(menu))
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        send(.loadSocial(social))
+        store.send(.loadSocial(social))
     }
 }

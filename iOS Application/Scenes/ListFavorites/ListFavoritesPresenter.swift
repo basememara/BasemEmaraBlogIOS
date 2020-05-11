@@ -10,12 +10,12 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ListFavoritesPresenter: ListFavoritesPresenterType {
-    private let send: SendAction<ListFavoritesState>
+struct ListFavoritesPresenter<Store: StoreType>: ListFavoritesPresenterType where Store.State == ListFavoritesState {
+    private let store: Store
     private let dateFormatter: DateFormatter
     
-    init(send: @escaping SendAction<ListFavoritesState>) {
-        self.send = send
+    init(store: Store) {
+        self.store = store
         
         self.dateFormatter = DateFormatter().apply {
             $0.dateStyle = .medium
@@ -35,7 +35,7 @@ extension ListFavoritesPresenter {
             )
         }
         
-        send(.loadFavorites(viewModels))
+        store.send(.loadFavorites(viewModels))
     }
     
     func displayFavoritePosts(error: SwiftyPressError) {
@@ -44,7 +44,7 @@ extension ListFavoritesPresenter {
             message: error.localizedDescription
         )
         
-        send(.loadError(viewModel))
+        store.send(.loadError(viewModel))
     }
 }
 
@@ -56,6 +56,6 @@ extension ListFavoritesPresenter {
             favorite: response.favorite
         )
         
-        send(.toggleFavorite(viewModel))
+        store.send(.toggleFavorite(viewModel))
     }
 }

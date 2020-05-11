@@ -11,7 +11,7 @@ import ZamzamCore
 
 public protocol StoreType: AnyObject {
     associatedtype State: StateType
-    var state: State { get }
+    func send(_ action: State.Action)
 }
 
 /// The store to handle state, reducer, and action requests.
