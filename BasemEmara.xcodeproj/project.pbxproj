@@ -460,7 +460,8 @@
 		8B416B2223976FFA006E67A9 /* LaunchMain */ = {
 			isa = PBXGroup;
 			children = (
-				8B8905C123A66ADF00AB8A4F /* Views */,
+				8B9D23532432A8140028003D /* SwiftUI */,
+				8B9D23522432A80F0028003D /* UIKit */,
 				8B81CC1A2435B96E0050CAC9 /* MainAPI.swift */,
 				8B8905C323A6710600AB8A4F /* MainInteractor.swift */,
 				8B81CC222436120A0050CAC9 /* MainPresenter.swift */,
@@ -607,7 +608,8 @@
 		8B42C731234BBC8F00F38E23 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C736234BBC8F00F38E23 /* Views */,
+				8B9D23552432A8310028003D /* SwiftUI */,
+				8B9D23542432A8270028003D /* UIKit */,
 				8B81CC162435A19A0050CAC9 /* HomeAPI.swift */,
 				8B81CC182435A5CC0050CAC9 /* HomeInteractor.swift */,
 				8B42C735234BBC8F00F38E23 /* HomePresenter.swift */,
@@ -618,19 +620,11 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		8B42C736234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8B9D23552432A8310028003D /* SwiftUI */,
-				8B9D23542432A8270028003D /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C739234BBC8F00F38E23 /* ListTerms */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C740234BBC8F00F38E23 /* Views */,
+				8BAE219A2455F18F004554E2 /* SwiftUI */,
+				8BAE219C2455F19F004554E2 /* UIKit */,
 				8B42C73D234BBC8F00F38E23 /* ListTermsAPI.swift */,
 				8B42C73E234BBC8F00F38E23 /* ListTermsInteractor.swift */,
 				8B42C73F234BBC8F00F38E23 /* ListTermsPresenter.swift */,
@@ -640,20 +634,12 @@
 			path = ListTerms;
 			sourceTree = "<group>";
 		};
-		8B42C740234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BAE219A2455F18F004554E2 /* SwiftUI */,
-				8BAE219C2455F19F004554E2 /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C744234BBC8F00F38E23 /* ShowPost */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C749234BBC8F00F38E23 /* Resources */,
-				8B42C74D234BBC8F00F38E23 /* Views */,
+				8B7611BE245715D600BE90AA /* SwiftUI */,
+				8B7611C0245715DD00BE90AA /* UIKit */,
+				8B42C749234BBC8F00F38E23 /* Web */,
 				8B42C748234BBC8F00F38E23 /* ShowPostAPI.swift */,
 				8B42C750234BBC8F00F38E23 /* ShowPostInteractor.swift */,
 				8B42C745234BBC8F00F38E23 /* ShowPostPresenter.swift */,
@@ -663,28 +649,20 @@
 			path = ShowPost;
 			sourceTree = "<group>";
 		};
-		8B42C749234BBC8F00F38E23 /* Resources */ = {
+		8B42C749234BBC8F00F38E23 /* Web */ = {
 			isa = PBXGroup;
 			children = (
 				8B42C74A234BBC8F00F38E23 /* post.html */,
 				8B42C74B234BBC8F00F38E23 /* style.css */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		8B42C74D234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8B7611BE245715D600BE90AA /* SwiftUI */,
-				8B7611C0245715DD00BE90AA /* UIKit */,
-			);
-			path = Views;
+			path = Web;
 			sourceTree = "<group>";
 		};
 		8B42C751234BBC8F00F38E23 /* ListPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C758234BBC8F00F38E23 /* Views */,
+				8BB63D2124545BED00B07A48 /* SwiftUI */,
+				8BB63D2324545BF200B07A48 /* UIKit */,
 				8B42C753234BBC8F00F38E23 /* ListPostsAPI.swift */,
 				8B42C757234BBC8F00F38E23 /* ListPostsInteractor.swift */,
 				8B42C756234BBC8F00F38E23 /* ListPostsPresenter.swift */,
@@ -694,19 +672,11 @@
 			path = ListPosts;
 			sourceTree = "<group>";
 		};
-		8B42C758234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BB63D2124545BED00B07A48 /* SwiftUI */,
-				8BB63D2324545BF200B07A48 /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C75B234BBC8F00F38E23 /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C760234BBC8F00F38E23 /* Views */,
+				8BB63D342454BFEB00B07A48 /* SwiftUI */,
+				8BB63D362455A9F800B07A48 /* UIKit */,
 				8B42C75D234BBC8F00F38E23 /* ShowMoreAPI.swift */,
 				8BB63D2E2454BFE200B07A48 /* ShowMoreInteractor.swift */,
 				8BB63D302454BFE200B07A48 /* ShowMorePresenter.swift */,
@@ -717,19 +687,11 @@
 			path = ShowMore;
 			sourceTree = "<group>";
 		};
-		8B42C760234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BB63D342454BFEB00B07A48 /* SwiftUI */,
-				8BB63D362455A9F800B07A48 /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C763234BBC8F00F38E23 /* ShowBlog */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C76A234BBC8F00F38E23 /* Views */,
+				8B1702A3244FD8AA0008D6A2 /* SwiftUI */,
+				8B1702A2244FD89E0008D6A2 /* UIKit */,
 				8B42C766234BBC8F00F38E23 /* ShowBlogAPI.swift */,
 				8B42C76D234BBC8F00F38E23 /* ShowBlogInteractor.swift */,
 				8B42C768234BBC8F00F38E23 /* ShowBlogPresenter.swift */,
@@ -739,19 +701,11 @@
 			path = ShowBlog;
 			sourceTree = "<group>";
 		};
-		8B42C76A234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8B1702A3244FD8AA0008D6A2 /* SwiftUI */,
-				8B1702A2244FD89E0008D6A2 /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C777234BBC8F00F38E23 /* SearchPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C77E234BBC8F00F38E23 /* Views */,
+				8BB63D2B2454B6E800B07A48 /* SwiftUI */,
+				8BB63D2A2454B6DF00B07A48 /* UIKit */,
 				8B42C77A234BBC8F00F38E23 /* SearchPostsAPI.swift */,
 				8B42C77C234BBC8F00F38E23 /* SearchPostsInteractor.swift */,
 				8B42C77B234BBC8F00F38E23 /* SearchPostsPresenter.swift */,
@@ -761,19 +715,11 @@
 			path = SearchPosts;
 			sourceTree = "<group>";
 		};
-		8B42C77E234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BB63D2B2454B6E800B07A48 /* SwiftUI */,
-				8BB63D2A2454B6DF00B07A48 /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		8B42C781234BBC8F00F38E23 /* ListFavorites */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C788234BBC8F00F38E23 /* Views */,
+				8BB63D1E2454546900B07A48 /* SwiftUI */,
+				8BB63D202454547100B07A48 /* UIKit */,
 				8B42C786234BBC8F00F38E23 /* ListFavoritesAPI.swift */,
 				8B42C782234BBC8F00F38E23 /* ListFavoritesInteractor.swift */,
 				8B42C783234BBC8F00F38E23 /* ListFavoritesPresenter.swift */,
@@ -781,15 +727,6 @@
 				8BB63D0A24512A5C00B07A48 /* ListFavoritesState.swift */,
 			);
 			path = ListFavorites;
-			sourceTree = "<group>";
-		};
-		8B42C788234BBC8F00F38E23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BB63D1E2454546900B07A48 /* SwiftUI */,
-				8BB63D202454547100B07A48 /* UIKit */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8B42C78D234BBC8F00F38E23 /* Common */ = {
@@ -942,7 +879,8 @@
 		8B7A89F02379A9F8002E5A75 /* ShowSettings */ = {
 			isa = PBXGroup;
 			children = (
-				8BAE219D2455F1B7004554E2 /* Views */,
+				8BAE219E2455F1B7004554E2 /* SwiftUI */,
+				8BAE21A02455F1CE004554E2 /* UIKit */,
 				8BAE21A32455F2D8004554E2 /* ShowSettingsAPI.swift */,
 				8BAE21A22455F2D8004554E2 /* ShowSettingsInteractor.swift */,
 				8BAE21A12455F2D8004554E2 /* ShowSettingsPresenter.swift */,
@@ -979,22 +917,13 @@
 			path = Window;
 			sourceTree = "<group>";
 		};
-		8B8905C123A66ADF00AB8A4F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8B9D23532432A8140028003D /* SwiftUI */,
-				8B9D23522432A80F0028003D /* UIKit */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8B8905C223A66B7E00AB8A4F /* SplitView */ = {
+		8B8905C223A66B7E00AB8A4F /* iPad */ = {
 			isa = PBXGroup;
 			children = (
 				8B42C774234BBC8F00F38E23 /* MainSplitDetailViewController.swift */,
 				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
 			);
-			path = SplitView;
+			path = iPad;
 			sourceTree = "<group>";
 		};
 		8B8D231023A6EC28000CBC35 /* Scene */ = {
@@ -1013,7 +942,7 @@
 		8B9D23522432A80F0028003D /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				8B8905C223A66B7E00AB8A4F /* SplitView */,
+				8B8905C223A66B7E00AB8A4F /* iPad */,
 				8B416B2F23977965006E67A9 /* Main.storyboard */,
 				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
 			);
@@ -1074,15 +1003,6 @@
 				8B42C742234BBC8F00F38E23 /* ListTermsViewController.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		8BAE219D2455F1B7004554E2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8BAE219E2455F1B7004554E2 /* SwiftUI */,
-				8BAE21A02455F1CE004554E2 /* UIKit */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8BAE219E2455F1B7004554E2 /* SwiftUI */ = {
