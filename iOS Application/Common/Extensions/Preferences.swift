@@ -9,7 +9,7 @@
 import Foundation
 import ZamzamCore
 
-public extension Preferences {
+extension Preferences {
     
     /// For reading themes from iOS dark/light mode
     var autoThemeEnabled: Bool {
@@ -21,7 +21,7 @@ public extension Preferences {
     }
 }
 
-public extension Preferences {
+extension Preferences {
     
     /// Returns the posts notified to the user.
     var notificationPostIDs: [Int] {
@@ -33,7 +33,7 @@ public extension Preferences {
     }
 }
 
-extension PreferencesAPI.Keys {
+private extension PreferencesAPI.Keys {
     static let autoThemeEnabled = PreferencesAPI.Key<Bool?>("autoThemeEnabled")
     static let notificationPostIDs = PreferencesAPI.Key<[Int]?>("notificationPostIDs")
 }
