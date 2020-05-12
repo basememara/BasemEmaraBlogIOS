@@ -13,11 +13,11 @@ public extension Preferences {
     
     /// For reading themes from iOS dark/light mode
     var autoThemeEnabled: Bool {
-        UserDefaults.standard.bool(forKey: "autoThemeEnabled")
+        self.get(.autoThemeEnabled) ?? false
     }
     
     func set(autoThemeEnabled value: Bool) {
-        UserDefaults.standard.set(value, forKey: "autoThemeEnabled")
+        set(value, forKey: .autoThemeEnabled)
     }
 }
 
@@ -34,5 +34,6 @@ public extension Preferences {
 }
 
 extension PreferencesAPI.Keys {
+    static let autoThemeEnabled = PreferencesAPI.Key<Bool?>("autoThemeEnabled")
     static let notificationPostIDs = PreferencesAPI.Key<[Int]?>("notificationPostIDs")
 }
