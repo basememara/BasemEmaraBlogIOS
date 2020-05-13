@@ -16,11 +16,7 @@ struct SearchPostsPresenter<Store: StoreRepresentable>: SearchPostsPresenterType
     
     init(store: Store) {
         self.store = store
-        
-        dateFormatter = DateFormatter().apply {
-            $0.dateStyle = .medium
-            $0.timeStyle = .none
-        }
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 

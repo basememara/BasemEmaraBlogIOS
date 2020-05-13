@@ -16,11 +16,7 @@ struct ListPostsPresenter<Store: StoreRepresentable>: ListPostsPresentable where
     
     init(store: Store) {
         self.store = store
-        
-        self.dateFormatter = DateFormatter().apply {
-            $0.dateStyle = .medium
-            $0.timeStyle = .none
-        }
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
