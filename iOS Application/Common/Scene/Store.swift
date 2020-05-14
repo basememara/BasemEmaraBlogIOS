@@ -11,7 +11,7 @@ import ZamzamCore
 
 public protocol StoreRepresentable: AnyObject {
     associatedtype StateType: State
-    func send(_ action: StateType.ActionType)
+    func action(_ action: StateType.ActionType)
 }
 
 /// The store to handle state, reducer, and action requests.
@@ -50,9 +50,9 @@ public extension Store {
     /// Mutate the state by sending an action.
     ///
     /// - Parameter action: The action of the request.
-    func send(_ action: StateType.ActionType) {
+    func action(_ action: StateType.ActionType) {
         middleware.forEach { $0(action) }
-        state.receive(action)
+        state(action)
     }
 }
 

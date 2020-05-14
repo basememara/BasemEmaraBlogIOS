@@ -17,13 +17,13 @@ struct ShowSettingsPresenter<Store: StoreRepresentable>: ShowSettingsPresentable
 extension ShowSettingsPresenter {
     
     func display(menu: [ShowSettingsAPI.MenuItem]) {
-        store.send(.loadMenu(menu))
+        store.action(.loadMenu(menu))
     }
 }
 
 extension ShowSettingsPresenter {
     
     func displayTheme(for response: ShowSettingsAPI.SetThemeResponse) {
-        store.send(.setAutoThemeEnabled(response.autoThemeEnabled))
+        store.action(.setAutoThemeEnabled(response.autoThemeEnabled))
     }
 }

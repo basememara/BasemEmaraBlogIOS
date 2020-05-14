@@ -22,7 +22,7 @@ extension ShowMoreState {
         case loadSocial([ShowMoreAPI.SocialItem])
     }
     
-    mutating func receive(_ action: ShowMoreAction) {
+    mutating func callAsFunction(_ action: ShowMoreAction) {
         switch action {
         case .loadMenu(let sections):
             moreMenu = sections

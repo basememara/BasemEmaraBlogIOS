@@ -9,7 +9,7 @@
 /// The data of the component.
 public protocol State {
     associatedtype ActionType: Action
-    mutating func receive(_ action: ActionType)
+    mutating func callAsFunction(_ action: ActionType)
 }
 
 public protocol Action {}

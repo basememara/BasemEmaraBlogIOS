@@ -22,7 +22,7 @@ extension ListTermsState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: ListTermsAction) {
+    mutating func callAsFunction(_ action: ListTermsAction) {
         switch action {
         case .loadTerms(let value):
             terms = value

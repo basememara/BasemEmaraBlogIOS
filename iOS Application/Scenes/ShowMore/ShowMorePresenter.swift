@@ -17,10 +17,10 @@ struct ShowMorePresenter<Store: StoreRepresentable>: ShowMorePresentable where S
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        store.send(.loadMenu(menu))
+        store.action(.loadMenu(menu))
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        store.send(.loadSocial(social))
+        store.action(.loadSocial(social))
     }
 }

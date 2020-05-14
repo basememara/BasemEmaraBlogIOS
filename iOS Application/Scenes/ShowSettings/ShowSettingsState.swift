@@ -20,7 +20,7 @@ extension ShowSettingsState {
         case setAutoThemeEnabled(Bool)
     }
     
-    mutating func receive(_ action: ShowSettingsAction) {
+    mutating func callAsFunction(_ action: ShowSettingsAction) {
         switch action {
         case .loadMenu(let value):
             settingsMenu = value

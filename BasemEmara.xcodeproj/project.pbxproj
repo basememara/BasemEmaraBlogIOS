@@ -149,6 +149,7 @@
 		8B8D231223A6EFC1000CBC35 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D231123A6EFC1000CBC35 /* MainState.swift */; };
 		8B928A54239CD698004EB139 /* ShortcutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A53239CD698004EB139 /* ShortcutRouter.swift */; };
 		8B9D23572432A84C0028003D /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D23562432A84C0028003D /* HomeHeaderView.swift */; };
+		8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA1C696246D50DF0076DB43 /* AppPreview.swift */; };
 		8BAE21A62455F2D9004554E2 /* ShowSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE21A12455F2D8004554E2 /* ShowSettingsPresenter.swift */; };
 		8BAE21A72455F2D9004554E2 /* ShowSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE21A22455F2D8004554E2 /* ShowSettingsInteractor.swift */; };
 		8BAE21A82455F2D9004554E2 /* ShowSettingsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE21A32455F2D8004554E2 /* ShowSettingsAPI.swift */; };
@@ -369,6 +370,7 @@
 		8B8D231123A6EFC1000CBC35 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
 		8B928A53239CD698004EB139 /* ShortcutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRouter.swift; sourceTree = "<group>"; };
 		8B9D23562432A84C0028003D /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		8BA1C696246D50DF0076DB43 /* AppPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreview.swift; sourceTree = "<group>"; };
 		8BA6C37D244E577D002E1558 /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../ZamzamKit; sourceTree = "<group>"; };
 		8BAE219B2455F18F004554E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8BAE219F2455F1B7004554E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				8B42C78D234BBC8F00F38E23 /* Common */,
 				8B42C730234BBC8F00F38E23 /* Scenes */,
 				8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */,
+				8BA1C696246D50DF0076DB43 /* AppPreview.swift */,
 				8B8905BA23A5E13100AB8A4F /* AppState.swift */,
 				8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */,
 				8B42C743234BBC8F00F38E23 /* SceneRender.swift */,
@@ -1348,6 +1351,7 @@
 				8B42C81E234BBC9000F38E23 /* PostTableViewCell.swift in Sources */,
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRender.swift in Sources */,
 				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
+				8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneRender.swift in Sources */,
 				8B42C7EF234BBC9000F38E23 /* SearchPostsAPI.swift in Sources */,
 				8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */,

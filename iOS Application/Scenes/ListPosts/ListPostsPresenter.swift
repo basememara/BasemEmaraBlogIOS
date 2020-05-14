@@ -31,7 +31,7 @@ extension ListPostsPresenter {
             )
         }
         
-        store.send(.loadPosts(viewModels))
+        store.action(.loadPosts(viewModels))
     }
 }
 
@@ -43,7 +43,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -52,7 +52,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -61,7 +61,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
     
     func displayPostsByTerms(error: SwiftyPressError) {
@@ -70,7 +70,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -82,6 +82,6 @@ extension ListPostsPresenter {
             favorite: response.favorite
         )
         
-        store.send(.toggleFavorite(viewModel))
+        store.action(.toggleFavorite(viewModel))
     }
 }

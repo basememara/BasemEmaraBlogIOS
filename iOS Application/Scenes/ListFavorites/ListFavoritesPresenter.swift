@@ -31,7 +31,7 @@ extension ListFavoritesPresenter {
             )
         }
         
-        store.send(.loadFavorites(viewModels))
+        store.action(.loadFavorites(viewModels))
     }
     
     func displayFavoritePosts(error: SwiftyPressError) {
@@ -40,7 +40,7 @@ extension ListFavoritesPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -52,6 +52,6 @@ extension ListFavoritesPresenter {
             favorite: response.favorite
         )
         
-        store.send(.toggleFavorite(viewModel))
+        store.action(.toggleFavorite(viewModel))
     }
 }

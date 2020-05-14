@@ -24,7 +24,7 @@ extension HomeState {
         case loadSocial([HomeAPI.SocialItem])
     }
     
-    mutating func receive(_ action: HomeAction) {
+    mutating func callAsFunction(_ action: HomeAction) {
         switch action {
         case .loadProfile(let profile):
             self.profile = profile

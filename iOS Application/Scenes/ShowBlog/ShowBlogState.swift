@@ -29,7 +29,7 @@ extension ShowBlogState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: ShowBlogAction) {
+    mutating func callAsFunction(_ action: ShowBlogAction) {
         switch action {
         case .loadLatestPosts(let value):
             latestPosts = value

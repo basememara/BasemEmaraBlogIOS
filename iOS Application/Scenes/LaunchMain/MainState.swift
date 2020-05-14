@@ -18,7 +18,7 @@ extension MainState {
         case loadMenu([MainAPI.TabItem])
     }
     
-    mutating func receive(_ action: MainAction) {
+    mutating func callAsFunction(_ action: MainAction) {
         switch action {
         case .loadMenu(let menu):
             tabMenu = menu

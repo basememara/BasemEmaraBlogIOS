@@ -17,14 +17,14 @@ struct HomePresenter<Store: StoreRepresentable>: HomePresentable where Store.Sta
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        store.send(.loadProfile(profile))
+        store.action(.loadProfile(profile))
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        store.send(.loadMenu(menu))
+        store.action(.loadMenu(menu))
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        store.send(.loadSocial(social))
+        store.action(.loadSocial(social))
     }
 }

@@ -32,7 +32,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        store.send(.loadLatestPosts(viewModels))
+        store.action(.loadLatestPosts(viewModels))
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
@@ -41,7 +41,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -57,7 +57,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        store.send(.loadPopularPosts(viewModels))
+        store.action(.loadPopularPosts(viewModels))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -66,7 +66,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -82,7 +82,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        store.send(.loadTopPickPosts(viewModels))
+        store.action(.loadTopPickPosts(viewModels))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -91,7 +91,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -107,7 +107,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        store.send(.loadTerms(viewModels))
+        store.action(.loadTerms(viewModels))
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -116,7 +116,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -128,6 +128,6 @@ extension ShowBlogPresenter {
             favorite: response.favorite
         )
         
-        store.send(.toggleFavorite(viewModel))
+        store.action(.toggleFavorite(viewModel))
     }
 }

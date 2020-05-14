@@ -31,7 +31,7 @@ extension SearchPostsPresenter {
             )
         }
         
-        store.send(.loadPosts(viewModels))
+        store.action(.loadPosts(viewModels))
     }
     
     func displaySearchResults(error: SwiftyPressError) {
@@ -40,6 +40,6 @@ extension SearchPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }

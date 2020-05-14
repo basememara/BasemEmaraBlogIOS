@@ -17,6 +17,6 @@ struct MainPresenter<Store: StoreRepresentable>: MainPresentable where Store.Sta
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        store.send(.loadMenu(menu))
+        store.action(.loadMenu(menu))
     }
 }

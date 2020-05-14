@@ -26,7 +26,7 @@ extension ShowPostState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: ShowPostAction) {
+    mutating func callAsFunction(_ action: ShowPostAction) {
         switch action {
         case .loadWeb(let value):
             web = value

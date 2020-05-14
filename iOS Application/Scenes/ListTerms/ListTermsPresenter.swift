@@ -29,7 +29,7 @@ extension ListTermsPresenter {
             )
         }
         
-        store.send(.loadTerms(viewModels))
+        store.action(.loadTerms(viewModels))
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -38,6 +38,6 @@ extension ListTermsPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }

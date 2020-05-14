@@ -81,7 +81,7 @@ extension ShowPostPresenter {
                 favorite: response.favorite
             )
             
-            store.send(.loadPost(viewModel))
+            store.action(.loadPost(viewModel))
         } catch {
             displayPost(error: .parseFailure(error))
         }
@@ -93,7 +93,7 @@ extension ShowPostPresenter {
             message: error.localizedDescription
         )
         
-        store.send(.loadError(viewModel))
+        store.action(.loadError(viewModel))
     }
 }
 
@@ -106,13 +106,13 @@ extension ShowPostPresenter {
             decisionHandler: response.decisionHandler
         )
         
-        store.send(.loadWeb(viewModel))
+        store.action(.loadWeb(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        store.send(.favorite(response.favorite))
+        store.action(.favorite(response.favorite))
     }
 }

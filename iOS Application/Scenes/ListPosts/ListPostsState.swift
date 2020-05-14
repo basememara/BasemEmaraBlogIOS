@@ -23,7 +23,7 @@ extension ListPostsState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: ListPostsAction) {
+    mutating func callAsFunction(_ action: ListPostsAction) {
         switch action {
         case .loadPosts(let value):
             posts = value

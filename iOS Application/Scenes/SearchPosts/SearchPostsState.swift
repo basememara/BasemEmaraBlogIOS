@@ -22,7 +22,7 @@ extension SearchPostsState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: SearchPostsAction) {
+    mutating func callAsFunction(_ action: SearchPostsAction) {
         switch action {
         case .loadPosts(let value):
             posts = value

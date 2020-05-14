@@ -23,7 +23,7 @@ extension ListFavoritesState {
         case loadError(AppAPI.Error?)
     }
     
-    mutating func receive(_ action: ListFavoritesAction) {
+    mutating func callAsFunction(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let value):
             favorites = value
