@@ -132,21 +132,21 @@ extension SceneRender {
             preferences: core.preferences()
         )
         
-        let controller = ShowBlogViewController(
+        let view = ShowBlogViewController(
             store: store,
             interactor: interactor,
             constants: core.constants(),
             theme: core.theme()
         )
         
-        controller.render = ShowBlogRender(
+        view.render = ShowBlogRender(
             render: self,
             mailComposer: core.mailComposer(),
             theme: core.theme(),
-            presentationContext: controller
+            presentationContext: view
         )
         
-        return controller
+        return view
     }
 }
 
@@ -162,19 +162,19 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
-        let controller = ListFavoritesViewController(
+        let view = ListFavoritesViewController(
             store: store,
             interactor: interactor,
             constants: core.constants(),
             theme: core.theme()
         )
         
-        controller.render = ListFavoritesRender(
+        view.render = ListFavoritesRender(
             render: self,
-            presentationContext: controller
+            presentationContext: view
         )
         
-        return controller
+        return view
     }
     
     func searchPosts() -> UIViewController {
@@ -187,19 +187,19 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
-        let controller = SearchPostsViewController(
+        let view = SearchPostsViewController(
             store: store,
             interactor: interactor,
             constants: core.constants(),
             theme: core.theme()
         )
         
-        controller.render = SearchPostsRender(
+        view.render = SearchPostsRender(
             render: self,
-            presentationContext: controller
+            presentationContext: view
         )
         
-        return controller
+        return view
     }
 }
 
@@ -215,23 +215,23 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
-        let controller = ListPostsViewController(
+        let view = ListPostsViewController(
             store: store,
             interactor: interactor,
             constants: core.constants(),
             theme: core.theme()
         )
         
-        controller.render = ListPostsRender(
+        view.render = ListPostsRender(
             render: self,
-            presentationContext: controller,
+            presentationContext: view,
             listPostsDelegate: nil
         )
         
-        controller.params = params
-        controller.delegate = delegate
+        view.params = params
+        view.delegate = delegate
         
-        return controller
+        return view
     }
     
     func showPost(for id: Int) -> UIViewController {
@@ -252,7 +252,7 @@ extension SceneRender {
             taxonomyRepository: core.taxonomyRepository()
         )
         
-        let controller = ShowPostViewController(
+        let view = ShowPostViewController(
             store: store,
             interactor: interactor,
             constants: core.constants(),
@@ -262,14 +262,14 @@ extension SceneRender {
             postID: id
         )
         
-        controller.render = ShowPostRender(
+        view.render = ShowPostRender(
             render: self,
             theme: core.theme(),
-            presentationContext: controller,
-            listPostsDelegate: controller
+            presentationContext: view,
+            listPostsDelegate: view
         )
         
-        return controller
+        return view
     }
     
     func listTerms() -> UIViewController {
@@ -281,17 +281,17 @@ extension SceneRender {
             taxonomyRepository: core.taxonomyRepository()
         )
         
-        let controller = ListTermsViewController(
+        let view = ListTermsViewController(
             store: store,
             interactor: interactor
         )
         
-        controller.render = ListTermsRender(
+        view.render = ListTermsRender(
             render: self,
-            presentationContext: controller
+            presentationContext: view
         )
         
-        return controller
+        return view
     }
 }
 
@@ -301,17 +301,17 @@ extension SceneRender {
         let store = Store(keyPath: \.showMoreState)
         let presenter = ShowMorePresenter(store: store)
         let interactor = ShowMoreInteractor(presenter: presenter)
-        let controller = ShowMoreViewController(store: store, interactor: interactor)
+        let view = ShowMoreViewController(store: store, interactor: interactor)
         
-        controller.render = ShowMoreRender(
+        view.render = ShowMoreRender(
             render: self,
             constants: core.constants(),
             mailComposer: core.mailComposer(),
             theme: core.theme(),
-            presentationContext: controller
+            presentationContext: view
         )
         
-        return controller
+        return view
     }
     
     func showSettings() -> UIViewController {
@@ -324,12 +324,12 @@ extension SceneRender {
             preferences: core.preferences()
         )
         
-        let controller = ShowSettingsViewController(
+        let view = ShowSettingsViewController(
             store: store,
             interactor: interactor,
             render: render
         )
         
-        return controller
+        return view
     }
 }
