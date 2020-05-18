@@ -12,20 +12,20 @@ import ZamzamUI
 import Stencil
 import SystemConfiguration
 
-struct ShowPostPresenter<Store: StoreRepresentable>: ShowPostPresentable where Store.StateType == ShowPostState {
-    private let store: Store
+struct ShowPostPresenter: ShowPostPresentable {
+    private let dispatch: Dispatcher<ShowPostAction>
     private let constants: Constants
     private let templateFile: String?
     private let styleSheetFile: String?
     private let dateFormatter: DateFormatter
     
     init(
-        store: Store,
+        dispatch: @escaping Dispatcher<ShowPostAction>,
         constants: Constants,
         templateFile: String?,
         styleSheetFile: String?
     ) {
-        self.store = store
+        self.dispatch = dispatch
         self.constants = constants
         self.templateFile = templateFile
         self.styleSheetFile = styleSheetFile
@@ -37,7 +37,8 @@ extension ShowPostPresenter {
     
     func displayPost(for response: ShowPostAPI.Response) {
         guard let templateString = templateFile else {
-            return displayPost(error: .parseFailure(nil))
+            displayPost(error: .parseFailure(nil))
+            return
         }
         
         var context: [String: Any] = [
@@ -81,7 +82,7 @@ extension ShowPostPresenter {
                 favorite: response.favorite
             )
             
-            store.action(.loadPost(viewModel))
+            dispatch(.loadPost(viewModel))
         } catch {
             displayPost(error: .parseFailure(error))
         }
@@ -93,7 +94,7 @@ extension ShowPostPresenter {
             message: error.localizedDescription
         )
         
-        store.action(.loadError(viewModel))
+        dispatch(.loadError(viewModel))
     }
 }
 
@@ -106,13 +107,13 @@ extension ShowPostPresenter {
             decisionHandler: response.decisionHandler
         )
         
-        store.action(.loadWeb(viewModel))
+        dispatch(.loadWeb(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        store.action(.favorite(response.favorite))
+        dispatch(.favorite(response.favorite))
     }
 }

@@ -122,8 +122,8 @@ private extension BackgroundPlugin {
                 return
             }
             
-            guard case .success(let value) = $0,
-                let post = value.posts.sorted(by: { $0.createdAt > $1.createdAt }).first else {
+            guard case .success(let item) = $0,
+                let post = item.posts.sorted(by: { $0.createdAt > $1.createdAt }).first else {
                     completion(.failure(.nonExistent))
                     return
             }
@@ -165,7 +165,7 @@ private extension BackgroundPlugin {
             }
             
             // Get remote media to attach to notification
-            guard let mediaID = post.mediaID, let media = value.media
+            guard let mediaID = post.mediaID, let media = item.media
                 .first(where: { $0.id == mediaID }) else {
                     return deferred()
             }

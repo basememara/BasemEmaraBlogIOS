@@ -8,19 +8,19 @@
 
 import SwiftyPress
 
-protocol ListFavoritesInteractorType: Interactor {
+protocol ListFavoritesInteractable: Interactor {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest)
 }
 
-protocol ListFavoritesPresenterType: Presenter {
+protocol ListFavoritesPresentable: Presenter {
     func displayFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse)
     func displayFavoritePosts(error: SwiftyPressError)
     
     func displayToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse)
 }
 
-protocol ListFavoritesRenderType: Render {
+protocol ListFavoritesRenderable: Render {
     func showPost(for model: PostsDataViewModel)
 }
 
@@ -37,8 +37,8 @@ enum ListFavoritesAPI {
     }
     
     struct FetchPostsResponse {
-        let posts: [PostType]
-        let media: [MediaType]
+        let posts: [Post]
+        let media: [Media]
     }
     
     struct FavoriteResponse {

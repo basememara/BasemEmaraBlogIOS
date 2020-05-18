@@ -8,26 +8,55 @@
 
 import SwiftyPress
 
-struct ListTermsState: State {
-    private(set) var terms: [TermsDataViewModel] = []
-    private(set) var error: AppAPI.Error?
+class ListTermsState: StateRepresentable {
+    
+    private(set) var terms: [TermsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ListTermsState.terms) }
+    }
+    
+    private(set) var error: AppAPI.Error? {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ListTermsState.error) }
+    }
+}
+
+// MARK: - Action
+
+enum ListTermsAction: Action {
+    case loadTerms([TermsDataViewModel])
+    case loadError(AppAPI.Error?)
 }
 
 // MARK: - Reducer
 
 extension ListTermsState {
     
-    enum ListTermsAction: Action {
-        case loadTerms([TermsDataViewModel])
-        case loadError(AppAPI.Error?)
-    }
-    
-    mutating func callAsFunction(_ action: ListTermsAction) {
+    func reduce(_ action: ListTermsAction) {
         switch action {
-        case .loadTerms(let value):
-            terms = value
-        case .loadError(let value):
-            error = value
+        case .loadTerms(let item):
+            terms = item
+        case .loadError(let item):
+            error = item
         }
     }
 }
+
+// MARK: - Conformances
+
+extension ListTermsState: Equatable {
+    
+    static func == (lhs: ListTermsState, rhs: ListTermsState) -> Bool {
+        lhs.terms == rhs.terms
+            && lhs.error == rhs.error
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension ListTermsState: ObservableObject {}
+#endif

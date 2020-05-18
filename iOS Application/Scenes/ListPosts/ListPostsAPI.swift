@@ -51,9 +51,9 @@ enum ListPostsAPI {
     struct Params {
         let fetchType: FetchType
         let title: String?
-        let sort: ((PostType, PostType) -> Bool)?
+        let sort: ((Post, Post) -> Bool)?
         
-        init(fetchType: FetchType, title: String? = nil, sort: ((PostType, PostType) -> Bool)? = nil) {
+        init(fetchType: FetchType, title: String? = nil, sort: ((Post, Post) -> Bool)? = nil) {
             self.fetchType = fetchType
             self.title = title
             self.sort = sort
@@ -64,17 +64,17 @@ enum ListPostsAPI {
 extension ListPostsAPI {
     
     struct FetchPostsRequest {
-        let sort: ((PostType, PostType) -> Bool)?
+        let sort: ((Post, Post) -> Bool)?
     }
     
     struct FetchPostsByTermsRequest {
         let ids: Set<Int>
-        let sort: ((PostType, PostType) -> Bool)?
+        let sort: ((Post, Post) -> Bool)?
     }
     
     struct PostsResponse {
-        let posts: [PostType]
-        let media: [MediaType]
+        let posts: [Post]
+        let media: [Media]
     }
 }
 

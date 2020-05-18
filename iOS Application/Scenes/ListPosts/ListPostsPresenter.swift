@@ -10,12 +10,12 @@ import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
-struct ListPostsPresenter<Store: StoreRepresentable>: ListPostsPresentable where Store.StateType == ListPostsState {
-    private let store: Store
+struct ListPostsPresenter: ListPostsPresentable {
+    private let dispatch: Dispatcher<ListPostsAction>
     private let dateFormatter: DateFormatter
     
-    init(store: Store) {
-        self.store = store
+    init(dispatch: @escaping Dispatcher<ListPostsAction>) {
+        self.dispatch = dispatch
         self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
@@ -31,7 +31,7 @@ extension ListPostsPresenter {
             )
         }
         
-        store.action(.loadPosts(viewModels))
+        dispatch(.loadPosts(viewModels))
     }
 }
 
@@ -43,7 +43,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.action(.loadError(viewModel))
+        dispatch(.loadError(viewModel))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -52,7 +52,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.action(.loadError(viewModel))
+        dispatch(.loadError(viewModel))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -61,7 +61,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.action(.loadError(viewModel))
+        dispatch(.loadError(viewModel))
     }
     
     func displayPostsByTerms(error: SwiftyPressError) {
@@ -70,7 +70,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        store.action(.loadError(viewModel))
+        dispatch(.loadError(viewModel))
     }
 }
 
@@ -82,6 +82,6 @@ extension ListPostsPresenter {
             favorite: response.favorite
         )
         
-        store.action(.toggleFavorite(viewModel))
+        dispatch(.toggleFavorite(viewModel))
     }
 }

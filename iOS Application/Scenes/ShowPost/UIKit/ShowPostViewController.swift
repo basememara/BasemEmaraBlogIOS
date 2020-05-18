@@ -13,9 +13,10 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowPostViewController: UIViewController, StatusBarable {
-    private let store: Store<ShowPostState>
+final class ShowPostViewController: UIViewController, StatusBarable {
+    private let state: ShowPostState
     private let interactor: ShowPostInteractable?
+    private var render: ShowPostRenderable?
     private let constants: Constants
     private let theme: Theme
     private let notificationCenter: NotificationCenter
@@ -27,7 +28,6 @@ class ShowPostViewController: UIViewController, StatusBarable {
     
     let application: UIApplication
     var statusBar: UIView?
-    var render: ShowPostRenderable?
     
     // MARK: - Controls
     
@@ -70,28 +70,31 @@ class ShowPostViewController: UIViewController, StatusBarable {
     // MARK: - Initializers
     
     init(
-        store: Store<ShowPostState>,
+        state: ShowPostState,
         interactor: ShowPostInteractable?,
+        render: ((UIViewController) -> ShowPostRenderable)?,
         constants: Constants,
         theme: Theme,
         application: UIApplication,
         notificationCenter: NotificationCenter,
         postID: Int
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
         self.application = application
         self.notificationCenter = notificationCenter
         self.postID = postID
+        
         super.init(nibName: nil, bundle: nil)
-        hidesBottomBarWhenPushed = true // Must be done in initialization
+        self.render = render?(self)
+        
+        // Must be done in initialization
+        hidesBottomBarWhenPushed = true
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -134,8 +137,8 @@ private extension ShowPostViewController {
             name: UIDevice.orientationDidChangeNotification
         )
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -150,16 +153,21 @@ private extension ShowPostViewController {
 
 private extension ShowPostViewController {
     
-    func load(_ state: ShowPostState) {
-        if let web = state.web {
+    func load(_ keyPath: PartialKeyPath<ShowPostState>) {
+        switch keyPath {
+        case \ShowPostState.web:
+            guard let web = state.web else { break }
             load(web)
-        }
-        
-        if let post = state.post {
+        case \ShowPostState.post:
+            guard let post = state.post else { break }
             load(post)
+        case \ShowPostState.favorite:
+            load(favorite: state.favorite)
+        case \ShowPostState.error:
+            break // TODO: Handle error
+        default:
+            break
         }
-        
-        load(favorite: state.favorite)
     }
     
     func load(_ viewModel: ShowPostAPI.PostViewModel) {

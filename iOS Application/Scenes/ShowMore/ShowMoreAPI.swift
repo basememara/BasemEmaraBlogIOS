@@ -40,18 +40,18 @@ enum ShowMoreAPI {
         case developedBy
     }
     
-    struct MenuItem {
+    struct MenuItem: Equatable {
         let type: Menu
         let title: String
         let icon: String
     }
     
-    struct MenuSection {
+    struct MenuSection: Equatable {
         let title: String?
         let items: [MenuItem]
     }
     
-    struct SocialItem {
+    struct SocialItem: Equatable {
         let type: Social
         let title: String
     }

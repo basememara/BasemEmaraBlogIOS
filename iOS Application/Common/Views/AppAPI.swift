@@ -8,7 +8,7 @@
 /// App model continer for implementing global models.
 enum AppAPI {
     
-    struct Error {
+    struct Error: Equatable {
         let title: String?
         let message: String?
     }

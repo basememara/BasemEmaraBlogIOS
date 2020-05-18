@@ -9,7 +9,7 @@
 import SwiftyPress
 import UIKit.UIViewController
 
-struct ListFavoritesRender: ListFavoritesRenderType {
+struct ListFavoritesRender: ListFavoritesRenderable {
     private let render: SceneRenderable
     private weak var presentationContext: UIViewController?
     

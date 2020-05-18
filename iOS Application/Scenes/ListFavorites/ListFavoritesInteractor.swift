@@ -8,13 +8,13 @@
 
 import SwiftyPress
 
-struct ListFavoritesInteractor: ListFavoritesInteractorType {
-    private let presenter: ListFavoritesPresenterType
+struct ListFavoritesInteractor: ListFavoritesInteractable {
+    private let presenter: ListFavoritesPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
     
     init(
-        presenter: ListFavoritesPresenterType,
+        presenter: ListFavoritesPresentable,
         postRepository: PostRepository,
         mediaRepository: MediaRepository
     ) {

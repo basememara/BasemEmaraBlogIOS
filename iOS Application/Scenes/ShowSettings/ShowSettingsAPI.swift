@@ -33,7 +33,7 @@ enum ShowSettingsAPI {
         case ios
     }
     
-    struct MenuItem {
+    struct MenuItem: Equatable {
         let type: Menu
         let title: String
         let icon: String

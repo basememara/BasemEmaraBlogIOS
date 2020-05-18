@@ -6,17 +6,17 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct MainPresenter<Store: StoreRepresentable>: MainPresentable where Store.StateType == MainState {
-    private let store: Store
+struct MainPresenter: MainPresentable {
+    private let dispatch: Dispatcher<MainAction>
     
-    init(store: Store) {
-        self.store = store
+    init(dispatch: @escaping Dispatcher<MainAction>) {
+        self.dispatch = dispatch
     }
 }
 
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        store.action(.loadMenu(menu))
+        dispatch(.loadMenu(menu))
     }
 }

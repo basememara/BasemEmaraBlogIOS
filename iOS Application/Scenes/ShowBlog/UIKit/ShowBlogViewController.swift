@@ -12,13 +12,13 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowBlogViewController: UIViewController {
-    private let store: Store<ShowBlogState>
+    private let state: ShowBlogState
     private let interactor: ShowBlogInteractable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: ShowBlogRenderable?
+    private(set) var render: ShowBlogRenderable?
     
     // MARK: - Controls
     
@@ -52,21 +52,22 @@ final class ShowBlogViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<ShowBlogState>,
+        state: ShowBlogState,
         interactor: ShowBlogInteractable?,
+        render: ((UIViewController) -> ShowBlogRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -115,8 +116,8 @@ private extension ShowBlogViewController {
             makeFooter()
         ])
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -137,24 +138,21 @@ private extension ShowBlogViewController {
         )
     }
     
-    func load(_ state: ShowBlogState) {
-        latestPostsCollectionViewAdapter.reloadData(
-            with: state.latestPosts
-        )
-        
-        popularPostsCollectionViewAdapter.reloadData(
-            with: state.popularPosts
-        )
-        
-        pickedPostsCollectionViewAdapter.reloadData(
-            with: state.topPickPosts
-        )
-        
-        topTermsTableViewAdapter.reloadData(
-            with: state.terms
-        )
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ShowBlogState>) {
+        switch keyPath {
+        case \ShowBlogState.latestPosts:
+            latestPostsCollectionViewAdapter.reloadData(with: state.latestPosts)
+        case \ShowBlogState.popularPosts:
+            popularPostsCollectionViewAdapter.reloadData(with: state.popularPosts)
+        case \ShowBlogState.topPickPosts:
+            pickedPostsCollectionViewAdapter.reloadData(with: state.topPickPosts)
+        case \ShowBlogState.terms:
+            topTermsTableViewAdapter.reloadData(with: state.terms)
+        case \ShowBlogState.error:
+            break // TODO: Handle error
+        default:
+            break
+        }
         
         activityIndicatorView.stopAnimating()
     }

@@ -6,8 +6,9 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
 import SwiftyPress
+import UIKit
+import ZamzamUI
 #if canImport(SwiftUI)
 import SwiftUI
 #endif
@@ -39,6 +40,8 @@ extension SceneRenderable {
     }
 }
 
+// MARK: - Conformance
+
 struct SceneRender: SceneRenderable {
     private let core: SwiftyPressCore
     private let state: AppState
@@ -56,42 +59,51 @@ struct SceneRender: SceneRenderable {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
-        let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(store: store)
+        let presenter = MainPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.mainState.reduce(action)
+        }
+        
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
+        let view: UIViewController
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            return MainSplitViewController(render: render).apply {
+            view = MainSplitViewController(render: render).apply {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(
-                        store: store,
+                        state: state.mainState,
                         interactor: interactor,
                         render: render
                     )
                 ]
             }
         default:
-            return MainViewController(
-                store: store,
+            view = MainViewController(
+                state: state.mainState,
                 interactor: interactor,
                 render: render
             )
         }
+        
+        return view
     }
     
     @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
-        let store = Store(keyPath: \.mainState, with: middleware)
-        let presenter = MainPresenter(store: store)
+        let presenter = MainPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.mainState.reduce(action)
+        }
+        
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         
         // Unused until SwiftUI is more stable
         return MainView(
-            store: store,
+            state: state.mainState,
             interactor: interactor,
             render: render
         ) as? T
@@ -101,28 +113,40 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        let store = Store(keyPath: \.homeState)
-        let presenter = HomePresenter(store: store)
-        let interactor = HomeInteractor(presenter: presenter)
-        let controller = HomeViewController(store: store, interactor: interactor)
+        let presenter = HomePresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.homeState.reduce(action)
+        }
         
-        controller.render = HomeRender(
-            render: self,
-            mailComposer: core.mailComposer(),
-            constants: core.constants(),
-            theme: core.theme(),
-            presentationContext: controller
+        let interactor = HomeInteractor(presenter: presenter)
+        
+        let render: (UIViewController) -> HomeRenderable = {
+            HomeRender(
+                render: self,
+                mailComposer: self.core.mailComposer(),
+                constants: self.core.constants(),
+                theme: self.core.theme(),
+                presentationContext: $0
+            )
+        }
+        
+        let view = HomeViewController(
+            state: state.homeState,
+            interactor: interactor,
+            render: render
         )
         
-        return controller
+        return view
     }
 }
 
 extension SceneRender {
     
     func showBlog() -> UIViewController {
-        let store = Store(keyPath: \.showBlogState)
-        let presenter = ShowBlogPresenter(store: store)
+        let presenter = ShowBlogPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.showBlogState.reduce(action)
+        }
         
         let interactor = ShowBlogInteractor(
             presenter: presenter,
@@ -132,18 +156,21 @@ extension SceneRender {
             preferences: core.preferences()
         )
         
+        let render: (UIViewController) -> ShowBlogRenderable = {
+            ShowBlogRender(
+                render: self,
+                mailComposer: self.core.mailComposer(),
+                theme: self.core.theme(),
+                presentationContext: $0
+            )
+        }
+        
         let view = ShowBlogViewController(
-            store: store,
+            state: state.showBlogState,
             interactor: interactor,
+            render: render,
             constants: core.constants(),
             theme: core.theme()
-        )
-        
-        view.render = ShowBlogRender(
-            render: self,
-            mailComposer: core.mailComposer(),
-            theme: core.theme(),
-            presentationContext: view
         )
         
         return view
@@ -153,8 +180,10 @@ extension SceneRender {
 extension SceneRender {
     
     func listFavorites() -> UIViewController {
-        let store = Store(keyPath: \.listFavoritesState)
-        let presenter = ListFavoritesPresenter(store: store)
+        let presenter = ListFavoritesPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.listFavoritesState.reduce(action)
+        }
         
         let interactor = ListFavoritesInteractor(
             presenter: presenter,
@@ -162,24 +191,29 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
+        let render: (UIViewController) -> ListFavoritesRenderable = {
+            ListFavoritesRender(
+                render: self,
+                presentationContext: $0
+            )
+        }
+        
         let view = ListFavoritesViewController(
-            store: store,
+            state: state.listFavoritesState,
             interactor: interactor,
+            render: render,
             constants: core.constants(),
             theme: core.theme()
-        )
-        
-        view.render = ListFavoritesRender(
-            render: self,
-            presentationContext: view
         )
         
         return view
     }
     
     func searchPosts() -> UIViewController {
-        let store = Store(keyPath: \.searchPostsState)
-        let presenter = SearchPostsPresenter(store: store)
+        let presenter = SearchPostsPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.searchPostsState.reduce(action)
+        }
         
         let interactor = SearchPostsInteractor(
             presenter: presenter,
@@ -187,16 +221,19 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
+        let render: (UIViewController) -> SearchPostsRenderable = {
+            SearchPostsRender(
+                render: self,
+                presentationContext: $0
+            )
+        }
+        
         let view = SearchPostsViewController(
-            store: store,
+            state: state.searchPostsState,
             interactor: interactor,
+            render: render,
             constants: core.constants(),
             theme: core.theme()
-        )
-        
-        view.render = SearchPostsRender(
-            render: self,
-            presentationContext: view
         )
         
         return view
@@ -206,8 +243,10 @@ extension SceneRender {
 extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
-        let store = Store(keyPath: \.listPostsState)
-        let presenter = ListPostsPresenter(store: store)
+        let presenter = ListPostsPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.listPostsState.reduce(action)
+        }
         
         let interactor = ListPostsInteractor(
             presenter: presenter,
@@ -215,17 +254,20 @@ extension SceneRender {
             mediaRepository: core.mediaRepository()
         )
         
+        let render: (UIViewController) -> ListPostsRenderable = {
+            ListPostsRender(
+                render: self,
+                presentationContext: $0,
+                listPostsDelegate: nil
+            )
+        }
+        
         let view = ListPostsViewController(
-            store: store,
+            state: state.listPostsState,
             interactor: interactor,
+            render: render,
             constants: core.constants(),
             theme: core.theme()
-        )
-        
-        view.render = ListPostsRender(
-            render: self,
-            presentationContext: view,
-            listPostsDelegate: nil
         )
         
         view.params = params
@@ -235,10 +277,11 @@ extension SceneRender {
     }
     
     func showPost(for id: Int) -> UIViewController {
-        let store = Store(keyPath: \.showPostState)
-        
         let presenter = ShowPostPresenter(
-            store: store,
+            dispatch: { action in
+                self.middleware.forEach { $0(action) }
+                self.state.showPostState.reduce(action)
+            },
             constants: core.constants(),
             templateFile: Bundle.main.string(file: "post.html"),
             styleSheetFile: Bundle.main.string(file: "style.css")
@@ -252,9 +295,19 @@ extension SceneRender {
             taxonomyRepository: core.taxonomyRepository()
         )
         
+        let render: (UIViewController) -> ShowPostRenderable = {
+            ShowPostRender(
+                render: self,
+                theme: self.core.theme(),
+                presentationContext: $0,
+                listPostsDelegate: $0 as? ListPostsDelegate
+            )
+        }
+        
         let view = ShowPostViewController(
-            store: store,
+            state: state.showPostState,
             interactor: interactor,
+            render: render,
             constants: core.constants(),
             theme: core.theme(),
             application: .shared,
@@ -262,33 +315,31 @@ extension SceneRender {
             postID: id
         )
         
-        view.render = ShowPostRender(
-            render: self,
-            theme: core.theme(),
-            presentationContext: view,
-            listPostsDelegate: view
-        )
-        
         return view
     }
     
     func listTerms() -> UIViewController {
-        let store = Store(keyPath: \.listTermsState)
-        let presenter = ListTermsPresenter(store: store)
+        let presenter = ListTermsPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.listTermsState.reduce(action)
+        }
         
         let interactor = ListTermsInteractor(
             presenter: presenter,
             taxonomyRepository: core.taxonomyRepository()
         )
         
-        let view = ListTermsViewController(
-            store: store,
-            interactor: interactor
-        )
+        let render: (UIViewController) -> ListTermsRenderable = {
+            ListTermsRender(
+                render: self,
+                presentationContext: $0
+            )
+        }
         
-        view.render = ListTermsRender(
-            render: self,
-            presentationContext: view
+        let view = ListTermsViewController(
+            state: state.listTermsState,
+            interactor: interactor,
+            render: render
         )
         
         return view
@@ -298,34 +349,47 @@ extension SceneRender {
 extension SceneRender {
     
     func showMore() -> UIViewController {
-        let store = Store(keyPath: \.showMoreState)
-        let presenter = ShowMorePresenter(store: store)
-        let interactor = ShowMoreInteractor(presenter: presenter)
-        let view = ShowMoreViewController(store: store, interactor: interactor)
+        let presenter = ShowMorePresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.showMoreState.reduce(action)
+        }
         
-        view.render = ShowMoreRender(
-            render: self,
-            constants: core.constants(),
-            mailComposer: core.mailComposer(),
-            theme: core.theme(),
-            presentationContext: view
+        let interactor = ShowMoreInteractor(presenter: presenter)
+        
+        let render: (UIViewController) -> ShowMoreRenderable = {
+            ShowMoreRender(
+                render: self,
+                constants: self.core.constants(),
+                mailComposer: self.core.mailComposer(),
+                theme: self.core.theme(),
+                presentationContext: $0
+            )
+        }
+        
+        let view = ShowMoreViewController(
+            state: state.showMoreState,
+            interactor: interactor,
+            render: render
         )
         
         return view
     }
     
     func showSettings() -> UIViewController {
-        let store = Store(keyPath: \.showSettingsState)
-        let presenter = ShowSettingsPresenter(store: store)
-        let render = ShowSettingsRender(application: .shared)
+        let presenter = ShowSettingsPresenter { action in
+            self.middleware.forEach { $0(action) }
+            self.state.showSettingsState.reduce(action)
+        }
         
         let interactor = ShowSettingsInteractor(
             presenter: presenter,
             preferences: core.preferences()
         )
         
+        let render = ShowSettingsRender(application: .shared)
+        
         let view = ShowSettingsViewController(
-            store: store,
+            state: state.showSettingsState,
             interactor: interactor,
             render: render
         )

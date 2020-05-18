@@ -8,54 +8,98 @@
 
 import SwiftyPress
 
-struct ShowBlogState: State {
-    private(set) var latestPosts: [PostsDataViewModel] = []
-    private(set) var popularPosts: [PostsDataViewModel] = []
-    private(set) var topPickPosts: [PostsDataViewModel] = []
-    private(set) var terms: [TermsDataViewModel] = []
-    private(set) var error: AppAPI.Error?
+class ShowBlogState: StateRepresentable {
+    
+    private(set) var latestPosts: [PostsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ShowBlogState.latestPosts) }
+    }
+    
+    private(set) var popularPosts: [PostsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ShowBlogState.popularPosts) }
+    }
+    
+    private(set) var topPickPosts: [PostsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ShowBlogState.topPickPosts) }
+    }
+    
+    private(set) var terms: [TermsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ShowBlogState.terms) }
+    }
+    
+    private(set) var error: AppAPI.Error? {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ShowBlogState.error) }
+    }
+}
+
+// MARK: - Action
+
+enum ShowBlogAction: Action {
+    case loadLatestPosts([PostsDataViewModel])
+    case loadPopularPosts([PostsDataViewModel])
+    case loadTopPickPosts([PostsDataViewModel])
+    case loadTerms([TermsDataViewModel])
+    case toggleFavorite(ShowBlogAPI.FavoriteViewModel)
+    case loadError(AppAPI.Error?)
 }
 
 // MARK: - Reducer
 
 extension ShowBlogState {
     
-    enum ShowBlogAction: Action {
-        case loadLatestPosts([PostsDataViewModel])
-        case loadPopularPosts([PostsDataViewModel])
-        case loadTopPickPosts([PostsDataViewModel])
-        case loadTerms([TermsDataViewModel])
-        case toggleFavorite(ShowBlogAPI.FavoriteViewModel)
-        case loadError(AppAPI.Error?)
-    }
-    
-    mutating func callAsFunction(_ action: ShowBlogAction) {
+    func reduce(_ action: ShowBlogAction) {
         switch action {
-        case .loadLatestPosts(let value):
-            latestPosts = value
-        case .loadPopularPosts(let value):
-            popularPosts = value
-        case .loadTopPickPosts(let value):
-            topPickPosts = value
-        case .loadTerms(let value):
-            terms = value
-        case .toggleFavorite(let value):
+        case .loadLatestPosts(let item):
+            latestPosts = item
+        case .loadPopularPosts(let item):
+            popularPosts = item
+        case .loadTopPickPosts(let item):
+            topPickPosts = item
+        case .loadTerms(let item):
+            terms = item
+        case .toggleFavorite(let item):
             if let index = latestPosts
-                .firstIndex(where: { $0.id == value.postID }) {
+                .firstIndex(where: { $0.id == item.postID }) {
                 //latestPosts[index] = PostsDataViewModel(
             }
             
             if let index = popularPosts
-                .firstIndex(where: { $0.id == value.postID }) {
+                .firstIndex(where: { $0.id == item.postID }) {
                 //popularPosts[index] = PostsDataViewModel(
             }
             
             if let index = topPickPosts
-                .firstIndex(where: { $0.id == value.postID }) {
+                .firstIndex(where: { $0.id == item.postID }) {
                 //topPickPosts[index] = PostsDataViewModel(
             }
-        case .loadError(let value):
-            error = value
+        case .loadError(let item):
+            error = item
         }
     }
 }
+
+// MARK: - Conformances
+
+extension ShowBlogState: Equatable {
+    
+    static func == (lhs: ShowBlogState, rhs: ShowBlogState) -> Bool {
+        lhs.latestPosts == rhs.latestPosts
+            && lhs.popularPosts == rhs.popularPosts
+            && lhs.topPickPosts == rhs.topPickPosts
+            && lhs.terms == rhs.terms
+            && lhs.error == rhs.error
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension ShowBlogState: ObservableObject {}
+#endif

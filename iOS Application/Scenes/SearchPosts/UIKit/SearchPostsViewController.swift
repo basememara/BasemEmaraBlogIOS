@@ -12,13 +12,13 @@ import ZamzamCore
 import ZamzamUI
 
 final class SearchPostsViewController: UIViewController {
-    private let store: Store<SearchPostsState>
+    private let state: SearchPostsState
     private let interactor: SearchPostsInteractable?
+    private var render: SearchPostsRenderable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
     
-    var render: SearchPostsRenderType?
     var searchText: String?
     
     // MARK: - Controls
@@ -53,21 +53,22 @@ final class SearchPostsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<SearchPostsState>,
+        state: SearchPostsState,
         interactor: SearchPostsInteractable?,
+        render: ((UIViewController) -> SearchPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
 
@@ -93,13 +94,23 @@ private extension SearchPostsViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
-    func load(_ state: SearchPostsState) {
-        tableViewAdapter.reloadData(with: state.posts)
+    func load(_ keyPath: PartialKeyPath<SearchPostsState>) {
+        switch keyPath {
+        case \SearchPostsState.posts:
+            tableViewAdapter.reloadData(with: state.posts)
+        case \ShowBlogState.error:
+            break // TODO: Handle error
+        default:
+            break
+        }
     }
+}
+
+private extension SearchPostsViewController {
     
     func search(for text: String, with scope: Int) {
         interactor?.fetchSearchResults(

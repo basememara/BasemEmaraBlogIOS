@@ -6,25 +6,25 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct HomePresenter<Store: StoreRepresentable>: HomePresentable where Store.StateType == HomeState {
-    private let store: Store
+struct HomePresenter: HomePresentable {
+    private let dispatch: Dispatcher<HomeAction>
     
-    init(store: Store) {
-        self.store = store
+    init(dispatch: @escaping Dispatcher<HomeAction>) {
+        self.dispatch = dispatch
     }
 }
 
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        store.action(.loadProfile(profile))
+        dispatch(.loadProfile(profile))
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        store.action(.loadMenu(menu))
+        dispatch(.loadMenu(menu))
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        store.action(.loadSocial(social))
+        dispatch(.loadSocial(social))
     }
 }
