@@ -62,10 +62,13 @@ extension AppDelegate {
 
 // MARK: - Environment Components
 
-private enum App {
+private enum AppStart {
     
     /// Root dependency injection container.
     static let core = AppCore()
+    
+    /// Root state.
+    static let state = AppState()
     
     /// Root builder for all scenes.
     ///
@@ -76,7 +79,7 @@ private enum App {
     /// Create views only through scene renders.
     static let render = SceneRender(
         core: core,
-        state: AppState.root,
+        state: state,
         middleware: [ // All actions pass through
             AnalyticsMiddleware()
         ]
@@ -84,12 +87,12 @@ private enum App {
 }
 
 private extension UIApplicationDelegate {
-    var core: SwiftyPressCore { App.core }
-    var render: SceneRender { App.render }
+    var core: SwiftyPressCore { AppStart.core }
+    var render: SceneRenderable { AppStart.render }
 }
 
 @available(iOS 13, *)
 extension UISceneDelegate {
-    var core: SwiftyPressCore { App.core }
-    var render: SceneRender { App.render }
+    var core: SwiftyPressCore { AppStart.core }
+    var render: SceneRenderable { AppStart.render }
 }

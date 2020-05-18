@@ -8,26 +8,55 @@
 
 import SwiftyPress
 
-struct SearchPostsState: State {
-    private(set) var posts: [PostsDataViewModel] = []
-    private(set) var error: AppAPI.Error?
+class SearchPostsState: StateRepresentable {
+    
+    private(set) var posts: [PostsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \SearchPostsState.posts) }
+    }
+    
+    private(set) var error: AppAPI.Error? {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \SearchPostsState.error) }
+    }
+}
+
+// MARK: - Action
+
+enum SearchPostsAction: Action {
+    case loadPosts([PostsDataViewModel])
+    case loadError(AppAPI.Error?)
 }
 
 // MARK: - Reducer
 
 extension SearchPostsState {
     
-    enum SearchPostsAction: Action {
-        case loadPosts([PostsDataViewModel])
-        case loadError(AppAPI.Error?)
-    }
-    
-    mutating func callAsFunction(_ action: SearchPostsAction) {
+    func reduce(_ action: SearchPostsAction) {
         switch action {
-        case .loadPosts(let value):
-            posts = value
-        case .loadError(let value):
-            error = value
+        case .loadPosts(let item):
+            posts = item
+        case .loadError(let item):
+            error = item
         }
     }
 }
+
+// MARK: - Conformances
+
+extension SearchPostsState: Equatable {
+    
+    static func == (lhs: SearchPostsState, rhs: SearchPostsState) -> Bool {
+        lhs.posts == rhs.posts
+            && lhs.error == rhs.error
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension SearchPostsState: ObservableObject {}
+#endif

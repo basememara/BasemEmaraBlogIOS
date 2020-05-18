@@ -12,14 +12,13 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ListPostsViewController: UIViewController {
-    private let store: Store<ListPostsState>
+final class ListPostsViewController: UIViewController {
+    private let state: ListPostsState
     private let interactor: ListPostsInteractable?
+    private var render: ListPostsRenderable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
-    
-    var render: ListPostsRenderable?
     
     var params = ListPostsAPI.Params(
         fetchType: .latest,
@@ -43,21 +42,22 @@ class ListPostsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<ListPostsState>,
+        state: ListPostsState,
         interactor: ListPostsInteractable?,
+        render: ((UIViewController) -> ListPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -93,8 +93,8 @@ private extension ListPostsViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -127,10 +127,15 @@ private extension ListPostsViewController {
         }
     }
     
-    func load(_ state: ListPostsState) {
-        tableViewAdapter.reloadData(with: state.posts)
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ListPostsState>) {
+        switch keyPath {
+        case \ListPostsState.posts:
+            tableViewAdapter.reloadData(with: state.posts)
+        case \ListPostsState.error:
+            break // TODO: Handle error
+        default:
+            break
+        }
     }
 }
 

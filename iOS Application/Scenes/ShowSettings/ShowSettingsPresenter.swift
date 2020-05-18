@@ -6,24 +6,24 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct ShowSettingsPresenter<Store: StoreRepresentable>: ShowSettingsPresentable where Store.StateType == ShowSettingsState {
-    private let store: Store
+struct ShowSettingsPresenter: ShowSettingsPresentable {
+    private let dispatch: Dispatcher<ShowSettingsAction>
     
-    init(store: Store) {
-        self.store = store
+    init(dispatch: @escaping Dispatcher<ShowSettingsAction>) {
+        self.dispatch = dispatch
     }
 }
 
 extension ShowSettingsPresenter {
     
     func display(menu: [ShowSettingsAPI.MenuItem]) {
-        store.action(.loadMenu(menu))
+        dispatch(.loadMenu(menu))
     }
 }
 
 extension ShowSettingsPresenter {
     
     func displayTheme(for response: ShowSettingsAPI.SetThemeResponse) {
-        store.action(.setAutoThemeEnabled(response.autoThemeEnabled))
+        dispatch(.setAutoThemeEnabled(response.autoThemeEnabled))
     }
 }

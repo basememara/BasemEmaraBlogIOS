@@ -9,7 +9,7 @@
 import SwiftyPress
 import UIKit.UIViewController
 
-struct SearchPostsRender: SearchPostsRenderType {
+struct SearchPostsRender: SearchPostsRenderable {
     private let render: SceneRenderable
     weak var presentationContext: UIViewController?
     

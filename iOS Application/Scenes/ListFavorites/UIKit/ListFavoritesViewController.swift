@@ -12,13 +12,12 @@ import ZamzamCore
 import ZamzamUI
 
 final class ListFavoritesViewController: UIViewController {
-    private let store: Store<ListFavoritesState>
-    private let interactor: ListFavoritesInteractorType?
+    private let state: ListFavoritesState
+    private let interactor: ListFavoritesInteractable?
+    private var render: ListFavoritesRenderable?
     private let constants: Constants
     private let theme: Theme
     private var cancellable: NotificationCenter.Cancellable?
-    
-    var render: ListFavoritesRenderType?
 
     // MARK: - Controls
     
@@ -39,21 +38,22 @@ final class ListFavoritesViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<ListFavoritesState>,
-        interactor: ListFavoritesInteractorType?,
+        state: ListFavoritesState,
+        interactor: ListFavoritesInteractable?,
+        render: ((UIViewController) -> ListFavoritesRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -80,8 +80,8 @@ private extension ListFavoritesViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -90,10 +90,15 @@ private extension ListFavoritesViewController {
         )
     }
     
-    func load(_ state: ListFavoritesState) {
-        tableViewAdapter.reloadData(with: state.favorites)
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ListFavoritesState>) {
+        switch keyPath {
+        case \ListFavoritesState.favorites:
+            tableViewAdapter.reloadData(with: state.favorites)
+        case \ListFavoritesState.error:
+            break // TODO: Handle error
+        default:
+            break
+        }
     }
 }
 

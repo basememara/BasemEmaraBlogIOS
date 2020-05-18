@@ -10,11 +10,19 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
+// MARK: - Protocol
+
 @objc protocol HomeHeaderViewDelegate: AnyObject {
     func didTapSocialButton(_ sender: UIButton)
 }
 
+// MARK: - View
+
 class HomeHeaderView: UIView {
+    private let state: HomeState
+    private weak var delegate: HomeHeaderViewDelegate?
+    
+    // MARK: - Controls
     
     private lazy var stackView = UIStackView().apply {
         $0.axis = .vertical
@@ -48,14 +56,21 @@ class HomeHeaderView: UIView {
         $0.spacing = 12
     }
     
-    weak var delegate: HomeHeaderViewDelegate?
+    // MARK: - Initializers
     
-    convenience init(_ state: HomeState) {
-        self.init()
+    init(state: HomeState, delegate: HomeHeaderViewDelegate?) {
+        self.state = state
+        self.delegate = delegate
+        
+        super.init(frame: .zero)
         self.prepare()
-        self.load(state)
+        self.reloadData()
     }
+    
+    required init?(coder: NSCoder) { nil }
 }
+
+// MARK: - Setup
 
 private extension HomeHeaderView {
     
@@ -75,15 +90,23 @@ private extension HomeHeaderView {
     }
 }
 
+// MARK: - State
+
 extension HomeHeaderView {
     
-    func load(_ state: HomeState) {
-        if let profile = state.profile {
-            profileAvatarImageView.image = UIImage(named: profile.avatar)
-            profileNameLabel.text = profile.name
-            profileCaptionLabel.text = profile.caption
-        }
-        
+    func reloadData() {
+        reloadProfile()
+        reloadSocialMenu()
+    }
+    
+    func reloadProfile() {
+        guard let profile = state.profile else { return }
+        profileAvatarImageView.image = UIImage(named: profile.avatar)
+        profileNameLabel.text = profile.name
+        profileCaptionLabel.text = profile.caption
+    }
+    
+    func reloadSocialMenu() {
         socialStackView
             .deleteArrangedSubviews()
             .addArrangedSubviews(state.socialMenu.compactMap {

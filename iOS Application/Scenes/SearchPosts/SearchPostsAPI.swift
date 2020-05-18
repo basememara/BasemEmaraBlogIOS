@@ -13,12 +13,12 @@ protocol SearchPostsInteractable: Interactor {
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }
 
-protocol SearchPostsPresenterType: Presenter {
+protocol SearchPostsPresentable: Presenter {
     func displaySearchResults(for response: SearchPostsAPI.Response)
     func displaySearchResults(error: SwiftyPressError)
 }
 
-protocol SearchPostsRenderType: Render {
+protocol SearchPostsRenderable: Render {
     func showPost(for model: PostsDataViewModel)
 }
 
@@ -29,7 +29,7 @@ enum SearchPostsAPI {
     struct PopularRequest {}
     
     struct Response {
-        let posts: [PostType]
-        let media: [MediaType]
+        let posts: [Post]
+        let media: [Media]
     }
 }

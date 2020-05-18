@@ -52,17 +52,17 @@ enum ShowPostAPI {
     }
     
     struct Response {
-        let post: PostType
-        let media: MediaType?
-        let categories: [TermType]
-        let tags: [TermType]
-        let author: AuthorType?
+        let post: Post
+        let media: Media?
+        let categories: [Term]
+        let tags: [Term]
+        let author: Author?
         let favorite: Bool
     }
     
     struct FetchWebResponse {
-        let post: PostType?
-        let term: TermType?
+        let post: Post?
+        let term: Term?
         let decisionHandler: ((WKNavigationActionPolicy) -> Void)
     }
     
@@ -70,7 +70,7 @@ enum ShowPostAPI {
         let favorite: Bool
     }
     
-    struct PostViewModel {
+    struct PostViewModel: Equatable {
         let title: String
         let link: String
         let content: String
@@ -78,7 +78,7 @@ enum ShowPostAPI {
         let favorite: Bool
     }
     
-    struct PageViewModel {
+    struct PageViewModel: Equatable {
         let title: String
         let content: String
         let date: String
@@ -86,15 +86,20 @@ enum ShowPostAPI {
         let tags: [String]
     }
     
-    struct AuthorViewModel {
+    struct AuthorViewModel: Equatable {
         let name: String
         let content: String
         let avatar: String
     }
     
-    struct WebViewModel {
+    struct WebViewModel: Equatable {
         let postID: Int?
         let termID: Int?
         let decisionHandler: ((WKNavigationActionPolicy) -> Void)
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.postID == rhs.postID
+                && lhs.termID == rhs.termID
+        }
     }
 }

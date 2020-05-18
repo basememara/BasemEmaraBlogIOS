@@ -10,8 +10,8 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowSettingsViewController: UIViewController {
-    private let store: Store<ShowSettingsState>
+final class ShowSettingsViewController: UIViewController {
+    private let state: ShowSettingsState
     private let interactor: ShowSettingsInteractable?
     private let render: ShowSettingsRenderable?
     private var cancellable: NotificationCenter.Cancellable?
@@ -24,19 +24,18 @@ class ShowSettingsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<ShowSettingsState>,
+        state: ShowSettingsState,
         interactor: ShowSettingsInteractable?,
-        render: ShowSettingsRender?
+        render: ShowSettingsRenderable?
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.render = render
+        
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -59,8 +58,8 @@ private extension ShowSettingsViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -68,11 +67,15 @@ private extension ShowSettingsViewController {
         interactor?.fetchTheme()
     }
     
-    func load(_ state: ShowSettingsState) {
-        tableView.reloadData()
-        load(autoThemeEnabled: state.autoThemeEnabled)
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ShowSettingsState>) {
+        switch keyPath {
+        case \ShowSettingsState.settingsMenu:
+            tableView.reloadData()
+        case \ShowSettingsState.autoThemeEnabled:
+            load(autoThemeEnabled: state.autoThemeEnabled)
+        default:
+            break
+        }
     }
     
     func load(autoThemeEnabled: Bool) {
@@ -104,9 +107,8 @@ extension ShowSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let item = store.state
-            .settingsMenu[safe: indexPath.row] else {
-                return
+        guard let item = state.settingsMenu[safe: indexPath.row] else {
+            return
         }
         
         switch item.type {
@@ -134,11 +136,11 @@ extension ShowSettingsViewController: UITableViewDelegate {
 extension ShowSettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        store.state.settingsMenu.count
+        state.settingsMenu.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = store.state.settingsMenu[safe: indexPath.row] else {
+        guard let item = state.settingsMenu[safe: indexPath.row] else {
             return UITableViewCell()
         }
         
@@ -179,7 +181,7 @@ private extension ShowSettingsViewController {
         autoThemeSwitch.trailingAnchor.constraint(equalTo: cell.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         autoThemeSwitch.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         
-        load(autoThemeEnabled: store.state.autoThemeEnabled)
+        load(autoThemeEnabled: state.autoThemeEnabled)
         
         return cell
     }

@@ -8,30 +8,64 @@
 
 import SwiftyPress
 
-struct HomeState: State {
-    private(set) var profile: HomeAPI.Profile?
-    private(set) var homeMenu: [HomeAPI.MenuSection] = []
-    private(set) var socialMenu: [HomeAPI.SocialItem] = []
+class HomeState: StateRepresentable {
+    
+    private(set) var profile: HomeAPI.Profile? {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \HomeState.profile) }
+    }
+    
+    private(set) var homeMenu: [HomeAPI.MenuSection] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \HomeState.homeMenu) }
+    }
+    
+    private(set) var socialMenu: [HomeAPI.SocialItem] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \HomeState.socialMenu) }
+    }
+}
+
+// MARK: - Action
+
+enum HomeAction: Action {
+    case loadProfile(HomeAPI.Profile)
+    case loadMenu([HomeAPI.MenuSection])
+    case loadSocial([HomeAPI.SocialItem])
 }
 
 // MARK: - Reducer
 
 extension HomeState {
     
-    enum HomeAction: Action {
-        case loadProfile(HomeAPI.Profile)
-        case loadMenu([HomeAPI.MenuSection])
-        case loadSocial([HomeAPI.SocialItem])
-    }
-    
-    mutating func callAsFunction(_ action: HomeAction) {
+    func reduce(_ action: HomeAction) {
         switch action {
-        case .loadProfile(let profile):
-            self.profile = profile
-        case .loadMenu(let sections):
-            homeMenu = sections
-        case .loadSocial(let social):
-            socialMenu = social
+        case .loadProfile(let item):
+            profile = item
+        case .loadMenu(let item):
+            homeMenu = item
+        case .loadSocial(let item):
+            socialMenu = item
         }
     }
 }
+
+// MARK: - Conformances
+
+extension HomeState: Equatable {
+    
+    static func == (lhs: HomeState, rhs: HomeState) -> Bool {
+        lhs.profile == rhs.profile
+            && lhs.homeMenu == rhs.homeMenu
+            && lhs.socialMenu == rhs.socialMenu
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension HomeState: ObservableObject {}
+#endif

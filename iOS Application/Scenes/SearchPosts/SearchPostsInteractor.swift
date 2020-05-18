@@ -9,12 +9,12 @@
 import SwiftyPress
 
 struct SearchPostsInteractor: SearchPostsInteractable {
-    private let presenter: SearchPostsPresenterType
+    private let presenter: SearchPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
     
     init(
-        presenter: SearchPostsPresenterType,
+        presenter: SearchPostsPresentable,
         postRepository: PostRepository,
         mediaRepository: MediaRepository
     ) {

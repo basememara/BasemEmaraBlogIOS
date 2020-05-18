@@ -9,25 +9,24 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-    private let store: Store<MainState>
+    private let state: MainState
     private let interactor: MainInteractable?
     private let render: MainRenderable
     private var cancellable: NotificationCenter.Cancellable?
     
     init(
-        store: Store<MainState>,
+        state: MainState,
         interactor: MainInteractable?,
         render: MainRenderable
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
         self.render = render
+        
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -44,14 +43,17 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
-        store(in: &cancellable, observer: load)
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
         interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
-    func load(_ state: MainState) {
+    func load(_ keyPath: PartialKeyPath<MainState>) {
+        // State unchanged from here, stop listening
+        cancellable?.cancel()
+        
         viewControllers = state.tabMenu.map { item in
             UINavigationController(
                 rootViewController: render.rootView(for: item.id).apply {

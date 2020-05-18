@@ -8,30 +8,59 @@
 
 import SwiftyPress
 
-struct ListPostsState: State {
-    private(set) var posts: [PostsDataViewModel] = []
-    private(set) var error: AppAPI.Error?
+class ListPostsState: StateRepresentable {
+    
+    private(set) var posts: [PostsDataViewModel] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ListPostsState.posts) }
+    }
+    
+    private(set) var error: AppAPI.Error? {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \ListPostsState.error) }
+    }
+}
+
+// MARK: - Action
+
+enum ListPostsAction: Action {
+    case loadPosts([PostsDataViewModel])
+    case toggleFavorite(ListPostsAPI.FavoriteViewModel)
+    case loadError(AppAPI.Error?)
 }
 
 // MARK: - Reducer
 
 extension ListPostsState {
     
-    enum ListPostsAction: Action {
-        case loadPosts([PostsDataViewModel])
-        case toggleFavorite(ListPostsAPI.FavoriteViewModel)
-        case loadError(AppAPI.Error?)
-    }
-    
-    mutating func callAsFunction(_ action: ListPostsAction) {
+    func reduce(_ action: ListPostsAction) {
         switch action {
-        case .loadPosts(let value):
-            posts = value
-        case .toggleFavorite(let value):
+        case .loadPosts(let item):
+            posts = item
+        case .toggleFavorite(let item):
             // TODO: Handle
             break
-        case .loadError(let value):
-            error = value
+        case .loadError(let item):
+            error = item
         }
     }
 }
+
+// MARK: - Conformances
+
+extension ListPostsState: Equatable {
+    
+    static func == (lhs: ListPostsState, rhs: ListPostsState) -> Bool {
+        lhs.posts == rhs.posts
+            && lhs.error == rhs.error
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension ListPostsState: ObservableObject {}
+#endif

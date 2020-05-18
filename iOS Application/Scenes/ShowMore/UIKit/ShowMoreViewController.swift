@@ -12,11 +12,10 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowMoreViewController: UIViewController {
-    private let store: Store<ShowMoreState>
+    private let state: ShowMoreState
     private let interactor: ShowMoreInteractable?
+    private(set) var render: ShowMoreRenderable?
     private var cancellable: NotificationCenter.Cancellable?
-    
-    var render: ShowMoreRenderable?
     
     // MARK: - Controls
     
@@ -25,15 +24,19 @@ final class ShowMoreViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(store: Store<ShowMoreState>, interactor: ShowMoreInteractable?) {
-        self.store = store
+    init(
+        state: ShowMoreState,
+        interactor: ShowMoreInteractable?,
+        render: ((UIViewController) -> ShowMoreRenderable)?
+    ) {
+        self.state = state
         self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -56,8 +59,8 @@ private extension ShowMoreViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -65,11 +68,15 @@ private extension ShowMoreViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ state: ShowMoreState) {
-        tableView.reloadData()
-        load(state.socialMenu)
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ShowMoreState>) {
+        switch keyPath {
+        case \ShowMoreState.moreMenu:
+            tableView.reloadData()
+        case \ShowMoreState.socialMenu:
+            load(state.socialMenu)
+        default:
+            break
+        }
     }
     
     func load(_ state: [ShowMoreAPI.SocialItem]) {
@@ -103,7 +110,7 @@ extension ShowMoreViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let cell = tableView.cellForRow(at: indexPath),
-            let item = store.state.moreMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            let item = state.moreMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
         
@@ -114,20 +121,20 @@ extension ShowMoreViewController: UITableViewDelegate {
 extension ShowMoreViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        store.state.moreMenu.count
+        state.moreMenu.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        store.state.moreMenu[safe: section]?.items.count ?? 0
+        state.moreMenu[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        store.state.moreMenu[safe: section]?.title ??+ nil
+        state.moreMenu[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = store.state
-            .moreMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
+        guard let item = state.moreMenu[safe: indexPath.section]?
+            .items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
         
@@ -168,7 +175,7 @@ private extension ShowMoreViewController {
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             
-            load(store.state.socialMenu)
+            load(state.socialMenu)
             
             socialCellStackView.translatesAutoresizingMaskIntoConstraints = false
             socialCellStackView.topAnchor.constraint(equalTo: $0.topAnchor, constant: 12).isActive = true

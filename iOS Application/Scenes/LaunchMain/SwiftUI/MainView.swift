@@ -11,19 +11,19 @@ import SwiftUI
 
 @available(iOS 13, *)
 struct MainView: View {
-    @ObservedObject private var store: Store<MainState>
+    @ObservedObject private var state: MainState
     private let interactor: MainInteractable?
     private let render: MainRenderable
-    
-    init(store: Store<MainState>, interactor: MainInteractable?, render: MainRenderable) {
-        self.store = store
+
+    init(state: MainState, interactor: MainInteractable?, render: MainRenderable) {
+        self.state = state
         self.interactor = interactor
         self.render = render
     }
     
     var body: some View {
         TabView {
-            ForEach(store.state.tabMenu) { menu in
+            ForEach(state.tabMenu) { menu in
                 NavigationView {
                     ViewRepresentable(
                         viewController: self.render.rootView(for: menu.id)

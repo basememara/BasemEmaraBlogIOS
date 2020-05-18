@@ -28,6 +28,6 @@ enum ListTermsAPI {
     struct FetchTermsRequest {}
     
     struct TermsResponse {
-        let terms: [TermType]
+        let terms: [Term]
     }
 }

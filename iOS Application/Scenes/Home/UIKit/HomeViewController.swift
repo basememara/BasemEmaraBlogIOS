@@ -12,11 +12,10 @@ import ZamzamCore
 import ZamzamUI
 
 final class HomeViewController: UIViewController {
-    private let store: Store<HomeState>
+    private let state: HomeState
     private let interactor: HomeInteractable?
+    private var render: HomeRenderable?
     private var cancellable: NotificationCenter.Cancellable?
-    
-    var render: HomeRenderable?
     
     // MARK: - Controls
     
@@ -29,21 +28,26 @@ final class HomeViewController: UIViewController {
         $0.tableHeaderView = headerView
     }
     
-    private lazy var headerView = HomeHeaderView(store.state).apply {
-        $0.delegate = self
-    }
+    private lazy var headerView = HomeHeaderView(
+        state: state,
+        delegate: self
+    )
     
     // MARK: - Initializers
     
-    init(store: Store<HomeState>, interactor: HomeInteractable?) {
-        self.store = store
+    init(
+        state: HomeState,
+        interactor: HomeInteractable?,
+        render: ((UIViewController) -> HomeRenderable)?
+    ) {
+        self.state = state
         self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -69,12 +73,15 @@ final class HomeViewController: UIViewController {
 private extension HomeViewController {
     
     func prepare() {
+        // Configure controls
         navigationController?.navigationBar.prefersLargeTitles = false
         
+        // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -83,9 +90,17 @@ private extension HomeViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ state: HomeState) {
-        headerView.load(state)
-        tableView.reloadData()
+    func load(_ keyPath: PartialKeyPath<HomeState>) {
+        switch keyPath {
+        case \HomeState.profile:
+            headerView.reloadProfile()
+        case \HomeState.socialMenu:
+            headerView.reloadSocialMenu()
+        case \HomeState.homeMenu:
+            tableView.reloadData()
+        default:
+            break
+        }
     }
 }
 
@@ -96,7 +111,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let item = store.state
+        guard let item = state
             .homeMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
@@ -108,19 +123,19 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        store.state.homeMenu.count
+        state.homeMenu.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        store.state.homeMenu[safe: section]?.items.count ?? 0
+        state.homeMenu[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        store.state.homeMenu[safe: section]?.title ??+ nil
+        state.homeMenu[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = store.state
+        guard let item = state
             .homeMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
@@ -147,11 +162,11 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 struct HomeViewController_Preview: PreviewProvider {
-    
+
     static var previews: some View {
         Group {
             HomeViewRepresentable()
-            
+
             HomeViewRepresentable()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .colorScheme(.dark)
@@ -161,20 +176,17 @@ struct HomeViewController_Preview: PreviewProvider {
 
 @available(iOS 13.0, *)
 extension HomeViewController_Preview {
-    
+
     struct HomeViewRepresentable: UIViewRepresentable {
-        
+
         func makeUIView(context: Context) -> UIView {
-            let testState = AppState(
-                homeState: AppPreview.homeState
-            )
-            
-            return HomeViewController(
-                store: Store(keyPath: \.homeState, for: testState),
-                interactor: nil
+            HomeViewController(
+                state: AppPreview.homeState,
+                interactor: nil,
+                render: nil
             ).view ?? .init()
         }
-        
+
         func updateUIView(_ view: UIView, context: Context) {}
     }
 }

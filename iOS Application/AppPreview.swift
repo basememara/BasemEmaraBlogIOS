@@ -12,68 +12,82 @@ struct AppPreview {
 
 extension AppPreview {
     
-    static let homeState = HomeState(
-        profile: HomeAPI.Profile(
-            avatar: "BasemProfilePic",
-            name: "John Doe",
-            caption: "Quality Assurance / iOS"
-        ),
-        homeMenu: [
-            HomeAPI.MenuSection(
-                title: nil,
-                items: [
-                    HomeAPI.MenuItem(
-                        type: .about,
-                        title: "Company Info",
-                        icon: "about"
-                    ),
-                    HomeAPI.MenuItem(
-                        type: .portfolio,
-                        title: "Customers",
-                        icon: "portfolio"
-                    )
-                ]
-            ),
-            HomeAPI.MenuSection(
-                title: "Services",
-                items: [
-                    HomeAPI.MenuItem(
-                        type: .seriesScalableApp,
-                        title: "Testing",
-                        icon: "seriesScalableApp"
-                    ),
-                    HomeAPI.MenuItem(
-                        type: .seriesSwiftUtilities,
-                        title: "Reporting",
-                        icon: "seriesSwiftUtilities"
-                    )
-                ]
-            ),
-            HomeAPI.MenuSection(
-                title: "Something",
-                items: [
-                    HomeAPI.MenuItem(
-                        type: .coursesArchitecture,
-                        title: "Lorem Ipsum",
-                        icon: "coursesArchitecture"
-                    ),
-                    HomeAPI.MenuItem(
-                        type: .coursesFramework,
-                        title: "Anything Else",
-                        icon: "coursesFramework"
-                    )
-                ]
+    static let homeState: HomeState = {
+        let state = HomeState()
+        
+        state.reduce(
+            .loadProfile(
+                HomeAPI.Profile(
+                    avatar: "BasemProfilePic",
+                    name: "John Doe",
+                    caption: "Quality Assurance / iOS"
+                )
             )
-        ],
-        socialMenu: [
-            HomeAPI.SocialItem(
-                type: .twitter,
-                title: "Twitter"
-            ),
-            HomeAPI.SocialItem(
-                type: .email,
-                title: "Email"
-            )
-        ]
-    )
+        )
+            
+        state.reduce(
+            .loadMenu([
+                HomeAPI.MenuSection(
+                    title: nil,
+                    items: [
+                        HomeAPI.MenuItem(
+                            type: .about,
+                            title: "Company Info",
+                            icon: "about"
+                        ),
+                        HomeAPI.MenuItem(
+                            type: .portfolio,
+                            title: "Customers",
+                            icon: "portfolio"
+                        )
+                    ]
+                ),
+                HomeAPI.MenuSection(
+                    title: "Services",
+                    items: [
+                        HomeAPI.MenuItem(
+                            type: .seriesScalableApp,
+                            title: "Testing",
+                            icon: "seriesScalableApp"
+                        ),
+                        HomeAPI.MenuItem(
+                            type: .seriesSwiftUtilities,
+                            title: "Reporting",
+                            icon: "seriesSwiftUtilities"
+                        )
+                    ]
+                ),
+                HomeAPI.MenuSection(
+                    title: "Something",
+                    items: [
+                        HomeAPI.MenuItem(
+                            type: .coursesArchitecture,
+                            title: "Lorem Ipsum",
+                            icon: "coursesArchitecture"
+                        ),
+                        HomeAPI.MenuItem(
+                            type: .coursesFramework,
+                            title: "Anything Else",
+                            icon: "coursesFramework"
+                        )
+                    ]
+                )
+            ])
+        )
+        
+        state.reduce(
+            .loadSocial([
+                HomeAPI.SocialItem(
+                    type: .twitter,
+                    title: "Twitter"
+                ),
+                HomeAPI.SocialItem(
+                    type: .email,
+                    title: "Email"
+                )
+            ])
+        )
+        
+        return state
+    }()
 }

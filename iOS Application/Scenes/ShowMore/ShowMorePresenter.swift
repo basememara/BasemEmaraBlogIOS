@@ -6,21 +6,21 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
-struct ShowMorePresenter<Store: StoreRepresentable>: ShowMorePresentable where Store.StateType == ShowMoreState {
-    private let store: Store
+struct ShowMorePresenter: ShowMorePresentable {
+    private let dispatch: Dispatcher<ShowMoreAction>
     
-    init(store: Store) {
-        self.store = store
+    init(dispatch: @escaping Dispatcher<ShowMoreAction>) {
+        self.dispatch = dispatch
     }
 }
 
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        store.action(.loadMenu(menu))
+        dispatch(.loadMenu(menu))
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        store.action(.loadSocial(social))
+        dispatch(.loadSocial(social))
     }
 }

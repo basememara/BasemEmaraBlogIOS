@@ -6,22 +6,46 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct MainState: State {
-    private(set) var tabMenu: [MainAPI.TabItem] = []
+class MainState: StateRepresentable {
+    
+    private(set) var tabMenu: [MainAPI.TabItem] = [] {
+        willSet { if #available(iOS 13, *) { combineSend() } }
+        didSet { notificationPost(keyPath: \MainState.tabMenu) }
+    }
+}
+
+// MARK: - Action
+
+enum MainAction: Action {
+    case loadMenu([MainAPI.TabItem])
 }
 
 // MARK: - Reducer
 
 extension MainState {
     
-    enum MainAction: Action {
-        case loadMenu([MainAPI.TabItem])
-    }
-    
-    mutating func callAsFunction(_ action: MainAction) {
+    func reduce(_ action: MainAction) {
         switch action {
         case .loadMenu(let menu):
             tabMenu = menu
         }
     }
 }
+
+// MARK: - Conformances
+
+extension MainState: Equatable {
+    
+    static func == (lhs: MainState, rhs: MainState) -> Bool {
+        lhs.tabMenu == rhs.tabMenu
+    }
+}
+
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension MainState: ObservableObject {}
+#endif

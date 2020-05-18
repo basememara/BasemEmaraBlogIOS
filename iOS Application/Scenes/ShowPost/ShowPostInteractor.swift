@@ -34,20 +34,22 @@ extension ShowPostInteractor {
     
     func fetchPost(with request: ShowPostAPI.Request) {
         postRepository.fetch(id: request.postID) {
-            guard case .success(let value) = $0 else {
-                return self.presenter.displayPost(
+            guard case .success(let item) = $0 else {
+                self.presenter.displayPost(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             self.presenter.displayPost(
                 for: ShowPostAPI.Response(
-                    post: value.post,
-                    media: value.media,
-                    categories: value.terms.filter { $0.taxonomy == .category },
-                    tags: value.terms.filter { $0.taxonomy == .tag },
-                    author: value.author,
-                    favorite: self.postRepository.hasFavorite(id: value.post.id)
+                    post: item.post,
+                    media: item.media,
+                    categories: item.terms.filter { $0.taxonomy == .category },
+                    tags: item.terms.filter { $0.taxonomy == .tag },
+                    author: item.author,
+                    favorite: self.postRepository.hasFavorite(id: item.post.id)
                 )
             )
         }

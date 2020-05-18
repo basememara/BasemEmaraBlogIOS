@@ -39,7 +39,7 @@ enum MainAPI {
         case more
     }
     
-    struct TabItem: Identifiable {
+    struct TabItem: Identifiable, Equatable {
         let id: Menu
         let title: String
         let imageName: String

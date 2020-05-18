@@ -11,12 +11,11 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ListTermsViewController: UIViewController {
-    private let store: Store<ListTermsState>
+final class ListTermsViewController: UIViewController {
+    private let state: ListTermsState
     private let interactor: ListTermsInteractable?
+    private var render: ListTermsRenderable?
     private var cancellable: NotificationCenter.Cancellable?
-    
-    var render: ListTermsRenderable?
     
     // MARK: - Controls
     
@@ -33,17 +32,18 @@ class ListTermsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        store: Store<ListTermsState>,
-        interactor: ListTermsInteractable?
+        state: ListTermsState,
+        interactor: ListTermsInteractable?,
+        render: ((UIViewController) -> ListTermsRenderable)?
     ) {
-        self.store = store
+        self.state = state
         self.interactor = interactor
+        
         super.init(nibName: nil, bundle: nil)
+        self.render = render?(self)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
     
@@ -66,8 +66,8 @@ private extension ListTermsViewController {
         view.addSubview(tableView)
         tableView.edges(to: view)
         
-        // Bind state
-        store(in: &cancellable, observer: load)
+        // Reactive data
+        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -76,10 +76,15 @@ private extension ListTermsViewController {
         )
     }
     
-    func load(_ state: ListTermsState) {
-        tableViewAdapter.reloadData(with: state.terms)
-        
-        // TODO: Handle error
+    func load(_ keyPath: PartialKeyPath<ListTermsState>) {
+        switch keyPath {
+        case \ListTermsState.terms:
+            tableViewAdapter.reloadData(with: state.terms)
+        case \ListTermsState.error:
+            break // TODO: Handle error
+        default:
+            break
+        }
     }
 }
 

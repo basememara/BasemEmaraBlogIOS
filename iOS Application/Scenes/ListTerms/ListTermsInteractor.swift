@@ -22,13 +22,15 @@ extension ListTermsInteractor {
     
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
-            guard case .success(let value) = $0 else {
-                return self.presenter.displayTerms(
+            guard case .success(let item) = $0 else {
+                self.presenter.displayTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
-            let terms = value.sorted { $0.count > $1.count }
+            let terms = item.sorted { $0.count > $1.count }
             
             self.presenter.displayTerms(
                 for: ListTermsAPI.TermsResponse(

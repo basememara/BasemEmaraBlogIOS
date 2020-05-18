@@ -59,13 +59,13 @@ enum ShowBlogAPI {
     }
     
     struct PostsResponse {
-        let posts: [PostType]
-        let media: [MediaType]
+        let posts: [Post]
+        let media: [Media]
         let favorites: [Int]
     }
     
     struct TermsResponse {
-        let terms: [TermType]
+        let terms: [Term]
     }
     
     struct FavoriteResponse {

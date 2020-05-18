@@ -40,24 +40,24 @@ enum HomeAPI {
         case consultingMentorship
     }
     
-    struct MenuItem {
+    struct MenuItem: Equatable {
         let type: Menu
         let title: String
         let icon: String
     }
     
-    struct MenuSection {
+    struct MenuSection: Equatable {
         let title: String?
         let items: [MenuItem]
     }
     
-    struct Profile {
+    struct Profile: Equatable {
         let avatar: String
         let name: String
         let caption: String
     }
     
-    struct SocialItem {
+    struct SocialItem: Equatable {
         let type: Social
         let title: String
     }
