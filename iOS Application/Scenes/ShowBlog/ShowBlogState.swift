@@ -6,33 +6,95 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ShowBlogState: StateRepresentable {
+    private let sharedState: SharedState
+    private var latestPostIDs: [Int] = []
+    private var popularPostIDs: [Int] = []
+    private var topPickPostIDs: [Int] = []
+    private var termIDs: [Int] = []
+    private var cancellable: NotificationCenter.Cancellable?
     
     private(set) var latestPosts: [PostsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowBlogState.latestPosts) }
+        willSet {
+            guard newValue != latestPosts, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != latestPosts else { return }
+            notificationPost(keyPath: \ShowBlogState.latestPosts)
+        }
     }
     
     private(set) var popularPosts: [PostsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowBlogState.popularPosts) }
+        willSet {
+            guard newValue != popularPosts, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != popularPosts else { return }
+            notificationPost(keyPath: \ShowBlogState.popularPosts)
+        }
     }
     
     private(set) var topPickPosts: [PostsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowBlogState.topPickPosts) }
+        willSet {
+            guard newValue != topPickPosts, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != topPickPosts else { return }
+            notificationPost(keyPath: \ShowBlogState.topPickPosts)
+        }
     }
     
     private(set) var terms: [TermsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowBlogState.terms) }
+        willSet {
+            guard newValue != terms, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != terms else { return }
+            notificationPost(keyPath: \ShowBlogState.terms)
+        }
     }
     
     private(set) var error: AppAPI.Error? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowBlogState.error) }
+        willSet {
+            guard newValue != error, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != error else { return }
+            notificationPost(keyPath: \ShowBlogState.error)
+        }
+    }
+    
+    init(sharedState: SharedState) {
+        self.sharedState = sharedState
+        self.sharedState.subscribe(load, in: &cancellable)
+    }
+}
+
+private extension ShowBlogState {
+    
+    func load(_ keyPath: PartialKeyPath<SharedState>?) {
+        if keyPath == \SharedState.posts || keyPath == nil {
+            latestPosts = latestPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+            popularPosts = popularPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+            topPickPosts = topPickPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+        }
+        
+        if keyPath == \SharedState.terms || keyPath == nil {
+            terms = termIDs.compactMap { id in sharedState.terms.first { $0.id == id } }
+        }
     }
 }
 
@@ -54,28 +116,25 @@ extension ShowBlogState {
     func reduce(_ action: ShowBlogAction) {
         switch action {
         case .loadLatestPosts(let items):
-            latestPosts = items
+            latestPostIDs = items.map(\.id)
+            sharedState.reduce(.mergePosts(items))
         case .loadPopularPosts(let items):
-            popularPosts = items
+            popularPostIDs = items.map(\.id)
+            sharedState.reduce(.mergePosts(items))
         case .loadTopPickPosts(let items):
-            topPickPosts = items
+            topPickPostIDs = items.map(\.id)
+            sharedState.reduce(.mergePosts(items))
         case .loadTerms(let items):
-            terms = items
+            termIDs = items.map(\.id)
+            sharedState.reduce(.mergeTerms(items))
         case .toggleFavorite(let item):
-            if let index = latestPosts
-                .firstIndex(where: { $0.id == item.postID }) {
-                //latestPosts[index] = PostsDataViewModel(
+            guard let current = sharedState.posts
+                .first(where: { $0.id == item.postID })?
+                .toggled(favorite: item.favorite) else {
+                    return
             }
             
-            if let index = popularPosts
-                .firstIndex(where: { $0.id == item.postID }) {
-                //popularPosts[index] = PostsDataViewModel(
-            }
-            
-            if let index = topPickPosts
-                .firstIndex(where: { $0.id == item.postID }) {
-                //topPickPosts[index] = PostsDataViewModel(
-            }
+            sharedState.reduce(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

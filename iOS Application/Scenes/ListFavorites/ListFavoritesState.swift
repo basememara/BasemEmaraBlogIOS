@@ -11,13 +11,27 @@ import SwiftyPress
 class ListFavoritesState: StateRepresentable {
     
     private(set) var favorites: [PostsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ListFavoritesState.favorites) }
+        willSet {
+            guard newValue != favorites, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != favorites else { return }
+            notificationPost(keyPath: \ListFavoritesState.favorites)
+        }
     }
     
     private(set) var error: AppAPI.Error? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ListFavoritesState.error) }
+        willSet {
+            guard newValue != error, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != error else { return }
+            notificationPost(keyPath: \ListFavoritesState.error)
+        }
     }
 }
 

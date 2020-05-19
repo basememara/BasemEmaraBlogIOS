@@ -11,23 +11,51 @@ import SwiftyPress
 class ShowPostState: StateRepresentable {
     
     private(set) var web: ShowPostAPI.WebViewModel? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowPostState.web) }
+        willSet {
+            guard newValue != web, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != web else { return }
+            notificationPost(keyPath: \ShowPostState.web)
+        }
     }
     
     private(set) var post: ShowPostAPI.PostViewModel? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowPostState.post) }
+        willSet {
+            guard newValue != post, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != post else { return }
+            notificationPost(keyPath: \ShowPostState.post)
+        }
     }
     
     private(set) var favorite: Bool = false {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowPostState.favorite) }
+        willSet {
+            guard newValue != favorite, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != favorite else { return }
+            notificationPost(keyPath: \ShowPostState.favorite)
+        }
     }
     
     private(set) var error: AppAPI.Error? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowPostState.error) }
+        willSet {
+            guard newValue != error, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != error else { return }
+            notificationPost(keyPath: \ShowPostState.error)
+        }
     }
 }
 

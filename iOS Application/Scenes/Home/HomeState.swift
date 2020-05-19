@@ -11,18 +11,39 @@ import SwiftyPress
 class HomeState: StateRepresentable {
     
     private(set) var profile: HomeAPI.Profile? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \HomeState.profile) }
+        willSet {
+            guard newValue != profile, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != profile else { return }
+            notificationPost(keyPath: \HomeState.profile)
+        }
     }
     
     private(set) var homeMenu: [HomeAPI.MenuSection] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \HomeState.homeMenu) }
+        willSet {
+            guard newValue != homeMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != homeMenu else { return }
+            notificationPost(keyPath: \HomeState.homeMenu)
+        }
     }
     
     private(set) var socialMenu: [HomeAPI.SocialItem] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \HomeState.socialMenu) }
+        willSet {
+            guard newValue != socialMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != socialMenu else { return }
+            notificationPost(keyPath: \HomeState.socialMenu)
+        }
     }
 }
 

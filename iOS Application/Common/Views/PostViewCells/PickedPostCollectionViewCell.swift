@@ -29,6 +29,7 @@ final class PickedPostCollectionViewCell: UICollectionViewCell {
     
     private lazy var favoriteButton = ThemedImageButton().apply {
         $0.setImage(UIImage(named: .favoriteEmpty), for: .normal)
+        $0.setImage(UIImage(named: .favoriteFilled), for: .selected)
         $0.imageView?.contentMode = .scaleAspectFit
         $0.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside) // Must be in lazy init
     }
