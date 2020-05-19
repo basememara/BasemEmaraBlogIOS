@@ -35,8 +35,8 @@ extension ListFavoritesState {
     
     func reduce(_ action: ListFavoritesAction) {
         switch action {
-        case .loadFavorites(let item):
-            favorites = item
+        case .loadFavorites(let items):
+            favorites = items
         case .toggleFavorite(let item):
             guard item.favorite else {
                 if let index = favorites

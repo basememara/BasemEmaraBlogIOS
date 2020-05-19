@@ -34,8 +34,8 @@ extension ListTermsState {
     
     func reduce(_ action: ListTermsAction) {
         switch action {
-        case .loadTerms(let item):
-            terms = item
+        case .loadTerms(let items):
+            terms = items
         case .loadError(let item):
             error = item
         }

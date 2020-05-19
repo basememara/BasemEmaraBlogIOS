@@ -53,14 +53,14 @@ extension ShowBlogState {
     
     func reduce(_ action: ShowBlogAction) {
         switch action {
-        case .loadLatestPosts(let item):
-            latestPosts = item
-        case .loadPopularPosts(let item):
-            popularPosts = item
-        case .loadTopPickPosts(let item):
-            topPickPosts = item
-        case .loadTerms(let item):
-            terms = item
+        case .loadLatestPosts(let items):
+            latestPosts = items
+        case .loadPopularPosts(let items):
+            popularPosts = items
+        case .loadTopPickPosts(let items):
+            topPickPosts = items
+        case .loadTerms(let items):
+            terms = items
         case .toggleFavorite(let item):
             if let index = latestPosts
                 .firstIndex(where: { $0.id == item.postID }) {

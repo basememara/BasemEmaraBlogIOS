@@ -42,10 +42,10 @@ extension HomeState {
         switch action {
         case .loadProfile(let item):
             profile = item
-        case .loadMenu(let item):
-            homeMenu = item
-        case .loadSocial(let item):
-            socialMenu = item
+        case .loadMenu(let items):
+            homeMenu = items
+        case .loadSocial(let items):
+            socialMenu = items
         }
     }
 }

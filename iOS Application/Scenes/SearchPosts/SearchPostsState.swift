@@ -34,8 +34,8 @@ extension SearchPostsState {
     
     func reduce(_ action: SearchPostsAction) {
         switch action {
-        case .loadPosts(let item):
-            posts = item
+        case .loadPosts(let items):
+            posts = items
         case .loadError(let item):
             error = item
         }

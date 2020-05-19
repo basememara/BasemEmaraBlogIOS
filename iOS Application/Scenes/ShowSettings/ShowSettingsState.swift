@@ -32,8 +32,8 @@ extension ShowSettingsState {
     
     func reduce(_ action: ShowSettingsAction) {
         switch action {
-        case .loadMenu(let item):
-            settingsMenu = item
+        case .loadMenu(let items):
+            settingsMenu = items
         case .setAutoThemeEnabled(let item):
             autoThemeEnabled = item
         }

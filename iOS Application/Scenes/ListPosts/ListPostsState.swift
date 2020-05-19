@@ -35,8 +35,8 @@ extension ListPostsState {
     
     func reduce(_ action: ListPostsAction) {
         switch action {
-        case .loadPosts(let item):
-            posts = item
+        case .loadPosts(let items):
+            posts = items
         case .toggleFavorite(let item):
             // TODO: Handle
             break
