@@ -151,14 +151,17 @@ extension ListPostsViewController: PostsDataViewDelegate {
         
         return UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
-                    self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
-                    tableView.reloadRows(at: [indexPath], with: .none)
-                    completion(true)
-                }
-                .apply {
+                UIContextualAction(
+                    style: isFavorite ? .destructive : .normal,
+                    title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle),
+                    handler: { _, _, completion in
+                        self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
+                        tableView.reloadRows(at: [indexPath], with: .none)
+                        completion(true)
+                    }
+                ).apply {
                     $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
-                    $0.backgroundColor = theme.tint
+                    $0.backgroundColor = isFavorite ? theme.negativeColor : theme.tint
                 }
             ]
         )
