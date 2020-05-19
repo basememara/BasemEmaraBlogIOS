@@ -67,14 +67,13 @@ private extension ShowSettingsViewController {
         interactor?.fetchTheme()
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowSettingsState>) {
-        switch keyPath {
-        case \ShowSettingsState.settingsMenu:
+    func load(_ keyPath: PartialKeyPath<ShowSettingsState>?) {
+        if keyPath == \ShowSettingsState.settingsMenu || keyPath == nil {
             tableView.reloadData()
-        case \ShowSettingsState.autoThemeEnabled:
+        }
+        
+        if keyPath == \ShowSettingsState.autoThemeEnabled || keyPath == nil {
             load(autoThemeEnabled: state.autoThemeEnabled)
-        default:
-            break
         }
     }
     

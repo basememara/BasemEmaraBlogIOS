@@ -90,16 +90,17 @@ private extension HomeViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ keyPath: PartialKeyPath<HomeState>) {
-        switch keyPath {
-        case \HomeState.profile:
+    func load(_ keyPath: PartialKeyPath<HomeState>?) {
+        if keyPath == \HomeState.profile || keyPath == nil {
             headerView.reloadProfile()
-        case \HomeState.socialMenu:
+        }
+        
+        if keyPath == \HomeState.socialMenu || keyPath == nil {
             headerView.reloadSocialMenu()
-        case \HomeState.homeMenu:
+        }
+        
+        if keyPath == \HomeState.homeMenu || keyPath == nil {
             tableView.reloadData()
-        default:
-            break
         }
     }
 }

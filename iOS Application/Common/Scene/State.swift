@@ -25,7 +25,10 @@ extension StateRepresentable {
     /// - Parameters:
     ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
-    func subscribe<State: StateRepresentable>(_ observer: @escaping (PartialKeyPath<State>) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
+    func subscribe<State: StateRepresentable>(_ observer: @escaping (PartialKeyPath<State>?) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
+        // Load initial state
+        observer(nil)
+        
         NotificationCenter.default.addObserver(forName: .stateDidChange, queue: .main, in: &cancellable) { notification in
             guard let keyPath = notification.userInfo?[.keyPath] as? PartialKeyPath<State> else { return }
             observer(keyPath)

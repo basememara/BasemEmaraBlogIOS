@@ -127,14 +127,13 @@ private extension ListPostsViewController {
         }
     }
     
-    func load(_ keyPath: PartialKeyPath<ListPostsState>) {
-        switch keyPath {
-        case \ListPostsState.posts:
+    func load(_ keyPath: PartialKeyPath<ListPostsState>?) {
+        if keyPath == \ListPostsState.posts || keyPath == nil {
             tableViewAdapter.reloadData(with: state.posts)
-        case \ListPostsState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \ListPostsState.error {
+            // TODO: Handle error
         }
     }
 }

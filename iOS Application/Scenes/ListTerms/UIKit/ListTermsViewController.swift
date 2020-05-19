@@ -76,14 +76,13 @@ private extension ListTermsViewController {
         )
     }
     
-    func load(_ keyPath: PartialKeyPath<ListTermsState>) {
-        switch keyPath {
-        case \ListTermsState.terms:
+    func load(_ keyPath: PartialKeyPath<ListTermsState>?) {
+        if keyPath == \ListTermsState.terms || keyPath == nil {
             tableViewAdapter.reloadData(with: state.terms)
-        case \ListTermsState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \ListTermsState.error {
+            // TODO: Handle error
         }
     }
 }

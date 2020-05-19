@@ -68,14 +68,13 @@ private extension ShowMoreViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowMoreState>) {
-        switch keyPath {
-        case \ShowMoreState.moreMenu:
+    func load(_ keyPath: PartialKeyPath<ShowMoreState>?) {
+        if keyPath == \ShowMoreState.moreMenu || keyPath == nil {
             tableView.reloadData()
-        case \ShowMoreState.socialMenu:
+        }
+        
+        if keyPath == \ShowMoreState.socialMenu || keyPath == nil {
             load(state.socialMenu)
-        default:
-            break
         }
     }
     

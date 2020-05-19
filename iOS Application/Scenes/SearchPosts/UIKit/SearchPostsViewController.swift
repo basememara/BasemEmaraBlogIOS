@@ -98,14 +98,13 @@ private extension SearchPostsViewController {
         state.subscribe(load, in: &cancellable)
     }
     
-    func load(_ keyPath: PartialKeyPath<SearchPostsState>) {
-        switch keyPath {
-        case \SearchPostsState.posts:
+    func load(_ keyPath: PartialKeyPath<SearchPostsState>?) {
+        if keyPath == \SearchPostsState.posts || keyPath == nil {
             tableViewAdapter.reloadData(with: state.posts)
-        case \ShowBlogState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \SearchPostsState.error {
+            // TODO: Handle error
         }
     }
 }
