@@ -52,6 +52,16 @@ final class ListTermsViewController: UIViewController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Setup
@@ -65,9 +75,6 @@ private extension ListTermsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {

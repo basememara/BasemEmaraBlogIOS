@@ -6,9 +6,15 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ListPostsState: StateRepresentable {
+    private let sharedState: SharedState
+    private var postIDs: [Int] = []
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var posts: [PostsDataViewModel] = [] {
         willSet {
@@ -33,6 +39,22 @@ class ListPostsState: StateRepresentable {
             notificationPost(keyPath: \ListPostsState.error)
         }
     }
+    
+    // MARK: - Initializers
+    
+    init(sharedState: SharedState) {
+        self.sharedState = sharedState
+        self.sharedState.subscribe(load, in: &cancellable)
+    }
+}
+
+private extension ListPostsState {
+    
+    func load(_ keyPath: PartialKeyPath<SharedState>?) {
+        if keyPath == \SharedState.posts || keyPath == nil {
+            posts = postIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+        }
+    }
 }
 
 // MARK: - Action
@@ -50,10 +72,16 @@ extension ListPostsState {
     func reduce(_ action: ListPostsAction) {
         switch action {
         case .loadPosts(let items):
-            posts = items
+            postIDs = items.map(\.id)
+            sharedState.reduce(.mergePosts(items))
         case .toggleFavorite(let item):
-            // TODO: Handle
-            break
+            guard let current = sharedState.posts
+                .first(where: { $0.id == item.postID })?
+                .toggled(favorite: item.favorite) else {
+                    return
+            }
+            
+            sharedState.reduce(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

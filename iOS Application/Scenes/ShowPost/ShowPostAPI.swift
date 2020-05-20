@@ -71,11 +71,11 @@ enum ShowPostAPI {
     }
     
     struct PostViewModel: Equatable {
+        let id: Int
         let title: String
         let link: String
         let content: String
         let commentCount: Int
-        let favorite: Bool
     }
     
     struct PageViewModel: Equatable {

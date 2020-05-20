@@ -40,6 +40,7 @@ class SharedState: StateRepresentable {
 enum SharedAction: Action {
     case mergePosts([PostsDataViewModel])
     case mergeTerms([TermsDataViewModel])
+    case toggleFavorite(postID: Int, favorite: Bool)
 }
 
 // MARK: - Reducer
@@ -54,6 +55,14 @@ extension SharedState {
         case .mergeTerms(let items):
             let ids = items.map(\.id)
             terms = terms.filter { !ids.contains($0.id) } + items
+        case .toggleFavorite(let postID, let favorite):
+            guard let current = posts
+                .first(where: { $0.id == postID })?
+                .toggled(favorite: favorite) else {
+                    return
+            }
+            
+            reduce(.mergePosts([current]))
         }
     }
 }

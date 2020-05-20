@@ -75,14 +75,15 @@ extension ShowPostPresenter {
             let template = Template(templateString: templateString)
             
             let viewModel = ShowPostAPI.PostViewModel(
+                id: response.post.id,
                 title: response.post.title,
                 link: response.post.link,
                 content: try template.render(context),
-                commentCount: response.post.commentCount,
-                favorite: response.favorite
+                commentCount: response.post.commentCount
             )
             
             dispatch(.loadPost(viewModel))
+            dispatch(.loadFavorite(response.favorite))
         } catch {
             displayPost(error: .parseFailure(error))
         }
@@ -114,6 +115,6 @@ extension ShowPostPresenter {
 extension ShowPostPresenter {
     
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        dispatch(.favorite(response.favorite))
+        dispatch(.toggleFavorite(response.favorite))
     }
 }

@@ -121,7 +121,7 @@ extension PopularPostCollectionViewCell: PostsDataViewCell {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
         featuredImage.setImage(from: model.imageURL)
-        favoriteButton.isSelected =  model.favorite ?? false
+        favoriteButton.isSelected =  model.favorite
     }
     
     func load(_ model: PostsDataViewModel, delegate: PostsDataViewDelegate?) {

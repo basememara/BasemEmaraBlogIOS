@@ -41,12 +41,23 @@ extension SearchPostsInteractor {
                     )
                 }
                 
-                self.presenter.displaySearchResults(
-                    for: SearchPostsAPI.Response(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displaySearchResults(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                    
+                    self.presenter.displaySearchResults(
+                        for: SearchPostsAPI.Response(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -71,12 +82,23 @@ extension SearchPostsInteractor {
                     )
                 }
                 
-                self.presenter.displaySearchResults(
-                    for: SearchPostsAPI.Response(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displaySearchResults(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                    
+                    self.presenter.displaySearchResults(
+                        for: SearchPostsAPI.Response(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }

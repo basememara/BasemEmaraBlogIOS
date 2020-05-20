@@ -60,11 +60,17 @@ final class ListFavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetch()
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
     }
 }
 
@@ -79,9 +85,6 @@ private extension ListFavoritesViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {

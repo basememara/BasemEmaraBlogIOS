@@ -6,9 +6,14 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ShowPostState: StateRepresentable {
+    private let sharedState: SharedState
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var web: ShowPostAPI.WebViewModel? {
         willSet {
@@ -34,15 +39,15 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    private(set) var favorite: Bool = false {
+    private(set) var isFavorite: Bool = false {
         willSet {
-            guard newValue != favorite, #available(iOS 13, *) else { return }
+            guard newValue != isFavorite, #available(iOS 13, *) else { return }
             combineSend()
         }
         
         didSet {
-            guard oldValue != favorite else { return }
-            notificationPost(keyPath: \ShowPostState.favorite)
+            guard oldValue != isFavorite else { return }
+            notificationPost(keyPath: \ShowPostState.isFavorite)
         }
     }
     
@@ -57,6 +62,22 @@ class ShowPostState: StateRepresentable {
             notificationPost(keyPath: \ShowPostState.error)
         }
     }
+    
+    // MARK: - Initializers
+    
+    init(sharedState: SharedState) {
+        self.sharedState = sharedState
+        self.sharedState.subscribe(load, in: &cancellable)
+    }
+}
+
+private extension ShowPostState {
+    
+    func load(_ keyPath: PartialKeyPath<SharedState>?) {
+        if keyPath == \SharedState.posts || keyPath == nil {
+            isFavorite = sharedState.posts.first { $0.id == post?.id }?.favorite ?? false
+        }
+    }
 }
 
 // MARK: - Action
@@ -64,7 +85,8 @@ class ShowPostState: StateRepresentable {
 enum ShowPostAction: Action {
     case loadWeb(ShowPostAPI.WebViewModel)
     case loadPost(ShowPostAPI.PostViewModel)
-    case favorite(Bool)
+    case loadFavorite(Bool)
+    case toggleFavorite(Bool)
     case loadError(AppAPI.Error?)
 }
 
@@ -78,8 +100,16 @@ extension ShowPostState {
             web = item
         case .loadPost(let item):
             post = item
-        case .favorite(let item):
-            favorite = item
+        case .loadFavorite(let item):
+            isFavorite = item
+        case .toggleFavorite(let item):
+            guard let current = sharedState.posts
+                .first(where: { $0.id == post?.id })?
+                .toggled(favorite: item) else {
+                    return
+            }
+            
+            sharedState.reduce(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }
@@ -93,7 +123,7 @@ extension ShowPostState: Equatable {
     static func == (lhs: ShowPostState, rhs: ShowPostState) -> Bool {
         lhs.web == rhs.web
             && lhs.post == rhs.post
-            && lhs.favorite == rhs.favorite
+            && lhs.isFavorite == rhs.isFavorite
             && lhs.error == rhs.error
     }
 }

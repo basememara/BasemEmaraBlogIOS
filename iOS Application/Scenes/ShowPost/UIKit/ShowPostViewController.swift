@@ -108,12 +108,14 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         super.viewDidAppear(animated)
         navigationController?.isToolbarHidden = false
         navigationController?.hidesBarsOnSwipe = true
+        state.subscribe(load, in: &cancellable)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = true
         navigationController?.hidesBarsOnSwipe = false
+        cancellable = nil
     }
 }
 
@@ -136,9 +138,6 @@ private extension ShowPostViewController {
             selector: #selector(deviceOrientationDidChange),
             name: UIDevice.orientationDidChangeNotification
         )
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -162,8 +161,8 @@ private extension ShowPostViewController {
             load(post)
         }
         
-        if keyPath == \ShowPostState.favorite || keyPath == nil {
-            load(favorite: state.favorite)
+        if keyPath == \ShowPostState.isFavorite || keyPath == nil {
+            load(favorite: state.isFavorite)
         }
         
         if keyPath == \ShowPostState.error {
@@ -176,7 +175,6 @@ private extension ShowPostViewController {
         
         title = viewModel.title
         commentBarButton.badgeText = "\(viewModel.commentCount)"
-        load(favorite: viewModel.favorite)
         
         webView.loadHTMLString(
             viewModel.content,

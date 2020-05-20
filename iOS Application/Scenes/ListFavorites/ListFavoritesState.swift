@@ -6,9 +6,14 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ListFavoritesState: StateRepresentable {
+    private let sharedState: SharedState
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var favorites: [PostsDataViewModel] = [] {
         willSet {
@@ -33,6 +38,27 @@ class ListFavoritesState: StateRepresentable {
             notificationPost(keyPath: \ListFavoritesState.error)
         }
     }
+    
+    // MARK: - Initializers
+    
+    init(sharedState: SharedState) {
+        self.sharedState = sharedState
+        self.sharedState.subscribe(load, in: &cancellable)
+    }
+}
+
+private extension ListFavoritesState {
+    
+    func load(_ keyPath: PartialKeyPath<SharedState>?) {
+        if keyPath == \SharedState.posts || keyPath == nil {
+            let sharedFavorites = sharedState.posts.filter { $0.favorite }
+            
+            let sorted = favorites
+                .compactMap { item in sharedFavorites.first { $0.id == item.id } }
+            
+            favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
+        }
+    }
 }
 
 // MARK: - Action
@@ -50,18 +76,14 @@ extension ListFavoritesState {
     func reduce(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let items):
-            favorites = items
+            sharedState.reduce(.mergePosts(items))
         case .toggleFavorite(let item):
-            guard item.favorite else {
-                if let index = favorites
-                    .firstIndex(where: { $0.id == item.postID }) {
-                    favorites.remove(at: index)
-                }
-                
-                return
-            }
-            
-            // TODO: Add favorite item
+            sharedState.reduce(
+                .toggleFavorite(
+                    postID: item.postID,
+                    favorite: item.favorite
+                )
+            )
         case .loadError(let item):
             error = item
         }

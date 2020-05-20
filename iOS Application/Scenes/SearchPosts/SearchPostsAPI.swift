@@ -31,5 +31,6 @@ enum SearchPostsAPI {
     struct Response {
         let posts: [Post]
         let media: [Media]
+        let favoriteIDs: [Int]
     }
 }

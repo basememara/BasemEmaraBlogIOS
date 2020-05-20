@@ -47,12 +47,23 @@ extension ListPostsInteractor {
                     )
                 }
                 
-                self.presenter.displayPosts(
-                    for: ListPostsAPI.PostsResponse(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displayPopularPosts(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                    
+                    self.presenter.displayPosts(
+                        for: ListPostsAPI.PostsResponse(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -65,9 +76,11 @@ extension ListPostsInteractor {
         
         postRepository.fetchPopular(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                return self.presenter.displayPopularPosts(
+                self.presenter.displayPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             if let sort = request.sort {
@@ -76,17 +89,30 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayPopularPosts(
+                    self.presenter.displayPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
+                    
+                    return
                 }
                 
-                self.presenter.displayPosts(
-                    for: ListPostsAPI.PostsResponse(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displayPopularPosts(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                
+                    self.presenter.displayPosts(
+                        for: ListPostsAPI.PostsResponse(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -99,9 +125,11 @@ extension ListPostsInteractor {
         
         postRepository.fetchTopPicks(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                return self.presenter.displayTopPickPosts(
+                self.presenter.displayTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             if let sort = request.sort {
@@ -110,17 +138,30 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayTopPickPosts(
+                    self.presenter.displayTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
+                    
+                    return
                 }
                 
-                self.presenter.displayPosts(
-                    for: ListPostsAPI.PostsResponse(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displayPopularPosts(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                    
+                    self.presenter.displayPosts(
+                        for: ListPostsAPI.PostsResponse(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -133,9 +174,11 @@ extension ListPostsInteractor {
         
         postRepository.fetch(byTermIDs: request.ids, with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                return self.presenter.displayPostsByTerms(
+                self.presenter.displayPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             if let sort = request.sort {
@@ -144,17 +187,30 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayPostsByTerms(
+                    self.presenter.displayPostsByTerms(
                         error: $0.error ?? .unknownReason(nil)
                     )
+                    
+                    return
                 }
                 
-                self.presenter.displayPosts(
-                    for: ListPostsAPI.PostsResponse(
-                        posts: posts,
-                        media: media
+                self.postRepository.fetchFavoriteIDs {
+                    guard case .success(let favoriteIDs) = $0 else {
+                        self.presenter.displayPopularPosts(
+                            error: $0.error ?? .unknownReason(nil)
+                        )
+                        
+                        return
+                    }
+                    
+                    self.presenter.displayPosts(
+                        for: ListPostsAPI.PostsResponse(
+                            posts: posts,
+                            media: media,
+                            favoriteIDs: favoriteIDs
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -171,9 +227,5 @@ extension ListPostsInteractor {
                 favorite: postRepository.hasFavorite(id: request.postID)
             )
         )
-    }
-    
-    func isFavorite(postID: Int) -> Bool {
-        postRepository.hasFavorite(id: postID)
     }
 }

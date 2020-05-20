@@ -17,6 +17,8 @@ class ShowBlogState: StateRepresentable {
     private var termIDs: [Int] = []
     private var cancellable: NotificationCenter.Cancellable?
     
+    // MARK: - Observables
+    
     private(set) var latestPosts: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != latestPosts, #available(iOS 13, *) else { return }
@@ -76,6 +78,8 @@ class ShowBlogState: StateRepresentable {
             notificationPost(keyPath: \ShowBlogState.error)
         }
     }
+    
+    // MARK: - Initializers
     
     init(sharedState: SharedState) {
         self.sharedState = sharedState

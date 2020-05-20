@@ -14,6 +14,7 @@
 		8B20F10423A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
 		8B20F10523A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
 		8B20F10623A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
+		8B21FF5C24745C7E00B857C9 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FF5B24745C7E00B857C9 /* SharedState.swift */; };
 		8B221A59244E899A00F2C056 /* ShowBlogViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */; };
 		8B2FE66A23AB4DE900682D98 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE66923AB4DE900682D98 /* HomeState.swift */; };
 		8B416B3023977965006E67A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B416B2F23977965006E67A9 /* Main.storyboard */; };
@@ -247,6 +248,7 @@
 		8B1B300F2472A5A500E07822 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		8B20F0FF23A89227007A88DC /* AnalyticsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsMiddleware.swift; sourceTree = "<group>"; };
 		8B20F10323A928E5007A88DC /* AppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
+		8B21FF5B24745C7E00B857C9 /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogViewComponents.swift; sourceTree = "<group>"; };
 		8B2FCD902447F3820017460B /* SwiftyPress */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftyPress; path = ../SwiftyPress; sourceTree = "<group>"; };
 		8B2FE66923AB4DE900682D98 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 				8B20F0FF23A89227007A88DC /* AnalyticsMiddleware.swift */,
 			);
 			path = Middleware;
+			sourceTree = "<group>";
+		};
+		8B21FF5A24745C6A00B857C9 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				8B21FF5B24745C7E00B857C9 /* SharedState.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 		8B416B2223976FFA006E67A9 /* LaunchMain */ = {
@@ -738,6 +748,7 @@
 				8B42C799234BBC9000F38E23 /* Application */,
 				8B42C78E234BBC8F00F38E23 /* Extensions */,
 				8B8D231023A6EC28000CBC35 /* Scene */,
+				8B21FF5A24745C6A00B857C9 /* State */,
 				8B42C796234BBC9000F38E23 /* Styles */,
 				8B42C7AC234BBC9000F38E23 /* Views */,
 			);
@@ -1353,6 +1364,7 @@
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRender.swift in Sources */,
 				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
 				8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */,
+				8B21FF5C24745C7E00B857C9 /* SharedState.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneRender.swift in Sources */,
 				8B42C7EF234BBC9000F38E23 /* SearchPostsAPI.swift in Sources */,
 				8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */,

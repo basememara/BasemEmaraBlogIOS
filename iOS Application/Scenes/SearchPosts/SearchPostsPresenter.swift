@@ -27,6 +27,7 @@ extension SearchPostsPresenter {
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
+                favorite: response.favoriteIDs.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
         }
