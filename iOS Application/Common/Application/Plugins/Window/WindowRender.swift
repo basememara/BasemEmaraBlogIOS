@@ -22,9 +22,9 @@ protocol WindowRenderable {
 }
 
 struct WindowRender: WindowRenderable {
-    private let render: SceneRenderable
+    private let render: SceneRender
     
-    init(render: SceneRenderable) {
+    init(render: SceneRender) {
         self.render = render
     }
 }

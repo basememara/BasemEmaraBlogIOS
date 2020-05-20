@@ -11,14 +11,14 @@ import SwiftyPress
 import ZamzamUI
 
 struct ShowBlogRender: ShowBlogRenderable {
-    private let render: SceneRenderable
+    private let render: SceneRender
     private let mailComposer: MailComposer?
     private let theme: Theme?
     
     private weak var presentationContext: UIViewController?
     
     init(
-        render: SceneRenderable,
+        render: SceneRender,
         mailComposer: MailComposer?,
         theme: Theme?,
         presentationContext: UIViewController?

@@ -9,9 +9,9 @@
 import UIKit.UIViewController
 
 struct MainRender: MainRenderable {
-    private let render: SceneRenderable
+    private let render: SceneRender
     
-    init(render: SceneRenderable) {
+    init(render: SceneRender) {
         self.render = render
     }
 }

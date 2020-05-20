@@ -88,11 +88,11 @@ private enum AppStart {
 
 private extension UIApplicationDelegate {
     var core: SwiftyPressCore { AppStart.core }
-    var render: SceneRenderable { AppStart.render }
+    var render: SceneRender { AppStart.render }
 }
 
 @available(iOS 13, *)
 extension UISceneDelegate {
     var core: SwiftyPressCore { AppStart.core }
-    var render: SceneRenderable { AppStart.render }
+    var render: SceneRender { AppStart.render }
 }

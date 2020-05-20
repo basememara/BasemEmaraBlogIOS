@@ -16,10 +16,10 @@ protocol NotificationRouterable {
 }
 
 struct NotificationRouter: NotificationRouterable {
-    private let render: SceneRenderable
+    private let render: SceneRender
     weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
-    init(render: SceneRenderable) {
+    init(render: SceneRender) {
         self.render = render
     }
 }

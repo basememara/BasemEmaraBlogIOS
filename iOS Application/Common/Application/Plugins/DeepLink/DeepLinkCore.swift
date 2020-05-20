@@ -13,9 +13,9 @@ import ZamzamCore
 
 struct DeepLinkCore: DeepLinkCoreType {
     private let core: SwiftyPressCore
-    private let render: SceneRenderable
+    private let render: SceneRender
     
-    init(core: SwiftyPressCore, render: SceneRenderable) {
+    init(core: SwiftyPressCore, render: SceneRender) {
         self.core = core
         self.render = render
     }

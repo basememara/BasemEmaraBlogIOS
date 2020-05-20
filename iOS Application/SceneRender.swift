@@ -13,36 +13,7 @@ import ZamzamUI
 import SwiftUI
 #endif
 
-/// Dependency injector for overriding concrete scene factories.
-protocol SceneRenderable {
-    func launchMain() -> UIViewController
-    
-    @available(iOS 13, *)
-    func launchMain<T: View>() -> T?
-    
-    func home() -> UIViewController
-    func listFavorites() -> UIViewController
-    func searchPosts() -> UIViewController
-    
-    func showBlog() -> UIViewController
-    func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController
-    func showPost(for id: Int) -> UIViewController
-    func listTerms() -> UIViewController
-    
-    func showMore() -> UIViewController
-    func showSettings() -> UIViewController
-}
-
-extension SceneRenderable {
-    
-    func listPosts(params: ListPostsAPI.Params) -> UIViewController {
-        listPosts(params: params, delegate: nil)
-    }
-}
-
-// MARK: - Conformance
-
-struct SceneRender: SceneRenderable {
+struct SceneRender {
     private let core: SwiftyPressCore
     private let state: AppState
     private let middleware: [Middleware]
@@ -242,7 +213,7 @@ extension SceneRender {
 
 extension SceneRender {
     
-    func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate?) -> UIViewController {
+    func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
         let presenter = ListPostsPresenter { action in
             self.middleware.forEach { $0(action) }
             self.state.listPostsState.reduce(action)
