@@ -66,6 +66,16 @@ final class ListPostsViewController: UIViewController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Setup
@@ -92,9 +102,6 @@ private extension ListPostsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -127,14 +134,13 @@ private extension ListPostsViewController {
         }
     }
     
-    func load(_ keyPath: PartialKeyPath<ListPostsState>) {
-        switch keyPath {
-        case \ListPostsState.posts:
+    func load(_ keyPath: PartialKeyPath<ListPostsState>?) {
+        if keyPath == \ListPostsState.posts || keyPath == nil {
             tableViewAdapter.reloadData(with: state.posts)
-        case \ListPostsState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \ListPostsState.error {
+            // TODO: Handle error
         }
     }
 }
@@ -148,18 +154,18 @@ extension ListPostsViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(trailingSwipeActionsFor model: PostsDataViewModel, at indexPath: IndexPath, from tableView: UITableView) -> UISwipeActionsConfiguration? {
-        guard let isFavorite = interactor?.isFavorite(postID: model.id) else { return nil }
-        
-        return UISwipeActionsConfiguration(
+        UISwipeActionsConfiguration(
             actions: [
-                UIContextualAction(style: .normal, title: isFavorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle)) { _, _, completion in
-                    self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
-                    tableView.reloadRows(at: [indexPath], with: .none)
-                    completion(true)
-                }
-                .apply {
-                    $0.image = UIImage(named: isFavorite ? .favoriteEmpty : .favoriteFilled)
-                    $0.backgroundColor = theme.tint
+                UIContextualAction(
+                    style: model.favorite ? .destructive : .normal,
+                    title: model.favorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle),
+                    handler: { _, _, completion in
+                        self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
+                        completion(true)
+                    }
+                ).apply {
+                    $0.image = UIImage(named: model.favorite ? .favoriteEmpty : .favoriteFilled)
+                    $0.backgroundColor = model.favorite ? theme.negativeColor : theme.tint
                 }
             ]
         )

@@ -108,12 +108,14 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         super.viewDidAppear(animated)
         navigationController?.isToolbarHidden = false
         navigationController?.hidesBarsOnSwipe = true
+        state.subscribe(load, in: &cancellable)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = true
         navigationController?.hidesBarsOnSwipe = false
+        cancellable = nil
     }
 }
 
@@ -136,9 +138,6 @@ private extension ShowPostViewController {
             selector: #selector(deviceOrientationDidChange),
             name: UIDevice.orientationDidChangeNotification
         )
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -153,20 +152,21 @@ private extension ShowPostViewController {
 
 private extension ShowPostViewController {
     
-    func load(_ keyPath: PartialKeyPath<ShowPostState>) {
-        switch keyPath {
-        case \ShowPostState.web:
-            guard let web = state.web else { break }
+    func load(_ keyPath: PartialKeyPath<ShowPostState>?) {
+        if let web = state.web, (keyPath == \ShowPostState.web || keyPath == nil) {
             load(web)
-        case \ShowPostState.post:
-            guard let post = state.post else { break }
+        }
+        
+        if let post = state.post, (keyPath == \ShowPostState.post || keyPath == nil) {
             load(post)
-        case \ShowPostState.favorite:
-            load(favorite: state.favorite)
-        case \ShowPostState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \ShowPostState.isFavorite || keyPath == nil {
+            load(favorite: state.isFavorite)
+        }
+        
+        if keyPath == \ShowPostState.error {
+            // TODO: Handle error
         }
     }
     
@@ -175,7 +175,6 @@ private extension ShowPostViewController {
         
         title = viewModel.title
         commentBarButton.badgeText = "\(viewModel.commentCount)"
-        load(favorite: viewModel.favorite)
         
         webView.loadHTMLString(
             viewModel.content,

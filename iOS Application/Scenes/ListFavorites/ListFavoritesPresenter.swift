@@ -27,6 +27,7 @@ extension ListFavoritesPresenter {
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
+                favorite: true,
                 dateFormatter: dateFormatter
             )
         }

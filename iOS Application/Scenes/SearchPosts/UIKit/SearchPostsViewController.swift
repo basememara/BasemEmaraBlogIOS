@@ -77,6 +77,16 @@ final class SearchPostsViewController: UIViewController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Setup
@@ -93,19 +103,15 @@ private extension SearchPostsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
-    func load(_ keyPath: PartialKeyPath<SearchPostsState>) {
-        switch keyPath {
-        case \SearchPostsState.posts:
+    func load(_ keyPath: PartialKeyPath<SearchPostsState>?) {
+        if keyPath == \SearchPostsState.posts || keyPath == nil {
             tableViewAdapter.reloadData(with: state.posts)
-        case \ShowBlogState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \SearchPostsState.error {
+            // TODO: Handle error
         }
     }
 }

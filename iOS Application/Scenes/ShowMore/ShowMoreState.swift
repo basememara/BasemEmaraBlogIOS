@@ -11,13 +11,27 @@ import SwiftyPress
 class ShowMoreState: StateRepresentable {
     
     private(set) var moreMenu: [ShowMoreAPI.MenuSection] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowMoreState.moreMenu) }
+        willSet {
+            guard newValue != moreMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != moreMenu else { return }
+            notificationPost(keyPath: \ShowMoreState.moreMenu)
+        }
     }
     
     private(set) var socialMenu: [ShowMoreAPI.SocialItem] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowMoreState.socialMenu) }
+        willSet {
+            guard newValue != socialMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != socialMenu else { return }
+            notificationPost(keyPath: \ShowMoreState.socialMenu)
+        }
     }
 }
 

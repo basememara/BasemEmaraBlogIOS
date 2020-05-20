@@ -29,6 +29,7 @@ final class PopularPostCollectionViewCell: UICollectionViewCell {
     
     private lazy var favoriteButton = ThemedImageButton().apply {
         $0.setImage(UIImage(named: .favoriteEmpty), for: .normal)
+        $0.setImage(UIImage(named: .favoriteFilled), for: .selected)
         $0.imageView?.contentMode = .scaleAspectFit
         $0.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside) // Must be in lazy init
     }
@@ -120,7 +121,7 @@ extension PopularPostCollectionViewCell: PostsDataViewCell {
         titleLabel.text = model.title
         summaryLabel.text = model.summary
         featuredImage.setImage(from: model.imageURL)
-        favoriteButton.isSelected =  model.favorite ?? false
+        favoriteButton.isSelected =  model.favorite
     }
     
     func load(_ model: PostsDataViewModel, delegate: PostsDataViewDelegate?) {

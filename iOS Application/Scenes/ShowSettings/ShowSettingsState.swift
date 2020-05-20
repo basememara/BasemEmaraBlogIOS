@@ -9,13 +9,27 @@
 class ShowSettingsState: StateRepresentable {
     
     private(set) var settingsMenu: [ShowSettingsAPI.MenuItem] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowSettingsState.settingsMenu) }
+        willSet {
+            guard newValue != settingsMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != settingsMenu else { return }
+            notificationPost(keyPath: \ShowSettingsState.settingsMenu)
+        }
     }
     
     private(set) var autoThemeEnabled: Bool = true {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ShowSettingsState.autoThemeEnabled) }
+        willSet {
+            guard newValue != autoThemeEnabled, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != autoThemeEnabled else { return }
+            notificationPost(keyPath: \ShowSettingsState.autoThemeEnabled)
+        }
     }
 }
 
@@ -32,8 +46,8 @@ extension ShowSettingsState {
     
     func reduce(_ action: ShowSettingsAction) {
         switch action {
-        case .loadMenu(let item):
-            settingsMenu = item
+        case .loadMenu(let items):
+            settingsMenu = items
         case .setAutoThemeEnabled(let item):
             autoThemeEnabled = item
         }

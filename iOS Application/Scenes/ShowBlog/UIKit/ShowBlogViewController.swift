@@ -71,14 +71,24 @@ final class ShowBlogViewController: UIViewController {
     
     // MARK: - Lifecycle
     
+    override func loadView() {
+        view = scrollStackView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
         fetch()
     }
     
-    override func loadView() {
-        view = scrollStackView
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
     }
 }
 
@@ -115,9 +125,6 @@ private extension ShowBlogViewController {
             pickedPostsCollectionView,
             makeFooter()
         ])
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -138,20 +145,25 @@ private extension ShowBlogViewController {
         )
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowBlogState>) {
-        switch keyPath {
-        case \ShowBlogState.latestPosts:
+    func load(_ keyPath: PartialKeyPath<ShowBlogState>?) {
+        if keyPath == \ShowBlogState.latestPosts || keyPath == nil {
             latestPostsCollectionViewAdapter.reloadData(with: state.latestPosts)
-        case \ShowBlogState.popularPosts:
+        }
+        
+        if keyPath == \ShowBlogState.popularPosts || keyPath == nil {
             popularPostsCollectionViewAdapter.reloadData(with: state.popularPosts)
-        case \ShowBlogState.topPickPosts:
+        }
+        
+        if keyPath == \ShowBlogState.topPickPosts || keyPath == nil {
             pickedPostsCollectionViewAdapter.reloadData(with: state.topPickPosts)
-        case \ShowBlogState.terms:
+        }
+        
+        if keyPath == \ShowBlogState.terms || keyPath == nil {
             topTermsTableViewAdapter.reloadData(with: state.terms)
-        case \ShowBlogState.error:
-            break // TODO: Handle error
-        default:
-            break
+        }
+        
+        if keyPath == \ShowBlogState.error {
+            // TODO: Handle error
         }
         
         activityIndicatorView.stopAnimating()

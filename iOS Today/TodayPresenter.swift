@@ -31,7 +31,7 @@ extension TodayPresenter {
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.thumbnailLink,
-                favorite: nil,
+                favorite: false, // TODO
                 dateFormatter: self.dateFormatter
             )
         }

@@ -15,8 +15,8 @@
         "repositoryURL": "git@github.com:realm/realm-cocoa.git",
         "state": {
           "branch": null,
-          "revision": "07734d6ee4b49b5656c51dab51c20a2d59b9de45",
-          "version": "4.4.0"
+          "revision": "fa43b8e2909334c79f233ce472332c136ca108da",
+          "version": "4.4.1"
         }
       },
       {
@@ -41,18 +41,18 @@
         "package": "SwiftyPress",
         "repositoryURL": "https://github.com/ZamzamInc/SwiftyPress.git",
         "state": {
-          "branch": null,
-          "revision": "db5dee6de81ea9b6b923fd6e8d228de30bb8ec6c",
-          "version": "3.0.5"
+          "branch": "master",
+          "revision": "92b53319c479c5d60351f8e720deb6fba1a330e9",
+          "version": null
         }
       },
       {
         "package": "ZamzamKit",
         "repositoryURL": "git@github.com:ZamzamInc/ZamzamKit.git",
         "state": {
-          "branch": null,
-          "revision": "cf934cbb6f259bcb479bca9b07fe3e457c771821",
-          "version": "5.3.3"
+          "branch": "master",
+          "revision": "113b6ba03fca6fb7b524c3a7aa053f7d22652ff6",
+          "version": null
         }
       }
     ]

@@ -128,7 +128,7 @@ extension ShowBlogInteractor {
     
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
-            guard case .success(let item) = $0 else {
+            guard case .success(let items) = $0 else {
                 self.presenter.displayTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
@@ -136,7 +136,7 @@ extension ShowBlogInteractor {
                 return
             }
             
-            let terms = item
+            let terms = items
                 .sorted { $0.count > $1.count }
                 .prefix(request.maxLength)
                 .array

@@ -45,6 +45,16 @@ final class ShowMoreViewController: UIViewController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Setup
@@ -58,9 +68,6 @@ private extension ShowMoreViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -68,14 +75,13 @@ private extension ShowMoreViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowMoreState>) {
-        switch keyPath {
-        case \ShowMoreState.moreMenu:
+    func load(_ keyPath: PartialKeyPath<ShowMoreState>?) {
+        if keyPath == \ShowMoreState.moreMenu || keyPath == nil {
             tableView.reloadData()
-        case \ShowMoreState.socialMenu:
+        }
+        
+        if keyPath == \ShowMoreState.socialMenu || keyPath == nil {
             load(state.socialMenu)
-        default:
-            break
         }
     }
     

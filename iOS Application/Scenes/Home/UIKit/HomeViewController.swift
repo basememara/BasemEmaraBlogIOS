@@ -60,11 +60,13 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        state.subscribe(load, in: &cancellable)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        cancellable = nil
     }
 }
 
@@ -79,9 +81,6 @@ private extension HomeViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -90,16 +89,17 @@ private extension HomeViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ keyPath: PartialKeyPath<HomeState>) {
-        switch keyPath {
-        case \HomeState.profile:
+    func load(_ keyPath: PartialKeyPath<HomeState>?) {
+        if keyPath == \HomeState.profile || keyPath == nil {
             headerView.reloadProfile()
-        case \HomeState.socialMenu:
+        }
+        
+        if keyPath == \HomeState.socialMenu || keyPath == nil {
             headerView.reloadSocialMenu()
-        case \HomeState.homeMenu:
+        }
+        
+        if keyPath == \HomeState.homeMenu || keyPath == nil {
             tableView.reloadData()
-        default:
-            break
         }
     }
 }

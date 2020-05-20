@@ -9,8 +9,15 @@
 class MainState: StateRepresentable {
     
     private(set) var tabMenu: [MainAPI.TabItem] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \MainState.tabMenu) }
+        willSet {
+            guard newValue != tabMenu, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != tabMenu else { return }
+            notificationPost(keyPath: \MainState.tabMenu)
+        }
     }
 }
 

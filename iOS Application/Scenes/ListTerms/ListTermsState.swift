@@ -11,13 +11,27 @@ import SwiftyPress
 class ListTermsState: StateRepresentable {
     
     private(set) var terms: [TermsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ListTermsState.terms) }
+        willSet {
+            guard newValue != terms, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != terms else { return }
+            notificationPost(keyPath: \ListTermsState.terms)
+        }
     }
     
     private(set) var error: AppAPI.Error? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \ListTermsState.error) }
+        willSet {
+            guard newValue != error, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != error else { return }
+            notificationPost(keyPath: \ListTermsState.error)
+        }
     }
 }
 
@@ -34,8 +48,8 @@ extension ListTermsState {
     
     func reduce(_ action: ListTermsAction) {
         switch action {
-        case .loadTerms(let item):
-            terms = item
+        case .loadTerms(let items):
+            terms = items
         case .loadError(let item):
             error = item
         }

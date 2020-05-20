@@ -35,6 +35,16 @@ class MainViewController: UITabBarController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Configure
@@ -43,17 +53,13 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
         interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
-    func load(_ keyPath: PartialKeyPath<MainState>) {
-        // State unchanged from here, stop listening
-        cancellable?.cancel()
-        
+    func load(_ keyPath: PartialKeyPath<MainState>?) {
         viewControllers = state.tabMenu.map { item in
             UINavigationController(
                 rootViewController: render.rootView(for: item.id).apply {

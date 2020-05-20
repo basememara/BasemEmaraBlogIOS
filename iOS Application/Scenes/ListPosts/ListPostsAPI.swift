@@ -15,7 +15,6 @@ protocol ListPostsInteractable: Interactor {
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest)
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest)
-    func isFavorite(postID: Int) -> Bool
 }
 
 protocol ListPostsPresentable: Presenter {
@@ -75,6 +74,7 @@ extension ListPostsAPI {
     struct PostsResponse {
         let posts: [Post]
         let media: [Media]
+        let favoriteIDs: [Int]
     }
 }
 

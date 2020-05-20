@@ -44,6 +44,16 @@ final class ShowSettingsViewController: UIViewController {
         prepare()
         fetch()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        state.subscribe(load, in: &cancellable)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancellable = nil
+    }
 }
 
 // MARK: - Setup
@@ -57,9 +67,6 @@ private extension ShowSettingsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
-        
-        // Reactive data
-        state.subscribe(load, in: &cancellable)
     }
     
     func fetch() {
@@ -67,14 +74,13 @@ private extension ShowSettingsViewController {
         interactor?.fetchTheme()
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowSettingsState>) {
-        switch keyPath {
-        case \ShowSettingsState.settingsMenu:
+    func load(_ keyPath: PartialKeyPath<ShowSettingsState>?) {
+        if keyPath == \ShowSettingsState.settingsMenu || keyPath == nil {
             tableView.reloadData()
-        case \ShowSettingsState.autoThemeEnabled:
+        }
+        
+        if keyPath == \ShowSettingsState.autoThemeEnabled || keyPath == nil {
             load(autoThemeEnabled: state.autoThemeEnabled)
-        default:
-            break
         }
     }
     

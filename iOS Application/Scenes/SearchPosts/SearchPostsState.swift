@@ -11,13 +11,27 @@ import SwiftyPress
 class SearchPostsState: StateRepresentable {
     
     private(set) var posts: [PostsDataViewModel] = [] {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \SearchPostsState.posts) }
+        willSet {
+            guard newValue != posts, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != posts else { return }
+            notificationPost(keyPath: \SearchPostsState.posts)
+        }
     }
     
     private(set) var error: AppAPI.Error? {
-        willSet { if #available(iOS 13, *) { combineSend() } }
-        didSet { notificationPost(keyPath: \SearchPostsState.error) }
+        willSet {
+            guard newValue != error, #available(iOS 13, *) else { return }
+            combineSend()
+        }
+        
+        didSet {
+            guard oldValue != error else { return }
+            notificationPost(keyPath: \SearchPostsState.error)
+        }
     }
 }
 
@@ -34,8 +48,8 @@ extension SearchPostsState {
     
     func reduce(_ action: SearchPostsAction) {
         switch action {
-        case .loadPosts(let item):
-            posts = item
+        case .loadPosts(let items):
+            posts = items
         case .loadError(let item):
             error = item
         }
