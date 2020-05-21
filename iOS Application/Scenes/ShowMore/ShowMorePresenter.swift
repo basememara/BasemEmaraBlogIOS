@@ -7,20 +7,20 @@
 //
 
 struct ShowMorePresenter: ShowMorePresentable {
-    private let dispatch: Dispatcher<ShowMoreAction>
+    private let state: Reducer<ShowMoreAction>
     
-    init(dispatch: @escaping Dispatcher<ShowMoreAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<ShowMoreAction>) {
+        self.state = state
     }
 }
 
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        dispatch(.loadMenu(menu))
+        state(.loadMenu(menu))
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        dispatch(.loadSocial(social))
+        state(.loadSocial(social))
     }
 }

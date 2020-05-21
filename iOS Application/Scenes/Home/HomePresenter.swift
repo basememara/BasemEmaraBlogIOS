@@ -7,24 +7,24 @@
 //
 
 struct HomePresenter: HomePresentable {
-    private let dispatch: Dispatcher<HomeAction>
+    private let state: Reducer<HomeAction>
     
-    init(dispatch: @escaping Dispatcher<HomeAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<HomeAction>) {
+        self.state = state
     }
 }
 
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        dispatch(.loadProfile(profile))
+        state(.loadProfile(profile))
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        dispatch(.loadMenu(menu))
+        state(.loadMenu(menu))
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        dispatch(.loadSocial(social))
+        state(.loadSocial(social))
     }
 }

@@ -31,7 +31,7 @@ enum MainAction: Action {
 
 extension MainState {
     
-    func reduce(_ action: MainAction) {
+    func callAsFunction(_ action: MainAction) {
         switch action {
         case .loadMenu(let menu):
             tabMenu = menu

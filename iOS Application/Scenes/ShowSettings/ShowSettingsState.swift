@@ -44,7 +44,7 @@ enum ShowSettingsAction: Action {
 
 extension ShowSettingsState {
     
-    func reduce(_ action: ShowSettingsAction) {
+    func callAsFunction(_ action: ShowSettingsAction) {
         switch action {
         case .loadMenu(let items):
             settingsMenu = items

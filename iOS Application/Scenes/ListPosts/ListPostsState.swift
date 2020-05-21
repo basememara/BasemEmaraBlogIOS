@@ -69,11 +69,11 @@ enum ListPostsAction: Action {
 
 extension ListPostsState {
     
-    func reduce(_ action: ListPostsAction) {
+    func callAsFunction(_ action: ListPostsAction) {
         switch action {
         case .loadPosts(let items):
             postIDs = items.map(\.id)
-            sharedState.reduce(.mergePosts(items))
+            sharedState(.mergePosts(items))
         case .toggleFavorite(let item):
             guard let current = sharedState.posts
                 .first(where: { $0.id == item.postID })?
@@ -81,7 +81,7 @@ extension ListPostsState {
                     return
             }
             
-            sharedState.reduce(.mergePosts([current]))
+            sharedState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

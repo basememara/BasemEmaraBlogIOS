@@ -11,11 +11,11 @@ import SwiftyPress
 import ZamzamUI
 
 struct SearchPostsPresenter: SearchPostsPresentable {
-    private let dispatch: Dispatcher<SearchPostsAction>
+    private let state: Reducer<SearchPostsAction>
     private let dateFormatter: DateFormatter
     
-    init(dispatch: @escaping Dispatcher<SearchPostsAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<SearchPostsAction>) {
+        self.state = state
         self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
@@ -32,7 +32,7 @@ extension SearchPostsPresenter {
             )
         }
         
-        dispatch(.loadPosts(viewModels))
+        state(.loadPosts(viewModels))
     }
     
     func displaySearchResults(error: SwiftyPressError) {
@@ -41,6 +41,6 @@ extension SearchPostsPresenter {
             message: error.localizedDescription
         )
         
-        dispatch(.loadError(viewModel))
+        state(.loadError(viewModel))
     }
 }

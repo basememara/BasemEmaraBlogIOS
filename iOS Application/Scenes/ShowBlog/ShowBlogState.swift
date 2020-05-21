@@ -117,20 +117,20 @@ enum ShowBlogAction: Action {
 
 extension ShowBlogState {
     
-    func reduce(_ action: ShowBlogAction) {
+    func callAsFunction(_ action: ShowBlogAction) {
         switch action {
         case .loadLatestPosts(let items):
             latestPostIDs = items.map(\.id)
-            sharedState.reduce(.mergePosts(items))
+            sharedState(.mergePosts(items))
         case .loadPopularPosts(let items):
             popularPostIDs = items.map(\.id)
-            sharedState.reduce(.mergePosts(items))
+            sharedState(.mergePosts(items))
         case .loadTopPickPosts(let items):
             topPickPostIDs = items.map(\.id)
-            sharedState.reduce(.mergePosts(items))
+            sharedState(.mergePosts(items))
         case .loadTerms(let items):
             termIDs = items.map(\.id)
-            sharedState.reduce(.mergeTerms(items))
+            sharedState(.mergeTerms(items))
         case .toggleFavorite(let item):
             guard let current = sharedState.posts
                 .first(where: { $0.id == item.postID })?
@@ -138,7 +138,7 @@ extension ShowBlogState {
                     return
             }
             
-            sharedState.reduce(.mergePosts([current]))
+            sharedState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

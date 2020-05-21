@@ -73,12 +73,12 @@ enum ListFavoritesAction: Action {
 
 extension ListFavoritesState {
     
-    func reduce(_ action: ListFavoritesAction) {
+    func callAsFunction(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let items):
-            sharedState.reduce(.mergePosts(items))
+            sharedState(.mergePosts(items))
         case .toggleFavorite(let item):
-            sharedState.reduce(
+            sharedState(
                 .toggleFavorite(
                     postID: item.postID,
                     favorite: item.favorite

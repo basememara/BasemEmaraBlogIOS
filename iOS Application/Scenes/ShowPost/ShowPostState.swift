@@ -94,7 +94,7 @@ enum ShowPostAction: Action {
 
 extension ShowPostState {
     
-    func reduce(_ action: ShowPostAction) {
+    func callAsFunction(_ action: ShowPostAction) {
         switch action {
         case .loadWeb(let item):
             web = item
@@ -109,7 +109,7 @@ extension ShowPostState {
                     return
             }
             
-            sharedState.reduce(.mergePosts([current]))
+            sharedState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

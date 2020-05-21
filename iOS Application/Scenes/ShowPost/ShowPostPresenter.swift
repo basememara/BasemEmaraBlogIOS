@@ -13,19 +13,19 @@ import Stencil
 import SystemConfiguration
 
 struct ShowPostPresenter: ShowPostPresentable {
-    private let dispatch: Dispatcher<ShowPostAction>
+    private let state: Reducer<ShowPostAction>
     private let constants: Constants
     private let templateFile: String?
     private let styleSheetFile: String?
     private let dateFormatter: DateFormatter
     
     init(
-        dispatch: @escaping Dispatcher<ShowPostAction>,
+        state: @escaping Reducer<ShowPostAction>,
         constants: Constants,
         templateFile: String?,
         styleSheetFile: String?
     ) {
-        self.dispatch = dispatch
+        self.state = state
         self.constants = constants
         self.templateFile = templateFile
         self.styleSheetFile = styleSheetFile
@@ -82,8 +82,8 @@ extension ShowPostPresenter {
                 commentCount: response.post.commentCount
             )
             
-            dispatch(.loadPost(viewModel))
-            dispatch(.loadFavorite(response.favorite))
+            state(.loadPost(viewModel))
+            state(.loadFavorite(response.favorite))
         } catch {
             displayPost(error: .parseFailure(error))
         }
@@ -95,7 +95,7 @@ extension ShowPostPresenter {
             message: error.localizedDescription
         )
         
-        dispatch(.loadError(viewModel))
+        state(.loadError(viewModel))
     }
 }
 
@@ -108,13 +108,13 @@ extension ShowPostPresenter {
             decisionHandler: response.decisionHandler
         )
         
-        dispatch(.loadWeb(viewModel))
+        state(.loadWeb(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
     func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        dispatch(.toggleFavorite(response.favorite))
+        state(.toggleFavorite(response.favorite))
     }
 }

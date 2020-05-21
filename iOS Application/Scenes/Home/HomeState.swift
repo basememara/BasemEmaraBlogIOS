@@ -59,7 +59,7 @@ enum HomeAction: Action {
 
 extension HomeState {
     
-    func reduce(_ action: HomeAction) {
+    func callAsFunction(_ action: HomeAction) {
         switch action {
         case .loadProfile(let item):
             profile = item

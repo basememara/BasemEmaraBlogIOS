@@ -10,10 +10,10 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListTermsPresenter: ListTermsPresentable {
-    private let dispatch: Dispatcher<ListTermsAction>
+    private let state: Reducer<ListTermsAction>
     
-    init(dispatch: @escaping Dispatcher<ListTermsAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<ListTermsAction>) {
+        self.state = state
     }
 }
 
@@ -29,7 +29,7 @@ extension ListTermsPresenter {
             )
         }
         
-        dispatch(.loadTerms(viewModels))
+        state(.loadTerms(viewModels))
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -38,6 +38,6 @@ extension ListTermsPresenter {
             message: error.localizedDescription
         )
         
-        dispatch(.loadError(viewModel))
+        state(.loadError(viewModel))
     }
 }

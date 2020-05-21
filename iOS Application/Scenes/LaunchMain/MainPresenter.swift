@@ -7,16 +7,16 @@
 //
 
 struct MainPresenter: MainPresentable {
-    private let dispatch: Dispatcher<MainAction>
+    private let state: Reducer<MainAction>
     
-    init(dispatch: @escaping Dispatcher<MainAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<MainAction>) {
+        self.state = state
     }
 }
 
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        dispatch(.loadMenu(menu))
+        state(.loadMenu(menu))
     }
 }

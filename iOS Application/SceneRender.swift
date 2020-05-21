@@ -16,12 +16,10 @@ import SwiftUI
 struct SceneRender {
     private let core: SwiftyPressCore
     private let state: AppState
-    private let middleware: [Middleware]
     
-    init(core: SwiftyPressCore, state: AppState, middleware: [Middleware]) {
+    init(core: SwiftyPressCore, state: AppState) {
         self.core = core
         self.state = state
-        self.middleware = middleware
     }
 }
 
@@ -30,11 +28,7 @@ struct SceneRender {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
-        let presenter = MainPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.mainState.reduce(action)
-        }
-        
+        let presenter = MainPresenter { self.state.mainState($0) }
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         let view: UIViewController
@@ -64,11 +58,7 @@ extension SceneRender {
     
     @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
-        let presenter = MainPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.mainState.reduce(action)
-        }
-        
+        let presenter = MainPresenter { self.state.mainState($0) }
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         
@@ -84,11 +74,7 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        let presenter = HomePresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.homeState.reduce(action)
-        }
-        
+        let presenter = HomePresenter { self.state.homeState($0) }
         let interactor = HomeInteractor(presenter: presenter)
         
         let render: (UIViewController) -> HomeRenderable = {
@@ -114,10 +100,7 @@ extension SceneRender {
 extension SceneRender {
     
     func showBlog() -> UIViewController {
-        let presenter = ShowBlogPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.showBlogState.reduce(action)
-        }
+        let presenter = ShowBlogPresenter { self.state.showBlogState($0) }
         
         let interactor = ShowBlogInteractor(
             presenter: presenter,
@@ -151,10 +134,7 @@ extension SceneRender {
 extension SceneRender {
     
     func listFavorites() -> UIViewController {
-        let presenter = ListFavoritesPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.listFavoritesState.reduce(action)
-        }
+        let presenter = ListFavoritesPresenter { self.state.listFavoritesState($0) }
         
         let interactor = ListFavoritesInteractor(
             presenter: presenter,
@@ -181,10 +161,7 @@ extension SceneRender {
     }
     
     func searchPosts() -> UIViewController {
-        let presenter = SearchPostsPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.searchPostsState.reduce(action)
-        }
+        let presenter = SearchPostsPresenter { self.state.searchPostsState($0) }
         
         let interactor = SearchPostsInteractor(
             presenter: presenter,
@@ -214,10 +191,7 @@ extension SceneRender {
 extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
-        let presenter = ListPostsPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.listPostsState.reduce(action)
-        }
+        let presenter = ListPostsPresenter { self.state.listPostsState($0) }
         
         let interactor = ListPostsInteractor(
             presenter: presenter,
@@ -249,10 +223,7 @@ extension SceneRender {
     
     func showPost(for id: Int) -> UIViewController {
         let presenter = ShowPostPresenter(
-            dispatch: { action in
-                self.middleware.forEach { $0(action) }
-                self.state.showPostState.reduce(action)
-            },
+            state: { self.state.showPostState($0) },
             constants: core.constants(),
             templateFile: Bundle.main.string(file: "post.html"),
             styleSheetFile: Bundle.main.string(file: "style.css")
@@ -290,10 +261,7 @@ extension SceneRender {
     }
     
     func listTerms() -> UIViewController {
-        let presenter = ListTermsPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.listTermsState.reduce(action)
-        }
+        let presenter = ListTermsPresenter { self.state.listTermsState($0) }
         
         let interactor = ListTermsInteractor(
             presenter: presenter,
@@ -320,11 +288,7 @@ extension SceneRender {
 extension SceneRender {
     
     func showMore() -> UIViewController {
-        let presenter = ShowMorePresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.showMoreState.reduce(action)
-        }
-        
+        let presenter = ShowMorePresenter { self.state.showMoreState($0) }
         let interactor = ShowMoreInteractor(presenter: presenter)
         
         let render: (UIViewController) -> ShowMoreRenderable = {
@@ -347,10 +311,7 @@ extension SceneRender {
     }
     
     func showSettings() -> UIViewController {
-        let presenter = ShowSettingsPresenter { action in
-            self.middleware.forEach { $0(action) }
-            self.state.showSettingsState.reduce(action)
-        }
+        let presenter = ShowSettingsPresenter { self.state.showSettingsState($0) }
         
         let interactor = ShowSettingsInteractor(
             presenter: presenter,

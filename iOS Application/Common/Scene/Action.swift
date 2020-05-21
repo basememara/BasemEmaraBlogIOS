@@ -10,4 +10,4 @@
 public protocol Action {}
 
 /// A closure that dispatches the action to mutate the state.
-typealias Dispatcher<T: Action> = (T) -> Void
+typealias Reducer<T: Action> = (T) -> Void

@@ -7,23 +7,23 @@
 //
 
 struct ShowSettingsPresenter: ShowSettingsPresentable {
-    private let dispatch: Dispatcher<ShowSettingsAction>
+    private let state: Reducer<ShowSettingsAction>
     
-    init(dispatch: @escaping Dispatcher<ShowSettingsAction>) {
-        self.dispatch = dispatch
+    init(state: @escaping Reducer<ShowSettingsAction>) {
+        self.state = state
     }
 }
 
 extension ShowSettingsPresenter {
     
     func display(menu: [ShowSettingsAPI.MenuItem]) {
-        dispatch(.loadMenu(menu))
+        state(.loadMenu(menu))
     }
 }
 
 extension ShowSettingsPresenter {
     
     func displayTheme(for response: ShowSettingsAPI.SetThemeResponse) {
-        dispatch(.setAutoThemeEnabled(response.autoThemeEnabled))
+        state(.setAutoThemeEnabled(response.autoThemeEnabled))
     }
 }

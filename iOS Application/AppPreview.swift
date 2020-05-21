@@ -15,7 +15,7 @@ extension AppPreview {
     static let homeState: HomeState = {
         let state = HomeState()
         
-        state.reduce(
+        state(
             .loadProfile(
                 HomeAPI.Profile(
                     avatar: "BasemProfilePic",
@@ -25,7 +25,7 @@ extension AppPreview {
             )
         )
             
-        state.reduce(
+        state(
             .loadMenu([
                 HomeAPI.MenuSection(
                     title: nil,
@@ -75,7 +75,7 @@ extension AppPreview {
             ])
         )
         
-        state.reduce(
+        state(
             .loadSocial([
                 HomeAPI.SocialItem(
                     type: .twitter,

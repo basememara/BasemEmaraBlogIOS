@@ -46,7 +46,7 @@ enum ListTermsAction: Action {
 
 extension ListTermsState {
     
-    func reduce(_ action: ListTermsAction) {
+    func callAsFunction(_ action: ListTermsAction) {
         switch action {
         case .loadTerms(let items):
             terms = items

@@ -79,20 +79,17 @@ private enum AppStart {
     /// Create views only through scene renders.
     static let render = SceneRender(
         core: core,
-        state: state,
-        middleware: [ // All actions pass through
-            AnalyticsMiddleware()
-        ]
+        state: state
     )
 }
 
 private extension UIApplicationDelegate {
-    var core: SwiftyPressCore { AppStart.core }
+    var core: AppCore { AppStart.core }
     var render: SceneRender { AppStart.render }
 }
 
 @available(iOS 13, *)
 extension UISceneDelegate {
-    var core: SwiftyPressCore { AppStart.core }
+    var core: AppCore { AppStart.core }
     var render: SceneRender { AppStart.render }
 }

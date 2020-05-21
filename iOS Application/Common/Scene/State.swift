@@ -11,7 +11,7 @@ import Foundation.NSNotification
 /// The data of the component.
 public protocol StateRepresentable: AnyObject {
     associatedtype ActionType: Action
-    func reduce(_ action: ActionType)
+    func callAsFunction(_ action: ActionType)
 }
 
 // MARK: - Pre-SwiftUI Reactive

@@ -46,7 +46,7 @@ enum ShowMoreAction: Action {
 
 extension ShowMoreState {
     
-    func reduce(_ action: ShowMoreAction) {
+    func callAsFunction(_ action: ShowMoreAction) {
         switch action {
         case .loadMenu(let sections):
             moreMenu = sections

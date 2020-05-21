@@ -46,7 +46,7 @@ enum SearchPostsAction: Action {
 
 extension SearchPostsState {
     
-    func reduce(_ action: SearchPostsAction) {
+    func callAsFunction(_ action: SearchPostsAction) {
         switch action {
         case .loadPosts(let items):
             posts = items

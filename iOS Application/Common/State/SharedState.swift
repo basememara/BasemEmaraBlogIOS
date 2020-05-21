@@ -47,7 +47,7 @@ enum SharedAction: Action {
 
 extension SharedState {
     
-    func reduce(_ action: SharedAction) {
+    func callAsFunction(_ action: SharedAction) {
         switch action {
         case .mergePosts(let items):
             let ids = items.map(\.id)
@@ -62,7 +62,7 @@ extension SharedState {
                     return
             }
             
-            reduce(.mergePosts([current]))
+            self(.mergePosts([current]))
         }
     }
 }
