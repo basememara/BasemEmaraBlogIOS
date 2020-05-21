@@ -11,7 +11,6 @@ import SwiftyPress
 
 class ListPostsState: StateRepresentable {
     private let sharedState: SharedState
-    private var postIDs: [Int] = []
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -28,7 +27,7 @@ class ListPostsState: StateRepresentable {
         }
     }
     
-    private(set) var error: AppAPI.Error? {
+    private(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -52,7 +51,7 @@ private extension ListPostsState {
     
     func load(_ keyPath: PartialKeyPath<SharedState>?) {
         if keyPath == \SharedState.posts || keyPath == nil {
-            posts = postIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+            posts = posts.compactMap { post in sharedState.posts.first { $0.id == post.id } }
         }
     }
 }
@@ -62,7 +61,7 @@ private extension ListPostsState {
 enum ListPostsAction: Action {
     case loadPosts([PostsDataViewModel])
     case toggleFavorite(ListPostsAPI.FavoriteViewModel)
-    case loadError(AppAPI.Error?)
+    case loadError(ViewError?)
 }
 
 // MARK: - Reducer
@@ -72,7 +71,7 @@ extension ListPostsState {
     func callAsFunction(_ action: ListPostsAction) {
         switch action {
         case .loadPosts(let items):
-            postIDs = items.map(\.id)
+            posts = items
             sharedState(.mergePosts(items))
         case .toggleFavorite(let item):
             guard let current = sharedState.posts

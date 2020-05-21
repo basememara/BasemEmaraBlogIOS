@@ -166,7 +166,10 @@ private extension ShowPostViewController {
         }
         
         if keyPath == \ShowPostState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
     }
     

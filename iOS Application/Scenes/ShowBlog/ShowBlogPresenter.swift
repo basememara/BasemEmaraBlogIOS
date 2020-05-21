@@ -36,7 +36,7 @@ extension ShowBlogPresenter {
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -61,7 +61,7 @@ extension ShowBlogPresenter {
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -86,7 +86,7 @@ extension ShowBlogPresenter {
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
         )
@@ -111,7 +111,7 @@ extension ShowBlogPresenter {
     }
     
     func displayTerms(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )

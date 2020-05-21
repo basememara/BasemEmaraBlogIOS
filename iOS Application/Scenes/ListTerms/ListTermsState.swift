@@ -22,7 +22,7 @@ class ListTermsState: StateRepresentable {
         }
     }
     
-    private(set) var error: AppAPI.Error? {
+    private(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -39,7 +39,7 @@ class ListTermsState: StateRepresentable {
 
 enum ListTermsAction: Action {
     case loadTerms([TermsDataViewModel])
-    case loadError(AppAPI.Error?)
+    case loadError(ViewError?)
 }
 
 // MARK: - Reducer

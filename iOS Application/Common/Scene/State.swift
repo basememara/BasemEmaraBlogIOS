@@ -38,7 +38,7 @@ extension StateRepresentable {
     /// Publishes the change when the state has changed. Call this during `didSet` with the key path that triggered the change.
     ///
     /// This will not be needed once fully migrated to SwiftUI. `@Publish` is planned.
-    func notificationPost<StateType: StateRepresentable>(keyPath: PartialKeyPath<StateType>) {
+    func notificationPost<State: StateRepresentable>(keyPath: PartialKeyPath<State>) {
         NotificationCenter.default.post(name: .stateDidChange, userInfo: [.keyPath: keyPath])
     }
 }

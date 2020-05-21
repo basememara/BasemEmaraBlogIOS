@@ -22,7 +22,7 @@ class SearchPostsState: StateRepresentable {
         }
     }
     
-    private(set) var error: AppAPI.Error? {
+    private(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -39,7 +39,7 @@ class SearchPostsState: StateRepresentable {
 
 enum SearchPostsAction: Action {
     case loadPosts([PostsDataViewModel])
-    case loadError(AppAPI.Error?)
+    case loadError(ViewError?)
 }
 
 // MARK: - Reducer

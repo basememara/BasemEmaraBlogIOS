@@ -11,10 +11,6 @@ import SwiftyPress
 
 class ShowBlogState: StateRepresentable {
     private let sharedState: SharedState
-    private var latestPostIDs: [Int] = []
-    private var popularPostIDs: [Int] = []
-    private var topPickPostIDs: [Int] = []
-    private var termIDs: [Int] = []
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -67,7 +63,7 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    private(set) var error: AppAPI.Error? {
+    private(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -91,13 +87,13 @@ private extension ShowBlogState {
     
     func load(_ keyPath: PartialKeyPath<SharedState>?) {
         if keyPath == \SharedState.posts || keyPath == nil {
-            latestPosts = latestPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
-            popularPosts = popularPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
-            topPickPosts = topPickPostIDs.compactMap { id in sharedState.posts.first { $0.id == id } }
+            latestPosts = latestPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
+            popularPosts = popularPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
+            topPickPosts = topPickPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
         }
         
         if keyPath == \SharedState.terms || keyPath == nil {
-            terms = termIDs.compactMap { id in sharedState.terms.first { $0.id == id } }
+            terms = terms.compactMap { term in sharedState.terms.first { $0.id == term.id } }
         }
     }
 }
@@ -110,7 +106,7 @@ enum ShowBlogAction: Action {
     case loadTopPickPosts([PostsDataViewModel])
     case loadTerms([TermsDataViewModel])
     case toggleFavorite(ShowBlogAPI.FavoriteViewModel)
-    case loadError(AppAPI.Error?)
+    case loadError(ViewError?)
 }
 
 // MARK: - Reducer
@@ -120,16 +116,16 @@ extension ShowBlogState {
     func callAsFunction(_ action: ShowBlogAction) {
         switch action {
         case .loadLatestPosts(let items):
-            latestPostIDs = items.map(\.id)
+            latestPosts = items
             sharedState(.mergePosts(items))
         case .loadPopularPosts(let items):
-            popularPostIDs = items.map(\.id)
+            popularPosts = items
             sharedState(.mergePosts(items))
         case .loadTopPickPosts(let items):
-            topPickPostIDs = items.map(\.id)
+            topPickPosts = items
             sharedState(.mergePosts(items))
         case .loadTerms(let items):
-            termIDs = items.map(\.id)
+            terms = items
             sharedState(.mergeTerms(items))
         case .toggleFavorite(let item):
             guard let current = sharedState.posts

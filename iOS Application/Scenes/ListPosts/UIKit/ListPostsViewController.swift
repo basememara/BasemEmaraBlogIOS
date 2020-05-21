@@ -140,7 +140,10 @@ private extension ListPostsViewController {
         }
         
         if keyPath == \ListPostsState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
     }
 }

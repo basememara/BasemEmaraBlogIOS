@@ -27,7 +27,7 @@ class ListFavoritesState: StateRepresentable {
         }
     }
     
-    private(set) var error: AppAPI.Error? {
+    private(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -66,7 +66,7 @@ private extension ListFavoritesState {
 enum ListFavoritesAction: Action {
     case loadFavorites([PostsDataViewModel])
     case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
-    case loadError(AppAPI.Error?)
+    case loadError(ViewError?)
 }
 
 // MARK: - Reducer

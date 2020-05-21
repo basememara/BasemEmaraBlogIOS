@@ -89,7 +89,10 @@ private extension ListTermsViewController {
         }
         
         if keyPath == \ListTermsState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
     }
 }

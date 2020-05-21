@@ -99,7 +99,10 @@ private extension ListFavoritesViewController {
         }
         
         if keyPath == \ListFavoritesState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
     }
 }

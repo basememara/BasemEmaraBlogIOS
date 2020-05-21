@@ -163,7 +163,10 @@ private extension ShowBlogViewController {
         }
         
         if keyPath == \ShowBlogState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
         
         activityIndicatorView.stopAnimating()

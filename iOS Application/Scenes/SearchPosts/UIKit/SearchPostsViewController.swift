@@ -111,7 +111,10 @@ private extension SearchPostsViewController {
         }
         
         if keyPath == \SearchPostsState.error {
-            // TODO: Handle error
+            present(
+                alert: state.error?.title,
+                message: state.error?.message
+            )
         }
     }
 }

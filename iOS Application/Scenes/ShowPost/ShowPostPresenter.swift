@@ -90,7 +90,7 @@ extension ShowPostPresenter {
     }
     
     func displayPost(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.blogPostErrorTitle),
             message: error.localizedDescription
         )

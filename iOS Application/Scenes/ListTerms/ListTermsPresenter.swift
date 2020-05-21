@@ -33,7 +33,7 @@ extension ListTermsPresenter {
     }
     
     func displayTerms(error: SwiftyPressError) {
-        let viewModel = AppAPI.Error(
+        let viewModel = ViewError(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )

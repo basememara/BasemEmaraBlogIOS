@@ -13,9 +13,9 @@
 		8B0FBDB1247681FC0017EAD3 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */; };
 		8B0FBDB3247697CA0017EAD3 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB2247697CA0017EAD3 /* Reducer.swift */; };
 		8B1B30102472A5A500E07822 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B300F2472A5A500E07822 /* Action.swift */; };
-		8B20F10423A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
-		8B20F10523A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
-		8B20F10623A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
+		8B20F10423A928E5007A88DC /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* ViewError.swift */; };
+		8B20F10523A928E5007A88DC /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* ViewError.swift */; };
+		8B20F10623A928E5007A88DC /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* ViewError.swift */; };
 		8B21FF5C24745C7E00B857C9 /* SharedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FF5B24745C7E00B857C9 /* SharedState.swift */; };
 		8B221A59244E899A00F2C056 /* ShowBlogViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */; };
 		8B2FE66A23AB4DE900682D98 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE66923AB4DE900682D98 /* HomeState.swift */; };
@@ -250,7 +250,7 @@
 		8B1702A4244FD9560008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1702A6244FD9A30008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1B300F2472A5A500E07822 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		8B20F10323A928E5007A88DC /* AppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAPI.swift; sourceTree = "<group>"; };
+		8B20F10323A928E5007A88DC /* ViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewError.swift; sourceTree = "<group>"; };
 		8B21FF5B24745C7E00B857C9 /* SharedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedState.swift; sourceTree = "<group>"; };
 		8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogViewComponents.swift; sourceTree = "<group>"; };
 		8B2FE66923AB4DE900682D98 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
@@ -804,7 +804,7 @@
 			children = (
 				8B42C7B0234BBC9000F38E23 /* PostViewCells */,
 				8B42C7AD234BBC9000F38E23 /* TermViewCells */,
-				8B20F10323A928E5007A88DC /* AppAPI.swift */,
+				8B20F10323A928E5007A88DC /* ViewError.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1403,7 +1403,7 @@
 				8B42C818234BBC9000F38E23 /* PickedPostCollectionViewCell.swift in Sources */,
 				8B81CC2124360D0F0050CAC9 /* Presenter.swift in Sources */,
 				8B42C7CD234BBC9000F38E23 /* ShowPostAPI.swift in Sources */,
-				8B20F10423A928E5007A88DC /* AppAPI.swift in Sources */,
+				8B20F10423A928E5007A88DC /* ViewError.swift in Sources */,
 				8B0A6EB3244BEFDF00D1D8D2 /* Render.swift in Sources */,
 				8B42C7D1234BBC9000F38E23 /* ShowPostViewController.swift in Sources */,
 				8B42C817234BBC9000F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
@@ -1434,7 +1434,7 @@
 				8B42C837234BBD6000F38E23 /* TodayAction.swift in Sources */,
 				8B42C850234BC08A00F38E23 /* TermTableViewCell.swift in Sources */,
 				8B42C868234BC0A300F38E23 /* AppCore.swift in Sources */,
-				8B20F10523A928E5007A88DC /* AppAPI.swift in Sources */,
+				8B20F10523A928E5007A88DC /* ViewError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1443,7 +1443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B42C869234BC0A300F38E23 /* AppCore.swift in Sources */,
-				8B20F10623A928E5007A88DC /* AppAPI.swift in Sources */,
+				8B20F10623A928E5007A88DC /* ViewError.swift in Sources */,
 				8B42C84F234BC06100F38E23 /* AppTheme.swift in Sources */,
 				8B42C85C234BC08B00F38E23 /* TermTableViewCell.swift in Sources */,
 				8B42C70E234A6C7100F38E23 /* NotificationViewController.swift in Sources */,
