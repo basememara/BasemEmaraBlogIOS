@@ -11,6 +11,7 @@
 		8B0A6EB3244BEFDF00D1D8D2 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A6EB2244BEFDF00D1D8D2 /* Render.swift */; };
 		8B0FBDAF247681F40017EAD3 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FBDAE247681F40017EAD3 /* ZamzamCore.bundle */; };
 		8B0FBDB1247681FC0017EAD3 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */; };
+		8B0FBDB3247697CA0017EAD3 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB2247697CA0017EAD3 /* Reducer.swift */; };
 		8B1B30102472A5A500E07822 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B300F2472A5A500E07822 /* Action.swift */; };
 		8B20F10423A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
 		8B20F10523A928E5007A88DC /* AppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* AppAPI.swift */; };
@@ -245,6 +246,7 @@
 		8B0FBDAD247680740017EAD3 /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../ZamzamKit; sourceTree = "<group>"; };
 		8B0FBDAE247681F40017EAD3 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
 		8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
+		8B0FBDB2247697CA0017EAD3 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		8B1702A4244FD9560008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1702A6244FD9A30008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1B300F2472A5A500E07822 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -940,6 +942,7 @@
 				8B1B300F2472A5A500E07822 /* Action.swift */,
 				8B81CC1E24360CEA0050CAC9 /* Interactor.swift */,
 				8B81CC2024360D0F0050CAC9 /* Presenter.swift */,
+				8B0FBDB2247697CA0017EAD3 /* Reducer.swift */,
 				8B0A6EB2244BEFDF00D1D8D2 /* Render.swift */,
 				8B8905E623A6CD9300AB8A4F /* State.swift */,
 			);
@@ -1342,6 +1345,7 @@
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRender.swift in Sources */,
 				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
 				8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */,
+				8B0FBDB3247697CA0017EAD3 /* Reducer.swift in Sources */,
 				8B21FF5C24745C7E00B857C9 /* SharedState.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneRender.swift in Sources */,
 				8B42C7EF234BBC9000F38E23 /* SearchPostsAPI.swift in Sources */,

@@ -8,6 +8,3 @@
 
 /// The set of actions used to mutate the state.
 public protocol Action {}
-
-/// A closure that dispatches the action to mutate the state.
-typealias Reducer<T: Action> = (T) -> Void

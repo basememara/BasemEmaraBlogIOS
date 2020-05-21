@@ -100,16 +100,20 @@ extension ShowBlogInteractor {
         
         postRepository.fetchTopPicks(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displayTopPickPosts(
+                self.presenter.displayTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayTopPickPosts(
+                    self.presenter.displayTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
+                    
+                    return
                 }
                 
                 self.presenter.displayTopPickPosts(
