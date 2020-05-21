@@ -133,63 +133,6 @@ extension SceneRender {
 
 extension SceneRender {
     
-    func listFavorites() -> UIViewController {
-        let presenter = ListFavoritesPresenter { self.state.listFavoritesState($0) }
-        
-        let interactor = ListFavoritesInteractor(
-            presenter: presenter,
-            postRepository: core.postRepository(),
-            mediaRepository: core.mediaRepository()
-        )
-        
-        let render: (UIViewController) -> ListFavoritesRenderable = {
-            ListFavoritesRender(
-                render: self,
-                presentationContext: $0
-            )
-        }
-        
-        let view = ListFavoritesViewController(
-            state: state.listFavoritesState,
-            interactor: interactor,
-            render: render,
-            constants: core.constants(),
-            theme: core.theme()
-        )
-        
-        return view
-    }
-    
-    func searchPosts() -> UIViewController {
-        let presenter = SearchPostsPresenter { self.state.searchPostsState($0) }
-        
-        let interactor = SearchPostsInteractor(
-            presenter: presenter,
-            postRepository: core.postRepository(),
-            mediaRepository: core.mediaRepository()
-        )
-        
-        let render: (UIViewController) -> SearchPostsRenderable = {
-            SearchPostsRender(
-                render: self,
-                presentationContext: $0
-            )
-        }
-        
-        let view = SearchPostsViewController(
-            state: state.searchPostsState,
-            interactor: interactor,
-            render: render,
-            constants: core.constants(),
-            theme: core.theme()
-        )
-        
-        return view
-    }
-}
-
-extension SceneRender {
-    
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
         let presenter = ListPostsPresenter { self.state.listPostsState($0) }
         
@@ -259,6 +202,66 @@ extension SceneRender {
         
         return view
     }
+}
+
+extension SceneRender {
+    
+    func listFavorites() -> UIViewController {
+        let presenter = ListFavoritesPresenter { self.state.listFavoritesState($0) }
+        
+        let interactor = ListFavoritesInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository()
+        )
+        
+        let render: (UIViewController) -> ListFavoritesRenderable = {
+            ListFavoritesRender(
+                render: self,
+                presentationContext: $0
+            )
+        }
+        
+        let view = ListFavoritesViewController(
+            state: state.listFavoritesState,
+            interactor: interactor,
+            render: render,
+            constants: core.constants(),
+            theme: core.theme()
+        )
+        
+        return view
+    }
+    
+    func searchPosts() -> UIViewController {
+        let presenter = SearchPostsPresenter { self.state.searchPostsState($0) }
+        
+        let interactor = SearchPostsInteractor(
+            presenter: presenter,
+            postRepository: core.postRepository(),
+            mediaRepository: core.mediaRepository()
+        )
+        
+        let render: (UIViewController) -> SearchPostsRenderable = {
+            SearchPostsRender(
+                render: self,
+                presentationContext: $0
+            )
+        }
+        
+        let view = SearchPostsViewController(
+            state: state.searchPostsState,
+            interactor: interactor,
+            render: render,
+            constants: core.constants(),
+            theme: core.theme()
+        )
+        
+        return view
+    }
+}
+
+extension SceneRender {
     
     func listTerms() -> UIViewController {
         let presenter = ListTermsPresenter { self.state.listTermsState($0) }
