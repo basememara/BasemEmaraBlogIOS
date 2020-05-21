@@ -15,7 +15,6 @@ final class ListTermsViewController: UIViewController {
     private let state: ListTermsState
     private let interactor: ListTermsInteractable?
     private var render: ListTermsRenderable?
-    private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
     
@@ -55,12 +54,12 @@ final class ListTermsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

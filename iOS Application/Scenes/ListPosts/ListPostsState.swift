@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ListPostsState: StateRepresentable {
-    private let sharedState: SharedState
+    private let appState: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -23,7 +23,7 @@ class ListPostsState: StateRepresentable {
         
         didSet {
             guard oldValue != posts else { return }
-            notificationPost(keyPath: \ListPostsState.posts)
+            notificationPost(for: \Self.posts)
         }
     }
     
@@ -35,23 +35,32 @@ class ListPostsState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \ListPostsState.error)
+            notificationPost(for: \Self.error)
         }
     }
     
-    // MARK: - Initializers
+    init(appState: AppState) {
+        self.appState = appState
+    }
+}
+
+extension ListPostsState {
     
-    init(sharedState: SharedState) {
-        self.sharedState = sharedState
-        self.sharedState.subscribe(load, in: &cancellable)
+    func subscribe(_ observer: @escaping (PartialKeyPath<ListPostsState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+        appState.subscribe(load, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
 private extension ListPostsState {
     
-    func load(_ keyPath: PartialKeyPath<SharedState>?) {
-        if keyPath == \SharedState.posts || keyPath == nil {
-            posts = posts.compactMap { post in sharedState.posts.first { $0.id == post.id } }
+    func load(_ keyPath: PartialKeyPath<AppState>?) {
+        if keyPath == \AppState.allPosts || keyPath == nil {
+            posts = posts.compactMap { post in appState.allPosts.first { $0.id == post.id } }
         }
     }
 }
@@ -72,28 +81,18 @@ extension ListPostsState {
         switch action {
         case .loadPosts(let items):
             posts = items
-            sharedState(.mergePosts(items))
+            appState(.mergePosts(items))
         case .toggleFavorite(let item):
-            guard let current = sharedState.posts
+            guard let current = appState.allPosts
                 .first(where: { $0.id == item.postID })?
                 .toggled(favorite: item.favorite) else {
                     return
             }
             
-            sharedState(.mergePosts([current]))
+            appState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ListPostsState: Equatable {
-    
-    static func == (lhs: ListPostsState, rhs: ListPostsState) -> Bool {
-        lhs.posts == rhs.posts
-            && lhs.error == rhs.error
     }
 }
 

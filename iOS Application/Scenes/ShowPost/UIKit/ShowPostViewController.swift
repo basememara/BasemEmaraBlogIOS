@@ -20,7 +20,6 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     private let constants: Constants
     private let theme: Theme
     private let notificationCenter: NotificationCenter
-    private var cancellable: NotificationCenter.Cancellable?
     
     private var postID: Int?
     private var viewModel: ShowPostAPI.PostViewModel?
@@ -108,14 +107,14 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         super.viewDidAppear(animated)
         navigationController?.isToolbarHidden = false
         navigationController?.hidesBarsOnSwipe = true
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = true
         navigationController?.hidesBarsOnSwipe = false
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 
@@ -177,7 +176,7 @@ private extension ShowPostViewController {
         self.viewModel = viewModel
         
         title = viewModel.title
-        commentBarButton.badgeText = "\(viewModel.commentCount)"
+        commentBarButton.badgeText = .localizedStringWithFormat("%i", viewModel.commentCount)
         
         webView.loadHTMLString(
             viewModel.content,

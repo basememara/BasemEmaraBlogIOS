@@ -11,6 +11,8 @@ import Foundation.NSNotification
 /// The data of the component.
 public protocol StateRepresentable: AnyObject {
     associatedtype ActionType: Action
+    
+    /// Receives an action to mutate the state.
     func callAsFunction(_ action: ActionType)
 }
 
@@ -23,14 +25,14 @@ extension StateRepresentable {
     /// This will not be needed once fully migrated to SwiftUI. `ObservableObject` is planned.
     ///
     /// - Parameters:
-    ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
     ///   - observer: The block to be executed when the state changes.
-    func subscribe<State: StateRepresentable>(_ observer: @escaping (PartialKeyPath<State>?) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
+    ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
+    func subscribe(_ observer: @escaping (PartialKeyPath<Self>?) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
         // Load initial state
         observer(nil)
         
         NotificationCenter.default.addObserver(forName: .stateDidChange, queue: .main, in: &cancellable) { notification in
-            guard let keyPath = notification.userInfo?[.keyPath] as? PartialKeyPath<State> else { return }
+            guard let keyPath = notification.userInfo?[.keyPath] as? PartialKeyPath<Self> else { return }
             observer(keyPath)
         }
     }
@@ -38,7 +40,10 @@ extension StateRepresentable {
     /// Publishes the change when the state has changed. Call this during `didSet` with the key path that triggered the change.
     ///
     /// This will not be needed once fully migrated to SwiftUI. `@Publish` is planned.
-    func notificationPost<State: StateRepresentable>(keyPath: PartialKeyPath<State>) {
+    ///
+    /// - Parameters:
+    ///   - keyPath: The key path that triggered the change.
+    func notificationPost(for keyPath: PartialKeyPath<Self>) {
         NotificationCenter.default.post(name: .stateDidChange, userInfo: [.keyPath: keyPath])
     }
 }

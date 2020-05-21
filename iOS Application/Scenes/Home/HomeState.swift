@@ -6,9 +6,13 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class HomeState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var profile: HomeAPI.Profile? {
         willSet {
@@ -18,7 +22,7 @@ class HomeState: StateRepresentable {
         
         didSet {
             guard oldValue != profile else { return }
-            notificationPost(keyPath: \HomeState.profile)
+            notificationPost(for: \Self.profile)
         }
     }
     
@@ -30,7 +34,7 @@ class HomeState: StateRepresentable {
         
         didSet {
             guard oldValue != homeMenu else { return }
-            notificationPost(keyPath: \HomeState.homeMenu)
+            notificationPost(for: \Self.homeMenu)
         }
     }
     
@@ -42,8 +46,19 @@ class HomeState: StateRepresentable {
         
         didSet {
             guard oldValue != socialMenu else { return }
-            notificationPost(keyPath: \HomeState.socialMenu)
+            notificationPost(for: \Self.socialMenu)
         }
+    }
+}
+
+extension HomeState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<HomeState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -68,17 +83,6 @@ extension HomeState {
         case .loadSocial(let items):
             socialMenu = items
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension HomeState: Equatable {
-    
-    static func == (lhs: HomeState, rhs: HomeState) -> Bool {
-        lhs.profile == rhs.profile
-            && lhs.homeMenu == rhs.homeMenu
-            && lhs.socialMenu == rhs.socialMenu
     }
 }
 

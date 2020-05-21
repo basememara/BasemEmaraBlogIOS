@@ -18,7 +18,6 @@ final class ListPostsViewController: UIViewController {
     private var render: ListPostsRenderable?
     private let constants: Constants
     private let theme: Theme
-    private var cancellable: NotificationCenter.Cancellable?
     
     var params = ListPostsAPI.Params(
         fetchType: .latest,
@@ -69,12 +68,12 @@ final class ListPostsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

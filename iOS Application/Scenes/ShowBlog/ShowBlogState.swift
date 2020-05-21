@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ShowBlogState: StateRepresentable {
-    private let sharedState: SharedState
+    private let appState: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -23,7 +23,7 @@ class ShowBlogState: StateRepresentable {
         
         didSet {
             guard oldValue != latestPosts else { return }
-            notificationPost(keyPath: \ShowBlogState.latestPosts)
+            notificationPost(for: \Self.latestPosts)
         }
     }
     
@@ -35,7 +35,7 @@ class ShowBlogState: StateRepresentable {
         
         didSet {
             guard oldValue != popularPosts else { return }
-            notificationPost(keyPath: \ShowBlogState.popularPosts)
+            notificationPost(for: \Self.popularPosts)
         }
     }
     
@@ -47,7 +47,7 @@ class ShowBlogState: StateRepresentable {
         
         didSet {
             guard oldValue != topPickPosts else { return }
-            notificationPost(keyPath: \ShowBlogState.topPickPosts)
+            notificationPost(for: \Self.topPickPosts)
         }
     }
     
@@ -59,7 +59,7 @@ class ShowBlogState: StateRepresentable {
         
         didSet {
             guard oldValue != terms else { return }
-            notificationPost(keyPath: \ShowBlogState.terms)
+            notificationPost(for: \Self.terms)
         }
     }
     
@@ -71,29 +71,38 @@ class ShowBlogState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \ShowBlogState.error)
+            notificationPost(for: \Self.error)
         }
     }
     
-    // MARK: - Initializers
+    init(appState: AppState) {
+        self.appState = appState
+    }
+}
+
+extension ShowBlogState {
     
-    init(sharedState: SharedState) {
-        self.sharedState = sharedState
-        self.sharedState.subscribe(load, in: &cancellable)
+    func subscribe(_ observer: @escaping (PartialKeyPath<ShowBlogState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+        appState.subscribe(load, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
 private extension ShowBlogState {
     
-    func load(_ keyPath: PartialKeyPath<SharedState>?) {
-        if keyPath == \SharedState.posts || keyPath == nil {
-            latestPosts = latestPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
-            popularPosts = popularPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
-            topPickPosts = topPickPosts.compactMap { posts in sharedState.posts.first { $0.id == posts.id } }
+    func load(_ keyPath: PartialKeyPath<AppState>?) {
+        if keyPath == \AppState.allPosts || keyPath == nil {
+            latestPosts = latestPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
+            popularPosts = popularPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
+            topPickPosts = topPickPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
         }
         
-        if keyPath == \SharedState.terms || keyPath == nil {
-            terms = terms.compactMap { term in sharedState.terms.first { $0.id == term.id } }
+        if keyPath == \AppState.allTerms || keyPath == nil {
+            terms = terms.compactMap { term in appState.allTerms.first { $0.id == term.id } }
         }
     }
 }
@@ -117,40 +126,27 @@ extension ShowBlogState {
         switch action {
         case .loadLatestPosts(let items):
             latestPosts = items
-            sharedState(.mergePosts(items))
+            appState(.mergePosts(items))
         case .loadPopularPosts(let items):
             popularPosts = items
-            sharedState(.mergePosts(items))
+            appState(.mergePosts(items))
         case .loadTopPickPosts(let items):
             topPickPosts = items
-            sharedState(.mergePosts(items))
+            appState(.mergePosts(items))
         case .loadTerms(let items):
             terms = items
-            sharedState(.mergeTerms(items))
+            appState(.mergeTerms(items))
         case .toggleFavorite(let item):
-            guard let current = sharedState.posts
+            guard let current = appState.allPosts
                 .first(where: { $0.id == item.postID })?
                 .toggled(favorite: item.favorite) else {
                     return
             }
             
-            sharedState(.mergePosts([current]))
+            appState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ShowBlogState: Equatable {
-    
-    static func == (lhs: ShowBlogState, rhs: ShowBlogState) -> Bool {
-        lhs.latestPosts == rhs.latestPosts
-            && lhs.popularPosts == rhs.popularPosts
-            && lhs.topPickPosts == rhs.topPickPosts
-            && lhs.terms == rhs.terms
-            && lhs.error == rhs.error
     }
 }
 

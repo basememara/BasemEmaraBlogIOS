@@ -6,7 +6,12 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
+
 class ShowSettingsState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var settingsMenu: [ShowSettingsAPI.MenuItem] = [] {
         willSet {
@@ -16,7 +21,7 @@ class ShowSettingsState: StateRepresentable {
         
         didSet {
             guard oldValue != settingsMenu else { return }
-            notificationPost(keyPath: \ShowSettingsState.settingsMenu)
+            notificationPost(for: \Self.settingsMenu)
         }
     }
     
@@ -28,8 +33,19 @@ class ShowSettingsState: StateRepresentable {
         
         didSet {
             guard oldValue != autoThemeEnabled else { return }
-            notificationPost(keyPath: \ShowSettingsState.autoThemeEnabled)
+            notificationPost(for: \Self.autoThemeEnabled)
         }
+    }
+}
+
+extension ShowSettingsState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<ShowSettingsState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -51,16 +67,6 @@ extension ShowSettingsState {
         case .setAutoThemeEnabled(let item):
             autoThemeEnabled = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ShowSettingsState: Equatable {
-    
-    static func == (lhs: ShowSettingsState, rhs: ShowSettingsState) -> Bool {
-        lhs.settingsMenu == rhs.settingsMenu
-            && lhs.autoThemeEnabled == rhs.autoThemeEnabled
     }
 }
 

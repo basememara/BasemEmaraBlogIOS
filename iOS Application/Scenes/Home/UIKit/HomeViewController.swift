@@ -15,7 +15,6 @@ final class HomeViewController: UIViewController {
     private let state: HomeState
     private let interactor: HomeInteractable?
     private var render: HomeRenderable?
-    private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
     
@@ -60,13 +59,13 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

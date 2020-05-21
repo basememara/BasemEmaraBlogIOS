@@ -17,7 +17,6 @@ final class SearchPostsViewController: UIViewController {
     private var render: SearchPostsRenderable?
     private let constants: Constants
     private let theme: Theme
-    private var cancellable: NotificationCenter.Cancellable?
     
     var searchText: String?
     
@@ -80,12 +79,12 @@ final class SearchPostsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

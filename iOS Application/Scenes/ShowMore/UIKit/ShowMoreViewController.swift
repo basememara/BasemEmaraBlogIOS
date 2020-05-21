@@ -15,7 +15,6 @@ final class ShowMoreViewController: UIViewController {
     private let state: ShowMoreState
     private let interactor: ShowMoreInteractable?
     private(set) var render: ShowMoreRenderable?
-    private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
     
@@ -48,12 +47,12 @@ final class ShowMoreViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

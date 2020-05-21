@@ -17,7 +17,6 @@ final class ListFavoritesViewController: UIViewController {
     private var render: ListFavoritesRenderable?
     private let constants: Constants
     private let theme: Theme
-    private var cancellable: NotificationCenter.Cancellable?
 
     // MARK: - Controls
     
@@ -65,12 +64,12 @@ final class ListFavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

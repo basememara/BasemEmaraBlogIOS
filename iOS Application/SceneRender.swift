@@ -28,7 +28,8 @@ struct SceneRender {
 extension SceneRender {
     
     func launchMain() -> UIViewController {
-        let presenter = MainPresenter { self.state.mainState($0) }
+        let state = MainState()
+        let presenter = MainPresenter { state($0) }
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         let view: UIViewController
@@ -39,7 +40,7 @@ extension SceneRender {
                 $0.viewControllers = [
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(
-                        state: state.mainState,
+                        state: state,
                         interactor: interactor,
                         render: render
                     )
@@ -47,7 +48,7 @@ extension SceneRender {
             }
         default:
             view = MainViewController(
-                state: state.mainState,
+                state: state,
                 interactor: interactor,
                 render: render
             )
@@ -58,13 +59,14 @@ extension SceneRender {
     
     @available(iOS 13, *)
     func launchMain<T: View>() -> T? {
-        let presenter = MainPresenter { self.state.mainState($0) }
+        let state = MainState()
+        let presenter = MainPresenter { state($0) }
         let interactor = MainInteractor(presenter: presenter)
         let render = MainRender(render: self)
         
         // Unused until SwiftUI is more stable
         return MainView(
-            state: state.mainState,
+            state: state,
             interactor: interactor,
             render: render
         ) as? T
@@ -74,7 +76,8 @@ extension SceneRender {
 extension SceneRender {
     
     func home() -> UIViewController {
-        let presenter = HomePresenter { self.state.homeState($0) }
+        let state = HomeState()
+        let presenter = HomePresenter { state($0) }
         let interactor = HomeInteractor(presenter: presenter)
         
         let render: (UIViewController) -> HomeRenderable = {
@@ -88,7 +91,7 @@ extension SceneRender {
         }
         
         let view = HomeViewController(
-            state: state.homeState,
+            state: state,
             interactor: interactor,
             render: render
         )
@@ -100,7 +103,8 @@ extension SceneRender {
 extension SceneRender {
     
     func showBlog() -> UIViewController {
-        let presenter = ShowBlogPresenter { self.state.showBlogState($0) }
+        let state = ShowBlogState(appState: self.state)
+        let presenter = ShowBlogPresenter { state($0) }
         
         let interactor = ShowBlogInteractor(
             presenter: presenter,
@@ -120,7 +124,7 @@ extension SceneRender {
         }
         
         let view = ShowBlogViewController(
-            state: state.showBlogState,
+            state: state,
             interactor: interactor,
             render: render,
             constants: core.constants(),
@@ -134,7 +138,8 @@ extension SceneRender {
 extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
-        let presenter = ListPostsPresenter { self.state.listPostsState($0) }
+        let state = ListPostsState(appState: self.state)
+        let presenter = ListPostsPresenter { state($0) }
         
         let interactor = ListPostsInteractor(
             presenter: presenter,
@@ -151,7 +156,7 @@ extension SceneRender {
         }
         
         let view = ListPostsViewController(
-            state: state.listPostsState,
+            state: state,
             interactor: interactor,
             render: render,
             constants: core.constants(),
@@ -165,8 +170,10 @@ extension SceneRender {
     }
     
     func showPost(for id: Int) -> UIViewController {
+        let state = ShowPostState(appState: self.state)
+        
         let presenter = ShowPostPresenter(
-            state: { self.state.showPostState($0) },
+            state: { state($0) },
             constants: core.constants(),
             templateFile: Bundle.main.string(file: "post.html"),
             styleSheetFile: Bundle.main.string(file: "style.css")
@@ -190,7 +197,7 @@ extension SceneRender {
         }
         
         let view = ShowPostViewController(
-            state: state.showPostState,
+            state: state,
             interactor: interactor,
             render: render,
             constants: core.constants(),
@@ -207,7 +214,8 @@ extension SceneRender {
 extension SceneRender {
     
     func listFavorites() -> UIViewController {
-        let presenter = ListFavoritesPresenter { self.state.listFavoritesState($0) }
+        let state = ListFavoritesState(appState: self.state)
+        let presenter = ListFavoritesPresenter { state($0) }
         
         let interactor = ListFavoritesInteractor(
             presenter: presenter,
@@ -223,7 +231,7 @@ extension SceneRender {
         }
         
         let view = ListFavoritesViewController(
-            state: state.listFavoritesState,
+            state: state,
             interactor: interactor,
             render: render,
             constants: core.constants(),
@@ -234,7 +242,8 @@ extension SceneRender {
     }
     
     func searchPosts() -> UIViewController {
-        let presenter = SearchPostsPresenter { self.state.searchPostsState($0) }
+        let state = SearchPostsState()
+        let presenter = SearchPostsPresenter { state($0) }
         
         let interactor = SearchPostsInteractor(
             presenter: presenter,
@@ -250,7 +259,7 @@ extension SceneRender {
         }
         
         let view = SearchPostsViewController(
-            state: state.searchPostsState,
+            state: state,
             interactor: interactor,
             render: render,
             constants: core.constants(),
@@ -264,7 +273,8 @@ extension SceneRender {
 extension SceneRender {
     
     func listTerms() -> UIViewController {
-        let presenter = ListTermsPresenter { self.state.listTermsState($0) }
+        let state = ListTermsState()
+        let presenter = ListTermsPresenter { state($0) }
         
         let interactor = ListTermsInteractor(
             presenter: presenter,
@@ -279,7 +289,7 @@ extension SceneRender {
         }
         
         let view = ListTermsViewController(
-            state: state.listTermsState,
+            state: state,
             interactor: interactor,
             render: render
         )
@@ -291,7 +301,8 @@ extension SceneRender {
 extension SceneRender {
     
     func showMore() -> UIViewController {
-        let presenter = ShowMorePresenter { self.state.showMoreState($0) }
+        let state = ShowMoreState()
+        let presenter = ShowMorePresenter { state($0) }
         let interactor = ShowMoreInteractor(presenter: presenter)
         
         let render: (UIViewController) -> ShowMoreRenderable = {
@@ -305,7 +316,7 @@ extension SceneRender {
         }
         
         let view = ShowMoreViewController(
-            state: state.showMoreState,
+            state: state,
             interactor: interactor,
             render: render
         )
@@ -314,7 +325,8 @@ extension SceneRender {
     }
     
     func showSettings() -> UIViewController {
-        let presenter = ShowSettingsPresenter { self.state.showSettingsState($0) }
+        let state = ShowSettingsState()
+        let presenter = ShowSettingsPresenter { state($0) }
         
         let interactor = ShowSettingsInteractor(
             presenter: presenter,
@@ -324,7 +336,7 @@ extension SceneRender {
         let render = ShowSettingsRender(application: .shared)
         
         let view = ShowSettingsViewController(
-            state: state.showSettingsState,
+            state: state,
             interactor: interactor,
             render: render
         )

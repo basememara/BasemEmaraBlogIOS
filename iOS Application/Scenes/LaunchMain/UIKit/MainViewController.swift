@@ -12,7 +12,6 @@ class MainViewController: UITabBarController {
     private let state: MainState
     private let interactor: MainInteractable?
     private let render: MainRenderable
-    private var cancellable: NotificationCenter.Cancellable?
     
     init(
         state: MainState,
@@ -38,12 +37,12 @@ class MainViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 

@@ -6,9 +6,13 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ShowMoreState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var moreMenu: [ShowMoreAPI.MenuSection] = [] {
         willSet {
@@ -18,7 +22,7 @@ class ShowMoreState: StateRepresentable {
         
         didSet {
             guard oldValue != moreMenu else { return }
-            notificationPost(keyPath: \ShowMoreState.moreMenu)
+            notificationPost(for: \Self.moreMenu)
         }
     }
     
@@ -30,8 +34,19 @@ class ShowMoreState: StateRepresentable {
         
         didSet {
             guard oldValue != socialMenu else { return }
-            notificationPost(keyPath: \ShowMoreState.socialMenu)
+            notificationPost(for: \Self.socialMenu)
         }
+    }
+}
+
+extension ShowMoreState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<ShowMoreState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -53,16 +68,6 @@ extension ShowMoreState {
         case .loadSocial(let social):
             socialMenu = social
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ShowMoreState: Equatable {
-    
-    static func == (lhs: ShowMoreState, rhs: ShowMoreState) -> Bool {
-        lhs.moreMenu == rhs.moreMenu
-            && lhs.socialMenu == rhs.socialMenu
     }
 }
 

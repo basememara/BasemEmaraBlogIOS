@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ListFavoritesState: StateRepresentable {
-    private let sharedState: SharedState
+    private let appState: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -23,7 +23,7 @@ class ListFavoritesState: StateRepresentable {
         
         didSet {
             guard oldValue != favorites else { return }
-            notificationPost(keyPath: \ListFavoritesState.favorites)
+            notificationPost(for: \Self.favorites)
         }
     }
     
@@ -35,23 +35,32 @@ class ListFavoritesState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \ListFavoritesState.error)
+            notificationPost(for: \Self.error)
         }
     }
     
-    // MARK: - Initializers
+    init(appState: AppState) {
+        self.appState = appState
+    }
+}
+
+extension ListFavoritesState {
     
-    init(sharedState: SharedState) {
-        self.sharedState = sharedState
-        self.sharedState.subscribe(load, in: &cancellable)
+    func subscribe(_ observer: @escaping (PartialKeyPath<ListFavoritesState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+        appState.subscribe(load, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
 private extension ListFavoritesState {
     
-    func load(_ keyPath: PartialKeyPath<SharedState>?) {
-        if keyPath == \SharedState.posts || keyPath == nil {
-            let sharedFavorites = sharedState.posts.filter { $0.favorite }
+    func load(_ keyPath: PartialKeyPath<AppState>?) {
+        if keyPath == \AppState.allPosts || keyPath == nil {
+            let sharedFavorites = appState.allPosts.filter { $0.favorite }
             
             let sorted = favorites
                 .compactMap { item in sharedFavorites.first { $0.id == item.id } }
@@ -76,9 +85,9 @@ extension ListFavoritesState {
     func callAsFunction(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let items):
-            sharedState(.mergePosts(items))
+            appState(.mergePosts(items))
         case .toggleFavorite(let item):
-            sharedState(
+            appState(
                 .toggleFavorite(
                     postID: item.postID,
                     favorite: item.favorite
@@ -87,16 +96,6 @@ extension ListFavoritesState {
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ListFavoritesState: Equatable {
-    
-    static func == (lhs: ListFavoritesState, rhs: ListFavoritesState) -> Bool {
-        lhs.favorites == rhs.favorites
-            && lhs.error == rhs.error
     }
 }
 

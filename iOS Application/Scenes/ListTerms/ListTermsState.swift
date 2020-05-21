@@ -6,9 +6,13 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class ListTermsState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var terms: [TermsDataViewModel] = [] {
         willSet {
@@ -18,7 +22,7 @@ class ListTermsState: StateRepresentable {
         
         didSet {
             guard oldValue != terms else { return }
-            notificationPost(keyPath: \ListTermsState.terms)
+            notificationPost(for: \Self.terms)
         }
     }
     
@@ -30,8 +34,19 @@ class ListTermsState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \ListTermsState.error)
+            notificationPost(for: \Self.error)
         }
+    }
+}
+
+extension ListTermsState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<ListTermsState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -53,16 +68,6 @@ extension ListTermsState {
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ListTermsState: Equatable {
-    
-    static func == (lhs: ListTermsState, rhs: ListTermsState) -> Bool {
-        lhs.terms == rhs.terms
-            && lhs.error == rhs.error
     }
 }
 

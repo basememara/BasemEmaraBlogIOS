@@ -16,7 +16,6 @@ final class ShowBlogViewController: UIViewController {
     private let interactor: ShowBlogInteractable?
     private let constants: Constants
     private let theme: Theme
-    private var cancellable: NotificationCenter.Cancellable?
     
     private(set) var render: ShowBlogRenderable?
     
@@ -83,12 +82,12 @@ final class ShowBlogViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 
@@ -163,13 +162,21 @@ private extension ShowBlogViewController {
         }
         
         if keyPath == \ShowBlogState.error {
+            activityIndicatorView.stopAnimating()
+            
             present(
                 alert: state.error?.title,
                 message: state.error?.message
             )
         }
         
-        activityIndicatorView.stopAnimating()
+        // Stop loader when all sections populated
+        if latestPostsCollectionViewAdapter.viewModels?.isEmpty == false
+            && popularPostsCollectionViewAdapter.viewModels?.isEmpty == false
+            && pickedPostsCollectionViewAdapter.viewModels?.isEmpty == false
+            && topTermsTableViewAdapter.viewModels?.isEmpty == false {
+            activityIndicatorView.stopAnimating()
+        }
     }
 }
 

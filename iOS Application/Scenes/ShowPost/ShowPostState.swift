@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ShowPostState: StateRepresentable {
-    private let sharedState: SharedState
+    private let appState: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -23,7 +23,7 @@ class ShowPostState: StateRepresentable {
         
         didSet {
             guard oldValue != web else { return }
-            notificationPost(keyPath: \ShowPostState.web)
+            notificationPost(for: \Self.web)
         }
     }
     
@@ -35,7 +35,7 @@ class ShowPostState: StateRepresentable {
         
         didSet {
             guard oldValue != post else { return }
-            notificationPost(keyPath: \ShowPostState.post)
+            notificationPost(for: \Self.post)
         }
     }
     
@@ -47,7 +47,7 @@ class ShowPostState: StateRepresentable {
         
         didSet {
             guard oldValue != isFavorite else { return }
-            notificationPost(keyPath: \ShowPostState.isFavorite)
+            notificationPost(for: \Self.isFavorite)
         }
     }
     
@@ -59,23 +59,32 @@ class ShowPostState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \ShowPostState.error)
+            notificationPost(for: \Self.error)
         }
     }
     
-    // MARK: - Initializers
+    init(appState: AppState) {
+        self.appState = appState
+    }
+}
+
+extension ShowPostState {
     
-    init(sharedState: SharedState) {
-        self.sharedState = sharedState
-        self.sharedState.subscribe(load, in: &cancellable)
+    func subscribe(_ observer: @escaping (PartialKeyPath<ShowPostState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+        appState.subscribe(load, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
 private extension ShowPostState {
     
-    func load(_ keyPath: PartialKeyPath<SharedState>?) {
-        if keyPath == \SharedState.posts || keyPath == nil {
-            isFavorite = sharedState.posts.first { $0.id == post?.id }?.favorite ?? false
+    func load(_ keyPath: PartialKeyPath<AppState>?) {
+        if keyPath == \AppState.allPosts || keyPath == nil {
+            isFavorite = appState.allPosts.first { $0.id == post?.id }?.favorite ?? false
         }
     }
 }
@@ -103,28 +112,16 @@ extension ShowPostState {
         case .loadFavorite(let item):
             isFavorite = item
         case .toggleFavorite(let item):
-            guard let current = sharedState.posts
+            guard let current = appState.allPosts
                 .first(where: { $0.id == post?.id })?
                 .toggled(favorite: item) else {
                     return
             }
             
-            sharedState(.mergePosts([current]))
+            appState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension ShowPostState: Equatable {
-    
-    static func == (lhs: ShowPostState, rhs: ShowPostState) -> Bool {
-        lhs.web == rhs.web
-            && lhs.post == rhs.post
-            && lhs.isFavorite == rhs.isFavorite
-            && lhs.error == rhs.error
     }
 }
 

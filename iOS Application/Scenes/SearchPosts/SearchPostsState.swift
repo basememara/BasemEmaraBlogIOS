@@ -6,9 +6,11 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
 import SwiftyPress
 
 class SearchPostsState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
     
     private(set) var posts: [PostsDataViewModel] = [] {
         willSet {
@@ -18,7 +20,7 @@ class SearchPostsState: StateRepresentable {
         
         didSet {
             guard oldValue != posts else { return }
-            notificationPost(keyPath: \SearchPostsState.posts)
+            notificationPost(for: \Self.posts)
         }
     }
     
@@ -30,8 +32,19 @@ class SearchPostsState: StateRepresentable {
         
         didSet {
             guard oldValue != error else { return }
-            notificationPost(keyPath: \SearchPostsState.error)
+            notificationPost(for: \Self.error)
         }
+    }
+}
+
+extension SearchPostsState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<SearchPostsState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -53,16 +66,6 @@ extension SearchPostsState {
         case .loadError(let item):
             error = item
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension SearchPostsState: Equatable {
-    
-    static func == (lhs: SearchPostsState, rhs: SearchPostsState) -> Bool {
-        lhs.posts == rhs.posts
-            && lhs.error == rhs.error
     }
 }
 

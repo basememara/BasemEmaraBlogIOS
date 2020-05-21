@@ -6,7 +6,12 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSNotification
+
 class MainState: StateRepresentable {
+    private var cancellable: NotificationCenter.Cancellable?
+    
+    // MARK: - Observables
     
     private(set) var tabMenu: [MainAPI.TabItem] = [] {
         willSet {
@@ -16,8 +21,19 @@ class MainState: StateRepresentable {
         
         didSet {
             guard oldValue != tabMenu else { return }
-            notificationPost(keyPath: \MainState.tabMenu)
+            notificationPost(for: \Self.tabMenu)
         }
+    }
+}
+
+extension MainState {
+    
+    func subscribe(_ observer: @escaping (PartialKeyPath<MainState>?) -> Void) {
+        subscribe(observer, in: &cancellable)
+    }
+    
+    func unsubscribe() {
+        cancellable = nil
     }
 }
 
@@ -36,15 +52,6 @@ extension MainState {
         case .loadMenu(let menu):
             tabMenu = menu
         }
-    }
-}
-
-// MARK: - Conformances
-
-extension MainState: Equatable {
-    
-    static func == (lhs: MainState, rhs: MainState) -> Bool {
-        lhs.tabMenu == rhs.tabMenu
     }
 }
 

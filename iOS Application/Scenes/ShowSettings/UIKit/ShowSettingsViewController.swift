@@ -14,7 +14,6 @@ final class ShowSettingsViewController: UIViewController {
     private let state: ShowSettingsState
     private let interactor: ShowSettingsInteractable?
     private let render: ShowSettingsRenderable?
-    private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Controls
     
@@ -47,12 +46,12 @@ final class ShowSettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load, in: &cancellable)
+        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        cancellable = nil
+        state.unsubscribe()
     }
 }
 
