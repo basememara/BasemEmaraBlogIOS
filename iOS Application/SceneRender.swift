@@ -103,7 +103,7 @@ extension SceneRender {
 extension SceneRender {
     
     func showBlog() -> UIViewController {
-        let state = ShowBlogState(appState: self.state)
+        let state = ShowBlogState(parent: self.state)
         let presenter = ShowBlogPresenter { state($0) }
         
         let interactor = ShowBlogInteractor(
@@ -138,7 +138,7 @@ extension SceneRender {
 extension SceneRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
-        let state = ListPostsState(appState: self.state)
+        let state = ListPostsState(parent: self.state)
         let presenter = ListPostsPresenter { state($0) }
         
         let interactor = ListPostsInteractor(
@@ -170,7 +170,7 @@ extension SceneRender {
     }
     
     func showPost(for id: Int) -> UIViewController {
-        let state = ShowPostState(appState: self.state)
+        let state = ShowPostState(parent: self.state)
         
         let presenter = ShowPostPresenter(
             state: { state($0) },
@@ -214,7 +214,7 @@ extension SceneRender {
 extension SceneRender {
     
     func listFavorites() -> UIViewController {
-        let state = ListFavoritesState(appState: self.state)
+        let state = ListFavoritesState(parent: self.state)
         let presenter = ListFavoritesPresenter { state($0) }
         
         let interactor = ListFavoritesInteractor(

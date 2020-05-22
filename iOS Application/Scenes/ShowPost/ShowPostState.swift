@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ShowPostState: StateRepresentable {
-    private let appState: AppState
+    private let parent: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -63,8 +63,8 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    init(appState: AppState) {
-        self.appState = appState
+    init(parent: AppState) {
+        self.parent = parent
     }
 }
 
@@ -72,7 +72,7 @@ extension ShowPostState {
     
     func subscribe(_ observer: @escaping (StateChange<ShowPostState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        appState.subscribe(load, in: &cancellable)
+        parent.subscribe(load, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -84,7 +84,7 @@ private extension ShowPostState {
     
     func load(_ result: StateChange<AppState>) {
         guard result == .updated(\AppState.allPosts) || result == .initial else { return }
-        isFavorite = appState.allPosts.first { $0.id == post?.id }?.favorite ?? false
+        isFavorite = parent.allPosts.first { $0.id == post?.id }?.favorite ?? false
     }
 }
 
@@ -111,13 +111,13 @@ extension ShowPostState {
         case .loadFavorite(let item):
             isFavorite = item
         case .toggleFavorite(let item):
-            guard let current = appState.allPosts
+            guard let current = parent.allPosts
                 .first(where: { $0.id == post?.id })?
                 .toggled(favorite: item) else {
                     return
             }
             
-            appState(.mergePosts([current]))
+            parent(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ShowBlogState: StateRepresentable {
-    private let appState: AppState
+    private let parent: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -75,8 +75,8 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    init(appState: AppState) {
-        self.appState = appState
+    init(parent: AppState) {
+        self.parent = parent
     }
 }
 
@@ -84,7 +84,7 @@ extension ShowBlogState {
     
     func subscribe(_ observer: @escaping (StateChange<ShowBlogState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        appState.subscribe(load, in: &cancellable)
+        parent.subscribe(load, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -96,13 +96,13 @@ private extension ShowBlogState {
     
     func load(_ result: StateChange<AppState>) {
         if result == .updated(\AppState.allPosts) || result == .initial {
-            latestPosts = latestPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
-            popularPosts = popularPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
-            topPickPosts = topPickPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
+            latestPosts = latestPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
+            popularPosts = popularPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
+            topPickPosts = topPickPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
         }
         
         if result == .updated(\AppState.allTerms) || result == .initial {
-            terms = terms.compactMap { term in appState.allTerms.first { $0.id == term.id } }
+            terms = terms.compactMap { term in parent.allTerms.first { $0.id == term.id } }
         }
     }
 }
@@ -126,24 +126,24 @@ extension ShowBlogState {
         switch action {
         case .loadLatestPosts(let items):
             latestPosts = items
-            appState(.mergePosts(items))
+            parent(.mergePosts(items))
         case .loadPopularPosts(let items):
             popularPosts = items
-            appState(.mergePosts(items))
+            parent(.mergePosts(items))
         case .loadTopPickPosts(let items):
             topPickPosts = items
-            appState(.mergePosts(items))
+            parent(.mergePosts(items))
         case .loadTerms(let items):
             terms = items
-            appState(.mergeTerms(items))
+            parent(.mergeTerms(items))
         case .toggleFavorite(let item):
-            guard let current = appState.allPosts
+            guard let current = parent.allPosts
                 .first(where: { $0.id == item.postID })?
                 .toggled(favorite: item.favorite) else {
                     return
             }
             
-            appState(.mergePosts([current]))
+            parent(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

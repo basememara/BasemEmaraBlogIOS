@@ -10,7 +10,7 @@ import Foundation.NSNotification
 import SwiftyPress
 
 class ListFavoritesState: StateRepresentable {
-    private let appState: AppState
+    private let parent: AppState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -39,8 +39,8 @@ class ListFavoritesState: StateRepresentable {
         }
     }
     
-    init(appState: AppState) {
-        self.appState = appState
+    init(parent: AppState) {
+        self.parent = parent
     }
 }
 
@@ -48,7 +48,7 @@ extension ListFavoritesState {
     
     func subscribe(_ observer: @escaping (StateChange<ListFavoritesState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        appState.subscribe(load, in: &cancellable)
+        parent.subscribe(load, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -61,7 +61,7 @@ private extension ListFavoritesState {
     func load(_ result: StateChange<AppState>) {
         guard result == .updated(\AppState.allPosts) || result == .initial else { return }
         
-        let sharedFavorites = appState.allPosts.filter { $0.favorite }
+        let sharedFavorites = parent.allPosts.filter { $0.favorite }
         let sorted = favorites.compactMap { item in sharedFavorites.first { $0.id == item.id } }
         favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
     }
@@ -82,9 +82,9 @@ extension ListFavoritesState {
     func callAsFunction(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let items):
-            appState(.mergePosts(items))
+            parent(.mergePosts(items))
         case .toggleFavorite(let item):
-            appState(
+            parent(
                 .toggleFavorite(
                     postID: item.postID,
                     favorite: item.favorite
