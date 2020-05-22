@@ -183,3 +183,27 @@ extension ListPostsViewController {
         render?.showPost(for: model)
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ListPostsController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ListPostsViewController(
+                state: AppPreview.listPostsState,
+                interactor: nil,
+                render: nil,
+                constants: AppPreview.core.constants(),
+                theme: AppPreview.core.theme()
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif

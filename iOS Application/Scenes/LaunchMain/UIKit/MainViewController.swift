@@ -86,3 +86,26 @@ extension MainViewController: UITabBarControllerDelegate {
         (viewController.contentViewController as? MainSelectable)?.mainDidSelect()
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct MainViewController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        MainViewController(
+            state: AppPreview.mainState,
+            interactor: nil,
+            render: MainViewController_Preview.MockRender()
+        ).previews
+    }
+    
+    struct MockRender: MainRenderable {
+        func rootView(for menu: MainAPI.Menu) -> UIViewController { UIViewController() }
+        func postView(for id: Int) -> UIViewController { UIViewController() }
+    }
+}
+#endif

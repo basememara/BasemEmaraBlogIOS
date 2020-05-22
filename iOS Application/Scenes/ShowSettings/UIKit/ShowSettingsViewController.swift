@@ -202,3 +202,25 @@ private extension ShowSettingsViewController {
         }
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ShowSettingsViewController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ShowSettingsViewController(
+                state: AppPreview.showSettings,
+                interactor: nil,
+                render: nil
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif

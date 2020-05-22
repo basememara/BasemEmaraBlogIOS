@@ -145,3 +145,27 @@ extension ListFavoritesViewController {
         render?.showPost(for: model)
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ListFavoritesController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ListFavoritesViewController(
+                state: AppPreview.listFavoritesState,
+                interactor: nil,
+                render: nil,
+                constants: AppPreview.core.constants(),
+                theme: AppPreview.core.theme()
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif

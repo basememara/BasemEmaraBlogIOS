@@ -7,9 +7,10 @@
 //
 
 import Foundation.NSNotification
+import ZamzamCore
 
 /// The data of the component.
-public protocol StateRepresentable: AnyObject {
+public protocol StateRepresentable: AnyObject, Apply {
     associatedtype ActionType: Action
     
     /// Receives an action to mutate the state.

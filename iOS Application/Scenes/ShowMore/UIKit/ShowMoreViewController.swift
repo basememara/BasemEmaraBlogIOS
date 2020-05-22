@@ -201,3 +201,25 @@ private extension ShowMoreViewController {
         }
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ShowMoreViewController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+                rootViewController: ShowMoreViewController(
+                state: AppPreview.showMoreState,
+                interactor: nil,
+                render: nil
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif

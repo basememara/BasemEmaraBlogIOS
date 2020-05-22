@@ -107,3 +107,25 @@ extension ListTermsViewController: TermsDataViewDelegate {
         )
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ListTermsController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ListTermsViewController(
+                state: AppPreview.listTermsState,
+                interactor: nil,
+                render: nil
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif

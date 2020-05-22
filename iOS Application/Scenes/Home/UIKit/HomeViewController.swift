@@ -167,30 +167,11 @@ import SwiftUI
 struct HomeViewController_Preview: PreviewProvider {
 
     static var previews: some View {
-        Group {
-            HomeViewRepresentable()
-
-            HomeViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .colorScheme(.dark)
-        }
-    }
-}
-
-@available(iOS 13.0, *)
-extension HomeViewController_Preview {
-
-    struct HomeViewRepresentable: UIViewRepresentable {
-
-        func makeUIView(context: Context) -> UIView {
-            HomeViewController(
-                state: AppPreview.homeState,
-                interactor: nil,
-                render: nil
-            ).view ?? .init()
-        }
-
-        func updateUIView(_ view: UIView, context: Context) {}
+        HomeViewController(
+            state: AppPreview.homeState,
+            interactor: nil,
+            render: nil
+        ).previews
     }
 }
 #endif

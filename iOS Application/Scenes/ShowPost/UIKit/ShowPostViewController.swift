@@ -348,3 +348,30 @@ extension ShowPostViewController: UIScrollViewDelegate {
         navigationController?.setToolbarHidden(false, animated: true)
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ShowPostController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ShowPostViewController(
+                state: AppPreview.showPostState,
+                interactor: nil,
+                render: nil,
+                constants: AppPreview.core.constants(),
+                theme: AppPreview.core.theme(),
+                application: .shared,
+                notificationCenter: AppPreview.core.notificationCenter(),
+                postID: 0
+            ).apply {
+                $0.load(.initial)
+            }
+        ).previews
+    }
+}
+#endif

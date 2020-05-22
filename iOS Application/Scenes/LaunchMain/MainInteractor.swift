@@ -7,6 +7,7 @@
 //
 
 import UIKit.UIDevice
+import UIKit.UIImage
 
 struct MainInteractor: MainInteractable {
     private let presenter: MainPresentable

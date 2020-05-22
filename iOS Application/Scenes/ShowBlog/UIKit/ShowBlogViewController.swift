@@ -318,3 +318,25 @@ extension ShowBlogViewController: MainSelectable {
         scrollStackView.scrollToTop()
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct ShowBlogController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: ShowBlogViewController(
+                state: AppPreview.showBlogState,
+                interactor: nil,
+                render: nil,
+                constants: AppPreview.core.constants(),
+                theme: AppPreview.core.theme()
+            )
+        ).previews
+    }
+}
+#endif

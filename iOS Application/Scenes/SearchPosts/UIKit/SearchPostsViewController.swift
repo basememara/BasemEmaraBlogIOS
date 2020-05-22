@@ -213,3 +213,27 @@ extension SearchPostsViewController {
         render?.showPost(for: model)
     }
 }
+
+// MARK: - Preview
+
+#if DEBUG && canImport(SwiftUI)
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct SearchPostsController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        UINavigationController(
+            rootViewController: SearchPostsViewController(
+                state: AppPreview.searchPostsState,
+                interactor: nil,
+                render: nil,
+                constants: AppPreview.core.constants(),
+                theme: AppPreview.core.theme()
+            )
+        )
+        .apply { $0.navigationBar.prefersLargeTitles = true }
+        .previews
+    }
+}
+#endif
