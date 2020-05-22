@@ -26,19 +26,21 @@ class SceneDelegate: ScenePluggableDelegate {
         ),
         ThemePlugin(theme: core.theme()),
         NotificationPlugin(
-            router: NotificationRouter(render: render),
+            router: NotificationRender(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            router: ShortcutRouter(
+            router: ShortcutRender(
                 render: render,
                 constants: core.constants()
             )
         ),
         DeepLinkPlugin(
-            core: DeepLinkCore(
-                core: core,
-                render: render
+            render: DeepLinkRender(
+                render: render,
+                postRepository: core.postRepository(),
+                taxonomyRepository: core.taxonomyRepository(),
+                theme: core.theme()
             ),
             log: core.log()
         )

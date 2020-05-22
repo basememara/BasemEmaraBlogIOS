@@ -28,19 +28,21 @@ class AppDelegate: ApplicationPluggableDelegate {
         ),
         ThemePlugin(theme: core.theme()),
         NotificationPlugin(
-            router: NotificationRouter(render: render),
+            router: NotificationRender(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            router: ShortcutRouter(
+            router: ShortcutRender(
                 render: render,
                 constants: core.constants()
             )
         ),
         DeepLinkPlugin(
-            core: DeepLinkCore(
-                core: core,
-                render: render
+            render: DeepLinkRender(
+                render: render,
+                postRepository: core.postRepository(),
+                taxonomyRepository: core.taxonomyRepository(),
+                theme: core.theme()
             ),
             log: core.log()
         )
@@ -62,7 +64,7 @@ extension AppDelegate {
 
 // MARK: - Environment Components
 
-private enum AppStart {
+private enum AppRoot {
     
     /// Root dependency injection container.
     static let core = AppCore()
@@ -84,12 +86,12 @@ private enum AppStart {
 }
 
 private extension UIApplicationDelegate {
-    var core: AppCore { AppStart.core }
-    var render: SceneRender { AppStart.render }
+    var core: AppCore { AppRoot.core }
+    var render: SceneRender { AppRoot.render }
 }
 
 @available(iOS 13, *)
 extension UISceneDelegate {
-    var core: AppCore { AppStart.core }
-    var render: SceneRender { AppStart.render }
+    var core: AppCore { AppRoot.core }
+    var render: SceneRender { AppRoot.render }
 }

@@ -1,5 +1,5 @@
 //
-//  NotificationRouter.swift
+//  NotificationRender.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-08.
@@ -10,12 +10,7 @@ import SwiftyPress
 import ZamzamUI
 import UIKit
 
-protocol NotificationRouterable {
-    func showBlog(for id: Int)
-    func share(title: String, link: String)
-}
-
-struct NotificationRouter: NotificationRouterable {
+struct NotificationRender {
     private let render: SceneRender
     weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
@@ -24,7 +19,7 @@ struct NotificationRouter: NotificationRouterable {
     }
 }
 
-extension NotificationRouter {
+extension NotificationRender {
     
     func showBlog(for id: Int) {
         viewController?.show(menu: MainAPI.Menu.blog) { (controller: ShowBlogViewController) in
@@ -33,7 +28,7 @@ extension NotificationRouter {
     }
 }
 
-extension NotificationRouter {
+extension NotificationRender {
     
     func share(title: String, link: String) {
         guard let popoverView = viewController?.view else { return }

@@ -1,5 +1,5 @@
 //
-//  DeepLinkRouter.swift
+//  DeepLinkRender.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-09-28.
@@ -11,7 +11,7 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-struct DeepLinkRouter: DeepLinkRouterable {
+struct DeepLinkRender {
     private let render: SceneRender
     private let postRepository: PostRepository
     private let taxonomyRepository: TaxonomyRepository
@@ -32,11 +32,12 @@ struct DeepLinkRouter: DeepLinkRouterable {
     }
 }
 
-extension DeepLinkRouter {
+extension DeepLinkRender {
     
     /// Navigates to the view by URL.
     /// - Parameter url: URL requested.
     /// - Returns: True if the navigation was successful, otherwise false.
+    @discardableResult
     func navigate(from url: URL) -> Bool {
         // Get root container and extract path from URL if applicable
         guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {

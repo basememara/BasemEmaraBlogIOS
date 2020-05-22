@@ -11,16 +11,11 @@ import SwiftyPress
 import ZamzamCore
 
 struct DeepLinkPlugin {
-    private let core: DeepLinkCoreType
-    private let router: DeepLinkRouterable
+    private let render: DeepLinkRender
     private let log: LogRepository
     
-    init(
-        core: DeepLinkCoreType,
-        log: LogRepository
-    ) {
-        self.core = core
-        self.router = core.router()
+    init(render: DeepLinkRender, log: LogRepository) {
+        self.render = render
         self.log = log
     }
 }
@@ -34,7 +29,7 @@ extension DeepLinkPlugin: ApplicationPlugin {
         }
         
         log.debug("Link passed to app: \(webpageURL.absoluteString)")
-        return router.navigate(from: webpageURL)
+        return render.navigate(from: webpageURL)
     }
 }
 
@@ -48,7 +43,7 @@ extension DeepLinkPlugin: ScenePlugin {
         }
         
         log.info("Link passed to app: \(webpageURL.absoluteString)")
-        router.navigate(from: webpageURL)
+        render.navigate(from: webpageURL)
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -58,6 +53,6 @@ extension DeepLinkPlugin: ScenePlugin {
         }
         
         log.info("Link passed to app: \(webpageURL.absoluteString)")
-        router.navigate(from: webpageURL)
+        render.navigate(from: webpageURL)
     }
 }

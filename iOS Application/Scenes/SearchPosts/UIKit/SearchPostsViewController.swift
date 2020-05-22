@@ -197,7 +197,7 @@ extension SearchPostsViewController: PostsDataViewDelegate {
 extension SearchPostsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        guard let text = searchController.searchBar.text else { return }
+        guard let text = searchController.searchBar.text, !text.isEmpty else { return }
         search(for: text, with: selectedScope)
     }
 }

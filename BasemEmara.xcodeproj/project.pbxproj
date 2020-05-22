@@ -83,10 +83,8 @@
 		8B42C80A234BBC9000F38E23 /* ThemePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */; };
 		8B42C80C234BBC9000F38E23 /* NotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */; };
 		8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */; };
-		8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */; };
 		8B42C80F234BBC9000F38E23 /* DeepLinkPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */; };
-		8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */; };
-		8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */; };
+		8B42C811234BBC9000F38E23 /* DeepLinkRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */; };
 		8B42C814234BBC9000F38E23 /* seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C7AB234BBC9000F38E23 /* seed.json */; };
 		8B42C815234BBC9000F38E23 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */; };
 		8B42C817234BBC9000F38E23 /* PopularPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C7B1234BBC9000F38E23 /* PopularPostCollectionViewCell.swift */; };
@@ -126,8 +124,8 @@
 		8B5C98D4236536BF00F7F016 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C98D1236536BF00F7F016 /* Media.xcassets */; };
 		8B5C98D62365370200F7F016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D52365370200F7F016 /* Theme.swift */; };
 		8B5C98D82365388C00F7F016 /* ShowMoreStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */; };
-		8B634AE0247845D5008D0145 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B634ADF247845D5008D0145 /* ZamzamCore.bundle */; };
-		8B634AE2247845DB008D0145 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B634AE1247845DB008D0145 /* SwiftyPress.bundle */; };
+		8B634AE62478779D008D0145 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B634AE52478779D008D0145 /* ZamzamCore.bundle */; };
+		8B634AE8247877A6008D0145 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B634AE7247877A5008D0145 /* SwiftyPress.bundle */; };
 		8B748B9F244CBA9D00742CD3 /* MainRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B748B9E244CBA9D00742CD3 /* MainRender.swift */; };
 		8B7611BD2456F1F600BE90AA /* ShowPostState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7611BC2456F1F600BE90AA /* ShowPostState.swift */; };
 		8B7996D32437947100A27E58 /* SwiftyPress in Frameworks */ = {isa = PBXBuildFile; productRef = 8B7996D22437947100A27E58 /* SwiftyPress */; };
@@ -143,13 +141,13 @@
 		8B81CC1F24360CEA0050CAC9 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC1E24360CEA0050CAC9 /* Interactor.swift */; };
 		8B81CC2124360D0F0050CAC9 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC2024360D0F0050CAC9 /* Presenter.swift */; };
 		8B81CC232436120A0050CAC9 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81CC222436120A0050CAC9 /* MainPresenter.swift */; };
-		8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */; };
+		8B87EB44239D51A800AD73D4 /* NotificationRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB43239D51A800AD73D4 /* NotificationRender.swift */; };
 		8B87EB46239D704900AD73D4 /* WindowRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87EB45239D704900AD73D4 /* WindowRender.swift */; };
 		8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905BA23A5E13100AB8A4F /* AppState.swift */; };
 		8B8905C423A6710600AB8A4F /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905C323A6710600AB8A4F /* MainInteractor.swift */; };
 		8B8905EC23A6CD9300AB8A4F /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905E623A6CD9300AB8A4F /* State.swift */; };
 		8B8D231223A6EFC1000CBC35 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D231123A6EFC1000CBC35 /* MainState.swift */; };
-		8B928A54239CD698004EB139 /* ShortcutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A53239CD698004EB139 /* ShortcutRouter.swift */; };
+		8B928A54239CD698004EB139 /* ShortcutRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A53239CD698004EB139 /* ShortcutRender.swift */; };
 		8B9D23572432A84C0028003D /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D23562432A84C0028003D /* HomeHeaderView.swift */; };
 		8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA1C696246D50DF0076DB43 /* AppPreview.swift */; };
 		8BAE21A62455F2D9004554E2 /* ShowSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE21A12455F2D8004554E2 /* ShowSettingsPresenter.swift */; };
@@ -325,10 +323,8 @@
 		8B42C79E234BBC9000F38E23 /* ThemePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemePlugin.swift; sourceTree = "<group>"; };
 		8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPlugin.swift; sourceTree = "<group>"; };
 		8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPlugin.swift; sourceTree = "<group>"; };
-		8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkAPI.swift; sourceTree = "<group>"; };
 		8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkPlugin.swift; sourceTree = "<group>"; };
-		8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkCore.swift; sourceTree = "<group>"; };
-		8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
+		8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkRender.swift; sourceTree = "<group>"; };
 		8B42C7AB234BBC9000F38E23 /* seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seed.json; sourceTree = "<group>"; };
 		8B42C7AE234BBC9000F38E23 /* TermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
 		8B42C7B1234BBC9000F38E23 /* PopularPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -350,8 +346,10 @@
 		8B5C98D1236536BF00F7F016 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8B5C98D52365370200F7F016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8B5C98D72365388C00F7F016 /* ShowMoreStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreStyles.swift; sourceTree = "<group>"; };
-		8B634ADF247845D5008D0145 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
-		8B634AE1247845DB008D0145 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
+		8B634AE324787770008D0145 /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../ZamzamKit; sourceTree = "<group>"; };
+		8B634AE42478777C008D0145 /* SwiftyPress */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftyPress; path = ../SwiftyPress; sourceTree = "<group>"; };
+		8B634AE52478779D008D0145 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
+		8B634AE7247877A5008D0145 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
 		8B748B9E244CBA9D00742CD3 /* MainRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRender.swift; sourceTree = "<group>"; };
 		8B7611BC2456F1F600BE90AA /* ShowPostState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostState.swift; sourceTree = "<group>"; };
 		8B7611BF245715D600BE90AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -362,13 +360,13 @@
 		8B81CC1E24360CEA0050CAC9 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		8B81CC2024360D0F0050CAC9 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		8B81CC222436120A0050CAC9 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRouter.swift; sourceTree = "<group>"; };
+		8B87EB43239D51A800AD73D4 /* NotificationRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRender.swift; sourceTree = "<group>"; };
 		8B87EB45239D704900AD73D4 /* WindowRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowRender.swift; sourceTree = "<group>"; };
 		8B8905BA23A5E13100AB8A4F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8B8905C323A6710600AB8A4F /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		8B8905E623A6CD9300AB8A4F /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		8B8D231123A6EFC1000CBC35 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
-		8B928A53239CD698004EB139 /* ShortcutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRouter.swift; sourceTree = "<group>"; };
+		8B928A53239CD698004EB139 /* ShortcutRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRender.swift; sourceTree = "<group>"; };
 		8B9D23562432A84C0028003D /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		8BA1C696246D50DF0076DB43 /* AppPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreview.swift; sourceTree = "<group>"; };
 		8BAE219B2455F18F004554E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -464,8 +462,10 @@
 		8B42C6CB234A69B900F38E23 = {
 			isa = PBXGroup;
 			children = (
-				8B634ADF247845D5008D0145 /* ZamzamCore.bundle */,
-				8B634AE1247845DB008D0145 /* SwiftyPress.bundle */,
+				8B634AE7247877A5008D0145 /* SwiftyPress.bundle */,
+				8B634AE52478779D008D0145 /* ZamzamCore.bundle */,
+				8B634AE324787770008D0145 /* ZamzamKit */,
+				8B634AE42478777C008D0145 /* SwiftyPress */,
 				8B42C723234A9BEA00F38E23 /* Meta */,
 				8B5C98BD236534F800F7F016 /* Common */,
 				8B42C6D8234A6BDB00F38E23 /* iOS Application */,
@@ -768,10 +768,8 @@
 		8B42C7A2234BBC9000F38E23 /* DeepLink */ = {
 			isa = PBXGroup;
 			children = (
-				8B42C7A3234BBC9000F38E23 /* DeepLinkAPI.swift */,
-				8B42C7A5234BBC9000F38E23 /* DeepLinkCore.swift */,
 				8B42C7A4234BBC9000F38E23 /* DeepLinkPlugin.swift */,
-				8B42C7A6234BBC9000F38E23 /* DeepLinkRouter.swift */,
+				8B42C7A6234BBC9000F38E23 /* DeepLinkRender.swift */,
 			);
 			path = DeepLink;
 			sourceTree = "<group>";
@@ -889,7 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C7A1234BBC9000F38E23 /* ShortcutPlugin.swift */,
-				8B928A53239CD698004EB139 /* ShortcutRouter.swift */,
+				8B928A53239CD698004EB139 /* ShortcutRender.swift */,
 			);
 			path = Shortcut;
 			sourceTree = "<group>";
@@ -898,7 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				8B42C7A0234BBC9000F38E23 /* NotificationPlugin.swift */,
-				8B87EB43239D51A800AD73D4 /* NotificationRouter.swift */,
+				8B87EB43239D51A800AD73D4 /* NotificationRender.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -1186,8 +1184,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B634AE0247845D5008D0145 /* ZamzamCore.bundle in Resources */,
-				8B634AE2247845DB008D0145 /* SwiftyPress.bundle in Resources */,
+				8B634AE62478779D008D0145 /* ZamzamCore.bundle in Resources */,
+				8B634AE8247877A6008D0145 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B416B3023977965006E67A9 /* Main.storyboard in Resources */,
@@ -1370,18 +1368,16 @@
 				8B42C7FE234BBC9000F38E23 /* Preferences.swift in Sources */,
 				8B42C802234BBC9000F38E23 /* UIViewController.swift in Sources */,
 				8BB63D312454BFE200B07A48 /* ShowMoreInteractor.swift in Sources */,
-				8B42C80E234BBC9000F38E23 /* DeepLinkAPI.swift in Sources */,
 				8B42C800234BBC9000F38E23 /* Taxonomy.swift in Sources */,
 				8B42C7F9234BBC9000F38E23 /* ListFavoritesRender.swift in Sources */,
 				8B42C7DF234BBC9000F38E23 /* ShowMoreViewController.swift in Sources */,
 				8BAE21A62455F2D9004554E2 /* ShowSettingsPresenter.swift in Sources */,
-				8B87EB44239D51A800AD73D4 /* NotificationRouter.swift in Sources */,
+				8B87EB44239D51A800AD73D4 /* NotificationRender.swift in Sources */,
 				8B42C7F0234BBC9000F38E23 /* SearchPostsPresenter.swift in Sources */,
 				8B42C7F8234BBC9000F38E23 /* ListFavoritesAPI.swift in Sources */,
 				8B221A59244E899A00F2C056 /* ShowBlogViewComponents.swift in Sources */,
 				8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */,
-				8B928A54239CD698004EB139 /* ShortcutRouter.swift in Sources */,
-				8B42C810234BBC9000F38E23 /* DeepLinkCore.swift in Sources */,
+				8B928A54239CD698004EB139 /* ShortcutRender.swift in Sources */,
 				8B5C98BC23651FEA00F7F016 /* HomeStyle.swift in Sources */,
 				8B42C7F4234BBC9000F38E23 /* SearchPostsViewController.swift in Sources */,
 				8B42C818234BBC9000F38E23 /* PickedPostCollectionViewCell.swift in Sources */,
@@ -1391,7 +1387,7 @@
 				8B0A6EB3244BEFDF00D1D8D2 /* Render.swift in Sources */,
 				8B42C7D1234BBC9000F38E23 /* ShowPostViewController.swift in Sources */,
 				8B42C817234BBC9000F38E23 /* PopularPostCollectionViewCell.swift in Sources */,
-				8B42C811234BBC9000F38E23 /* DeepLinkRouter.swift in Sources */,
+				8B42C811234BBC9000F38E23 /* DeepLinkRender.swift in Sources */,
 				8B5C98D62365370200F7F016 /* Theme.swift in Sources */,
 				8B8905BB23A5E13100AB8A4F /* AppState.swift in Sources */,
 				8B42C7C0234BBC9000F38E23 /* HomePresenter.swift in Sources */,

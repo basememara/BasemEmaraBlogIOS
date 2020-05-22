@@ -1,37 +1,27 @@
 //
-//  ShortcutRouter.swift
+//  ShortcutRender.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-08.
 //
 
-import Foundation
 import SwiftyPress
 import ZamzamCore
-import ZamzamUI
-import UIKit
+import UIKit.UIApplication
 
-protocol ShortcutRouterable {
-    func showFavorites()
-    func sendFeedback()
-}
-
-struct ShortcutRouter: ShortcutRouterable {
+struct ShortcutRender {
     private let render: SceneRender
     private let constants: Constants
     
     weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
-    init(
-        render: SceneRender,
-        constants: Constants
-    ) {
+    init(render: SceneRender, constants: Constants) {
         self.render = render
         self.constants = constants
     }
 }
 
-extension ShortcutRouter {
+extension ShortcutRender {
     
     func showFavorites() {
         viewController?.show(menu: MainAPI.Menu.favorites)

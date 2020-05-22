@@ -12,14 +12,11 @@ import UserNotifications
 import ZamzamCore
 
 final class NotificationPlugin: NSObject {
-    private let router: NotificationRouterable
+    private let render: NotificationRender
     private let userNotification: UNUserNotificationCenter
     
-    init(
-        router: NotificationRouterable,
-        userNotification: UNUserNotificationCenter
-    ) {
-        self.router = router
+    init(router: NotificationRender, userNotification: UNUserNotificationCenter) {
+        self.render = router
         self.userNotification = userNotification
     }
 }
@@ -47,9 +44,9 @@ extension NotificationPlugin: UNUserNotificationCenterDelegate {
         
         switch response.actionIdentifier {
         case UNNotificationDefaultActionIdentifier:
-            router.showBlog(for: id)
+            render.showBlog(for: id)
         case Action.share.rawValue:
-            router.share(
+            render.share(
                 title: response.notification.request.content.title,
                 link: link
             )
