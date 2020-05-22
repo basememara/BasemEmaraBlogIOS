@@ -46,7 +46,7 @@ class ListPostsState: StateRepresentable {
 
 extension ListPostsState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ListPostsState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ListPostsState>) -> Void) {
         subscribe(observer, in: &cancellable)
         appState.subscribe(load, in: &cancellable)
     }
@@ -58,10 +58,9 @@ extension ListPostsState {
 
 private extension ListPostsState {
     
-    func load(_ keyPath: PartialKeyPath<AppState>?) {
-        if keyPath == \AppState.allPosts || keyPath == nil {
-            posts = posts.compactMap { post in appState.allPosts.first { $0.id == post.id } }
-        }
+    func load(_ result: StateChange<AppState>) {
+        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
+        posts = posts.compactMap { post in appState.allPosts.first { $0.id == post.id } }
     }
 }
 

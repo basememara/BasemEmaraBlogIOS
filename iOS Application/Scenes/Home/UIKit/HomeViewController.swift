@@ -88,17 +88,21 @@ private extension HomeViewController {
         interactor?.fetchSocial()
     }
     
-    func load(_ keyPath: PartialKeyPath<HomeState>?) {
-        if keyPath == \HomeState.profile || keyPath == nil {
+    func load(_ result: StateChange<HomeState>) {
+        if result == .updated(\HomeState.profile) || result == .initial {
             headerView.reloadProfile()
         }
         
-        if keyPath == \HomeState.socialMenu || keyPath == nil {
+        if result == .updated(\HomeState.socialMenu) || result == .initial {
             headerView.reloadSocialMenu()
         }
         
-        if keyPath == \HomeState.homeMenu || keyPath == nil {
+        if result == .updated(\HomeState.homeMenu) || result == .initial {
             tableView.reloadData()
+        }
+        
+        if case .failure(let error) = result {
+            present(alert: error.title, message: error.message)
         }
     }
 }

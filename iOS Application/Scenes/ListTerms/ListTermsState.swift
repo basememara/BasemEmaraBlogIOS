@@ -41,7 +41,7 @@ class ListTermsState: StateRepresentable {
 
 extension ListTermsState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ListTermsState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ListTermsState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

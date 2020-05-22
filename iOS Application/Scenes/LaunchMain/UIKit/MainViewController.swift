@@ -58,7 +58,7 @@ private extension MainViewController {
         interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
-    func load(_ keyPath: PartialKeyPath<MainState>?) {
+    func load(_ result: StateChange<MainState>) {
         viewControllers = state.tabMenu.map { item in
             UINavigationController(
                 rootViewController: render.rootView(for: item.id).apply {

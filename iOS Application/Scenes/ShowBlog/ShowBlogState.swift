@@ -82,7 +82,7 @@ class ShowBlogState: StateRepresentable {
 
 extension ShowBlogState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ShowBlogState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ShowBlogState>) -> Void) {
         subscribe(observer, in: &cancellable)
         appState.subscribe(load, in: &cancellable)
     }
@@ -94,14 +94,14 @@ extension ShowBlogState {
 
 private extension ShowBlogState {
     
-    func load(_ keyPath: PartialKeyPath<AppState>?) {
-        if keyPath == \AppState.allPosts || keyPath == nil {
+    func load(_ result: StateChange<AppState>) {
+        if result == .updated(\AppState.allPosts) || result == .initial {
             latestPosts = latestPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
             popularPosts = popularPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
             topPickPosts = topPickPosts.compactMap { posts in appState.allPosts.first { $0.id == posts.id } }
         }
         
-        if keyPath == \AppState.allTerms || keyPath == nil {
+        if result == .updated(\AppState.allTerms) || result == .initial {
             terms = terms.compactMap { term in appState.allTerms.first { $0.id == term.id } }
         }
     }

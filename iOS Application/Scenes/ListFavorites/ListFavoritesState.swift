@@ -46,7 +46,7 @@ class ListFavoritesState: StateRepresentable {
 
 extension ListFavoritesState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ListFavoritesState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ListFavoritesState>) -> Void) {
         subscribe(observer, in: &cancellable)
         appState.subscribe(load, in: &cancellable)
     }
@@ -58,15 +58,12 @@ extension ListFavoritesState {
 
 private extension ListFavoritesState {
     
-    func load(_ keyPath: PartialKeyPath<AppState>?) {
-        if keyPath == \AppState.allPosts || keyPath == nil {
-            let sharedFavorites = appState.allPosts.filter { $0.favorite }
-            
-            let sorted = favorites
-                .compactMap { item in sharedFavorites.first { $0.id == item.id } }
-            
-            favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
-        }
+    func load(_ result: StateChange<AppState>) {
+        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
+        
+        let sharedFavorites = appState.allPosts.filter { $0.favorite }
+        let sorted = favorites.compactMap { item in sharedFavorites.first { $0.id == item.id } }
+        favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
     }
 }
 

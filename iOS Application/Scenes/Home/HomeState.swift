@@ -53,7 +53,7 @@ class HomeState: StateRepresentable {
 
 extension HomeState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<HomeState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<HomeState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

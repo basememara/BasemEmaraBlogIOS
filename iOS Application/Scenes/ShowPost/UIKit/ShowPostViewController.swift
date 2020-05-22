@@ -151,24 +151,21 @@ private extension ShowPostViewController {
 
 private extension ShowPostViewController {
     
-    func load(_ keyPath: PartialKeyPath<ShowPostState>?) {
-        if let web = state.web, (keyPath == \ShowPostState.web || keyPath == nil) {
+    func load(_ result: StateChange<ShowPostState>) {
+        if let web = state.web, [.updated(\ShowPostState.web), .initial].contains(result) {
             load(web)
         }
         
-        if let post = state.post, (keyPath == \ShowPostState.post || keyPath == nil) {
+        if let post = state.post, [.updated(\ShowPostState.post), .initial].contains(result) {
             load(post)
         }
         
-        if keyPath == \ShowPostState.isFavorite || keyPath == nil {
+        if result == .updated(\ShowPostState.isFavorite) || result == .initial {
             load(favorite: state.isFavorite)
         }
         
-        if keyPath == \ShowPostState.error {
-            present(
-                alert: state.error?.title,
-                message: state.error?.message
-            )
+        if case .failure(let error) = result {
+            present(alert: error.title, message: error.message)
         }
     }
     

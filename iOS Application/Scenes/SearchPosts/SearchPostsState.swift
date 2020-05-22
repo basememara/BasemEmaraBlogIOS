@@ -39,7 +39,7 @@ class SearchPostsState: StateRepresentable {
 
 extension SearchPostsState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<SearchPostsState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<SearchPostsState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

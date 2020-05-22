@@ -40,7 +40,7 @@ class ShowSettingsState: StateRepresentable {
 
 extension ShowSettingsState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ShowSettingsState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ShowSettingsState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

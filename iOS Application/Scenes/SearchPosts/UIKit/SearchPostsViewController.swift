@@ -104,16 +104,14 @@ private extension SearchPostsViewController {
         tableView.edges(to: view)
     }
     
-    func load(_ keyPath: PartialKeyPath<SearchPostsState>?) {
-        if keyPath == \SearchPostsState.posts || keyPath == nil {
+    func load(_ result: StateChange<SearchPostsState>) {
+        switch result {
+        case .updated(\SearchPostsState.posts), .initial:
             tableViewAdapter.reloadData(with: state.posts)
-        }
-        
-        if keyPath == \SearchPostsState.error {
-            present(
-                alert: state.error?.title,
-                message: state.error?.message
-            )
+        case .failure(let error):
+            present(alert: error.title, message: error.message)
+        default:
+            break
         }
     }
 }

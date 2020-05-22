@@ -16,7 +16,7 @@ public protocol StateRepresentable: AnyObject {
     func callAsFunction(_ action: ActionType)
 }
 
-// MARK: - Pre-SwiftUI Reactive
+// MARK: - Observable (Pre-SwiftUI)
 
 extension StateRepresentable {
     
@@ -27,13 +27,18 @@ extension StateRepresentable {
     /// - Parameters:
     ///   - observer: The block to be executed when the state changes.
     ///   - cancellable: An opaque object to act as the observer and will manage its auto release.
-    func subscribe(_ observer: @escaping (PartialKeyPath<Self>?) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
-        // Load initial state
-        observer(nil)
+    func subscribe(_ observer: @escaping (StateChange<Self>) -> Void, in cancellable: inout NotificationCenter.Cancellable?) {
+        observer(.initial)
         
         NotificationCenter.default.addObserver(forName: .stateDidChange, queue: .main, in: &cancellable) { notification in
             guard let keyPath = notification.userInfo?[.keyPath] as? PartialKeyPath<Self> else { return }
-            observer(keyPath)
+            
+            guard let error = self[keyPath: keyPath] as? ViewError else {
+                observer(.updated(keyPath))
+                return
+            }
+            
+            observer(.failure(error))
         }
     }
     
@@ -48,7 +53,7 @@ extension StateRepresentable {
     }
 }
 
-// MARK: - Post-SwiftUI Reactive
+// MARK: - Observable (Post-SwiftUI)
 
 #if canImport(SwiftUI)
 import Combine
@@ -64,6 +69,14 @@ extension StateRepresentable where Self: ObservableObject, Self.ObjectWillChange
     }
 }
 #endif
+
+// MARK: - Types
+
+enum StateChange<T: StateRepresentable>: Equatable {
+    case initial
+    case updated(PartialKeyPath<T>)
+    case failure(ViewError)
+}
 
 // MARK: - Helpers
 

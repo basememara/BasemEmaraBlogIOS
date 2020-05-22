@@ -92,16 +92,14 @@ private extension ListFavoritesViewController {
         )
     }
     
-    func load(_ keyPath: PartialKeyPath<ListFavoritesState>?) {
-        if keyPath == \ListFavoritesState.favorites || keyPath == nil {
+    func load(_ result: StateChange<ListFavoritesState>) {
+        switch result {
+        case .updated(\ListFavoritesState.favorites), .initial:
             tableViewAdapter.reloadData(with: state.favorites)
-        }
-        
-        if keyPath == \ListFavoritesState.error {
-            present(
-                alert: state.error?.title,
-                message: state.error?.message
-            )
+        case .failure(let error):
+            present(alert: error.title, message: error.message)
+        default:
+            break
         }
     }
 }

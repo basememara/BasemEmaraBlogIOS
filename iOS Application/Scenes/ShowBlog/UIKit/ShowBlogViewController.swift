@@ -144,30 +144,26 @@ private extension ShowBlogViewController {
         )
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowBlogState>?) {
-        if keyPath == \ShowBlogState.latestPosts || keyPath == nil {
+    func load(_ result: StateChange<ShowBlogState>) {
+        if result == .updated(\ShowBlogState.latestPosts) || result == .initial {
             latestPostsCollectionViewAdapter.reloadData(with: state.latestPosts)
         }
         
-        if keyPath == \ShowBlogState.popularPosts || keyPath == nil {
+        if result == .updated(\ShowBlogState.popularPosts) || result == .initial {
             popularPostsCollectionViewAdapter.reloadData(with: state.popularPosts)
         }
         
-        if keyPath == \ShowBlogState.topPickPosts || keyPath == nil {
+        if result == .updated(\ShowBlogState.topPickPosts) || result == .initial {
             pickedPostsCollectionViewAdapter.reloadData(with: state.topPickPosts)
         }
         
-        if keyPath == \ShowBlogState.terms || keyPath == nil {
+        if result == .updated(\ShowBlogState.terms) || result == .initial {
             topTermsTableViewAdapter.reloadData(with: state.terms)
         }
         
-        if keyPath == \ShowBlogState.error {
+        if case .failure(let error) = result {
             activityIndicatorView.stopAnimating()
-            
-            present(
-                alert: state.error?.title,
-                message: state.error?.message
-            )
+            present(alert: error.title, message: error.message)
         }
         
         // Stop loader when all sections populated

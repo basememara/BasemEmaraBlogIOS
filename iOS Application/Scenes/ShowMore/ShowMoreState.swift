@@ -41,7 +41,7 @@ class ShowMoreState: StateRepresentable {
 
 extension ShowMoreState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ShowMoreState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ShowMoreState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

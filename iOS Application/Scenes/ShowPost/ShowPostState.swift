@@ -70,7 +70,7 @@ class ShowPostState: StateRepresentable {
 
 extension ShowPostState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<ShowPostState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<ShowPostState>) -> Void) {
         subscribe(observer, in: &cancellable)
         appState.subscribe(load, in: &cancellable)
     }
@@ -82,10 +82,9 @@ extension ShowPostState {
 
 private extension ShowPostState {
     
-    func load(_ keyPath: PartialKeyPath<AppState>?) {
-        if keyPath == \AppState.allPosts || keyPath == nil {
-            isFavorite = appState.allPosts.first { $0.id == post?.id }?.favorite ?? false
-        }
+    func load(_ result: StateChange<AppState>) {
+        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
+        isFavorite = appState.allPosts.first { $0.id == post?.id }?.favorite ?? false
     }
 }
 

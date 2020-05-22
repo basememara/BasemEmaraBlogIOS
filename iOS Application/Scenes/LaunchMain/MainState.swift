@@ -28,7 +28,7 @@ class MainState: StateRepresentable {
 
 extension MainState {
     
-    func subscribe(_ observer: @escaping (PartialKeyPath<MainState>?) -> Void) {
+    func subscribe(_ observer: @escaping (StateChange<MainState>) -> Void) {
         subscribe(observer, in: &cancellable)
     }
     

@@ -73,13 +73,17 @@ private extension ShowSettingsViewController {
         interactor?.fetchTheme()
     }
     
-    func load(_ keyPath: PartialKeyPath<ShowSettingsState>?) {
-        if keyPath == \ShowSettingsState.settingsMenu || keyPath == nil {
+    func load(_ result: StateChange<ShowSettingsState>) {
+        if result == .updated(\ShowSettingsState.settingsMenu) || result == .initial {
             tableView.reloadData()
         }
         
-        if keyPath == \ShowSettingsState.autoThemeEnabled || keyPath == nil {
+        if result == .updated(\ShowSettingsState.autoThemeEnabled) || result == .initial {
             load(autoThemeEnabled: state.autoThemeEnabled)
+        }
+        
+        if case .failure(let error) = result {
+            present(alert: error.title, message: error.message)
         }
     }
     
