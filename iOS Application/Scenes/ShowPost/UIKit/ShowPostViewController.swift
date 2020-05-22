@@ -125,6 +125,7 @@ private extension ShowPostViewController {
     func prepare() {
         // Configure controls
         toolbarItems = toolbarButtons
+        navigationItem.largeTitleDisplayMode = .never
         
         // Compose layout
         view.addSubview(webView)

@@ -20,6 +20,8 @@ extension AppPreview {
     //swiftlint:disable file_length
 }
 
+// MARK: - Data
+
 extension AppPreview {
     
     static let state = AppState().apply { state in
@@ -320,8 +322,9 @@ extension AppPreview {
     }
 }
 
-// MARK: - Helpers
+// MARK: - View
 
+@available(iOS 13, *)
 extension AppPreview {
 
     struct LocalePreview<Preview: View>: View {
@@ -378,6 +381,7 @@ extension AppPreview {
     }
 }
 
+@available(iOS 13, *)
 extension UIViewController {
     
     var previews: some View {
@@ -389,6 +393,7 @@ extension UIViewController {
     }
 }
 
+@available(iOS 13, *)
 extension View {
     
     var previews: some View {

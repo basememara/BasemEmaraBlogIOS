@@ -83,6 +83,8 @@ private extension ListPostsViewController {
     
     func prepare() {
         // Configure controls
+        navigationItem.backBarButtonItem = .makeBackBarButtonItem()
+        
         if let title = params.title {
             self.title = title
         } else {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ZamzamUI
 
 class MainViewController: UITabBarController {
     private let state: MainState
@@ -70,8 +71,7 @@ private extension MainViewController {
                 }
             ).apply {
                 $0.navigationBar.prefersLargeTitles = true
-                $0.navigationBar.topItem?.backBarButtonItem =
-                    UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                $0.navigationBar.topItem?.backBarButtonItem = .makeBackBarButtonItem()
             }
         }
     }

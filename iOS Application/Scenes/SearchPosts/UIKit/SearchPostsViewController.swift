@@ -94,10 +94,10 @@ private extension SearchPostsViewController {
     
     func prepare() {
         // Configure controls
+        definesPresentationContext = true
         navigationItem.title = .localized(.search)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        definesPresentationContext = true
         
         // Compose layout
         view.addSubview(tableView)
