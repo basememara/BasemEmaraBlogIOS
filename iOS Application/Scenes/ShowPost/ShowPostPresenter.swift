@@ -79,7 +79,7 @@ extension ShowPostPresenter {
                 title: response.post.title,
                 link: response.post.link,
                 content: try template.render(context),
-                commentCount: response.post.commentCount
+                commentCount: .localizedStringWithFormat("%i", response.post.commentCount)
             )
             
             state(.loadPost(viewModel))

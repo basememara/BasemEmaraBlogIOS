@@ -22,23 +22,23 @@ extension MainInteractor {
         var menu: [MainAPI.TabItem] = [
             MainAPI.TabItem(
                 id: .blog,
-                title: "Blog", // TODO: Localize
-                imageName: "tab-megaphone"
+                title: .localized(.tabBlogTitle),
+                imageName: UIImage.ImageName.tabBlog.rawValue
             ),
             MainAPI.TabItem(
                 id: .favorites,
-                title: "Favorites",
-                imageName: "tab-favorite"
+                title: .localized(.tabFavoritesTitle),
+                imageName: UIImage.ImageName.tabFavorite.rawValue
             ),
             MainAPI.TabItem(
                 id: .search,
-                title: "Search",
-                imageName: "tab-search"
+                title: .localized(.tabSearchTitle),
+                imageName: UIImage.ImageName.tabSearch.rawValue
             ),
             MainAPI.TabItem(
                 id: .more,
-                title: "More",
-                imageName: "tab-more"
+                title: .localized(.tabMoreTitle),
+                imageName: UIImage.ImageName.tabMore.rawValue
             )
         ]
         
@@ -46,8 +46,8 @@ extension MainInteractor {
             menu.prepend(
                 MainAPI.TabItem(
                     id: .home,
-                    title: "Home",
-                    imageName: "tab-home"
+                    title: .localized(.tabHomeTitle),
+                    imageName: UIImage.ImageName.tabHome.rawValue
                 )
             )
         }

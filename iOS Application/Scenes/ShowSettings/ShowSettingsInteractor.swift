@@ -6,6 +6,7 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import UIKit.UIImage
 import ZamzamCore
 
 struct ShowSettingsInteractor: ShowSettingsInteractable {
@@ -24,18 +25,18 @@ extension ShowSettingsInteractor {
         let menu = [
             ShowSettingsAPI.MenuItem(
                 type: .theme,
-                title: "Use iOS theme",
-                icon: "theme"
+                title: .localized(.settingsMenuThemeTitle),
+                icon: UIImage.ImageName.theme.rawValue
             ),
             ShowSettingsAPI.MenuItem(
                 type: .notifications,
-                title: "Get notifications",
-                icon: "notifications"
+                title: .localized(.settingsMenuNotificationsTitle),
+                icon: UIImage.ImageName.notifications.rawValue
             ),
             ShowSettingsAPI.MenuItem(
                 type: .ios,
-                title: "iOS Settings",
-                icon: "phone"
+                title: .localized(.settingsMenuPhoneSettingsTitle),
+                icon: UIImage.ImageName.phone.rawValue
             )
         ]
         

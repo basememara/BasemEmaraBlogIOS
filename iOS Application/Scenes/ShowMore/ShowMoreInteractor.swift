@@ -6,6 +6,8 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import UIKit.UIImage
+
 struct ShowMoreInteractor: ShowMoreInteractable {
     private let presenter: ShowMorePresentable
     
@@ -23,38 +25,38 @@ extension ShowMoreInteractor {
                 items: [
                     ShowMoreAPI.MenuItem(
                         type: .subscribe,
-                        title: "Subscribe",
-                        icon: "signup"
+                        title: .localized(.moreMenuSubscribeTitle),
+                        icon: UIImage.ImageName.signup.rawValue
                     ),
                     ShowMoreAPI.MenuItem(
                         type: .feedback,
-                        title: "Send me an email",
-                        icon: "feedback"
+                        title: .localized(.moreMenuFeedbackTitle),
+                        icon: UIImage.ImageName.feedback.rawValue
                     ),
                     ShowMoreAPI.MenuItem(
                         type: .work,
-                        title: "Work with me",
-                        icon: "idea"
+                        title: .localized(.moreMenuWorkTitle),
+                        icon: UIImage.ImageName.idea.rawValue
                     ),
                     ShowMoreAPI.MenuItem(
                         type: .rate,
-                        title: "Rate my app",
-                        icon: "rating"
+                        title: .localized(.moreMenuRateTitle),
+                        icon: UIImage.ImageName.rating.rawValue
                     ),
                     ShowMoreAPI.MenuItem(
                         type: .share,
-                        title: "Share my app",
-                        icon: "megaphone"
+                        title: .localized(.moreMenuShareTitle),
+                        icon: UIImage.ImageName.megaphone.rawValue
                     ),
                     ShowMoreAPI.MenuItem(
                         type: .settings,
-                        title: "Settings",
-                        icon: "settings"
+                        title: .localized(.settings),
+                        icon: UIImage.ImageName.settings.rawValue
                     )
                 ]
             ),
             ShowMoreAPI.MenuSection(
-                title: "Social",
+                title: .localized(.moreMenuSocialSectionTitle),
                 items: [
                     ShowMoreAPI.MenuItem(
                         type: .social,
@@ -64,12 +66,12 @@ extension ShowMoreInteractor {
                 ]
             ),
             ShowMoreAPI.MenuSection(
-                title: "Other",
+                title: .localized(.moreMenuOtherSectionTitle),
                 items: [
                     ShowMoreAPI.MenuItem(
                         type: .developedBy,
-                        title: "Developed by Basem Emara",
-                        icon: "design"
+                        title: .localized(.moreMenuDevelopedByTitle),
+                        icon: UIImage.ImageName.design.rawValue
                     )
                 ]
             )
@@ -85,15 +87,15 @@ extension ShowMoreInteractor {
         let items = [
             ShowMoreAPI.SocialItem(
                 type: .github,
-                title: "GitHub"
+                title: .localized(.githubSocialTitle)
             ),
             ShowMoreAPI.SocialItem(
                 type: .linkedIn,
-                title: "LinkedIn"
+                title: .localized(.linkedInSocialTitle)
             ),
             ShowMoreAPI.SocialItem(
                 type: .twitter,
-                title: "Twitter"
+                title: .localized(.twitterSocialTitle)
             )
         ]
         

@@ -94,7 +94,7 @@ private extension SearchPostsViewController {
     
     func prepare() {
         // Configure controls
-        navigationItem.title = .localized(.searchTitle)
+        navigationItem.title = .localized(.search)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true

@@ -62,7 +62,7 @@ private extension ShowMoreViewController {
     
     func prepare() {
         // Configure controls
-        navigationItem.title = .localized(.moreTitle)
+        navigationItem.title = .localized(.more)
         
         // Compose layout
         view.addSubview(tableView)

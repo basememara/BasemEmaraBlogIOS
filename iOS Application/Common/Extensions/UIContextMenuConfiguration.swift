@@ -36,7 +36,7 @@ extension UIContextMenuConfiguration {
                             theme: theme
                         )
                     },
-                    UIAction(title: .localized(.shareTitle), image: UIImage(systemName: "square.and.arrow.up")) { [weak delegate] _ in
+                    UIAction(title: .localized(.share), image: UIImage(systemName: "square.and.arrow.up")) { [weak delegate] _ in
                         guard let delegate = delegate, let url = URL(string: model.link) else { return }
 
                         delegate.present(

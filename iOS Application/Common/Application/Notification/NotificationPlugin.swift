@@ -83,7 +83,7 @@ extension NotificationPlugin {
                 Category.post.rawValue: [
                     UNNotificationAction(
                         identifier: Action.share.rawValue,
-                        title: .localized(.shareTitle),
+                        title: .localized(.share),
                         options: [.foreground]
                     )
                 ]

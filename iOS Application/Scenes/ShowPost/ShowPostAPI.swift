@@ -75,7 +75,7 @@ enum ShowPostAPI {
         let title: String
         let link: String
         let content: String
-        let commentCount: Int
+        let commentCount: String
     }
     
     struct PageViewModel: Equatable {

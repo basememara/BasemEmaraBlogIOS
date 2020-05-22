@@ -76,7 +76,7 @@ extension UIViewController {
             alert: settings,
             message: message,
             additionalActions: [
-                UIAlertAction(title: .localized(.settingsTitle)) {
+                UIAlertAction(title: .localized(.settings)) {
                     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                     UIApplication.shared.open(url)
                 }

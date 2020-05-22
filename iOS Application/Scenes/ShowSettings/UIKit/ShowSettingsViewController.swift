@@ -61,7 +61,7 @@ private extension ShowSettingsViewController {
     
     func prepare() {
         // Configure controls
-        navigationItem.title = .localized(.settingsTitle)
+        navigationItem.title = .localized(.settings)
         
         // Compose layout
         view.addSubview(tableView)

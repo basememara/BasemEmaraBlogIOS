@@ -6,41 +6,19 @@
   Copyright © 2018 Zamzam Inc. All rights reserved.
 */
 
-"latest.posts.error.title" = "Latest Posts Error";
-"popular.posts.error.title" = "Popular Posts Error";
-"top.pick.posts.error.title" = "Top Pick Posts Error";
-"posts.by.terms.error.title" = "Posts by Terms Error";
-"terms.error.title" = "Terms Error";
-"blog.post.error.title" = "Blog Post Error";
-"search.error.title" = "Search Error";
-"could.not.send.email" = "Could Not Send Email";
-"could.not.send.email.message" = "Your device could not send e-mail.";
+"home.profile.name" = "Basem Emara";
+"home.profile.caption" = "Mobile Architect / iOS Jedi";
+"home.menu.about.title" = "About me";
+"home.menu.portfolio.title" = "Portfolio";
+"home.menu.series.scalable.app.title" = "Building Scalable iOS App";
+"home.menu.series.swift.utilities.title" = "Swift Utility Belt";
+"home.menu.courses.architecture.title" = "iOS Architecture Masterclass";
+"home.menu.courses.framework.title" = "Building Swift Frameworks";
+"home.menu.consulting.development.title" = "iOS Development";
+"home.menu.consulting.mentorship.title" = "Mentorship Express";
 
-"latest.posts.title" = "Latest Posts";
-"popular.posts.title" = "Popular Posts";
-"top.picks.title" = "Top Picks";
-"posts.by.terms.title" = "Posts by Terms";
-
-"browser.not.available.error.title" = "Browser Not Available";
-"comments.not.available.error.title" = "Comments Not Available";
-"not.connected.to.internet.error.message" = "You are not connected to the Internet.";
-"no.post.in.history.error.message" = "No previous post in history";
-"disclaimer.not.available.error.title" = "Disclaimer Not Available";
-"disclaimer.not.available.error.message" = "No disclaimer information is available.";
-
-"unfavor.title" = "Unfavor";
-"unfavorite.title" = "Unfavorite";
-"favorite.title" = "Favorite";
-"more.title" = "More";
-"comments.title" = "Comments";
-"settings.title" = "Settings";
-"share.title" = "Share";
-
-"search.placeholder" = "Search Blog Posts";
-"search.all.scope" = "All";
-"search.title.scope" = "Title";
-"search.content.scope" = "Content";
-"search.keywords.scope" = "Keywords";
-
-"email.feedback.subject" = "Feedback: %@";
-"share.app.message" = "%@ is awesome! Check out the app!";
+"more.menu.feedback.title" = "Send me an email";
+"more.menu.work.title" = "Work with me";
+"more.menu.rate.title" = "Rate my app";
+"more.menu.share.title" = "Share my app";
+"more.menu.developed.by.title" = "Developed by Basem Emara";

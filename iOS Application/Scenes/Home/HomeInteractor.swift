@@ -20,8 +20,8 @@ extension HomeInteractor {
         presenter.display(
             profile: HomeAPI.Profile(
                 avatar: "BasemProfilePic",
-                name: "Basem Emara",
-                caption: "Mobile Architect / iOS Jedi"
+                name: .localized(.homeProfileName),
+                caption: .localized(.homeProfileCaption)
             )
         )
     }
@@ -36,12 +36,12 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .about,
-                        title: "About me",
+                        title: .localized(.homeMenuAboutTitle),
                         icon: "about"
                     ),
                     HomeAPI.MenuItem(
                         type: .portfolio,
-                        title: "Portfolio",
+                        title: .localized(.homeMenuPortfolioTitle),
                         icon: "portfolio"
                     )
                 ]
@@ -51,12 +51,12 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .seriesScalableApp,
-                        title: "Building Scalable iOS App",
+                        title: .localized(.homeMenuSeriesScalableAppTitle),
                         icon: "seriesScalableApp"
                     ),
                     HomeAPI.MenuItem(
                         type: .seriesSwiftUtilities,
-                        title: "Swift Utility Belt",
+                        title: .localized(.homeMenuSeriesSwiftUtilitiesTitle),
                         icon: "seriesSwiftUtilities"
                     )
                 ]
@@ -66,12 +66,12 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .coursesArchitecture,
-                        title: "iOS Architecture Masterclass",
+                        title: .localized(.homeMenuCoursesArchitectureTitle),
                         icon: "coursesArchitecture"
                     ),
                     HomeAPI.MenuItem(
                         type: .coursesFramework,
-                        title: "Building Swift Frameworks",
+                        title: .localized(.homeMenuCoursesFrameworkTitle),
                         icon: "coursesFramework"
                     )
                 ]
@@ -81,12 +81,12 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .consultingDevelopment,
-                        title: "iOS Development",
+                        title: .localized(.homeMenuConsultingDevelopmentTitle),
                         icon: "consultingDevelopment"
                     ),
                     HomeAPI.MenuItem(
                         type: .consultingMentorship,
-                        title: "Mentorship Express",
+                        title: .localized(.homeMenuConsultingMentorshipTitle),
                         icon: "consultingMentorship"
                     )
                 ]
@@ -103,19 +103,19 @@ extension HomeInteractor {
         let items = [
             HomeAPI.SocialItem(
                 type: .github,
-                title: "GitHub"
+                title: .localized(.githubSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .linkedIn,
-                title: "LinkedIn"
+                title: .localized(.linkedInSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .twitter,
-                title: "Twitter"
+                title: .localized(.twitterSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .email,
-                title: "Email"
+                title: .localized(.emailSocialTitle)
             )
         ]
         

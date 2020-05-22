@@ -10,7 +10,6 @@
 		8B0A6EB1244BEC7600D1D8D2 /* HomeRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A6EB0244BEC7600D1D8D2 /* HomeRender.swift */; };
 		8B0A6EB3244BEFDF00D1D8D2 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A6EB2244BEFDF00D1D8D2 /* Render.swift */; };
 		8B0FBDAF247681F40017EAD3 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FBDAE247681F40017EAD3 /* ZamzamCore.bundle */; };
-		8B0FBDB1247681FC0017EAD3 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */; };
 		8B0FBDB3247697CA0017EAD3 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FBDB2247697CA0017EAD3 /* Reducer.swift */; };
 		8B1B30102472A5A500E07822 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B300F2472A5A500E07822 /* Action.swift */; };
 		8B20F10423A928E5007A88DC /* ViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20F10323A928E5007A88DC /* ViewError.swift */; };
@@ -168,6 +167,7 @@
 		8BB63D312454BFE200B07A48 /* ShowMoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB63D2E2454BFE200B07A48 /* ShowMoreInteractor.swift */; };
 		8BB63D322454BFE200B07A48 /* ShowMoreState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB63D2F2454BFE200B07A48 /* ShowMoreState.swift */; };
 		8BB63D332454BFE200B07A48 /* ShowMorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB63D302454BFE200B07A48 /* ShowMorePresenter.swift */; };
+		8BC2343D24773F1300DFED5C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BC2343C24773F1300DFED5C /* SwiftyPress.bundle */; };
 		8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB5C2443E77800BC6288 /* MainView.swift */; };
 		8BF7EB5F244400C900BC6288 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF7EB5E244400C900BC6288 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8BF7EB6124448FAF00BC6288 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */; };
@@ -244,7 +244,6 @@
 		8B0FBDAC247680710017EAD3 /* SwiftyPress */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftyPress; path = ../SwiftyPress; sourceTree = "<group>"; };
 		8B0FBDAD247680740017EAD3 /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../ZamzamKit; sourceTree = "<group>"; };
 		8B0FBDAE247681F40017EAD3 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = ../ZamzamKit/Resources/ZamzamCore.bundle; sourceTree = "<group>"; };
-		8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
 		8B0FBDB2247697CA0017EAD3 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		8B1702A4244FD9560008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1702A6244FD9A30008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -395,6 +394,7 @@
 		8BB63D2F2454BFE200B07A48 /* ShowMoreState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreState.swift; sourceTree = "<group>"; };
 		8BB63D302454BFE200B07A48 /* ShowMorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMorePresenter.swift; sourceTree = "<group>"; };
 		8BB63D352454BFEB00B07A48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8BC2343C24773F1300DFED5C /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = ../SwiftyPress/Resources/SwiftyPress.bundle; sourceTree = "<group>"; };
 		8BF7EB5C2443E77800BC6288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8BF7EB5E244400C900BC6288 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
@@ -467,7 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				8B0FBDAE247681F40017EAD3 /* ZamzamCore.bundle */,
-				8B0FBDB0247681FB0017EAD3 /* SwiftyPress.bundle */,
+				8BC2343C24773F1300DFED5C /* SwiftyPress.bundle */,
 				8B0FBDAD247680740017EAD3 /* ZamzamKit */,
 				8B0FBDAC247680710017EAD3 /* SwiftyPress */,
 				8B42C723234A9BEA00F38E23 /* Meta */,
@@ -1190,8 +1190,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC2343D24773F1300DFED5C /* SwiftyPress.bundle in Resources */,
 				8B0FBDAF247681F40017EAD3 /* ZamzamCore.bundle in Resources */,
-				8B0FBDB1247681FC0017EAD3 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
 				8B416B3023977965006E67A9 /* Main.storyboard in Resources */,

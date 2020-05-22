@@ -176,7 +176,7 @@ private extension ShowPostViewController {
         self.viewModel = viewModel
         
         title = viewModel.title
-        commentBarButton.badgeText = .localizedStringWithFormat("%i", viewModel.commentCount)
+        commentBarButton.badgeText = viewModel.commentCount
         
         webView.loadHTMLString(
             viewModel.content,
