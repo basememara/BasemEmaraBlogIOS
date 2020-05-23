@@ -67,7 +67,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     // MARK: - Lifecycle
     
     override func loadView() {
-        view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
+        view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200))
     }
     
     override func viewDidLoad() {
