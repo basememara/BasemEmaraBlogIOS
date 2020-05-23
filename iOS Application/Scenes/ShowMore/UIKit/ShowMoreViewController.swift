@@ -168,6 +168,7 @@ private extension ShowMoreViewController {
         ).apply {
             $0.delegate = delegate
             $0.dataSource = delegate
+            $0.showsVerticalScrollIndicator = false
         }
     }
     
