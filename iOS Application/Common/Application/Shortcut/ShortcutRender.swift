@@ -13,12 +13,14 @@ struct ShortcutRender {
     private let render: SceneRender
     private let constants: Constants
     
-    weak var viewController = UIApplication.shared.currentWindow?.rootViewController
-    
     init(render: SceneRender, constants: Constants) {
         self.render = render
         self.constants = constants
     }
+}
+
+private extension ShortcutRender {
+    var viewController: UIViewController? { UIApplication.shared.currentWindow?.rootViewController }
 }
 
 extension ShortcutRender {

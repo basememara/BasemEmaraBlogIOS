@@ -17,8 +17,6 @@ struct DeepLinkRender {
     private let taxonomyRepository: TaxonomyRepository
     private let theme: Theme
     
-    weak var viewController = UIApplication.shared.currentWindow?.rootViewController
-    
     init(
         render: SceneRender,
         postRepository: PostRepository,
@@ -30,6 +28,10 @@ struct DeepLinkRender {
         self.taxonomyRepository = taxonomyRepository
         self.theme = theme
     }
+}
+
+private extension DeepLinkRender {
+    var viewController: UIViewController? { UIApplication.shared.currentWindow?.rootViewController }
 }
 
 extension DeepLinkRender {

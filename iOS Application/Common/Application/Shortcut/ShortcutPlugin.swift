@@ -14,8 +14,8 @@ final class ShortcutPlugin {
     private let render: ShortcutRender
     private var launchedShortcutItem: UIApplicationShortcutItem?
     
-    init(router: ShortcutRender) {
-        self.render = router
+    init(render: ShortcutRender) {
+        self.render = render
     }
 }
 

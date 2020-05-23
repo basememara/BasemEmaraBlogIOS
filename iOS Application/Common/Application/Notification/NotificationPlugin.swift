@@ -15,9 +15,12 @@ final class NotificationPlugin: NSObject {
     private let render: NotificationRender
     private let userNotification: UNUserNotificationCenter
     
-    init(router: NotificationRender, userNotification: UNUserNotificationCenter) {
-        self.render = router
+    init(render: NotificationRender, userNotification: UNUserNotificationCenter) {
+        self.render = render
         self.userNotification = userNotification
+        
+        super.init()
+        self.userNotification.delegate = self
     }
 }
 

@@ -12,11 +12,14 @@ import UIKit
 
 struct NotificationRender {
     private let render: SceneRender
-    weak var viewController = UIApplication.shared.currentWindow?.rootViewController
     
     init(render: SceneRender) {
         self.render = render
     }
+}
+
+private extension NotificationRender {
+    var viewController: UIViewController? { UIApplication.shared.currentWindow?.rootViewController }
 }
 
 extension NotificationRender {
