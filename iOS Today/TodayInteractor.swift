@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct TodayAction: TodayActionable {
+struct TodayInteractor: TodayInteractable {
     private let presenter: TodayPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -24,26 +24,30 @@ struct TodayAction: TodayActionable {
     }
 }
 
-extension TodayAction {
+extension TodayInteractor {
     
     func fetchLatestPosts(with request: TodayAPI.Request) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
         
         postRepository.fetch(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.presentLatestPosts(
+                self.presenter.displayLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
+                
+                return
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.presentLatestPosts(
+                    self.presenter.displayLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
+                    
+                    return
                 }
                 
-                self.presenter.presentLatestPosts(
+                self.presenter.displayLatestPosts(
                     for: TodayAPI.Response(
                         posts: posts,
                         media: media
