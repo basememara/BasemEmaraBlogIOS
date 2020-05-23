@@ -6,6 +6,7 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import SwiftyPress
 import UIKit.UIDevice
 import UIKit.UIViewController
 

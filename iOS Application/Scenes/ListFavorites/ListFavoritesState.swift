@@ -72,7 +72,7 @@ private extension ListFavoritesState {
 enum ListFavoritesAction: Action {
     case loadFavorites([PostsDataViewModel])
     case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
-    case loadError(ViewError?)
+    case loadError(ViewError)
 }
 
 // MARK: - Reducer

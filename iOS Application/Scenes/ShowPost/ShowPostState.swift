@@ -95,7 +95,7 @@ enum ShowPostAction: Action {
     case loadPost(ShowPostAPI.PostViewModel)
     case loadFavorite(Bool)
     case toggleFavorite(Bool)
-    case loadError(ViewError?)
+    case loadError(ViewError)
 }
 
 // MARK: - Reducer

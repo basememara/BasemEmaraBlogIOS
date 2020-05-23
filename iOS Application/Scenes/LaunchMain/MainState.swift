@@ -7,6 +7,7 @@
 //
 
 import Foundation.NSNotification
+import SwiftyPress
 
 class MainState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?

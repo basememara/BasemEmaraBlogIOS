@@ -115,7 +115,7 @@ enum ShowBlogAction: Action {
     case loadTopPickPosts([PostsDataViewModel])
     case loadTerms([TermsDataViewModel])
     case toggleFavorite(ShowBlogAPI.FavoriteViewModel)
-    case loadError(ViewError?)
+    case loadError(ViewError)
 }
 
 // MARK: - Reducer

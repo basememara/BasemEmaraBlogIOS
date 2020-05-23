@@ -54,7 +54,7 @@ extension ListTermsState {
 
 enum ListTermsAction: Action {
     case loadTerms([TermsDataViewModel])
-    case loadError(ViewError?)
+    case loadError(ViewError)
 }
 
 // MARK: - Reducer

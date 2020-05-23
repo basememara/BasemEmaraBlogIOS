@@ -52,7 +52,7 @@ extension SearchPostsState {
 
 enum SearchPostsAction: Action {
     case loadPosts([PostsDataViewModel])
-    case loadError(ViewError?)
+    case loadError(ViewError)
 }
 
 // MARK: - Reducer

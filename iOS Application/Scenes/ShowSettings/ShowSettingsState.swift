@@ -7,6 +7,7 @@
 //
 
 import Foundation.NSNotification
+import SwiftyPress
 
 class ShowSettingsState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?

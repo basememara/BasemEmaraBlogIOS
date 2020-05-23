@@ -6,6 +6,8 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
+import SwiftyPress
+
 struct ShowSettingsPresenter: ShowSettingsPresentable {
     private let state: Reducer<ShowSettingsAction>
     
