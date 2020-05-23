@@ -87,11 +87,11 @@ extension ShowBlogViewController {
                 UIStackView(
                     arrangedSubviews: [
                         ThemedButton(type: .system).apply {
-                            $0.setTitle("Disclaimer", for: .normal)
+                            $0.setTitle(.localized(.disclaimerButtonTitle), for: .normal)
                             $0.addTarget(self, action: #selector(didTapDisclaimerButton), for: .touchUpInside)
                         },
                         ThemedButton(type: .system).apply {
-                            $0.setTitle("Privacy", for: .normal)
+                            $0.setTitle(.localized(.privacyButtonTitle), for: .normal)
                             $0.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
                         }
                     ]
@@ -101,7 +101,7 @@ extension ShowBlogViewController {
                     $0.spacing = 8
                 },
                 ThemedButton(type: .system).apply {
-                    $0.setTitle("Contact", for: .normal)
+                    $0.setTitle(.localized(.contactButtonTitle), for: .normal)
                     $0.addTarget(self, action: #selector(didTapContactButton), for: .touchUpInside)
                 }
             ]
