@@ -174,7 +174,11 @@ private extension TodayViewController {
 private extension TodayViewController {
     
     @objc func widgetTapped() {
-        guard let url = URL(string: "basememara:") else { return }
+        guard let link = state.posts.first?.link,
+            let url = URL(string: link) else {
+                return
+        }
+        
         extensionContext?.open(url)
     }
 }
