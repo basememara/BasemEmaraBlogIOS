@@ -65,7 +65,8 @@ final class ShowBlogViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.render = render?(self)
     }
-
+    
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle

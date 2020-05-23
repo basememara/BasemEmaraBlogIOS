@@ -67,6 +67,7 @@ class HomeHeaderView: UIView {
         self.reloadData()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
 }
 

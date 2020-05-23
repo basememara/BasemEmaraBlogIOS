@@ -93,6 +93,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         hidesBottomBarWhenPushed = true
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle

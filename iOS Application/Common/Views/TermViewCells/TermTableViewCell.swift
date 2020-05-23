@@ -26,9 +26,8 @@ final class TermTableViewCell: UITableViewCell {
         prepare()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 }
 
 // MARK: - Setup

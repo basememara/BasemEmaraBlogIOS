@@ -52,6 +52,7 @@ final class ListFavoritesViewController: UIViewController {
         self.render = render?(self)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle

@@ -25,6 +25,7 @@ final class HomeViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.tableHeaderView = headerView
+        $0.showsVerticalScrollIndicator = false
     }
     
     private lazy var headerView = HomeHeaderView(
@@ -46,6 +47,7 @@ final class HomeViewController: UIViewController {
         self.render = render?(self)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
     // MARK: - Lifecycle
