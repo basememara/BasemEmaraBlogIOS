@@ -79,7 +79,7 @@ private extension NotificationViewController {
         detailLabel.edges(to: detailLabel.superview, insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
         
         featuredImage.translatesAutoresizingMaskIntoConstraints = false
-        featuredImage.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+        featuredImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 200).isActive = true
     }
 }
 
