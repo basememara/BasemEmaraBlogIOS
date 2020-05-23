@@ -10,7 +10,6 @@
 		8B0A6EB1244BEC7600D1D8D2 /* HomeRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A6EB0244BEC7600D1D8D2 /* HomeRender.swift */; };
 		8B221A59244E899A00F2C056 /* ShowBlogViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */; };
 		8B2FE66A23AB4DE900682D98 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2FE66923AB4DE900682D98 /* HomeState.swift */; };
-		8B416B3023977965006E67A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B416B2F23977965006E67A9 /* Main.storyboard */; };
 		8B42C6DA234A6BDB00F38E23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */; };
 		8B42C6DC234A6BDB00F38E23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */; };
 		8B42C6E5234A6BDB00F38E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B42C6E4234A6BDB00F38E23 /* Assets.xcassets */; };
@@ -222,7 +221,6 @@
 		8B1702A6244FD9A30008D6A2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B221A58244E899A00F2C056 /* ShowBlogViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBlogViewComponents.swift; sourceTree = "<group>"; };
 		8B2FE66923AB4DE900682D98 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
-		8B416B2F23977965006E67A9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B42C6D6234A6BDB00F38E23 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B42C6D9234A6BDB00F38E23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B42C6DB234A6BDB00F38E23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -850,7 +848,6 @@
 			isa = PBXGroup;
 			children = (
 				8B8905C223A66B7E00AB8A4F /* iPad */,
-				8B416B2F23977965006E67A9 /* Main.storyboard */,
 				8B42C775234BBC8F00F38E23 /* MainViewController.swift */,
 			);
 			path = UIKit;
@@ -1110,7 +1107,6 @@
 				8B634AE8247877A6008D0145 /* SwiftyPress.bundle in Resources */,
 				8B5C98D2236536BF00F7F016 /* Media.xcassets in Resources */,
 				8B5C98CE2365362A00F7F016 /* Localizable.strings in Resources */,
-				8B416B3023977965006E67A9 /* Main.storyboard in Resources */,
 				8B42C7FD234BBC9000F38E23 /* Media.xcassets in Resources */,
 				8B42C6E5234A6BDB00F38E23 /* Assets.xcassets in Resources */,
 				8B42C7CF234BBC9000F38E23 /* style.css in Resources */,
