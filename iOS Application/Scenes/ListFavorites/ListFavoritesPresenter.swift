@@ -6,55 +6,53 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
 struct ListFavoritesPresenter: ListFavoritesPresentable {
-    private weak var viewController: ListFavoritesDisplayable?
+    private let state: Reducer<ListFavoritesAction>
+    private let dateFormatter: DateFormatter
     
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: ListFavoritesDisplayable?) {
-        self.viewController = viewController
+    init(state: @escaping Reducer<ListFavoritesAction>) {
+        self.state = state
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
 extension ListFavoritesPresenter {
     
-    func presentFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse) {
+    func displayFavoritePosts(for response: ListFavoritesAPI.FetchPostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
+                favorite: true,
+                dateFormatter: dateFormatter
             )
         }
         
-        viewController?.displayPosts(with: viewModels)
+        state(.loadFavorites(viewModels))
     }
     
-    func presentFavoritePosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayFavoritePosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ListFavoritesPresenter {
     
-    func presentToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse) {
-        viewController?.displayToggleFavorite(
-            with: ListFavoritesAPI.FavoriteViewModel(
-                postID: response.postID,
-                favorite: response.favorite
-            )
+    func displayToggleFavorite(for response: ListFavoritesAPI.FavoriteResponse) {
+        let viewModel = ListFavoritesAPI.FavoriteViewModel(
+            postID: response.postID,
+            favorite: response.favorite
         )
+        
+        state(.toggleFavorite(viewModel))
     }
 }

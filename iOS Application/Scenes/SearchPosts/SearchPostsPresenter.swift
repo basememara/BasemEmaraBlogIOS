@@ -11,38 +11,36 @@ import SwiftyPress
 import ZamzamUI
 
 struct SearchPostsPresenter: SearchPostsPresentable {
-    private weak var viewController: SearchPostsDisplayable?
+    private let state: Reducer<SearchPostsAction>
+    private let dateFormatter: DateFormatter
     
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: SearchPostsDisplayable?) {
-        self.viewController = viewController
+    init(state: @escaping Reducer<SearchPostsAction>) {
+        self.state = state
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
 extension SearchPostsPresenter {
 
-    func presentSearchResults(for response: SearchPostsAPI.Response) {
+    func displaySearchResults(for response: SearchPostsAPI.Response) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
+                favorite: response.favoriteIDs.contains(post.id),
                 dateFormatter: self.dateFormatter
             )
         }
         
-        viewController?.displayPosts(with: viewModels)
+        state(.loadPosts(viewModels))
     }
     
-    func presentSearchResults(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displaySearchResults(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.searchErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }

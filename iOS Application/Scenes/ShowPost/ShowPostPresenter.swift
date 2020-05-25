@@ -13,28 +13,32 @@ import Stencil
 import SystemConfiguration
 
 struct ShowPostPresenter: ShowPostPresentable {
-    private weak var viewController: ShowPostDisplayable?
+    private let state: Reducer<ShowPostAction>
+    private let constants: Constants
+    private let templateFile: String?
+    private let styleSheetFile: String?
+    private let dateFormatter: DateFormatter
     
-    private let constants: ConstantsType
-    private let templateFile = Bundle.main.string(file: "post.html")
-    private let styleSheetFile = Bundle.main.string(file: "style.css")
-    
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: ShowPostDisplayable?, constants: ConstantsType) {
-        self.viewController = viewController
+    init(
+        state: @escaping Reducer<ShowPostAction>,
+        constants: Constants,
+        templateFile: String?,
+        styleSheetFile: String?
+    ) {
+        self.state = state
         self.constants = constants
+        self.templateFile = templateFile
+        self.styleSheetFile = styleSheetFile
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
 extension ShowPostPresenter {
     
-    func presentPost(for response: ShowPostAPI.Response) {
+    func displayPost(for response: ShowPostAPI.Response) {
         guard let templateString = templateFile else {
-            return presentPost(error: .parseFailure(nil))
+            displayPost(error: .parseFailure(nil))
+            return
         }
         
         var context: [String: Any] = [
@@ -70,46 +74,47 @@ extension ShowPostPresenter {
         do {
             let template = Template(templateString: templateString)
             
-            viewController?.displayPost(
-                with: ShowPostAPI.ViewModel(
-                    title: response.post.title,
-                    link: response.post.link,
-                    content: try template.render(context),
-                    commentCount: response.post.commentCount,
-                    favorite: response.favorite
-                )
+            let viewModel = ShowPostAPI.PostViewModel(
+                id: response.post.id,
+                title: response.post.title,
+                link: response.post.link,
+                content: try template.render(context),
+                commentCount: .localizedStringWithFormat("%i", response.post.commentCount)
             )
+            
+            state(.loadPost(viewModel))
+            state(.loadFavorite(response.favorite))
         } catch {
-            presentPost(error: .parseFailure(error))
+            displayPost(error: .parseFailure(error))
         }
     }
     
-    func presentPost(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayPost(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.blogPostErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
-    func presentByURL(for response: ShowPostAPI.FetchWebResponse) {
-        viewController?.displayByURL(
-            with: ShowPostAPI.WebViewModel(
-                postID: response.post?.id,
-                termID: response.term?.id,
-                decisionHandler: response.decisionHandler
-            )
+    func displayByURL(for response: ShowPostAPI.FetchWebResponse) {
+        let viewModel = ShowPostAPI.WebViewModel(
+            postID: response.post?.id,
+            termID: response.term?.id,
+            decisionHandler: response.decisionHandler
         )
+        
+        state(.loadWeb(viewModel))
     }
 }
 
 extension ShowPostPresenter {
     
-    func presentToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
-        viewController?.display(isFavorite: response.favorite)
+    func displayToggleFavorite(for response: ShowPostAPI.FavoriteResponse) {
+        state(.toggleFavorite(response.favorite))
     }
 }

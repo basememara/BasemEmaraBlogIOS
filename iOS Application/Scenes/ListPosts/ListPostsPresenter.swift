@@ -6,127 +6,83 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
 struct ListPostsPresenter: ListPostsPresentable {
-    private weak var viewController: ListPostsDisplayable?
+    private let state: Reducer<ListPostsAction>
+    private let dateFormatter: DateFormatter
     
-    private let dateFormatter = DateFormatter().with {
-        $0.dateStyle = .medium
-        $0.timeStyle = .none
-    }
-    
-    init(viewController: ListPostsDisplayable?) {
-        self.viewController = viewController
+    init(state: @escaping Reducer<ListPostsAction>) {
+        self.state = state
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
 extension ListPostsPresenter {
     
-    func presentLatestPosts(for response: ListPostsAPI.PostsResponse) {
+    func displayPosts(for response: ListPostsAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
+                favorite: response.favoriteIDs.contains(post.id),
+                dateFormatter: dateFormatter
             )
         }
         
-        viewController?.displayPosts(with: viewModels)
+        state(.loadPosts(viewModels))
     }
+}
+
+extension ListPostsPresenter {
     
-    func presentLatestPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayLatestPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
-    }
-}
-
-extension ListPostsPresenter {
-    
-    func presentPopularPosts(for response: ListPostsAPI.PostsResponse) {
-        let viewModels = response.posts.map { post in
-            PostsDataViewModel(
-                from: post,
-                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
-            )
-        }
-        
-        viewController?.displayPosts(with: viewModels)
+        state(.loadError(viewModel))
     }
     
-    func presentPopularPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayPopularPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
-    }
-}
-
-extension ListPostsPresenter {
-    
-    func presentTopPickPosts(for response: ListPostsAPI.PostsResponse) {
-        let viewModels = response.posts.map { post in
-            PostsDataViewModel(
-                from: post,
-                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
-            )
-        }
-        
-        viewController?.displayPosts(with: viewModels)
+        state(.loadError(viewModel))
     }
     
-    func presentTopPickPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayTopPickPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
-    }
-}
-
-extension ListPostsPresenter {
-    
-    func presentPostsByTerms(for response: ListPostsAPI.PostsResponse) {
-        let viewModels = response.posts.map { post in
-            PostsDataViewModel(
-                from: post,
-                mediaURL: response.media.first { $0.id == post.mediaID }?.link,
-                dateFormatter: self.dateFormatter
-            )
-        }
-        
-        viewController?.displayPosts(with: viewModels)
+        state(.loadError(viewModel))
     }
     
-    func presentPostsByTerms(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayPostsByTerms(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.postsByTermsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ListPostsPresenter {
     
-    func presentToggleFavorite(for response: ListPostsAPI.FavoriteResponse) {
-        viewController?.displayToggleFavorite(
-            with: ListPostsAPI.FavoriteViewModel(
-                postID: response.postID,
-                favorite: response.favorite
-            )
+    func displayToggleFavorite(for response: ListPostsAPI.FavoriteResponse) {
+        let viewModel = ListPostsAPI.FavoriteViewModel(
+            postID: response.postID,
+            favorite: response.favorite
         )
+        
+        state(.toggleFavorite(viewModel))
     }
 }

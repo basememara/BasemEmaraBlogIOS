@@ -9,7 +9,7 @@ import UIKit
 import SwiftyPress
 import ZamzamCore
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 class SceneDelegate: ScenePluggableDelegate {
     
     override func plugins() -> [ScenePlugin] {[
@@ -26,26 +26,28 @@ class SceneDelegate: ScenePluggableDelegate {
         ),
         ThemePlugin(theme: core.theme()),
         NotificationPlugin(
-            router: NotificationRouter(render: render),
+            render: NotificationRender(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            router: ShortcutRouter(
+            render: ShortcutRender(
                 render: render,
                 constants: core.constants()
             )
         ),
         DeepLinkPlugin(
-            core: DeepLinkCore(
-                core: core,
-                render: render
+            render: DeepLinkRender(
+                render: render,
+                postRepository: core.postRepository(),
+                taxonomyRepository: core.taxonomyRepository(),
+                theme: core.theme()
             ),
             log: core.log()
         )
     ]}
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension SceneDelegate {
     
     func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

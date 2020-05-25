@@ -3,18 +3,24 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
+import SwiftyPress
 import UIKit.UIDevice
 import UIKit.UIViewController
 
-protocol MainInteractorType: InteractorType {
+protocol MainInteractable: Interactor {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)
 }
 
-protocol MainPresenterType: PresenterType {
-    func load(menu: [MainAPI.Menu])
-    func showPost(for id: Int) -> UIViewController
+protocol MainPresentable: Presenter {
+    func display(menu: [MainAPI.TabItem])
+}
+
+protocol MainRenderable: Render {
+    func rootView(for menu: MainAPI.Menu) -> UIViewController
+    func postView(for id: Int) -> UIViewController
 }
 
 /// Used to notify the controller was selected from the main controller.
@@ -34,10 +40,9 @@ enum MainAPI {
         case more
     }
     
-    struct TabItem {
-        let type: Menu
+    struct TabItem: Identifiable, Equatable {
+        let id: Menu
         let title: String
         let imageName: String
-        let view: () -> UIViewController?
     }
 }

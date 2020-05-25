@@ -6,44 +6,41 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
 struct TodayPresenter: TodayPresentable {
-    private weak var viewController: TodayDisplayable?
+    private let state: Reducer<TodayAction>
     private let dateFormatter: DateFormatter
     
-    init(viewController: TodayDisplayable?) {
-        self.viewController = viewController
-        
-        self.dateFormatter = DateFormatter(
-            dateFormat: "MMMM d yyyy"
-        )
+    init(state: @escaping Reducer<TodayAction>) {
+        self.state = state
+        self.dateFormatter = DateFormatter(dateFormat: "MMMM d yyyy")
     }
 }
 
 extension TodayPresenter {
     
-    func presentLatestPosts(for response: TodayAPI.Response) {
+    func displayLatestPosts(for response: TodayAPI.Response) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.thumbnailLink,
-                favorite: nil,
+                favorite: false,
                 dateFormatter: self.dateFormatter
             )
         }
         
-        viewController?.displayLatestPosts(with: viewModels)
+        state(.loadPosts(viewModels))
     }
     
-    func presentLatestPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayLatestPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }

@@ -10,7 +10,7 @@ import SwiftyPress
 import UIKit
 import ZamzamUI
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension UIContextMenuConfiguration {
     
     /// Returns context menu ocnfiguration for a blog post.
@@ -19,7 +19,7 @@ extension UIContextMenuConfiguration {
         at indexPath: IndexPath,
         from dataView: DataViewable,
         delegate: UIViewController?,
-        constants: ConstantsType,
+        constants: Constants,
         theme: Theme,
         additionalActions actions: [UIAction] = []
     ) {
@@ -36,7 +36,7 @@ extension UIContextMenuConfiguration {
                             theme: theme
                         )
                     },
-                    UIAction(title: .localized(.shareTitle), image: UIImage(systemName: "square.and.arrow.up")) { [weak delegate] _ in
+                    UIAction(title: .localized(.share), image: UIImage(systemName: "square.and.arrow.up")) { [weak delegate] _ in
                         guard let delegate = delegate, let url = URL(string: model.link) else { return }
 
                         delegate.present(

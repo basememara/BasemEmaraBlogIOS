@@ -3,22 +3,24 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import SwiftyPress
 
-protocol HomeInteractorType: InteractorType {
+protocol HomeInteractable: Interactor {
     func fetchProfile()
     func fetchMenu()
     func fetchSocial()
-    func select(menu: HomeAPI.MenuItem)
-    func select(social: Social)
 }
 
-protocol HomePresenterType: PresenterType {
-    func loadProfile(avatar: String, name: String, caption: String)
-    func load(menu: [HomeAPI.MenuSection])
-    func load(social: [HomeAPI.SocialItem])
+protocol HomePresentable: Presenter {
+    func display(profile: HomeAPI.Profile)
+    func display(menu: [HomeAPI.MenuSection])
+    func display(social: [HomeAPI.SocialItem])
+}
+
+protocol HomeRenderable: Render {
     func select(menu: HomeAPI.MenuItem)
     func select(social: Social)
 }
@@ -38,17 +40,24 @@ enum HomeAPI {
         case consultingMentorship
     }
     
-    struct MenuItem {
+    struct MenuItem: Equatable {
         let type: Menu
         let title: String
+        let icon: String
     }
     
-    struct MenuSection {
+    struct MenuSection: Equatable {
         let title: String?
         let items: [MenuItem]
     }
     
-    struct SocialItem {
+    struct Profile: Equatable {
+        let avatar: String
+        let name: String
+        let caption: String
+    }
+    
+    struct SocialItem: Equatable {
         let type: Social
         let title: String
     }

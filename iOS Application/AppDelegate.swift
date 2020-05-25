@@ -28,19 +28,21 @@ class AppDelegate: ApplicationPluggableDelegate {
         ),
         ThemePlugin(theme: core.theme()),
         NotificationPlugin(
-            router: NotificationRouter(render: render),
+            render: NotificationRender(render: render),
             userNotification: .current()
         ),
         ShortcutPlugin(
-            router: ShortcutRouter(
+            render: ShortcutRender(
                 render: render,
                 constants: core.constants()
             )
         ),
         DeepLinkPlugin(
-            core: DeepLinkCore(
-                core: core,
-                render: render
+            render: DeepLinkRender(
+                render: render,
+                postRepository: core.postRepository(),
+                taxonomyRepository: core.taxonomyRepository(),
+                theme: core.theme()
             ),
             log: core.log()
         )
@@ -62,10 +64,13 @@ extension AppDelegate {
 
 // MARK: - Environment Components
 
-private enum App {
+private enum AppRoot {
     
     /// Root dependency injection container.
     static let core = AppCore()
+    
+    /// Root state.
+    static let state = AppState()
     
     /// Root builder for all scenes.
     ///
@@ -76,20 +81,17 @@ private enum App {
     /// Create views only through scene renders.
     static let render = SceneRender(
         core: core,
-        state: AppState.root,
-        middleware: [ // All actions pass through
-            AnalyticsMiddleware()
-        ]
+        state: state
     )
 }
 
 private extension UIApplicationDelegate {
-    var core: SwiftyPressCore { App.core }
-    var render: SceneRender { App.render }
+    var core: AppCore { AppRoot.core }
+    var render: SceneRender { AppRoot.render }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 13, *)
 extension UISceneDelegate {
-    var core: SwiftyPressCore { App.core }
-    var render: SceneRender { App.render }
+    var core: AppCore { AppRoot.core }
+    var render: SceneRender { AppRoot.render }
 }

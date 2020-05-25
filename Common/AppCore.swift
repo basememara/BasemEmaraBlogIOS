@@ -6,6 +6,8 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Foundation.NSBundle
+import Foundation.NSUserDefaults
 import Foundation.NSURL
 import SwiftyPress
 import ZamzamCore
@@ -21,6 +23,9 @@ struct AppCore: SwiftyPressCore {
         return .production
         #endif
     }()
+}
+
+extension AppCore {
     
     func constantsService() -> ConstantsService {
         ConstantsMemoryService(
@@ -38,11 +43,7 @@ struct AppCore: SwiftyPressCore {
                     string = "https://basememara.com"
                 }
                 
-                guard let url = URL(string: string) else {
-                    fatalError("Could not determine base URL of server.")
-                }
-                
-                return url
+                return URL(safeString: string)
             }(),
             baseREST: "wp-json/swiftypress/v5",
             wpREST: "wp-json/wp/v2",
@@ -58,6 +59,9 @@ struct AppCore: SwiftyPressCore {
             minLogLevel: environment == .production ? .warning : .verbose
         )
     }
+}
+
+extension AppCore {
     
     func preferencesService() -> PreferencesService {
         PreferencesDefaultsService(
@@ -77,17 +81,12 @@ struct AppCore: SwiftyPressCore {
             }()
         )
     }
+}
 
-    func seedService() -> SeedService {
-        SeedFileService(
-            forResource: "seed.json",
-            inBundle: .main,
-            jsonDecoder: jsonDecoder()
-        )
-    }
+extension AppCore {
     
     func logServices() -> [LogService] {
-        let constants: ConstantsType = self.constants()
+        let constants = self.constants()
         
         return [
             LogConsoleService(
@@ -101,6 +100,20 @@ struct AppCore: SwiftyPressCore {
             )
         ]
     }
+}
+
+extension AppCore {
+
+    func dataSeed() -> DataSeed {
+        DataFileSeed(
+            forResource: "seed.json",
+            inBundle: .main,
+            jsonDecoder: jsonDecoder()
+        )
+    }
+}
+
+extension AppCore {
 
     func theme() -> Theme {
         AppTheme()

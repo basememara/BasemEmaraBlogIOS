@@ -25,11 +25,11 @@ extension Theme {
 private extension Theme {
     
     func applyPlatform() {
-        UITabBar.appearance().with {
+        UITabBar.appearance().apply {
             $0.tintColor = tint
         }
         
-        UINavigationBar.appearance().with {
+        UINavigationBar.appearance().apply {
             $0.tintColor = tint
             $0.titleTextAttributes = [
                 .foregroundColor: labelColor
@@ -39,23 +39,23 @@ private extension Theme {
             ]
         }
         
-        UIToolbar.appearance().with {
+        UIToolbar.appearance().apply {
             $0.tintColor = tint
         }
         
         UICollectionView.appearance().backgroundColor = backgroundColor
         
-        UITableView.appearance().with {
+        UITableView.appearance().apply {
             $0.backgroundColor = backgroundColor
             $0.separatorColor = separatorColor
         }
         
-        UITableViewCell.appearance().with {
+        UITableViewCell.appearance().apply {
             $0.backgroundColor = .clear
             $0.selectedBackgroundColor = secondaryBackgroundColor
         }
         
-        UITextField.appearance().with {
+        UITextField.appearance().apply {
             $0.backgroundColor = .white
             $0.textColor = .black
         }
@@ -68,9 +68,6 @@ private extension Theme {
         
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
             .textColor = tertiaryLabelColor
-        
-        UIImageView.appearance(whenContainedInInstancesOf: [UIButton.self, UITableViewCell.self, UIViewController.self])
-            .tintColor = tint
     }
 }
 
@@ -86,7 +83,7 @@ private extension Theme {
     private func applyThemedViews() {
         ThemedView.appearance().backgroundColor = backgroundColor
         
-        ThemedSeparator.appearance().with {
+        ThemedSeparator.appearance().apply {
             $0.backgroundColor = separatorColor
             $0.alpha = 0.5
         }
@@ -107,18 +104,18 @@ private extension Theme {
     }
     
     private func applyThemedButtons() {
-        ThemedButton.appearance().with {
+        ThemedButton.appearance().apply {
             $0.setTitleColor(tint, for: .normal)
             $0.borderColor = tint
             $0.borderWidth = 1
             $0.cornerRadius = buttonCornerRadius
         }
         
-        ThemedLabelButton.appearance().with {
+        ThemedLabelButton.appearance().apply {
             $0.setTitleColor(tint, for: .normal)
         }
         
-        ThemedPrimaryButton.appearance().with {
+        ThemedPrimaryButton.appearance().apply {
             $0.setTitleColor(backgroundColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: tint), for: .normal)
             $0.titleLabelFont = .systemFont(ofSize: 15, weight: .bold)
@@ -132,7 +129,7 @@ private extension Theme {
             $0.cornerRadius = buttonCornerRadius
         }
         
-        ThemedSecondaryButton.appearance().with {
+        ThemedSecondaryButton.appearance().apply {
             $0.setTitleColor(secondaryLabelColor, for: .normal)
             $0.setBackgroundImage(UIImage(from: backgroundColor), for: .normal)
             $0.titleLabelFont = .systemFont(ofSize: 15, weight: .bold)
@@ -141,7 +138,7 @@ private extension Theme {
             $0.cornerRadius = buttonCornerRadius
         }
         
-        ThemedImageButton.appearance().with {
+        ThemedImageButton.appearance().apply {
             $0.contentHorizontalAlignment = .fill
             $0.contentVerticalAlignment = .fill
             $0.imageView?.contentMode = .scaleAspectFit
@@ -149,14 +146,14 @@ private extension Theme {
     }
     
     private func applyThemedMisc() {
-        ThemedSwitch.appearance().with {
+        ThemedSwitch.appearance().apply {
             $0.tintColor = tint
             $0.onTintColor = tint
         }
         
         ThemedSegmentedControl.appearance().tintColor = tint
         
-        ThemedPageControl.appearance().with {
+        ThemedPageControl.appearance().apply {
             $0.pageIndicatorTintColor = separatorColor
             $0.currentPageIndicatorTintColor = tint
         }
@@ -166,26 +163,26 @@ private extension Theme {
 private extension Theme {
     
     func applyCustom() {
-        ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).with {
+        ThemedView.appearance(whenContainedInInstancesOf: [LatestPostCollectionViewCell.self]).apply {
             $0.backgroundColor = secondaryBackgroundColor
             $0.borderColor = separatorColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        ThemedImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).with {
+        ThemedImageView.appearance(whenContainedInInstancesOf: [PopularPostCollectionViewCell.self]).apply {
             $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        ThemedImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).with {
+        ThemedImageView.appearance(whenContainedInInstancesOf: [PickedPostCollectionViewCell.self]).apply {
             $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
             $0.cornerRadius = 10
         }
         
-        RoundedImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).with {
+        RoundedImageView.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).apply {
             $0.borderColor = secondaryBackgroundColor
             $0.borderWidth = imageBorderWidthInCell
         }
@@ -196,7 +193,6 @@ private extension Theme {
     
     func applyScenes() {
         HomeStyle.apply(self)
-        ShowBlogStyles.apply(self)
         ShowMoreStyles.apply(self)
     }
 }

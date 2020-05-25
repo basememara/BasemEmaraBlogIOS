@@ -3,14 +3,13 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-import SwiftyPress
-
-struct HomeInteractor: HomeInteractorType {
-    private let presenter: HomePresenterType
+struct HomeInteractor: HomeInteractable {
+    private let presenter: HomePresentable
     
-    init(presenter: HomePresenterType) {
+    init(presenter: HomePresentable) {
         self.presenter = presenter
     }
 }
@@ -18,12 +17,17 @@ struct HomeInteractor: HomeInteractorType {
 extension HomeInteractor {
     
     func fetchProfile() {
-        presenter.loadProfile(
-            avatar: "BasemProfilePic",
-            name: "Basem Emara",
-            caption: "Mobile Architect / iOS Jedi"
+        presenter.display(
+            profile: HomeAPI.Profile(
+                avatar: "BasemProfilePic",
+                name: .localized(.homeProfileName),
+                caption: .localized(.homeProfileCaption)
+            )
         )
     }
+}
+
+extension HomeInteractor {
     
     func fetchMenu() {
         let sections = [
@@ -32,11 +36,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .about,
-                        title: "About me"
+                        title: .localized(.homeMenuAboutTitle),
+                        icon: "about"
                     ),
                     HomeAPI.MenuItem(
                         type: .portfolio,
-                        title: "Portfolio"
+                        title: .localized(.homeMenuPortfolioTitle),
+                        icon: "portfolio"
                     )
                 ]
             ),
@@ -45,11 +51,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .seriesScalableApp,
-                        title: "Building Scalable iOS App"
+                        title: .localized(.homeMenuSeriesScalableAppTitle),
+                        icon: "seriesScalableApp"
                     ),
                     HomeAPI.MenuItem(
                         type: .seriesSwiftUtilities,
-                        title: "Swift Utility Belt"
+                        title: .localized(.homeMenuSeriesSwiftUtilitiesTitle),
+                        icon: "seriesSwiftUtilities"
                     )
                 ]
             ),
@@ -58,11 +66,13 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .coursesArchitecture,
-                        title: "iOS Architecture Masterclass"
+                        title: .localized(.homeMenuCoursesArchitectureTitle),
+                        icon: "coursesArchitecture"
                     ),
                     HomeAPI.MenuItem(
                         type: .coursesFramework,
-                        title: "Building Swift Frameworks"
+                        title: .localized(.homeMenuCoursesFrameworkTitle),
+                        icon: "coursesFramework"
                     )
                 ]
             ),
@@ -71,47 +81,44 @@ extension HomeInteractor {
                 items: [
                     HomeAPI.MenuItem(
                         type: .consultingDevelopment,
-                        title: "iOS Development"
+                        title: .localized(.homeMenuConsultingDevelopmentTitle),
+                        icon: "consultingDevelopment"
                     ),
                     HomeAPI.MenuItem(
                         type: .consultingMentorship,
-                        title: "Mentorship Express"
+                        title: .localized(.homeMenuConsultingMentorshipTitle),
+                        icon: "consultingMentorship"
                     )
                 ]
             )
         ]
         
-        presenter.load(menu: sections)
+        presenter.display(menu: sections)
     }
+}
+
+extension HomeInteractor {
     
     func fetchSocial() {
         let items = [
             HomeAPI.SocialItem(
                 type: .github,
-                title: "GitHub"
+                title: .localized(.githubSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .linkedIn,
-                title: "LinkedIn"
+                title: .localized(.linkedInSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .twitter,
-                title: "Twitter"
+                title: .localized(.twitterSocialTitle)
             ),
             HomeAPI.SocialItem(
                 type: .email,
-                title: "Email"
+                title: .localized(.emailSocialTitle)
             )
         ]
         
-        presenter.load(social: items)
-    }
-    
-    func select(menu: HomeAPI.MenuItem) {
-        presenter.select(menu: menu)
-    }
-    
-    func select(social: Social) {
-        presenter.select(social: social)
+        presenter.display(social: items)
     }
 }

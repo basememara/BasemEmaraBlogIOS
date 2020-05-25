@@ -6,27 +6,23 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSDateFormatter
 import SwiftyPress
 import ZamzamUI
 
 struct ShowBlogPresenter: ShowBlogPresentable {
-    private weak var viewController: ShowBlogDisplayable?
+    private let state: Reducer<ShowBlogAction>
     private let dateFormatter: DateFormatter
     
-    init(viewController: ShowBlogDisplayable?) {
-        self.viewController = viewController
-        
-        self.dateFormatter = DateFormatter().with {
-            $0.dateStyle = .medium
-            $0.timeStyle = .none
-        }
+    init(state: @escaping Reducer<ShowBlogAction>) {
+        self.state = state
+        self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
 
 extension ShowBlogPresenter {
     
-    func presentLatestPosts(for response: ShowBlogAPI.PostsResponse) {
+    func displayLatestPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -36,22 +32,22 @@ extension ShowBlogPresenter {
             )
         }
         
-        viewController?.displayLatestPosts(with: viewModels)
+        state(.loadLatestPosts(viewModels))
     }
     
-    func presentLatestPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayLatestPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.latestPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ShowBlogPresenter {
     
-    func presentPopularPosts(for response: ShowBlogAPI.PostsResponse) {
+    func displayPopularPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -61,22 +57,22 @@ extension ShowBlogPresenter {
             )
         }
         
-        viewController?.displayPopularPosts(with: viewModels)
+        state(.loadPopularPosts(viewModels))
     }
     
-    func presentPopularPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayPopularPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.popularPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ShowBlogPresenter {
     
-    func presentTopPickPosts(for response: ShowBlogAPI.PostsResponse) {
+    func displayTopPickPosts(for response: ShowBlogAPI.PostsResponse) {
         let viewModels = response.posts.map { post in
             PostsDataViewModel(
                 from: post,
@@ -86,22 +82,22 @@ extension ShowBlogPresenter {
             )
         }
         
-        viewController?.displayTopPickPosts(with: viewModels)
+        state(.loadTopPickPosts(viewModels))
     }
     
-    func presentTopPickPosts(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayTopPickPosts(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.topPickPostsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ShowBlogPresenter {
     
-    func presentTerms(for response: ShowBlogAPI.TermsResponse) {
+    func displayTerms(for response: ShowBlogAPI.TermsResponse) {
         let viewModels = response.terms.map {
             TermsDataViewModel(
                 id: $0.id,
@@ -111,27 +107,27 @@ extension ShowBlogPresenter {
             )
         }
         
-        viewController?.displayTerms(with: viewModels)
+        state(.loadTerms(viewModels))
     }
     
-    func presentTerms(error: DataError) {
-        let viewModel = AppAPI.Error(
+    func displayTerms(error: SwiftyPressError) {
+        let viewModel = ViewError(
             title: .localized(.termsErrorTitle),
             message: error.localizedDescription
         )
         
-        viewController?.display(error: viewModel)
+        state(.loadError(viewModel))
     }
 }
 
 extension ShowBlogPresenter {
     
-    func presentToggleFavorite(for response: ShowBlogAPI.FavoriteResponse) {
-        viewController?.displayToggleFavorite(
-            with: ShowBlogAPI.FavoriteViewModel(
-                postID: response.postID,
-                favorite: response.favorite
-            )
+    func displayToggleFavorite(for response: ShowBlogAPI.FavoriteResponse) {
+        let viewModel = ShowBlogAPI.FavoriteViewModel(
+            postID: response.postID,
+            favorite: response.favorite
         )
+        
+        state(.toggleFavorite(viewModel))
     }
 }

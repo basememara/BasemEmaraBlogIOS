@@ -3,14 +3,16 @@
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-15.
+//  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
 import UIKit.UIDevice
+import UIKit.UIImage
 
-struct MainInteractor: MainInteractorType {
-    private let presenter: MainPresenterType
+struct MainInteractor: MainInteractable {
+    private let presenter: MainPresentable
     
-    init(presenter: MainPresenterType) {
+    init(presenter: MainPresentable) {
         self.presenter = presenter
     }
 }
@@ -18,12 +20,39 @@ struct MainInteractor: MainInteractorType {
 extension MainInteractor {
     
     func fetchMenu(for idiom: UIUserInterfaceIdiom) {
-        var menu: [MainAPI.Menu] = [.blog, .favorites, .search, .more]
+        var menu: [MainAPI.TabItem] = [
+            MainAPI.TabItem(
+                id: .blog,
+                title: .localized(.tabBlogTitle),
+                imageName: UIImage.ImageName.tabBlog.rawValue
+            ),
+            MainAPI.TabItem(
+                id: .favorites,
+                title: .localized(.tabFavoritesTitle),
+                imageName: UIImage.ImageName.tabFavorite.rawValue
+            ),
+            MainAPI.TabItem(
+                id: .search,
+                title: .localized(.tabSearchTitle),
+                imageName: UIImage.ImageName.tabSearch.rawValue
+            ),
+            MainAPI.TabItem(
+                id: .more,
+                title: .localized(.tabMoreTitle),
+                imageName: UIImage.ImageName.tabMore.rawValue
+            )
+        ]
         
         if case .phone = idiom {
-            menu.prepend(.home)
+            menu.prepend(
+                MainAPI.TabItem(
+                    id: .home,
+                    title: .localized(.tabHomeTitle),
+                    imageName: UIImage.ImageName.tabHome.rawValue
+                )
+            )
         }
         
-        presenter.load(menu: menu)
+        presenter.display(menu: menu)
     }
 }

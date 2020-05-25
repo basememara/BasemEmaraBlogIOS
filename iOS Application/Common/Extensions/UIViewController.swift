@@ -24,7 +24,7 @@ extension UIViewController {
             // Handle tab bar controller in split view differently
             guard let splitViewController = self as? UISplitViewController ?? splitViewController else {
                 // No split view
-                guard let tabBarController = UIWindow.current?
+                guard let tabBarController = view.window?
                     .rootViewController as? UITabBarController else {
                         return nil
                 }
@@ -76,7 +76,7 @@ extension UIViewController {
             alert: settings,
             message: message,
             additionalActions: [
-                UIAlertAction(title: .localized(.settingsTitle)) {
+                UIAlertAction(title: .localized(.settings)) {
                     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                     UIApplication.shared.open(url)
                 }
@@ -106,7 +106,7 @@ extension UIViewController {
     ///   - slug: The slug of the page.
     ///   - constants: The app constants.
     ///   - theme: The style of the Safari view controller.
-    func modal(pageSlug slug: String, constants: ConstantsType, theme: Theme) {
+    func modal(pageSlug slug: String, constants: Constants, theme: Theme) {
         let url = constants.baseURL
             .appendingPathComponent(slug)
             .appendingQueryItem("mobileembed", value: 1)
