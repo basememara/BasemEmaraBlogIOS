@@ -12,15 +12,18 @@ struct ListPostsInteractor: ListPostsInteractable {
     private let presenter: ListPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
+    private let favoriteRepository: FavoriteRepository
     
     init(
         presenter: ListPostsPresentable,
         postRepository: PostRepository,
-        mediaRepository: MediaRepository
+        mediaRepository: MediaRepository,
+        favoriteRepository: FavoriteRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository
         self.mediaRepository = mediaRepository
+        self.favoriteRepository = favoriteRepository
     }
 }
 
@@ -47,7 +50,7 @@ extension ListPostsInteractor {
                     )
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
@@ -96,7 +99,7 @@ extension ListPostsInteractor {
                     return
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
@@ -145,7 +148,7 @@ extension ListPostsInteractor {
                     return
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
@@ -194,7 +197,7 @@ extension ListPostsInteractor {
                     return
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
@@ -219,12 +222,12 @@ extension ListPostsInteractor {
 extension ListPostsInteractor {
     
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
-        postRepository.toggleFavorite(id: request.postID)
+        favoriteRepository.toggle(id: request.postID)
         
         presenter.displayToggleFavorite(
             for: ListPostsAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postRepository.hasFavorite(id: request.postID)
+                favorite: favoriteRepository.contains(id: request.postID)
             )
         )
     }

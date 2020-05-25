@@ -12,15 +12,18 @@ struct SearchPostsInteractor: SearchPostsInteractable {
     private let presenter: SearchPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
+    private let favoriteRepository: FavoriteRepository
     
     init(
         presenter: SearchPostsPresentable,
         postRepository: PostRepository,
-        mediaRepository: MediaRepository
+        mediaRepository: MediaRepository,
+        favoriteRepository: FavoriteRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository
         self.mediaRepository = mediaRepository
+        self.favoriteRepository = favoriteRepository
     }
 }
 
@@ -41,7 +44,7 @@ extension SearchPostsInteractor {
                     )
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displaySearchResults(
                             error: $0.error ?? .unknownReason(nil)
@@ -82,7 +85,7 @@ extension SearchPostsInteractor {
                     )
                 }
                 
-                self.postRepository.fetchFavoriteIDs {
+                self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
                         self.presenter.displaySearchResults(
                             error: $0.error ?? .unknownReason(nil)

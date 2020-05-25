@@ -111,6 +111,7 @@ extension SceneRender {
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
             taxonomyRepository: core.taxonomyRepository(),
+            favoriteRepository: core.favoriteRepository(),
             preferences: core.preferences()
         )
         
@@ -144,7 +145,8 @@ extension SceneRender {
         let interactor = ListPostsInteractor(
             presenter: presenter,
             postRepository: core.postRepository(),
-            mediaRepository: core.mediaRepository()
+            mediaRepository: core.mediaRepository(),
+            favoriteRepository: core.favoriteRepository()
         )
         
         let render: (UIViewController) -> ListPostsRenderable = {
@@ -184,7 +186,8 @@ extension SceneRender {
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
             authorRepository: core.authorRepository(),
-            taxonomyRepository: core.taxonomyRepository()
+            taxonomyRepository: core.taxonomyRepository(),
+            favoriteRepository: core.favoriteRepository()
         )
         
         let render: (UIViewController) -> ShowPostRenderable = {
@@ -219,7 +222,7 @@ extension SceneRender {
         
         let interactor = ListFavoritesInteractor(
             presenter: presenter,
-            postRepository: core.postRepository(),
+            favoriteRepository: core.favoriteRepository(),
             mediaRepository: core.mediaRepository()
         )
         
@@ -248,7 +251,8 @@ extension SceneRender {
         let interactor = SearchPostsInteractor(
             presenter: presenter,
             postRepository: core.postRepository(),
-            mediaRepository: core.mediaRepository()
+            mediaRepository: core.mediaRepository(),
+            favoriteRepository: core.favoriteRepository()
         )
         
         let render: (UIViewController) -> SearchPostsRenderable = {

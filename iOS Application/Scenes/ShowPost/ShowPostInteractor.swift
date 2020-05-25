@@ -14,19 +14,22 @@ struct ShowPostInteractor: ShowPostInteractable {
     private let mediaRepository: MediaRepository
     private let authorRepository: AuthorRepository
     private let taxonomyRepository: TaxonomyRepository
+    private let favoriteRepository: FavoriteRepository
     
     init(
         presenter: ShowPostPresentable,
         postRepository: PostRepository,
         mediaRepository: MediaRepository,
         authorRepository: AuthorRepository,
-        taxonomyRepository: TaxonomyRepository
+        taxonomyRepository: TaxonomyRepository,
+        favoriteRepository: FavoriteRepository
     ) {
         self.presenter = presenter
         self.postRepository = postRepository
         self.mediaRepository = mediaRepository
         self.authorRepository = authorRepository
         self.taxonomyRepository = taxonomyRepository
+        self.favoriteRepository = favoriteRepository
     }
 }
 
@@ -49,7 +52,7 @@ extension ShowPostInteractor {
                     categories: item.terms.filter { $0.taxonomy == .category },
                     tags: item.terms.filter { $0.taxonomy == .tag },
                     author: item.author,
-                    favorite: self.postRepository.hasFavorite(id: item.post.id)
+                    favorite: self.favoriteRepository.contains(id: item.post.id)
                 )
             )
         }
@@ -113,11 +116,11 @@ extension ShowPostInteractor {
 extension ShowPostInteractor {
     
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
-        postRepository.toggleFavorite(id: request.postID)
+        favoriteRepository.toggle(id: request.postID)
         
         presenter.displayToggleFavorite(
             for: ShowPostAPI.FavoriteResponse(
-                favorite: postRepository.hasFavorite(id: request.postID)
+                favorite: favoriteRepository.contains(id: request.postID)
             )
         )
     }

@@ -14,6 +14,7 @@ struct ShowBlogInteractor: ShowBlogInteractable {
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
     private let taxonomyRepository: TaxonomyRepository
+    private let favoriteRepository: FavoriteRepository
     private let preferences: Preferences
 
     init(
@@ -21,12 +22,14 @@ struct ShowBlogInteractor: ShowBlogInteractable {
         postRepository: PostRepository,
         mediaRepository: MediaRepository,
         taxonomyRepository: TaxonomyRepository,
+        favoriteRepository: FavoriteRepository,
         preferences: Preferences
     ) {
         self.presenter = presenter
         self.postRepository = postRepository
         self.mediaRepository = mediaRepository
         self.taxonomyRepository = taxonomyRepository
+        self.favoriteRepository = favoriteRepository
         self.preferences = preferences
     }
 }
@@ -157,12 +160,12 @@ extension ShowBlogInteractor {
 extension ShowBlogInteractor {
     
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
-        postRepository.toggleFavorite(id: request.postID)
+        favoriteRepository.toggle(id: request.postID)
         
         presenter.displayToggleFavorite(
             for: ShowBlogAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postRepository.hasFavorite(id: request.postID)
+                favorite: favoriteRepository.contains(id: request.postID)
             )
         )
     }

@@ -10,16 +10,16 @@ import SwiftyPress
 
 struct ListFavoritesInteractor: ListFavoritesInteractable {
     private let presenter: ListFavoritesPresentable
-    private let postRepository: PostRepository
+    private let favoriteRepository: FavoriteRepository
     private let mediaRepository: MediaRepository
     
     init(
         presenter: ListFavoritesPresentable,
-        postRepository: PostRepository,
+        favoriteRepository: FavoriteRepository,
         mediaRepository: MediaRepository
     ) {
         self.presenter = presenter
-        self.postRepository = postRepository
+        self.favoriteRepository = favoriteRepository
         self.mediaRepository = mediaRepository
     }
 }
@@ -27,7 +27,7 @@ struct ListFavoritesInteractor: ListFavoritesInteractable {
 extension ListFavoritesInteractor {
     
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
-        postRepository.fetchFavorites {
+        favoriteRepository.fetch {
             guard case .success(let posts) = $0 else {
                 return self.presenter.displayFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
@@ -55,12 +55,12 @@ extension ListFavoritesInteractor {
 extension ListFavoritesInteractor {
     
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
-        postRepository.toggleFavorite(id: request.postID)
+        favoriteRepository.toggle(id: request.postID)
         
         presenter.displayToggleFavorite(
             for: ListFavoritesAPI.FavoriteResponse(
                 postID: request.postID,
-                favorite: postRepository.hasFavorite(id: request.postID)
+                favorite: favoriteRepository.contains(id: request.postID)
             )
         )
     }
