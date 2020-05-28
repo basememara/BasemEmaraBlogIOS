@@ -150,7 +150,6 @@
 		8BBF230E247955150070C988 /* TodayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF230D247955150070C988 /* TodayState.swift */; };
 		8BF7EB5D2443E77800BC6288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB5C2443E77800BC6288 /* MainView.swift */; };
 		8BF7EB5F244400C900BC6288 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF7EB5E244400C900BC6288 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		8BF7EB6124448FAF00BC6288 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,7 +357,6 @@
 		8BBF231024795C8F0070C988 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8BF7EB5C2443E77800BC6288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8BF7EB5E244400C900BC6288 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
-		8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -700,7 +698,6 @@
 				8B42C791234BBC8F00F38E23 /* Taxonomy.swift */,
 				8B42C790234BBC8F00F38E23 /* UIContextMenuConfiguration.swift */,
 				8B42C793234BBC8F00F38E23 /* UIViewController.swift */,
-				8BF7EB6024448FAF00BC6288 /* ViewRepresentable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1229,7 +1226,6 @@
 				8B42C7EB234BBC9000F38E23 /* MainSplitDetailViewController.swift in Sources */,
 				8B42C7DD234BBC9000F38E23 /* ShowMoreRender.swift in Sources */,
 				8B42C80D234BBC9000F38E23 /* ShortcutPlugin.swift in Sources */,
-				8BF7EB6124448FAF00BC6288 /* ViewRepresentable.swift in Sources */,
 				8B42C7D9234BBC9000F38E23 /* ListPostsViewController.swift in Sources */,
 				8B42C7D7234BBC9000F38E23 /* ListPostsPresenter.swift in Sources */,
 				8B42C7E7234BBC9000F38E23 /* ShowBlogInteractor.swift in Sources */,
