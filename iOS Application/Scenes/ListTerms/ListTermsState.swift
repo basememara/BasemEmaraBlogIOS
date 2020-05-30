@@ -8,6 +8,7 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class ListTermsState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?

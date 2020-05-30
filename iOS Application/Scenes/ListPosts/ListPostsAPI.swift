@@ -8,6 +8,7 @@
 
 import SwiftyPress
 import UIKit.UIViewController
+import ZamzamUI
 
 protocol ListPostsInteractable: Interactor {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest)

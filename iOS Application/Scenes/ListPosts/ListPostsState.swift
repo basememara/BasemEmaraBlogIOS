@@ -8,6 +8,7 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class ListPostsState: StateRepresentable {
     private let parent: AppState

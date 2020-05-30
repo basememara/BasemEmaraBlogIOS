@@ -11,6 +11,7 @@ import SwiftyPress
 import SwiftUI
 import UIKit
 import ZamzamCore
+import ZamzamUI
 
 struct AppPreview {
     static let core = AppCore()

@@ -8,6 +8,7 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class ListFavoritesState: StateRepresentable {
     private let parent: AppState

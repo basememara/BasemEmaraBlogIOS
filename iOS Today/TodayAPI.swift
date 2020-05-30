@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamUI
 
 protocol TodayInteractable: Interactor {
     func fetchLatestPosts(with request: TodayAPI.Request)

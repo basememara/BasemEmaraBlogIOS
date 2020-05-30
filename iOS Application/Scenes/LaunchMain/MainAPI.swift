@@ -6,9 +6,9 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-import SwiftyPress
 import UIKit.UIDevice
 import UIKit.UIViewController
+import ZamzamUI
 
 protocol MainInteractable: Interactor {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)

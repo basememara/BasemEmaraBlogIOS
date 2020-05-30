@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamUI
 
 protocol HomeInteractable: Interactor {
     func fetchProfile()

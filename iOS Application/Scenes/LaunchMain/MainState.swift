@@ -7,7 +7,7 @@
 //
 
 import Foundation.NSNotification
-import SwiftyPress
+import ZamzamUI
 
 class MainState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?

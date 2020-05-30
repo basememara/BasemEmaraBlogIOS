@@ -7,6 +7,7 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class AppState: StateRepresentable {
     

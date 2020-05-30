@@ -8,6 +8,7 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class TodayState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?
