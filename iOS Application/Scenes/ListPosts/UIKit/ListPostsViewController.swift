@@ -38,6 +38,8 @@ final class ListPostsViewController: UIViewController {
         delegate: self
     )
     
+    private lazy var activityIndicatorView = tableView.makeActivityIndicator()
+    
     // MARK: - Initializers
     
     init(
@@ -67,13 +69,9 @@ final class ListPostsViewController: UIViewController {
         fetch()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        state.subscribe(load)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard isBeingRemoved else { return }
         state.unsubscribe()
     }
 }
@@ -85,6 +83,7 @@ private extension ListPostsViewController {
     func prepare() {
         // Configure controls
         navigationItem.backBarButtonItem = .makeBackBarButtonItem()
+        activityIndicatorView.startAnimating()
         
         if let title = params.title {
             self.title = title
@@ -104,6 +103,9 @@ private extension ListPostsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+        
+        // Bind reactive data
+        state.subscribe(load)
     }
     
     func fetch() {
@@ -145,6 +147,8 @@ private extension ListPostsViewController {
         default:
             break
         }
+        
+        stopAnimating()
     }
 }
 
@@ -184,6 +188,17 @@ extension ListPostsViewController {
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
         render?.showPost(for: model)
+    }
+}
+
+// MARK: - Helpers
+
+private extension ListPostsViewController {
+    
+    func stopAnimating() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
+            self?.activityIndicatorView.stopAnimating()
+        }
     }
 }
 

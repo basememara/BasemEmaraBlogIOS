@@ -38,13 +38,9 @@ class MainViewController: UITabBarController {
         fetch()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        state.subscribe(load)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard isBeingRemoved else { return }
         state.unsubscribe()
     }
 }
@@ -55,6 +51,7 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
+        state.subscribe(load)
     }
     
     func fetch() {

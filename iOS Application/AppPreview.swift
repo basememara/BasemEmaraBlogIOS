@@ -11,6 +11,7 @@ import SwiftyPress
 import SwiftUI
 import UIKit
 import ZamzamCore
+import ZamzamUI
 
 struct AppPreview {
     static let core = AppCore()
@@ -24,7 +25,7 @@ extension AppPreview {
 
 extension AppPreview {
     
-    static let state = AppState().apply { state in
+    static let postsState = PostsState().apply { state in
         // Retrive data from seed file
         core.dataSeed().fetch {
             guard case .success(let data) = $0 else { return }
@@ -39,6 +40,20 @@ extension AppPreview {
                     dateFormatter: dataFormatter)
             }
             
+            state(.mergePosts(posts))
+        }
+    }
+}
+
+extension AppPreview {
+    
+    static let termsState = TermsState().apply { state in
+        // Retrive data from seed file
+        core.dataSeed().fetch {
+            guard case .success(let data) = $0 else { return }
+            
+            let dataFormatter = DateFormatter(dateStyle: .medium)
+            
             let terms = data.terms.prefix(25).map {
                 TermsDataViewModel(
                     id: $0.id,
@@ -48,7 +63,6 @@ extension AppPreview {
                 )
             }
             
-            state(.mergePosts(posts))
             state(.mergeTerms(terms))
         }
     }
@@ -161,32 +175,35 @@ extension AppPreview {
 
 extension AppPreview {
     
-    static let showBlogState = ShowBlogState(parent: state).apply {
-        $0(.loadLatestPosts(state.allPosts.shuffled().prefix(10).array))
-        $0(.loadPopularPosts(state.allPosts.shuffled().prefix(10).array))
-        $0(.loadTopPickPosts(state.allPosts.shuffled().prefix(10).array))
-        $0(.loadTerms(state.allTerms.shuffled().prefix(10).array))
+    static let showBlogState = ShowBlogState(
+        postsState: postsState,
+        termsState: termsState
+    ).apply {
+        $0(.loadLatestPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadPopularPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadTopPickPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
-    static let listFavoritesState = ListFavoritesState(parent: state).apply {
-        $0(.loadFavorites(state.allPosts.shuffled().prefix(10).array))
+    static let listFavoritesState = ListFavoritesState(postsState: postsState).apply {
+        $0(.loadFavorites(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
-    static let listPostsState = ListPostsState(parent: state).apply {
-        $0(.loadPosts(state.allPosts.shuffled().prefix(10).array))
+    static let listPostsState = ListPostsState(postsState: postsState).apply {
+        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
     static let showPostState: ShowPostState = {
-        let state = ShowPostState(parent: Self.state)
+        let state = ShowPostState(postsState: Self.postsState)
         
         let presenter = ShowPostPresenter(
             state: { state($0) },
@@ -217,14 +234,14 @@ extension AppPreview {
 extension AppPreview {
     
     static let searchPostsState = SearchPostsState().apply {
-        $0(.loadPosts(state.allPosts.shuffled().prefix(10).array))
+        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
     static let listTermsState = ListTermsState().apply {
-        $0(.loadTerms(state.allTerms.shuffled().prefix(25).array))
+        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(25).array))
     }
 }
 

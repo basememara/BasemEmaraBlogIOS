@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamUI
 
 protocol SearchPostsInteractable: Interactor {
     func fetchSearchResults(with request: PostAPI.SearchRequest)

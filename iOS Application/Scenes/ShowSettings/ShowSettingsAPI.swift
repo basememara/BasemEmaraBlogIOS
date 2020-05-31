@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamUI
 
 protocol ShowSettingsInteractable: Interactor {
     func fetchMenu()

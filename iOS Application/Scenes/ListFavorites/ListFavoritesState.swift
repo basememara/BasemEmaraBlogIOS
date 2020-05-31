@@ -8,9 +8,10 @@
 
 import Foundation.NSNotification
 import SwiftyPress
+import ZamzamUI
 
 class ListFavoritesState: StateRepresentable {
-    private let parent: AppState
+    private let postsState: PostsState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -39,8 +40,8 @@ class ListFavoritesState: StateRepresentable {
         }
     }
     
-    init(parent: AppState) {
-        self.parent = parent
+    init(postsState: PostsState) {
+        self.postsState = postsState
     }
 }
 
@@ -48,7 +49,7 @@ extension ListFavoritesState {
     
     func subscribe(_ observer: @escaping (StateChange<ListFavoritesState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        parent.subscribe(load, in: &cancellable)
+        postsState.subscribe(postsLoad, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -58,12 +59,12 @@ extension ListFavoritesState {
 
 private extension ListFavoritesState {
     
-    func load(_ result: StateChange<AppState>) {
-        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
+    func postsLoad(_ result: StateChange<PostsState>) {
+        guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
         
-        let sharedFavorites = parent.allPosts.filter { $0.favorite }
-        let sorted = favorites.compactMap { item in sharedFavorites.first { $0.id == item.id } }
-        favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
+        var sharedFavorites = postsState.allPosts.filter { $0.value.favorite }
+        let sorted = favorites.compactMap { sharedFavorites.removeValue(forKey: $0.id) }
+        favorites = sorted + sharedFavorites.values
     }
 }
 
@@ -82,9 +83,9 @@ extension ListFavoritesState {
     func callAsFunction(_ action: ListFavoritesAction) {
         switch action {
         case .loadFavorites(let items):
-            parent(.mergePosts(items))
+            postsState(.mergePosts(items))
         case .toggleFavorite(let item):
-            parent(
+            postsState(
                 .toggleFavorite(
                     postID: item.postID,
                     favorite: item.favorite

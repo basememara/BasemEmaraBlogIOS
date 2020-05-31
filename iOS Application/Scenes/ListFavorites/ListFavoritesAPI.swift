@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import ZamzamUI
 
 protocol ListFavoritesInteractable: Interactor {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)

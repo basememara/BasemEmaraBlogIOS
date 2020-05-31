@@ -8,6 +8,7 @@
 
 import SwiftyPress
 import UIKit.UIView
+import ZamzamUI
 
 protocol ShowMoreInteractable: Interactor {
     func fetchMenu()

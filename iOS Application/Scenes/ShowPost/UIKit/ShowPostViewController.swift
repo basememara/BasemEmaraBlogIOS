@@ -108,13 +108,17 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         super.viewDidAppear(animated)
         navigationController?.isToolbarHidden = false
         navigationController?.hidesBarsOnSwipe = true
-        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = true
         navigationController?.hidesBarsOnSwipe = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard isBeingRemoved else { return }
         state.unsubscribe()
     }
 }
@@ -139,6 +143,9 @@ private extension ShowPostViewController {
             selector: #selector(deviceOrientationDidChange),
             name: UIDevice.orientationDidChangeNotification
         )
+        
+        // Bind reactive data
+        state.subscribe(load)
     }
     
     func fetch() {

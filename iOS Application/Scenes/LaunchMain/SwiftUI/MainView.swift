@@ -8,6 +8,7 @@
 
 #if canImport(SwiftUI)
 import SwiftUI
+import ZamzamUI
 
 @available(iOS 13, *)
 struct MainView: View {

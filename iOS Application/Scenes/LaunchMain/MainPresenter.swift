@@ -6,7 +6,7 @@
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-import SwiftyPress
+import ZamzamUI
 
 struct MainPresenter: MainPresentable {
     private let state: Reducer<MainAction>
