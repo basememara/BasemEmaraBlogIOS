@@ -12,7 +12,7 @@ import ZamzamUI
 
 class PostsState: StateRepresentable {
     
-    private(set) var allPosts: [PostsDataViewModel] = [] {
+    private(set) var allPosts: [Int: PostsDataViewModel] = [:] {
         willSet {
             guard newValue != allPosts, #available(iOS 13, *) else { return }
             combineSend()
@@ -39,16 +39,10 @@ extension PostsState {
     func callAsFunction(_ action: PostsAction) {
         switch action {
         case .mergePosts(let items):
-            let ids = items.map(\.id)
-            allPosts = allPosts.filter { !ids.contains($0.id) } + items
+            allPosts.merge(items.map { ($0.id, $0) }) { $1 }
         case .toggleFavorite(let postID, let favorite):
-            guard let current = allPosts
-                .first(where: { $0.id == postID })?
-                .toggled(favorite: favorite) else {
-                    return
-            }
-            
-            self(.mergePosts([current]))
+            allPosts[postID] = allPosts[postID]?
+                .toggled(favorite: favorite)
         }
     }
 }

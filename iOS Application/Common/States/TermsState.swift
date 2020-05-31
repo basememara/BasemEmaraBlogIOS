@@ -12,7 +12,7 @@ import ZamzamUI
 
 class TermsState: StateRepresentable {
     
-    private(set) var allTerms: [TermsDataViewModel] = [] {
+    private(set) var allTerms: [Int: TermsDataViewModel] = [:] {
         willSet {
             guard newValue != allTerms, #available(iOS 13, *) else { return }
             combineSend()
@@ -38,8 +38,7 @@ extension TermsState {
     func callAsFunction(_ action: TermsAction) {
         switch action {
         case .mergeTerms(let items):
-            let ids = items.map(\.id)
-            allTerms = allTerms.filter { !ids.contains($0.id) } + items
+            allTerms.merge(items.map { ($0.id, $0) }) { $1 }
         }
     }
 }

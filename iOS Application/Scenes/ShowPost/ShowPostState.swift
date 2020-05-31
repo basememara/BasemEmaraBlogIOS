@@ -84,8 +84,13 @@ extension ShowPostState {
 private extension ShowPostState {
     
     func postsLoad(_ result: StateChange<PostsState>) {
-        guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
-        isFavorite = postsState.allPosts.first { $0.id == post?.id }?.favorite ?? false
+        guard let id = post?.id,
+            result == .updated(\PostsState.allPosts)
+                || result == .initial else {
+                    return
+        }
+        
+        isFavorite = postsState.allPosts[id]?.favorite ?? false
     }
 }
 
@@ -112,13 +117,14 @@ extension ShowPostState {
         case .loadFavorite(let item):
             isFavorite = item
         case .toggleFavorite(let item):
-            guard let current = postsState.allPosts
-                .first(where: { $0.id == post?.id })?
-                .toggled(favorite: item) else {
-                    return
-            }
+            guard let id = post?.id else { return }
             
-            postsState(.mergePosts([current]))
+            postsState(
+                .toggleFavorite(
+                    postID: id,
+                    favorite: item
+                )
+            )
         case .loadError(let item):
             error = item
         }

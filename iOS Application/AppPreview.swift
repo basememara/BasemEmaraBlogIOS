@@ -179,24 +179,24 @@ extension AppPreview {
         postsState: postsState,
         termsState: termsState
     ).apply {
-        $0(.loadLatestPosts(postsState.allPosts.shuffled().prefix(10).array))
-        $0(.loadPopularPosts(postsState.allPosts.shuffled().prefix(10).array))
-        $0(.loadTopPickPosts(postsState.allPosts.shuffled().prefix(10).array))
-        $0(.loadTerms(termsState.allTerms.shuffled().prefix(10).array))
+        $0(.loadLatestPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadPopularPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadTopPickPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
     static let listFavoritesState = ListFavoritesState(postsState: postsState).apply {
-        $0(.loadFavorites(postsState.allPosts.shuffled().prefix(10).array))
+        $0(.loadFavorites(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
     static let listPostsState = ListPostsState(postsState: postsState).apply {
-        $0(.loadPosts(postsState.allPosts.shuffled().prefix(10).array))
+        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
@@ -234,14 +234,14 @@ extension AppPreview {
 extension AppPreview {
     
     static let searchPostsState = SearchPostsState().apply {
-        $0(.loadPosts(postsState.allPosts.shuffled().prefix(10).array))
+        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension AppPreview {
     
     static let listTermsState = ListTermsState().apply {
-        $0(.loadTerms(termsState.allTerms.shuffled().prefix(25).array))
+        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(25).array))
     }
 }
 

@@ -62,9 +62,9 @@ private extension ListFavoritesState {
     func postsLoad(_ result: StateChange<PostsState>) {
         guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
         
-        let sharedFavorites = postsState.allPosts.filter { $0.favorite }
-        let sorted = favorites.compactMap { item in sharedFavorites.first { $0.id == item.id } }
-        favorites = sorted + sharedFavorites.filter { !sorted.contains($0) }
+        var sharedFavorites = postsState.allPosts.filter { $0.value.favorite }
+        let sorted = favorites.compactMap { sharedFavorites.removeValue(forKey: $0.id) }
+        favorites = sorted + sharedFavorites.values
     }
 }
 

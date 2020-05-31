@@ -61,7 +61,7 @@ private extension ListPostsState {
     
     func postsLoad(_ result: StateChange<PostsState>) {
         guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
-        posts = posts.compactMap { post in postsState.allPosts.first { $0.id == post.id } }
+        posts = posts.compactMap { postsState.allPosts[$0.id] }
     }
 }
 
@@ -83,13 +83,12 @@ extension ListPostsState {
             posts = items
             postsState(.mergePosts(items))
         case .toggleFavorite(let item):
-            guard let current = postsState.allPosts
-                .first(where: { $0.id == item.postID })?
-                .toggled(favorite: item.favorite) else {
-                    return
-            }
-            
-            postsState(.mergePosts([current]))
+            postsState(
+                .toggleFavorite(
+                    postID: item.postID,
+                    favorite: item.favorite
+                )
+            )
         case .loadError(let item):
             error = item
         }

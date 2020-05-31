@@ -101,15 +101,15 @@ private extension ShowBlogState {
     func postsLoad(_ result: StateChange<PostsState>) {
         // Retrieve latest changes from root state and let equatable determine if current state changed
         guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
-        latestPosts = latestPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
-        popularPosts = popularPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
-        topPickPosts = topPickPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
+        latestPosts = latestPosts.compactMap { postsState.allPosts[$0.id] }
+        popularPosts = popularPosts.compactMap { postsState.allPosts[$0.id] }
+        topPickPosts = topPickPosts.compactMap { postsState.allPosts[$0.id] }
     }
     
     func termsLoad(_ result: StateChange<TermsState>) {
         // Retrieve latest changes from root state and let equatable determine if current state changed
         guard result == .updated(\TermsState.allTerms) || result == .initial else { return }
-        terms = terms.compactMap { term in termsState.allTerms.first { $0.id == term.id } }
+        terms = terms.compactMap { termsState.allTerms[$0.id] }
     }
 }
 
@@ -143,13 +143,12 @@ extension ShowBlogState {
             terms = items
             termsState(.mergeTerms(items))
         case .toggleFavorite(let item):
-            guard let current = postsState.allPosts
-                .first(where: { $0.id == item.postID })?
-                .toggled(favorite: item.favorite) else {
-                    return
-            }
-            
-            postsState(.mergePosts([current]))
+            postsState(
+                .toggleFavorite(
+                    postID: item.postID,
+                    favorite: item.favorite
+                )
+            )
         case .loadError(let item):
             error = item
         }
