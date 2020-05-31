@@ -130,6 +130,8 @@
 		8B8905C423A6710600AB8A4F /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8905C323A6710600AB8A4F /* MainInteractor.swift */; };
 		8B8D231223A6EFC1000CBC35 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D231123A6EFC1000CBC35 /* MainState.swift */; };
 		8B928A54239CD698004EB139 /* ShortcutRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B928A53239CD698004EB139 /* ShortcutRender.swift */; };
+		8B9828052483EFA8000333C0 /* PostsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9828042483EFA8000333C0 /* PostsState.swift */; };
+		8B9828072483EFE4000333C0 /* TermsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9828062483EFE4000333C0 /* TermsState.swift */; };
 		8B9D23572432A84C0028003D /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D23562432A84C0028003D /* HomeHeaderView.swift */; };
 		8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA1C696246D50DF0076DB43 /* AppPreview.swift */; };
 		8BAE21A62455F2D9004554E2 /* ShowSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE21A12455F2D8004554E2 /* ShowSettingsPresenter.swift */; };
@@ -330,6 +332,8 @@
 		8B8905C323A6710600AB8A4F /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		8B8D231123A6EFC1000CBC35 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
 		8B928A53239CD698004EB139 /* ShortcutRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRender.swift; sourceTree = "<group>"; };
+		8B9828042483EFA8000333C0 /* PostsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsState.swift; sourceTree = "<group>"; };
+		8B9828062483EFE4000333C0 /* TermsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsState.swift; sourceTree = "<group>"; };
 		8B9D23562432A84C0028003D /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		8BA1C696246D50DF0076DB43 /* AppPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreview.swift; sourceTree = "<group>"; };
 		8BAE219B2455F18F004554E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -686,6 +690,7 @@
 			children = (
 				8B42C799234BBC9000F38E23 /* Application */,
 				8B42C78E234BBC8F00F38E23 /* Extensions */,
+				8B9828032483EF93000333C0 /* States */,
 				8B42C796234BBC9000F38E23 /* Styles */,
 			);
 			path = Common;
@@ -836,6 +841,15 @@
 				8B42C773234BBC8F00F38E23 /* MainSplitViewController.swift */,
 			);
 			path = iPad;
+			sourceTree = "<group>";
+		};
+		8B9828032483EF93000333C0 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				8B9828042483EFA8000333C0 /* PostsState.swift */,
+				8B9828062483EFE4000333C0 /* TermsState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		8B9D23522432A80F0028003D /* UIKit */ = {
@@ -1234,6 +1248,7 @@
 				8B42C7C9234BBC9000F38E23 /* ListTermsViewController.swift in Sources */,
 				8BB63D332454BFE200B07A48 /* ShowMorePresenter.swift in Sources */,
 				8B42C7F2234BBC9000F38E23 /* SearchPostsRender.swift in Sources */,
+				8B9828052483EFA8000333C0 /* PostsState.swift in Sources */,
 				8B7A89F22379AA28002E5A75 /* ShowSettingsViewController.swift in Sources */,
 				8BA1C697246D50DF0076DB43 /* AppPreview.swift in Sources */,
 				8B42C7CA234BBC9000F38E23 /* SceneRender.swift in Sources */,
@@ -1258,6 +1273,7 @@
 				8B8D231223A6EFC1000CBC35 /* MainState.swift in Sources */,
 				8B0A6EB1244BEC7600D1D8D2 /* HomeRender.swift in Sources */,
 				8B48EB3524469A1E0032D5E8 /* ShowBlogState.swift in Sources */,
+				8B9828072483EFE4000333C0 /* TermsState.swift in Sources */,
 				8B42C7E3234BBC9000F38E23 /* ShowBlogPresenter.swift in Sources */,
 				8B42C7F5234BBC9000F38E23 /* ListFavoritesInteractor.swift in Sources */,
 				8B42C7EA234BBC9000F38E23 /* MainSplitViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 
 class ListPostsState: StateRepresentable {
-    private let parent: AppState
+    private let postsState: PostsState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -40,8 +40,8 @@ class ListPostsState: StateRepresentable {
         }
     }
     
-    init(parent: AppState) {
-        self.parent = parent
+    init(postsState: PostsState) {
+        self.postsState = postsState
     }
 }
 
@@ -49,7 +49,7 @@ extension ListPostsState {
     
     func subscribe(_ observer: @escaping (StateChange<ListPostsState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        parent.subscribe(load, in: &cancellable)
+        postsState.subscribe(postsLoad, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -59,9 +59,9 @@ extension ListPostsState {
 
 private extension ListPostsState {
     
-    func load(_ result: StateChange<AppState>) {
-        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
-        posts = posts.compactMap { post in parent.allPosts.first { $0.id == post.id } }
+    func postsLoad(_ result: StateChange<PostsState>) {
+        guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
+        posts = posts.compactMap { post in postsState.allPosts.first { $0.id == post.id } }
     }
 }
 
@@ -81,15 +81,15 @@ extension ListPostsState {
         switch action {
         case .loadPosts(let items):
             posts = items
-            parent(.mergePosts(items))
+            postsState(.mergePosts(items))
         case .toggleFavorite(let item):
-            guard let current = parent.allPosts
+            guard let current = postsState.allPosts
                 .first(where: { $0.id == item.postID })?
                 .toggled(favorite: item.favorite) else {
                     return
             }
             
-            parent(.mergePosts([current]))
+            postsState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

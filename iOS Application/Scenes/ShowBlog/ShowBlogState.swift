@@ -11,7 +11,8 @@ import SwiftyPress
 import ZamzamUI
 
 class ShowBlogState: StateRepresentable {
-    private let parent: AppState
+    private let postsState: PostsState
+    private let termsState: TermsState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -76,8 +77,9 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    init(parent: AppState) {
-        self.parent = parent
+    init(postsState: PostsState, termsState: TermsState) {
+        self.postsState = postsState
+        self.termsState = termsState
     }
 }
 
@@ -85,7 +87,8 @@ extension ShowBlogState {
     
     func subscribe(_ observer: @escaping (StateChange<ShowBlogState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        parent.subscribe(load, in: &cancellable)
+        postsState.subscribe(postsLoad, in: &cancellable)
+        termsState.subscribe(termsLoad, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -95,16 +98,18 @@ extension ShowBlogState {
 
 private extension ShowBlogState {
     
-    func load(_ result: StateChange<AppState>) {
-        if result == .updated(\AppState.allPosts) || result == .initial {
-            latestPosts = latestPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
-            popularPosts = popularPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
-            topPickPosts = topPickPosts.compactMap { posts in parent.allPosts.first { $0.id == posts.id } }
-        }
-        
-        if result == .updated(\AppState.allTerms) || result == .initial {
-            terms = terms.compactMap { term in parent.allTerms.first { $0.id == term.id } }
-        }
+    func postsLoad(_ result: StateChange<PostsState>) {
+        // Retrieve latest changes from root state and let equatable determine if current state changed
+        guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
+        latestPosts = latestPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
+        popularPosts = popularPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
+        topPickPosts = topPickPosts.compactMap { posts in postsState.allPosts.first { $0.id == posts.id } }
+    }
+    
+    func termsLoad(_ result: StateChange<TermsState>) {
+        // Retrieve latest changes from root state and let equatable determine if current state changed
+        guard result == .updated(\TermsState.allTerms) || result == .initial else { return }
+        terms = terms.compactMap { term in termsState.allTerms.first { $0.id == term.id } }
     }
 }
 
@@ -127,24 +132,24 @@ extension ShowBlogState {
         switch action {
         case .loadLatestPosts(let items):
             latestPosts = items
-            parent(.mergePosts(items))
+            postsState(.mergePosts(items))
         case .loadPopularPosts(let items):
             popularPosts = items
-            parent(.mergePosts(items))
+            postsState(.mergePosts(items))
         case .loadTopPickPosts(let items):
             topPickPosts = items
-            parent(.mergePosts(items))
+            postsState(.mergePosts(items))
         case .loadTerms(let items):
             terms = items
-            parent(.mergeTerms(items))
+            termsState(.mergeTerms(items))
         case .toggleFavorite(let item):
-            guard let current = parent.allPosts
+            guard let current = postsState.allPosts
                 .first(where: { $0.id == item.postID })?
                 .toggled(favorite: item.favorite) else {
                     return
             }
             
-            parent(.mergePosts([current]))
+            postsState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }

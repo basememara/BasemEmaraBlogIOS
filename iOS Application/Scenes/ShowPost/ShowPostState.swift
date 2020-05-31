@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 
 class ShowPostState: StateRepresentable {
-    private let parent: AppState
+    private let postsState: PostsState
     private var cancellable: NotificationCenter.Cancellable?
     
     // MARK: - Observables
@@ -64,8 +64,8 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    init(parent: AppState) {
-        self.parent = parent
+    init(postsState: PostsState) {
+        self.postsState = postsState
     }
 }
 
@@ -73,7 +73,7 @@ extension ShowPostState {
     
     func subscribe(_ observer: @escaping (StateChange<ShowPostState>) -> Void) {
         subscribe(observer, in: &cancellable)
-        parent.subscribe(load, in: &cancellable)
+        postsState.subscribe(postsLoad, in: &cancellable)
     }
     
     func unsubscribe() {
@@ -83,9 +83,9 @@ extension ShowPostState {
 
 private extension ShowPostState {
     
-    func load(_ result: StateChange<AppState>) {
-        guard result == .updated(\AppState.allPosts) || result == .initial else { return }
-        isFavorite = parent.allPosts.first { $0.id == post?.id }?.favorite ?? false
+    func postsLoad(_ result: StateChange<PostsState>) {
+        guard result == .updated(\PostsState.allPosts) || result == .initial else { return }
+        isFavorite = postsState.allPosts.first { $0.id == post?.id }?.favorite ?? false
     }
 }
 
@@ -112,13 +112,13 @@ extension ShowPostState {
         case .loadFavorite(let item):
             isFavorite = item
         case .toggleFavorite(let item):
-            guard let current = parent.allPosts
+            guard let current = postsState.allPosts
                 .first(where: { $0.id == post?.id })?
                 .toggled(favorite: item) else {
                     return
             }
             
-            parent(.mergePosts([current]))
+            postsState(.mergePosts([current]))
         case .loadError(let item):
             error = item
         }
