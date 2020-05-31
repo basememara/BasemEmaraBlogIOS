@@ -38,6 +38,8 @@ final class ListPostsViewController: UIViewController {
         delegate: self
     )
     
+    private lazy var activityIndicatorView = tableView.makeActivityIndicator()
+    
     // MARK: - Initializers
     
     init(
@@ -81,6 +83,7 @@ private extension ListPostsViewController {
     func prepare() {
         // Configure controls
         navigationItem.backBarButtonItem = .makeBackBarButtonItem()
+        activityIndicatorView.startAnimating()
         
         if let title = params.title {
             self.title = title
@@ -144,6 +147,8 @@ private extension ListPostsViewController {
         default:
             break
         }
+        
+        stopAnimating()
     }
 }
 
@@ -183,6 +188,17 @@ extension ListPostsViewController {
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
         render?.showPost(for: model)
+    }
+}
+
+// MARK: - Helpers
+
+private extension ListPostsViewController {
+    
+    func stopAnimating() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
+            self?.activityIndicatorView.stopAnimating()
+        }
     }
 }
 
