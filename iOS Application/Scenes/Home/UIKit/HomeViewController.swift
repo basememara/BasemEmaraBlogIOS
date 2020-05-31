@@ -61,12 +61,16 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        state.subscribe(load)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard isBeingRemoved else { return }
         state.unsubscribe()
     }
 }
@@ -82,6 +86,9 @@ private extension HomeViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+        
+        // Bind reactive data
+        state.subscribe(load)
     }
     
     func fetch() {

@@ -81,13 +81,9 @@ final class ShowBlogViewController: UIViewController {
         fetch()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        state.subscribe(load)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        guard isBeingRemoved else { return }
         state.unsubscribe()
     }
 }
@@ -125,6 +121,9 @@ private extension ShowBlogViewController {
             pickedPostsCollectionView,
             makeFooter()
         ])
+        
+        // Bind reactive data
+        state.subscribe(load)
     }
     
     func fetch() {
