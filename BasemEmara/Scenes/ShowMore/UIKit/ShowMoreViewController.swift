@@ -20,13 +20,14 @@ final class ShowMoreViewController: UIViewController {
     
     private lazy var tableView = makeTableView(delegate: self)
     private lazy var socialCellStackView = makeSocialCellStackView()
+    private lazy var activityIndicatorView = view.makeActivityIndicator()
     
     // MARK: - Initializers
     
     init(
         state: ShowMoreState,
         interactor: ShowMoreInteractable?,
-        render: ((UIViewController) -> ShowMoreRenderable)?
+        render: ((UIViewController & Refreshable) -> ShowMoreRenderable)?
     ) {
         self.state = state
         self.interactor = interactor
@@ -153,6 +154,17 @@ extension ShowMoreViewController: UITableViewDataSource {
         default:
             return makeDefaultTableViewCell(text: item.title, icon: item.icon)
         }
+    }
+}
+
+extension ShowMoreViewController: Refreshable {
+    
+    func beginRefreshing() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
     }
 }
 

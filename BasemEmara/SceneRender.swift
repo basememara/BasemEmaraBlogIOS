@@ -313,7 +313,7 @@ extension SceneRender {
         let presenter = ShowMorePresenter { state($0) }
         let interactor = ShowMoreInteractor(presenter: presenter)
         
-        let render: (UIViewController) -> ShowMoreRenderable = {
+        let render: (UIViewController & Refreshable) -> ShowMoreRenderable = {
             ShowMoreRender(
                 render: self,
                 constants: self.core.constants(),

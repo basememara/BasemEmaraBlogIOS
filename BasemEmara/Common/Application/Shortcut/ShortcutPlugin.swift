@@ -63,6 +63,8 @@ private extension ShortcutPlugin {
         }
         
         switch shortcutItemType {
+        case .search:
+            render.showSearch()
         case .favorites:
             render.showFavorites()
         case .contact:
@@ -76,6 +78,7 @@ private extension ShortcutPlugin {
 private extension ShortcutPlugin {
     
     enum ShortcutItemType: String {
+        case search
         case favorites
         case contact
         

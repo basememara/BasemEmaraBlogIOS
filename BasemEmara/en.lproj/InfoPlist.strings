@@ -6,5 +6,6 @@
   Copyright © 2018 Zamzam Inc. All rights reserved.
 */
 
-"application.shortcut.contact.title" = "Contact";
+"application.shortcut.search.title" = "Search";
 "application.shortcut.favorites.title" = "Favorites";
+"application.shortcut.contact.title" = "Contact";

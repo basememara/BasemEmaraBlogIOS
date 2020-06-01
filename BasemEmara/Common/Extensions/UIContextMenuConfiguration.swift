@@ -9,6 +9,7 @@
 import SwiftyPress
 import UIKit
 import ZamzamUI
+import SystemConfiguration
 
 @available(iOS 13, *)
 extension UIContextMenuConfiguration {
@@ -28,6 +29,15 @@ extension UIContextMenuConfiguration {
                 title: "",
                 children: actions + [
                     UIAction(title: .localized(.commentsTitle), image: UIImage(systemName: "text.bubble")) { [weak delegate] _ in
+                        guard SCNetworkReachability.isOnline else {
+                            delegate?.present(
+                                alert: .localized(.commentsNotAvailableErrorTitle),
+                                message: .localized(.notConnectedToInternetErrorMessage)
+                            )
+                            
+                            return
+                        }
+                        
                         delegate?.modal(
                             safari: constants.baseURL
                                 .appendingPathComponent("mobile-comments")

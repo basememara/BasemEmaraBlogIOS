@@ -25,6 +25,10 @@ private extension ShortcutRender {
 
 extension ShortcutRender {
     
+    func showSearch() {
+        viewController?.show(menu: MainAPI.Menu.search)
+    }
+    
     func showFavorites() {
         viewController?.show(menu: MainAPI.Menu.favorites)
     }

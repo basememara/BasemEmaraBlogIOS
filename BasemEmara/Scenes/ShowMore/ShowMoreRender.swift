@@ -7,6 +7,7 @@
 //
 
 import SwiftyPress
+import StoreKit
 import UIKit.UIViewController
 import ZamzamUI
 
@@ -15,14 +16,14 @@ struct ShowMoreRender: ShowMoreRenderable {
     private let constants: Constants
     private let mailComposer: MailComposer
     private let theme: Theme
-    private weak var presentationContext: UIViewController?
+    private weak var presentationContext: (UIViewController & Refreshable)?
     
     init(
         render: SceneRender,
         constants: Constants,
         mailComposer: MailComposer,
         theme: Theme,
-        presentationContext: UIViewController?
+        presentationContext: (UIViewController & Refreshable)?
     ) {
         self.render = render
         self.constants = constants
@@ -108,8 +109,10 @@ private extension ShowMoreRender {
     }
     
     func showRateApp(from application: UIApplication) {
-        guard let url = URL(string: constants.itunesURL) else { return }
-        application.open(url)
+        presentationContext?.beginRefreshing()
+        presentationContext?.present(itunesID: constants.itunesID) {
+            self.presentationContext?.endRefreshing()
+        }
     }
     
     func share(appURL: String, message: String, popoverFrom view: UIView) {

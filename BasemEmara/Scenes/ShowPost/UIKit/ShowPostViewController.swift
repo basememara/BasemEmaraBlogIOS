@@ -293,7 +293,12 @@ private extension ShowPostViewController {
     
     @objc func backTapped() {
         guard let lastPostID = history.popLast() else {
-            present(alert: .localized(.noPostInHistoryErrorMessage))
+            guard let navigationController = navigationController else {
+                present(alert: .localized(.noPostInHistoryErrorMessage))
+                return
+            }
+            
+            navigationController.popViewController()
             return
         }
         

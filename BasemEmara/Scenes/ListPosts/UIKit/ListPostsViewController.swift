@@ -148,7 +148,7 @@ private extension ListPostsViewController {
             break
         }
         
-        stopAnimating()
+        endRefreshing()
     }
 }
 
@@ -195,7 +195,7 @@ extension ListPostsViewController {
 
 private extension ListPostsViewController {
     
-    func stopAnimating() {
+    func endRefreshing() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
             self?.activityIndicatorView.stopAnimating()
         }
