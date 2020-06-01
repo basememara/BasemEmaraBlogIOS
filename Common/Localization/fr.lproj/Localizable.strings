@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Basem Emara
+
+  Created by Basem Emara on 2018-09-07.
+  Copyright © 2018 Zamzam Inc. All rights reserved.
+*/
+
+"home.profile.name" = "Basem Emara";
+"home.profile.caption" = "Mobile Architect / iOS Jedi";
+"home.menu.about.title" = "About me";
+"home.menu.portfolio.title" = "Portfolio";
+"home.menu.series.scalable.app.title" = "Building Scalable iOS App";
+"home.menu.series.swift.utilities.title" = "Swift Utility Belt";
+"home.menu.courses.architecture.title" = "iOS Architecture Masterclass";
+"home.menu.courses.framework.title" = "Building Swift Frameworks";
+"home.menu.consulting.development.title" = "iOS Development";
+"home.menu.consulting.mentorship.title" = "Mentorship Express";
+
+"more.menu.feedback.title" = "Send me an email";
+"more.menu.work.title" = "Work with me";
+"more.menu.rate.title" = "Rate my app";
+"more.menu.share.title" = "Share my app";
+"more.menu.developed.by.title" = "Developed by Basem Emara";
