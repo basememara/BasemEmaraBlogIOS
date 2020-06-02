@@ -14,7 +14,7 @@ import ZamzamCore
 import ZamzamUI
 
 struct AppPreview {
-    static let core = AppCore()
+    static let core = PreviewCore()
 }
 
 extension AppPreview {
@@ -32,7 +32,7 @@ extension AppPreview {
             
             let dataFormatter = DateFormatter(dateStyle: .medium)
             
-            let posts = data.posts.prefix(25).map { post in
+            let posts = data.posts.map { post in
                 PostsDataViewModel(
                     from: post,
                     mediaURL: data.media.first { $0.id == post.mediaID }?.link,
@@ -54,7 +54,7 @@ extension AppPreview {
             
             let dataFormatter = DateFormatter(dateStyle: .medium)
             
-            let terms = data.terms.prefix(25).map {
+            let terms = data.terms.map {
                 TermsDataViewModel(
                     id: $0.id,
                     name: $0.name,
@@ -336,6 +336,53 @@ extension AppPreview {
         ]))
         
         $0(.setAutoThemeEnabled(true))
+    }
+}
+
+// MARK: - Types
+
+extension AppPreview {
+    
+    struct PreviewCore: SwiftyPressCore {
+        
+        func constantsService() -> ConstantsService {
+            ConstantsMemoryService(
+                environment: .development,
+                itunesName: "",
+                itunesID: "",
+                baseURL: URL(safeString: "https://example.com"),
+                baseREST: "",
+                wpREST: "",
+                email: "",
+                privacyURL: "",
+                disclaimerURL: nil,
+                styleSheet: "",
+                googleAnalyticsID: "",
+                featuredCategoryID: 0,
+                defaultFetchModifiedLimit: 0,
+                taxonomies: [],
+                postMetaKeys: [],
+                minLogLevel: .none
+            )
+        }
+        
+        func preferencesService() -> PreferencesService {
+            PreferencesDefaultsService(defaults: .standard)
+        }
+        
+        func logServices() -> [LogService] {[]}
+        
+        func dataSeed() -> DataSeed {
+            DataFileSeed(
+                forResource: "sample.json",
+                inBundle: .main,
+                jsonDecoder: jsonDecoder()
+            )
+        }
+        
+        func theme() -> Theme {
+            AppTheme()
+        }
     }
 }
 
