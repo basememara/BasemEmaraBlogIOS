@@ -15,11 +15,11 @@ import SwiftUI
 
 struct ViewRender {
     private let core: SwiftyPressCore
-    private let state: AppState
+    private let store: AppStore
     
-    init(core: SwiftyPressCore, state: AppState) {
+    init(core: SwiftyPressCore, store: AppStore) {
         self.core = core
-        self.state = state
+        self.store = store
     }
 }
 
@@ -104,8 +104,8 @@ extension ViewRender {
     
     func showBlog() -> UIViewController {
         let state = ShowBlogState(
-            postsState: self.state.postsState,
-            termsState: self.state.termsState
+            postsState: store.postsState,
+            termsState: store.termsState
         )
         
         let presenter = ShowBlogPresenter { state($0) }
@@ -143,7 +143,7 @@ extension ViewRender {
 extension ViewRender {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
-        let state = ListPostsState(postsState: self.state.postsState)
+        let state = ListPostsState(postsState: store.postsState)
         let presenter = ListPostsPresenter { state($0) }
         
         let interactor = ListPostsInteractor(
@@ -176,7 +176,7 @@ extension ViewRender {
     }
     
     func showPost(for id: Int) -> UIViewController {
-        let state = ShowPostState(postsState: self.state.postsState)
+        let state = ShowPostState(postsState: store.postsState)
         
         let presenter = ShowPostPresenter(
             state: { state($0) },
@@ -221,7 +221,7 @@ extension ViewRender {
 extension ViewRender {
     
     func listFavorites() -> UIViewController {
-        let state = ListFavoritesState(postsState: self.state.postsState)
+        let state = ListFavoritesState(postsState: store.postsState)
         let presenter = ListFavoritesPresenter { state($0) }
         
         let interactor = ListFavoritesInteractor(

@@ -25,7 +25,7 @@
 		8BBCB5BB2484A02C00F76D98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5BA2484A02C00F76D98 /* Assets.xcassets */; };
 		8BBCB5BE2484A02C00F76D98 /* Preview.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5BD2484A02C00F76D98 /* Preview.xcassets */; };
 		8BBCB5D32484AA5100F76D98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D52484AA5100F76D98 /* InfoPlist.strings */; };
-		8BBCB6692484AB0B00F76D98 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D82484AB0B00F76D98 /* AppState.swift */; };
+		8BBCB6692484AB0B00F76D98 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D82484AB0B00F76D98 /* AppStore.swift */; };
 		8BBCB66B2484AB0B00F76D98 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DC2484AB0B00F76D98 /* Preferences.swift */; };
 		8BBCB66C2484AB0B00F76D98 /* UIContextMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DD2484AB0B00F76D98 /* UIContextMenuConfiguration.swift */; };
 		8BBCB66D2484AB0B00F76D98 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DE2484AB0B00F76D98 /* Taxonomy.swift */; };
@@ -239,7 +239,7 @@
 		8BBCB5D42484AA5100F76D98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D62484AA6700F76D98 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D72484AA6800F76D98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8BBCB5D82484AB0B00F76D98 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8BBCB5D82484AB0B00F76D98 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		8BBCB5D92484AB0B00F76D98 /* Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		8BBCB5DC2484AB0B00F76D98 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8BBCB5DD2484AB0B00F76D98 /* UIContextMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContextMenuConfiguration.swift; sourceTree = "<group>"; };
@@ -916,7 +916,7 @@
 				8BBCB6D62484AB2200F76D98 /* Localization */,
 				8BBCB5E22484AB0B00F76D98 /* States */,
 				8BBCB6D22484AB2200F76D98 /* AppCore.swift */,
-				8BBCB5D82484AB0B00F76D98 /* AppState.swift */,
+				8BBCB5D82484AB0B00F76D98 /* AppStore.swift */,
 				8BBCB6D32484AB2200F76D98 /* AppTheme.swift */,
 				8BBCB6D02484AB2200F76D98 /* Media.xcassets */,
 				8BBCB6D12484AB2200F76D98 /* Theme.xcassets */,
@@ -1251,7 +1251,7 @@
 				8BBCB67E2484AB0B00F76D98 /* HomeInteractor.swift in Sources */,
 				8BBCB6C42484AB0B00F76D98 /* SearchPostsState.swift in Sources */,
 				8BBCB67D2484AB0B00F76D98 /* DeepLinkRender.swift in Sources */,
-				8BBCB6692484AB0B00F76D98 /* AppState.swift in Sources */,
+				8BBCB6692484AB0B00F76D98 /* AppStore.swift in Sources */,
 				8BBCB6B22484AB0B00F76D98 /* ShowSettingsAPI.swift in Sources */,
 				8BBCB6952484AB0B00F76D98 /* ShowPostAPI.swift in Sources */,
 				8BBCB6732484AB0B00F76D98 /* ShortcutRender.swift in Sources */,

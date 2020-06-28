@@ -69,8 +69,8 @@ private enum AppRoot {
     /// Root dependency injection container.
     static let core = AppCore()
     
-    /// Root state.
-    static let state = AppState()
+    /// Root store.
+    static let store = AppStore()
     
     /// Root builder for all scenes.
     ///
@@ -81,7 +81,7 @@ private enum AppRoot {
     /// Create views only through scene renders.
     static let render = ViewRender(
         core: core,
-        state: state
+        store: store
     )
 }
 
