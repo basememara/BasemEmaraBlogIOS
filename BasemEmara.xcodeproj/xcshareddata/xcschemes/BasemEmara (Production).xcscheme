@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BBCB5B02484A02A00F76D98"
-               BuildableName = "BasemEmara.app"
-               BlueprintName = "BasemEmara"
+               BuildableName = "iOS.app"
+               BlueprintName = "iOS"
                ReferencedContainer = "container:BasemEmara.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BBCB5B02484A02A00F76D98"
-            BuildableName = "BasemEmara.app"
-            BlueprintName = "BasemEmara"
+            BuildableName = "iOS.app"
+            BlueprintName = "iOS"
             ReferencedContainer = "container:BasemEmara.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BBCB5B02484A02A00F76D98"
-            BuildableName = "BasemEmara.app"
-            BlueprintName = "BasemEmara"
+            BuildableName = "iOS.app"
+            BlueprintName = "iOS"
             ReferencedContainer = "container:BasemEmara.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

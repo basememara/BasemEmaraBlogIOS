@@ -222,6 +222,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B0E0F5524A95778003A3C1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8B0E0F5624A95778003A3C1A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8B0E0F5724A95778003A3C1A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B0F05432486CAD6008C03B7 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		8BAC08082485243D00CD8E0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BAC08122485428F00CD8E0A /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-gdnzptrxqgjetedfzhnetiomlcry/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
@@ -233,9 +236,6 @@
 		8BBCB5BD2484A02C00F76D98 /* Preview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Preview.xcassets; sourceTree = "<group>"; };
 		8BBCB5C22484A02C00F76D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BBCB5C82484A10F00F76D98 /* BasemEmara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasemEmara.entitlements; sourceTree = "<group>"; };
-		8BBCB5CA2484A4B300F76D98 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
-		8BBCB5CB2484A4B300F76D98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		8BBCB5CC2484A4B300F76D98 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		8BBCB5D42484AA5100F76D98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D62484AA6700F76D98 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D72484AA6800F76D98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -416,15 +416,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8B0E0F5424A95749003A3C1A /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				8B0E0F5624A95778003A3C1A /* .gitignore */,
+				8B0E0F5524A95778003A3C1A /* .swiftlint.yml */,
+				8B0E0F5724A95778003A3C1A /* README.md */,
+			);
+			name = Meta;
+			sourceTree = "<group>";
+		};
 		8BBCB5A82484A02A00F76D98 = {
 			isa = PBXGroup;
 			children = (
 				8BAC08122485428F00CD8E0A /* SwiftyPress.bundle */,
 				8BAC08132485428F00CD8E0A /* ZamzamCore.bundle */,
+				8B0E0F5424A95749003A3C1A /* Meta */,
 				8BBCB6CF2484AB2200F76D98 /* Shared */,
-				8BBCB5B32484A02A00F76D98 /* BasemEmara */,
-				8BBCB6F02484B46D00F76D98 /* BasemEmara Today */,
-				8BBCB7082484B49500F76D98 /* BasemEmara Notification */,
+				8BBCB5B32484A02A00F76D98 /* iOS */,
+				8BBCB6F02484B46D00F76D98 /* iOS Today */,
+				8BBCB7082484B49500F76D98 /* iOS Notification */,
 				8BBCB6ED2484B46D00F76D98 /* Frameworks */,
 				8BBCB5B22484A02A00F76D98 /* Products */,
 			);
@@ -440,7 +451,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8BBCB5B32484A02A00F76D98 /* BasemEmara */ = {
+		8BBCB5B32484A02A00F76D98 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				8BBCB5E52484AB0B00F76D98 /* Plugins */,
@@ -455,7 +466,7 @@
 				8BBCB5BC2484A02C00F76D98 /* Preview Content */,
 				8BBCB5C92484A48900F76D98 /* Supporting Files */,
 			);
-			path = BasemEmara;
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		8BBCB5BC2484A02C00F76D98 /* Preview Content */ = {
@@ -471,12 +482,9 @@
 		8BBCB5C92484A48900F76D98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB5CA2484A4B300F76D98 /* .gitignore */,
-				8BBCB5CC2484A4B300F76D98 /* .swiftlint.yml */,
 				8BBCB5C82484A10F00F76D98 /* BasemEmara.entitlements */,
 				8BBCB5C22484A02C00F76D98 /* Info.plist */,
 				8BBCB5D52484AA5100F76D98 /* InfoPlist.strings */,
-				8BBCB5CB2484A4B300F76D98 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -944,7 +952,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8BBCB6F02484B46D00F76D98 /* BasemEmara Today */ = {
+		8BBCB6F02484B46D00F76D98 /* iOS Today */ = {
 			isa = PBXGroup;
 			children = (
 				8BBCB7212485184D00F76D98 /* SwiftUI */,
@@ -956,16 +964,16 @@
 				8BBCB7252485184D00F76D98 /* TodayStyles.swift */,
 				8BBCB718248517C700F76D98 /* Supporting Files */,
 			);
-			path = "BasemEmara Today";
+			path = "iOS Today";
 			sourceTree = "<group>";
 		};
-		8BBCB7082484B49500F76D98 /* BasemEmara Notification */ = {
+		8BBCB7082484B49500F76D98 /* iOS Notification */ = {
 			isa = PBXGroup;
 			children = (
 				8BBCB7092484B49500F76D98 /* NotificationViewController.swift */,
 				8BBCB719248517D300F76D98 /* Supporting Files */,
 			);
-			path = "BasemEmara Notification";
+			path = "iOS Notification";
 			sourceTree = "<group>";
 		};
 		8BBCB718248517C700F76D98 /* Supporting Files */ = {
@@ -1007,9 +1015,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BBCB5B02484A02A00F76D98 /* BasemEmara */ = {
+		8BBCB5B02484A02A00F76D98 /* iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BBCB5C52484A02C00F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara" */;
+			buildConfigurationList = 8BBCB5C52484A02C00F76D98 /* Build configuration list for PBXNativeTarget "iOS" */;
 			buildPhases = (
 				8BBCB5AD2484A02A00F76D98 /* Sources */,
 				8BBCB5AE2484A02A00F76D98 /* Frameworks */,
@@ -1023,7 +1031,7 @@
 				8BBCB6F82484B46D00F76D98 /* PBXTargetDependency */,
 				8BBCB7102484B49500F76D98 /* PBXTargetDependency */,
 			);
-			name = BasemEmara;
+			name = iOS;
 			packageProductDependencies = (
 				8BBCB6E42484ACC000F76D98 /* SwiftyPress */,
 			);
@@ -1031,9 +1039,9 @@
 			productReference = 8BBCB5B12484A02A00F76D98 /* BasemEmara.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BBCB6EB2484B46D00F76D98 /* BasemEmara Today */ = {
+		8BBCB6EB2484B46D00F76D98 /* iOS Today */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BBCB6FA2484B46D00F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara Today" */;
+			buildConfigurationList = 8BBCB6FA2484B46D00F76D98 /* Build configuration list for PBXNativeTarget "iOS Today" */;
 			buildPhases = (
 				8BBCB6E82484B46D00F76D98 /* Sources */,
 				8BBCB6E92484B46D00F76D98 /* Frameworks */,
@@ -1045,7 +1053,7 @@
 			);
 			dependencies = (
 			);
-			name = "BasemEmara Today";
+			name = "iOS Today";
 			packageProductDependencies = (
 				8BAC080A2485266700CD8E0A /* SwiftyPress */,
 			);
@@ -1053,9 +1061,9 @@
 			productReference = 8BBCB6EC2484B46D00F76D98 /* BasemEmaraToday.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		8BBCB7022484B49500F76D98 /* BasemEmara Notification */ = {
+		8BBCB7022484B49500F76D98 /* iOS Notification */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BBCB7122484B49500F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara Notification" */;
+			buildConfigurationList = 8BBCB7122484B49500F76D98 /* Build configuration list for PBXNativeTarget "iOS Notification" */;
 			buildPhases = (
 				8BBCB6FF2484B49500F76D98 /* Sources */,
 				8BBCB7002484B49500F76D98 /* Frameworks */,
@@ -1067,7 +1075,7 @@
 			);
 			dependencies = (
 			);
-			name = "BasemEmara Notification";
+			name = "iOS Notification";
 			packageProductDependencies = (
 				8BAC080D2485266C00CD8E0A /* SwiftyPress */,
 			);
@@ -1115,9 +1123,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BBCB5B02484A02A00F76D98 /* BasemEmara */,
-				8BBCB6EB2484B46D00F76D98 /* BasemEmara Today */,
-				8BBCB7022484B49500F76D98 /* BasemEmara Notification */,
+				8BBCB5B02484A02A00F76D98 /* iOS */,
+				8BBCB6EB2484B46D00F76D98 /* iOS Today */,
+				8BBCB7022484B49500F76D98 /* iOS Notification */,
 			);
 		};
 /* End PBXProject section */
@@ -1347,12 +1355,12 @@
 /* Begin PBXTargetDependency section */
 		8BBCB6F82484B46D00F76D98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BBCB6EB2484B46D00F76D98 /* BasemEmara Today */;
+			target = 8BBCB6EB2484B46D00F76D98 /* iOS Today */;
 			targetProxy = 8BBCB6F72484B46D00F76D98 /* PBXContainerItemProxy */;
 		};
 		8BBCB7102484B49500F76D98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BBCB7022484B49500F76D98 /* BasemEmara Notification */;
+			target = 8BBCB7022484B49500F76D98 /* iOS Notification */;
 			targetProxy = 8BBCB70F2484B49500F76D98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1540,20 +1548,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
-				CODE_SIGN_ENTITLEMENTS = BasemEmara/BasemEmara.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BasemEmara/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 14.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1564,20 +1572,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BasemEmara/BasemEmara.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BasemEmara/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 14.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1654,20 +1662,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Staging";
-				CODE_SIGN_ENTITLEMENTS = BasemEmara/BasemEmara.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BasemEmara/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 14.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BasemEmara;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1677,11 +1685,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Today/BasemEmaraToday.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Today/Info.plist";
+				INFOPLIST_FILE = "iOS Today/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1701,11 +1709,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Today/BasemEmaraToday.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Today/Info.plist";
+				INFOPLIST_FILE = "iOS Today/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1725,11 +1733,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Today/BasemEmaraToday.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Today/BasemEmaraToday.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Today/Info.plist";
+				INFOPLIST_FILE = "iOS Today/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1747,11 +1755,11 @@
 		8BBCB7132484B49500F76D98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Notification/BasemEmaraNotification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Notification/Info.plist";
+				INFOPLIST_FILE = "iOS Notification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1769,11 +1777,11 @@
 		8BBCB7142484B49500F76D98 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Notification/BasemEmaraNotification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Notification/Info.plist";
+				INFOPLIST_FILE = "iOS Notification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1791,11 +1799,11 @@
 		8BBCB7152484B49500F76D98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "BasemEmara Notification/BasemEmaraNotification.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "iOS Notification/BasemEmaraNotification.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 71;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
-				INFOPLIST_FILE = "BasemEmara Notification/Info.plist";
+				INFOPLIST_FILE = "iOS Notification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1823,7 +1831,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BBCB5C52484A02C00F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara" */ = {
+		8BBCB5C52484A02C00F76D98 /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BBCB5C62484A02C00F76D98 /* Debug */,
@@ -1833,7 +1841,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BBCB6FA2484B46D00F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara Today" */ = {
+		8BBCB6FA2484B46D00F76D98 /* Build configuration list for PBXNativeTarget "iOS Today" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BBCB6FB2484B46D00F76D98 /* Debug */,
@@ -1843,7 +1851,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BBCB7122484B49500F76D98 /* Build configuration list for PBXNativeTarget "BasemEmara Notification" */ = {
+		8BBCB7122484B49500F76D98 /* Build configuration list for PBXNativeTarget "iOS Notification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BBCB7132484B49500F76D98 /* Debug */,
