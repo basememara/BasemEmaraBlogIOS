@@ -81,7 +81,7 @@
 		8BBCB6A32484AB0B00F76D98 /* ShowMoreRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB62B2484AB0B00F76D98 /* ShowMoreRender.swift */; };
 		8BBCB6A42484AB0B00F76D98 /* ShowMoreState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB62C2484AB0B00F76D98 /* ShowMoreState.swift */; };
 		8BBCB6A62484AB0B00F76D98 /* ShowBlogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6302484AB0B00F76D98 /* ShowBlogState.swift */; };
-		8BBCB6A72484AB0B00F76D98 /* ShowBlogViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6322484AB0B00F76D98 /* ShowBlogViewComponents.swift */; };
+		8BBCB6A72484AB0B00F76D98 /* ShowBlogViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6322484AB0B00F76D98 /* ShowBlogViewBuilder.swift */; };
 		8BBCB6A82484AB0B00F76D98 /* ShowBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6332484AB0B00F76D98 /* ShowBlogViewController.swift */; };
 		8BBCB6A92484AB0B00F76D98 /* ShowBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6342484AB0B00F76D98 /* ShowBlogInteractor.swift */; };
 		8BBCB6AA2484AB0B00F76D98 /* ShowBlogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6352484AB0B00F76D98 /* ShowBlogAPI.swift */; };
@@ -301,7 +301,7 @@
 		8BBCB62C2484AB0B00F76D98 /* ShowMoreState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMoreState.swift; sourceTree = "<group>"; };
 		8BBCB62E2484AB0B00F76D98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8BBCB6302484AB0B00F76D98 /* ShowBlogState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogState.swift; sourceTree = "<group>"; };
-		8BBCB6322484AB0B00F76D98 /* ShowBlogViewComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogViewComponents.swift; sourceTree = "<group>"; };
+		8BBCB6322484AB0B00F76D98 /* ShowBlogViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogViewBuilder.swift; sourceTree = "<group>"; };
 		8BBCB6332484AB0B00F76D98 /* ShowBlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogViewController.swift; sourceTree = "<group>"; };
 		8BBCB6342484AB0B00F76D98 /* ShowBlogInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogInteractor.swift; sourceTree = "<group>"; };
 		8BBCB6352484AB0B00F76D98 /* ShowBlogAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBlogAPI.swift; sourceTree = "<group>"; };
@@ -764,7 +764,7 @@
 		8BBCB6312484AB0B00F76D98 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6322484AB0B00F76D98 /* ShowBlogViewComponents.swift */,
+				8BBCB6322484AB0B00F76D98 /* ShowBlogViewBuilder.swift */,
 				8BBCB6332484AB0B00F76D98 /* ShowBlogViewController.swift */,
 			);
 			path = UIKit;
@@ -1276,7 +1276,7 @@
 				8BBCB6AE2484AB0B00F76D98 /* ShowSettingsPresenter.swift in Sources */,
 				8BBCB6882484AB0B00F76D98 /* ListTermsViewController.swift in Sources */,
 				8BBCB68A2484AB0B00F76D98 /* ListTermsAPI.swift in Sources */,
-				8BBCB6A72484AB0B00F76D98 /* ShowBlogViewComponents.swift in Sources */,
+				8BBCB6A72484AB0B00F76D98 /* ShowBlogViewBuilder.swift in Sources */,
 				8BBCB6792484AB0B00F76D98 /* WindowPlugin.swift in Sources */,
 				8BBCB6852484AB0B00F76D98 /* HomeAPI.swift in Sources */,
 				8BBCB6BC2484AB0B00F76D98 /* MainRender.swift in Sources */,
