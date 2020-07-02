@@ -11,9 +11,9 @@ import ZamzamUI
 import UIKit
 
 struct NotificationRender {
-    private let render: ViewRender
+    private let render: RenderDelegate
     
-    init(render: ViewRender) {
+    init(render: RenderDelegate) {
         self.render = render
     }
 }

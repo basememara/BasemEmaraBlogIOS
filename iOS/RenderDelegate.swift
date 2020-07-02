@@ -1,5 +1,5 @@
 //
-//  ViewRender.swift
+//  RenderDelegate.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2019-05-18.
@@ -13,7 +13,7 @@ import ZamzamUI
 import SwiftUI
 #endif
 
-struct ViewRender {
+struct RenderDelegate {
     private let core: SwiftyPressCore
     private let store: AppStore
     
@@ -25,7 +25,7 @@ struct ViewRender {
 
 // MARK: - Scenes
 
-extension ViewRender {
+extension RenderDelegate {
     
     func launchMain() -> UIViewController {
         let state = MainState()
@@ -73,7 +73,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func home() -> UIViewController {
         let state = HomeState()
@@ -100,7 +100,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func showBlog() -> UIViewController {
         let state = ShowBlogState(
@@ -140,7 +140,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func listPosts(params: ListPostsAPI.Params, delegate: ListPostsDelegate? = nil) -> UIViewController {
         let state = ListPostsState(postsState: store.postsState)
@@ -218,7 +218,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func listFavorites() -> UIViewController {
         let state = ListFavoritesState(postsState: store.postsState)
@@ -278,7 +278,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func listTerms() -> UIViewController {
         let state = ListTermsState()
@@ -306,7 +306,7 @@ extension ViewRender {
     }
 }
 
-extension ViewRender {
+extension RenderDelegate {
     
     func showMore() -> UIViewController {
         let state = ShowMoreState()

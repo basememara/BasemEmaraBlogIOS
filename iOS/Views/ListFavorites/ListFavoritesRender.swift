@@ -10,10 +10,10 @@ import SwiftyPress
 import UIKit.UIViewController
 
 struct ListFavoritesRender: ListFavoritesRenderable {
-    private let render: ViewRender
+    private let render: RenderDelegate
     private weak var presentationContext: UIViewController?
     
-    init(render: ViewRender, presentationContext: UIViewController?) {
+    init(render: RenderDelegate, presentationContext: UIViewController?) {
         self.render = render
         self.presentationContext = presentationContext
     }

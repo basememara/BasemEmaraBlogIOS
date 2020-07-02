@@ -12,14 +12,14 @@ import UIKit.UIViewController
 import ZamzamUI
 
 struct ShowMoreRender: ShowMoreRenderable {
-    private let render: ViewRender
+    private let render: RenderDelegate
     private let constants: Constants
     private let mailComposer: MailComposer
     private let theme: Theme
     private weak var presentationContext: (UIViewController & Refreshable)?
     
     init(
-        render: ViewRender,
+        render: RenderDelegate,
         constants: Constants,
         mailComposer: MailComposer,
         theme: Theme,

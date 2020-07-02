@@ -79,7 +79,7 @@ private enum AppRoot {
     ///     )
     ///
     /// Create views only through scene renders.
-    static let render = ViewRender(
+    static let render = RenderDelegate(
         core: core,
         store: store
     )
@@ -87,11 +87,11 @@ private enum AppRoot {
 
 private extension UIApplicationDelegate {
     var core: AppCore { AppRoot.core }
-    var render: ViewRender { AppRoot.render }
+    var render: RenderDelegate { AppRoot.render }
 }
 
 @available(iOS 13, *)
 extension UISceneDelegate {
     var core: AppCore { AppRoot.core }
-    var render: ViewRender { AppRoot.render }
+    var render: RenderDelegate { AppRoot.render }
 }

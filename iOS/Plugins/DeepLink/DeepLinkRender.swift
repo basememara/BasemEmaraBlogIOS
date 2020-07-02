@@ -12,13 +12,13 @@ import UIKit
 import ZamzamUI
 
 struct DeepLinkRender {
-    private let render: ViewRender
+    private let render: RenderDelegate
     private let postRepository: PostRepository
     private let taxonomyRepository: TaxonomyRepository
     private let theme: Theme
     
     init(
-        render: ViewRender,
+        render: RenderDelegate,
         postRepository: PostRepository,
         taxonomyRepository: TaxonomyRepository,
         theme: Theme
