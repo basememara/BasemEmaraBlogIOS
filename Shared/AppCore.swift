@@ -13,8 +13,9 @@ import SwiftyPress
 import ZamzamCore
 
 struct AppCore: SwiftyPressCore {
+    private var isDebug: Bool { environment != .production }
     
-    private let environment: Environment = {
+    var environment: Environment {
         #if DEBUG
         return .development
         #elseif STAGING
@@ -22,14 +23,14 @@ struct AppCore: SwiftyPressCore {
         #else
         return .production
         #endif
-    }()
+    }
 }
 
 extension AppCore {
     
     func constantsService() -> ConstantsService {
         ConstantsMemoryService(
-            environment: environment,
+            isDebug: isDebug,
             itunesName: "basememara",
             itunesID: "1021806851",
             baseURL: {
@@ -56,7 +57,7 @@ extension AppCore {
             defaultFetchModifiedLimit: 25,
             taxonomies: ["category", "post_tag", "series"],
             postMetaKeys: ["_series_part"],
-            minLogLevel: environment == .production ? .warning : .verbose
+            minLogLevel: isDebug ? .verbose : .warning
         )
     }
 }
@@ -90,8 +91,7 @@ extension AppCore {
         
         return [
             LogConsoleService(
-                minLevel: constants.environment == .production ? .none
-                    : constants.minLogLevel
+                minLevel: isDebug ? constants.minLogLevel : .none
             ),
             LogOSService(
                 minLevel: constants.minLogLevel,

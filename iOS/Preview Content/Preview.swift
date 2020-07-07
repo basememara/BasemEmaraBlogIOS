@@ -347,7 +347,7 @@ extension Preview {
         
         func constantsService() -> ConstantsService {
             ConstantsMemoryService(
-                environment: .development,
+                isDebug: true,
                 itunesName: "",
                 itunesID: "",
                 baseURL: URL(safeString: "https://example.com"),
