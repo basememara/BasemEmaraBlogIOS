@@ -220,7 +220,7 @@ extension SearchPostsViewController {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct SearchPostsController_Preview: PreviewProvider {
+struct SearchPostsControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

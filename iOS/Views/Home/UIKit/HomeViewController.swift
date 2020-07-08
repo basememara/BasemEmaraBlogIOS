@@ -173,7 +173,7 @@ extension HomeViewController: HomeHeaderViewDelegate {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct HomeViewController_Preview: PreviewProvider {
+struct HomeViewControllerPreview: PreviewProvider {
 
     static var previews: some View {
         HomeViewController(

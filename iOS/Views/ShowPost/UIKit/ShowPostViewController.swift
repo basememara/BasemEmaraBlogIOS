@@ -369,7 +369,7 @@ extension ShowPostViewController: UIScrollViewDelegate {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ShowPostController_Preview: PreviewProvider {
+struct ShowPostControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

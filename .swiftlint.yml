@@ -4,9 +4,6 @@ analyzer_rules:
 excluded:
 - Archive
 - Assets
-- Carthage
-- Submodules
-- Basem Emara iOSTests
 
 opt_in_rules:
 - array_init
@@ -43,16 +40,18 @@ opt_in_rules:
 - yoda_condition
 
 disabled_rules:
-- function_body_length
-- function_default_parameter_at_end
-- identifier_name
-- line_length
-- todo
-- large_tuple
-- lower_acl_than_parent
-- trailing_whitespace
-- vertical_parameter_alignment_on_call
 - multiline_function_chains
-- sorted_imports
-- type_name
+- todo
 
+trailing_whitespace:
+    ignores_empty_lines: true
+  
+identifier_name:
+    excluded:
+        - id
+
+function_body_length:
+    warning: 50
+    
+line_length:
+    warning: 200

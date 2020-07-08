@@ -1037,6 +1037,7 @@
 				8BBCB5AF2484A02A00F76D98 /* Resources */,
 				8BBCB6E72484ACC000F76D98 /* Embed Frameworks */,
 				8BBCB6FE2484B46D00F76D98 /* Embed App Extensions */,
+				8BDCB58324B5E4D0002E236B /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1231,6 +1232,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n";
+		};
+		8BDCB58324B5E4D0002E236B /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

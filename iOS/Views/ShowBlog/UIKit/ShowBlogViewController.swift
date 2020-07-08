@@ -325,7 +325,7 @@ extension ShowBlogViewController: MainSelectable {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ShowBlogController_Preview: PreviewProvider {
+struct ShowBlogControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

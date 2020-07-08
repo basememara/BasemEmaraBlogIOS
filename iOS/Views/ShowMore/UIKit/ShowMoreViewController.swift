@@ -221,7 +221,7 @@ private extension ShowMoreViewController {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ShowMoreViewController_Preview: PreviewProvider {
+struct ShowMoreViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

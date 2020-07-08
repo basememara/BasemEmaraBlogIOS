@@ -209,7 +209,7 @@ private extension ShowSettingsViewController {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ShowSettingsViewController_Preview: PreviewProvider {
+struct ShowSettingsViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

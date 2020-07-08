@@ -152,7 +152,7 @@ extension ListFavoritesViewController {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ListFavoritesController_Preview: PreviewProvider {
+struct ListFavoritesControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

@@ -208,7 +208,7 @@ private extension ListPostsViewController {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ListPostsController_Preview: PreviewProvider {
+struct ListPostsControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

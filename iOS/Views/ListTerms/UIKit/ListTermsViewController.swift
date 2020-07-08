@@ -114,7 +114,7 @@ extension ListTermsViewController: TermsDataViewDelegate {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ListTermsController_Preview: PreviewProvider {
+struct ListTermsControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(

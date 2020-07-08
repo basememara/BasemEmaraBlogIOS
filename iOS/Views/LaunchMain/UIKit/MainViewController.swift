@@ -92,13 +92,13 @@ extension MainViewController: UITabBarControllerDelegate {
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct MainViewController_Preview: PreviewProvider {
+struct MainViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         MainViewController(
             state: Preview.mainState,
             interactor: nil,
-            render: MainViewController_Preview.MockRender()
+            render: Self.MockRender()
         ).previews
     }
     
