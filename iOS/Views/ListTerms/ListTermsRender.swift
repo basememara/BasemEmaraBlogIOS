@@ -9,10 +9,10 @@
 import UIKit.UIViewController
 
 struct ListTermsRender: ListTermsRenderable {
-    private let render: RenderDelegate
+    private let render: AppRender
     private weak var presentationContext: UIViewController?
     
-    init(render: RenderDelegate, presentationContext: UIViewController?) {
+    init(render: AppRender, presentationContext: UIViewController?) {
         self.render = render
         self.presentationContext = presentationContext
     }

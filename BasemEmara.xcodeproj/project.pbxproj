@@ -113,7 +113,7 @@
 		8BBCB6CA2484AB0B00F76D98 /* ListFavoritesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6632484AB0B00F76D98 /* ListFavoritesAPI.swift */; };
 		8BBCB6CB2484AB0B00F76D98 /* ListFavoritesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6642484AB0B00F76D98 /* ListFavoritesState.swift */; };
 		8BBCB6CD2484AB0B00F76D98 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB6672484AB0B00F76D98 /* Media.xcassets */; };
-		8BBCB6CE2484AB0B00F76D98 /* RenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6682484AB0B00F76D98 /* RenderDelegate.swift */; };
+		8BBCB6CE2484AB0B00F76D98 /* AppRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6682484AB0B00F76D98 /* AppRender.swift */; };
 		8BBCB6DA2484AB2200F76D98 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB6D02484AB2200F76D98 /* Media.xcassets */; };
 		8BBCB6DB2484AB2200F76D98 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB6D12484AB2200F76D98 /* Theme.xcassets */; };
 		8BBCB6DC2484AB2200F76D98 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB6D22484AB2200F76D98 /* AppCore.swift */; };
@@ -342,7 +342,7 @@
 		8BBCB6642484AB0B00F76D98 /* ListFavoritesState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFavoritesState.swift; sourceTree = "<group>"; };
 		8BBCB6662484AB0B00F76D98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8BBCB6672484AB0B00F76D98 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		8BBCB6682484AB0B00F76D98 /* RenderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderDelegate.swift; sourceTree = "<group>"; };
+		8BBCB6682484AB0B00F76D98 /* AppRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRender.swift; sourceTree = "<group>"; };
 		8BBCB6D02484AB2200F76D98 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8BBCB6D12484AB2200F76D98 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		8BBCB6D22484AB2200F76D98 /* AppCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
@@ -471,8 +471,8 @@
 				8BBCB5DB2484AB0B00F76D98 /* Utilities */,
 				8BBCB5F62484AB0B00F76D98 /* Views */,
 				8BBCB5B42484A02A00F76D98 /* AppDelegate.swift */,
+				8BBCB6682484AB0B00F76D98 /* AppRender.swift */,
 				8BBCB5B62484A02A00F76D98 /* SceneDelegate.swift */,
-				8BBCB6682484AB0B00F76D98 /* RenderDelegate.swift */,
 				8BBCB5BA2484A02C00F76D98 /* Assets.xcassets */,
 				8BBCB6672484AB0B00F76D98 /* Media.xcassets */,
 				8BBCB5BC2484A02C00F76D98 /* Preview Content */,
@@ -1037,7 +1037,7 @@
 				8BBCB5AF2484A02A00F76D98 /* Resources */,
 				8BBCB6E72484ACC000F76D98 /* Embed Frameworks */,
 				8BBCB6FE2484B46D00F76D98 /* Embed App Extensions */,
-				8BDCB58324B5E4D0002E236B /* Run SwiftLint */,
+				8BDCB58324B5E4D0002E236B /* Run SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -1233,7 +1233,7 @@
 			shellPath = /bin/sh;
 			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then \n    rm -fr Frameworks\nfi\n";
 		};
-		8BDCB58324B5E4D0002E236B /* Run SwiftLint */ = {
+		8BDCB58324B5E4D0002E236B /* Run SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1242,7 +1242,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Run SwiftLint";
+			name = "Run SwiftLint Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1287,7 +1287,7 @@
 				8BBCB6B22484AB0B00F76D98 /* ShowSettingsAPI.swift in Sources */,
 				8BBCB6952484AB0B00F76D98 /* ShowPostAPI.swift in Sources */,
 				8BBCB6732484AB0B00F76D98 /* ShortcutRender.swift in Sources */,
-				8BBCB6CE2484AB0B00F76D98 /* RenderDelegate.swift in Sources */,
+				8BBCB6CE2484AB0B00F76D98 /* AppRender.swift in Sources */,
 				8BBCB6A02484AB0B00F76D98 /* ShowMorePresenter.swift in Sources */,
 				8BBCB6722484AB0B00F76D98 /* ShortcutPlugin.swift in Sources */,
 				8BBCB6B02484AB0B00F76D98 /* ShowSettingsRender.swift in Sources */,

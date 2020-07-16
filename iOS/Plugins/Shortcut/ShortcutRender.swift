@@ -10,10 +10,10 @@ import ZamzamCore
 import UIKit.UIApplication
 
 struct ShortcutRender {
-    private let render: RenderDelegate
+    private let render: AppRender
     private let constants: Constants
     
-    init(render: RenderDelegate, constants: Constants) {
+    init(render: AppRender, constants: Constants) {
         self.render = render
         self.constants = constants
     }

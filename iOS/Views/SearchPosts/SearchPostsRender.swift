@@ -10,10 +10,10 @@ import SwiftyPress
 import UIKit.UIViewController
 
 struct SearchPostsRender: SearchPostsRenderable {
-    private let render: RenderDelegate
+    private let render: AppRender
     weak var presentationContext: UIViewController?
     
-    init(render: RenderDelegate, presentationContext: UIViewController?) {
+    init(render: AppRender, presentationContext: UIViewController?) {
         self.render = render
         self.presentationContext = presentationContext
     }
