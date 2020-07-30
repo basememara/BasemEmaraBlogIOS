@@ -12,10 +12,16 @@ import Foundation.NSURL
 import SwiftyPress
 import ZamzamCore
 
-struct AppCore: SwiftyPressCore {
-    private var isDebug: Bool { environment != .production }
+struct AppCore: SwiftyPressCore, AppContext {
     
-    var environment: Environment {
+    private var isDebug: Bool {
+        environment != .production
+            || isInTestFlight
+            || isRunningOnSimulator
+            || isDebuggerAttached
+    }
+    
+    private var environment: Environment {
         #if DEBUG
         return .development
         #elseif STAGING
@@ -91,7 +97,7 @@ extension AppCore {
         
         return [
             LogConsoleService(
-                minLevel: isDebug ? constants.minLogLevel : .none
+                minLevel: constants.minLogLevel
             ),
             LogOSService(
                 minLevel: constants.minLogLevel,
