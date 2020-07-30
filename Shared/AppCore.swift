@@ -35,7 +35,7 @@ struct AppCore: SwiftyPressCore, AppContext {
 extension AppCore {
     
     func constantsService() -> ConstantsService {
-        ConstantsMemoryService(
+        ConstantsStaticService(
             isDebug: isDebug,
             itunesName: "basememara",
             itunesID: "1021806851",
