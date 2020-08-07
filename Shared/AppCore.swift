@@ -14,13 +14,6 @@ import ZamzamCore
 
 struct AppCore: SwiftyPressCore, AppContext {
     
-    private var isDebug: Bool {
-        environment != .production
-            || isInTestFlight
-            || isRunningOnSimulator
-            || isDebuggerAttached
-    }
-    
     private var environment: Environment {
         #if DEBUG
         return .development
@@ -36,11 +29,18 @@ extension AppCore {
     
     func constantsService() -> ConstantsService {
         ConstantsStaticService(
-            isDebug: isDebug,
+            isDebug: {
+                #if DEBUG
+                return true
+                #else
+                return false
+                #endif
+            }(),
             itunesName: "basememara",
             itunesID: "1021806851",
             baseURL: {
                 let string: String
+                
                 switch environment {
                 case .development:
                     string = "https://basememara.com"
@@ -63,7 +63,7 @@ extension AppCore {
             defaultFetchModifiedLimit: 25,
             taxonomies: ["category", "post_tag", "series"],
             postMetaKeys: ["_series_part"],
-            minLogLevel: isDebug ? .verbose : .warning
+            minLogLevel: isRunningInAppStore ? .info : .verbose
         )
     }
 }
@@ -97,7 +97,7 @@ extension AppCore {
         
         return [
             LogConsoleService(
-                minLevel: constants.minLogLevel
+                minLevel: constants.isDebug || isRunningOnSimulator ? .verbose : .none
             ),
             LogOSService(
                 minLevel: constants.minLogLevel,
