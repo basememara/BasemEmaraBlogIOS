@@ -478,8 +478,6 @@
 		8BBCB5A82484A02A00F76D98 = {
 			isa = PBXGroup;
 			children = (
-				8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */,
-				8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */,
 				8B0E0F5424A95749003A3C1A /* Meta */,
 				8BBCB6CF2484AB2200F76D98 /* Shared */,
 				8BBCB5B32484A02A00F76D98 /* iOS */,
@@ -488,6 +486,8 @@
 				8B10F0F324D87D9800C1C1BF /* iOS Tests */,
 				8BBCB6ED2484B46D00F76D98 /* Frameworks */,
 				8BBCB5B22484A02A00F76D98 /* Products */,
+				8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */,
+				8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
