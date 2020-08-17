@@ -51,19 +51,17 @@ extension ShowMoreState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ShowMoreAction: Action {
+enum ShowMoreReducer: Reducer {
     case loadMenu([ShowMoreAPI.MenuSection])
     case loadSocial([ShowMoreAPI.SocialItem])
 }
 
-// MARK: - Reducer
-
 extension ShowMoreState {
     
-    func callAsFunction(_ action: ShowMoreAction) {
-        switch action {
+    func callAsFunction(_ reducer: ShowMoreReducer) {
+        switch reducer {
         case .loadMenu(let sections):
             moreMenu = sections
         case .loadSocial(let social):

@@ -49,19 +49,17 @@ extension SearchPostsState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum SearchPostsAction: Action {
+enum SearchPostsReducer: Reducer {
     case loadPosts([PostsDataViewModel])
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension SearchPostsState {
     
-    func callAsFunction(_ action: SearchPostsAction) {
-        switch action {
+    func callAsFunction(_ reducer: SearchPostsReducer) {
+        switch reducer {
         case .loadPosts(let items):
             posts = items
         case .loadError(let item):

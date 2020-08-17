@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol ListTermsInteractable: Interactor {
+protocol ListTermsActionable: Action {
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest)
 }
 

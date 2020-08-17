@@ -16,7 +16,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private let core = AppCore()
     private let state = TodayState()
     
-    private lazy var interactor: TodayInteractable? = TodayInteractor(
+    private lazy var action: TodayActionable? = TodayAction(
         presenter: TodayPresenter { [weak self] in self?.state($0) },
         postRepository: core.postRepository(),
         mediaRepository: core.mediaRepository()
@@ -140,7 +140,7 @@ private extension TodayViewController {
     }
     
     func fetch() {
-        interactor?.fetchLatestPosts(
+        action?.fetchLatestPosts(
             with: TodayAPI.Request(maxLength: 1)
         )
     }

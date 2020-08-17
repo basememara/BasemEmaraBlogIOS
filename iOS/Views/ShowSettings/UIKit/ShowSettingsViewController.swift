@@ -12,7 +12,7 @@ import ZamzamUI
 
 final class ShowSettingsViewController: UIViewController {
     private let state: ShowSettingsState
-    private let interactor: ShowSettingsInteractable?
+    private let action: ShowSettingsActionable?
     private let render: ShowSettingsRenderable?
     
     // MARK: - Controls
@@ -24,11 +24,11 @@ final class ShowSettingsViewController: UIViewController {
     
     init(
         state: ShowSettingsState,
-        interactor: ShowSettingsInteractable?,
+        action: ShowSettingsActionable?,
         render: ShowSettingsRenderable?
     ) {
         self.state = state
-        self.interactor = interactor
+        self.action = action
         self.render = render
         
         super.init(nibName: nil, bundle: nil)
@@ -69,8 +69,8 @@ private extension ShowSettingsViewController {
     }
     
     func fetch() {
-        interactor?.fetchMenu()
-        interactor?.fetchTheme()
+        action?.fetchMenu()
+        action?.fetchTheme()
     }
     
     func load(_ result: StateChange<ShowSettingsState>) {
@@ -105,7 +105,7 @@ private extension ShowSettingsViewController {
             autoThemeEnabled: autoThemeSwitch.isOn
         )
         
-        interactor?.setTheme(with: request)
+        action?.setTheme(with: request)
     }
 }
 
@@ -215,7 +215,7 @@ struct ShowSettingsViewControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ShowSettingsViewController(
                 state: Preview.showSettings,
-                interactor: nil,
+                action: nil,
                 render: nil
             )
         )

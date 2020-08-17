@@ -9,9 +9,9 @@
 import ZamzamUI
 
 struct MainPresenter: MainPresentable {
-    private let state: Reducer<MainAction>
+    private let state: Reduce<MainReducer>
     
-    init(state: @escaping Reducer<MainAction>) {
+    init(state: @escaping Reduce<MainReducer>) {
         self.state = state
     }
 }

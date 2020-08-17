@@ -10,7 +10,7 @@ import UIKit.UIDevice
 import UIKit.UIViewController
 import ZamzamUI
 
-protocol MainInteractable: Interactor {
+protocol MainActionable: Action {
     func fetchMenu(for idiom: UIUserInterfaceIdiom)
 }
 

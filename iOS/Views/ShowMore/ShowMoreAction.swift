@@ -1,5 +1,5 @@
 //
-//  HomeInteractor.swift
+//  ShowMoreAction.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
@@ -8,7 +8,7 @@
 
 import UIKit.UIImage
 
-struct ShowMoreInteractor: ShowMoreInteractable {
+struct ShowMoreAction: ShowMoreActionable {
     private let presenter: ShowMorePresentable
     
     init(presenter: ShowMorePresentable) {
@@ -16,7 +16,7 @@ struct ShowMoreInteractor: ShowMoreInteractable {
     }
 }
 
-extension ShowMoreInteractor {
+extension ShowMoreAction {
     
     func fetchMenu() {
         let sections = [
@@ -81,7 +81,7 @@ extension ShowMoreInteractor {
     }
 }
 
-extension ShowMoreInteractor {
+extension ShowMoreAction {
     
     func fetchSocial() {
         let items = [

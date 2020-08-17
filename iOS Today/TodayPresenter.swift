@@ -11,10 +11,10 @@ import SwiftyPress
 import ZamzamUI
 
 struct TodayPresenter: TodayPresentable {
-    private let state: Reducer<TodayAction>
+    private let state: Reduce<TodayReducer>
     private let dateFormatter: DateFormatter
     
-    init(state: @escaping Reducer<TodayAction>) {
+    init(state: @escaping Reduce<TodayReducer>) {
         self.state = state
         self.dateFormatter = DateFormatter(dateFormat: "MMMM d yyyy")
     }

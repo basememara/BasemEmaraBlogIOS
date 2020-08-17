@@ -94,9 +94,9 @@ private extension ShowPostState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ShowPostAction: Action {
+enum ShowPostReducer: Reducer {
     case loadWeb(ShowPostAPI.WebViewModel)
     case loadPost(ShowPostAPI.PostViewModel)
     case loadFavorite(Bool)
@@ -104,12 +104,10 @@ enum ShowPostAction: Action {
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension ShowPostState {
     
-    func callAsFunction(_ action: ShowPostAction) {
-        switch action {
+    func callAsFunction(_ reducer: ShowPostReducer) {
+        switch reducer {
         case .loadWeb(let item):
             web = item
         case .loadPost(let item):

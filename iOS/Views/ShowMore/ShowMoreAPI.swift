@@ -10,7 +10,7 @@ import SwiftyPress
 import UIKit.UIView
 import ZamzamUI
 
-protocol ShowMoreInteractable: Interactor {
+protocol ShowMoreActionable: Action {
     func fetchMenu()
     func fetchSocial()
 }

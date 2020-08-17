@@ -1,5 +1,5 @@
 //
-//  ShowBlogInteractor.swift
+//  ShowBlogAction.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-08-14.
@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamCore
 
-struct ShowBlogInteractor: ShowBlogInteractable {
+struct ShowBlogAction: ShowBlogActionable {
     private let presenter: ShowBlogPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -34,7 +34,7 @@ struct ShowBlogInteractor: ShowBlogInteractable {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
@@ -65,7 +65,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
@@ -96,7 +96,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)
@@ -131,7 +131,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
@@ -157,7 +157,7 @@ extension ShowBlogInteractor {
     }
 }
 
-extension ShowBlogInteractor {
+extension ShowBlogAction {
     
     func toggleFavorite(with request: ShowBlogAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

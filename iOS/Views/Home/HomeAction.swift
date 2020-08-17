@@ -1,12 +1,12 @@
 //
-//  HomeInteractor.swift
+//  HomeAction.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
 //  Copyright © 2020 Zamzam Inc. All rights reserved.
 //
 
-struct HomeInteractor: HomeInteractable {
+struct HomeAction: HomeActionable {
     private let presenter: HomePresentable
     
     init(presenter: HomePresentable) {
@@ -14,7 +14,7 @@ struct HomeInteractor: HomeInteractable {
     }
 }
 
-extension HomeInteractor {
+extension HomeAction {
     
     func fetchProfile() {
         presenter.display(
@@ -27,7 +27,7 @@ extension HomeInteractor {
     }
 }
 
-extension HomeInteractor {
+extension HomeAction {
     
     func fetchMenu() {
         let sections = [
@@ -97,7 +97,7 @@ extension HomeInteractor {
     }
 }
 
-extension HomeInteractor {
+extension HomeAction {
     
     func fetchSocial() {
         let items = [

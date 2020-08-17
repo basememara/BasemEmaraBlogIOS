@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class ShowBlogViewController: UIViewController {
     private let state: ShowBlogState
-    private let interactor: ShowBlogInteractable?
+    private let action: ShowBlogActionable?
     private let constants: Constants
     private let theme: Theme
     
@@ -52,13 +52,13 @@ final class ShowBlogViewController: UIViewController {
     
     init(
         state: ShowBlogState,
-        interactor: ShowBlogInteractable?,
+        action: ShowBlogActionable?,
         render: ((UIViewController) -> ShowBlogRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
         self.state = state
-        self.interactor = interactor
+        self.action = action
         self.constants = constants
         self.theme = theme
         
@@ -127,19 +127,19 @@ private extension ShowBlogViewController {
     }
     
     func fetch() {
-        interactor?.fetchLatestPosts(
+        action?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor?.fetchPopularPosts(
+        action?.fetchPopularPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor?.fetchTopPickPosts(
+        action?.fetchTopPickPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
         
-        interactor?.fetchTerms(
+        action?.fetchTerms(
             with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
     }
@@ -218,7 +218,7 @@ extension ShowBlogViewController: PostsDataViewDelegate {
     }
     
     func postsDataView(toggleFavorite model: PostsDataViewModel) {
-        interactor?.toggleFavorite(
+        action?.toggleFavorite(
             with: ShowBlogAPI.FavoriteRequest(
                 postID: model.id
             )
@@ -294,7 +294,7 @@ extension ShowBlogViewController {
                         title: .localized(model.favorite == true ? .unfavoriteTitle : .favoriteTitle),
                         image: UIImage(systemName: model.favorite == true ? "star.fill" : "star"),
                         handler: { [weak self] _ in
-                            self?.interactor?.toggleFavorite(
+                            self?.action?.toggleFavorite(
                                 with: ShowBlogAPI.FavoriteRequest(
                                     postID: model.id
                                 )
@@ -331,7 +331,7 @@ struct ShowBlogControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ShowBlogViewController(
                 state: Preview.showBlogState,
-                interactor: nil,
+                action: nil,
                 render: nil,
                 constants: Preview.core.constants(),
                 theme: Preview.core.theme()

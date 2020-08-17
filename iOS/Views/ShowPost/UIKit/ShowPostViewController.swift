@@ -15,7 +15,7 @@ import ZamzamUI
 
 final class ShowPostViewController: UIViewController, StatusBarable {
     private let state: ShowPostState
-    private let interactor: ShowPostInteractable?
+    private let action: ShowPostActionable?
     private var render: ShowPostRenderable?
     private let constants: Constants
     private let theme: Theme
@@ -70,7 +70,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     
     init(
         state: ShowPostState,
-        interactor: ShowPostInteractable?,
+        action: ShowPostActionable?,
         render: ((UIViewController) -> ShowPostRenderable)?,
         constants: Constants,
         theme: Theme,
@@ -79,7 +79,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         postID: Int
     ) {
         self.state = state
-        self.interactor = interactor
+        self.action = action
         self.constants = constants
         self.theme = theme
         self.application = application
@@ -152,7 +152,7 @@ private extension ShowPostViewController {
         guard let postID = postID else { return }
         activityIndicatorView.startAnimating()
         
-        interactor?.fetchPost(
+        action?.fetchPost(
             with: ShowPostAPI.Request(postID: postID)
         )
     }
@@ -235,7 +235,7 @@ private extension ShowPostViewController {
     @objc func favoriteTapped() {
         guard let postID = postID else { return }
         
-        interactor?.toggleFavorite(
+        action?.toggleFavorite(
             with: ShowPostAPI.FavoriteRequest(
                 postID: postID
             )
@@ -305,7 +305,7 @@ private extension ShowPostViewController {
         activityIndicatorView.startAnimating()
         postID = lastPostID
         
-        interactor?.fetchPost(
+        action?.fetchPost(
             with: ShowPostAPI.Request(postID: lastPostID)
         )
     }
@@ -340,7 +340,7 @@ extension ShowPostViewController: WKNavigationDelegate {
             return decisionHandler(.cancel)
         }
         
-        interactor?.fetchByURL(
+        action?.fetchByURL(
             with: ShowPostAPI.FetchWebRequest(
                 url: requestURL.absoluteString,
                 decisionHandler: decisionHandler
@@ -375,7 +375,7 @@ struct ShowPostControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ShowPostViewController(
                 state: Preview.showPostState,
-                interactor: nil,
+                action: nil,
                 render: nil,
                 constants: Preview.core.constants(),
                 theme: Preview.core.theme(),

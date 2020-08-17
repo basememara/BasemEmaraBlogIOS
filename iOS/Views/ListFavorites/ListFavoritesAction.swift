@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListFavoritesInteractor: ListFavoritesInteractable {
+struct ListFavoritesAction: ListFavoritesActionable {
     private let presenter: ListFavoritesPresentable
     private let favoriteRepository: FavoriteRepository
     private let mediaRepository: MediaRepository
@@ -24,7 +24,7 @@ struct ListFavoritesInteractor: ListFavoritesInteractable {
     }
 }
 
-extension ListFavoritesInteractor {
+extension ListFavoritesAction {
     
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
         favoriteRepository.fetch {
@@ -52,7 +52,7 @@ extension ListFavoritesInteractor {
     }
 }
 
-extension ListFavoritesInteractor {
+extension ListFavoritesAction {
     
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

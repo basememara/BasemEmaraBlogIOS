@@ -68,20 +68,18 @@ private extension ListFavoritesState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ListFavoritesAction: Action {
+enum ListFavoritesReducer: Reducer {
     case loadFavorites([PostsDataViewModel])
     case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension ListFavoritesState {
     
-    func callAsFunction(_ action: ListFavoritesAction) {
-        switch action {
+    func callAsFunction(_ reducer: ListFavoritesReducer) {
+        switch reducer {
         case .loadFavorites(let items):
             postsState(.mergePosts(items))
         case .toggleFavorite(let item):

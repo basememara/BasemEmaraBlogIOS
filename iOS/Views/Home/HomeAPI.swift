@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol HomeInteractable: Interactor {
+protocol HomeActionable: Action {
     func fetchProfile()
     func fetchMenu()
     func fetchSocial()

@@ -25,18 +25,16 @@ class TermsState: StateRepresentable {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum TermsAction: Action {
+enum TermsReducer: Reducer {
     case mergeTerms([TermsDataViewModel])
 }
 
-// MARK: - Reducer
-
 extension TermsState {
     
-    func callAsFunction(_ action: TermsAction) {
-        switch action {
+    func callAsFunction(_ reducer: TermsReducer) {
+        switch reducer {
         case .mergeTerms(let items):
             allTerms.merge(items.map { ($0.id, $0) }) { $1 }
         }

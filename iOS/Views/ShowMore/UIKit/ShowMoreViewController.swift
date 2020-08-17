@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class ShowMoreViewController: UIViewController {
     private let state: ShowMoreState
-    private let interactor: ShowMoreInteractable?
+    private let action: ShowMoreActionable?
     private(set) var render: ShowMoreRenderable?
     
     // MARK: - Controls
@@ -26,11 +26,11 @@ final class ShowMoreViewController: UIViewController {
     
     init(
         state: ShowMoreState,
-        interactor: ShowMoreInteractable?,
+        action: ShowMoreActionable?,
         render: ((UIViewController & Refreshable) -> ShowMoreRenderable)?
     ) {
         self.state = state
-        self.interactor = interactor
+        self.action = action
         
         super.init(nibName: nil, bundle: nil)
         self.render = render?(self)
@@ -71,8 +71,8 @@ private extension ShowMoreViewController {
     }
     
     func fetch() {
-        interactor?.fetchMenu()
-        interactor?.fetchSocial()
+        action?.fetchMenu()
+        action?.fetchSocial()
     }
     
     func load(_ result: StateChange<ShowMoreState>) {
@@ -227,7 +227,7 @@ struct ShowMoreViewControllerPreview: PreviewProvider {
         UINavigationController(
                 rootViewController: ShowMoreViewController(
                 state: Preview.showMoreState,
-                interactor: nil,
+                action: nil,
                 render: nil
             )
         )

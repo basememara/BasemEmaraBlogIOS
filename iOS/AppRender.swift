@@ -30,7 +30,7 @@ extension AppRender {
     func launchMain() -> UIViewController {
         let state = MainState()
         let presenter = MainPresenter { state($0) }
-        let interactor = MainInteractor(presenter: presenter)
+        let action = MainAction(presenter: presenter)
         let render = MainRender(render: self)
         let view: UIViewController
         
@@ -41,7 +41,7 @@ extension AppRender {
                     UINavigationController(rootViewController: home()),
                     MainSplitDetailViewController(
                         state: state,
-                        interactor: interactor,
+                        action: action,
                         render: render
                     )
                 ]
@@ -49,7 +49,7 @@ extension AppRender {
         default:
             view = MainViewController(
                 state: state,
-                interactor: interactor,
+                action: action,
                 render: render
             )
         }
@@ -61,13 +61,13 @@ extension AppRender {
     func launchMain<T: View>() -> T? {
         let state = MainState()
         let presenter = MainPresenter { state($0) }
-        let interactor = MainInteractor(presenter: presenter)
+        let action = MainAction(presenter: presenter)
         let render = MainRender(render: self)
         
         // Unused until SwiftUI is more stable
         return MainView(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render
         ) as? T
     }
@@ -78,7 +78,7 @@ extension AppRender {
     func home() -> UIViewController {
         let state = HomeState()
         let presenter = HomePresenter { state($0) }
-        let interactor = HomeInteractor(presenter: presenter)
+        let action = HomeAction(presenter: presenter)
         
         let render: (UIViewController) -> HomeRenderable = {
             HomeRender(
@@ -92,7 +92,7 @@ extension AppRender {
         
         let view = HomeViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render
         )
         
@@ -110,7 +110,7 @@ extension AppRender {
         
         let presenter = ShowBlogPresenter { state($0) }
         
-        let interactor = ShowBlogInteractor(
+        let action = ShowBlogAction(
             presenter: presenter,
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
@@ -130,7 +130,7 @@ extension AppRender {
         
         let view = ShowBlogViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render,
             constants: core.constants(),
             theme: core.theme()
@@ -146,7 +146,7 @@ extension AppRender {
         let state = ListPostsState(postsState: store.postsState)
         let presenter = ListPostsPresenter { state($0) }
         
-        let interactor = ListPostsInteractor(
+        let action = ListPostsAction(
             presenter: presenter,
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
@@ -163,7 +163,7 @@ extension AppRender {
         
         let view = ListPostsViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render,
             constants: core.constants(),
             theme: core.theme()
@@ -185,7 +185,7 @@ extension AppRender {
             styleSheetFile: Bundle.main.string(file: "style.css")
         )
         
-        let interactor = ShowPostInteractor(
+        let action = ShowPostAction(
             presenter: presenter,
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
@@ -205,7 +205,7 @@ extension AppRender {
         
         let view = ShowPostViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render,
             constants: core.constants(),
             theme: core.theme(),
@@ -224,7 +224,7 @@ extension AppRender {
         let state = ListFavoritesState(postsState: store.postsState)
         let presenter = ListFavoritesPresenter { state($0) }
         
-        let interactor = ListFavoritesInteractor(
+        let action = ListFavoritesAction(
             presenter: presenter,
             favoriteRepository: core.favoriteRepository(),
             mediaRepository: core.mediaRepository()
@@ -239,7 +239,7 @@ extension AppRender {
         
         let view = ListFavoritesViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render,
             constants: core.constants(),
             theme: core.theme()
@@ -252,7 +252,7 @@ extension AppRender {
         let state = SearchPostsState()
         let presenter = SearchPostsPresenter { state($0) }
         
-        let interactor = SearchPostsInteractor(
+        let action = SearchPostsAction(
             presenter: presenter,
             postRepository: core.postRepository(),
             mediaRepository: core.mediaRepository(),
@@ -268,7 +268,7 @@ extension AppRender {
         
         let view = SearchPostsViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render,
             constants: core.constants(),
             theme: core.theme()
@@ -284,7 +284,7 @@ extension AppRender {
         let state = ListTermsState()
         let presenter = ListTermsPresenter { state($0) }
         
-        let interactor = ListTermsInteractor(
+        let action = ListTermsAction(
             presenter: presenter,
             taxonomyRepository: core.taxonomyRepository()
         )
@@ -298,7 +298,7 @@ extension AppRender {
         
         let view = ListTermsViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render
         )
         
@@ -311,7 +311,7 @@ extension AppRender {
     func showMore() -> UIViewController {
         let state = ShowMoreState()
         let presenter = ShowMorePresenter { state($0) }
-        let interactor = ShowMoreInteractor(presenter: presenter)
+        let action = ShowMoreAction(presenter: presenter)
         
         let render: (UIViewController & Refreshable) -> ShowMoreRenderable = {
             ShowMoreRender(
@@ -325,7 +325,7 @@ extension AppRender {
         
         let view = ShowMoreViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render
         )
         
@@ -336,7 +336,7 @@ extension AppRender {
         let state = ShowSettingsState()
         let presenter = ShowSettingsPresenter { state($0) }
         
-        let interactor = ShowSettingsInteractor(
+        let action = ShowSettingsAction(
             presenter: presenter,
             preferences: core.preferences()
         )
@@ -345,7 +345,7 @@ extension AppRender {
         
         let view = ShowSettingsViewController(
             state: state,
-            interactor: interactor,
+            action: action,
             render: render
         )
         

@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListPostsInteractor: ListPostsInteractable {
+struct ListPostsAction: ListPostsActionable {
     private let presenter: ListPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -27,7 +27,7 @@ struct ListPostsInteractor: ListPostsInteractable {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -72,7 +72,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -121,7 +121,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -170,7 +170,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -219,7 +219,7 @@ extension ListPostsInteractor {
     }
 }
 
-extension ListPostsInteractor {
+extension ListPostsAction {
     
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

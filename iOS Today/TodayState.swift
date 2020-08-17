@@ -51,19 +51,17 @@ extension TodayState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum TodayAction: Action {
+enum TodayReducer: Reducer {
     case loadPosts([PostsDataViewModel])
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension TodayState {
     
-    func callAsFunction(_ action: TodayAction) {
-        switch action {
+    func callAsFunction(_ reducer: TodayReducer) {
+        switch reducer {
         case .loadPosts(let items):
             posts = items
         case .loadError(let item):

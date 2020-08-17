@@ -65,20 +65,18 @@ private extension ListPostsState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ListPostsAction: Action {
+enum ListPostsReducer: Reducer {
     case loadPosts([PostsDataViewModel])
     case toggleFavorite(ListPostsAPI.FavoriteViewModel)
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension ListPostsState {
     
-    func callAsFunction(_ action: ListPostsAction) {
-        switch action {
+    func callAsFunction(_ reducer: ListPostsReducer) {
+        switch reducer {
         case .loadPosts(let items):
             posts = items
             postsState(.mergePosts(items))

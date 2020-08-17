@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct TodayInteractor: TodayInteractable {
+struct TodayAction: TodayActionable {
     private let presenter: TodayPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -24,7 +24,7 @@ struct TodayInteractor: TodayInteractable {
     }
 }
 
-extension TodayInteractor {
+extension TodayAction {
     
     func fetchLatestPosts(with request: TodayAPI.Request) {
         let request = PostAPI.FetchRequest(maxLength: request.maxLength)

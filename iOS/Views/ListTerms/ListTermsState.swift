@@ -51,19 +51,17 @@ extension ListTermsState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ListTermsAction: Action {
+enum ListTermsReducer: Reducer {
     case loadTerms([TermsDataViewModel])
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension ListTermsState {
     
-    func callAsFunction(_ action: ListTermsAction) {
-        switch action {
+    func callAsFunction(_ reducer: ListTermsReducer) {
+        switch reducer {
         case .loadTerms(let items):
             terms = items
         case .loadError(let item):

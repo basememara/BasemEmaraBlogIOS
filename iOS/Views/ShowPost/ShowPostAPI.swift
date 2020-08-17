@@ -10,7 +10,7 @@ import SwiftyPress
 import WebKit
 import ZamzamUI
 
-protocol ShowPostInteractable: Interactor {
+protocol ShowPostActionable: Action {
     func fetchPost(with request: ShowPostAPI.Request)
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest)
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest)

@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol SearchPostsInteractable: Interactor {
+protocol SearchPostsActionable: Action {
     func fetchSearchResults(with request: PostAPI.SearchRequest)
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest)
 }

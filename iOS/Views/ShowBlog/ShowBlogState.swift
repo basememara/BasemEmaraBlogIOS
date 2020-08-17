@@ -113,9 +113,9 @@ private extension ShowBlogState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ShowBlogAction: Action {
+enum ShowBlogReducer: Reducer {
     case loadLatestPosts([PostsDataViewModel])
     case loadPopularPosts([PostsDataViewModel])
     case loadTopPickPosts([PostsDataViewModel])
@@ -124,12 +124,10 @@ enum ShowBlogAction: Action {
     case loadError(ViewError)
 }
 
-// MARK: - Reducer
-
 extension ShowBlogState {
     
-    func callAsFunction(_ action: ShowBlogAction) {
-        switch action {
+    func callAsFunction(_ reducer: ShowBlogReducer) {
+        switch reducer {
         case .loadLatestPosts(let items):
             latestPosts = items
             postsState(.mergePosts(items))

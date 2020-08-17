@@ -62,20 +62,18 @@ extension HomeState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum HomeAction: Action {
+enum HomeReducer: Reducer {
     case loadProfile(HomeAPI.Profile)
     case loadMenu([HomeAPI.MenuSection])
     case loadSocial([HomeAPI.SocialItem])
 }
 
-// MARK: - Reducer
-
 extension HomeState {
     
-    func callAsFunction(_ action: HomeAction) {
-        switch action {
+    func callAsFunction(_ reducer: HomeReducer) {
+        switch reducer {
         case .loadProfile(let item):
             profile = item
         case .loadMenu(let items):

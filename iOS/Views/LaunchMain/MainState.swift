@@ -38,18 +38,16 @@ extension MainState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum MainAction: Action {
+enum MainReducer: Reducer {
     case loadMenu([MainAPI.TabItem])
 }
 
-// MARK: - Reducer
-
 extension MainState {
     
-    func callAsFunction(_ action: MainAction) {
-        switch action {
+    func callAsFunction(_ reducer: MainReducer) {
+        switch reducer {
         case .loadMenu(let menu):
             tabMenu = menu
         }

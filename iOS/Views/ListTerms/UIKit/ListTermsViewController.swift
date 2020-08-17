@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class ListTermsViewController: UIViewController {
     private let state: ListTermsState
-    private let interactor: ListTermsInteractable?
+    private let action: ListTermsActionable?
     private var render: ListTermsRenderable?
     
     // MARK: - Controls
@@ -32,11 +32,11 @@ final class ListTermsViewController: UIViewController {
     
     init(
         state: ListTermsState,
-        interactor: ListTermsInteractable?,
+        action: ListTermsActionable?,
         render: ((UIViewController) -> ListTermsRenderable)?
     ) {
         self.state = state
-        self.interactor = interactor
+        self.action = action
         
         super.init(nibName: nil, bundle: nil)
         self.render = render?(self)
@@ -77,7 +77,7 @@ private extension ListTermsViewController {
     }
     
     func fetch() {
-        interactor?.fetchTerms(
+        action?.fetchTerms(
             with: ListTermsAPI.FetchTermsRequest()
         )
     }
@@ -120,7 +120,7 @@ struct ListTermsControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ListTermsViewController(
                 state: Preview.listTermsState,
-                interactor: nil,
+                action: nil,
                 render: nil
             )
         )

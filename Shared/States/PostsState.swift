@@ -25,19 +25,17 @@ class PostsState: StateRepresentable {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum PostsAction: Action {
+enum PostsReducer: Reducer {
     case mergePosts([PostsDataViewModel])
     case toggleFavorite(postID: Int, favorite: Bool)
 }
 
-// MARK: - Reducer
-
 extension PostsState {
     
-    func callAsFunction(_ action: PostsAction) {
-        switch action {
+    func callAsFunction(_ reducer: PostsReducer) {
+        switch reducer {
         case .mergePosts(let items):
             allPosts.merge(items.map { ($0.id, $0) }) { $1 }
         case .toggleFavorite(let postID, let favorite):

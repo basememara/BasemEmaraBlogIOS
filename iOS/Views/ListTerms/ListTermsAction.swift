@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListTermsInteractor: ListTermsInteractable {
+struct ListTermsAction: ListTermsActionable {
     private let presenter: ListTermsPresentable
     private let taxonomyRepository: TaxonomyRepository
     
@@ -18,7 +18,7 @@ struct ListTermsInteractor: ListTermsInteractable {
     }
 }
 
-extension ListTermsInteractor {
+extension ListTermsAction {
     
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {

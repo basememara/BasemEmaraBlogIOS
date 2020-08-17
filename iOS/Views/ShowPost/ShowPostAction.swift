@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ShowPostInteractor: ShowPostInteractable {
+struct ShowPostAction: ShowPostActionable {
     private let presenter: ShowPostPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -33,7 +33,7 @@ struct ShowPostInteractor: ShowPostInteractable {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func fetchPost(with request: ShowPostAPI.Request) {
         postRepository.fetch(id: request.postID) {
@@ -59,7 +59,7 @@ extension ShowPostInteractor {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func fetchByURL(with request: ShowPostAPI.FetchWebRequest) {
         postRepository.fetch(url: request.url) {
@@ -113,7 +113,7 @@ extension ShowPostInteractor {
     }
 }
 
-extension ShowPostInteractor {
+extension ShowPostAction {
     
     func toggleFavorite(with request: ShowPostAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

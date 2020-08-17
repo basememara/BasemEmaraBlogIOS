@@ -9,9 +9,9 @@
 import ZamzamUI
 
 struct HomePresenter: HomePresentable {
-    private let state: Reducer<HomeAction>
+    private let state: Reduce<HomeReducer>
     
-    init(state: @escaping Reducer<HomeAction>) {
+    init(state: @escaping Reduce<HomeReducer>) {
         self.state = state
     }
 }

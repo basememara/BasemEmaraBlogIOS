@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct SearchPostsInteractor: SearchPostsInteractable {
+struct SearchPostsAction: SearchPostsActionable {
     private let presenter: SearchPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -27,7 +27,7 @@ struct SearchPostsInteractor: SearchPostsInteractable {
     }
 }
 
-extension SearchPostsInteractor {
+extension SearchPostsAction {
 
     func fetchSearchResults(with request: PostAPI.SearchRequest) {
         postRepository.search(with: request) {
@@ -66,7 +66,7 @@ extension SearchPostsInteractor {
     }
 }
 
-extension SearchPostsInteractor {
+extension SearchPostsAction {
     
     func fetchPopularPosts(with request: SearchPostsAPI.PopularRequest) {
         let request = PostAPI.FetchRequest()

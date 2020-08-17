@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol ShowSettingsInteractable: Interactor {
+protocol ShowSettingsActionable: Action {
     func fetchMenu()
     func fetchTheme()
     func setTheme(with request: ShowSettingsAPI.SetThemeRequest)

@@ -50,19 +50,17 @@ extension ShowSettingsState {
     }
 }
 
-// MARK: - Action
+// MARK: - Reducer
 
-enum ShowSettingsAction: Action {
+enum ShowSettingsReducer: Reducer {
     case loadMenu([ShowSettingsAPI.MenuItem])
     case setAutoThemeEnabled(Bool)
 }
 
-// MARK: - Reducer
-
 extension ShowSettingsState {
     
-    func callAsFunction(_ action: ShowSettingsAction) {
-        switch action {
+    func callAsFunction(_ reducer: ShowSettingsReducer) {
+        switch reducer {
         case .loadMenu(let items):
             settingsMenu = items
         case .setAutoThemeEnabled(let item):
