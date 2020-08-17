@@ -10,9 +10,9 @@ import SwiftyPress
 import ZamzamUI
 
 struct ShowSettingsPresenter: ShowSettingsPresentable {
-    private let state: Reduce<ShowSettingsReducer>
+    private let state: StateReducer<ShowSettingsReducer>
     
-    init(state: @escaping Reduce<ShowSettingsReducer>) {
+    init(state: @escaping StateReducer<ShowSettingsReducer>) {
         self.state = state
     }
 }

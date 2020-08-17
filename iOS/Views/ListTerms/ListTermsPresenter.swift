@@ -10,9 +10,9 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListTermsPresenter: ListTermsPresentable {
-    private let state: Reduce<ListTermsReducer>
+    private let state: StateReducer<ListTermsReducer>
     
-    init(state: @escaping Reduce<ListTermsReducer>) {
+    init(state: @escaping StateReducer<ListTermsReducer>) {
         self.state = state
     }
 }

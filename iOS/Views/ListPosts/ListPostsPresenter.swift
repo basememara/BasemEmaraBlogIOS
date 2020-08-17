@@ -11,10 +11,10 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListPostsPresenter: ListPostsPresentable {
-    private let state: Reduce<ListPostsReducer>
+    private let state: StateReducer<ListPostsReducer>
     private let dateFormatter: DateFormatter
     
-    init(state: @escaping Reduce<ListPostsReducer>) {
+    init(state: @escaping StateReducer<ListPostsReducer>) {
         self.state = state
         self.dateFormatter = DateFormatter(dateStyle: .medium)
     }

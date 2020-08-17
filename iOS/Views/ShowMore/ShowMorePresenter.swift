@@ -9,9 +9,9 @@
 import ZamzamUI
 
 struct ShowMorePresenter: ShowMorePresentable {
-    private let state: Reduce<ShowMoreReducer>
+    private let state: StateReducer<ShowMoreReducer>
     
-    init(state: @escaping Reduce<ShowMoreReducer>) {
+    init(state: @escaping StateReducer<ShowMoreReducer>) {
         self.state = state
     }
 }
