@@ -10,12 +10,12 @@
 		8B0E0F5324A954D2003A3C1A /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D92484AB0B00F76D98 /* Preview.swift */; };
 		8B0F05442486CAD6008C03B7 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B0F05432486CAD6008C03B7 /* sample.json */; };
 		8B10F0FE24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */; };
-		8B5C1AA424EAF402007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */; };
-		8B5C1AA524EAF402007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */; };
-		8B5C1AA624EAF405007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */; };
-		8B5C1AA724EAF405007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */; };
-		8B5C1AA824EAF40C007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */; };
-		8B5C1AA924EAF40C007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */; };
+		8B5C1AC424EC84D2007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC224EC84D2007A6F3C /* ZamzamCore.bundle */; };
+		8B5C1AC524EC84D3007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC324EC84D2007A6F3C /* SwiftyPress.bundle */; };
+		8B5C1AC624EC84E6007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC324EC84D2007A6F3C /* SwiftyPress.bundle */; };
+		8B5C1AC724EC84E6007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC224EC84D2007A6F3C /* ZamzamCore.bundle */; };
+		8B5C1AC824EC84EA007A6F3C /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC324EC84D2007A6F3C /* SwiftyPress.bundle */; };
+		8B5C1AC924EC84EA007A6F3C /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B5C1AC224EC84D2007A6F3C /* ZamzamCore.bundle */; };
 		8B8FDDBE24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDBF24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDC024B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
@@ -250,8 +250,8 @@
 		8B10F0F224D87D9800C1C1BF /* BasemEmaraiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasemEmaraiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B10F0F624D87D9800C1C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredPreferencesKeychainServiceTests.swift; sourceTree = "<group>"; };
-		8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
-		8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
+		8B5C1AC224EC84D2007A6F3C /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B5C1AC324EC84D2007A6F3C /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B8FDDBD24B4A08C0031DA19 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8BAC08082485243D00CD8E0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BBCB5B12484A02A00F76D98 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -467,6 +467,97 @@
 			path = "iOS Tests";
 			sourceTree = "<group>";
 		};
+		8B5C1AB624EC4734007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6382484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6312484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1AB724EC47C9007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB64F2484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6452484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1AB824EC47D4007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6012484AB0B00F76D98 /* SwiftUI */,
+				8BBCB5FA2484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1AB924EC47DB007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6652484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6612484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABA24EC47E1007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6222484AB0B00F76D98 /* SwiftUI */,
+				8BBCB61D2484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABB24EC47E8007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6182484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6122484AB0B00F76D98 /* UIKit */,
+				8BBCB60F2484AB0B00F76D98 /* Web */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABC24EC47F9007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB65B2484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6542484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABD24EC47FE007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB60B2484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6052484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABE24EC4806007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB62D2484AB0B00F76D98 /* SwiftUI */,
+				8BBCB6262484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B5C1ABF24EC480B007A6F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BBCB6422484AB0B00F76D98 /* SwiftUI */,
+				8BBCB63C2484AB0B00F76D98 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8B8FDDBC24B4A07B0031DA19 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,8 +577,8 @@
 				8B10F0F324D87D9800C1C1BF /* iOS Tests */,
 				8BBCB6ED2484B46D00F76D98 /* Frameworks */,
 				8BBCB5B22484A02A00F76D98 /* Products */,
-				8B5C1A9D24EAF38B007A6F3C /* SwiftyPress.bundle */,
-				8B5C1A9C24EAF38B007A6F3C /* ZamzamCore.bundle */,
+				8B5C1AC324EC84D2007A6F3C /* SwiftyPress.bundle */,
+				8B5C1AC224EC84D2007A6F3C /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -505,10 +596,10 @@
 		8BBCB5B32484A02A00F76D98 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8BBCB5F62484AB0B00F76D98 /* Features */,
 				8BBCB5E52484AB0B00F76D98 /* Plugins */,
 				8BBCB5E02484AB0B00F76D98 /* Styles */,
 				8BBCB5DB2484AB0B00F76D98 /* Utilities */,
-				8BBCB5F62484AB0B00F76D98 /* Views */,
 				8BBCB5B42484A02A00F76D98 /* AppDelegate.swift */,
 				8BBCB6682484AB0B00F76D98 /* AppRender.swift */,
 				8BBCB5B62484A02A00F76D98 /* SceneDelegate.swift */,
@@ -617,7 +708,7 @@
 			path = DeepLink;
 			sourceTree = "<group>";
 		};
-		8BBCB5F62484AB0B00F76D98 /* Views */ = {
+		8BBCB5F62484AB0B00F76D98 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				8BBCB6442484AB0B00F76D98 /* LaunchMain */,
@@ -632,14 +723,13 @@
 				8BBCB63A2484AB0B00F76D98 /* ShowSettings */,
 				8BBCB6512484AB0B00F76D98 /* LaunchScreen.storyboard */,
 			);
-			path = Views;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		8BBCB5F72484AB0B00F76D98 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6012484AB0B00F76D98 /* SwiftUI */,
-				8BBCB5FA2484AB0B00F76D98 /* UIKit */,
+				8B5C1AB824EC47D4007A6F3C /* Views */,
 				8BBCB6002484AB0B00F76D98 /* HomeAPI.swift */,
 				8BBCB5F82484AB0B00F76D98 /* HomeAction.swift */,
 				8BBCB5FE2484AB0B00F76D98 /* HomePresenter.swift */,
@@ -670,8 +760,7 @@
 		8BBCB6032484AB0B00F76D98 /* ListTerms */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB60B2484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6052484AB0B00F76D98 /* UIKit */,
+				8B5C1ABD24EC47FE007A6F3C /* Views */,
 				8BBCB6082484AB0B00F76D98 /* ListTermsAPI.swift */,
 				8BBCB6042484AB0B00F76D98 /* ListTermsAction.swift */,
 				8BBCB6092484AB0B00F76D98 /* ListTermsPresenter.swift */,
@@ -700,9 +789,7 @@
 		8BBCB60D2484AB0B00F76D98 /* ShowPost */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6182484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6122484AB0B00F76D98 /* UIKit */,
-				8BBCB60F2484AB0B00F76D98 /* Web */,
+				8B5C1ABB24EC47E8007A6F3C /* Views */,
 				8BBCB6172484AB0B00F76D98 /* ShowPostAPI.swift */,
 				8BBCB6162484AB0B00F76D98 /* ShowPostAction.swift */,
 				8BBCB60E2484AB0B00F76D98 /* ShowPostPresenter.swift */,
@@ -740,8 +827,7 @@
 		8BBCB61A2484AB0B00F76D98 /* ListPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6222484AB0B00F76D98 /* SwiftUI */,
-				8BBCB61D2484AB0B00F76D98 /* UIKit */,
+				8B5C1ABA24EC47E1007A6F3C /* Views */,
 				8BBCB61B2484AB0B00F76D98 /* ListPostsAPI.swift */,
 				8BBCB61C2484AB0B00F76D98 /* ListPostsAction.swift */,
 				8BBCB6202484AB0B00F76D98 /* ListPostsPresenter.swift */,
@@ -770,8 +856,7 @@
 		8BBCB6242484AB0B00F76D98 /* ShowMore */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB62D2484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6262484AB0B00F76D98 /* UIKit */,
+				8B5C1ABE24EC4806007A6F3C /* Views */,
 				8BBCB6292484AB0B00F76D98 /* ShowMoreAPI.swift */,
 				8BBCB62A2484AB0B00F76D98 /* ShowMoreAction.swift */,
 				8BBCB6282484AB0B00F76D98 /* ShowMorePresenter.swift */,
@@ -801,8 +886,7 @@
 		8BBCB62F2484AB0B00F76D98 /* ShowBlog */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6382484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6312484AB0B00F76D98 /* UIKit */,
+				8B5C1AB624EC4734007A6F3C /* Views */,
 				8BBCB6352484AB0B00F76D98 /* ShowBlogAPI.swift */,
 				8BBCB6342484AB0B00F76D98 /* ShowBlogAction.swift */,
 				8BBCB6362484AB0B00F76D98 /* ShowBlogPresenter.swift */,
@@ -832,8 +916,7 @@
 		8BBCB63A2484AB0B00F76D98 /* ShowSettings */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6422484AB0B00F76D98 /* SwiftUI */,
-				8BBCB63C2484AB0B00F76D98 /* UIKit */,
+				8B5C1ABF24EC480B007A6F3C /* Views */,
 				8BBCB6402484AB0B00F76D98 /* ShowSettingsAPI.swift */,
 				8BBCB6412484AB0B00F76D98 /* ShowSettingsAction.swift */,
 				8BBCB63B2484AB0B00F76D98 /* ShowSettingsPresenter.swift */,
@@ -862,8 +945,7 @@
 		8BBCB6442484AB0B00F76D98 /* LaunchMain */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB64F2484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6452484AB0B00F76D98 /* UIKit */,
+				8B5C1AB724EC47C9007A6F3C /* Views */,
 				8BBCB64D2484AB0B00F76D98 /* MainAPI.swift */,
 				8BBCB64A2484AB0B00F76D98 /* MainAction.swift */,
 				8BBCB64B2484AB0B00F76D98 /* MainPresenter.swift */,
@@ -902,8 +984,7 @@
 		8BBCB6532484AB0B00F76D98 /* SearchPosts */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB65B2484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6542484AB0B00F76D98 /* UIKit */,
+				8B5C1ABC24EC47F9007A6F3C /* Views */,
 				8BBCB6592484AB0B00F76D98 /* SearchPostsAPI.swift */,
 				8BBCB6562484AB0B00F76D98 /* SearchPostsAction.swift */,
 				8BBCB6572484AB0B00F76D98 /* SearchPostsPresenter.swift */,
@@ -932,8 +1013,7 @@
 		8BBCB65D2484AB0B00F76D98 /* ListFavorites */ = {
 			isa = PBXGroup;
 			children = (
-				8BBCB6652484AB0B00F76D98 /* SwiftUI */,
-				8BBCB6612484AB0B00F76D98 /* UIKit */,
+				8B5C1AB924EC47DB007A6F3C /* Views */,
 				8BBCB6632484AB0B00F76D98 /* ListFavoritesAPI.swift */,
 				8BBCB6602484AB0B00F76D98 /* ListFavoritesAction.swift */,
 				8BBCB65E2484AB0B00F76D98 /* ListFavoritesPresenter.swift */,
@@ -1221,8 +1301,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5C1AA824EAF40C007A6F3C /* SwiftyPress.bundle in Resources */,
-				8B5C1AA924EAF40C007A6F3C /* ZamzamCore.bundle in Resources */,
+				8B5C1AC424EC84D2007A6F3C /* ZamzamCore.bundle in Resources */,
+				8B5C1AC524EC84D3007A6F3C /* SwiftyPress.bundle in Resources */,
 				8BBCB6902484AB0B00F76D98 /* style.css in Resources */,
 				8B0F05442486CAD6008C03B7 /* sample.json in Resources */,
 				8BBCB6CD2484AB0B00F76D98 /* Media.xcassets in Resources */,
@@ -1242,8 +1322,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5C1AA624EAF405007A6F3C /* SwiftyPress.bundle in Resources */,
-				8B5C1AA724EAF405007A6F3C /* ZamzamCore.bundle in Resources */,
+				8B5C1AC624EC84E6007A6F3C /* SwiftyPress.bundle in Resources */,
+				8B5C1AC724EC84E6007A6F3C /* ZamzamCore.bundle in Resources */,
 				8BBCB74224851A8500F76D98 /* seed.json in Resources */,
 				8BBCB74424851A9700F76D98 /* Localizable.strings in Resources */,
 				8BBCB74924851AA500F76D98 /* Theme.xcassets in Resources */,
@@ -1256,8 +1336,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5C1AA424EAF402007A6F3C /* SwiftyPress.bundle in Resources */,
-				8B5C1AA524EAF402007A6F3C /* ZamzamCore.bundle in Resources */,
+				8B5C1AC824EC84EA007A6F3C /* SwiftyPress.bundle in Resources */,
+				8B5C1AC924EC84EA007A6F3C /* ZamzamCore.bundle in Resources */,
 				8BBCB74324851A8A00F76D98 /* seed.json in Resources */,
 				8BBCB74524851A9800F76D98 /* Localizable.strings in Resources */,
 				8BBCB74D24851AA600F76D98 /* Theme.xcassets in Resources */,
