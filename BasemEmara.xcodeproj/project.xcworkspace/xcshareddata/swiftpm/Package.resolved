@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/ZamzamInc/SwiftyPress",
         "state": {
           "branch": null,
-          "revision": "7c00c9655311a3f3d0bf9827dd154bdd8d9ac281",
-          "version": "4.1.1"
+          "revision": "8f504a59318c7a221624b5bd1fc0ad9b75f70e4a",
+          "version": "4.1.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/ZamzamInc/ZamzamKit.git",
         "state": {
           "branch": null,
-          "revision": "dde038a672aa92dbdd8f1bc9d4566b37e82384e5",
-          "version": "6.1.1"
+          "revision": "86c5612bbf21d6ce24e1378af5df3438c38a72e8",
+          "version": "6.1.2"
         }
       }
     ]
