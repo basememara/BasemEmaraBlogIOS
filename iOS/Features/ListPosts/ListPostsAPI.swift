@@ -10,7 +10,7 @@ import SwiftyPress
 import UIKit.UIViewController
 import ZamzamUI
 
-protocol ListPostsActionable: Action {
+protocol ListPostsInteractable: Interactor {
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest)

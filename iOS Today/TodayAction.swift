@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct TodayAction: TodayActionable {
+struct TodayAction: TodayInteractable {
     private let presenter: TodayPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository

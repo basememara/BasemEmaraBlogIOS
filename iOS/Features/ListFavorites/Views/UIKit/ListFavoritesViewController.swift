@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class ListFavoritesViewController: UIViewController {
     private let state: ListFavoritesState
-    private let action: ListFavoritesActionable?
+    private let interactor: ListFavoritesInteractable?
     private var render: ListFavoritesRenderable?
     private let constants: Constants
     private let theme: Theme
@@ -38,13 +38,13 @@ final class ListFavoritesViewController: UIViewController {
     
     init(
         state: ListFavoritesState,
-        action: ListFavoritesActionable?,
+        interactor: ListFavoritesInteractable?,
         render: ((UIViewController) -> ListFavoritesRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         self.constants = constants
         self.theme = theme
         
@@ -87,7 +87,7 @@ private extension ListFavoritesViewController {
     }
     
     func fetch() {
-        action?.fetchFavoritePosts(
+        interactor?.fetchFavoritePosts(
             with: ListFavoritesAPI.FetchPostsRequest()
         )
     }
@@ -123,7 +123,7 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
         UISwipeActionsConfiguration(
             actions: [
                 UIContextualAction(style: .destructive, title: .localized(.unfavorTitle)) { _, _, completion in
-                    self.action?.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
+                    self.interactor?.toggleFavorite(with: ListFavoritesAPI.FavoriteRequest(postID: model.id))
                     completion(true)
                 }
                 .apply {
@@ -158,7 +158,7 @@ struct ListFavoritesControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ListFavoritesViewController(
                 state: Preview.listFavoritesState,
-                action: nil,
+                interactor: nil,
                 render: nil,
                 constants: Preview.core.constants(),
                 theme: Preview.core.theme()

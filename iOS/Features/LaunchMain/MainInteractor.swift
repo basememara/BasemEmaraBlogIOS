@@ -1,5 +1,5 @@
 //
-//  MainAction.swift
+//  MainInteractor.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-15.
@@ -9,7 +9,7 @@
 import UIKit.UIDevice
 import UIKit.UIImage
 
-struct MainAction: MainActionable {
+struct MainInteractor: MainInteractable {
     private let presenter: MainPresentable
     
     init(presenter: MainPresentable) {
@@ -17,7 +17,7 @@ struct MainAction: MainActionable {
     }
 }
 
-extension MainAction {
+extension MainInteractor {
     
     func fetchMenu(for idiom: UIUserInterfaceIdiom) {
         var menu: [MainAPI.TabItem] = [

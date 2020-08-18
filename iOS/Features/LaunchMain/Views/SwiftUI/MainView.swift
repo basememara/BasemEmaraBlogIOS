@@ -13,12 +13,12 @@ import ZamzamUI
 @available(iOS 13, *)
 struct MainView: View {
     @ObservedObject private var state: MainState
-    private let action: MainActionable?
+    private let interactor: MainInteractable?
     private let render: MainRenderable
 
-    init(state: MainState, action: MainActionable?, render: MainRenderable) {
+    init(state: MainState, interactor: MainInteractable?, render: MainRenderable) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         self.render = render
     }
     
@@ -37,7 +37,7 @@ struct MainView: View {
                 .tag(menu.id)
             }
         }.onAppear {
-            self.action?.fetchMenu(
+            self.interactor?.fetchMenu(
                 for: UIDevice.current.userInterfaceIdiom
             )
         }

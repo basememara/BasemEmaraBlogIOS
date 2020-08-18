@@ -1,5 +1,5 @@
 //
-//  ShowSettingsAction.swift
+//  ShowSettingsInteractor.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-02.
@@ -9,7 +9,7 @@
 import UIKit.UIImage
 import ZamzamCore
 
-struct ShowSettingsAction: ShowSettingsActionable {
+struct ShowSettingsInteractor: ShowSettingsInteractable {
     private let presenter: ShowSettingsPresentable
     private let preferences: Preferences
     
@@ -19,7 +19,7 @@ struct ShowSettingsAction: ShowSettingsActionable {
     }
 }
 
-extension ShowSettingsAction {
+extension ShowSettingsInteractor {
     
     func fetchMenu() {
         let menu = [
@@ -44,7 +44,7 @@ extension ShowSettingsAction {
     }
 }
 
-extension ShowSettingsAction {
+extension ShowSettingsInteractor {
     
     func fetchTheme() {
         let response = ShowSettingsAPI.SetThemeResponse(

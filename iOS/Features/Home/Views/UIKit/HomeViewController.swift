@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class HomeViewController: UIViewController {
     private let state: HomeState
-    private let action: HomeActionable?
+    private let interactor: HomeInteractable?
     private var render: HomeRenderable?
     
     // MARK: - Controls
@@ -37,11 +37,11 @@ final class HomeViewController: UIViewController {
     
     init(
         state: HomeState,
-        action: HomeActionable?,
+        interactor: HomeInteractable?,
         render: ((UIViewController) -> HomeRenderable)?
     ) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         
         super.init(nibName: nil, bundle: nil)
         self.render = render?(self)
@@ -92,9 +92,9 @@ private extension HomeViewController {
     }
     
     func fetch() {
-        action?.fetchProfile()
-        action?.fetchMenu()
-        action?.fetchSocial()
+        interactor?.fetchProfile()
+        interactor?.fetchMenu()
+        interactor?.fetchSocial()
     }
     
     func load(_ result: StateChange<HomeState>) {
@@ -178,7 +178,7 @@ struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
         HomeViewController(
             state: Preview.homeState,
-            action: nil,
+            interactor: nil,
             render: nil
         ).previews
     }

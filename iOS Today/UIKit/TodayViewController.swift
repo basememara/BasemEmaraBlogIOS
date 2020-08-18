@@ -16,7 +16,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private let core = AppCore()
     private let state = TodayState()
     
-    private lazy var action: TodayActionable? = TodayAction(
+    private lazy var action: TodayInteractable? = TodayAction(
         presenter: TodayPresenter { [weak self] in self?.state($0) },
         postRepository: core.postRepository(),
         mediaRepository: core.mediaRepository()

@@ -1,5 +1,5 @@
 //
-//  ListFavoritesAction.swift
+//  ListFavoritesInteractor.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-06.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListFavoritesAction: ListFavoritesActionable {
+struct ListFavoritesInteractor: ListFavoritesInteractable {
     private let presenter: ListFavoritesPresentable
     private let favoriteRepository: FavoriteRepository
     private let mediaRepository: MediaRepository
@@ -24,7 +24,7 @@ struct ListFavoritesAction: ListFavoritesActionable {
     }
 }
 
-extension ListFavoritesAction {
+extension ListFavoritesInteractor {
     
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
         favoriteRepository.fetch {
@@ -52,7 +52,7 @@ extension ListFavoritesAction {
     }
 }
 
-extension ListFavoritesAction {
+extension ListFavoritesInteractor {
     
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

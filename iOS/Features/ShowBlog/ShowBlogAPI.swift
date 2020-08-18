@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol ShowBlogActionable: Action {
+protocol ShowBlogInteractable: Interactor {
     func fetchLatestPosts(with request: ShowBlogAPI.FetchPostsRequest)
     func fetchPopularPosts(with request: ShowBlogAPI.FetchPostsRequest)
     func fetchTopPickPosts(with request: ShowBlogAPI.FetchPostsRequest)

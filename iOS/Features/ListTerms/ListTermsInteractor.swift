@@ -1,5 +1,5 @@
 //
-//  ListTermsAction.swift
+//  ListTermsInteractor.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListTermsAction: ListTermsActionable {
+struct ListTermsInteractor: ListTermsInteractable {
     private let presenter: ListTermsPresentable
     private let taxonomyRepository: TaxonomyRepository
     
@@ -18,7 +18,7 @@ struct ListTermsAction: ListTermsActionable {
     }
 }
 
-extension ListTermsAction {
+extension ListTermsInteractor {
     
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {

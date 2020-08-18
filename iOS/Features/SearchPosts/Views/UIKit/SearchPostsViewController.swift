@@ -13,7 +13,7 @@ import ZamzamUI
 
 final class SearchPostsViewController: UIViewController {
     private let state: SearchPostsState
-    private let action: SearchPostsActionable?
+    private let interactor: SearchPostsInteractable?
     private var render: SearchPostsRenderable?
     private let constants: Constants
     private let theme: Theme
@@ -53,13 +53,13 @@ final class SearchPostsViewController: UIViewController {
     
     init(
         state: SearchPostsState,
-        action: SearchPostsActionable?,
+        interactor: SearchPostsInteractable?,
         render: ((UIViewController) -> SearchPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         self.constants = constants
         self.theme = theme
         
@@ -119,7 +119,7 @@ private extension SearchPostsViewController {
 private extension SearchPostsViewController {
     
     func search(for text: String, with scope: Int) {
-        action?.fetchSearchResults(
+        interactor?.fetchSearchResults(
             with: PostAPI.SearchRequest(
                 query: text,
                 scope: {
@@ -143,7 +143,7 @@ extension SearchPostsViewController {
     
     func fetch() {
         guard let searchText = searchText else {
-            action?.fetchPopularPosts(
+            interactor?.fetchPopularPosts(
                 with: SearchPostsAPI.PopularRequest()
             )
             
@@ -226,7 +226,7 @@ struct SearchPostsControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: SearchPostsViewController(
                 state: Preview.searchPostsState,
-                action: nil,
+                interactor: nil,
                 render: nil,
                 constants: Preview.core.constants(),
                 theme: Preview.core.theme()

@@ -1,5 +1,5 @@
 //
-//  ListPostsAction.swift
+//  ListPostsInteractor.swift
 //  Basem Emara
 //
 //  Created by Basem Emara on 2018-10-02.
@@ -8,7 +8,7 @@
 
 import SwiftyPress
 
-struct ListPostsAction: ListPostsActionable {
+struct ListPostsInteractor: ListPostsInteractable {
     private let presenter: ListPostsPresentable
     private let postRepository: PostRepository
     private let mediaRepository: MediaRepository
@@ -27,7 +27,7 @@ struct ListPostsAction: ListPostsActionable {
     }
 }
 
-extension ListPostsAction {
+extension ListPostsInteractor {
     
     func fetchLatestPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -72,7 +72,7 @@ extension ListPostsAction {
     }
 }
 
-extension ListPostsAction {
+extension ListPostsInteractor {
     
     func fetchPopularPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -121,7 +121,7 @@ extension ListPostsAction {
     }
 }
 
-extension ListPostsAction {
+extension ListPostsInteractor {
     
     func fetchTopPickPosts(with request: ListPostsAPI.FetchPostsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -170,7 +170,7 @@ extension ListPostsAction {
     }
 }
 
-extension ListPostsAction {
+extension ListPostsInteractor {
     
     func fetchPostsByTerms(with request: ListPostsAPI.FetchPostsByTermsRequest) {
         let fetchRequest = PostAPI.FetchRequest()
@@ -219,7 +219,7 @@ extension ListPostsAction {
     }
 }
 
-extension ListPostsAction {
+extension ListPostsInteractor {
     
     func toggleFavorite(with request: ListPostsAPI.FavoriteRequest) {
         favoriteRepository.toggle(id: request.postID)

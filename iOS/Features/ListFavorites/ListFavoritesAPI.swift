@@ -9,7 +9,7 @@
 import SwiftyPress
 import ZamzamUI
 
-protocol ListFavoritesActionable: Action {
+protocol ListFavoritesInteractable: Interactor {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest)
     func toggleFavorite(with request: ListFavoritesAPI.FavoriteRequest)
 }

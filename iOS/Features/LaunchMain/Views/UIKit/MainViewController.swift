@@ -12,16 +12,16 @@ import ZamzamUI
 
 class MainViewController: UITabBarController {
     private let state: MainState
-    private let action: MainActionable?
+    private let interactor: MainInteractable?
     private let render: MainRenderable
     
     init(
         state: MainState,
-        action: MainActionable?,
+        interactor: MainInteractable?,
         render: MainRenderable
     ) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         self.render = render
         
         super.init(nibName: nil, bundle: nil)
@@ -55,7 +55,7 @@ private extension MainViewController {
     }
     
     func fetch() {
-        action?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
+        interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
     
     func load(_ result: StateChange<MainState>) {
@@ -97,7 +97,7 @@ struct MainViewControllerPreview: PreviewProvider {
     static var previews: some View {
         MainViewController(
             state: Preview.mainState,
-            action: nil,
+            interactor: nil,
             render: Self.MockRender()
         ).previews
     }

@@ -14,7 +14,7 @@ import ZamzamUI
 
 final class ListPostsViewController: UIViewController {
     private let state: ListPostsState
-    private let action: ListPostsActionable?
+    private let interactor: ListPostsInteractable?
     private var render: ListPostsRenderable?
     private let constants: Constants
     private let theme: Theme
@@ -44,13 +44,13 @@ final class ListPostsViewController: UIViewController {
     
     init(
         state: ListPostsState,
-        action: ListPostsActionable?,
+        interactor: ListPostsInteractable?,
         render: ((UIViewController) -> ListPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
         self.state = state
-        self.action = action
+        self.interactor = interactor
         self.constants = constants
         self.theme = theme
         
@@ -111,25 +111,25 @@ private extension ListPostsViewController {
     func fetch() {
         switch params.fetchType {
         case .latest:
-            action?.fetchLatestPosts(
+            interactor?.fetchLatestPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .popular:
-            action?.fetchPopularPosts(
+            interactor?.fetchPopularPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .picks:
-            action?.fetchTopPickPosts(
+            interactor?.fetchTopPickPosts(
                 with: ListPostsAPI.FetchPostsRequest(
                     sort: params.sort
                 )
             )
         case .terms(let ids):
-            action?.fetchPostsByTerms(
+            interactor?.fetchPostsByTerms(
                 with: ListPostsAPI.FetchPostsByTermsRequest(
                     ids: ids,
                     sort: params.sort
@@ -167,7 +167,7 @@ extension ListPostsViewController: PostsDataViewDelegate {
                     style: model.favorite ? .destructive : .normal,
                     title: model.favorite ? .localized(.unfavorTitle) : .localized(.favoriteTitle),
                     handler: { _, _, completion in
-                        self.action?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
+                        self.interactor?.toggleFavorite(with: ListPostsAPI.FavoriteRequest(postID: model.id))
                         completion(true)
                     }
                 ).apply {
@@ -214,7 +214,7 @@ struct ListPostsControllerPreview: PreviewProvider {
         UINavigationController(
             rootViewController: ListPostsViewController(
                 state: Preview.listPostsState,
-                action: nil,
+                interactor: nil,
                 render: nil,
                 constants: Preview.core.constants(),
                 theme: Preview.core.theme()
