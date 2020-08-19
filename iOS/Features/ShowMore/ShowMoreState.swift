@@ -15,7 +15,7 @@ class ShowMoreState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var moreMenu: [ShowMoreAPI.MenuSection] = [] {
+    fileprivate(set) var moreMenu: [ShowMoreAPI.MenuSection] = [] {
         willSet {
             guard newValue != moreMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -27,7 +27,7 @@ class ShowMoreState: StateRepresentable {
         }
     }
     
-    private(set) var socialMenu: [ShowMoreAPI.SocialItem] = [] {
+    fileprivate(set) var socialMenu: [ShowMoreAPI.SocialItem] = [] {
         willSet {
             guard newValue != socialMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -51,25 +51,6 @@ extension ShowMoreState {
     }
 }
 
-// MARK: - Reducer
-
-enum ShowMoreReducer: Reducer {
-    case loadMenu([ShowMoreAPI.MenuSection])
-    case loadSocial([ShowMoreAPI.SocialItem])
-}
-
-extension ShowMoreState {
-    
-    func callAsFunction(_ reducer: ShowMoreReducer) {
-        switch reducer {
-        case .loadMenu(let sections):
-            moreMenu = sections
-        case .loadSocial(let social):
-            socialMenu = social
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -78,3 +59,22 @@ import Combine
 @available(iOS 13, *)
 extension ShowMoreState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum ShowMoreReducer: Reducer {
+    case loadMenu([ShowMoreAPI.MenuSection])
+    case loadSocial([ShowMoreAPI.SocialItem])
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: ShowMoreReducer) {
+        switch reducer {
+        case .loadMenu(let sections):
+            showMoreState.moreMenu = sections
+        case .loadSocial(let social):
+            showMoreState.socialMenu = social
+        }
+    }
+}

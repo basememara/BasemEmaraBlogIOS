@@ -14,7 +14,7 @@ class ShowSettingsState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var settingsMenu: [ShowSettingsAPI.MenuItem] = [] {
+    fileprivate(set) var settingsMenu: [ShowSettingsAPI.MenuItem] = [] {
         willSet {
             guard newValue != settingsMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -26,7 +26,7 @@ class ShowSettingsState: StateRepresentable {
         }
     }
     
-    private(set) var autoThemeEnabled: Bool = true {
+    fileprivate(set) var autoThemeEnabled: Bool = true {
         willSet {
             guard newValue != autoThemeEnabled, #available(iOS 13, *) else { return }
             combineSend()
@@ -50,25 +50,6 @@ extension ShowSettingsState {
     }
 }
 
-// MARK: - Reducer
-
-enum ShowSettingsReducer: Reducer {
-    case loadMenu([ShowSettingsAPI.MenuItem])
-    case setAutoThemeEnabled(Bool)
-}
-
-extension ShowSettingsState {
-    
-    func callAsFunction(_ reducer: ShowSettingsReducer) {
-        switch reducer {
-        case .loadMenu(let items):
-            settingsMenu = items
-        case .setAutoThemeEnabled(let item):
-            autoThemeEnabled = item
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -77,3 +58,22 @@ import Combine
 @available(iOS 13, *)
 extension ShowSettingsState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum ShowSettingsReducer: Reducer {
+    case loadMenu([ShowSettingsAPI.MenuItem])
+    case setAutoThemeEnabled(Bool)
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: ShowSettingsReducer) {
+        switch reducer {
+        case .loadMenu(let items):
+            showSettingsState.settingsMenu = items
+        case .setAutoThemeEnabled(let item):
+            showSettingsState.autoThemeEnabled = item
+        }
+    }
+}

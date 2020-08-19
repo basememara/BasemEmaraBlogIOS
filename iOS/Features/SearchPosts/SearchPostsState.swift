@@ -13,7 +13,7 @@ import ZamzamUI
 class SearchPostsState: StateRepresentable {
     private var cancellable: NotificationCenter.Cancellable?
     
-    private(set) var posts: [PostsDataViewModel] = [] {
+    fileprivate(set) var posts: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != posts, #available(iOS 13, *) else { return }
             combineSend()
@@ -25,7 +25,7 @@ class SearchPostsState: StateRepresentable {
         }
     }
     
-    private(set) var error: ViewError? {
+    fileprivate(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -49,25 +49,6 @@ extension SearchPostsState {
     }
 }
 
-// MARK: - Reducer
-
-enum SearchPostsReducer: Reducer {
-    case loadPosts([PostsDataViewModel])
-    case loadError(ViewError)
-}
-
-extension SearchPostsState {
-    
-    func callAsFunction(_ reducer: SearchPostsReducer) {
-        switch reducer {
-        case .loadPosts(let items):
-            posts = items
-        case .loadError(let item):
-            error = item
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -76,3 +57,22 @@ import Combine
 @available(iOS 13, *)
 extension SearchPostsState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum SearchPostsReducer: Reducer {
+    case loadPosts([PostsDataViewModel])
+    case loadError(ViewError)
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: SearchPostsReducer) {
+        switch reducer {
+        case .loadPosts(let items):
+            searchPostsState.posts = items
+        case .loadError(let item):
+            searchPostsState.error = item
+        }
+    }
+}

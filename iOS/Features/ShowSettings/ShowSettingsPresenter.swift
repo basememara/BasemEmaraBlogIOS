@@ -10,23 +10,23 @@ import SwiftyPress
 import ZamzamUI
 
 struct ShowSettingsPresenter: ShowSettingsPresentable {
-    private let state: StateReducer<ShowSettingsReducer>
+    private let store: StoreReducer<ShowSettingsReducer>
     
-    init(state: @escaping StateReducer<ShowSettingsReducer>) {
-        self.state = state
+    init(_ store: @escaping StoreReducer<ShowSettingsReducer>) {
+        self.store = store
     }
 }
 
 extension ShowSettingsPresenter {
     
     func display(menu: [ShowSettingsAPI.MenuItem]) {
-        state(.loadMenu(menu))
+        store(.loadMenu(menu))
     }
 }
 
 extension ShowSettingsPresenter {
     
     func displayTheme(for response: ShowSettingsAPI.SetThemeResponse) {
-        state(.setAutoThemeEnabled(response.autoThemeEnabled))
+        store(.setAutoThemeEnabled(response.autoThemeEnabled))
     }
 }

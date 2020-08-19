@@ -17,7 +17,7 @@ class ShowBlogState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var latestPosts: [PostsDataViewModel] = [] {
+    fileprivate(set) var latestPosts: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != latestPosts, #available(iOS 13, *) else { return }
             combineSend()
@@ -29,7 +29,7 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    private(set) var popularPosts: [PostsDataViewModel] = [] {
+    fileprivate(set) var popularPosts: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != popularPosts, #available(iOS 13, *) else { return }
             combineSend()
@@ -41,7 +41,7 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    private(set) var topPickPosts: [PostsDataViewModel] = [] {
+    fileprivate(set) var topPickPosts: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != topPickPosts, #available(iOS 13, *) else { return }
             combineSend()
@@ -53,7 +53,7 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    private(set) var terms: [TermsDataViewModel] = [] {
+    fileprivate(set) var terms: [TermsDataViewModel] = [] {
         willSet {
             guard newValue != terms, #available(iOS 13, *) else { return }
             combineSend()
@@ -65,7 +65,7 @@ class ShowBlogState: StateRepresentable {
         }
     }
     
-    private(set) var error: ViewError? {
+    fileprivate(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -113,6 +113,15 @@ private extension ShowBlogState {
     }
 }
 
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension ShowBlogState: ObservableObject {}
+#endif
+
 // MARK: - Reducer
 
 enum ShowBlogReducer: Reducer {
@@ -124,40 +133,31 @@ enum ShowBlogReducer: Reducer {
     case loadError(ViewError)
 }
 
-extension ShowBlogState {
+extension AppStore {
     
-    func callAsFunction(_ reducer: ShowBlogReducer) {
+    func reduce(_ reducer: ShowBlogReducer) {
         switch reducer {
         case .loadLatestPosts(let items):
-            latestPosts = items
-            postsState(.mergePosts(items))
+            showBlogState.latestPosts = items
+            reduce(.mergePosts(items))
         case .loadPopularPosts(let items):
-            popularPosts = items
-            postsState(.mergePosts(items))
+            showBlogState.popularPosts = items
+            reduce(.mergePosts(items))
         case .loadTopPickPosts(let items):
-            topPickPosts = items
-            postsState(.mergePosts(items))
+            showBlogState.topPickPosts = items
+            reduce(.mergePosts(items))
         case .loadTerms(let items):
-            terms = items
-            termsState(.mergeTerms(items))
+            showBlogState.terms = items
+            reduce(.mergeTerms(items))
         case .toggleFavorite(let item):
-            postsState(
+            reduce(
                 .toggleFavorite(
                     postID: item.postID,
                     favorite: item.favorite
                 )
             )
         case .loadError(let item):
-            error = item
+            showBlogState.error = item
         }
     }
 }
-
-// MARK: - SwiftUI
-
-#if canImport(SwiftUI)
-import Combine
-
-@available(iOS 13, *)
-extension ShowBlogState: ObservableObject {}
-#endif

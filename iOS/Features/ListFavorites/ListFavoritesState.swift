@@ -16,7 +16,7 @@ class ListFavoritesState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var favorites: [PostsDataViewModel] = [] {
+    fileprivate(set) var favorites: [PostsDataViewModel] = [] {
         willSet {
             guard newValue != favorites, #available(iOS 13, *) else { return }
             combineSend()
@@ -28,7 +28,7 @@ class ListFavoritesState: StateRepresentable {
         }
     }
     
-    private(set) var error: ViewError? {
+    fileprivate(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -68,33 +68,6 @@ private extension ListFavoritesState {
     }
 }
 
-// MARK: - Reducer
-
-enum ListFavoritesReducer: Reducer {
-    case loadFavorites([PostsDataViewModel])
-    case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
-    case loadError(ViewError)
-}
-
-extension ListFavoritesState {
-    
-    func callAsFunction(_ reducer: ListFavoritesReducer) {
-        switch reducer {
-        case .loadFavorites(let items):
-            postsState(.mergePosts(items))
-        case .toggleFavorite(let item):
-            postsState(
-                .toggleFavorite(
-                    postID: item.postID,
-                    favorite: item.favorite
-                )
-            )
-        case .loadError(let item):
-            error = item
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -103,3 +76,30 @@ import Combine
 @available(iOS 13, *)
 extension ListFavoritesState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum ListFavoritesReducer: Reducer {
+    case loadFavorites([PostsDataViewModel])
+    case toggleFavorite(ListFavoritesAPI.FavoriteViewModel)
+    case loadError(ViewError)
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: ListFavoritesReducer) {
+        switch reducer {
+        case .loadFavorites(let items):
+            reduce(.mergePosts(items))
+        case .toggleFavorite(let item):
+            reduce(
+                .toggleFavorite(
+                    postID: item.postID,
+                    favorite: item.favorite
+                )
+            )
+        case .loadError(let item):
+            listFavoritesState.error = item
+        }
+    }
+}

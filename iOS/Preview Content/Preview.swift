@@ -15,6 +15,7 @@ import ZamzamUI
 
 struct Preview {
     static let core = PreviewCore()
+    static let store = AppStore()
 }
 
 extension Preview {
@@ -25,7 +26,7 @@ extension Preview {
 
 extension Preview {
     
-    static let postsState = PostsState().apply { state in
+    static let postsState = store.postsState.apply { _ in
         // Retrive data from seed file
         core.dataSeed().fetch {
             guard case .success(let data) = $0 else { return }
@@ -40,14 +41,14 @@ extension Preview {
                     dateFormatter: dataFormatter)
             }
             
-            state(.mergePosts(posts))
+            store.reduce(.mergePosts(posts))
         }
     }
 }
 
 extension Preview {
     
-    static let termsState = TermsState().apply { state in
+    static let termsState = store.termsState.apply { _ in
         // Retrive data from seed file
         core.dataSeed().fetch {
             guard case .success(let data) = $0 else { return }
@@ -63,15 +64,15 @@ extension Preview {
                 )
             }
             
-            state(.mergeTerms(terms))
+            store.reduce(.mergeTerms(terms))
         }
     }
 }
 
 extension Preview {
     
-    static let mainState = MainState().apply {
-        $0(.loadMenu([
+    static let mainState = store.mainState.apply { _ in
+        store.reduce(.loadMenu([
             MainAPI.TabItem(
                 id: .home,
                 title: .localized(.tabHomeTitle),
@@ -103,8 +104,8 @@ extension Preview {
 
 extension Preview {
     
-    static let homeState = HomeState().apply {
-        $0(.loadProfile(
+    static let homeState = store.homeState.apply { _ in
+        store.reduce(.loadProfile(
             HomeAPI.Profile(
                 avatar: "BasemProfilePic",
                 name: "John Doe",
@@ -112,7 +113,7 @@ extension Preview {
             )
         ))
             
-        $0(.loadMenu([
+        store.reduce(.loadMenu([
             HomeAPI.MenuSection(
                 title: nil,
                 items: [
@@ -160,7 +161,7 @@ extension Preview {
             )
         ]))
         
-        $0(.loadSocial([
+        store.reduce(.loadSocial([
             HomeAPI.SocialItem(
                 type: .twitter,
                 title: "Twitter"
@@ -175,38 +176,33 @@ extension Preview {
 
 extension Preview {
     
-    static let showBlogState = ShowBlogState(
-        postsState: postsState,
-        termsState: termsState
-    ).apply {
-        $0(.loadLatestPosts(postsState.allPosts.values.shuffled().prefix(10).array))
-        $0(.loadPopularPosts(postsState.allPosts.values.shuffled().prefix(10).array))
-        $0(.loadTopPickPosts(postsState.allPosts.values.shuffled().prefix(10).array))
-        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(10).array))
+    static let showBlogState = store.showBlogState.apply { _ in
+        store.reduce(.loadLatestPosts(store.postsState.allPosts.values.shuffled().prefix(10).array))
+        store.reduce(.loadPopularPosts(store.postsState.allPosts.values.shuffled().prefix(10).array))
+        store.reduce(.loadTopPickPosts(store.postsState.allPosts.values.shuffled().prefix(10).array))
+        store.reduce(ShowBlogReducer.loadTerms(store.termsState.allTerms.values.shuffled().prefix(10).array))
     }
 }
 
 extension Preview {
     
-    static let listFavoritesState = ListFavoritesState(postsState: postsState).apply {
-        $0(.loadFavorites(postsState.allPosts.values.shuffled().prefix(10).array))
+    static let listFavoritesState = store.listFavoritesState.apply { _ in
+        store.reduce(.loadFavorites(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension Preview {
     
-    static let listPostsState = ListPostsState(postsState: postsState).apply {
-        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+    static let listPostsState = store.listPostsState.apply { _ in
+        store.reduce(ListPostsReducer.loadPosts(store.postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension Preview {
     
     static let showPostState: ShowPostState = {
-        let state = ShowPostState(postsState: Self.postsState)
-        
         let presenter = ShowPostPresenter(
-            state: { state($0) },
+            store.reduce,
             constants: core.constants(),
             templateFile: Bundle.main.string(file: "post.html"),
             styleSheetFile: Bundle.main.string(file: "style.css")
@@ -227,28 +223,28 @@ extension Preview {
             )
         }
         
-        return state
+        return store.showPostState
     }()
 }
 
 extension Preview {
     
-    static let searchPostsState = SearchPostsState().apply {
-        $0(.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
+    static let searchPostsState = store.searchPostsState.apply { _ in
+        store.reduce(SearchPostsReducer.loadPosts(postsState.allPosts.values.shuffled().prefix(10).array))
     }
 }
 
 extension Preview {
     
-    static let listTermsState = ListTermsState().apply {
-        $0(.loadTerms(termsState.allTerms.values.shuffled().prefix(25).array))
+    static let listTermsState = store.listTermsState.apply { _ in
+        store.reduce(ListTermsReducer.loadTerms(termsState.allTerms.values.shuffled().prefix(25).array))
     }
 }
 
 extension Preview {
     
-    static let showMoreState = ShowMoreState().apply {
-        $0(.loadMenu([
+    static let showMoreState = store.showMoreState.apply { _ in
+        store.reduce(.loadMenu([
             ShowMoreAPI.MenuSection(
                 title: "Basem Emara",
                 items: [
@@ -301,7 +297,7 @@ extension Preview {
             )
         ]))
         
-        $0(.loadSocial([
+        store.reduce(.loadSocial([
             ShowMoreAPI.SocialItem(
                 type: .linkedIn,
                 title: .localized(.linkedInSocialTitle)
@@ -316,8 +312,8 @@ extension Preview {
 
 extension Preview {
     
-    static let showSettings = ShowSettingsState().apply {
-        $0(.loadMenu([
+    static let showSettings = store.showSettingsState.apply { _ in
+        store.reduce(.loadMenu([
             ShowSettingsAPI.MenuItem(
                 type: .theme,
                 title: .localized(.settingsMenuThemeTitle),
@@ -335,7 +331,7 @@ extension Preview {
             )
         ]))
         
-        $0(.setAutoThemeEnabled(true))
+        store.reduce(.setAutoThemeEnabled(true))
     }
 }
 

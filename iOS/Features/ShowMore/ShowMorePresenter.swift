@@ -9,20 +9,20 @@
 import ZamzamUI
 
 struct ShowMorePresenter: ShowMorePresentable {
-    private let state: StateReducer<ShowMoreReducer>
+    private let store: StoreReducer<ShowMoreReducer>
     
-    init(state: @escaping StateReducer<ShowMoreReducer>) {
-        self.state = state
+    init(_ store: @escaping StoreReducer<ShowMoreReducer>) {
+        self.store = store
     }
 }
 
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        state(.loadMenu(menu))
+        store(.loadMenu(menu))
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        state(.loadSocial(social))
+        store(.loadSocial(social))
     }
 }

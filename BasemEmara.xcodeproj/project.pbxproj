@@ -10,12 +10,12 @@
 		8B0E0F5324A954D2003A3C1A /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D92484AB0B00F76D98 /* Preview.swift */; };
 		8B0F05442486CAD6008C03B7 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B0F05432486CAD6008C03B7 /* sample.json */; };
 		8B10F0FE24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */; };
-		8B64FBB224EC9F640061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB024EC9F640061AF71 /* SwiftyPress.bundle */; };
-		8B64FBB324EC9F640061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB124EC9F640061AF71 /* ZamzamCore.bundle */; };
-		8B64FBB424EC9F780061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB024EC9F640061AF71 /* SwiftyPress.bundle */; };
-		8B64FBB524EC9F780061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB124EC9F640061AF71 /* ZamzamCore.bundle */; };
-		8B64FBB624EC9F7B0061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB024EC9F640061AF71 /* SwiftyPress.bundle */; };
-		8B64FBB724EC9F7B0061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBB124EC9F640061AF71 /* ZamzamCore.bundle */; };
+		8B64FBC624EDB44F0061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
+		8B64FBC724EDB44F0061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
+		8B64FBC824EDB4590061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
+		8B64FBC924EDB4590061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
+		8B64FBCA24EDB45C0061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
+		8B64FBCB24EDB45C0061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
 		8B8FDDBE24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDBF24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDC024B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
@@ -250,8 +250,8 @@
 		8B10F0F224D87D9800C1C1BF /* BasemEmaraiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasemEmaraiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B10F0F624D87D9800C1C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredPreferencesKeychainServiceTests.swift; sourceTree = "<group>"; };
-		8B64FBB024EC9F640061AF71 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
-		8B64FBB124EC9F640061AF71 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
+		8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
 		8B8FDDBD24B4A08C0031DA19 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8BAC08082485243D00CD8E0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BBCB5B12484A02A00F76D98 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -577,8 +577,8 @@
 				8B10F0F324D87D9800C1C1BF /* iOS Tests */,
 				8BBCB6ED2484B46D00F76D98 /* Frameworks */,
 				8BBCB5B22484A02A00F76D98 /* Products */,
-				8B64FBB024EC9F640061AF71 /* SwiftyPress.bundle */,
-				8B64FBB124EC9F640061AF71 /* ZamzamCore.bundle */,
+				8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */,
+				8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1301,8 +1301,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBB224EC9F640061AF71 /* SwiftyPress.bundle in Resources */,
-				8B64FBB324EC9F640061AF71 /* ZamzamCore.bundle in Resources */,
+				8B64FBC624EDB44F0061AF71 /* ZamzamCore.bundle in Resources */,
+				8B64FBC724EDB44F0061AF71 /* SwiftyPress.bundle in Resources */,
 				8BBCB6902484AB0B00F76D98 /* style.css in Resources */,
 				8B0F05442486CAD6008C03B7 /* sample.json in Resources */,
 				8BBCB6CD2484AB0B00F76D98 /* Media.xcassets in Resources */,
@@ -1322,8 +1322,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBB424EC9F780061AF71 /* SwiftyPress.bundle in Resources */,
-				8B64FBB524EC9F780061AF71 /* ZamzamCore.bundle in Resources */,
+				8B64FBC824EDB4590061AF71 /* SwiftyPress.bundle in Resources */,
+				8B64FBC924EDB4590061AF71 /* ZamzamCore.bundle in Resources */,
 				8BBCB74224851A8500F76D98 /* seed.json in Resources */,
 				8BBCB74424851A9700F76D98 /* Localizable.strings in Resources */,
 				8BBCB74924851AA500F76D98 /* Theme.xcassets in Resources */,
@@ -1336,8 +1336,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBB624EC9F7B0061AF71 /* SwiftyPress.bundle in Resources */,
-				8B64FBB724EC9F7B0061AF71 /* ZamzamCore.bundle in Resources */,
+				8B64FBCA24EDB45C0061AF71 /* SwiftyPress.bundle in Resources */,
+				8B64FBCB24EDB45C0061AF71 /* ZamzamCore.bundle in Resources */,
 				8BBCB74324851A8A00F76D98 /* seed.json in Resources */,
 				8BBCB74524851A9800F76D98 /* Localizable.strings in Resources */,
 				8BBCB74D24851AA600F76D98 /* Theme.xcassets in Resources */,
@@ -2142,7 +2142,7 @@
 			repositoryURL = "https://github.com/ZamzamInc/SwiftyPress";
 			requirement = {
 				kind = exactVersion;
-				version = 4.1.2;
+				version = 4.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -16,7 +16,7 @@ class ShowPostState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var web: ShowPostAPI.WebViewModel? {
+    fileprivate(set) var web: ShowPostAPI.WebViewModel? {
         willSet {
             guard newValue != web, #available(iOS 13, *) else { return }
             combineSend()
@@ -28,7 +28,7 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    private(set) var post: ShowPostAPI.PostViewModel? {
+    fileprivate(set) var post: ShowPostAPI.PostViewModel? {
         willSet {
             guard newValue != post, #available(iOS 13, *) else { return }
             combineSend()
@@ -40,7 +40,7 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    private(set) var isFavorite: Bool = false {
+    fileprivate(set) var isFavorite: Bool = false {
         willSet {
             guard newValue != isFavorite, #available(iOS 13, *) else { return }
             combineSend()
@@ -52,7 +52,7 @@ class ShowPostState: StateRepresentable {
         }
     }
     
-    private(set) var error: ViewError? {
+    fileprivate(set) var error: ViewError? {
         willSet {
             guard newValue != error, #available(iOS 13, *) else { return }
             combineSend()
@@ -94,6 +94,15 @@ private extension ShowPostState {
     }
 }
 
+// MARK: - SwiftUI
+
+#if canImport(SwiftUI)
+import Combine
+
+@available(iOS 13, *)
+extension ShowPostState: ObservableObject {}
+#endif
+
 // MARK: - Reducer
 
 enum ShowPostReducer: Reducer {
@@ -104,36 +113,27 @@ enum ShowPostReducer: Reducer {
     case loadError(ViewError)
 }
 
-extension ShowPostState {
+extension AppStore {
     
-    func callAsFunction(_ reducer: ShowPostReducer) {
+    func reduce(_ reducer: ShowPostReducer) {
         switch reducer {
         case .loadWeb(let item):
-            web = item
+            showPostState.web = item
         case .loadPost(let item):
-            post = item
+            showPostState.post = item
         case .loadFavorite(let item):
-            isFavorite = item
+            showPostState.isFavorite = item
         case .toggleFavorite(let item):
-            guard let id = post?.id else { return }
+            guard let id = showPostState.post?.id else { return }
             
-            postsState(
+            reduce(
                 .toggleFavorite(
                     postID: id,
                     favorite: item
                 )
             )
         case .loadError(let item):
-            error = item
+            showPostState.error = item
         }
     }
 }
-
-// MARK: - SwiftUI
-
-#if canImport(SwiftUI)
-import Combine
-
-@available(iOS 13, *)
-extension ShowPostState: ObservableObject {}
-#endif

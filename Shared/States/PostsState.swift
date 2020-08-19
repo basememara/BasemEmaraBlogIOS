@@ -12,7 +12,7 @@ import ZamzamUI
 
 class PostsState: StateRepresentable {
     
-    private(set) var allPosts: [Int: PostsDataViewModel] = [:] {
+    fileprivate(set) var allPosts: [Int: PostsDataViewModel] = [:] {
         willSet {
             guard newValue != allPosts, #available(iOS 13, *) else { return }
             combineSend()
@@ -25,26 +25,6 @@ class PostsState: StateRepresentable {
     }
 }
 
-// MARK: - Reducer
-
-enum PostsReducer: Reducer {
-    case mergePosts([PostsDataViewModel])
-    case toggleFavorite(postID: Int, favorite: Bool)
-}
-
-extension PostsState {
-    
-    func callAsFunction(_ reducer: PostsReducer) {
-        switch reducer {
-        case .mergePosts(let items):
-            allPosts.merge(items.map { ($0.id, $0) }) { $1 }
-        case .toggleFavorite(let postID, let favorite):
-            allPosts[postID] = allPosts[postID]?
-                .toggled(favorite: favorite)
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -53,3 +33,23 @@ import Combine
 @available(iOS 13, *)
 extension PostsState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum PostsReducer: Reducer {
+    case mergePosts([PostsDataViewModel])
+    case toggleFavorite(postID: Int, favorite: Bool)
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: PostsReducer) {
+        switch reducer {
+        case .mergePosts(let items):
+            postsState.allPosts.merge(items.map { ($0.id, $0) }) { $1 }
+        case .toggleFavorite(let postID, let favorite):
+            postsState.allPosts[postID] = postsState.allPosts[postID]?
+                .toggled(favorite: favorite)
+        }
+    }
+}

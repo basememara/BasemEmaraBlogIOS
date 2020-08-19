@@ -14,7 +14,7 @@ class MainState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var tabMenu: [MainAPI.TabItem] = [] {
+    fileprivate(set) var tabMenu: [MainAPI.TabItem] = [] {
         willSet {
             guard newValue != tabMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -38,22 +38,6 @@ extension MainState {
     }
 }
 
-// MARK: - Reducer
-
-enum MainReducer: Reducer {
-    case loadMenu([MainAPI.TabItem])
-}
-
-extension MainState {
-    
-    func callAsFunction(_ reducer: MainReducer) {
-        switch reducer {
-        case .loadMenu(let menu):
-            tabMenu = menu
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -62,3 +46,19 @@ import Combine
 @available(iOS 13, *)
 extension MainState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum MainReducer: Reducer {
+    case loadMenu([MainAPI.TabItem])
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: MainReducer) {
+        switch reducer {
+        case .loadMenu(let menu):
+            mainState.tabMenu = menu
+        }
+    }
+}

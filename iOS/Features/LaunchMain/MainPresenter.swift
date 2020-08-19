@@ -9,16 +9,16 @@
 import ZamzamUI
 
 struct MainPresenter: MainPresentable {
-    private let state: StateReducer<MainReducer>
+    private let store: StoreReducer<MainReducer>
     
-    init(state: @escaping StateReducer<MainReducer>) {
-        self.state = state
+    init(_ store: @escaping StoreReducer<MainReducer>) {
+        self.store = store
     }
 }
 
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        state(.loadMenu(menu))
+        store(.loadMenu(menu))
     }
 }

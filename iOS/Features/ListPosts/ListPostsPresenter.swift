@@ -11,11 +11,11 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListPostsPresenter: ListPostsPresentable {
-    private let state: StateReducer<ListPostsReducer>
+    private let store: StoreReducer<ListPostsReducer>
     private let dateFormatter: DateFormatter
     
-    init(state: @escaping StateReducer<ListPostsReducer>) {
-        self.state = state
+    init(_ store: @escaping StoreReducer<ListPostsReducer>) {
+        self.store = store
         self.dateFormatter = DateFormatter(dateStyle: .medium)
     }
 }
@@ -32,7 +32,7 @@ extension ListPostsPresenter {
             )
         }
         
-        state(.loadPosts(viewModels))
+        store(.loadPosts(viewModels))
     }
 }
 
@@ -44,7 +44,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        state(.loadError(viewModel))
+        store(.loadError(viewModel))
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -53,7 +53,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        state(.loadError(viewModel))
+        store(.loadError(viewModel))
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -62,7 +62,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        state(.loadError(viewModel))
+        store(.loadError(viewModel))
     }
     
     func displayPostsByTerms(error: SwiftyPressError) {
@@ -71,7 +71,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        state(.loadError(viewModel))
+        store(.loadError(viewModel))
     }
 }
 
@@ -83,6 +83,6 @@ extension ListPostsPresenter {
             favorite: response.favorite
         )
         
-        state(.toggleFavorite(viewModel))
+        store(.toggleFavorite(viewModel))
     }
 }

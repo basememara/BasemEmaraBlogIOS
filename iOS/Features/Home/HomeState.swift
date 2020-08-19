@@ -14,7 +14,7 @@ class HomeState: StateRepresentable {
     
     // MARK: - Observables
     
-    private(set) var profile: HomeAPI.Profile? {
+    fileprivate(set) var profile: HomeAPI.Profile? {
         willSet {
             guard newValue != profile, #available(iOS 13, *) else { return }
             combineSend()
@@ -26,7 +26,7 @@ class HomeState: StateRepresentable {
         }
     }
     
-    private(set) var homeMenu: [HomeAPI.MenuSection] = [] {
+    fileprivate(set) var homeMenu: [HomeAPI.MenuSection] = [] {
         willSet {
             guard newValue != homeMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -38,7 +38,7 @@ class HomeState: StateRepresentable {
         }
     }
     
-    private(set) var socialMenu: [HomeAPI.SocialItem] = [] {
+    fileprivate(set) var socialMenu: [HomeAPI.SocialItem] = [] {
         willSet {
             guard newValue != socialMenu, #available(iOS 13, *) else { return }
             combineSend()
@@ -62,28 +62,6 @@ extension HomeState {
     }
 }
 
-// MARK: - Reducer
-
-enum HomeReducer: Reducer {
-    case loadProfile(HomeAPI.Profile)
-    case loadMenu([HomeAPI.MenuSection])
-    case loadSocial([HomeAPI.SocialItem])
-}
-
-extension HomeState {
-    
-    func callAsFunction(_ reducer: HomeReducer) {
-        switch reducer {
-        case .loadProfile(let item):
-            profile = item
-        case .loadMenu(let items):
-            homeMenu = items
-        case .loadSocial(let items):
-            socialMenu = items
-        }
-    }
-}
-
 // MARK: - SwiftUI
 
 #if canImport(SwiftUI)
@@ -92,3 +70,25 @@ import Combine
 @available(iOS 13, *)
 extension HomeState: ObservableObject {}
 #endif
+
+// MARK: - Reducer
+
+enum HomeReducer: Reducer {
+    case loadProfile(HomeAPI.Profile)
+    case loadMenu([HomeAPI.MenuSection])
+    case loadSocial([HomeAPI.SocialItem])
+}
+
+extension AppStore {
+    
+    func reduce(_ reducer: HomeReducer) {
+        switch reducer {
+        case .loadProfile(let item):
+            homeState.profile = item
+        case .loadMenu(let items):
+            homeState.homeMenu = items
+        case .loadSocial(let items):
+            homeState.socialMenu = items
+        }
+    }
+}
