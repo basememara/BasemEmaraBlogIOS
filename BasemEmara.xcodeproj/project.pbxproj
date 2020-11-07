@@ -7,15 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B0E0F5324A954D2003A3C1A /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D92484AB0B00F76D98 /* Preview.swift */; };
-		8B0F05442486CAD6008C03B7 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B0F05432486CAD6008C03B7 /* sample.json */; };
+		8B0E0F5324A954D2003A3C1A /* AppPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D92484AB0B00F76D98 /* AppPreviews.swift */; };
 		8B10F0FE24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */; };
-		8B64FBC624EDB44F0061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
-		8B64FBC724EDB44F0061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
-		8B64FBC824EDB4590061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
-		8B64FBC924EDB4590061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
-		8B64FBCA24EDB45C0061AF71 /* SwiftyPress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */; };
-		8B64FBCB24EDB45C0061AF71 /* ZamzamCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */; };
 		8B8FDDBE24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDBF24B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
 		8B8FDDC024B4A08C0031DA19 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FDDBD24B4A08C0031DA19 /* Environment.swift */; };
@@ -27,7 +20,7 @@
 		8BBCB5B52484A02A00F76D98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5B42484A02A00F76D98 /* AppDelegate.swift */; };
 		8BBCB5B72484A02A00F76D98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5B62484A02A00F76D98 /* SceneDelegate.swift */; };
 		8BBCB5BB2484A02C00F76D98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5BA2484A02C00F76D98 /* Assets.xcassets */; };
-		8BBCB5BE2484A02C00F76D98 /* Preview.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5BD2484A02C00F76D98 /* Preview.xcassets */; };
+		8BBCB5BE2484A02C00F76D98 /* Previews.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5BD2484A02C00F76D98 /* Previews.xcassets */; };
 		8BBCB5D32484AA5100F76D98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D52484AA5100F76D98 /* InfoPlist.strings */; };
 		8BBCB6692484AB0B00F76D98 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5D82484AB0B00F76D98 /* AppStore.swift */; };
 		8BBCB66B2484AB0B00F76D98 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DC2484AB0B00F76D98 /* Preferences.swift */; };
@@ -35,8 +28,6 @@
 		8BBCB66D2484AB0B00F76D98 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DE2484AB0B00F76D98 /* Taxonomy.swift */; };
 		8BBCB66E2484AB0B00F76D98 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5DF2484AB0B00F76D98 /* UIViewController.swift */; };
 		8BBCB66F2484AB0B00F76D98 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E12484AB0B00F76D98 /* Theme.swift */; };
-		8BBCB6702484AB0B00F76D98 /* TermsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E32484AB0B00F76D98 /* TermsState.swift */; };
-		8BBCB6712484AB0B00F76D98 /* PostsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E42484AB0B00F76D98 /* PostsState.swift */; };
 		8BBCB6722484AB0B00F76D98 /* ShortcutPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E72484AB0B00F76D98 /* ShortcutPlugin.swift */; };
 		8BBCB6732484AB0B00F76D98 /* ShortcutRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E82484AB0B00F76D98 /* ShortcutRender.swift */; };
 		8BBCB6742484AB0B00F76D98 /* LoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCB5E92484AB0B00F76D98 /* LoggerPlugin.swift */; };
@@ -246,33 +237,30 @@
 		8B0E0F5524A95778003A3C1A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8B0E0F5624A95778003A3C1A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8B0E0F5724A95778003A3C1A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8B0F05432486CAD6008C03B7 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		8B10F0F224D87D9800C1C1BF /* BasemEmaraiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasemEmaraiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B10F0F624D87D9800C1C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredPreferencesKeychainServiceTests.swift; sourceTree = "<group>"; };
-		8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZamzamCore.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/ZamzamKit/Resources/ZamzamCore.bundle"; sourceTree = "<group>"; };
-		8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SwiftyPress.bundle; path = "../../../Library/Developer/Xcode/DerivedData/BasemEmara-cpcejwracolkliefjcuyvymdbwzq/SourcePackages/checkouts/SwiftyPress/Resources/SwiftyPress.bundle"; sourceTree = "<group>"; };
+		8B67B3F82505F29100501E6D /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../../ZamzamKit; sourceTree = "<group>"; };
+		8B67B3F92505F2A600501E6D /* SwiftyPress */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftyPress; path = ../../SwiftyPress; sourceTree = "<group>"; };
 		8B8FDDBD24B4A08C0031DA19 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8BAC08082485243D00CD8E0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BBCB5B12484A02A00F76D98 /* BasemEmara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasemEmara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBCB5B42484A02A00F76D98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BBCB5B62484A02A00F76D98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BBCB5BA2484A02C00F76D98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BBCB5BD2484A02C00F76D98 /* Preview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Preview.xcassets; sourceTree = "<group>"; };
+		8BBCB5BD2484A02C00F76D98 /* Previews.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Previews.xcassets; sourceTree = "<group>"; };
 		8BBCB5C22484A02C00F76D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BBCB5C82484A10F00F76D98 /* BasemEmara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BasemEmara.entitlements; sourceTree = "<group>"; };
 		8BBCB5D42484AA5100F76D98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D62484AA6700F76D98 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D72484AA6800F76D98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BBCB5D82484AB0B00F76D98 /* AppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
-		8BBCB5D92484AB0B00F76D98 /* Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		8BBCB5D92484AB0B00F76D98 /* AppPreviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreviews.swift; sourceTree = "<group>"; };
 		8BBCB5DC2484AB0B00F76D98 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8BBCB5DD2484AB0B00F76D98 /* UIContextMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIContextMenuConfiguration.swift; sourceTree = "<group>"; };
 		8BBCB5DE2484AB0B00F76D98 /* Taxonomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
 		8BBCB5DF2484AB0B00F76D98 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8BBCB5E12484AB0B00F76D98 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		8BBCB5E32484AB0B00F76D98 /* TermsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsState.swift; sourceTree = "<group>"; };
-		8BBCB5E42484AB0B00F76D98 /* PostsState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsState.swift; sourceTree = "<group>"; };
 		8BBCB5E72484AB0B00F76D98 /* ShortcutPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPlugin.swift; sourceTree = "<group>"; };
 		8BBCB5E82484AB0B00F76D98 /* ShortcutRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutRender.swift; sourceTree = "<group>"; };
 		8BBCB5E92484AB0B00F76D98 /* LoggerPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerPlugin.swift; sourceTree = "<group>"; };
@@ -558,6 +546,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8B67B3F72505F27C00501E6D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				8B67B3F92505F2A600501E6D /* SwiftyPress */,
+				8B67B3F82505F29100501E6D /* ZamzamKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		8B8FDDBC24B4A07B0031DA19 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,10 +572,9 @@
 				8BBCB6F02484B46D00F76D98 /* iOS Today */,
 				8BBCB7082484B49500F76D98 /* iOS Notification */,
 				8B10F0F324D87D9800C1C1BF /* iOS Tests */,
+				8B67B3F72505F27C00501E6D /* Packages */,
 				8BBCB6ED2484B46D00F76D98 /* Frameworks */,
 				8BBCB5B22484A02A00F76D98 /* Products */,
-				8B64FBC524EDB44F0061AF71 /* SwiftyPress.bundle */,
-				8B64FBC424EDB44E0061AF71 /* ZamzamCore.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -605,20 +601,18 @@
 				8BBCB5B62484A02A00F76D98 /* SceneDelegate.swift */,
 				8BBCB5BA2484A02C00F76D98 /* Assets.xcassets */,
 				8BBCB6672484AB0B00F76D98 /* Media.xcassets */,
-				8BBCB5BC2484A02C00F76D98 /* Preview Content */,
 				8BBCB5C92484A48900F76D98 /* Supporting Files */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		8BBCB5BC2484A02C00F76D98 /* Preview Content */ = {
+		8BBCB5BC2484A02C00F76D98 /* Previews */ = {
 			isa = PBXGroup;
 			children = (
-				8B0F05432486CAD6008C03B7 /* sample.json */,
-				8BBCB5D92484AB0B00F76D98 /* Preview.swift */,
-				8BBCB5BD2484A02C00F76D98 /* Preview.xcassets */,
+				8BBCB5D92484AB0B00F76D98 /* AppPreviews.swift */,
+				8BBCB5BD2484A02C00F76D98 /* Previews.xcassets */,
 			);
-			path = "Preview Content";
+			path = Previews;
 			sourceTree = "<group>";
 		};
 		8BBCB5C92484A48900F76D98 /* Supporting Files */ = {
@@ -646,15 +640,6 @@
 				8BBCB5E12484AB0B00F76D98 /* Theme.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		8BBCB5E22484AB0B00F76D98 /* States */ = {
-			isa = PBXGroup;
-			children = (
-				8BBCB5E42484AB0B00F76D98 /* PostsState.swift */,
-				8BBCB5E32484AB0B00F76D98 /* TermsState.swift */,
-			);
-			path = States;
 			sourceTree = "<group>";
 		};
 		8BBCB5E52484AB0B00F76D98 /* Plugins */ = {
@@ -1046,7 +1031,7 @@
 				8B8FDDBC24B4A07B0031DA19 /* Enums */,
 				8B0E0F5224A951F3003A3C1A /* Extensions */,
 				8BBCB6D62484AB2200F76D98 /* Localization */,
-				8BBCB5E22484AB0B00F76D98 /* States */,
+				8BBCB5BC2484A02C00F76D98 /* Previews */,
 				8BBCB6D22484AB2200F76D98 /* AppCore.swift */,
 				8BBCB5D82484AB0B00F76D98 /* AppStore.swift */,
 				8BBCB6D32484AB2200F76D98 /* AppTheme.swift */,
@@ -1301,16 +1286,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBC624EDB44F0061AF71 /* ZamzamCore.bundle in Resources */,
-				8B64FBC724EDB44F0061AF71 /* SwiftyPress.bundle in Resources */,
 				8BBCB6902484AB0B00F76D98 /* style.css in Resources */,
-				8B0F05442486CAD6008C03B7 /* sample.json in Resources */,
 				8BBCB6CD2484AB0B00F76D98 /* Media.xcassets in Resources */,
 				8BBCB6DB2484AB2200F76D98 /* Theme.xcassets in Resources */,
 				8BBCB5D32484AA5100F76D98 /* InfoPlist.strings in Resources */,
 				8BBCB6DF2484AB2200F76D98 /* Localizable.strings in Resources */,
 				8BBCB6DE2484AB2200F76D98 /* seed.json in Resources */,
-				8BBCB5BE2484A02C00F76D98 /* Preview.xcassets in Resources */,
+				8BBCB5BE2484A02C00F76D98 /* Previews.xcassets in Resources */,
 				8BBCB68F2484AB0B00F76D98 /* post.html in Resources */,
 				8BBCB6BE2484AB0B00F76D98 /* LaunchScreen.storyboard in Resources */,
 				8BBCB6DA2484AB2200F76D98 /* Media.xcassets in Resources */,
@@ -1322,8 +1304,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBC824EDB4590061AF71 /* SwiftyPress.bundle in Resources */,
-				8B64FBC924EDB4590061AF71 /* ZamzamCore.bundle in Resources */,
 				8BBCB74224851A8500F76D98 /* seed.json in Resources */,
 				8BBCB74424851A9700F76D98 /* Localizable.strings in Resources */,
 				8BBCB74924851AA500F76D98 /* Theme.xcassets in Resources */,
@@ -1336,8 +1316,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B64FBCA24EDB45C0061AF71 /* SwiftyPress.bundle in Resources */,
-				8B64FBCB24EDB45C0061AF71 /* ZamzamCore.bundle in Resources */,
 				8BBCB74324851A8A00F76D98 /* seed.json in Resources */,
 				8BBCB74524851A9800F76D98 /* Localizable.strings in Resources */,
 				8BBCB74D24851AA600F76D98 /* Theme.xcassets in Resources */,
@@ -1503,7 +1481,6 @@
 				8BBCB66D2484AB0B00F76D98 /* Taxonomy.swift in Sources */,
 				8BBCB6A32484AB0B00F76D98 /* ShowMoreRender.swift in Sources */,
 				8BBCB6BF2484AB0B00F76D98 /* SearchPostsViewController.swift in Sources */,
-				8BBCB6702484AB0B00F76D98 /* TermsState.swift in Sources */,
 				8BBCB69F2484AB0B00F76D98 /* ShowMoreViewController.swift in Sources */,
 				8BBCB6972484AB0B00F76D98 /* ListPostsAPI.swift in Sources */,
 				8BBCB6782484AB0B00F76D98 /* BackgroundPlugin.swift in Sources */,
@@ -1511,8 +1488,7 @@
 				8BBCB6922484AB0B00F76D98 /* ShowPostState.swift in Sources */,
 				8BBCB6C92484AB0B00F76D98 /* ListFavoritesViewController.swift in Sources */,
 				8BBCB6DC2484AB2200F76D98 /* AppCore.swift in Sources */,
-				8B0E0F5324A954D2003A3C1A /* Preview.swift in Sources */,
-				8BBCB6712484AB0B00F76D98 /* PostsState.swift in Sources */,
+				8B0E0F5324A954D2003A3C1A /* AppPreviews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1814,10 +1790,11 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 72;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = Shared/Previews;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1838,10 +1815,11 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 72;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = Shared/Previews;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1928,10 +1906,11 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/BasemEmara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 72;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = Shared/Previews;
 				DEVELOPMENT_TEAM = ZYJTUJP7C7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

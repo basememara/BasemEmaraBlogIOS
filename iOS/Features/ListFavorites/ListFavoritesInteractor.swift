@@ -29,19 +29,19 @@ extension ListFavoritesInteractor {
     func fetchFavoritePosts(with request: ListFavoritesAPI.FetchPostsRequest) {
         favoriteRepository.fetch {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displayFavoritePosts(
+                return presenter.displayFavoritePosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayFavoritePosts(
+                    return presenter.displayFavoritePosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.displayFavoritePosts(
+                presenter.displayFavoritePosts(
                     for: ListFavoritesAPI.FetchPostsResponse(
                         posts: posts,
                         media: media

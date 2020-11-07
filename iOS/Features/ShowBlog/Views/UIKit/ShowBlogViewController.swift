@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SwiftyPress
 import ZamzamCore
@@ -18,10 +19,11 @@ final class ShowBlogViewController: UIViewController {
     private let theme: Theme
     
     private(set) var render: ShowBlogRenderable?
+    private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Controls
     
-    private lazy var scrollStackView = makeScrollStackView()
+    private lazy var scrollStackView = makeScrollStackView(refreshAction: #selector(fetch))
     private lazy var activityIndicatorView = view.makeActivityIndicator()
     
     private lazy var latestPostsCollectionView = makeLatestPostsCollectionView()
@@ -78,13 +80,14 @@ final class ShowBlogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -121,12 +124,47 @@ private extension ShowBlogViewController {
             pickedPostsCollectionView,
             makeFooter()
         ])
-        
-        // Bind reactive data
-        state.subscribe(load)
     }
     
-    func fetch() {
+    func observe() {
+        state.$latestPosts
+            .compactMap { $0 }
+            .sink(receiveValue: latestPostsCollectionViewAdapter.reloadData)
+            .store(in: &cancellable)
+        
+        state.$popularPosts
+            .compactMap { $0 }
+            .sink(receiveValue: popularPostsCollectionViewAdapter.reloadData)
+            .store(in: &cancellable)
+        
+        state.$topPickPosts
+            .compactMap { $0 }
+            .sink(receiveValue: pickedPostsCollectionViewAdapter.reloadData)
+            .store(in: &cancellable)
+        
+        state.$terms
+            .compactMap { $0 }
+            .sink(receiveValue: topTermsTableViewAdapter.reloadData)
+            .store(in: &cancellable)
+        
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
+        
+        Publishers
+            .Zip4(
+                state.$latestPosts.eraseToAnyPublisher(),
+                state.$popularPosts.eraseToAnyPublisher(),
+                state.$topPickPosts.eraseToAnyPublisher(),
+                state.$terms.eraseToAnyPublisher()
+            )
+            .sink { [weak self] _ in
+                self?.endRefreshing()
+            }
+            .store(in: &cancellable)
+    }
+    
+    @objc func fetch() {
         interactor?.fetchLatestPosts(
             with: ShowBlogAPI.FetchPostsRequest(maxLength: 30)
         )
@@ -143,36 +181,14 @@ private extension ShowBlogViewController {
             with: ShowBlogAPI.FetchTermsRequest(maxLength: 6)
         )
     }
+}
+
+private extension ShowBlogViewController {
     
-    func load(_ result: StateChange<ShowBlogState>) {
-        if result == .updated(\ShowBlogState.latestPosts) || result == .initial {
-            latestPostsCollectionViewAdapter.reloadData(with: state.latestPosts)
-        }
-        
-        if result == .updated(\ShowBlogState.popularPosts) || result == .initial {
-            popularPostsCollectionViewAdapter.reloadData(with: state.popularPosts)
-        }
-        
-        if result == .updated(\ShowBlogState.topPickPosts) || result == .initial {
-            pickedPostsCollectionViewAdapter.reloadData(with: state.topPickPosts)
-        }
-        
-        if result == .updated(\ShowBlogState.terms) || result == .initial {
-            topTermsTableViewAdapter.reloadData(with: state.terms)
-        }
-        
-        if case .failure(let error) = result {
-            activityIndicatorView.stopAnimating()
-            present(alert: error.title, message: error.message)
-        }
-        
-        // Stop loader when all sections populated
-        if latestPostsCollectionViewAdapter.viewModels?.isEmpty == false
-            && popularPostsCollectionViewAdapter.viewModels?.isEmpty == false
-            && pickedPostsCollectionViewAdapter.viewModels?.isEmpty == false
-            && topTermsTableViewAdapter.viewModels?.isEmpty == false {
-            activityIndicatorView.stopAnimating()
-        }
+    func load(error: ViewError?) {
+        endRefreshing()
+        guard let error = error else { return }
+        present(alert: error.title, message: error.message)
     }
 }
 
@@ -316,6 +332,21 @@ extension ShowBlogViewController: MainSelectable {
     func mainDidSelect() {
         guard isViewLoaded else { return }
         scrollStackView.scrollToTop()
+    }
+}
+
+// MARK: - Helpers
+
+extension ShowBlogViewController {
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
+        
+        if scrollStackView.refreshControl?.isRefreshing == true {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                self?.scrollStackView.refreshControl?.endRefreshing()
+            }
+        }
     }
 }
 

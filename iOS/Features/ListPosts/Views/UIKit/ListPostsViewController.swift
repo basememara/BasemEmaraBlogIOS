@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SystemConfiguration
 import SwiftyPress
@@ -18,6 +19,7 @@ final class ListPostsViewController: UIViewController {
     private var render: ListPostsRenderable?
     private let constants: Constants
     private let theme: Theme
+    private var cancellable = Set<AnyCancellable>()
     
     var params = ListPostsAPI.Params(
         fetchType: .latest,
@@ -66,13 +68,14 @@ final class ListPostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -103,9 +106,18 @@ private extension ListPostsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$posts
+            .handleEvents(receiveOutput: { [weak self] _ in self?.endRefreshing() })
+            .compactMap { $0 }
+            .sink(receiveValue: tableViewAdapter.reloadData)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
@@ -137,18 +149,14 @@ private extension ListPostsViewController {
             )
         }
     }
+}
+
+private extension ListPostsViewController {
     
-    func load(_ result: StateChange<ListPostsState>) {
-        switch result {
-        case .updated(\ListPostsState.posts), .initial:
-            tableViewAdapter.reloadData(with: state.posts)
-        case .failure(let error):
-            present(alert: error.title, message: error.message)
-        default:
-            break
-        }
-        
+    func load(error: ViewError?) {
         endRefreshing()
+        guard let error = error else { return }
+        present(alert: error.title, message: error.message)
     }
 }
 

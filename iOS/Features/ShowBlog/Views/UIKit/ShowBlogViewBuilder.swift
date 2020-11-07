@@ -13,13 +13,16 @@ import ZamzamUI
 
 extension ShowBlogViewController {
     
-    func makeScrollStackView() -> ScrollStackView {
+    func makeScrollStackView(refreshAction action: Selector) -> ScrollStackView {
         ScrollStackView(
             insets: UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0),
             spacing: 16
         ).apply {
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
+            $0.refreshControl = UIRefreshControl().apply {
+                $0.addTarget(self, action: action, for: .valueChanged)
+            }
         }
     }
 }

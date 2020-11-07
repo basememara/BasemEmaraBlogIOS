@@ -6,6 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import SwiftyPress
 import UIKit
 import ZamzamCore
@@ -15,7 +16,8 @@ final class HomeViewController: UIViewController {
     private let state: HomeState
     private let interactor: HomeInteractable?
     private var render: HomeRenderable?
-    
+    private var cancellable = Set<AnyCancellable>()
+
     // MARK: - Controls
     
     private lazy var tableView = UITableView(
@@ -28,10 +30,7 @@ final class HomeViewController: UIViewController {
         $0.showsVerticalScrollIndicator = false
     }
     
-    private lazy var headerView = HomeHeaderView(
-        state: state,
-        delegate: self
-    )
+    private lazy var headerView = HomeHeaderView(delegate: self)
     
     // MARK: - Initializers
     
@@ -55,6 +54,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
@@ -71,7 +71,7 @@ final class HomeViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -86,9 +86,23 @@ private extension HomeViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$homeMenu
+            .compactMap { $0 }
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$profile
+            .compactMap { $0 }
+            .sink(receiveValue: headerView.load)
+            .store(in: &cancellable)
+        
+        state.$socialMenu
+            .compactMap { $0 }
+            .sink(receiveValue: headerView.load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
@@ -96,23 +110,12 @@ private extension HomeViewController {
         interactor?.fetchMenu()
         interactor?.fetchSocial()
     }
+}
+
+private extension HomeViewController {
     
-    func load(_ result: StateChange<HomeState>) {
-        if result == .updated(\HomeState.profile) || result == .initial {
-            headerView.reloadProfile()
-        }
-        
-        if result == .updated(\HomeState.socialMenu) || result == .initial {
-            headerView.reloadSocialMenu()
-        }
-        
-        if result == .updated(\HomeState.homeMenu) || result == .initial {
-            tableView.reloadData()
-        }
-        
-        if case .failure(let error) = result {
-            present(alert: error.title, message: error.message)
-        }
+    func load(menuSections: [HomeAPI.MenuSection]) {
+        tableView.reloadData()
     }
 }
 
@@ -124,7 +127,7 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let item = state
-            .homeMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            .homeMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
         
@@ -135,20 +138,20 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        state.homeMenu.count
+        state.homeMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.homeMenu[safe: section]?.items.count ?? 0
+        state.homeMenu?[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        state.homeMenu[safe: section]?.title ??+ nil
+        state.homeMenu?[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = state
-            .homeMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            .homeMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
         

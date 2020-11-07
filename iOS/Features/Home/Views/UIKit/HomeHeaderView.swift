@@ -19,7 +19,6 @@ import ZamzamUI
 // MARK: - View
 
 class HomeHeaderView: UIView {
-    private let state: HomeState
     private weak var delegate: HomeHeaderViewDelegate?
     
     // MARK: - Controls
@@ -58,13 +57,11 @@ class HomeHeaderView: UIView {
     
     // MARK: - Initializers
     
-    init(state: HomeState, delegate: HomeHeaderViewDelegate?) {
-        self.state = state
+    init(delegate: HomeHeaderViewDelegate?) {
         self.delegate = delegate
         
         super.init(frame: .zero)
         self.prepare()
-        self.reloadData()
     }
     
     @available(*, unavailable)
@@ -95,22 +92,16 @@ private extension HomeHeaderView {
 
 extension HomeHeaderView {
     
-    func reloadData() {
-        reloadProfile()
-        reloadSocialMenu()
-    }
-    
-    func reloadProfile() {
-        guard let profile = state.profile else { return }
+    func load(profile: HomeAPI.Profile) {
         profileAvatarImageView.image = UIImage(named: profile.avatar)
         profileNameLabel.text = profile.name
         profileCaptionLabel.text = profile.caption
     }
     
-    func reloadSocialMenu() {
+    func load(socialMenu: [HomeAPI.SocialItem]) {
         socialStackView
             .deleteArrangedSubviews()
-            .addArrangedSubviews(state.socialMenu.compactMap {
+            .addArrangedSubviews(socialMenu.compactMap {
                 guard let delegate = delegate else { return nil }
                 
                 return SocialButton(

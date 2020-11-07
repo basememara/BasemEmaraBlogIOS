@@ -23,7 +23,7 @@ extension ListTermsInteractor {
     func fetchTerms(with request: ListTermsAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
             guard case .success(let items) = $0 else {
-                self.presenter.displayTerms(
+                presenter.displayTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -32,7 +32,7 @@ extension ListTermsInteractor {
             
             let terms = items.sorted { $0.count > $1.count }
             
-            self.presenter.displayTerms(
+            presenter.displayTerms(
                 for: ListTermsAPI.TermsResponse(
                     terms: terms
                 )

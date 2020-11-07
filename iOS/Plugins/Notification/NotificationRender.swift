@@ -25,7 +25,7 @@ private extension NotificationRender {
 extension NotificationRender {
     
     func showBlog(for id: Int) {
-        viewController?.show(menu: MainAPI.Menu.blog) { (controller: ShowBlogViewController) in
+        viewController?.show(menu: MainAPI.Menu.blog, configure: nil) { (controller: ShowBlogViewController) in
             controller.render?.showPost(for: id)
         }
     }

@@ -49,6 +49,6 @@ extension LoggerPlugin: ScenePlugin {
     }
     
     func sceneWillResignActive() {
-        log.debug("App did will resign active.")
+        log.debug("App will resign active.")
     }
 }

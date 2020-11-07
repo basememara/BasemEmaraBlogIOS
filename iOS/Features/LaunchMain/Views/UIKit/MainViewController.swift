@@ -6,6 +6,7 @@
 //  Copyright © 2019 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import SwiftyPress
 import UIKit
 import ZamzamUI
@@ -14,6 +15,7 @@ class MainViewController: UITabBarController {
     private let state: MainState
     private let interactor: MainInteractable?
     private let render: MainRenderable
+    private var cancellable = Set<AnyCancellable>()
     
     init(
         state: MainState,
@@ -35,13 +37,14 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -51,15 +54,23 @@ private extension MainViewController {
     
     func prepare() {
         delegate = self
-        state.subscribe(load)
+    }
+    
+    func observe() {
+        state.$tabMenu
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
         interactor?.fetchMenu(for: UIDevice.current.userInterfaceIdiom)
     }
+}
+
+private extension MainViewController {
     
-    func load(_ result: StateChange<MainState>) {
-        viewControllers = state.tabMenu.map { item in
+    func load(tabMenu: [MainAPI.TabItem]?) {
+        viewControllers = tabMenu?.map { item in
             UINavigationController(
                 rootViewController: render.rootView(for: item.id).apply {
                     $0.tabBarItem = UITabBarItem(

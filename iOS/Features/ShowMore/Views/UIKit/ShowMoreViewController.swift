@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SwiftyPress
 import ZamzamCore
@@ -15,6 +16,7 @@ final class ShowMoreViewController: UIViewController {
     private let state: ShowMoreState
     private let interactor: ShowMoreInteractable?
     private(set) var render: ShowMoreRenderable?
+    private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Controls
     
@@ -44,13 +46,14 @@ final class ShowMoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -65,33 +68,35 @@ private extension ShowMoreViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$moreMenu
+            .compactMap { $0 }
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$socialMenu
+            .compactMap { $0 }
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
         interactor?.fetchMenu()
         interactor?.fetchSocial()
     }
+}
+
+private extension ShowMoreViewController {
     
-    func load(_ result: StateChange<ShowMoreState>) {
-        if result == .updated(\ShowMoreState.moreMenu) || result == .initial {
-            tableView.reloadData()
-        }
-        
-        if result == .updated(\ShowMoreState.socialMenu) || result == .initial {
-            load(state.socialMenu)
-        }
-        
-        if case .failure(let error) = result {
-            present(alert: error.title, message: error.message)
-        }
+    func load(moreMenu: [ShowMoreAPI.MenuSection]) {
+        tableView.reloadData()
     }
     
-    func load(_ state: [ShowMoreAPI.SocialItem]) {
+    func load(socialMenu: [ShowMoreAPI.SocialItem]) {
         socialCellStackView.setArrangedSubviews(
-            state.map {
+            socialMenu.map {
                 SocialButton(
                     social: $0.type,
                     target: self,
@@ -120,7 +125,7 @@ extension ShowMoreViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let cell = tableView.cellForRow(at: indexPath),
-            let item = state.moreMenu[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            let item = state.moreMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
         
@@ -131,19 +136,19 @@ extension ShowMoreViewController: UITableViewDelegate {
 extension ShowMoreViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        state.moreMenu.count
+        state.moreMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.moreMenu[safe: section]?.items.count ?? 0
+        state.moreMenu?[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        state.moreMenu[safe: section]?.title ??+ nil
+        state.moreMenu?[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = state.moreMenu[safe: indexPath.section]?
+        guard let item = state.moreMenu?[safe: indexPath.section]?
             .items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
@@ -197,7 +202,7 @@ private extension ShowMoreViewController {
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             
-            load(state.socialMenu)
+            load(socialMenu: state.socialMenu)
             
             socialCellStackView.translatesAutoresizingMaskIntoConstraints = false
             socialCellStackView.topAnchor.constraint(equalTo: $0.topAnchor, constant: 12).isActive = true

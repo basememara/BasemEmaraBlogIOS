@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SwiftyPress
 import ZamzamCore
@@ -15,6 +16,7 @@ final class ListTermsViewController: UIViewController {
     private let state: ListTermsState
     private let interactor: ListTermsInteractable?
     private var render: ListTermsRenderable?
+    private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Controls
     
@@ -50,13 +52,14 @@ final class ListTermsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -71,9 +74,17 @@ private extension ListTermsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$terms
+            .compactMap { $0 }
+            .sink(receiveValue: tableViewAdapter.reloadData)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
@@ -81,16 +92,13 @@ private extension ListTermsViewController {
             with: ListTermsAPI.FetchTermsRequest()
         )
     }
+}
+
+private extension ListTermsViewController {
     
-    func load(_ result: StateChange<ListTermsState>) {
-        switch result {
-        case .updated(\ListTermsState.terms), .initial:
-            tableViewAdapter.reloadData(with: state.terms)
-        case .failure(let error):
-            present(alert: error.title, message: error.message)
-        default:
-            break
-        }
+    func load(error: ViewError?) {
+        guard let error = error else { return }
+        present(alert: error.title, message: error.message)
     }
 }
 

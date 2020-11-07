@@ -24,10 +24,10 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            ForEach(state.tabMenu) { menu in
+            ForEach(state.tabMenu ?? []) { menu in
                 NavigationView {
                     ViewRepresentable(
-                        viewController: self.render.rootView(for: menu.id)
+                        viewController: render.rootView(for: menu.id)
                     )
                 }
                 .tabItem {

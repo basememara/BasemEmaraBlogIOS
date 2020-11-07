@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import WebKit
 import SystemConfiguration
@@ -20,6 +21,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     private let constants: Constants
     private let theme: Theme
     private let notificationCenter: NotificationCenter
+    private var cancellable = Set<AnyCancellable>()
     
     private var postID: Int?
     private var viewModel: ShowPostAPI.PostViewModel?
@@ -101,6 +103,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
@@ -119,7 +122,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -143,9 +146,24 @@ private extension ShowPostViewController {
             selector: #selector(deviceOrientationDidChange),
             name: UIDevice.orientationDidChangeNotification
         )
+    }
+    
+    func observe() {
+        state.$post
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$web
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
+        
+        state.$isFavorite
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
+        
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
@@ -160,25 +178,8 @@ private extension ShowPostViewController {
 
 private extension ShowPostViewController {
     
-    func load(_ result: StateChange<ShowPostState>) {
-        if let web = state.web, [.updated(\ShowPostState.web), .initial].contains(result) {
-            load(web)
-        }
-        
-        if let post = state.post, [.updated(\ShowPostState.post), .initial].contains(result) {
-            load(post)
-        }
-        
-        if result == .updated(\ShowPostState.isFavorite) || result == .initial {
-            load(favorite: state.isFavorite)
-        }
-        
-        if case .failure(let error) = result {
-            present(alert: error.title, message: error.message)
-        }
-    }
-    
-    func load(_ viewModel: ShowPostAPI.PostViewModel) {
+    func load(viewModel: ShowPostAPI.PostViewModel?) {
+        guard let viewModel = viewModel else { return }
         self.viewModel = viewModel
         
         title = viewModel.title
@@ -190,7 +191,9 @@ private extension ShowPostViewController {
         )
     }
     
-    func load(_ viewModel: ShowPostAPI.WebViewModel) {
+    func load(viewModel: ShowPostAPI.WebViewModel?) {
+        guard let viewModel = viewModel else { return }
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.setToolbarHidden(false, animated: true)
         
@@ -213,6 +216,11 @@ private extension ShowPostViewController {
         favoriteBarButton.image = favorite
             ? UIImage(named: .favoriteFilled)
             : UIImage(named: .favoriteEmpty)
+    }
+    
+    func load(error: ViewError?) {
+        guard let error = error else { return }
+        present(alert: error.title, message: error.message)
     }
 }
 
@@ -382,9 +390,7 @@ struct ShowPostControllerPreview: PreviewProvider {
                 application: .shared,
                 notificationCenter: Preview.core.notificationCenter(),
                 postID: 0
-            ).apply {
-                $0.load(.initial)
-            }
+            )
         ).previews
     }
 }

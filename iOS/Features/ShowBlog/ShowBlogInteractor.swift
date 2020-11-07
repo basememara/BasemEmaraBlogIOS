@@ -41,19 +41,19 @@ extension ShowBlogInteractor {
         
         postRepository.fetch(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displayLatestPosts(
+                return presenter.displayLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayLatestPosts(
+                    return presenter.displayLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.displayLatestPosts(
+                presenter.displayLatestPosts(
                     for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
@@ -72,19 +72,19 @@ extension ShowBlogInteractor {
         
         postRepository.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displayPopularPosts(
+                return presenter.displayPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayPopularPosts(
+                    return presenter.displayPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
-                self.presenter.displayPopularPosts(
+                presenter.displayPopularPosts(
                     for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
@@ -103,7 +103,7 @@ extension ShowBlogInteractor {
         
         postRepository.fetchTopPicks(with: request) {
             guard case .success(let posts) = $0 else {
-                self.presenter.displayTopPickPosts(
+                presenter.displayTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -112,14 +112,14 @@ extension ShowBlogInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    self.presenter.displayTopPickPosts(
+                    presenter.displayTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                     
                     return
                 }
                 
-                self.presenter.displayTopPickPosts(
+                presenter.displayTopPickPosts(
                     for: ShowBlogAPI.PostsResponse(
                         posts: posts,
                         media: media,
@@ -136,7 +136,7 @@ extension ShowBlogInteractor {
     func fetchTerms(with request: ShowBlogAPI.FetchTermsRequest) {
         taxonomyRepository.fetch(by: [.category, .tag]) {
             guard case .success(let items) = $0 else {
-                self.presenter.displayTerms(
+                presenter.displayTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -148,7 +148,7 @@ extension ShowBlogInteractor {
                 .prefix(request.maxLength)
                 .array
             
-            self.presenter.displayTerms(
+            presenter.displayTerms(
                 for: ShowBlogAPI.TermsResponse(
                     terms: terms
                 )

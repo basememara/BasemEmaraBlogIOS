@@ -11,13 +11,8 @@ import SwiftyPress
 import ZamzamUI
 
 struct ShowBlogPresenter: ShowBlogPresentable {
-    private let store: StoreReducer<ShowBlogReducer>
-    private let dateFormatter: DateFormatter
-    
-    init(_ store: @escaping StoreReducer<ShowBlogReducer>) {
-        self.store = store
-        self.dateFormatter = DateFormatter(dateStyle: .medium)
-    }
+    var model: ShowBlogState
+    private let dateFormatter = DateFormatter(dateStyle: .medium)
 }
 
 extension ShowBlogPresenter {
@@ -28,11 +23,11 @@ extension ShowBlogPresenter {
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
-                dateFormatter: self.dateFormatter
+                dateFormatter: dateFormatter
             )
         }
         
-        store(.loadLatestPosts(viewModels))
+        model.latestPosts = viewModels
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
@@ -41,7 +36,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store(.loadError(viewModel))
+        model.error = viewModel
     }
 }
 
@@ -53,11 +48,11 @@ extension ShowBlogPresenter {
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
-                dateFormatter: self.dateFormatter
+                dateFormatter: dateFormatter
             )
         }
         
-        store(.loadPopularPosts(viewModels))
+        model.popularPosts = viewModels
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -66,7 +61,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store(.loadError(viewModel))
+        model.error = viewModel
     }
 }
 
@@ -78,11 +73,11 @@ extension ShowBlogPresenter {
                 from: post,
                 mediaURL: response.media.first { $0.id == post.mediaID }?.link,
                 favorite: response.favorites.contains(post.id),
-                dateFormatter: self.dateFormatter
+                dateFormatter: dateFormatter
             )
         }
         
-        store(.loadTopPickPosts(viewModels))
+        model.topPickPosts = viewModels
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -91,7 +86,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store(.loadError(viewModel))
+        model.error = viewModel
     }
 }
 
@@ -107,7 +102,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        store(.loadTerms(viewModels))
+        model.terms = viewModels
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -116,7 +111,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        store(.loadError(viewModel))
+        model.error = viewModel
     }
 }
 
@@ -128,6 +123,7 @@ extension ShowBlogPresenter {
             favorite: response.favorite
         )
         
-        store(.toggleFavorite(viewModel))
+        #warning("Implement favorites on global")
+        //store(.toggleFavorite(viewModel))
     }
 }

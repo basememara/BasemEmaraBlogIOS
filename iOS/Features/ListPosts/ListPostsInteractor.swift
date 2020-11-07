@@ -34,7 +34,7 @@ extension ListPostsInteractor {
         
         postRepository.fetch(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                return self.presenter.displayLatestPosts(
+                return presenter.displayLatestPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
@@ -45,21 +45,21 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displayLatestPosts(
+                    return presenter.displayLatestPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displayPopularPosts(
+                        presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                     
-                    self.presenter.displayPosts(
+                    presenter.displayPosts(
                         for: ListPostsAPI.PostsResponse(
                             posts: posts,
                             media: media,
@@ -79,7 +79,7 @@ extension ListPostsInteractor {
         
         postRepository.fetchPopular(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                self.presenter.displayPopularPosts(
+                presenter.displayPopularPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -92,7 +92,7 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    self.presenter.displayPopularPosts(
+                    presenter.displayPopularPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                     
@@ -101,14 +101,14 @@ extension ListPostsInteractor {
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displayPopularPosts(
+                        presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                 
-                    self.presenter.displayPosts(
+                    presenter.displayPosts(
                         for: ListPostsAPI.PostsResponse(
                             posts: posts,
                             media: media,
@@ -128,7 +128,7 @@ extension ListPostsInteractor {
         
         postRepository.fetchTopPicks(with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                self.presenter.displayTopPickPosts(
+                presenter.displayTopPickPosts(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -141,7 +141,7 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    self.presenter.displayTopPickPosts(
+                    presenter.displayTopPickPosts(
                         error: $0.error ?? .unknownReason(nil)
                     )
                     
@@ -150,14 +150,14 @@ extension ListPostsInteractor {
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displayPopularPosts(
+                        presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                     
-                    self.presenter.displayPosts(
+                    presenter.displayPosts(
                         for: ListPostsAPI.PostsResponse(
                             posts: posts,
                             media: media,
@@ -177,7 +177,7 @@ extension ListPostsInteractor {
         
         postRepository.fetch(byTermIDs: request.ids, with: fetchRequest) {
             guard case .success(var posts) = $0 else {
-                self.presenter.displayPostsByTerms(
+                presenter.displayPostsByTerms(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
@@ -190,7 +190,7 @@ extension ListPostsInteractor {
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    self.presenter.displayPostsByTerms(
+                    presenter.displayPostsByTerms(
                         error: $0.error ?? .unknownReason(nil)
                     )
                     
@@ -199,14 +199,14 @@ extension ListPostsInteractor {
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displayPopularPosts(
+                        presenter.displayPopularPosts(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                     
-                    self.presenter.displayPosts(
+                    presenter.displayPosts(
                         for: ListPostsAPI.PostsResponse(
                             posts: posts,
                             media: media,

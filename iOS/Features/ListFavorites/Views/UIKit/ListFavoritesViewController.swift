@@ -6,6 +6,7 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SwiftyPress
 import ZamzamCore
@@ -17,6 +18,7 @@ final class ListFavoritesViewController: UIViewController {
     private var render: ListFavoritesRenderable?
     private let constants: Constants
     private let theme: Theme
+    private var cancellable = Set<AnyCancellable>()
 
     // MARK: - Controls
     
@@ -60,13 +62,14 @@ final class ListFavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -81,9 +84,17 @@ private extension ListFavoritesViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$favorites
+            .compactMap { $0 }
+            .sink(receiveValue: tableViewAdapter.reloadData)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
@@ -91,16 +102,13 @@ private extension ListFavoritesViewController {
             with: ListFavoritesAPI.FetchPostsRequest()
         )
     }
+}
+
+private extension ListFavoritesViewController {
     
-    func load(_ result: StateChange<ListFavoritesState>) {
-        switch result {
-        case .updated(\ListFavoritesState.favorites), .initial:
-            tableViewAdapter.reloadData(with: state.favorites)
-        case .failure(let error):
-            present(alert: error.title, message: error.message)
-        default:
-            break
-        }
+    func load(error: ViewError?) {
+        guard let error = error else { return }
+        present(alert: error.title, message: error.message)
     }
 }
 

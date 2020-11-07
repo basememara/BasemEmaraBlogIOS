@@ -5,6 +5,7 @@
 //  Created by Basem Emara on 2019-11-11.
 //
 
+import Combine
 import UIKit
 import SwiftyPress
 import ZamzamCore
@@ -14,6 +15,7 @@ final class ShowSettingsViewController: UIViewController {
     private let state: ShowSettingsState
     private let interactor: ShowSettingsInteractable?
     private let render: ShowSettingsRenderable?
+    private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Controls
     
@@ -42,13 +44,14 @@ final class ShowSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
+        observe()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         guard isBeingRemoved else { return }
-        state.unsubscribe()
+        cancellable.removeAll()
     }
 }
 
@@ -63,28 +66,28 @@ private extension ShowSettingsViewController {
         // Compose layout
         view.addSubview(tableView)
         tableView.edges(to: view)
+    }
+    
+    func observe() {
+        state.$settingsMenu
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
         
-        // Bind reactive data
-        state.subscribe(load)
+        state.$autoThemeEnabled
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
     }
     
     func fetch() {
         interactor?.fetchMenu()
         interactor?.fetchTheme()
     }
+}
+
+private extension ShowSettingsViewController {
     
-    func load(_ result: StateChange<ShowSettingsState>) {
-        if result == .updated(\ShowSettingsState.settingsMenu) || result == .initial {
-            tableView.reloadData()
-        }
-        
-        if result == .updated(\ShowSettingsState.autoThemeEnabled) || result == .initial {
-            load(autoThemeEnabled: state.autoThemeEnabled)
-        }
-        
-        if case .failure(let error) = result {
-            present(alert: error.title, message: error.message)
-        }
+    func load(settingsMenu: [ShowSettingsAPI.MenuItem]?) {
+        tableView.reloadData()
     }
     
     func load(autoThemeEnabled: Bool) {
@@ -116,7 +119,7 @@ extension ShowSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let item = state.settingsMenu[safe: indexPath.row] else {
+        guard let item = state.settingsMenu?[safe: indexPath.row] else {
             return
         }
         
@@ -145,11 +148,11 @@ extension ShowSettingsViewController: UITableViewDelegate {
 extension ShowSettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.settingsMenu.count
+        state.settingsMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = state.settingsMenu[safe: indexPath.row] else {
+        guard let item = state.settingsMenu?[safe: indexPath.row] else {
             return UITableViewCell()
         }
         

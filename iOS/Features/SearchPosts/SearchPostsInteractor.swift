@@ -32,28 +32,28 @@ extension SearchPostsInteractor {
     func fetchSearchResults(with request: PostAPI.SearchRequest) {
         postRepository.search(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displaySearchResults(
+                return presenter.displaySearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displaySearchResults(
+                    return presenter.displaySearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displaySearchResults(
+                        presenter.displaySearchResults(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                     
-                    self.presenter.displaySearchResults(
+                    presenter.displaySearchResults(
                         for: SearchPostsAPI.Response(
                             posts: posts,
                             media: media,
@@ -73,28 +73,28 @@ extension SearchPostsInteractor {
         
         postRepository.fetchPopular(with: request) {
             guard case .success(let posts) = $0 else {
-                return self.presenter.displaySearchResults(
+                return presenter.displaySearchResults(
                     error: $0.error ?? .unknownReason(nil)
                 )
             }
             
             self.mediaRepository.fetch(ids: Set(posts.compactMap { $0.mediaID })) {
                 guard case .success(let media) = $0 else {
-                    return self.presenter.displaySearchResults(
+                    return presenter.displaySearchResults(
                         error: $0.error ?? .unknownReason(nil)
                     )
                 }
                 
                 self.favoriteRepository.fetchIDs {
                     guard case .success(let favoriteIDs) = $0 else {
-                        self.presenter.displaySearchResults(
+                        presenter.displaySearchResults(
                             error: $0.error ?? .unknownReason(nil)
                         )
                         
                         return
                     }
                     
-                    self.presenter.displaySearchResults(
+                    presenter.displaySearchResults(
                         for: SearchPostsAPI.Response(
                             posts: posts,
                             media: media,

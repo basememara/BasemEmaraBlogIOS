@@ -38,14 +38,14 @@ extension ShowPostInteractor {
     func fetchPost(with request: ShowPostAPI.Request) {
         postRepository.fetch(id: request.postID) {
             guard case .success(let item) = $0 else {
-                self.presenter.displayPost(
+                presenter.displayPost(
                     error: $0.error ?? .unknownReason(nil)
                 )
                 
                 return
             }
             
-            self.presenter.displayPost(
+            presenter.displayPost(
                 for: ShowPostAPI.Response(
                     post: item.post,
                     media: item.media,
@@ -68,7 +68,7 @@ extension ShowPostInteractor {
                 self.taxonomyRepository.fetch(url: request.url) {
                     guard case .success(let term) = $0 else {
                         // URL could not be found
-                        return self.presenter.displayByURL(
+                        return presenter.displayByURL(
                             for: ShowPostAPI.FetchWebResponse(
                                 post: nil,
                                 term: nil,
@@ -78,7 +78,7 @@ extension ShowPostInteractor {
                     }
                     
                     // URL was a taxonomy term
-                    self.presenter.displayByURL(
+                    presenter.displayByURL(
                         for: ShowPostAPI.FetchWebResponse(
                             post: nil,
                             term: term,
@@ -92,7 +92,7 @@ extension ShowPostInteractor {
             
             guard case .success(let post) = $0 else {
                 // URL could not be found
-                return self.presenter.displayByURL(
+                return presenter.displayByURL(
                     for: ShowPostAPI.FetchWebResponse(
                         post: nil,
                         term: nil,
@@ -102,7 +102,7 @@ extension ShowPostInteractor {
             }
             
             // URL was a post
-            self.presenter.displayByURL(
+            presenter.displayByURL(
                 for: ShowPostAPI.FetchWebResponse(
                     post: post,
                     term: nil,

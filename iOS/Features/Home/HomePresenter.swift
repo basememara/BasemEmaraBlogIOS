@@ -9,24 +9,20 @@
 import ZamzamUI
 
 struct HomePresenter: HomePresentable {
-    private let store: StoreReducer<HomeReducer>
-    
-    init(_ store: @escaping StoreReducer<HomeReducer>) {
-        self.store = store
-    }
+    var model: HomeState
 }
 
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        store(.loadProfile(profile))
+        model.profile = profile
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        store(.loadMenu(menu))
+        model.homeMenu = menu
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        store(.loadSocial(social))
+        model.socialMenu = social
     }
 }
