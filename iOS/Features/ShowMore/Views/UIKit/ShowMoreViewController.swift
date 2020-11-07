@@ -202,7 +202,9 @@ private extension ShowMoreViewController {
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             
-            load(socialMenu: state.socialMenu)
+            if let socialMenu = state.socialMenu {
+                load(socialMenu: socialMenu)
+            }
             
             socialCellStackView.translatesAutoresizingMaskIntoConstraints = false
             socialCellStackView.topAnchor.constraint(equalTo: $0.topAnchor, constant: 12).isActive = true

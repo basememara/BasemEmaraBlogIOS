@@ -6,9 +6,10 @@
 //  Copyright © 2018 Zamzam Inc. All rights reserved.
 //
 
-import UIKit
+import Combine
 import NotificationCenter
 import SwiftyPress
+import UIKit
 import ZamzamCore
 import ZamzamUI
 
@@ -17,13 +18,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private let state = TodayState()
     
     private lazy var action: TodayInteractable? = TodayAction(
-        presenter: TodayPresenter { [weak self] in self?.state($0) },
+        presenter: TodayPresenter(model: state),
         postRepository: core.postRepository(),
         mediaRepository: core.mediaRepository()
     )
     
     private lazy var dataRepository = core.dataRepository()
     private lazy var theme = core.theme()
+    private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Controls
     
@@ -74,17 +76,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepare()
-        fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        state.subscribe(load)
+        observe()
+        fetch()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        state.unsubscribe()
+        cancellable.removeAll()
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -139,34 +141,48 @@ private extension TodayViewController {
         featuredImage.widthAnchor.constraint(equalToConstant: 75).isActive = true
     }
     
+    func observe() {
+        state.$posts
+            .compactMap { $0 }
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
+        
+        state.$error
+            .sink(receiveValue: load)
+            .store(in: &cancellable)
+    }
+    
     func fetch() {
         action?.fetchLatestPosts(
             with: TodayAPI.Request(maxLength: 1)
         )
     }
+}
+
+private extension TodayViewController {
     
-    func load(_ result: StateChange<TodayState>) {
-        switch result {
-        case .updated(\TodayState.posts), .initial:
-            guard let item = state.posts.first else { return }
+    func load(posts: [PostsDataViewModel]) {
+        guard let item = posts.first else { return }
             
-            titleLabel.text = item.title
-            detailLabel.text = item.summary
-            captionLabel.text = item.date
-            
-            if let url = item.imageURL {
-                featuredImage.setImage(
-                    from: url,
-                    referenceSize: featuredImage.frame.size,
-                    contentMode: .aspectFill
-                )
-            }
-        case .failure(let error):
-            titleLabel.text ?= error.title
-            detailLabel.text ?= error.message
-        default:
-            break
+        titleLabel.text = item.title
+        detailLabel.text = item.summary
+        captionLabel.text = item.date
+        
+        if let url = item.imageURL {
+            featuredImage.setImage(
+                from: url,
+                referenceSize: featuredImage.frame.size,
+                contentMode: .aspectFill
+            )
         }
+    }
+}
+
+private extension TodayViewController {
+        
+    func load(error: ViewError?) {
+        titleLabel.text ?= error?.title
+        detailLabel.text ?= error?.message
     }
 }
 
@@ -175,7 +191,7 @@ private extension TodayViewController {
 private extension TodayViewController {
     
     @objc func widgetTapped() {
-        guard let link = state.posts.first?.link,
+        guard let link = state.posts?.first?.link,
             let url = URL(string: link) else {
                 return
         }

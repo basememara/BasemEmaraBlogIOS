@@ -11,13 +11,8 @@ import SwiftyPress
 import ZamzamUI
 
 struct TodayPresenter: TodayPresentable {
-    private let state: StoreReducer<TodayReducer>
-    private let dateFormatter: DateFormatter
-    
-    init(state: @escaping StoreReducer<TodayReducer>) {
-        self.state = state
-        self.dateFormatter = DateFormatter(dateFormat: "MMMM d yyyy")
-    }
+    var model: TodayState
+    private let dateFormatter = DateFormatter(dateFormat: "MMMM d yyyy")
 }
 
 extension TodayPresenter {
@@ -32,7 +27,7 @@ extension TodayPresenter {
             )
         }
         
-        state(.loadPosts(viewModels))
+        model.posts = viewModels
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
@@ -41,6 +36,6 @@ extension TodayPresenter {
             message: error.localizedDescription
         )
         
-        state(.loadError(viewModel))
+        model.error = viewModel
     }
 }
