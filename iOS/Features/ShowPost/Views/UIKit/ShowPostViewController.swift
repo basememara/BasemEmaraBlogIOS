@@ -278,6 +278,7 @@ private extension ShowPostViewController {
         let safariActivity = UIActivity.make(
             title: .localized(.openInSafari),
             imageName: UIImage.ImageName.safariShare.rawValue,
+            imageBundle: .swiftyPress,
             handler: {
                 guard SCNetworkReachability.isOnline else {
                     self.present(
