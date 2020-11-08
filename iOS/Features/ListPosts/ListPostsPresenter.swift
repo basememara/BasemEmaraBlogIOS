@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListPostsPresenter: ListPostsPresentable {
-    var model: ListPostsState
+    var model: ListPostsModel
     private let dateFormatter = DateFormatter(dateStyle: .medium)
 }
 

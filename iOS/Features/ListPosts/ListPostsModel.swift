@@ -1,5 +1,5 @@
 //
-//  ListPostsState.swift
+//  ListPostsModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-25.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ListPostsState: ObservableObject, Apply {
+class ListPostsModel: ObservableObject, Model {
     @Published var posts: [PostsDataViewModel]?
     @Published var error: ViewError?
 }

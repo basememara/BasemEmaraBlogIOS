@@ -13,14 +13,14 @@ import Stencil
 import SystemConfiguration
 
 struct ShowPostPresenter: ShowPostPresentable {
-    private var model: ShowPostState
+    private var model: ShowPostModel
     private let constants: Constants
     private let templateFile: String?
     private let styleSheetFile: String?
     private let dateFormatter: DateFormatter
     
     init(
-        _ model: ShowPostState,
+        _ model: ShowPostModel,
         constants: Constants,
         templateFile: String?,
         styleSheetFile: String?

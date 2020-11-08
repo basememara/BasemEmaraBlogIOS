@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class HomeViewController: UIViewController {
-    private let state: HomeState
+    private let model: HomeModel
     private let interactor: HomeInteractable?
     private var render: HomeRenderable?
     private var cancellable = Set<AnyCancellable>()
@@ -35,11 +35,11 @@ final class HomeViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: HomeState,
+        model: HomeModel,
         interactor: HomeInteractable?,
         render: ((UIViewController) -> HomeRenderable)?
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         
         super.init(nibName: nil, bundle: nil)
@@ -89,17 +89,17 @@ private extension HomeViewController {
     }
     
     func observe() {
-        state.$homeMenu
+        model.$homeMenu
             .compactMap { $0 }
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$profile
+        model.$profile
             .compactMap { $0 }
             .sink(receiveValue: headerView.load)
             .store(in: &cancellable)
         
-        state.$socialMenu
+        model.$socialMenu
             .compactMap { $0 }
             .sink(receiveValue: headerView.load)
             .store(in: &cancellable)
@@ -126,7 +126,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let item = state
+        guard let item = model
             .homeMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
@@ -138,19 +138,19 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        state.homeMenu?.count ?? 0
+        model.homeMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.homeMenu?[safe: section]?.items.count ?? 0
+        model.homeMenu?[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        state.homeMenu?[safe: section]?.title ??+ nil
+        model.homeMenu?[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = state
+        guard let item = model
             .homeMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
@@ -180,7 +180,7 @@ struct HomeViewControllerPreview: PreviewProvider {
 
     static var previews: some View {
         HomeViewController(
-            state: Preview.homeState,
+            model: .preview,
             interactor: nil,
             render: nil
         ).previews

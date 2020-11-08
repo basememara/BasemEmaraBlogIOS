@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListFavoritesPresenter: ListFavoritesPresentable {
-    var model: ListFavoritesState
+    var model: ListFavoritesModel
     private let dateFormatter = DateFormatter(dateStyle: .medium)
 }
 

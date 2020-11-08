@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ListFavoritesViewController: UIViewController {
-    private let state: ListFavoritesState
+    private let model: ListFavoritesModel
     private let interactor: ListFavoritesInteractable?
     private var render: ListFavoritesRenderable?
     private let constants: Constants
@@ -39,13 +39,13 @@ final class ListFavoritesViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ListFavoritesState,
+        model: ListFavoritesModel,
         interactor: ListFavoritesInteractable?,
         render: ((UIViewController) -> ListFavoritesRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
@@ -87,12 +87,12 @@ private extension ListFavoritesViewController {
     }
     
     func observe() {
-        state.$favorites
+        model.$favorites
             .compactMap { $0 }
             .sink(receiveValue: tableViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -165,11 +165,11 @@ struct ListFavoritesControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ListFavoritesViewController(
-                state: Preview.listFavoritesState,
+                model: .preview,
                 interactor: nil,
                 render: nil,
-                constants: Preview.core.constants(),
-                theme: Preview.core.theme()
+                constants: AppPreviews.shared.core.constants(),
+                theme: AppPreviews.shared.core.theme()
             )
         )
         .apply { $0.navigationBar.prefersLargeTitles = true }

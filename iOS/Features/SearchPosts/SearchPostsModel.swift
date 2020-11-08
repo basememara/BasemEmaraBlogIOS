@@ -1,5 +1,5 @@
 //
-//  SearchPostsState.swift
+//  SearchPostsModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-25.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class SearchPostsState: ObservableObject, Apply {
+class SearchPostsModel: ObservableObject, Model {
     @Published var posts: [PostsDataViewModel]?
     @Published var error: ViewError?
 }

@@ -10,7 +10,7 @@ import SwiftyPress
 import ZamzamUI
 
 struct ListTermsPresenter: ListTermsPresentable {
-    var model: ListTermsState
+    var model: ListTermsModel
 }
 
 extension ListTermsPresenter {

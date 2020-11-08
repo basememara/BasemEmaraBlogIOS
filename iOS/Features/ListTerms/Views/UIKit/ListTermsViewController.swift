@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ListTermsViewController: UIViewController {
-    private let state: ListTermsState
+    private let model: ListTermsModel
     private let interactor: ListTermsInteractable?
     private var render: ListTermsRenderable?
     private var cancellable = Set<AnyCancellable>()
@@ -33,11 +33,11 @@ final class ListTermsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ListTermsState,
+        model: ListTermsModel,
         interactor: ListTermsInteractable?,
         render: ((UIViewController) -> ListTermsRenderable)?
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         
         super.init(nibName: nil, bundle: nil)
@@ -77,12 +77,12 @@ private extension ListTermsViewController {
     }
     
     func observe() {
-        state.$terms
+        model.$terms
             .compactMap { $0 }
             .sink(receiveValue: tableViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -127,7 +127,7 @@ struct ListTermsControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ListTermsViewController(
-                state: Preview.listTermsState,
+                model: .preview,
                 interactor: nil,
                 render: nil
             )

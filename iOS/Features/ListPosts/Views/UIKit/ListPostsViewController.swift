@@ -14,7 +14,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ListPostsViewController: UIViewController {
-    private let state: ListPostsState
+    private let model: ListPostsModel
     private let interactor: ListPostsInteractable?
     private var render: ListPostsRenderable?
     private let constants: Constants
@@ -45,13 +45,13 @@ final class ListPostsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ListPostsState,
+        model: ListPostsModel,
         interactor: ListPostsInteractable?,
         render: ((UIViewController) -> ListPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
@@ -109,13 +109,13 @@ private extension ListPostsViewController {
     }
     
     func observe() {
-        state.$posts
+        model.$posts
             .handleEvents(receiveOutput: { [weak self] _ in self?.endRefreshing() })
             .compactMap { $0 }
             .sink(receiveValue: tableViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -221,11 +221,11 @@ struct ListPostsControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ListPostsViewController(
-                state: Preview.listPostsState,
+                model: .preview,
                 interactor: nil,
                 render: nil,
-                constants: Preview.core.constants(),
-                theme: Preview.core.theme()
+                constants: AppPreviews.shared.core.constants(),
+                theme: AppPreviews.shared.core.theme()
             )
         )
         .apply { $0.navigationBar.prefersLargeTitles = true }

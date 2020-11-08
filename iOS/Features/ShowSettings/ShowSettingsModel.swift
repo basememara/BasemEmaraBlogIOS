@@ -1,5 +1,5 @@
 //
-//  HomeState.swift
+//  ShowSettingsModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-19.
@@ -7,9 +7,9 @@
 //
 
 import Combine
-import ZamzamCore
+import ZamzamUI
 
-class ShowSettingsState: ObservableObject, Apply {
+class ShowSettingsModel: ObservableObject, Model {
     @Published var settingsMenu: [ShowSettingsAPI.MenuItem]?
     @Published var autoThemeEnabled = true
 }

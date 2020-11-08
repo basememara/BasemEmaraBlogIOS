@@ -1,5 +1,5 @@
 //
-//  ShowBlogState.swift
+//  ShowBlogModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-14.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowBlogState: ObservableObject, Apply {
+class ShowBlogModel: ObservableObject, Model {
     @Published var latestPosts: [PostsDataViewModel]?
     @Published var popularPosts: [PostsDataViewModel]?
     @Published var topPickPosts: [PostsDataViewModel]?

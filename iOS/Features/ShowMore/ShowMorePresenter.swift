@@ -9,7 +9,7 @@
 import ZamzamUI
 
 struct ShowMorePresenter: ShowMorePresentable {
-    var model: ShowMoreState
+    var model: ShowMoreModel
 }
 
 extension ShowMorePresenter {

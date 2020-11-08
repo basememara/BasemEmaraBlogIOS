@@ -12,19 +12,13 @@ import ZamzamUI
 
 @available(iOS 13, *)
 struct MainView: View {
-    @ObservedObject private var state: MainState
-    private let interactor: MainInteractable?
-    private let render: MainRenderable
-
-    init(state: MainState, interactor: MainInteractable?, render: MainRenderable) {
-        self.state = state
-        self.interactor = interactor
-        self.render = render
-    }
+    @ObservedObject var model: MainModel
+    let interactor: MainInteractable?
+    let render: MainRenderable
     
     var body: some View {
         TabView {
-            ForEach(state.tabMenu ?? []) { menu in
+            ForEach(model.tabMenu ?? []) { menu in
                 NavigationView {
                     ViewRepresentable(
                         viewController: render.rootView(for: menu.id)

@@ -15,7 +15,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowPostViewController: UIViewController, StatusBarable {
-    private let state: ShowPostState
+    private let model: ShowPostModel
     private let interactor: ShowPostInteractable?
     private var render: ShowPostRenderable?
     private let constants: Constants
@@ -71,7 +71,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
     // MARK: - Initializers
     
     init(
-        state: ShowPostState,
+        model: ShowPostModel,
         interactor: ShowPostInteractable?,
         render: ((UIViewController) -> ShowPostRenderable)?,
         constants: Constants,
@@ -80,7 +80,7 @@ final class ShowPostViewController: UIViewController, StatusBarable {
         notificationCenter: NotificationCenter,
         postID: Int
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
@@ -149,19 +149,19 @@ private extension ShowPostViewController {
     }
     
     func observe() {
-        state.$post
+        model.$post
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$web
+        model.$web
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$isFavorite
+        model.$isFavorite
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -383,13 +383,13 @@ struct ShowPostControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ShowPostViewController(
-                state: Preview.showPostState,
+                model: .preview,
                 interactor: nil,
                 render: nil,
-                constants: Preview.core.constants(),
-                theme: Preview.core.theme(),
+                constants: AppPreviews.shared.core.constants(),
+                theme: AppPreviews.shared.core.theme(),
                 application: .shared,
-                notificationCenter: Preview.core.notificationCenter(),
+                notificationCenter: AppPreviews.shared.core.notificationCenter(),
                 postID: 0
             )
         ).previews

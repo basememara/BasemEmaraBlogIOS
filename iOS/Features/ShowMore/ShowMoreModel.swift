@@ -1,5 +1,5 @@
 //
-//  HomeState.swift
+//  ShowMoreModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2019-12-19.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowMoreState: ObservableObject, Apply {
+class ShowMoreModel: ObservableObject, Model {
     @Published var moreMenu: [ShowMoreAPI.MenuSection]?
     @Published var socialMenu: [ShowMoreAPI.SocialItem]?
 }

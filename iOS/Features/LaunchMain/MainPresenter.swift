@@ -9,7 +9,7 @@
 import ZamzamUI
 
 struct MainPresenter: MainPresentable {
-    var model: MainState
+    var model: MainModel
 }
 
 extension MainPresenter {

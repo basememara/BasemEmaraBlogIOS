@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowMoreViewController: UIViewController {
-    private let state: ShowMoreState
+    private let model: ShowMoreModel
     private let interactor: ShowMoreInteractable?
     private(set) var render: ShowMoreRenderable?
     private var cancellable = Set<AnyCancellable>()
@@ -27,11 +27,11 @@ final class ShowMoreViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ShowMoreState,
+        model: ShowMoreModel,
         interactor: ShowMoreInteractable?,
         render: ((UIViewController & Refreshable) -> ShowMoreRenderable)?
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         
         super.init(nibName: nil, bundle: nil)
@@ -71,12 +71,12 @@ private extension ShowMoreViewController {
     }
     
     func observe() {
-        state.$moreMenu
+        model.$moreMenu
             .compactMap { $0 }
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$socialMenu
+        model.$socialMenu
             .compactMap { $0 }
             .sink(receiveValue: load)
             .store(in: &cancellable)
@@ -125,7 +125,7 @@ extension ShowMoreViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let cell = tableView.cellForRow(at: indexPath),
-            let item = state.moreMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
+            let item = model.moreMenu?[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return
         }
         
@@ -136,19 +136,19 @@ extension ShowMoreViewController: UITableViewDelegate {
 extension ShowMoreViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        state.moreMenu?.count ?? 0
+        model.moreMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.moreMenu?[safe: section]?.items.count ?? 0
+        model.moreMenu?[safe: section]?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        state.moreMenu?[safe: section]?.title ??+ nil
+        model.moreMenu?[safe: section]?.title ??+ nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = state.moreMenu?[safe: indexPath.section]?
+        guard let item = model.moreMenu?[safe: indexPath.section]?
             .items[safe: indexPath.row] else {
                 return UITableViewCell()
         }
@@ -202,7 +202,7 @@ private extension ShowMoreViewController {
             $0.addSubview(socialCellStackView)
             $0.selectionStyle = .none
             
-            if let socialMenu = state.socialMenu {
+            if let socialMenu = model.socialMenu {
                 load(socialMenu: socialMenu)
             }
             
@@ -232,8 +232,8 @@ struct ShowMoreViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         UINavigationController(
-                rootViewController: ShowMoreViewController(
-                state: Preview.showMoreState,
+            rootViewController: ShowMoreViewController(
+                model: .preview,
                 interactor: nil,
                 render: nil
             )

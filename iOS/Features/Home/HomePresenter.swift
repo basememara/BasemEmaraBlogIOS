@@ -9,7 +9,7 @@
 import ZamzamUI
 
 struct HomePresenter: HomePresentable {
-    var model: HomeState
+    var model: HomeModel
 }
 
 extension HomePresenter {

@@ -10,6 +10,6 @@ import Combine
 import ZamzamCore
 import ZamzamUI
 
-class MainState: ObservableObject, Apply {
+class MainModel: ObservableObject, Model {
     @Published var tabMenu: [MainAPI.TabItem]?
 }

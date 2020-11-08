@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class SearchPostsViewController: UIViewController {
-    private let state: SearchPostsState
+    private let model: SearchPostsModel
     private let interactor: SearchPostsInteractable?
     private var render: SearchPostsRenderable?
     private let constants: Constants
@@ -54,13 +54,13 @@ final class SearchPostsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: SearchPostsState,
+        model: SearchPostsModel,
         interactor: SearchPostsInteractable?,
         render: ((UIViewController) -> SearchPostsRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
@@ -105,12 +105,12 @@ private extension SearchPostsViewController {
     }
     
     func observe() {
-        state.$posts
+        model.$posts
             .compactMap { $0 }
             .sink(receiveValue: tableViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -233,11 +233,11 @@ struct SearchPostsControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: SearchPostsViewController(
-                state: Preview.searchPostsState,
+                model: .preview,
                 interactor: nil,
                 render: nil,
-                constants: Preview.core.constants(),
-                theme: Preview.core.theme()
+                constants: AppPreviews.shared.core.constants(),
+                theme: AppPreviews.shared.core.theme()
             )
         )
         .apply { $0.navigationBar.prefersLargeTitles = true }

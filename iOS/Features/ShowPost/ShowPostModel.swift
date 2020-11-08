@@ -1,5 +1,5 @@
 //
-//  ShowPostState.swift
+//  ShowPostModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-27.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ShowPostState: ObservableObject, Apply {
+class ShowPostModel: ObservableObject, Model {
     @Published var web: ShowPostAPI.WebViewModel?
     @Published var post: ShowPostAPI.PostViewModel?
     @Published var isFavorite = false

@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamUI
 
 struct SearchPostsPresenter: SearchPostsPresentable {
-    var model: SearchPostsState
+    var model: SearchPostsModel
     private let dateFormatter = DateFormatter(dateStyle: .medium)
 }
 

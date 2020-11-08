@@ -1,5 +1,5 @@
 //
-//  ListTermsState.swift
+//  ListTermsModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-25.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ListTermsState: ObservableObject, Apply {
+class ListTermsModel: ObservableObject, Model {
     @Published var terms: [TermsDataViewModel]?
     @Published var error: ViewError?
 }

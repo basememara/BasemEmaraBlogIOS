@@ -1,5 +1,5 @@
 //
-//  ListFavoritesState.swift
+//  ListFavoritesModel.swift
 //  BasemEmara iOS
 //
 //  Created by Basem Emara on 2020-04-22.
@@ -11,7 +11,7 @@ import SwiftyPress
 import ZamzamCore
 import ZamzamUI
 
-class ListFavoritesState: ObservableObject, Apply {
+class ListFavoritesModel: ObservableObject, Model {
     @Published var favorites: [PostsDataViewModel]?
     @Published var error: ViewError?
 }

@@ -10,7 +10,7 @@ import SwiftyPress
 import ZamzamUI
 
 struct ShowSettingsPresenter: ShowSettingsPresentable {
-    var model: ShowSettingsState
+    var model: ShowSettingsModel
 }
 
 extension ShowSettingsPresenter {

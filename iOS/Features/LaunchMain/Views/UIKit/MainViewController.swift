@@ -12,17 +12,17 @@ import UIKit
 import ZamzamUI
 
 class MainViewController: UITabBarController {
-    private let state: MainState
+    private let model: MainModel
     private let interactor: MainInteractable?
     private let render: MainRenderable
     private var cancellable = Set<AnyCancellable>()
     
     init(
-        state: MainState,
+        model: MainModel,
         interactor: MainInteractable?,
         render: MainRenderable
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.render = render
         
@@ -57,7 +57,7 @@ private extension MainViewController {
     }
     
     func observe() {
-        state.$tabMenu
+        model.$tabMenu
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -107,7 +107,7 @@ struct MainViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         MainViewController(
-            state: Preview.mainState,
+            model: .preview,
             interactor: nil,
             render: Self.MockRender()
         ).previews

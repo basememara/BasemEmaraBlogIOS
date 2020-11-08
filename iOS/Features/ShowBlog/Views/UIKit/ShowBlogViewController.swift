@@ -13,7 +13,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowBlogViewController: UIViewController {
-    private let state: ShowBlogState
+    private let model: ShowBlogModel
     private let interactor: ShowBlogInteractable?
     private let constants: Constants
     private let theme: Theme
@@ -53,13 +53,13 @@ final class ShowBlogViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ShowBlogState,
+        model: ShowBlogModel,
         interactor: ShowBlogInteractable?,
         render: ((UIViewController) -> ShowBlogRenderable)?,
         constants: Constants,
         theme: Theme
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.constants = constants
         self.theme = theme
@@ -127,36 +127,36 @@ private extension ShowBlogViewController {
     }
     
     func observe() {
-        state.$latestPosts
+        model.$latestPosts
             .compactMap { $0 }
             .sink(receiveValue: latestPostsCollectionViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$popularPosts
+        model.$popularPosts
             .compactMap { $0 }
             .sink(receiveValue: popularPostsCollectionViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$topPickPosts
+        model.$topPickPosts
             .compactMap { $0 }
             .sink(receiveValue: pickedPostsCollectionViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$terms
+        model.$terms
             .compactMap { $0 }
             .sink(receiveValue: topTermsTableViewAdapter.reloadData)
             .store(in: &cancellable)
         
-        state.$error
+        model.$error
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
         Publishers
             .Zip4(
-                state.$latestPosts.eraseToAnyPublisher(),
-                state.$popularPosts.eraseToAnyPublisher(),
-                state.$topPickPosts.eraseToAnyPublisher(),
-                state.$terms.eraseToAnyPublisher()
+                model.$latestPosts.eraseToAnyPublisher(),
+                model.$popularPosts.eraseToAnyPublisher(),
+                model.$topPickPosts.eraseToAnyPublisher(),
+                model.$terms.eraseToAnyPublisher()
             )
             .sink { [weak self] _ in
                 self?.endRefreshing()
@@ -361,11 +361,11 @@ struct ShowBlogControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ShowBlogViewController(
-                state: Preview.showBlogState,
+                model: .preview,
                 interactor: nil,
                 render: nil,
-                constants: Preview.core.constants(),
-                theme: Preview.core.theme()
+                constants: AppPreviews.shared.core.constants(),
+                theme: AppPreviews.shared.core.theme()
             )
         ).previews
     }

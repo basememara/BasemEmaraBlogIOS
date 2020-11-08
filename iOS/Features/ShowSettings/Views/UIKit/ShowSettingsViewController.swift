@@ -12,7 +12,7 @@ import ZamzamCore
 import ZamzamUI
 
 final class ShowSettingsViewController: UIViewController {
-    private let state: ShowSettingsState
+    private let model: ShowSettingsModel
     private let interactor: ShowSettingsInteractable?
     private let render: ShowSettingsRenderable?
     private var cancellable = Set<AnyCancellable>()
@@ -25,11 +25,11 @@ final class ShowSettingsViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        state: ShowSettingsState,
+        model: ShowSettingsModel,
         interactor: ShowSettingsInteractable?,
         render: ShowSettingsRenderable?
     ) {
-        self.state = state
+        self.model = model
         self.interactor = interactor
         self.render = render
         
@@ -69,11 +69,11 @@ private extension ShowSettingsViewController {
     }
     
     func observe() {
-        state.$settingsMenu
+        model.$settingsMenu
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        state.$autoThemeEnabled
+        model.$autoThemeEnabled
             .sink(receiveValue: load)
             .store(in: &cancellable)
     }
@@ -119,7 +119,7 @@ extension ShowSettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let item = state.settingsMenu?[safe: indexPath.row] else {
+        guard let item = model.settingsMenu?[safe: indexPath.row] else {
             return
         }
         
@@ -148,11 +148,11 @@ extension ShowSettingsViewController: UITableViewDelegate {
 extension ShowSettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        state.settingsMenu?.count ?? 0
+        model.settingsMenu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = state.settingsMenu?[safe: indexPath.row] else {
+        guard let item = model.settingsMenu?[safe: indexPath.row] else {
             return UITableViewCell()
         }
         
@@ -193,7 +193,7 @@ private extension ShowSettingsViewController {
         autoThemeSwitch.trailingAnchor.constraint(equalTo: cell.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         autoThemeSwitch.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         
-        load(autoThemeEnabled: state.autoThemeEnabled)
+        load(autoThemeEnabled: model.autoThemeEnabled)
         
         return cell
     }
@@ -217,7 +217,7 @@ struct ShowSettingsViewControllerPreview: PreviewProvider {
     static var previews: some View {
         UINavigationController(
             rootViewController: ShowSettingsViewController(
-                state: Preview.showSettings,
+                model: .preview,
                 interactor: nil,
                 render: nil
             )
