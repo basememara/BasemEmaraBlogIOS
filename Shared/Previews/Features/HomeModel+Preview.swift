@@ -9,13 +9,13 @@
 extension HomeModel {
     
     static let preview = HomeModel().apply {
-        $0.profile = HomeAPI.Profile(
+        $0(\.profile, HomeAPI.Profile(
             avatar: "BasemProfilePic",
             name: "John Doe",
             caption: "Quality Assurance / iOS"
-        )
+        ))
         
-        $0.homeMenu = [
+        $0(\.homeMenu, [
             HomeAPI.MenuSection(
                 title: nil,
                 items: [
@@ -61,9 +61,9 @@ extension HomeModel {
                     )
                 ]
             )
-        ]
+        ])
         
-        $0.socialMenu = [
+        $0(\.socialMenu, [
             HomeAPI.SocialItem(
                 type: .twitter,
                 title: "Twitter"
@@ -72,6 +72,6 @@ extension HomeModel {
                 type: .email,
                 title: "Email"
             )
-        ]
+        ])
     }
 }

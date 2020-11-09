@@ -12,6 +12,6 @@ import ZamzamCore
 import ZamzamUI
 
 class ShowMoreModel: ObservableObject, Model {
-    @Published var moreMenu: [ShowMoreAPI.MenuSection]?
-    @Published var socialMenu: [ShowMoreAPI.SocialItem]?
+    @Published private(set) var moreMenu: [ShowMoreAPI.MenuSection]?
+    @Published private(set) var socialMenu: [ShowMoreAPI.SocialItem]?
 }

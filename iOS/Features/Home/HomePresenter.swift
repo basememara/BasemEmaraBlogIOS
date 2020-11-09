@@ -15,14 +15,14 @@ struct HomePresenter: HomePresentable {
 extension HomePresenter {
     
     func display(profile: HomeAPI.Profile) {
-        model.profile = profile
+        model(\.profile, profile)
     }
     
     func display(menu: [HomeAPI.MenuSection]) {
-        model.homeMenu = menu
+        model(\.homeMenu, menu)
     }
     
     func display(social: [HomeAPI.SocialItem]) {
-        model.socialMenu = social
+        model(\.socialMenu, social)
     }
 }

@@ -12,6 +12,6 @@ import ZamzamCore
 import ZamzamUI
 
 class ListFavoritesModel: ObservableObject, Model {
-    @Published var favorites: [PostsDataViewModel]?
-    @Published var error: ViewError?
+    @Published private(set) var favorites: [PostsDataViewModel]?
+    @Published private(set) var error: ViewError?
 }

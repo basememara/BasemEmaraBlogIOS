@@ -27,7 +27,7 @@ extension ListPostsPresenter {
             )
         }
         
-        model.posts = viewModels
+        model(\.posts, viewModels)
     }
 }
 
@@ -39,7 +39,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -48,7 +48,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -57,7 +57,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
     
     func displayPostsByTerms(error: SwiftyPressError) {
@@ -66,7 +66,7 @@ extension ListPostsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 

@@ -15,10 +15,10 @@ struct ShowMorePresenter: ShowMorePresentable {
 extension ShowMorePresenter {
     
     func display(menu: [ShowMoreAPI.MenuSection]) {
-        model.moreMenu = menu
+        model(\.moreMenu, menu)
     }
     
     func display(social: [ShowMoreAPI.SocialItem]) {
-        model.socialMenu = social
+        model(\.socialMenu, social)
     }
 }

@@ -25,7 +25,7 @@ extension ListTermsPresenter {
             )
         }
         
-        model.terms = viewModels
+        model(\.terms, viewModels)
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -34,6 +34,6 @@ extension ListTermsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }

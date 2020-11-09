@@ -9,6 +9,6 @@
 extension ListTermsModel {
     
     static let preview = ListTermsModel().apply {
-        $0.terms = AppPreviews.shared.store.allTerms?.values.shuffled().prefix(25).array
+        $0(\.terms, AppPreviews.shared.store.allTerms?.values.shuffled().prefix(25).array)
     }
 }

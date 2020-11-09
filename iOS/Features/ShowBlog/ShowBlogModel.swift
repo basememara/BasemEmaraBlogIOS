@@ -12,9 +12,9 @@ import ZamzamCore
 import ZamzamUI
 
 class ShowBlogModel: ObservableObject, Model {
-    @Published var latestPosts: [PostsDataViewModel]?
-    @Published var popularPosts: [PostsDataViewModel]?
-    @Published var topPickPosts: [PostsDataViewModel]?
-    @Published var terms: [TermsDataViewModel]?
-    @Published var error: ViewError?
+    @Published private(set) var latestPosts: [PostsDataViewModel]?
+    @Published private(set) var popularPosts: [PostsDataViewModel]?
+    @Published private(set) var topPickPosts: [PostsDataViewModel]?
+    @Published private(set) var terms: [TermsDataViewModel]?
+    @Published private(set) var error: ViewError?
 }

@@ -9,6 +9,6 @@
 extension ListPostsModel {
     
     static let preview = ListPostsModel().apply {
-        $0.posts = AppPreviews.shared.store.allPosts?.values.shuffled().prefix(10).array
+        $0(\.posts, AppPreviews.shared.store.allPosts?.values.shuffled().prefix(10).array)
     }
 }

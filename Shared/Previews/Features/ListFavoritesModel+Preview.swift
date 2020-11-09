@@ -9,6 +9,6 @@
 extension ListFavoritesModel {
     
     static let preview = ListFavoritesModel().apply {
-        $0.favorites = AppPreviews.shared.store.allPosts?.values.shuffled().prefix(10).array
+        $0(\.favorites, AppPreviews.shared.store.allPosts?.values.shuffled().prefix(10).array)
     }
 }

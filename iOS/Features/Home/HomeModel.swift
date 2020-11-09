@@ -10,7 +10,7 @@ import Combine
 import ZamzamUI
 
 class HomeModel: ObservableObject, Model {
-    @Published var profile: HomeAPI.Profile?
-    @Published var homeMenu: [HomeAPI.MenuSection]?
-    @Published var socialMenu: [HomeAPI.SocialItem]?
+    @Published private(set) var profile: HomeAPI.Profile?
+    @Published private(set) var homeMenu: [HomeAPI.MenuSection]?
+    @Published private(set) var socialMenu: [HomeAPI.SocialItem]?
 }

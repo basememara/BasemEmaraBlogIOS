@@ -27,7 +27,7 @@ extension ListFavoritesPresenter {
             )
         }
         
-        model.favorites = viewModels
+        model(\.favorites, viewModels)
     }
     
     func displayFavoritePosts(error: SwiftyPressError) {
@@ -36,7 +36,7 @@ extension ListFavoritesPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 

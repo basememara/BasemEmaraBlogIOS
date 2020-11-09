@@ -11,7 +11,7 @@ import UIKit.UIImage
 extension ShowMoreModel {
     
     static let preview = ShowMoreModel().apply {
-        $0.moreMenu = [
+        $0(\.moreMenu, [
             ShowMoreAPI.MenuSection(
                 title: "Basem Emara",
                 items: [
@@ -62,9 +62,9 @@ extension ShowMoreModel {
                     )
                 ]
             )
-        ]
+        ])
         
-        $0.socialMenu = [
+        $0(\.socialMenu, [
             ShowMoreAPI.SocialItem(
                 type: .linkedIn,
                 title: .localized(.linkedInSocialTitle)
@@ -73,6 +73,6 @@ extension ShowMoreModel {
                 type: .twitter,
                 title: .localized(.twitterSocialTitle)
             )
-        ]
+        ])
     }
 }

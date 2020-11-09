@@ -151,7 +151,7 @@ private extension ShowBlogViewController {
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
-        #warning("Publisher needs to end refreshing accurately")
+        #warning("Publisher needs refinement for accuracy")
         Publishers
             .Zip4(
                 model.$latestPosts.eraseToAnyPublisher(),

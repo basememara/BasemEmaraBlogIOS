@@ -15,6 +15,6 @@ struct MainPresenter: MainPresentable {
 extension MainPresenter {
     
     func display(menu: [MainAPI.TabItem]) {
-        model.tabMenu = menu
+        model(\.tabMenu, menu)
     }
 }

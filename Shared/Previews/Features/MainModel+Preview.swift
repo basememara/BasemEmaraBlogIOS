@@ -11,7 +11,7 @@ import UIKit.UIImage
 extension MainModel {
     
     static let preview = MainModel().apply {
-        $0.tabMenu = [
+        $0(\.tabMenu, [
             MainAPI.TabItem(
                 id: .home,
                 title: .localized(.tabHomeTitle),
@@ -37,6 +37,6 @@ extension MainModel {
                 title: .localized(.tabMoreTitle),
                 imageName: UIImage.ImageName.tabMore.rawValue
             )
-        ]
+        ])
     }
 }

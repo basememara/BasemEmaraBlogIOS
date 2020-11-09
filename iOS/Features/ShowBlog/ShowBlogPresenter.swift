@@ -27,7 +27,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        model.latestPosts = viewModels
+        model(\.latestPosts, viewModels)
     }
     
     func displayLatestPosts(error: SwiftyPressError) {
@@ -36,7 +36,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 
@@ -52,7 +52,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        model.popularPosts = viewModels
+        model(\.popularPosts, viewModels)
     }
     
     func displayPopularPosts(error: SwiftyPressError) {
@@ -61,7 +61,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 
@@ -77,7 +77,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        model.topPickPosts = viewModels
+        model(\.topPickPosts, viewModels)
     }
     
     func displayTopPickPosts(error: SwiftyPressError) {
@@ -86,7 +86,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 
@@ -102,7 +102,7 @@ extension ShowBlogPresenter {
             )
         }
         
-        model.terms = viewModels
+        model(\.terms, viewModels)
     }
     
     func displayTerms(error: SwiftyPressError) {
@@ -111,7 +111,7 @@ extension ShowBlogPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }
 

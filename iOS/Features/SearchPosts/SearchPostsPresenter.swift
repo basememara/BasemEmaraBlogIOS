@@ -27,7 +27,7 @@ extension SearchPostsPresenter {
             )
         }
         
-        model.posts = viewModels
+        model(\.posts, viewModels)
     }
     
     func displaySearchResults(error: SwiftyPressError) {
@@ -36,6 +36,6 @@ extension SearchPostsPresenter {
             message: error.localizedDescription
         )
         
-        model.error = viewModel
+        model(\.error, viewModel)
     }
 }

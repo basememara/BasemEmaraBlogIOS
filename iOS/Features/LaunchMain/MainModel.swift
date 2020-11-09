@@ -11,5 +11,5 @@ import ZamzamCore
 import ZamzamUI
 
 class MainModel: ObservableObject, Model {
-    @Published var tabMenu: [MainAPI.TabItem]?
+    @Published private(set) var tabMenu: [MainAPI.TabItem]?
 }

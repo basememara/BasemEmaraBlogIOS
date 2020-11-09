@@ -12,6 +12,6 @@ import ZamzamCore
 import ZamzamUI
 
 class ListTermsModel: ObservableObject, Model {
-    @Published var terms: [TermsDataViewModel]?
-    @Published var error: ViewError?
+    @Published private(set) var terms: [TermsDataViewModel]?
+    @Published private(set) var error: ViewError?
 }
