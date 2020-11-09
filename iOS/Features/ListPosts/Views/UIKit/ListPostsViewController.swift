@@ -113,7 +113,6 @@ private extension ListPostsViewController {
     
     func observe() {
         model.$posts
-            .handleEvents(receiveOutput: { [weak self] _ in self?.endRefreshing() })
             .compactMap { $0 }
             .sink(receiveValue: tableViewAdapter.reloadData)
             .store(in: &cancellable)
@@ -199,6 +198,10 @@ extension ListPostsViewController {
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
         render?.showPost(for: model)
+    }
+    
+    func postsDataViewDidReloadData() {
+        endRefreshing()
     }
 }
 
