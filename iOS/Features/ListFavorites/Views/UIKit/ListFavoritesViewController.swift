@@ -25,6 +25,9 @@ final class ListFavoritesViewController: UIViewController {
     private lazy var tableView = UITableView().apply {
         $0.register(PostTableViewCell.self)
         $0.contentInset.bottom += 20
+        $0.refreshControl = UIRefreshControl().apply {
+            $0.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        }
     }
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
@@ -97,7 +100,7 @@ private extension ListFavoritesViewController {
             .store(in: &cancellable)
     }
     
-    func fetch() {
+    @objc func fetch() {
         interactor?.fetchFavoritePosts(
             with: ListFavoritesAPI.FetchPostsRequest()
         )
@@ -140,6 +143,10 @@ extension ListFavoritesViewController: PostsDataViewDelegate {
             ]
         )
     }
+    
+    func postsDataViewDidReloadData() {
+        endRefreshing()
+    }
 }
 
 @available(iOS 13, *)
@@ -151,6 +158,19 @@ extension ListFavoritesViewController {
     
     func postsDataView(didPerformPreviewActionFor model: PostsDataViewModel, from dataView: DataViewable) {
         render?.showPost(for: model)
+    }
+}
+
+// MARK: - Helpers
+
+private extension ListFavoritesViewController {
+    
+    func endRefreshing() {
+        guard tableView.refreshControl?.isRefreshing == true else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.tableView.refreshControl?.endRefreshing()
+        }
     }
 }
 

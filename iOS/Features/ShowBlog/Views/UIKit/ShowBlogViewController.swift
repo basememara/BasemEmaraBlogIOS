@@ -151,6 +151,7 @@ private extension ShowBlogViewController {
             .sink(receiveValue: load)
             .store(in: &cancellable)
         
+        #warning("Publisher needs to end refreshing accurately")
         Publishers
             .Zip4(
                 model.$latestPosts.eraseToAnyPublisher(),
@@ -186,8 +187,8 @@ private extension ShowBlogViewController {
 private extension ShowBlogViewController {
     
     func load(error: ViewError?) {
-        endRefreshing()
         guard let error = error else { return }
+        endRefreshing()
         present(alert: error.title, message: error.message)
     }
 }
@@ -340,10 +341,10 @@ extension ShowBlogViewController: MainSelectable {
 extension ShowBlogViewController {
     
     func endRefreshing() {
-        activityIndicatorView.stopAnimating()
-        
-        if scrollStackView.refreshControl?.isRefreshing == true {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.activityIndicatorView.stopAnimating()
+            
+            if self?.scrollStackView.refreshControl?.isRefreshing == true {
                 self?.scrollStackView.refreshControl?.endRefreshing()
             }
         }

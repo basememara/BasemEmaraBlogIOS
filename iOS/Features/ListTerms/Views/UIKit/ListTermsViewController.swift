@@ -23,6 +23,9 @@ final class ListTermsViewController: UIViewController {
     private lazy var tableView = UITableView().apply {
         $0.register(TermTableViewCell.self)
         $0.contentInset.bottom += 20
+        $0.refreshControl = UIRefreshControl().apply {
+            $0.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        }
     }
     
     private lazy var tableViewAdapter = TermsDataViewAdapter(
@@ -87,7 +90,7 @@ private extension ListTermsViewController {
             .store(in: &cancellable)
     }
     
-    func fetch() {
+    @objc func fetch() {
         interactor?.fetchTerms(
             with: ListTermsAPI.FetchTermsRequest()
         )
@@ -113,6 +116,23 @@ extension ListTermsViewController: TermsDataViewDelegate {
                 title: model.name
             )
         )
+    }
+    
+    func termsDataViewDidReloadData() {
+        endRefreshing()
+    }
+}
+
+// MARK: - Helpers
+
+private extension ListTermsViewController {
+    
+    func endRefreshing() {
+        guard tableView.refreshControl?.isRefreshing == true else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.tableView.refreshControl?.endRefreshing()
+        }
     }
 }
 

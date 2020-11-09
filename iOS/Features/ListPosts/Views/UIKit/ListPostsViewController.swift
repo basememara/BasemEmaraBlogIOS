@@ -33,6 +33,9 @@ final class ListPostsViewController: UIViewController {
     private lazy var tableView = UITableView().apply {
         $0.register(PostTableViewCell.self)
         $0.contentInset.bottom += 20
+        $0.refreshControl = UIRefreshControl().apply {
+            $0.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        }
     }
     
     private lazy var tableViewAdapter = PostsDataViewAdapter(
@@ -120,7 +123,7 @@ private extension ListPostsViewController {
             .store(in: &cancellable)
     }
     
-    func fetch() {
+    @objc func fetch() {
         switch params.fetchType {
         case .latest:
             interactor?.fetchLatestPosts(
@@ -154,8 +157,8 @@ private extension ListPostsViewController {
 private extension ListPostsViewController {
     
     func load(error: ViewError?) {
-        endRefreshing()
         guard let error = error else { return }
+        endRefreshing()
         present(alert: error.title, message: error.message)
     }
 }
@@ -204,8 +207,12 @@ extension ListPostsViewController {
 private extension ListPostsViewController {
     
     func endRefreshing() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.activityIndicatorView.stopAnimating()
+            
+            if self?.tableView.refreshControl?.isRefreshing == true {
+                self?.tableView.refreshControl?.endRefreshing()
+            }
         }
     }
 }
