@@ -250,8 +250,6 @@
 		8B10F0F224D87D9800C1C1BF /* BasemEmaraiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasemEmaraiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B10F0F624D87D9800C1C1BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B10F0FD24D87DB600C1C1BF /* SecuredPreferencesKeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredPreferencesKeychainServiceTests.swift; sourceTree = "<group>"; };
-		8B67B3F82505F29100501E6D /* ZamzamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZamzamKit; path = ../../ZamzamKit; sourceTree = "<group>"; };
-		8B67B3F92505F2A600501E6D /* SwiftyPress */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftyPress; path = ../../SwiftyPress; sourceTree = "<group>"; };
 		8B8FDDBD24B4A08C0031DA19 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		8BAC08082485243D00CD8E0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		8BB56B14255793E30099C78C /* MainModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainModel+Preview.swift"; sourceTree = "<group>"; };
@@ -569,8 +567,6 @@
 		8B67B3F72505F27C00501E6D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				8B67B3F92505F2A600501E6D /* SwiftyPress */,
-				8B67B3F82505F29100501E6D /* ZamzamKit */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -2172,7 +2168,7 @@
 			repositoryURL = "https://github.com/ZamzamInc/SwiftyPress";
 			requirement = {
 				kind = exactVersion;
-				version = 4.1.3;
+				version = "5.0.0-beta.1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
